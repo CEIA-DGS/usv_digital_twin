@@ -15,8 +15,8 @@ public:
     virtual std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const = 0;
 
     // --- Classe B: Suporte ao Planejamento ---
-    virtual std::vector<types::Pose> predict_obstacle_trajectory(uint32_t target_id, float time_horizon, float time_step) const = 0;
-    virtual types::CollisionReport check_trajectory_collision(const std::vector<types::Pose>& candidate_path, float start_time, float speed_profile) const = 0;
+    virtual types::Trajectory predict_obstacle_trajectory(uint32_t target_id, float time_horizon, float time_step) const = 0;
+    virtual types::CollisionReport check_trajectory_collision(const types::Trajectory& candidate_path, float start_time, float speed_profile) const = 0;
     virtual float get_dynamic_risk_field(const types::Point& position, float timestamp) const = 0;
 };
 
