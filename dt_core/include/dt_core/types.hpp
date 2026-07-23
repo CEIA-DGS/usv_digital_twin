@@ -180,6 +180,14 @@ namespace types{
       }
   };
 
+  class Covariance{
+    private:
+      double _xx;
+      double _xy;
+      double _yy;
+    public:
+  };
+
   class Entity{
     private:
       Pose _pose;
@@ -221,15 +229,19 @@ namespace types{
       std::string _description;
     public:
       Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics) : _description(description), Entity(initial_pose, initial_kinematics){
-        if (id <= 0) {
-          throw std::invalid_argument("Error: Target ID must be positive!");
-        } else {
-          _id = static_cast<uint32_t>(id);
-        }
+        this->set_id(id);
       }
 
       void set_description(const std::string& new_description){
         _description = new_description;
+      }
+
+      void set_id(const int32_t new_id){
+        if (new_id < 0) {
+          throw std::invalid_argument("Error: Target ID must be positive!");
+        } else {
+          _id = static_cast<uint32_t>(new_id);
+        }
       }
 
       uint32_t get_id() const{
@@ -275,6 +287,96 @@ namespace types{
       void clear() {
           poses.clear();
       }
-};
+  };
 
+  class Report{
+    private:
+      std::string _msg;
+    public:
+      Report(const std::string& msg = "") : _msg(msg){
+      }
+
+      void set_msg(const std::string& new_msg){
+        _msg = new_msg;
+      }
+
+      const std::string& get_msg() const{
+        return _msg;
+      }
+  };
+
+  class CollisionReport : public Report{
+    private:
+      Pose _usv_cpa;
+      Pose _obstacle_cpa;
+      double _dcpa;
+      double _tcpa;
+      double _risk;
+    public:
+      CollisionReport(const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
+      _usv_cpa(usv_cpa), _obstacle_cpa(obstacle_cpa), _dcpa(dcpa), _tcpa(tcpa), _risk(risk), Report(msg){
+      }
+
+      void set_usv_cpa(const Pose& new_cpa){
+        _usv_cpa = new_cpa;
+      }
+
+      void set_obstacle_cpa(const Pose& new_cpa){
+        _obstacle_cpa = new_cpa;
+      }
+
+      void set_dcpa(const double new_dcpa){
+        _dcpa = new_dcpa;
+      }
+
+      void set_tcpa(const double new_tcpa){
+        _tcpa = new_tcpa;
+      }
+
+      void set_risk(const double new_risk){
+        _risk = new_risk;
+      }
+
+      const Pose& get_usv_cpa() const{
+        return _usv_cpa;
+      }
+
+      const Pose& get_obstacle_cpa() const{
+        return _obstacle_cpa;
+      }
+
+      double get_dcpa() const{
+        return _dcpa;
+      }
+
+      double get_tcpa() const{
+        return _tcpa;
+      }
+
+      double get_risk() const{
+        return _risk;
+      }
+  };
+
+  class TargetCollisionReport : public CollisionReport{
+    private:
+      uint32_t _id;
+    public:
+      TargetCollisionReport(const int32_t id, const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
+      CollisionReport(usv_cpa, obstacle_cpa, dcpa, tcpa, risk, msg){
+        this->set_id(id);
+      }
+
+      void set_id(const int32_t new_id){
+        if (new_id < 0) {
+          throw std::invalid_argument("Error: Target ID must be positive!");
+        } else {
+          _id = static_cast<uint32_t>(new_id);
+        }
+      }
+
+      uint32_t get_id() const{
+        return _id;
+      }
+  };
 } // namespace types
