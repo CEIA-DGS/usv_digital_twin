@@ -1,5 +1,5 @@
 #pragma once
-#include "../../include/dt_core/prediction/prediction.hpp"
+#include "../../include/prediction/prediction.hpp"
 #include <stdexcept>
 #include <cmath>
 
