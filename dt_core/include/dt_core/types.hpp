@@ -186,14 +186,41 @@ namespace types{
       double _xy;
       double _yy;
     public:
+      Covariance(const double xx = 0.0, const double xy = 0.0, const double yy = 0.0) : _xx(xx), _xy(xy), _yy(yy){
+      }
+
+      void set_xx(const double new_xx){
+        _xx = new_xx;
+      }
+
+      void set_xy(const double new_xy){
+        _xy = new_xy;
+      }
+
+      void set_yy(const double new_yy){
+        _yy = new_yy;
+      }
+
+      double get_xx() const{
+        return _xx;
+      }
+
+      double get_xy() const{
+        return _xy;
+      }
+
+      double get_yy() const{
+        return _yy;
+      }
   };
 
   class Entity{
     private:
       Pose _pose;
       Kinematics _kinematics;
+      Covariance _covariance;
     public:
-      Entity(const Pose& initial_pose, const Kinematics& initial_kinematics) : _pose(initial_pose), _kinematics(initial_kinematics){
+      Entity(const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance initial_covariance) : _pose(initial_pose), _kinematics(initial_kinematics), _covariance(initial_covariance){
       }
 
       virtual ~Entity() = default;
@@ -204,6 +231,10 @@ namespace types{
 
       void set_kinematics(const Kinematics& new_kinematics){
         _kinematics = new_kinematics;
+      }
+
+      void set_covariance(const Covariance& new_covariance){
+        _covariance = new_covariance;
       }
 
       void set_velocity(const Velocity& new_velocity){
@@ -218,6 +249,10 @@ namespace types{
         return _kinematics;
       }
 
+      const Covariance& get_covariance() const{
+        return _covariance;
+      }
+
       const Velocity& get_velocity() const{
         return _kinematics.get_velocity();
       }
@@ -228,7 +263,7 @@ namespace types{
       uint32_t _id;
       std::string _description;
     public:
-      Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics) : _description(description), Entity(initial_pose, initial_kinematics){
+      Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance& initial_covariance) : _description(description), Entity(initial_pose, initial_kinematics, initial_covariance){
         this->set_id(id);
       }
 
@@ -273,7 +308,7 @@ namespace types{
           return poses.empty();
       }
 
-      const Pose& get_pose(size_t index) const {
+      const Pose& get_pose_by_index(size_t index) const {
           if (index >= poses.size() || index < static_cast<size_t>(0)) {
               throw std::out_of_range("Error: Index out of range");
           }
@@ -312,9 +347,10 @@ namespace types{
       double _dcpa;
       double _tcpa;
       double _risk;
+      bool _safe;
     public:
-      CollisionReport(const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
-      _usv_cpa(usv_cpa), _obstacle_cpa(obstacle_cpa), _dcpa(dcpa), _tcpa(tcpa), _risk(risk), Report(msg){
+      CollisionReport(const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "", const bool safe = true) : 
+      _usv_cpa(usv_cpa), _obstacle_cpa(obstacle_cpa), _dcpa(dcpa), _tcpa(tcpa), _risk(risk), _safe(safe), Report(msg){
       }
 
       void set_usv_cpa(const Pose& new_cpa){
@@ -337,6 +373,10 @@ namespace types{
         _risk = new_risk;
       }
 
+      void set_safety(const bool new_safaty){
+        _safe = new_safaty;
+      }
+
       const Pose& get_usv_cpa() const{
         return _usv_cpa;
       }
@@ -356,15 +396,18 @@ namespace types{
       double get_risk() const{
         return _risk;
       }
+
+      bool is_safe() const{
+        return _safe;
+      }
   };
 
   class TargetCollisionReport : public CollisionReport{
     private:
       uint32_t _id;
     public:
-      TargetCollisionReport(const int32_t id, const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
-      CollisionReport(usv_cpa, obstacle_cpa, dcpa, tcpa, risk, msg){
-        this->set_id(id);
+      TargetCollisionReport(const int32_t id = 0, const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
+      _id(0), CollisionReport(usv_cpa, obstacle_cpa, dcpa, tcpa, risk, msg){
       }
 
       void set_id(const int32_t new_id){
