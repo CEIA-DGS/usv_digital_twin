@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 
         std::string caminhoCartaS57 = argv[1];
         std::string nomeCarta = fs::path(caminhoCartaS57).stem().string();
-        std::string diretorioSaida = "../data/output/NavMesh_Shapefiles_" + nomeCarta;
+        std::string diretorioSaida = "../../data/output/NavMesh_Shapefiles_" + nomeCarta;
 
         // Inicialização global
         GdalInicializador::inicializar();
