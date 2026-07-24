@@ -1,0 +1,17 @@
+{
+    "margem_seguranca_metros": 10.0,
+    "tolerancia_simplificacao": 1,
+    "classes_navegaveis": [
+        "DEPARE",
+        "DRGARE",
+        "RIVERS",
+        "LAKARE"
+    ],
+    "classes_colisao": [
+        "COALNE",
+        "LNDARE",
+        "PONTON",
+        "SLCONS",
+        "WRECKS"
+    ]
+}

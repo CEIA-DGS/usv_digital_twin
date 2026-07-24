@@ -10,28 +10,59 @@ namespace types{
       double _x;
       double _y;
       double _z;
+
+      double _lat;
+      double _lon;
+      std::string _frame_id;
+
     public:
-      Point(const double initial_x = 0.0, const double initial_y = 0.0, const double initial_z = 0.0) : _x(initial_x), _y(initial_y), _z(initial_z){
+      Point(const double initial_x = 0.0, const double initial_y = 0.0, const double initial_z = 0.0) 
+      : _x(initial_x), _y(initial_y), _z(initial_z), _lat(0.0), _lon(0.0), _frame_id("map"){
       }
 
       void set_x(const double new_x){
         _x = new_x;
       }
+
       void set_y(const double new_y){
         _y = new_y;
       }
+
       void set_z(const double new_z){
         _z = new_z;
+      }
+      
+      void set_lat_lon(const double new_lat, const double new_lon){
+        _lat = new_lat;
+        _lon = new_lon;
+      }
+
+      void set_frame_id(const std::string& frame){
+        _frame_id = frame;
       }
 
       double get_x() const{
         return _x;
       }
+
       double get_y() const{
         return _y;
       }
+
       double get_z() const{
         return _z;
+      }
+
+      double get_lat() const{
+        return _lat;
+      }
+
+      double get_lon() const{
+        return _lon;
+      }
+
+      const std::string& get_frame_id() const{
+        return _frame_id;
       }
   };
 
@@ -47,9 +78,11 @@ namespace types{
       void set_roll(const double new_roll){
         _roll = new_roll;
       }
+
       void set_pitch(const double new_pitch){
         _pitch = new_pitch;
       }
+
       void set_yaw(const double new_yaw){
         _yaw = new_yaw;
       }
@@ -57,9 +90,11 @@ namespace types{
       double get_roll() const{
         return _roll;
       }
+
       double get_pitch() const{
         return _pitch;
       }
+
       double get_yaw() const{
         return _yaw;
       }
@@ -72,6 +107,7 @@ namespace types{
     public:
       Pose(const Point& initial_position, const Orientation& initial_orientation) : _position(initial_position), _orientation(initial_orientation){
       }
+
       Pose(const double initial_x = 0.0, const double initial_y = 0.0, const double initial_z = 0.0,
            const double initial_roll = 0.0, const double initial_pitch = 0.0, const double initial_yaw = 0.0) : _position(initial_x, initial_y, initial_z), _orientation(initial_roll, initial_pitch, initial_yaw){
       }
@@ -79,6 +115,7 @@ namespace types{
       void set_position(const Point& new_position){
         _position = new_position;
       }
+
       void set_position(const double new_x, const double new_y, const double new_z){
         _position.set_x(new_x);
         _position.set_y(new_y);
@@ -88,6 +125,7 @@ namespace types{
       void set_orientation(const Orientation& new_orientation){
         _orientation = new_orientation;
       }
+
       void set_orientation(const double new_roll, const double new_pitch, const double new_yaw){
         _orientation.set_roll(new_roll);
         _orientation.set_pitch(new_pitch);
@@ -97,6 +135,7 @@ namespace types{
       const Point& get_position() const{
         return _position;
       }
+
       const Orientation& get_orientation() const{
         return _orientation;
       }
@@ -104,9 +143,11 @@ namespace types{
       double get_x() const{
         return _position.get_x();
       }
+
       double get_y() const{
         return _position.get_y();
       }
+
       double get_z() const{
         return _position.get_z();
       }
@@ -114,9 +155,11 @@ namespace types{
       double get_roll() const{
         return _orientation.get_roll();
       }
+
       double get_pitch() const{
         return _orientation.get_pitch();
       }
+
       double get_yaw() const{
         return _orientation.get_yaw();
       }
@@ -134,9 +177,11 @@ namespace types{
       void set_vx(const double new_vx){
         _vx = new_vx;
       }
+
       void set_vy(const double new_vy){
         _vy = new_vy;
       }
+
       void set_vz(const double new_vz){
         _vz = new_vz;
       }
@@ -144,9 +189,11 @@ namespace types{
       double get_vx() const{
         return _vx;
       }
+
       double get_vy() const{
         return _vy;
       }
+
       double get_vz() const{
         return _vz;
       }
@@ -220,7 +267,8 @@ namespace types{
       Kinematics _kinematics;
       Covariance _covariance;
     public:
-      Entity(const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance initial_covariance) : _pose(initial_pose), _kinematics(initial_kinematics), _covariance(initial_covariance){
+      Entity(const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance initial_covariance = Covariance()) 
+      : _pose(initial_pose), _kinematics(initial_kinematics), _covariance(initial_covariance){
       }
 
       virtual ~Entity() = default;
@@ -262,8 +310,11 @@ namespace types{
     private:
       uint32_t _id;
       std::string _description;
+      double _radius; // Adicionado do local
+
     public:
-      Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance& initial_covariance) : _description(description), Entity(initial_pose, initial_kinematics, initial_covariance){
+      Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance& initial_covariance = Covariance(), double radius = 1.0) 
+      : Entity(initial_pose, initial_kinematics, initial_covariance), _description(description), _radius(radius){
         this->set_id(id);
       }
 
@@ -286,6 +337,14 @@ namespace types{
       const std::string& get_description() const{
         return _description;
       }
+      
+      void set_radius(double new_radius){
+        _radius = new_radius;
+      }
+
+      double get_radius() const{
+        return _radius;
+      }
   };
 
   class Trajectory {
@@ -294,33 +353,34 @@ namespace types{
     public:
       Trajectory() = default;
 
-      explicit Trajectory(const std::vector<Pose>& poses) : poses(poses) {}
-
-      void add_pose(const Pose& pose) {
-          poses.push_back(pose);
+      explicit Trajectory(const std::vector<Pose>& poses) : poses(poses){
       }
 
-      size_t size() const {
-          return poses.size();
+      void add_pose(const Pose& pose){
+        poses.push_back(pose);
       }
 
-      bool empty() const {
-          return poses.empty();
+      size_t size() const{
+        return poses.size();
       }
 
-      const Pose& get_pose_by_index(size_t index) const {
-          if (index >= poses.size() || index < static_cast<size_t>(0)) {
-              throw std::out_of_range("Error: Index out of range");
-          }
-          return poses[index];
+      bool empty() const{
+        return poses.empty();
       }
 
-      const std::vector<Pose>& get_poses() const {
-          return poses;
+      const Pose& get_pose_by_index(size_t index) const{
+        if (index >= poses.size() || index < static_cast<size_t>(0)) {
+          throw std::out_of_range("Error: Index out of range");
+        }
+        return poses[index];
       }
 
-      void clear() {
-          poses.clear();
+      const std::vector<Pose>& get_poses() const{
+        return poses;
+      }
+
+      void clear(){
+        poses.clear();
       }
   };
 
@@ -407,7 +467,8 @@ namespace types{
       uint32_t _id;
     public:
       TargetCollisionReport(const int32_t id = 0, const Pose& usv_cpa = Pose(), const Pose& obstacle_cpa = Pose(), const double dcpa = -1.0, const double tcpa = -1.0, const double risk = -1.0, const std::string& msg = "") : 
-      _id(0), CollisionReport(usv_cpa, obstacle_cpa, dcpa, tcpa, risk, msg){
+      CollisionReport(usv_cpa, obstacle_cpa, dcpa, tcpa, risk, msg){
+        this->set_id(id);
       }
 
       void set_id(const int32_t new_id){
