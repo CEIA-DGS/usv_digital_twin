@@ -1,7 +1,7 @@
-#include "../include/ProcessadorS57.h"
+#include "../../include/map/ProcessadorS57.h"
 #include <iostream>
 #include <cmath>
-#include "GdalInicializador.hpp"
+#include "../../include/map/GdalInicializador.hpp"
 
 /**
  * @brief Executa o parsing analítico de cartas náuticas S-57, extraindo e reprojetando features cartográficas para UTM dinâmico.

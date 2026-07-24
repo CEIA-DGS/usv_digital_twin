@@ -3,7 +3,7 @@
 #include <filesystem>
 #include "gdal_priv.h"
 #include "ogrsf_frmts.h"
-#include "GdalInicializador.hpp"
+#include "../../include/map/GdalInicializador.hpp"
 
 /**
  * @brief Função auxiliar interna para injetar vértices de um anel linear na R-Tree de distâncias.

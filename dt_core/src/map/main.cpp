@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 #include <filesystem>
-#include "GdalInicializador.hpp"
-#include "ProcessadorS57.h"
-#include "GeradorMalha.h"
-#include "ExportadorVetor.h"
-#include "VisualizadorVetor.h"
-#include "IndiceEspacial.hpp"
-#include "Types.hpp"
+#include "../../include/map/GdalInicializador.hpp"
+#include "../../include/map/ProcessadorS57.h"
+#include "../../include/map/GeradorMalha.h"
+#include "../../include/map/ExportadorVetor.h"
+#include "../../include/map/VisualizadorVetor.h"
+#include "../../include/map/IndiceEspacial.hpp"
+#include "../../include/map/types.hpp"
 #include "gdal_priv.h"
 
 namespace fs = std::filesystem;

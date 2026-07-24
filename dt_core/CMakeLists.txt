@@ -37,13 +37,13 @@ target_link_libraries(navmesh_gen PRIVATE
 )
 
 # EMPACOTAMENTO DA GDAL
-# Copia automaticamente os arquivos de dados S-57/GDAL para o diretório de build,
+# Copia automaticamente os arquivos de dados S-57/GDAL para o diretorio de build,
 # permitindo que o GdalInicializador encontre os arquivos de dados sem caminhos absolutos.
 set(GDAL_SHARE_DIR "C:/msys64/ucrt64/share/gdal")
 
 if(EXISTS "${GDAL_SHARE_DIR}")
-    message(STATUS "[CMake] Empacotando arquivos de dados da GDAL para versão local...")
+    message(STATUS "[CMake] Empacotando arquivos de dados da GDAL para versao local...")
     file(COPY "${GDAL_SHARE_DIR}" DESTINATION "${CMAKE_BINARY_DIR}/gdal_data")
 else()
-    message(WARNING "[CMake] Pasta GDAL_SHARE_DIR não encontrada em '${GDAL_SHARE_DIR}'. O deploy local pode exigir variáveis de ambiente configuradas no sistema.")
+    message(WARNING "[CMake] Pasta GDAL_SHARE_DIR nao encontrada em '${GDAL_SHARE_DIR}'. O deploy local pode exigir variáveis de ambiente configuradas no sistema.")
 endif()

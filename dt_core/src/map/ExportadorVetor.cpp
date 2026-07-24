@@ -1,6 +1,6 @@
-#include "../include/ExportadorVetor.h"
+#include "../../include/map/ExportadorVetor.h"
 #include <iostream>
-#include "GdalInicializador.hpp"
+#include "../../map/GdalInicializador.hpp"
 
 /**
  * @brief Exporta os componentes geográficos e a malha de navegação para arquivos ESRI Shapefile em UTM real.

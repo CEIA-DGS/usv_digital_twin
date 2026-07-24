@@ -1,4 +1,4 @@
-#include "../include/GerenciadorConfig.h"
+#include "../../include/map/GerenciadorConfig.h"
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
