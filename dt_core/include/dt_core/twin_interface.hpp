@@ -15,9 +15,9 @@ public:
     virtual std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const = 0;
 
     // --- Classe B: Suporte ao Planejamento ---
-    virtual types::Trajectory predict_obstacle_trajectory(uint32_t target_id, float time_horizon, float time_step) const = 0;
-    virtual types::CollisionReport check_trajectory_collision(const types::Trajectory& candidate_path, float start_time, float speed_profile) const = 0;
-    virtual float get_dynamic_risk_field(const types::Point& position, float timestamp) const = 0;
+    virtual types::Trajectory predict_trajectory_by_id(const int32_t id, const std::vector<types::Target>& targets, const double time_horizon, const double time_step) const = 0;
+    virtual types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0) const = 0;
+    virtual double get_dynamic_risk_field(const types::Point& position, const double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const = 0;
 };
 
 // Interface Principal do Gêmeo Digital (Gerenciador do Buffer)
