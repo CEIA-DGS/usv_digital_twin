@@ -310,7 +310,7 @@ namespace types{
     private:
       uint32_t _id;
       std::string _description;
-      double _radius; // Adicionado do local
+      double _radius;
 
     public:
       Target(const int32_t id, const std::string& description, const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance& initial_covariance = Covariance(), double radius = 1.0) 
@@ -369,7 +369,7 @@ namespace types{
       }
 
       const Pose& get_pose_by_index(size_t index) const{
-        if (index >= poses.size() || index < static_cast<size_t>(0)) {
+        if (index >= poses.size()) {
           throw std::out_of_range("Error: Index out of range");
         }
         return poses[index];
@@ -382,6 +382,25 @@ namespace types{
       void clear(){
         poses.clear();
       }
+  };
+
+  class MapData {
+    private:
+      std::string _map_name;
+      std::string _shapefile_path;
+      bool _is_loaded;
+
+    public:
+      MapData(const std::string& map_name = "", const std::string& shapefile_path = "") 
+      : _map_name(map_name), _shapefile_path(shapefile_path), _is_loaded(false) {}
+
+      void set_map_name(const std::string& name) { _map_name = name; }
+      void set_shapefile_path(const std::string& path) { _shapefile_path = path; }
+      void set_loaded(bool loaded) { _is_loaded = loaded; }
+
+      const std::string& get_map_name() const { return _map_name; }
+      const std::string& get_shapefile_path() const { return _shapefile_path; }
+      bool is_loaded() const { return _is_loaded; }
   };
 
   class Report{
@@ -433,8 +452,8 @@ namespace types{
         _risk = new_risk;
       }
 
-      void set_safety(const bool new_safaty){
-        _safe = new_safaty;
+      void set_safety(const bool new_safety){
+        _safe = new_safety;
       }
 
       const Pose& get_usv_cpa() const{

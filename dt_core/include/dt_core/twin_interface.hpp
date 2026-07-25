@@ -24,7 +24,7 @@ public:
 class DigitalTwinCore {
 public:
     // Método chamado pelo ROS2 (Assíncrono) para atualizar os dados internamente
-    void update_static_map(const MapData& map);
+    void update_static_map(const types::MapData& map);
     void update_vehicle_pose(const types::Pose& pose);
     void update_dynamic_targets(const std::vector<types::Target>& targets);
 
