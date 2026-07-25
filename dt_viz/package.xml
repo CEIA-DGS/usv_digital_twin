@@ -28,8 +28,7 @@
   <depend>dt_msgs</depend>
 
   <!-- Dependências da interface gráfica Qt. -->
-  <build_depend>qtbase5-dev</build_depend>
-  <exec_depend>libqt5widgets5</exec_depend>
+  <depend>qtbase5-dev</depend>
 
   <!-- Dependências previstas para integrações futuras. -->
   <!--

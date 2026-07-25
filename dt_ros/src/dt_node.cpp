@@ -23,9 +23,9 @@ DigitalTwinNode::DigitalTwinNode(std::shared_ptr<dt::DigitalTwinCore> dt_core, c
         [this](const sensor_msgs::msg::Imu::SharedPtr msg) { imu_callback(msg); }
     );
 
-    ais_sub_ = this->create_subscription<usv_msgs::msg::AisReport>(
+    ais_sub_ = this->create_subscription<dt_msgs::msg::AisReport>(
         "sensors/ais/report", 10,
-        [this](const usv_msgs::msg::AisReport::SharedPtr msg) { ais_callback(msg); }
+        [this](const dt_msgs::msg::AisReport::SharedPtr msg) { ais_callback(msg); }
     );
 }
 
@@ -49,7 +49,7 @@ void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
     // dt_core_->update_vehicle_pose(current_pose_);
 }
 
-void DigitalTwinNode::ais_callback(const usv_msgs::msg::AisReport::SharedPtr msg) {
+void DigitalTwinNode::ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg) {
     std::vector<dt::types::Target> core_targets;
     core_targets.reserve(msg->targets.size());
 

@@ -9,7 +9,7 @@
 #include <boost/geometry/geometries/segment.hpp>
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/index/rtree.hpp>
-#include "../types.hpp" 
+#include "dt_core/types.hpp" 
 
 namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;

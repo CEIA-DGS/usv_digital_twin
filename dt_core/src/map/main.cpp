@@ -7,7 +7,7 @@
 #include "../../include/map/ExportadorVetor.h"
 #include "../../include/map/VisualizadorVetor.h"
 #include "../../include/map/IndiceEspacial.hpp"
-#include "../../include/map/types.hpp"
+#include "dt_core/types.hpp"
 #include "gdal_priv.h"
 
 namespace fs = std::filesystem;

@@ -1,4 +1,3 @@
-#pragma once
 #include "../../include/prediction/prediction.hpp"
 #include <stdexcept>
 #include <cmath>
@@ -99,7 +98,7 @@ namespace prediction{
     return trajectory;
   }
 
-  types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0){
+  types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time){
     types::TargetCollisionReport report;
 
     if(candidate_trajectory.empty()){

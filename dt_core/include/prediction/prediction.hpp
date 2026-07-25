@@ -1,5 +1,5 @@
 #pragma once
-#include "../types.hpp"
+#include "dt_core/types.hpp"
 
 namespace prediction{
   types::Trajectory predict_trajectory(const types::Entity& entity, const double time_horizon, const double time_step);

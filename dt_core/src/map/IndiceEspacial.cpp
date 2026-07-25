@@ -1,4 +1,4 @@
-#include "IndiceEspacial.hpp"
+#include "map/IndiceEspacial.hpp"
 #include <iostream>
 #include <filesystem>
 #include "gdal_priv.h"

@@ -1,18 +1,24 @@
 cmake_minimum_required(VERSION 3.14)
-project(NavMesh_Generator)
+project(dt_core)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-# BUSCA DE PACOTES EXTERNOS
+# ==============================================================================
+# 1. DEPENDÊNCIAS DO SISTEMA
+# Requer: sudo apt install libgdal-dev libglfw3-dev libgl1-mesa-dev libboost-all-dev
+# ==============================================================================
 find_package(GDAL REQUIRED)
-find_package(nlohmann_json REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(Boost REQUIRED)
 
-# DEPENDÊNCIAS VIA FETCHCONTENT (poly2tri)
+# ==============================================================================
+# 2. DEPENDÊNCIAS FETCHCONTENT
+# ==============================================================================
 include(FetchContent)
+
 FetchContent_Declare(
     poly2tri
     GIT_REPOSITORY https://github.com/jhasse/poly2tri.git
@@ -20,30 +26,79 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(poly2tri)
 
-# DIRETÓRIOS DE INCLUSÃO DE CABEÇALHOS
-include_directories(include ${GDAL_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+FetchContent_Declare(
+    nlohmann_json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG        v3.11.3
+)
+FetchContent_MakeAvailable(nlohmann_json)
 
-# ARQUIVOS FONTE E CRIAÇÃO DO EXECUTÁVEL
-file(GLOB SOURCES "src/*.cpp")
-add_executable(navmesh_gen ${SOURCES})
+# ==============================================================================
+# 3. CONSTRUÇÃO DA BIBLIOTECA CORE
+# ==============================================================================
+file(GLOB_RECURSE CORE_SOURCES "src/*.cpp")
+list(REMOVE_ITEM CORE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/map/main.cpp")
 
-# LINKAGEM DE BIBLIOTECAS
-target_link_libraries(navmesh_gen PRIVATE 
-    ${GDAL_LIBRARIES} 
-    glfw 
-    OpenGL::GL
-    nlohmann_json::nlohmann_json
-    poly2tri
+add_library(${PROJECT_NAME} SHARED ${CORE_SOURCES})
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+    ${GDAL_INCLUDE_DIRS}
+    ${Boost_INCLUDE_DIRS}
 )
 
-# EMPACOTAMENTO DA GDAL
-# Copia automaticamente os arquivos de dados S-57/GDAL para o diretorio de build,
-# permitindo que o GdalInicializador encontre os arquivos de dados sem caminhos absolutos.
-set(GDAL_SHARE_DIR "C:/msys64/ucrt64/share/gdal")
+target_link_libraries(${PROJECT_NAME} 
+    PUBLIC
+        ${GDAL_LIBRARIES}
+    PRIVATE
+        glfw
+        OpenGL::GL
+        nlohmann_json::nlohmann_json
+        poly2tri
+)
 
-if(EXISTS "${GDAL_SHARE_DIR}")
-    message(STATUS "[CMake] Empacotando arquivos de dados da GDAL para versao local...")
-    file(COPY "${GDAL_SHARE_DIR}" DESTINATION "${CMAKE_BINARY_DIR}/gdal_data")
-else()
-    message(WARNING "[CMake] Pasta GDAL_SHARE_DIR nao encontrada em '${GDAL_SHARE_DIR}'. O deploy local pode exigir variáveis de ambiente configuradas no sistema.")
-endif()
+# ==============================================================================
+# 4. CONSTRUÇÃO DO EXECUTÁVEL STANDALONE
+# ==============================================================================
+add_executable(navmesh_gen src/map/main.cpp)
+target_link_libraries(navmesh_gen PRIVATE ${PROJECT_NAME})
+
+# ==============================================================================
+# 5. REGRAS DE INSTALAÇÃO
+# ==============================================================================
+include(GNUInstallDirs)
+
+install(TARGETS ${PROJECT_NAME} navmesh_gen
+    EXPORT ${PROJECT_NAME}Targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
+)
+
+install(EXPORT ${PROJECT_NAME}Targets
+    FILE ${PROJECT_NAME}Targets.cmake
+    NAMESPACE ${PROJECT_NAME}::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${PROJECT_NAME}ConfigVersion.cmake
+    VERSION 1.0.0
+    COMPATIBILITY SameMajorVersion
+)
+file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+    "include(\"\${CMAKE_CURRENT_LIST_DIR}/${PROJECT_NAME}Targets.cmake\")\n"
+)
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)

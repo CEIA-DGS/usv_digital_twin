@@ -18,14 +18,14 @@ target_include_directories(dt_ros_node PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 
+target_link_libraries(dt_ros_node dt_core::dt_core)
+
 ament_target_dependencies(dt_ros_node
   rclcpp
   sensor_msgs
   dt_msgs
-  dt_core
 )
 
-ament_export_targets(export_dt_ros_node HAS_LIBRARY_TARGET)
-ament_export_dependencies(rclcpp sensor_msgs dt_msgs dt_core)
+ament_export_dependencies(rclcpp sensor_msgs dt_msgs)
 
 ament_package()
