@@ -10,6 +10,7 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(dt_msgs REQUIRED)
 find_package(dt_core REQUIRED)
+find_package(tf2 REQUIRED)
 
 add_library(dt_ros_node SHARED src/dt_node.cpp)
 
@@ -24,6 +25,7 @@ ament_target_dependencies(dt_ros_node
   rclcpp
   sensor_msgs
   dt_msgs
+  tf2
 )
 
 ament_export_dependencies(rclcpp sensor_msgs dt_msgs)

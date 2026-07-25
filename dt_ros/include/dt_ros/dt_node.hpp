@@ -29,7 +29,7 @@ private:
     void ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg);
     
     // Variáveis de estado local 
-    dt::types::Pose current_pose_;
+    types::Pose current_pose_;
 };
 
 } // namespace dt_ros

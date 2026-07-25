@@ -13,6 +13,7 @@
   <depend>sensor_msgs</depend>
   <depend>dt_msgs</depend>
   <depend>dt_core</depend>
+  <depend>tf2</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

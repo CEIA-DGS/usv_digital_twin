@@ -1,5 +1,7 @@
 #include "dt_ros/dt_node.hpp"
 #include <cmath>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 
 namespace dt_ros {
 
@@ -35,46 +37,54 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
         return;
     }
 
-    current_pose_.position.x = msg->latitude;
-    current_pose_.position.y = msg->longitude;
-    current_pose_.position.z = msg->altitude;
+    // Atualiza a posição usando os setters encapsulados da classe Pose/Point
+    current_pose_.set_position(msg->latitude, msg->longitude, msg->altitude);
 
-    // dt_core_->update_vehicle_pose(current_pose_);
+    dt_core_->update_vehicle_pose(current_pose_);
 }
 
 void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    
-    current_pose_.orientation = msg->orientation;
-    
-    // dt_core_->update_vehicle_pose(current_pose_);
+    // Converte Quaternion do ROS para Ângulos de Euler (Roll, Pitch, Yaw) que o core espera
+    tf2::Quaternion q(
+        msg->orientation.x,
+        msg->orientation.y,
+        msg->orientation.z,
+        msg->orientation.w
+    );
+    double roll, pitch, yaw;
+    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    // Atualiza a orientação usando os setters encapsulados
+    current_pose_.set_orientation(roll, pitch, yaw);
+
+    dt_core_->update_vehicle_pose(current_pose_);
 }
 
 void DigitalTwinNode::ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg) {
-    std::vector<dt::types::Target> core_targets;
+    std::vector<types::Target> core_targets;
     core_targets.reserve(msg->targets.size());
 
     const double KNOTS_TO_MS = 0.514444;
     const double DEG_TO_RAD = M_PI / 180.0;
 
     for (const auto& ais_target : msg->targets) {
-        dt::types::Target t;
-        t.id = ais_target.mmsi;
-        
-        // Posição
-        t.pose.position.x = ais_target.latitude;
-        t.pose.position.y = ais_target.longitude;
-        t.pose.position.z = 0.0; 
-        
-        // Conversões náuticas -> SI
-        t.velocity = ais_target.sog * KNOTS_TO_MS;
-        
-        // O AIS fornece COG (Course) e Heading (Proa). 
-        t.pose.yaw = ais_target.heading * DEG_TO_RAD; 
+        // Constrói a pose e cinemática do alvo utilizando o construtor do Target
+        types::Pose target_pose(ais_target.latitude, ais_target.longitude, 0.0, 0.0, 0.0, ais_target.heading * DEG_TO_RAD);
+        types::Velocity target_vel(ais_target.sog * KNOTS_TO_MS, 0.0, 0.0);
+        types::Kinematics target_kin(target_vel);
+
+        // Instancia o Target usando o construtor obrigatório exigido pelo types.hpp
+        types::Target t(
+            static_cast<int32_t>(ais_target.mmsi),
+            "AIS_Target",
+            target_pose,
+            target_kin
+        );
         
         core_targets.push_back(t);
     }
 
-    //dt_core_->update_dynamic_targets(core_targets);
+    dt_core_->update_dynamic_targets(core_targets);
 }
 
 } // namespace dt_ros
