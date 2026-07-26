@@ -1,6 +1,9 @@
 #ifndef DT_VIZ_MAIN_WINDOW_HPP
 #define DT_VIZ_MAIN_WINDOW_HPP
 
+#include "dt_core/twin_interface.hpp"
+#include <memory>
+
 // ============================================================
 // Bibliotecas Qt
 // ============================================================
@@ -49,7 +52,7 @@ struct RoutePoint
 class MainWindow : public QMainWindow
 {
 public:
-  explicit MainWindow(QWidget * parent = nullptr);
+  explicit MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent = nullptr);
 
   /**
    * @brief Atualiza a derrota planejada exibida na tela.
@@ -76,6 +79,9 @@ protected:
   void resizeEvent(QResizeEvent * event) override;
 
 private:
+    
+  std::shared_ptr<dt::DigitalTwinCore> dt_core_;
+  
   // Configuração inicial.
   void configureWindow();
   void createScene();
@@ -86,7 +92,6 @@ private:
   void drawAxes();
   void drawFreeZone();
   void drawUsv();
-  void drawTrackedVessels();
   void drawScaleBar();
 
   // Derrota planejada.

@@ -18,6 +18,10 @@ public:
     virtual types::Trajectory predict_trajectory_by_id(const int32_t id, const std::vector<types::Target>& targets, const double time_horizon, const double time_step) const = 0;
     virtual types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0) const = 0;
     virtual double get_dynamic_risk_field(const types::Point& position, const double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const = 0;
+    
+    // --- Classe C: Acesso de Estado Bruto (Para a Interface Gráfica) ---
+    virtual types::Pose get_vehicle_pose() const = 0;
+    virtual std::vector<types::Target> get_all_targets() const = 0;
 };
 
 // Interface Principal do Gêmeo Digital (Gerenciador do Buffer)

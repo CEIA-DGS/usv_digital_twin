@@ -27,6 +27,10 @@
   <depend>nav_msgs</depend>
   <depend>dt_msgs</depend>
 
+  <!-- pacotes internos -->
+  <depend>dt_core</depend>
+  <depend>dt_ros</depend>
+
   <!-- Dependências da interface gráfica Qt. -->
   <depend>qtbase5-dev</depend>
 

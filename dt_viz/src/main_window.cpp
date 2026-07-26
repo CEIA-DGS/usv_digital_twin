@@ -13,8 +13,9 @@
 #include <algorithm>
 #include <cmath>
 
-MainWindow::MainWindow(QWidget * parent)
+MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent)
 : QMainWindow(parent),
+  dt_core_(std::move(dt_core)), 
   scene_(new QGraphicsScene(this)),
   view_(new QGraphicsView(scene_, this)),
   timer_(new QTimer(this)),
@@ -41,10 +42,10 @@ MainWindow::MainWindow(QWidget * parent)
     &QTimer::timeout,
     this,
     [this]() {
-      updateSimulation();
+      updateSimulation(); 
     });
 
-  timer_->start(100);
+  timer_->start(33); 
 }
 
 void MainWindow::configureWindow()
@@ -155,7 +156,6 @@ void MainWindow::createScene()
   drawAxes();
   drawFreeZone();
   drawUsv();
-  drawTrackedVessels();
   drawScaleBar();
 }
 
@@ -329,65 +329,6 @@ void MainWindow::drawUsv()
   trajectory_item_->setZValue(2.0);
 }
 
-// Desenho das embarcações monitoradas
-//Os MMSIs são fictícios e usados apenas para teste.
-void MainWindow::drawTrackedVessels()
-{
-  struct InitialVessel
-  {
-    std::uint32_t mmsi;
-    QPointF position;
-  };
-
-  const std::vector<InitialVessel> initial_vessels = {
-    {710000001, QPointF(-250.0, -120.0)},
-    {710000002, QPointF(20.0, 70.0)},
-    {710000003, QPointF(270.0, 190.0)}
-  };
-
-  for (const auto & vessel_data : initial_vessels) {
-    auto * vessel = scene_->addEllipse(
-      -11.0,
-      -11.0,
-      22.0,
-      22.0,
-      QPen(QColor(160, 55, 35), 2.0),
-      normalVesselBrush()
-    );
-
-    vessel->setPos(vessel_data.position);
-    vessel->setZValue(4.0);
-
-    vessels_.push_back(vessel);
-
-    vessel_items_by_mmsi_[
-      vessel_data.mmsi
-    ] = vessel;
-
-    auto * label = scene_->addSimpleText(
-      QString("MMSI %1")
-        .arg(vessel_data.mmsi)
-    );
-
-    label->setPos(
-      vessel_data.position.x() + 16.0,
-      vessel_data.position.y() - 18.0
-    );
-
-    label->setBrush(
-      QBrush(QColor(125, 45, 30))
-    );
-
-    label->setZValue(5.0);
-
-    vessel_labels_.push_back(label);
-
-    vessel_labels_by_mmsi_[
-      vessel_data.mmsi
-    ] = label;
-  }
-}
-
 // Desenho da barra de escala
 void MainWindow::drawScaleBar()
 {
@@ -437,76 +378,67 @@ void MainWindow::drawScaleBar()
 
 void MainWindow::updateSimulation()
 {
-  simulation_time_ += 0.05;
+  if (!dt_core_) return;
 
-  const double usv_x =
-    120.0 * std::cos(simulation_time_ * 0.4);
+  // 1. Pega a snapshot mais recente do mundo
+  auto snapshot = dt_core_->get_latest_state();
+  if (!snapshot) return;
 
-  const double usv_y =
-    80.0 * std::sin(simulation_time_ * 0.4);
+  // 2. Lê a Pose do USV
+  const types::Pose usv_pose = snapshot->get_vehicle_pose();
+  const double usv_x = usv_pose.get_x();
+  const double usv_y = usv_pose.get_y();
+  // Converte radianos para graus para o Qt (e inverte o sentido se necessário)
+  const double heading = usv_pose.get_yaw() * (180.0 / M_PI); 
 
-  const double heading =
-    std::fmod(simulation_time_ * 25.0, 360.0);
-
+  // Atualiza os desenhos do USV
   usv_->setPos(usv_x, usv_y);
   usv_->setRotation(heading);
-
-  usv_label_->setPos(
-    usv_x - 12.0,
-    usv_y + 20.0
-  );
-
+  usv_label_->setPos(usv_x - 12.0, usv_y + 20.0);
   heading_line_->setPos(usv_x, usv_y);
   heading_line_->setRotation(heading);
-
   updateUsvTrajectory(usv_x, usv_y);
 
-  for (std::size_t i = 0; i < vessels_.size(); ++i) {
-    const double phase =
-      simulation_time_ +
-      static_cast<double>(i) * 2.0;
+  // 3. Lê e Atualiza os Alvos AIS dinamicamente
+  const auto targets = snapshot->get_all_targets();
+  
+  for (const auto& target : targets) {
+    std::uint32_t mmsi = target.get_id();
+    double t_x = target.get_pose().get_x();
+    double t_y = target.get_pose().get_y();
 
-    const double x =
-      -240.0 +
-      static_cast<double>(i) * 250.0 +
-      35.0 * std::cos(phase * 0.35);
+    // Se o alvo não existe na tela, nós o criamos dinamicamente
+    if (vessel_items_by_mmsi_.find(mmsi) == vessel_items_by_mmsi_.end()) {
+      auto * vessel = scene_->addEllipse(-11.0, -11.0, 22.0, 22.0,
+        QPen(QColor(160, 55, 35), 2.0), normalVesselBrush());
+      vessel->setZValue(4.0);
+      scene_->addItem(vessel);
+      vessel_items_by_mmsi_[mmsi] = vessel;
 
-    const double y =
-      -110.0 +
-      static_cast<double>(i) * 130.0 +
-      25.0 * std::sin(phase * 0.45);
+      auto * label = scene_->addSimpleText(QString("MMSI %1").arg(mmsi));
+      label->setBrush(QBrush(QColor(125, 45, 30)));
+      label->setZValue(5.0);
+      scene_->addItem(label);
+      vessel_labels_by_mmsi_[mmsi] = label;
+    }
 
-    vessels_[i]->setPos(x, y);
-
-    vessel_labels_[i]->setText(
-      QString(
-        "Embarcação %1\n(%2, %3)"
-      )
-        .arg(i + 1)
-        .arg(x, 0, 'f', 1)
-        .arg(y, 0, 'f', 1)
-    );
-
-    vessel_labels_[i]->setPos(
-      x + 16.0,
-      y - 18.0
-    );
+    // Atualiza a posição da bolinha e do texto
+    vessel_items_by_mmsi_[mmsi]->setPos(t_x, t_y);
+    vessel_labels_by_mmsi_[mmsi]->setPos(t_x + 16.0, t_y - 18.0);
+    
+    // Pede para o snapshot calcular se há risco de colisão real
+    // auto report = snapshot->check_collisions_on_trajectory(..., target, ...);
+    // updateCollisionAlert(mmsi, !report.is_safe());
   }
 
-  updateInformationPanel(
-    usv_x,
-    usv_y,
-    heading
-  );
-
+  // 4. Atualiza os painéis de texto
+  updateInformationPanel(usv_x, usv_y, heading);
   statusBar()->showMessage(
-    QString(
-      "USV: x=%1 m | y=%2 m | heading=%3° | embarcações=%4"
-    )
+    QString("USV: x=%1 m | y=%2 m | heading=%3° | embarcações=%4")
       .arg(usv_x, 0, 'f', 1)
       .arg(usv_y, 0, 'f', 1)
       .arg(heading, 0, 'f', 1)
-      .arg(vessels_.size())
+      .arg(targets.size())
   );
 }
 

@@ -1,44 +1,40 @@
-#include "dt_viz/main_window.hpp"
-#include "dt_viz/viz_node.hpp"
-
 #include <QApplication>
-#include <QTimer>
-
 #include <rclcpp/rclcpp.hpp>
-
+#include <thread>
 #include <memory>
 
-/**
- * @brief Inicializa o ROS 2 e a interface Qt.
- */
+#include "dt_core/twin_interface.hpp"
+#include "dt_ros/dt_node.hpp"
+#include "dt_viz/main_window.hpp"
+
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-
   QApplication application(argc, argv);
 
-  MainWindow window;
+  // Instancia o Core
+  auto dt_core = std::make_shared<dt::DigitalTwinCore>();
 
-  auto node = std::make_shared<VizNode>(&window);
+  // Inicializa o Adaptador ROS injetando o Core
+  rclcpp::NodeOptions options;
+  auto dt_ros_node = std::make_shared<dt_ros::DigitalTwinNode>(dt_core, options);
 
-  // Processa periodicamente os callbacks ROS 2 na thread do Qt.
-  QTimer ros_timer;
+  // Roda o ROS em background
+  std::thread ros_thread([dt_ros_node]() {
+    rclcpp::spin(dt_ros_node);
+  });
 
-  QObject::connect(
-    &ros_timer,
-    &QTimer::timeout,
-    [node]() {
-      rclcpp::spin_some(node);
-    }
-  );
-
-  ros_timer.start(20);
-
+  // Inicializa e mostra a Interface Gráfica
+  MainWindow window(dt_core);
   window.show();
 
+  // Trava a interface gráfica no loop principal
   const int result = application.exec();
 
   rclcpp::shutdown();
+  if (ros_thread.joinable()) {
+    ros_thread.join();
+  }
 
   return result;
 }

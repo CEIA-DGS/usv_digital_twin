@@ -26,6 +26,15 @@ public:
         return static_cast<float>(std::sqrt(dx * dx + dy * dy));
     }
 
+    // --- Classe C: Acesso de Estado Bruto (Para a Interface Gráfica) ---
+    types::Pose get_vehicle_pose() const override {
+        return _vehicle_pose;
+    }
+
+    std::vector<types::Target> get_all_targets() const override {
+        return _targets;
+    }
+
     bool is_inside_restricted_zone(const types::Point& pos) const override {
         // Lógica de verificação de zona restrita baseada no mapa S57/NavMesh
         return false;

@@ -28,6 +28,16 @@ ament_target_dependencies(dt_ros_node
   tf2
 )
 
-ament_export_dependencies(rclcpp sensor_msgs dt_msgs)
+# A instalação e exportação correta do ROS 2!
+install(TARGETS dt_ros_node
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+install(DIRECTORY include/ DESTINATION include/)
+
+ament_export_include_directories(include)
+ament_export_libraries(dt_ros_node)
+ament_export_dependencies(rclcpp sensor_msgs dt_msgs tf2 dt_core)
 
 ament_package()
