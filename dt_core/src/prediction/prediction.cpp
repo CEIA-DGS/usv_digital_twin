@@ -92,7 +92,7 @@ namespace prediction{
       trajectory.add_pose(pose);
     }
 
-    pose.set_position(origin.get_x(), origin.get_y(), 0.0);
+    pose.set_position(destination.get_x(), destination.get_y(), 0.0);
     trajectory.add_pose(pose);
 
     return trajectory;
