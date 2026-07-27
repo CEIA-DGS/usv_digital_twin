@@ -56,7 +56,7 @@ usv_digital_twin/
         └── src/
 ```
 
-## Pré-Requisitos e Dependências
+## ⚙️ Pré-Requisitos e Dependências
 
 O sistema foi homologado para Ubuntu 22.04 rodando ROS 2 Humble.
 
@@ -79,13 +79,13 @@ sudo apt install -y \
 Aviso para usuários de WSL (Windows Subsystem for Linux):
 Para evitar erros de permissão ou bugs no gerador de mensagens do ROS (rosidl), certifique-se de que o seu workspace esteja localizado no sistema de arquivos nativo do Linux (ex: ~/usv_digital_twin_ws) e não na partição montada do Windows (/mnt/c/...).
 
-## Clone do Repositório
+## 📚 Clone do Repositório
 Para ter acesso ao código fonte, basta clonar o repositório usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação.
 ``` bash
 git clone https://github.com/CEIA-DGS/usv_digital_twin.git
 ```
 
-## Compilação (Build)
+## 🚀 Compilação (Build)
 
 Para a compilação ser executada adequadamente, organize o workspace da seguinte forma:
 ``` text
@@ -109,9 +109,32 @@ colcon build --cmake-clean-cache
 ```
 
 
-## Execução do código compilado
+## 🖥️ Execução do código compilado
 
 ``` bash
 source ~/$nome_do_workspace$/install/setup.bash
 ros2 run dt_viz dt_visualizer_node
 ```
+
+---
+## 📡 API ROS2 (Tópicos e Mensagens)
+
+Para integrar módulos de navegação e controle ao Gêmeo Digital, utilize a seguinte especificação de tópicos:
+
+### Subscribers (Tópicos Lidos pelo Sistema)
+
+| Tópico | Tipo de Mensagem | Finalidade |
+| :--- | :--- | :--- |
+| ```/sensors/gps/fix``` | ```sensor_msgs/NavSatFix``` | Atualiza a posição (Lat/Lon) global do USV. |
+| ```/sensors/imu/data``` | ```sensor_msgs/Imu``` | Atualiza a orientação (Quaternions convertidos para Euler). |
+| ```/sensors/ais/report``` | ```dt_msgs/AisReport``` | Recebe a lista de alvos dinâmicos no raio de alcance. |
+| ```/planned_route``` | ```nav_msgs/Path``` | Recebe a rota (waypoints) planejada pelo módulo de navegação. |
+
+
+### Publishers (Tópicos Emitidos pelo Sistema)
+
+| Tópico | Tipo de Mensagem | Finalidade |
+| :--- | :--- | :--- |
+| ```/collision_alert``` | ```dt_msgs/CollisionAlert``` | Emite alertas consolidados com tempo, distância (CPA) e índice de risco calculados para cada alvo. |
+
+
