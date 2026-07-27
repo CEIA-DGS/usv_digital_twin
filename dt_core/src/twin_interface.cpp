@@ -6,6 +6,7 @@
 #include "prediction/prediction.hpp"
 #include "map/IndiceEspacial.hpp"
 #include "dt_core/types.hpp"
+#include <ament_index_cpp/get_package_share_directory.hpp>
 
 namespace dt {
 
@@ -86,7 +87,8 @@ public:
         _motor_espacial = std::make_shared<IndiceEspacial>();
         
         // 2. Carrega os Shapefiles do disco para a RAM apenas UMA VEZ na inicialização
-        std::string dir = "../dt_core/data/output/NavMesh_Shapefiles_BR401410"; //Shapefile estático préprocessado
+        std::string dt_core_share_dir = ament_index_cpp::get_package_share_directory("dt_core");
+        std::string dir = dt_core_share_dir + "/data/output/NavMesh_Shapefiles_BR501511";
         _motor_espacial->carregarShapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
 
         // 3. Inicializa com um snapshot seguro repassando o motor espacial

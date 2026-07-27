@@ -15,8 +15,8 @@
 #include <algorithm>
 #include <cmath>
 
-// Biblioteca GDAL para leitura direta do Shapefile
 #include <ogrsf_frmts.h>
+#include <ament_index_cpp/get_package_share_directory.hpp>
 
 MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent)
 : QMainWindow(parent),
@@ -166,7 +166,12 @@ void MainWindow::drawFreeZone()
 {
   GDALAllRegister();
   
-  std::string caminho = "/home/rianr/ros2_ws/src/usv_digital_twin/dt_core/data/output/NavMesh_Shapefiles_BR501511/4_Malha_NavMesh.shp";
+  GDALAllRegister();
+  
+  // Busca automaticamente a raiz do pacote dt_core no computador atual
+  std::string dt_core_path = ament_index_cpp::get_package_share_directory("dt_core");
+  std::string caminho = dt_core_path + "/data/output/NavMesh_Shapefiles_BR501511/4_Malha_NavMesh.shp";
+  
   GDALDataset* ds = (GDALDataset*)GDALOpenEx(caminho.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
 
   if (!ds) {

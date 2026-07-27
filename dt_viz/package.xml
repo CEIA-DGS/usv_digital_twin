@@ -26,6 +26,7 @@
   <depend>rclcpp</depend>
   <depend>nav_msgs</depend>
   <depend>dt_msgs</depend>
+  <depend>ament_index_cpp</depend>
 
   <!-- pacotes internos -->
   <depend>dt_core</depend>

@@ -13,7 +13,8 @@ find_package(rclcpp REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(dt_msgs REQUIRED)
 find_package(dt_core REQUIRED) 
-find_package(dt_ros REQUIRED)  
+find_package(dt_ros REQUIRED)
+find_package(ament_index_cpp REQUIRED)  
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
@@ -31,6 +32,7 @@ ament_target_dependencies(dt_visualizer_node
   nav_msgs
   dt_msgs
   dt_ros
+  ament_index_cpp
 )
 
 install(TARGETS dt_visualizer_node DESTINATION lib/${PROJECT_NAME})
