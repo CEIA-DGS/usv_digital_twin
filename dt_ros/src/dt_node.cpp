@@ -49,17 +49,17 @@ DigitalTwinNode::DigitalTwinNode(std::shared_ptr<dt::DigitalTwinCore> dt_core, c
 
     // Inicialização dos Subscribers
     gps_sub_ = this->create_subscription<sensor_msgs::msg::NavSatFix>(
-        "sensors/gps/fix", sensor_qos,
+        "/gps/fix", sensor_qos,
         [this](const sensor_msgs::msg::NavSatFix::SharedPtr msg) { gps_callback(msg); }
     );
 
     imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
-        "sensors/imu/data", sensor_qos,
+        "/imu/data", sensor_qos,
         [this](const sensor_msgs::msg::Imu::SharedPtr msg) { imu_callback(msg); }
     );
 
     ais_sub_ = this->create_subscription<dt_msgs::msg::AisReport>(
-        "sensors/ais/report", 10,
+        "/ais/report", 10,
         [this](const dt_msgs::msg::AisReport::SharedPtr msg) { ais_callback(msg); }
     );
 }
@@ -71,6 +71,10 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
 
     double utm_x, utm_y;
     latLonToUTM(msg->latitude, msg->longitude, utm_x, utm_y);
+
+    RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
+        "GPS Recebido! Lat: %.4f | Lon: %.4f --> UTM_X: %.1f | UTM_Y: %.1f", 
+        msg->latitude, msg->longitude, utm_x, utm_y);
 
     // Precisamos instanciar um Point intermediário para usar o set_lat_lon
     types::Point p;
@@ -86,7 +90,7 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
 }
 
 void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    // Converte Quaternion do ROS para Ângulos de Euler (Roll, Pitch, Yaw) que o core espera
+    // Converte Quaternion do ROS para Ângulos de Euler (Roll, Pitch, Yaw)
     tf2::Quaternion q(
         msg->orientation.x,
         msg->orientation.y,
@@ -95,6 +99,16 @@ void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
     );
     double roll, pitch, yaw;
     tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+    // Compensação do referencial do Unity (90 graus)
+    yaw += (M_PI / 2.0);
+
+    // Normaliza o ângulo para mantê-lo sempre no intervalo circular [-PI, PI]
+    if (yaw > M_PI) {
+        yaw -= 2.0 * M_PI;
+    } else if (yaw < -M_PI) {
+        yaw += 2.0 * M_PI;
+    }
 
     // Atualiza a orientação usando os setters encapsulados
     current_pose_.set_orientation(roll, pitch, yaw);
