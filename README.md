@@ -1,83 +1,140 @@
+# Digital Twin - CEIA-DGS
+
+O **Digital Twin** é um módulo de simulação, predição e visualização em tempo real desenvolvido para Veículos de Superfície Não Tripulados (USVs). 
+
+Este sistema é capaz de processar cartas náuticas oficiais (S-57), gerar malhas de navegação (NavMesh) em tempo de execução, calcular dinamicamente o risco de colisão e exibir diagnósticos operacionais em uma interface gráfica dedicada.
 
 ---
 
-## 1. Estrutura de Diretórios
+## Arquitetura do Sistema
+
+O projeto foi dividido em quatro pacotes para garantir a separação de responsabilidades (SoC) e a independência do motor matemático em relação ao middleware de comunicação:
+
+*   **`dt_core`**: Motor central em C++ puro (independente do ROS). Responsável por todo o processamento geométrico (GDAL/Boost), R-Trees, estruturas de dados matemáticas (Types) e os algoritmos de predição de risco de colisão.
+*   **`dt_msgs`**: Definição das mensagens customizadas (IDL) para tráfego de dados de navegação e alertas no barramento do ROS 2.
+*   **`dt_ros`**: Nó adaptador (Padrão Adapter). Atua como uma ponte, inscrevendo-se nos tópicos de sensores do USV e traduzindo os dados brutos para injetá-los no `dt_core`.
+*   **`dt_viz`**: Interface Gráfica de Diagnóstico desenvolvida em Qt5. Renderiza a NavMesh, a telemetria do USV, os alvos dinâmicos e os alertas visuais de colisão, rodando em uma thread assíncrona.
+
+---
+
+## 📂 Estrutura de Diretórios
 
 ```text
-usv_digital_twin_ws/
-├── dt_msgs/                      # Pacote 1: Apenas definições de mensagens ROS
-│   ├── msg/
-│   │   ├── TrackedGeoTarget.msg
-│   │   └── TrackedGeoTargetArray.msg
-│   └── CMakeLists.txt
-│
-├── dt_core/                      # Pacote 2: NÚCLEO PURO C++ (ZERO ROS2 AQUI)
-│   ├── include/dt_core/
-│   │   ├── types.hpp             # Tipos de dados agnósticos (Point, Pose, etc)
-│   │   ├── map/                  # Equipe 1: Processamento BSB/KAP e R-Tree
-│   │   ├── prediction/           # Equipe 2: Cinemática e predição de obstáculos
-│   │   └── twin_interface.hpp    # A Interface unificada do Buffer (Double Buffering)
-│   ├── src/
-│   │   ├── map/
-│   │   ├── prediction/
-│   │   └── twin_interface.cpp
-│   └── CMakeLists.txt
-│
-├── dt_ros/                       # Pacote 3: O ADAPTADOR ROS2 (Equipe 4)
-│   ├── include/dt_ros/
-│   │   └── dt_node.hpp           # Nó que faz Ingestão e atualiza o dt_core
-│   ├── src/
-│   │   └── dt_node.cpp           # Converte ROS msgs -> dt_core::types -> atualiza buffer
-│   └── CMakeLists.txt
-│
-└── dt_viz/                       # Pacote 4: VISUALIZAÇÃO (Equipe 3)
-    ├── include/dt_viz/
-    ├── src/                      # Pode ser um plugin do RViz2 ou uma UI em Qt
-    └── CMakeLists.txt
+usv_digital_twin/
+└── src/
+    ├── dt_core/                # Módulo central em C++ (Lógica, Mapeamento e Predição independentes do ROS)
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   ├── config.json
+    │   ├── include/
+    │   │   ├── dt_core/
+    │   │   ├── map/
+    │   │   └── prediction/
+    │   └── src/
+    │       ├── twin_interface.cpp
+    │       ├── map/
+    │       └── prediction/
+    │
+    ├── dt_msgs/                  # Definição das mensagens customizadas para o barramento ROS 2
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   └── msg/
+    │
+    ├── dt_ros/                   # Nó Adaptador (Recebe tópicos ROS e injeta no Core)
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   ├── include/
+    │   │   └── dt_ros/
+    │   └── src/
+    │
+    └── dt_viz/                   # Interface Gráfica de Diagnóstico (Qt5)
+        ├── CMakeLists.txt
+        ├── package.xml
+        ├── README.md
+        ├── include/
+        │   └── dt_viz/
+        └── src/
+```
 
+## ⚙️ Pré-Requisitos e Dependências
+
+O sistema foi homologado para Ubuntu 22.04 rodando ROS 2 Humble.
+
+Certifique-se de instalar as dependências de sistema (compiladores, bibliotecas geográficas e interface gráfica) antes de realizar o build:
+
+``` bash
+sudo apt update
+sudo apt install -y \
+  build-essential \
+  cmake \
+  python3-colcon-common-extensions \
+  libgdal-dev \
+  libglfw3-dev \
+  libgl1-mesa-dev \
+  libboost-all-dev \
+  qtbase5-dev \
+  qtbase5-dev-tools
+```
+
+Aviso para usuários de WSL (Windows Subsystem for Linux):
+Para evitar erros de permissão ou bugs no gerador de mensagens do ROS (rosidl), certifique-se de que o seu workspace esteja localizado no sistema de arquivos nativo do Linux (ex: ~/usv_digital_twin_ws) e não na partição montada do Windows (/mnt/c/...).
+
+## 📚 Clone do Repositório
+Para ter acesso ao código fonte, basta clonar o repositório usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação.
+``` bash
+git clone https://github.com/CEIA-DGS/usv_digital_twin.git
+```
+
+## 🚀 Compilação (Build)
+
+Para a compilação ser executada adequadamente, organize o workspace da seguinte forma:
+``` text
+$nome_do_workspace$/
+└── src/
+    └── usv_digital_twin/       # clone do repositório
+```
+
+Devido à hierarquia de dependências (dt_viz depende de dt_ros, que depende de dt_msgs e dt_core), utilize o colcon na raiz do seu workspace para compilar na ordem correta:
+
+``` bash
+cd ~/$nome_do_workspace$
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
+```
+
+Caso faça alterações no código, para re-compilar as alterações rode:
+
+``` bash
+colcon build --cmake-clean-cache
+```
+
+
+## 🖥️ Execução do código compilado
+
+``` bash
+source ~/$nome_do_workspace$/install/setup.bash
+ros2 run dt_viz dt_visualizer_node
 ```
 
 ---
+## 📡 API ROS2 (Tópicos e Mensagens)
 
-## 2. Estrutura 
+Para integrar módulos de navegação e controle ao Gêmeo Digital, utilize a seguinte especificação de tópicos:
 
-```cpp
-// dt_core/include/dt_core/twin_interface.hpp
-#pragma once
-#include "dt_core/types.hpp"
-#include <vector>
-#include <memory>
+### Subscribers (Tópicos Lidos pelo Sistema)
 
-namespace dt {
+| Tópico | Tipo de Mensagem | Finalidade |
+| :--- | :--- | :--- |
+| ```/sensors/gps/fix``` | ```sensor_msgs/NavSatFix``` | Atualiza a posição (Lat/Lon) global do USV. |
+| ```/sensors/imu/data``` | ```sensor_msgs/Imu``` | Atualiza a orientação (Quaternions convertidos para Euler). |
+| ```/sensors/ais/report``` | ```dt_msgs/AisReport``` | Recebe a lista de alvos dinâmicos no raio de alcance. |
+| ```/planned_route``` | ```nav_msgs/Path``` | Recebe a rota (waypoints) planejada pelo módulo de navegação. |
 
-// Essa classe representa uma "fotografia" do mundo em um instante de tempo.
-// É ela que o algoritmo de navegação vai consultar velozmente.
-class WorldStateSnapshot {
-public:
-    // --- Classe A: Representação do Ambiente ---
-    virtual float get_closest_static_obstacle_distance(const types::Point& pos) const = 0;
-    virtual bool is_inside_restricted_zone(const types::Point& pos) const = 0;
-    virtual std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const = 0;
 
-    // --- Classe B: Suporte ao Planejamento ---
-    virtual std::vector<types::Pose> predict_obstacle_trajectory(uint32_t target_id, float time_horizon, float time_step) const = 0;
-    virtual types::CollisionReport check_trajectory_collision(const std::vector<types::Pose>& candidate_path, float start_time, float speed_profile) const = 0;
-    virtual float get_dynamic_risk_field(const types::Point& position, float timestamp) const = 0;
-};
+### Publishers (Tópicos Emitidos pelo Sistema)
 
-// Interface Principal do Gêmeo Digital (Gerenciador do Buffer)
-class DigitalTwinCore {
-public:
-    // Método chamado pelo ROS2 (Assíncrono) para atualizar os dados internamente
-    void update_static_map(const MapData& map);
-    void update_vehicle_pose(const types::Pose& pose);
-    void update_dynamic_targets(const std::vector<types::Target>& targets);
+| Tópico | Tipo de Mensagem | Finalidade |
+| :--- | :--- | :--- |
+| ```/collision_alert``` | ```dt_msgs/CollisionAlert``` | Emite alertas consolidados com tempo, distância (CPA) e índice de risco calculados para cada alvo. |
 
-    // Método chamado pela NAVEGAÇÃO (Síncrono, Thread-Safe, Lock-free ou low-latency)
-    // Retorna um ponteiro inteligente para o snapshot atualizado (Double Buffering)
-    std::shared_ptr<const WorldStateSnapshot> get_latest_state() const;
-};
 
-} // namespace dt
-
-```
