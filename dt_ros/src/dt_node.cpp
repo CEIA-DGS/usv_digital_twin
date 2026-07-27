@@ -62,6 +62,11 @@ DigitalTwinNode::DigitalTwinNode(std::shared_ptr<dt::DigitalTwinCore> dt_core, c
         "/ais/report", 10,
         [this](const dt_msgs::msg::AisReport::SharedPtr msg) { ais_callback(msg); }
     );
+
+    waypoint_sub_ = this->create_subscription<dt_msgs::msg::WaypointArray>(
+        "/mission/waypoints", 10,
+        [this](const dt_msgs::msg::WaypointArray::SharedPtr msg) { waypoint_callback(msg); }
+    );
 }
 
 void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr msg) {
@@ -148,6 +153,30 @@ void DigitalTwinNode::ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg)
     }
 
     dt_core_->update_dynamic_targets(core_targets);
+}
+
+void DigitalTwinNode::waypoint_callback(const dt_msgs::msg::WaypointArray::SharedPtr msg) {
+    types::Trajectory planned_trajectory;
+    
+    for (const auto& wp : msg->waypoints) {
+        double utm_x, utm_y;
+        latLonToUTM(wp.latitude, wp.longitude, utm_x, utm_y);
+
+        types::Point p;
+        p.set_lat_lon(wp.latitude, wp.longitude);
+        p.set_x(utm_x);
+        p.set_y(utm_y);
+        p.set_z(wp.altitude);
+
+        types::Pose wp_pose;
+        wp_pose.set_position(p);
+        
+        planned_trajectory.add_pose(wp_pose);
+    }
+
+    dt_core_->update_planned_trajectory(planned_trajectory);
+    
+    RCLCPP_INFO(this->get_logger(), "Nova rota recebida com %zu waypoints e enviada ao Core.", msg->waypoints.size());
 }
 
 } // namespace dt_ros

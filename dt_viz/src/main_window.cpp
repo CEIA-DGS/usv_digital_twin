@@ -360,6 +360,23 @@ void MainWindow::updateSimulation()
     vessel_labels_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
   }
 
+  const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
+  const auto& core_waypoints = planned_traj.get_poses();
+
+  // 2. Converte para o RoutePoint que o Qt espera, invertendo o Y!
+  std::vector<RoutePoint> display_route;
+  display_route.reserve(core_waypoints.size());
+
+  for (const auto& wp : core_waypoints) {
+      RoutePoint rp;
+      rp.x = wp.get_x();
+      rp.y = -wp.get_y(); // INVERSÃO CRÍTICA PARA O QT
+      display_route.push_back(rp);
+  }
+
+  // 3. Manda desenhar na tela
+  updatePlannedRoute(display_route);
+
   // Atualiza painel lateral e barra de status
   updateInformationPanel(usv_x, usv_y, heading);
   statusBar()->showMessage(
