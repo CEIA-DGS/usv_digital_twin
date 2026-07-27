@@ -22,6 +22,7 @@
 #include <QResizeEvent>
 #include <QTimer>
 #include <QWidget>
+#include <QWheelEvent>
 
 // ============================================================
 // Bibliotecas padrão do C++
@@ -78,9 +79,18 @@ protected:
    */
   void resizeEvent(QResizeEvent * event) override;
 
+  /**
+   * @brief Intercepta eventos antes de serem processados (usado para o Zoom).
+   */
+  bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     
   std::shared_ptr<dt::DigitalTwinCore> dt_core_;
+  
+  // Armazena o centro geométrico da NavMesh para posicionamento inicial
+  double map_center_x_ = 0.0;
+  double map_center_y_ = 0.0;
   
   // Configuração inicial.
   void configureWindow();
