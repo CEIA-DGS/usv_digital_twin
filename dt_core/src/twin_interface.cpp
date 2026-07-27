@@ -2,7 +2,10 @@
 #include <mutex>
 #include <algorithm>
 #include <cmath>
+#include <memory>
 #include "prediction/prediction.hpp"
+#include "map/IndiceEspacial.hpp"
+#include "dt_core/types.hpp"
 
 namespace dt {
 
@@ -11,20 +14,26 @@ private:
     types::MapData _static_map;
     types::Pose _vehicle_pose;
     std::vector<types::Target> _targets;
+    
+    // Ponteiro compartilhado para o motor espacial já carregado
+    std::shared_ptr<IndiceEspacial> _indice_espacial;
 
 public:
     ConcreteWorldStateSnapshot(const types::MapData& map, 
                                const types::Pose& pose, 
-                               const std::vector<types::Target>& targets)
-        : _static_map(map), _vehicle_pose(pose), _targets(targets) {}
+                               const std::vector<types::Target>& targets,
+                               std::shared_ptr<IndiceEspacial> indice_espacial)
+        : _static_map(map), _vehicle_pose(pose), _targets(targets), _indice_espacial(indice_espacial) {
+        
+        // Atualiza a lista de alvos dinâmicos no motor espacial para este snapshot
+        if (_indice_espacial) {
+            _indice_espacial->update_global_targets(_targets);
+        }
+    }
 
     float get_closest_static_obstacle_distance(const types::Point& pos) const override {
-        if (!_static_map.is_loaded()) {
-            return -1.0f; // Mapa não carregado
-        }
-        double dx = pos.get_x() - _vehicle_pose.get_x();
-        double dy = pos.get_y() - _vehicle_pose.get_y();
-        return static_cast<float>(std::sqrt(dx * dx + dy * dy));
+        if (!_indice_espacial) return -1.0f;
+        return _indice_espacial->get_closest_static_obstacle_distance(pos);
     }
 
     // --- Classe C: Acesso de Estado Bruto (Para a Interface Gráfica) ---
@@ -37,22 +46,13 @@ public:
     }
 
     bool is_inside_restricted_zone(const types::Point& pos) const override {
-        // Lógica de verificação de zona restrita baseada no mapa S57/NavMesh
-        return false;
+        if (!_indice_espacial) return false;
+        return _indice_espacial->is_inside_restricted_zone(pos);
     }
 
     std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const override {
-        std::vector<types::Target> local_targets;
-        for (const auto& target : _targets) {
-            double dx = target.get_pose().get_x() - center.get_x();
-            double dy = target.get_pose().get_y() - center.get_y();
-            double distance = std::sqrt(dx * dx + dy * dy);
-            
-            if (distance <= radius) {
-                local_targets.push_back(target);
-            }
-        }
-        return local_targets;
+        if (!_indice_espacial) return std::vector<types::Target>();
+        return _indice_espacial->get_active_local_targets(center, radius);
     }
 
     types::Trajectory predict_trajectory_by_id(const int32_t id, const std::vector<types::Target>& targets, const double time_horizon, const double time_step) const override {
@@ -76,11 +76,21 @@ private:
     types::Pose _current_pose;
     std::vector<types::Target> _current_targets;
     std::shared_ptr<const ConcreteWorldStateSnapshot> _latest_snapshot;
+    
+    // Instância única do Motor Espacial mantida em memória
+    std::shared_ptr<IndiceEspacial> _motor_espacial;
 
 public:
     DigitalTwinCoreImpl() {
-        // Inicializa com um snapshot vazio seguro
-        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets);
+        // 1. Instancia o motor espacial
+        _motor_espacial = std::make_shared<IndiceEspacial>();
+        
+        // 2. Carrega os Shapefiles do disco para a RAM apenas UMA VEZ na inicialização
+        std::string dir = "../dt_core/data/output/NavMesh_Shapefiles_BR401410"; //Shapefile estático préprocessado
+        _motor_espacial->carregarShapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
+
+        // 3. Inicializa com um snapshot seguro repassando o motor espacial
+        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets, _motor_espacial);
     }
 
     void update_static_map(const types::MapData& map) {
@@ -108,13 +118,12 @@ public:
 
 private:
     void refresh_snapshot_unlocked() {
-        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets);
+        // A cada atualização (pose, alvo, mapa), gera um novo snapshot passando o motor já carregado
+        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets, _motor_espacial);
     }
 };
 
 
-// Como DigitalTwinCore na hpp não expõe os campos privados diretamente, 
-// instanciamos o impl core de forma estática/interna por arquivo ou mantemos o ponteiro.
 static DigitalTwinCoreImpl& get_core_impl() {
     static DigitalTwinCoreImpl instance;
     return instance;
