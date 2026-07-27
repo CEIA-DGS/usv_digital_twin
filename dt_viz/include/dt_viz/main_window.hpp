@@ -1,6 +1,7 @@
 #ifndef DT_VIZ_MAIN_WINDOW_HPP
 #define DT_VIZ_MAIN_WINDOW_HPP
 
+#include <string>
 #include "dt_core/twin_interface.hpp"
 #include <memory>
 
@@ -72,6 +73,15 @@ public:
   void updateCollisionAlert(
     std::uint32_t mmsi,
     bool collision_imminent);
+
+  /**
+ * @brief Carrega e desenha as camadas da carta náutica.
+ *
+ * @param directory Caminho do diretório que contém os Shapefiles.
+ * @return true quando pelo menos uma camada é carregada.
+ */
+  bool loadNauticalChartDirectory(
+    const std::string & directory);
 
 protected:
   /**
@@ -167,6 +177,14 @@ private:
   > vessel_labels_by_mmsi_;
 
   double simulation_time_;
+
+  /**
+ * @brief Remove da cena as camadas atuais da carta náutica.
+ */
+  void clearNauticalChart();
+  /// Objetos gráficos que formam a carta náutica.
+  std::vector<QGraphicsPathItem *> nautical_chart_items_;
+
 };
 
 #endif
