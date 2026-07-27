@@ -6,7 +6,6 @@
 #include <dt_msgs/msg/ais_report.hpp>
 #include <dt_core/types.hpp>
 #include <dt_core/twin_interface.hpp>
-#include <dt_core/twin_interface.hpp>
 #include <memory>
 
 namespace dt_ros {
