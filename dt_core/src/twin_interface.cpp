@@ -2,6 +2,7 @@
 #include <mutex>
 #include <algorithm>
 #include <cmath>
+#include "prediction/prediction.hpp"
 
 namespace dt {
 
@@ -55,21 +56,15 @@ public:
     }
 
     types::Trajectory predict_trajectory_by_id(const int32_t id, const std::vector<types::Target>& targets, const double time_horizon, const double time_step) const override {
-        // Delega para o módulo de predição cinemática se necessário, ou retorna vazia
-        types::Trajectory empty_traj;
-        return empty_traj;
+        return prediction::predict_trajectory_by_id(id, targets, time_horizon, time_step);
     }
 
     types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time) const override {
-        // Retorna um relatório padrão seguro
-        types::TargetCollisionReport report;
-        report.set_safety(true);
-        return report;
+        return prediction::check_collisions_on_trajectory(candidate_trajectory, usv_state, speed_profile, targets, start_time);
     }
 
     double get_dynamic_risk_field(const types::Point& position, const double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const override {
-        // Cálculo inicial do campo de risco potencial dinâmico
-        return 0.0;
+        return prediction::get_dynamic_risk_field(position, timestamp, usv_state, targets);
     }
 };
 
