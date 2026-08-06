@@ -14,100 +14,100 @@
 namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;
 
-// Definições de primitivas geométricas utilizando o motor Boost.Geometry
+// Definitions of geometric primitives using the Boost.Geometry engine
 typedef bg::model::d2::point_xy<double> BgPoint;
 typedef bg::model::segment<BgPoint> BgSegment;
 typedef bg::model::box<BgPoint> BgBox;
 typedef bg::model::polygon<BgPoint> BgPolygon;
 
-// Pares indexados para inserção eficiente nas estruturas R-Tree do Boost
+// Indexed pairs for efficient insertion into Boost R-Tree structures
 typedef std::pair<BgBox, BgSegment> RTreeSegmentValue;
 typedef std::pair<BgBox, size_t> RTreePolygonValue;
 
 /**
- * @brief Motor de indexação e consultas espaciais em alta performance.
+ * @brief High-performance spatial indexing and querying engine.
  * 
- * Utiliza árvores espaciais R-Tree (via Boost.Geometry) para realizar buscas de 
- * proximidade em tempo real (OLogN), verificação de zonas restricted (NavMesh) 
- * e gerenciamento de alvos dinâmicos no ecossistema do robô.
+ * Uses R-Tree spatial trees (via Boost.Geometry) to perform real-time 
+ * proximity searches (OLogN), restricted zone verification (NavMesh), 
+ * and dynamic target management within the robot's ecosystem.
  */
 class SpatialIndex {
 private:
-    bgi::rtree<RTreeSegmentValue, bgi::quadratic<16>> rtree_margin_; ///< Índice espacial R-Tree para os segmentos da margem de segurança.
-    bgi::rtree<RTreePolygonValue, bgi::quadratic<16>> rtree_mesh_;   ///< Índice espacial R-Tree para os polígonos triangulados da NavMesh.
-    std::vector<BgPolygon> mesh_triangles_;                          ///< Cache de geometria dos triângulos para consultas de inclusão.
-    std::vector<types::Target> global_targets_cache_;                ///< Cache interno para gerenciar o estado dos alvos dinâmicos.
+    bgi::rtree<RTreeSegmentValue, bgi::quadratic<16>> rtree_margin_; ///< R-Tree spatial index for safety margin segments.
+    bgi::rtree<RTreePolygonValue, bgi::quadratic<16>> rtree_mesh_;   ///< R-Tree spatial index for triangulated NavMesh polygons.
+    std::vector<BgPolygon> mesh_triangles_;                          ///< Geometry cache of triangles for inclusion queries.
+    std::vector<types::Target> global_targets_cache_;                ///< Internal cache to manage the state of dynamic targets.
 
 public:
     /**
-     * @brief Construtor padrão da classe SpatialIndex.
+     * @brief Default constructor for the SpatialIndex class.
      */
     SpatialIndex() = default;
 
     /**
-     * @brief Destrutor padrão da classe SpatialIndex.
+     * @brief Default destructor for the SpatialIndex class.
      */
     ~SpatialIndex() = default;
 
     /**
-     * @brief Carrega, processa e constrói as R-Trees espaciais a partir de arquivos Shapefile em disco.
-     * @param margin_shp Caminho para o arquivo `.shp` referente à margem de segurança.
-     * @param mesh_shp Caminho para o arquivo `.shp` referente à malha de navegação.
-     * @return true se o carregamento e indexação ocorreram com sucesso, false caso contrário.
+     * @brief Loads, processes, and builds spatial R-Trees from Shapefiles on disk.
+     * @param margin_shp Path to the `.shp` file regarding the safety margin.
+     * @param mesh_shp Path to the `.shp` file regarding the navigation mesh.
+     * @return true if loading and indexing were successful, false otherwise.
      */
     bool load_shapefiles(const std::string& margin_shp, const std::string& mesh_shp);
 
     /**
-     * @brief Calcula a distância euclidiana até o obstáculo estático mais próximo.
-     * @param position Posição atual do veículo (contendo coordenadas X e Y).
-     * @return Distância em metros até a margem ou obstáculo mapeado mais próximo.
+     * @brief Calculates the Euclidean distance to the nearest static obstacle.
+     * @param position Current position of the vehicle (containing X and Y coordinates).
+     * @return Distance in meters to the nearest mapped margin or obstacle.
      */
     float get_closest_static_obstacle_distance(const types::Point& position) const;
 
     /**
-     * @brief Verifica se uma dada posição encontra-se dentro de uma zona restrita (fora da NavMesh).
-     * @param position Posição atual do veículo a ser testada.
-     * @return true se o ponto estiver em zona restrita/perigosa, false se estiver em área navegável segura.
+     * @brief Checks if a given position is inside a restricted zone (outside the NavMesh).
+     * @param position Current position of the vehicle to be tested.
+     * @return true if the point is in a restricted/dangerous zone, false if it is in a safe navigable area.
      */
     bool is_inside_restricted_zone(const types::Point& position) const;
     
     /**
-     * @brief Atualiza o cache interno de alvos globais monitorados pelo sistema.
-     * @param targets Vetor contendo os novos alvos processados pela camada de percepção.
+     * @brief Updates the internal cache of global targets monitored by the system.
+     * @param targets Vector containing the new targets processed by the perception layer.
      */
     void update_global_targets(const std::vector<types::Target>& targets);
 
     /**
-     * @brief Filtra e retorna os alvos ativos dentro de um raio de alcance local em relação a um centro.
-     * @param center Ponto central de referência.
-     * @param radius Raio máximo de busca em metros.
-     * @return Vetor contendo apenas os alvos localizados dentro da área de interesse.
+     * @brief Filters and returns active targets within a local range radius relative to a center.
+     * @param center Central reference point.
+     * @param radius Maximum search radius in meters.
+     * @return Vector containing only the targets located within the area of interest.
      */
     std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const;
 
     // -------------------------------------------------------------------------
-    // Métodos Base e Debug
+    // Base and Debug Methods
     // -------------------------------------------------------------------------
 
     /**
-     * @brief Método auxiliar que calcula a distância exata em metros até a margem de segurança.
-     * @param position Posição de referência em formato `types::Point`.
-     * @return Menor distância geométrica calculada via R-Tree.
+     * @brief Auxiliary method that calculates the exact distance in meters to the safety margin.
+     * @param position Reference position in `types::Point` format.
+     * @return Shortest geometric distance calculated via R-Tree.
      */
     double calculate_margin_distance(const types::Point& position) const;
 
     /**
-     * @brief Avalia se um ponto específico pertence estritamente ao polígono navegável.
-     * @param position Coordenadas de teste.
-     * @return true se o ponto estiver contido na malha navegável, false caso contrário.
+     * @brief Evaluates whether a specific point strictly belongs to the navigable polygon.
+     * @param position Test coordinates.
+     * @return true if the point is contained within the navigable mesh, false otherwise.
      */
     bool is_navigable(const types::Point& position) const;
 
     /**
-     * @brief Gera arquivos de depuração espacial para validação de consultas da R-Tree via QGIS.
-     * @param test_points Vetor de pontos de amostra para testes de proximidade.
-     * @param output_folder Diretório de salvamento dos arquivos vetoriais gerados.
-     * @param epsg_utm Código EPSG da projeção cartográfica UTM aplicada.
+     * @brief Generates spatial debugging files to validate R-Tree queries via QGIS.
+     * @param test_points Vector of sample points for proximity testing.
+     * @param output_folder Save directory for the generated vector files.
+     * @param epsg_utm EPSG code of the applied UTM cartographic projection.
      */
     void export_rtree_debug(const std::vector<types::Point>& test_points, const std::string& output_folder, int epsg_utm) const;
 };

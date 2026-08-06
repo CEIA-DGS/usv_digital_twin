@@ -4,22 +4,22 @@
 #include "../../include/map/gdal_initializer.hpp"
 
 /**
- * @brief Executa o parsing analítico de cartas náuticas S-57, extraindo e reprojetando features cartográficas para UTM dinâmico.
- * @param s57_path Caminho físico do arquivo binário S-57 (.000).
- * @param config Estrutura contendo os vetores de strings com as classes de mapeamento desejadas.
- * @return Estrutura ProcessedGeometries contendo os ponteiros das geometrias reprojetadas para UTM métrico real.
+ * @brief Executes the analytical parsing of S-57 nautical charts, extracting and reprojecting cartographic features to dynamic UTM.
+ * @param s57_path Physical path of the S-57 binary file (.000).
+ * @param config Structure containing the string vectors with the desired mapping classes.
+ * @return ProcessedGeometries structure containing the pointers of the geometries reprojected to real metric UTM.
  */
 ProcessedGeometries S57Processor::process_chart(const std::string& s57_path, const MapConfiguration& config) {
     ProcessedGeometries result;
 
-    // Instancia o dataset vetorial S-57 via abstração nativa da GDAL
+    // Instantiates the S-57 vector dataset via native GDAL abstraction
     GDALDataset* dataset = (GDALDataset*)GDALOpenEx(s57_path.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
     if (!dataset) {
-        std::cerr << "Erro: Nao foi possivel abrir a carta S-57: " << s57_path << std::endl;
+        std::cerr << "Error: Could not open the S-57 chart: " << s57_path << std::endl;
         exit(1);
     }
 
-    // Descobre o envelope geográfico global da carta para calcular o Fuso UTM dinâmico
+    // Discovers the global geographic envelope of the chart to calculate the dynamic UTM Zone
     OGREnvelope global_envelope;
     bool is_envelope_valid = false;
     for (int i = 0; i < dataset->GetLayerCount(); ++i) {
@@ -37,49 +37,49 @@ ProcessedGeometries S57Processor::process_chart(const std::string& s57_path, con
         }
     }
 
-    // Validação estrita: Se o envelope falhar, aborta imediatamente com exceção.
+    // Strict validation: If the envelope fails, abort immediately with an exception.
     if (!is_envelope_valid) {
-        throw std::runtime_error("[S57Processor] Erro crítico: Envelope global da carta S-57 inválido ou vazio. Impossível determinar o sistema de coordenadas UTM.");
+        throw std::runtime_error("[S57Processor] Critical error: Global envelope of the S-57 chart is invalid or empty. Impossible to determine the UTM coordinate system.");
     }
 
     double center_lon = (global_envelope.MinX + global_envelope.MaxX) / 2.0;
     double center_lat = (global_envelope.MinY + global_envelope.MaxY) / 2.0;
 
-    // Cálculo automático do Fuso UTM e código EPSG baseado na posição da carta
+    // Automatic calculation of the UTM Zone and EPSG code based on the chart's position
     int utm_zone = static_cast<int>(std::floor((center_lon + 180.0) / 6.0)) + 1;
-    int epsg_utm = (center_lat >= 0) ? (32600 + utm_zone) : (32700 + utm_zone); // 326xx para Norte, 327xx para Sul
+    int epsg_utm = (center_lat >= 0) ? (32600 + utm_zone) : (32700 + utm_zone); // 326xx for North, 327xx for South
 
-    // Armazena o EPSG calculado na estrutura de retorno
+    // Stores the calculated EPSG in the return structure
     result.dynamic_utm_epsg = epsg_utm;
 
-    std::cout << "\n[Processador] Centro geografico da carta: Lon=" << center_lon << ", Lat=" << center_lat << std::endl;
-    std::cout << "[Processador] Fuso UTM detectado: " << utm_zone << " | Sistema de Destino EPSG:" << epsg_utm << " (Metros Reais)\n";
+    std::cout << "\n[Processor] Geographic center of the chart: Lon=" << center_lon << ", Lat=" << center_lat << std::endl;
+    std::cout << "[Processor] UTM Zone detected: " << utm_zone << " | Target System EPSG:" << epsg_utm << " (Real Meters)\n";
 
-    // Define o Sistema de Referência Espacial de origem (WGS84 Geográfico)
+    // Defines the source Spatial Reference System (Geographic WGS84)
     OGRSpatialReference source_srs;
     source_srs.importFromEPSG(4326);
-    source_srs.SetAxisMappingStrategy(OAMS_TRADITIONAL_GIS_ORDER); // Força ordem Longitude/Latitude padrão GIS
+    source_srs.SetAxisMappingStrategy(OAMS_TRADITIONAL_GIS_ORDER); // Forces standard GIS Longitude/Latitude order
 
-    // Define o Sistema de Referência Espacial de destino (UTM Métrico Dinâmico)
+    // Defines the target Spatial Reference System (Dynamic Metric UTM)
     OGRSpatialReference target_srs;
     target_srs.importFromEPSG(epsg_utm);
 
-    // Inicializa o motor matemático de transformação e reprojeção de coordenadas
+    // Initializes the mathematical engine for coordinate transformation and reprojection
     OGRCoordinateTransformation* transformer = OGRCreateCoordinateTransformation(&source_srs, &target_srs);
     if (!transformer) {
-        std::cerr << "Erro: Falha ao criar o transformador de coordenadas UTM." << std::endl;
+        std::cerr << "Error: Failed to create the UTM coordinate transformer." << std::endl;
         GDALClose(dataset);
         exit(1);
     }
 
-    std::cout << "[Processador] Analisando e extraindo camadas do config.json..." << std::endl;
+    std::cout << "[Processor] Analyzing and extracting layers from config.json..." << std::endl;
     
-    // Função lambda para processamento em lote, reprojeção espacial e diagnóstico de camadas OGR
+    // Lambda function for batch processing, spatial reprojection, and OGR layer diagnostics
     auto extract_layers_with_diagnostic = [&](const std::vector<std::string>& classes, std::vector<OGRGeometry*>& target_vector, const std::string& layer_type_name) {
         for (const auto& class_name : classes) {
             OGRLayer* layer = dataset->GetLayerByName(class_name.c_str());
             if (!layer) {
-                std::cout << "  [AVISO] Classe de " << layer_type_name << " ('" << class_name << "') NAO existe nesta carta." << std::endl;
+                std::cout << "  [WARNING] " << layer_type_name << " class ('" << class_name << "') does NOT exist in this chart." << std::endl;
                 continue;
             }
             
@@ -87,34 +87,34 @@ ProcessedGeometries S57Processor::process_chart(const std::string& s57_path, con
             OGRFeature* feature;
             layer->ResetReading();
             
-            // Loop de iteração sobre as features físicas contidas no layer S-57
+            // Iteration loop over the physical features contained in the S-57 layer
             while ((feature = layer->GetNextFeature()) != nullptr) {
                 OGRGeometry* original_geom = feature->GetGeometryRef();
                 if (original_geom != nullptr) {
-                    // Clona a geometria para desvincular seu ciclo de vida do OGRFeature
+                    // Clones the geometry to decouple its lifecycle from the OGRFeature
                     OGRGeometry* cloned_geom = original_geom->clone();
                     
-                    // Executa a transposição matemática de coordenadas in-place para UTM métrico
+                    // Executes the in-place mathematical coordinate transposition to metric UTM
                     cloned_geom->transform(transformer);
                     target_vector.push_back(cloned_geom);
                     total_features++;
                 }
-                // Liberação da feature consumida para evitar vazamento de memória
+                // Release of the consumed feature to avoid memory leaks
                 OGRFeature::DestroyFeature(feature);
             }
-            std::cout << "  [OK] Classe " << layer_type_name << " ('" << class_name << "') extraida com sucesso. Feicoes: " << total_features << std::endl;
+            std::cout << "  [OK] " << layer_type_name << " class ('" << class_name << "') extracted successfully. Features: " << total_features << std::endl;
         }
     };
 
-    // Execução do pipeline de extração para a submalha hidrogáfica navegável
-    std::cout << "--- Extraindo Areas Navegaveis ---" << std::endl;
-    extract_layers_with_diagnostic(config.navigable_classes, result.navigable_area, "Navegavel");
+    // Execution of the extraction pipeline for the navigable hydrographic sub-mesh
+    std::cout << "--- Extracting Navigable Areas ---" << std::endl;
+    extract_layers_with_diagnostic(config.navigable_classes, result.navigable_area, "Navigable");
 
-    // Execução do pipeline de extração para a submalha de colisão e contornos de terra firme
-    std::cout << "--- Extraindo Obstaculos / Terra ---" << std::endl;
-    extract_layers_with_diagnostic(config.collision_classes, result.obstacles, "Colisao/Terra"); 
+    // Execution of the extraction pipeline for the collision sub-mesh and land boundaries
+    std::cout << "--- Extracting Obstacles / Land ---" << std::endl;
+    extract_layers_with_diagnostic(config.collision_classes, result.obstacles, "Collision/Land"); 
 
-    // Desalocação do contexto de transformação espacial e fechamento seguro do arquivo
+    // Deallocation of the spatial transformation context and safe closing of the file
     OGRCoordinateTransformation::DestroyCT(transformer);
     GDALClose(dataset);
     

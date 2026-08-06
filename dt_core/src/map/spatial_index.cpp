@@ -6,9 +6,9 @@
 #include "../../include/map/gdal_initializer.hpp"
 
 /**
- * @brief Função auxiliar interna para injetar vértices de um anel linear na R-Tree de distâncias.
- * @param ring Ponteiro para o anel linear (OGRLinearRing) contendo os vértices da geometria.
- * @param rtree Referência para a R-Tree de segmentos onde as caixas delimitadoras serão inseridas.
+ * @brief Internal auxiliary function to inject vertices of a linear ring into the distance R-Tree.
+ * @param ring Pointer to the linear ring (OGRLinearRing) containing the geometry vertices.
+ * @param rtree Reference to the segment R-Tree where the bounding boxes will be inserted.
  */
 void inject_ring_into_rtree(OGRLinearRing* ring, bgi::rtree<RTreeSegmentValue, bgi::quadratic<16>>& rtree) {
     if (!ring) return;
@@ -23,14 +23,20 @@ void inject_ring_into_rtree(OGRLinearRing* ring, bgi::rtree<RTreeSegmentValue, b
     }
 }
 
-// CARREGAMENTO DOS DADOS (MARGEM E NAVMESH)
+// DATA LOADING (MARGIN AND NAVMESH)
 
+/**
+ * @brief Loads, processes, and builds spatial R-Trees from Shapefiles on disk.
+ * @param margin_shp Path to the `.shp` file regarding the safety margin.
+ * @param mesh_shp Path to the `.shp` file regarding the navigation mesh.
+ * @return true if loading and indexing were successful, false otherwise.
+ */
 bool SpatialIndex::load_shapefiles(const std::string& margin_shp, const std::string& mesh_shp) {
     rtree_margin_.clear();
     rtree_mesh_.clear();
     mesh_triangles_.clear();
 
-    // CARREGA MARGEM DE SEGURANÇA
+    // LOADS SAFETY MARGIN
     GDALDataset* ds_margin = (GDALDataset*)GDALOpenEx(margin_shp.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
     if (ds_margin) {
         OGRLayer* layer_margin = ds_margin->GetLayer(0);
@@ -59,10 +65,10 @@ bool SpatialIndex::load_shapefiles(const std::string& margin_shp, const std::str
         }
         GDALClose(ds_margin);
     } else {
-        std::cerr << "[SpatialIndex] Erro ao abrir Margem: " << margin_shp << "\n";
+        std::cerr << "[SpatialIndex] Error opening Margin: " << margin_shp << "\n";
     }
 
-    // CARREGA MALHA DE NAVEGAÇÃO
+    // LOADS NAVIGATION MESH
     GDALDataset* ds_mesh = (GDALDataset*)GDALOpenEx(mesh_shp.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
     if (ds_mesh) {
         OGRLayer* layer_mesh = ds_mesh->GetLayer(0);
@@ -95,28 +101,33 @@ bool SpatialIndex::load_shapefiles(const std::string& margin_shp, const std::str
         }
         GDALClose(ds_mesh);
     } else {
-        std::cerr << "[SpatialIndex] Erro ao abrir Malha: " << mesh_shp << "\n";
+        std::cerr << "[SpatialIndex] Error opening Mesh: " << mesh_shp << "\n";
     }
 
-    std::cout << "[SpatialIndex] R-Trees Prontas! Segmentos da Margem: " << rtree_margin_.size() 
-              << " | Triangulos da NavMesh: " << rtree_mesh_.size() << "\n";
+    std::cout << "[SpatialIndex] R-Trees Ready! Margin Segments: " << rtree_margin_.size() 
+              << " | NavMesh Triangles: " << rtree_mesh_.size() << "\n";
     return true;
 }
 
-// FUNÇÕES DE CÁLCULO MATEMÁTICO RÁPIDO
+// FAST MATHEMATICAL CALCULATION FUNCTIONS
 
+/**
+ * @brief Auxiliary method that calculates the exact distance in meters to the safety margin.
+ * @param position Reference position in `types::Point` format.
+ * @return Shortest geometric distance calculated via R-Tree.
+ */
 double SpatialIndex::calculate_margin_distance(const types::Point& position) const {
     if (rtree_margin_.empty()) return -1.0; 
 
     BgPoint search_point(position.get_x(), position.get_y());
     std::vector<RTreeSegmentValue> results;
     
-    // Consulta as 50 caixas mais próximas para garantir a correta
+    // Queries the 50 closest boxes to ensure the correct one is found
     rtree_margin_.query(bgi::nearest(search_point, 50), std::back_inserter(results));
     
     if (results.empty()) return -1.0;
 
-    // Realiza a medição exata ponto-a-segmento para os 50 candidatos
+    // Performs exact point-to-segment measurement for the 50 candidates
     double exact_min_distance = std::numeric_limits<double>::max();
     for (const auto& res : results) {
         double dist = bg::distance(search_point, res.second);
@@ -128,32 +139,43 @@ double SpatialIndex::calculate_margin_distance(const types::Point& position) con
     return exact_min_distance;
 }
 
+/**
+ * @brief Evaluates whether a specific point strictly belongs to the navigable polygon.
+ * @param position Test coordinates.
+ * @return true if the point is contained within the navigable mesh, false otherwise.
+ */
 bool SpatialIndex::is_navigable(const types::Point& position) const {
     if (rtree_mesh_.empty()) return false;
 
     BgPoint search_point(position.get_x(), position.get_y());
     std::vector<RTreePolygonValue> candidates;
     
-    // Consulta a R-Tree de triângulos interceptados geometricamente
+    // Queries the R-Tree for geometrically intercepted triangles
     rtree_mesh_.query(bgi::intersects(search_point), std::back_inserter(candidates));
     
     for (const auto& candidate : candidates) {
         size_t index = candidate.second; 
         if (bg::within(search_point, mesh_triangles_[index])) {
-            return true; // Ponto está estritamente dentro de um triângulo navegável seguro
+            return true; // Point is strictly inside a safe navigable triangle
         }
     }
-    return false; // Fora da malha de navegação
+    return false; // Outside the navigation mesh
 }
 
-// DEBUG VISUAL DAS R-TREES E LINHAS DE DISTÂNCIA PARA OS PONTOS NAVEGÁVEIS
+// VISUAL DEBUGGING OF R-TREES AND DISTANCE LINES FOR NAVIGABLE POINTS
 
+/**
+ * @brief Generates spatial debugging files to validate R-Tree queries via QGIS.
+ * @param test_points Vector of sample points for proximity testing.
+ * @param output_folder Save directory for the generated vector files.
+ * @param epsg_utm EPSG code of the applied UTM cartographic projection.
+ */
 void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_points, const std::string& output_folder, int epsg_utm) const {
     GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("ESRI Shapefile");
     OGRSpatialReference srs; 
     srs.importFromEPSG(epsg_utm);
 
-    // R-TREE DA MARGEM DE SEGURANÇA
+    // SAFETY MARGIN R-TREE
     if (!rtree_margin_.empty()) {
         std::string path_margin = output_folder + "/98_RTree_Caixas_Margem.shp";
         if (std::filesystem::exists(path_margin)) driver->Delete(path_margin.c_str());
@@ -173,7 +195,7 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
             OGRFeature* feat = OGRFeature::CreateFeature(layer_margin->GetLayerDefn());
             feat->SetGeometry(&poly);
             if (layer_margin->CreateFeature(feat) != OGRERR_NONE) {
-                std::cerr << "[SpatialIndex] Aviso: Falha ao desenhar caixa de debug da margem.\n";
+                std::cerr << "[SpatialIndex] Warning: Failed to draw margin debug box.\n";
             }
             OGRFeature::DestroyFeature(feat);
         }
@@ -181,7 +203,7 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
         GDALClose(ds_margin);
     }
 
-    // R-TREE DA MALHA DE NAVEGAÇÃO
+    // NAVIGATION MESH R-TREE
     if (!rtree_mesh_.empty()) {
         std::string path_mesh = output_folder + "/97_RTree_Caixas_Malha.shp";
         if (std::filesystem::exists(path_mesh)) driver->Delete(path_mesh.c_str());
@@ -201,7 +223,7 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
             OGRFeature* feat = OGRFeature::CreateFeature(layer_mesh->GetLayerDefn());
             feat->SetGeometry(&poly);
             if (layer_mesh->CreateFeature(feat) != OGRERR_NONE) {
-                std::cerr << "[SpatialIndex] Aviso: Falha ao desenhar caixa de debug da malha.\n";
+                std::cerr << "[SpatialIndex] Warning: Failed to draw mesh debug box.\n";
             }
             OGRFeature::DestroyFeature(feat);
         }
@@ -209,26 +231,26 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
         GDALClose(ds_mesh);
     }
 
-    // LINHAS DE DISTÂNCIA EXATA ATÉ A MARGEM (Apenas para pontos na área navegável)
+    // EXACT DISTANCE LINES TO THE MARGIN (Only for points in the navigable area)
     if (!rtree_margin_.empty() && !test_points.empty()) {
         std::string path_line = output_folder + "/96_RTree_Distancia.shp";
         if (std::filesystem::exists(path_line)) driver->Delete(path_line.c_str());
         GDALDataset* ds_line = driver->Create(path_line.c_str(), 0, 0, 0, GDT_Unknown, nullptr);
         OGRLayer* layer_line = ds_line->CreateLayer("linhas", &srs, wkbLineString, nullptr);
         
-        OGRFieldDefn field_type("Tipo", OFTString);
+        OGRFieldDefn field_type("Tipo", OFTString); // Type field
         if (layer_line->CreateField(&field_type) != OGRERR_NONE) {
-            std::cerr << "[SpatialIndex] Aviso: Falha ao criar campo Tipo.\n";
+            std::cerr << "[SpatialIndex] Warning: Failed to create Type field.\n";
         }
-        OGRFieldDefn field_dist("Distancia", OFTReal);
+        OGRFieldDefn field_dist("Distancia", OFTReal); // Distance field
         if (layer_line->CreateField(&field_dist) != OGRERR_NONE) {
-            std::cerr << "[SpatialIndex] Aviso: Falha ao criar campo Distancia.\n";
+            std::cerr << "[SpatialIndex] Warning: Failed to create Distance field.\n";
         }
 
         for (const auto& pt : test_points) {
             BgPoint search_point(pt.get_x(), pt.get_y());
 
-            // Valida se o ponto está na área navegável antes de desenhar a linha de distância
+            // Validates if the point is in the navigable area before drawing the distance line
             bool is_navigable_point = false;
             std::vector<RTreePolygonValue> candidates;
             rtree_mesh_.query(bgi::intersects(search_point), std::back_inserter(candidates));
@@ -239,7 +261,7 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
                 }
             }
 
-            if (!is_navigable_point) continue; // Pula pontos fora da área navegável
+            if (!is_navigable_point) continue; // Skips points outside the navigable area
 
             std::vector<RTreeSegmentValue> results;
             rtree_margin_.query(bgi::nearest(search_point, 50), std::back_inserter(results));
@@ -273,11 +295,11 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
                 distance_line.addPoint(proj_x, proj_y);
                 
                 OGRFeature* feat_dist = OGRFeature::CreateFeature(layer_line->GetLayerDefn());
-                feat_dist->SetField("Tipo", "Distancia_Ate_Margem");
+                feat_dist->SetField("Tipo", "Distance_To_Margin"); // Translated field content
                 feat_dist->SetField("Distancia", min_dist);
                 feat_dist->SetGeometry(&distance_line);
                 if (layer_line->CreateFeature(feat_dist) != OGRERR_NONE) {
-                    std::cerr << "[SpatialIndex] Aviso: Falha ao desenhar linha de distancia.\n";
+                    std::cerr << "[SpatialIndex] Warning: Failed to draw distance line.\n";
                 }
                 OGRFeature::DestroyFeature(feat_dist);
             }
@@ -285,23 +307,43 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
         layer_line->SyncToDisk();
         GDALClose(ds_line);
     }
-    std::cout << "[DEBUG] Shapefiles das R-Trees e Linhas de Distancia gravados (Arquivos 96, 97 e 98).\n";
+    std::cout << "[DEBUG] R-Trees and Distance Lines Shapefiles saved (Files 96, 97, and 98).\n";
 }
 
-// MÉTODOS DE INTERFACE
+// INTERFACE METHODS
 
+/**
+ * @brief Calculates the Euclidean distance to the nearest static obstacle.
+ * @param position Current position of the vehicle (containing X and Y coordinates).
+ * @return Distance in meters to the nearest mapped margin or obstacle.
+ */
 float SpatialIndex::get_closest_static_obstacle_distance(const types::Point& position) const {
     return static_cast<float>(calculate_margin_distance(position));
 }
 
+/**
+ * @brief Checks if a given position is inside a restricted zone (outside the NavMesh).
+ * @param position Current position of the vehicle to be tested.
+ * @return true if the point is in a restricted/dangerous zone, false if it is in a safe navigable area.
+ */
 bool SpatialIndex::is_inside_restricted_zone(const types::Point& position) const {
     return !is_navigable(position);
 }
 
+/**
+ * @brief Updates the internal cache of global targets monitored by the system.
+ * @param targets Vector containing the new targets processed by the perception layer.
+ */
 void SpatialIndex::update_global_targets(const std::vector<types::Target>& targets) {
     global_targets_cache_ = targets;
 }
 
+/**
+ * @brief Filters and returns active targets within a local range radius relative to a center.
+ * @param center Central reference point.
+ * @param radius Maximum search radius in meters.
+ * @return Vector containing only the targets located within the area of interest.
+ */
 std::vector<types::Target> SpatialIndex::get_active_local_targets(const types::Point& center, float radius) const {
     std::vector<types::Target> local_targets;
     

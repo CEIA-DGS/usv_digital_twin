@@ -4,13 +4,13 @@
 #include "s57_processor.hpp"
 
 /**
- * @brief Primitivas geométricas para representação da malha de navegação.
+ * @brief Geometric primitives for representing the navigation mesh.
  */
 struct Point2D { double x, y; };
 struct Triangle { Point2D p1, p2, p3; };
 
 /**
- * @brief Estrutura de dados contendo a malha triangular processada e geometrias auxiliares.
+ * @brief Data structure containing the processed triangular mesh and auxiliary geometries.
  */
 struct NavigationMesh {
     std::vector<Triangle> triangles;
@@ -19,7 +19,7 @@ struct NavigationMesh {
     OGRGeometry* safe_navigable_perimeter = nullptr;
 
     /**
-     * @brief Desaloca a memória ocupada pelas geometrias OGR mantidas em cache.
+     * @brief Deallocates the memory occupied by the cached OGR geometries.
      */
     void free_memory() {
         if (original_land) OGRGeometryFactory::destroyGeometry(original_land);
@@ -29,46 +29,46 @@ struct NavigationMesh {
 };
 
 /**
- * @brief Motor geométrico para processamento e geração da malha de navegação.
+ * @brief Geometric engine for processing and generating the navigation mesh.
  * 
- * Atua como uma classe utilitária estática. Executa operações booleanas, 
- * filtragem espacial e a Triangulação de Delaunay Restrita (CDT).
+ * Acts as a static utility class. Executes boolean operations, 
+ * spatial filtering, and Constrained Delaunay Triangulation (CDT).
  */
 class MeshGenerator {
 public:
-    // Evita a instanciação acidental da classe
+    // Prevents accidental instantiation of the class
     MeshGenerator() = delete;
 
     /**
-     * @brief Pipeline completo de geração da malha a partir de dados S-57 processados.
-     * @param geometries Estrutura contendo os polígonos base de água e terra.
-     * @param margin_meters Distância da margem de segurança a ser expandida (Buffer).
-     * @param simplification_tolerance Erro máximo permitido (em metros) na redução de vértices (Douglas-Peucker).
-     * @return NavigationMesh contendo os triângulos gerados e polígonos auxiliares.
+     * @brief Complete pipeline for generating the mesh from processed S-57 data.
+     * @param geometries Structure containing the base water and land polygons.
+     * @param margin_meters Distance of the safety margin to be expanded (Buffer).
+     * @param simplification_tolerance Maximum allowed error (in meters) for vertex reduction (Douglas-Peucker).
+     * @return NavigationMesh containing the generated triangles and auxiliary polygons.
      */
     static NavigationMesh generate(const ProcessedGeometries& geometries, double margin_meters, double simplification_tolerance);
 
 private:
     /**
-     * @brief Consolida um conjunto de geometrias fragmentadas em um único objeto unificado.
-     * @param geometry_list Vetor de ponteiros para as geometrias a serem unidas.
-     * @return Ponteiro OGRGeometry para a geometria fundida resultante.
+     * @brief Consolidates a set of fragmented geometries into a single unified object.
+     * @param geometry_list Vector of pointers to the geometries to be merged.
+     * @return OGRGeometry pointer to the resulting merged geometry.
      */
     static OGRGeometry* union_geometries(const std::vector<OGRGeometry*>& geometry_list);
     
     /**
-     * @brief Executa a triangulação CDT (Constrained Delaunay) em polígonos com furos.
-     * @param polygon Ponteiro do polígono base a ser triangulado.
-     * @param target_list Vetor de saída onde as estruturas de Triângulos geradas serão anexadas.
-     * @param fail_counter Referência para contagem de falhas do motor geométrico poly2tri.
+     * @brief Executes the Constrained Delaunay Triangulation (CDT) on polygons with holes.
+     * @param polygon Pointer to the base polygon to be triangulated.
+     * @param target_list Output vector where the generated Triangle structures will be appended.
+     * @param fail_counter Reference for counting failures in the poly2tri geometric engine.
      */
     static void triangulate_polygon(OGRPolygon* polygon, std::vector<Triangle>& target_list, int& fail_counter);
     
     /**
-     * @brief Filtra features poligonais baseadas em um limiar mínimo de área.
-     * @param geom Ponteiro para a geometria de entrada original.
-     * @param min_area Área mínima exigida em metros quadrados para que a feature seja mantida.
-     * @return Ponteiro OGRGeometry para a nova geometria filtrada.
+     * @brief Filters polygonal features based on a minimum area threshold.
+     * @param geom Pointer to the original input geometry.
+     * @param min_area Minimum required area in square meters for the feature to be kept.
+     * @return OGRGeometry pointer to the new filtered geometry.
      */
     static OGRGeometry* filter_by_area(OGRGeometry* geom, double min_area);
 };

@@ -6,39 +6,39 @@
 using json = nlohmann::json;
 
 /**
- * @brief Carrega e decodifica os parâmetros operacionais e as classes de features geoespaciais a partir de um arquivo JSON.
- * @param file_path Caminho físico do arquivo de configuração do sistema.
- * @return Estrutura MapConfiguration preenchida com as variáveis de segurança e filtros de camadas.
+ * @brief Loads and decodes operational parameters and geospatial feature classes from a JSON file.
+ * @param file_path Physical path of the system configuration file.
+ * @return MapConfiguration structure populated with safety variables and layer filters.
  */
 MapConfiguration ConfigManager::load_configuration(const std::string& file_path) {
     MapConfiguration config;
     std::ifstream file(file_path);
     
-    // Valida a inicialização e abertura do fluxo de leitura do arquivo
+    // Validates the initialization and opening of the file reading stream
     if (!file.is_open()) {
-        std::cerr << "Erro: Nao foi possivel abrir o arquivo de configuracao: " << file_path << std::endl;
+        std::cerr << "Error: Could not open the configuration file: " << file_path << std::endl;
         exit(1);
     }
 
-    // Executa o parsing do fluxo de entrada para o objeto JSON da biblioteca
+    // Executes the parsing of the input stream into the library's JSON object
     json j;
     file >> j;
 
-    // Mapeamento direto dos parâmetros primitivos numéricos
-    // Nota: As chaves do JSON ("margem_seguranca_metros") foram mantidas no original para compatibilidade com o arquivo físico.
+    // Direct mapping of primitive numerical parameters
+    // Note: JSON keys (e.g., "margem_seguranca_metros") were kept in the original Portuguese for compatibility with the physical file.
     config.safety_margin = j["margem_seguranca_metros"];
     config.simplification_tolerance = j["tolerancia_simplificacao"];
     
-    // Extrai as strings identificadoras das classes de feições navegáveis
+    // Extracts the identifying strings of the navigable feature classes
     for (const auto& item : j["classes_navegaveis"]) {
         config.navigable_classes.push_back(item);
     }
     
-    // Extrai as strings identificadoras das classes de restrição e obstáculos
+    // Extracts the identifying strings of the restriction and obstacle classes
     for (const auto& item : j["classes_colisao"]) {
         config.collision_classes.push_back(item);
     }
 
-    std::cout << "[Config] Arquivo carregado com sucesso." << std::endl;
+    std::cout << "[Config] File loaded successfully." << std::endl;
     return config;
 }

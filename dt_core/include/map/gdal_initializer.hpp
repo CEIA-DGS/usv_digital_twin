@@ -7,24 +7,24 @@
 #include "cpl_conv.h"
 
 /**
- * @brief Gerenciador de inicialização estática da biblioteca GDAL.
+ * @brief Static initialization manager for the GDAL library.
  */
 class GdalInitializer {
 public:
-    // Evita a instanciação acidental da classe
+    // Prevents accidental instantiation of the class
     GdalInitializer() = delete;
 
     /**
-     * @brief Executa o registro global dos drivers da GDAL e configura variáveis de ambiente.
+     * @brief Executes the global registration of GDAL drivers and configures environment variables.
      */
     static void initialize() {
         static std::once_flag init_flag;
         
         std::call_once(init_flag, []() {
-            // Verifica se o SO ou o framework já configurou os caminhos nativamente
+            // Checks if the OS or framework has already natively configured the paths
             if (std::getenv("GDAL_DATA") == nullptr) {
                 
-                // Procura a pasta que o script do CMake copia para o lado do executável
+                // Looks for the folder that the CMake script copies next to the executable
                 std::filesystem::path portable_path = std::filesystem::current_path() / "gdal_data" / "gdal";
                 
                 if (std::filesystem::exists(portable_path)) {
@@ -33,7 +33,7 @@ public:
                 }
             }
             
-            // Registra todos os drivers espaciais e formatos (S-57, Shapefile, etc.)
+            // Registers all spatial drivers and formats (S-57, Shapefile, etc.)
             GDALAllRegister();
         });
     }

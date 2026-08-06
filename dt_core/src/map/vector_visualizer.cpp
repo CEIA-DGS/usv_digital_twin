@@ -7,7 +7,7 @@
 #include "gdal_priv.h"
 #include "ogrsf_frmts.h"
 
-// Estruturas auxiliares para renderização vetorial
+// Auxiliary structures for vector rendering
 struct Color { float r, g, b, a; };
 struct Vertex2D { double x, y; };
 
@@ -24,7 +24,7 @@ struct RenderLayer {
     bool is_filled;
 };
 
-// Estado da câmera e viewport
+// Camera and viewport state
 struct AppState {
     double pan_x = 0.0, pan_y = 0.0;
     double zoom = 1.0;
@@ -36,8 +36,10 @@ struct AppState {
 };
 
 /**
- * @brief Realiza o parsing recursivo de geometrias GDAL para a estrutura interna de renderização.
- * Tratamento de MultiPolygons e coleções de geometrias.
+ * @brief Performs recursive parsing of GDAL geometries into the internal rendering structure.
+ * Handles MultiPolygons and geometry collections.
+ * @param geom Pointer to the original GDAL geometry.
+ * @param target_list Output list where the extracted 2D polygons will be stored.
  */
 static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& target_list) {
     if (!geom) return;
@@ -47,14 +49,14 @@ static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& tar
         OGRPolygon* poly = geom->toPolygon();
         Polygon2D p2d;
         
-        // Extração do contorno externo
+        // Extraction of the outer contour
         OGRLinearRing* ext = poly->getExteriorRing();
         if (ext) {
             for (int i = 0; i < ext->getNumPoints(); i++) 
                 p2d.outer_ring.push_back({ext->getX(i), ext->getY(i)});
         }
         
-        // Extração dos furos internos
+        // Extraction of the internal holes
         for (int b = 0; b < poly->getNumInteriorRings(); b++) {
             OGRLinearRing* hole = poly->getInteriorRing(b);
             std::vector<Vertex2D> hole_pts;
@@ -70,7 +72,14 @@ static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& tar
 }
 
 /**
- * @brief Carrega as feições de uma camada GDAL para a memória de renderização.
+ * @brief Loads features from a GDAL layer into the rendering memory.
+ * @param dataset Pointer to the open GDAL Dataset.
+ * @param layer_name Name of the layer to be extracted.
+ * @param fill_color Fill color of the polygons.
+ * @param line_color Border line color.
+ * @param line_width Thickness of the border lines.
+ * @param is_filled Boolean flag indicating whether the polygon should be filled.
+ * @return RenderLayer structure configured and populated with geometries.
  */
 static RenderLayer load_shapefile_layer(GDALDataset* dataset, const char* layer_name, Color fill_color, Color line_color, float line_width, bool is_filled) {
     RenderLayer layer;
@@ -92,7 +101,11 @@ static RenderLayer load_shapefile_layer(GDALDataset* dataset, const char* layer_
     return layer;
 }
 
-// Callbacks de entrada
+// Input Callbacks
+
+/**
+ * @brief Callback function to handle mouse button events (dragging initialization).
+ */
 static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     if (button == GLFW_MOUSE_BUTTON_LEFT) {
@@ -103,6 +116,9 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
     }
 }
 
+/**
+ * @brief Callback function to handle cursor movement and execute camera panning.
+ */
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     if (state->is_dragging) {
@@ -113,6 +129,9 @@ static void cursor_position_callback(GLFWwindow* window, double xpos, double ypo
     }
 }
 
+/**
+ * @brief Callback function to handle mouse scroll wheel events (zoom in/out).
+ */
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     double zoom_factor = (yoffset > 0) ? 1.15 : (1.0 / 1.15);
@@ -128,6 +147,11 @@ static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) 
     state->pan_y = world_y_before - (state->window_height / 2.0 - mouse_y) / state->zoom;
 }
 
+/**
+ * @brief Starts the rendering loop and displays the geographic layers contained in the target directory.
+ * @param shapefiles_folder Path to the directory containing the processed .shp files.
+ * @param chart_name Chart identifier, used for labeling the display window.
+ */
 void VectorVisualizer::display(const std::string& shapefiles_folder, const std::string& chart_name) {
     if (!glfwInit()) return;
 
@@ -138,7 +162,7 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
     OGREnvelope env;
     bool is_env_ok = false;
     
-    // Cálculo dos bounds para enquadramento inicial
+    // Bounds calculation for initial framing
     OGRLayer* nav_layer = dataset->GetLayerByName("3_Area_Navegavel_Limpa");
     if (nav_layer && nav_layer->GetExtent(&env, true) == OGRERR_NONE) { state.bounds = env; is_env_ok = true; }
     else {
@@ -152,7 +176,7 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
 
     if (!is_env_ok) { GDALClose(dataset); glfwTerminate(); return; }
 
-    // Carregamento estruturado das camadas (RGBA normalizado)
+    // Structured loading of layers (Normalized RGBA)
     std::vector<RenderLayer> layers;
     layers.push_back(load_shapefile_layer(dataset, "3_Area_Navegavel_Limpa", {173.0f/255.0f, 235.0f/255.0f, 255.0f/255.0f, 1.0f}, {0,0,0,0}, 0.0f, true));
     layers.push_back(load_shapefile_layer(dataset, "1_Terra_Firme", {255.0f/255.0f, 185.0f/255.0f, 141.0f/255.0f, 1.0f}, {0,0,0,0}, 0.0f, true));
@@ -161,9 +185,9 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
 
     GDALClose(dataset);
 
-    // Inicialização da janela com Stencil Buffer habilitado (necessário para polígonos côncavos)
+    // Window initialization with Stencil Buffer enabled (necessary for concave polygons)
     glfwWindowHint(GLFW_STENCIL_BITS, 8);
-    GLFWwindow* window = glfwCreateWindow(state.window_width, state.window_height, ("NavMesh Vetorial - " + chart_name).c_str(), NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(state.window_width, state.window_height, ("Vector NavMesh - " + chart_name).c_str(), NULL, NULL);
     if (!window) { glfwTerminate(); return; }
 
     glfwMakeContextCurrent(window);
@@ -172,14 +196,14 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
     glfwSetCursorPosCallback(window, cursor_position_callback);
     glfwSetScrollCallback(window, scroll_callback);
 
-    // Configuração inicial de escala
+    // Initial scale configuration
     double world_w = state.bounds.MaxX - state.bounds.MinX;
     double world_h = state.bounds.MaxY - state.bounds.MinY;
     state.zoom = std::min(state.window_width / (world_w < 1.0 ? 1000.0 : world_w), state.window_height / (world_h < 1.0 ? 1000.0 : world_h)) * 0.95;
     state.pan_x = (state.bounds.MinX + state.bounds.MaxX) / 2.0;
     state.pan_y = (state.bounds.MinY + state.bounds.MaxY) / 2.0;
 
-    // Loop de renderização principal
+    // Main rendering loop
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
         glfwGetWindowSize(window, &state.window_width, &state.window_height);
@@ -197,7 +221,7 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
 
-        // Renderização em duas passagens para Stencil Buffer (Lógica Odd-Even para polígonos complexos)
+        // Two-pass rendering for Stencil Buffer (Odd-Even logic for complex polygons)
         for (const auto& layer : layers) {
             for (const auto& poly : layer.polygons) {
                 if (poly.outer_ring.empty()) continue;
@@ -211,7 +235,7 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
                     glStencilOp(GL_KEEP, GL_KEEP, GL_INVERT); 
                     glStencilMask(1);
 
-                    // Desenho da máscara (Stencil)
+                    // Drawing the mask (Stencil)
                     glBegin(GL_TRIANGLE_FAN);
                     for (const auto& pt : poly.outer_ring) glVertex2d(pt.x, pt.y);
                     glEnd();
@@ -222,14 +246,14 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
                         glEnd();
                     }
 
-                    // Aplicação da cor via Stencil
+                    // Applying color via Stencil
                     glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
                     glStencilFunc(GL_EQUAL, 1, 1);
                     glStencilOp(GL_KEEP, GL_KEEP, GL_KEEP);
 
                     glColor4f(layer.fill_color.r, layer.fill_color.g, layer.fill_color.b, layer.fill_color.a);
                     
-                    // Preenchimento delimitado pela bounding box
+                    // Bounding box delimited filling
                     double min_x = poly.outer_ring[0].x, max_x = min_x, min_y = poly.outer_ring[0].y, max_y = min_y;
                     for (const auto& pt : poly.outer_ring) {
                         min_x = std::min(min_x, pt.x); max_x = std::max(max_x, pt.x);
@@ -243,7 +267,7 @@ void VectorVisualizer::display(const std::string& shapefiles_folder, const std::
                     glDisable(GL_STENCIL_TEST);
                 }
 
-                // Renderização das linhas de contorno (wireframe)
+                // Rendering outline contours (wireframe)
                 if (layer.line_width > 0.0f) {
                     glLineWidth(layer.line_width);
                     glColor4f(layer.line_color.r, layer.line_color.g, layer.line_color.b, layer.line_color.a);

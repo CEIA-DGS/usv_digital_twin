@@ -3,7 +3,7 @@
 #include <vector>
 
 /**
- * @brief Armazena parâmetros operacionais e definições de classes extraídas do arquivo de configuração.
+ * @brief Stores operational parameters and class definitions extracted from the configuration file.
  */
 struct MapConfiguration {
     double safety_margin;           
@@ -13,14 +13,14 @@ struct MapConfiguration {
 };
 
 /**
- * @brief Gerencia a leitura, parsing e validação do arquivo de configuração do sistema (JSON).
+ * @brief Manages the reading, parsing, and validation of the system configuration file (JSON).
  */
 class ConfigManager {
 public:
     /**
-     * @brief Carrega os parâmetros de um arquivo JSON externo e popula a estrutura de configuração.
-     * @param file_path Caminho físico do arquivo JSON de configuração.
-     * @return Objeto MapConfiguration preenchido com os valores lidos.
+     * @brief Loads parameters from an external JSON file and populates the configuration structure.
+     * @param file_path Physical path of the JSON configuration file.
+     * @return MapConfiguration object populated with the read values.
      */
     static MapConfiguration load_configuration(const std::string& file_path);
 };

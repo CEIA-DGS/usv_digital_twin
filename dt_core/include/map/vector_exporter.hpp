@@ -6,29 +6,29 @@
 #include "ogrsf_frmts.h"
 
 /**
- * @brief Utilitário responsável por exportar as estruturas geradas da NavMesh para arquivos vetoriais (Shapefiles).
+ * @brief Utility responsible for exporting generated NavMesh structures to vector files (Shapefiles).
  * 
- * Atua como uma classe estática pura, encapsulando as operações de I/O em disco 
- * e conversão geométrica utilizando a biblioteca GDAL/OGR.
+ * Acts as a pure static class, encapsulating disk I/O operations 
+ * and geometric conversion using the GDAL/OGR library.
  */
 class VectorExporter {
 public:
-    // Evita a instanciação acidental da classe
+    // Prevents accidental instantiation of the class
     VectorExporter() = delete;
 
     /**
-     * @brief Exporta as geometrias (terra original, margem de segurança e malha de triângulos) para arquivos .shp.
-     * @param nav_mesh Referência constante para a estrutura contendo os dados processados da malha de navegação.
-     * @param output_dir Caminho absoluto ou relativo do diretório onde os Shapefiles serão gravados.
-     * @param epsg_utm Código EPSG da projeção UTM para garantir o georreferenciamento correto dos arquivos gerados.
+     * @brief Exports the geometries (original land, safety margin, and triangle mesh) to .shp files.
+     * @param nav_mesh Constant reference to the structure containing the processed navigation mesh data.
+     * @param output_dir Absolute or relative path of the directory where Shapefiles will be written.
+     * @param epsg_utm EPSG code of the UTM projection to ensure correct georeferencing of the generated files.
      */
     static void export_shapefile(const NavigationMesh& nav_mesh, const std::string& output_dir, int epsg_utm);
 
 private:
     /**
-     * @brief Função auxiliar para anexar de forma segura uma geometria genérica a uma camada OGR (Layer).
-     * @param layer Ponteiro para a camada de destino (OGR Layer) previamente criada no dataset.
-     * @param geom Ponteiro para a geometria base (Polígono, Linha, etc.) que será encapsulada em uma feature.
+     * @brief Auxiliary function to safely append a generic geometry to an OGR Layer.
+     * @param layer Pointer to the destination layer (OGR Layer) previously created in the dataset.
+     * @param geom Pointer to the base geometry (Polygon, Line, etc.) that will be encapsulated in a feature.
      */
     static void insert_geometry(OGRLayer* layer, OGRGeometry* geom);
 };

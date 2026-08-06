@@ -7,8 +7,8 @@
 #include "config_manager.hpp"
 
 /**
- * @brief Contêiner para armazenamento das geometrias processadas extraídas das cartas S-57.
- * Encapsula a lógica de gerenciamento de memória das estruturas OGRGeometry.
+ * @brief Container for storing processed geometries extracted from S-57 charts.
+ * Encapsulates the memory management logic for OGRGeometry structures.
  */
 struct ProcessedGeometries {
     std::vector<OGRGeometry*> navigable_area;
@@ -16,7 +16,7 @@ struct ProcessedGeometries {
     int dynamic_utm_epsg;
 
     /**
-     * @brief Executa a desalocação forçada de cada geometria OGR e limpa os vetores.
+     * @brief Performs forced deallocation of each OGR geometry and clears the vectors.
      */
     void free_memory() {
         for (auto geom : navigable_area) OGRGeometryFactory::destroyGeometry(geom);
@@ -27,15 +27,15 @@ struct ProcessedGeometries {
 };
 
 /**
- * @brief Processador especializado na ingestão, extração e tratamento de dados geoespaciais S-57.
+ * @brief Specialized processor for ingesting, extracting, and treating S-57 geospatial data.
  */
 class S57Processor {
 public:
     /**
-     * @brief Abre uma carta náutica S-57, filtra camadas via configuração e reprojeta coordenadas para EPSG:3857.
-     * @param s57_path Caminho físico da carta (.000).
-     * @param config Configuração contendo as classes de camadas a serem extraídas.
-     * @return Objeto ProcessedGeometries contendo os dados reprojetados prontos para uso.
+     * @brief Opens an S-57 nautical chart, filters layers via configuration, and reprojects coordinates.
+     * @param s57_path Physical path of the chart (.000).
+     * @param config Configuration containing the layer classes to be extracted.
+     * @return ProcessedGeometries object containing the reprojected data ready for use.
      */
     static ProcessedGeometries process_chart(const std::string& s57_path, const MapConfiguration& config);
 };

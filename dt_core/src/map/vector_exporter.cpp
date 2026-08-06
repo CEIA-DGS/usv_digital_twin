@@ -3,53 +3,53 @@
 #include "map/gdal_initializer.hpp"
 
 /**
- * @brief Exporta os componentes geográficos e a malha de navegação para arquivos ESRI Shapefile em UTM real.
- * @param nav_mesh Estrutura contendo as geometrias processadas e os triângulos gerados.
- * @param output_dir Caminho do diretório onde as camadas (.shp) serão salvas.
- * @param epsg_utm Código EPSG UTM calculado dinamicamente para garantir distâncias reais.
+ * @brief Exports geographic components and the navigation mesh to ESRI Shapefiles in real UTM.
+ * @param nav_mesh Structure containing the processed geometries and generated triangles.
+ * @param output_dir Directory path where the layers (.shp) will be saved.
+ * @param epsg_utm Dynamically calculated UTM EPSG code to ensure real distances.
  */
 void VectorExporter::export_shapefile(const NavigationMesh& nav_mesh, const std::string& output_dir, int epsg_utm) {
-    std::cout << "[Exportador] Gerando arquivos Shapefile em UTM (EPSG:" << epsg_utm << ") em: " << output_dir << std::endl;
+    std::cout << "[Exporter] Generating Shapefiles in UTM (EPSG:" << epsg_utm << ") at: " << output_dir << std::endl;
 
-    // Inicializa e valida o driver geoespacial ESRI Shapefile
+    // Initializes and validates the ESRI Shapefile geospatial driver
     const char* driver_name = "ESRI Shapefile";
     GDALDriver* driver = GetGDALDriverManager()->GetDriverByName(driver_name);
     
     if (!driver) {
-        std::cerr << "Erro: Driver ESRI Shapefile nao disponivel na GDAL." << std::endl;
+        std::cerr << "Error: ESRI Shapefile driver not available in GDAL." << std::endl;
         return;
     }
 
-    // Cria o dataset vetorial físico
+    // Creates the physical vector dataset
     GDALDataset* dataset = driver->Create(output_dir.c_str(), 0, 0, 0, GDT_Unknown, NULL);
     if (!dataset) {
-        std::cerr << "Erro: Nao foi possivel criar o Shapefile. Certifique-se de que a pasta anterior nao esta aberta em outro programa." << std::endl;
+        std::cerr << "Error: Could not create the Shapefile. Ensure the previous folder is not open in another program." << std::endl;
         return;
     }
 
-    // Define o Sistema de Referência Espacial (SRS) com o UTM dinâmico real
+    // Defines the Spatial Reference System (SRS) with the real dynamic UTM
     OGRSpatialReference spatial_ref;
     spatial_ref.importFromEPSG(epsg_utm); 
 
-    // Instancia as camadas lógicas estruturadas para classificação e inspeção no QGIS em distâncias reais
+    // Instantiates structured logical layers for classification and inspection in QGIS at real distances
     OGRLayer* layer_land = dataset->CreateLayer("1_Terra_Firme", &spatial_ref, wkbMultiPolygon, NULL);
     OGRLayer* layer_margin = dataset->CreateLayer("2_Margem_Seguranca", &spatial_ref, wkbMultiPolygon, NULL);
     OGRLayer* layer_safe_area = dataset->CreateLayer("3_Area_Navegavel_Limpa", &spatial_ref, wkbMultiPolygon, NULL);
     OGRLayer* layer_mesh = dataset->CreateLayer("4_Malha_NavMesh", &spatial_ref, wkbPolygon, NULL);
 
-    // Grava as features geográficas base do ambiente de navegação
-    std::cout << "[Exportador] Gravando vetores fisicos..." << std::endl;
+    // Writes the base geographic features of the navigation environment
+    std::cout << "[Exporter] Writing physical vectors..." << std::endl;
     insert_geometry(layer_land, nav_mesh.original_land);
     insert_geometry(layer_margin, nav_mesh.safety_margin);
     insert_geometry(layer_safe_area, nav_mesh.safe_navigable_perimeter);
 
-    // Converte e exporta a lista de triângulos da malha para polígonos OGR
-    std::cout << "[Exportador] Gravando " << nav_mesh.triangles.size() << " triangulos matematicos..." << std::endl;
+    // Converts and exports the mesh triangle list to OGR polygons
+    std::cout << "[Exporter] Writing " << nav_mesh.triangles.size() << " mathematical triangles..." << std::endl;
     for (const auto& tri : nav_mesh.triangles) {
         OGRPolygon poly_tri;
         OGRLinearRing ring;
         
-        // Constrói o anel fechado do triângulo
+        // Builds the closed ring of the triangle
         ring.addPoint(tri.p1.x, tri.p1.y);
         ring.addPoint(tri.p2.x, tri.p2.y);
         ring.addPoint(tri.p3.x, tri.p3.y);
@@ -59,28 +59,28 @@ void VectorExporter::export_shapefile(const NavigationMesh& nav_mesh, const std:
         insert_geometry(layer_mesh, &poly_tri);
     }
 
-    // Fecha o dataset para descarregar os buffers e consolidar a gravação no disco
+    // Closes the dataset to flush the buffers and consolidate the recording on disk
     GDALClose(dataset);
-    std::cout << "[Exportador] Exportacao vetorizada em UTM concluida com sucesso!" << std::endl;
+    std::cout << "[Exporter] Vector export in UTM completed successfully!" << std::endl;
 }
 
 /**
- * @brief Envelopa uma geometria OGR pura em uma Feature e a consolida na camada alvo.
- * @param layer Ponteiro da camada OGR de destino.
- * @param geom Ponteiro da geometria a ser inserida.
+ * @brief Envelopes a pure OGR geometry into a Feature and consolidates it in the target layer.
+ * @param layer Pointer to the destination OGR layer.
+ * @param geom Pointer to the geometry to be inserted.
  */
 void VectorExporter::insert_geometry(OGRLayer* layer, OGRGeometry* geom) {
     if (!geom || !layer) return;
     
-    // Instancia o container de feição baseado na definição estrutural da camada
+    // Instantiates the feature container based on the layer's structural definition
     OGRFeature* feature = OGRFeature::CreateFeature(layer->GetLayerDefn());
     feature->SetGeometry(geom);
     
-    // Captura o código de erro retornado pela GDAL para satisfazer o compilador (warn_unused_result)
+    // Captures the error code returned by GDAL to satisfy the compiler (warn_unused_result)
     if (layer->CreateFeature(feature) != OGRERR_NONE) {
-        std::cerr << "[Exportador] Aviso: Falha ao gravar uma geometria no disco." << std::endl;
+        std::cerr << "[Exporter] Warning: Failed to write a geometry to disk." << std::endl;
     }
     
-    // Destrói o ponteiro corretamente após a verificação
+    // Properly destroys the pointer after the check
     OGRFeature::DestroyFeature(feature);
 }
