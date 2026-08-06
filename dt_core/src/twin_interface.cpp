@@ -4,7 +4,7 @@
 #include <cmath>
 #include <memory>
 #include "prediction/prediction.hpp"
-#include "map/IndiceEspacial.hpp"
+#include "map/spatial_index.hpp"
 #include "dt_core/types.hpp"
 #include <ament_index_cpp/get_package_share_directory.hpp>
 
@@ -18,28 +18,28 @@ private:
     types::Trajectory _planned_trajectory;
     
     // Ponteiro compartilhado para o motor espacial já carregado
-    std::shared_ptr<IndiceEspacial> _indice_espacial;
+    std::shared_ptr<SpatialIndex> _spatial_index;
 
 public:
     ConcreteWorldStateSnapshot(const types::MapData& map, 
                                const types::Pose& pose, 
                                const std::vector<types::Target>& targets,
-                               const types::Trajectory& planned_trajectory, // Add this parameter
-                               std::shared_ptr<IndiceEspacial> indice_espacial)
+                               const types::Trajectory& planned_trajectory, 
+                               std::shared_ptr<SpatialIndex> spatial_index)
         : _static_map(map), 
           _vehicle_pose(pose), 
           _targets(targets), 
           _planned_trajectory(planned_trajectory), // Initialize member
-          _indice_espacial(indice_espacial) {
+          _spatial_index(spatial_index) {
         
-        if (_indice_espacial) {
-            _indice_espacial->update_global_targets(_targets);
+        if (_spatial_index) {
+            _spatial_index->update_global_targets(_targets);
         }
     }
 
     float get_closest_static_obstacle_distance(const types::Point& pos) const override {
-        if (!_indice_espacial) return -1.0f;
-        return _indice_espacial->get_closest_static_obstacle_distance(pos);
+        if (!_spatial_index) return -1.0f;
+        return _spatial_index->get_closest_static_obstacle_distance(pos);
     }
 
     types::Trajectory get_planned_trajectory() const override {
@@ -56,13 +56,13 @@ public:
     }
 
     bool is_inside_restricted_zone(const types::Point& pos) const override {
-        if (!_indice_espacial) return false;
-        return _indice_espacial->is_inside_restricted_zone(pos);
+        if (!_spatial_index) return false;
+        return _spatial_index->is_inside_restricted_zone(pos);
     }
 
     std::vector<types::Target> get_active_local_targets(const types::Point& center, float radius) const override {
-        if (!_indice_espacial) return std::vector<types::Target>();
-        return _indice_espacial->get_active_local_targets(center, radius);
+        if (!_spatial_index) return std::vector<types::Target>();
+        return _spatial_index->get_active_local_targets(center, radius);
     }
 
     types::Trajectory predict_trajectory_by_id(const int32_t id, const std::vector<types::Target>& targets, const double time_horizon, const double time_step) const override {
@@ -89,16 +89,16 @@ private:
     types::Trajectory _current_planned_trajectory;
     
     // Instância única do Motor Espacial mantida em memória
-    std::shared_ptr<IndiceEspacial> _motor_espacial;
+    std::shared_ptr<SpatialIndex> _spatial_engine;
 
 public:
     DigitalTwinCoreImpl() {
-        _motor_espacial = std::make_shared<IndiceEspacial>();
+        _spatial_engine = std::make_shared<SpatialIndex>();
         
         // 2. Carrega os Shapefiles do disco para a RAM apenas UMA VEZ na inicialização
         std::string dt_core_share_dir = ament_index_cpp::get_package_share_directory("dt_core");
         std::string dir = dt_core_share_dir + "/data/output/NavMesh_Shapefiles_BR501511";
-        _motor_espacial->carregarShapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
+        _spatial_engine->load_shapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
 
         // Pass the empty trajectory initially
         _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
@@ -106,7 +106,7 @@ public:
             _current_pose, 
             _current_targets, 
             _current_planned_trajectory, // Add this argument
-            _motor_espacial);
+            _spatial_engine);
     }
 
     void update_planned_trajectory(const types::Trajectory& traj) {
@@ -145,7 +145,7 @@ private:
             _current_pose, 
             _current_targets, 
             _current_planned_trajectory,
-            _motor_espacial);
+            _spatial_engine);
     }
 };
 

@@ -9,27 +9,27 @@
 /**
  * @brief Gerenciador de inicialização estática da biblioteca GDAL.
  */
-class GdalInicializador {
+class GdalInitializer {
 public:
     // Evita a instanciação acidental da classe
-    GdalInicializador() = delete;
+    GdalInitializer() = delete;
 
     /**
      * @brief Executa o registro global dos drivers da GDAL e configura variáveis de ambiente.
      */
-    static void inicializar(){
-        static std::once_flag flag_inicializacao;
+    static void initialize() {
+        static std::once_flag init_flag;
         
-        std::call_once(flag_inicializacao, [](){
+        std::call_once(init_flag, []() {
             // Verifica se o SO ou o framework já configurou os caminhos nativamente
             if (std::getenv("GDAL_DATA") == nullptr) {
                 
                 // Procura a pasta que o script do CMake copia para o lado do executável
-                std::filesystem::path caminho_portatil = std::filesystem::current_path() / "gdal_data" / "gdal";
+                std::filesystem::path portable_path = std::filesystem::current_path() / "gdal_data" / "gdal";
                 
-                if (std::filesystem::exists(caminho_portatil)) {
-                    CPLSetConfigOption("GDAL_DATA", caminho_portatil.string().c_str());
-                    CPLSetConfigOption("S57_CSV", caminho_portatil.string().c_str());
+                if (std::filesystem::exists(portable_path)) {
+                    CPLSetConfigOption("GDAL_DATA", portable_path.string().c_str());
+                    CPLSetConfigOption("S57_CSV", portable_path.string().c_str());
                 }
             }
             

@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 #include <filesystem>
-#include "../../include/map/GdalInicializador.hpp"
-#include "../../include/map/ProcessadorS57.h"
-#include "../../include/map/GeradorMalha.h"
-#include "../../include/map/ExportadorVetor.h"
-#include "../../include/map/VisualizadorVetor.h"
-#include "../../include/map/IndiceEspacial.hpp"
+#include "../../include/map/gdal_initializer.hpp"
+#include "../../include/map/config_manager.hpp"
+#include "../../include/map/s57_processor.hpp"
+#include "../../include/map/mesh_generator.hpp"
+#include "../../include/map/vector_exporter.hpp"
+#include "../../include/map/vector_visualizer.hpp"
+#include "../../include/map/spatial_index.hpp"
 #include "dt_core/types.hpp"
 #include "gdal_priv.h"
 
@@ -19,64 +20,65 @@ int main(int argc, char* argv[]) {
             return 1;
         }
 
-        std::string caminhoCartaS57 = argv[1];
-        std::string nomeCarta = fs::path(caminhoCartaS57).stem().string();
-        std::string diretorioSaida = "../../data/output/NavMesh_Shapefiles_" + nomeCarta;
+        std::string s57_chart_path = argv[1];
+        std::string chart_name = fs::path(s57_chart_path).stem().string();
+        std::string output_directory = "../../data/output/NavMesh_Shapefiles_" + chart_name;
 
         // Inicialização global
-        GdalInicializador::inicializar();
-        std::cout << "[Sistema] Processando carta náutica: " << caminhoCartaS57 << std::endl;
+        GdalInitializer::initialize();
+        std::cout << "[Sistema] Processando carta náutica: " << s57_chart_path << std::endl;
 
         // Processamento S-57
-        ConfiguracaoMapa config = GerenciadorConfig::carregarConfiguracao("../config.json");
-        GeometriasProcessadas geometrias = ProcessadorS57::processarCarta(caminhoCartaS57, config);
+        MapConfiguration config = ConfigManager::load_configuration("../config.json");
+        ProcessedGeometries geometries = S57Processor::process_chart(s57_chart_path, config);
         
         // Extrai o EPSG calculado da estrutura processada
-        int epsg_utm = geometrias.epsg_utm;
+        int epsg_utm = geometries.dynamic_utm_epsg;
 
         // Geração da NavMesh
-        MalhaNavegacao navMesh = GeradorMalha::gerar(geometrias, config.margemSeguranca, config.toleranciaSimplificacao);
+        NavigationMesh nav_mesh = MeshGenerator::generate(geometries, config.safety_margin, config.simplification_tolerance);
 
         // Exportação e Visualização
-        if (fs::exists(diretorioSaida)) fs::remove_all(diretorioSaida);
-        ExportadorVetor::exportarShapefile(navMesh, diretorioSaida, epsg_utm);
-        VisualizadorVetor::exibir(diretorioSaida, nomeCarta);
+        if (fs::exists(output_directory)) fs::remove_all(output_directory);
+        VectorExporter::export_shapefile(nav_mesh, output_directory, epsg_utm);
+        VectorVisualizer::display(output_directory, chart_name);
 
         // Carregamento do Motor Espacial para Testes
-        IndiceEspacial motorEspacial;
-        motorEspacial.carregarShapefiles(diretorioSaida + "/2_Margem_Seguranca.shp", diretorioSaida + "/4_Malha_NavMesh.shp");
+        SpatialIndex spatial_engine;
+        spatial_engine.load_shapefiles(output_directory + "/2_Margem_Seguranca.shp", output_directory + "/4_Malha_NavMesh.shp");
 
         // Teste rápido utilizando o centro geométrico da malha
-        GDALDataset* ds_malha = (GDALDataset*)GDALOpenEx((diretorioSaida + "/4_Malha_NavMesh.shp").c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
-        OGREnvelope env_malha;
-        if (ds_malha) {
-            (void)ds_malha->GetLayer(0)->GetExtent(&env_malha);
-            GDALClose(ds_malha);
+        GDALDataset* mesh_ds = (GDALDataset*)GDALOpenEx((output_directory + "/4_Malha_NavMesh.shp").c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
+        OGREnvelope mesh_env;
+        if (mesh_ds) {
+            (void)mesh_ds->GetLayer(0)->GetExtent(&mesh_env);
+            GDALClose(mesh_ds);
         }
         
-        types::Point pontoTeste((env_malha.MinX + env_malha.MaxX) / 2.0, (env_malha.MinY + env_malha.MaxY) / 2.0, 0.0);
+        types::Point test_point((mesh_env.MinX + mesh_env.MaxX) / 2.0, (mesh_env.MinY + mesh_env.MaxY) / 2.0, 0.0);
         
-        std::cout << "\n-> Distância ao obstaculo estatico: " << motorEspacial.get_closest_static_obstacle_distance(pontoTeste) << " m.\n";
-        std::cout << "-> O ponto esta em zona restrita? " << (motorEspacial.is_inside_restricted_zone(pontoTeste) ? "SIM" : "NAO") << "\n";
+        std::cout << "\n-> Distância ao obstaculo estatico: " << spatial_engine.get_closest_static_obstacle_distance(test_point) << " m.\n";
+        std::cout << "-> O ponto esta em zona restrita? " << (spatial_engine.is_inside_restricted_zone(test_point) ? "SIM" : "NAO") << "\n";
 
         // Teste de alvos dinâmicos / barcos próximos dentro de um raio de alcance (ex: 500m)
-        std::vector<types::Target> alvosSimulados = {
-            types::Target(1, "Barco_Proximo (30m)",    types::Pose(pontoTeste.get_x() + 20.0,  pontoTeste.get_y() + 20.0,  0.0), types::Kinematics(types::Velocity())),
-            types::Target(2, "Barco_Medio (250m)",     types::Pose(pontoTeste.get_x() + 200.0, pontoTeste.get_y() + 150.0, 0.0), types::Kinematics(types::Velocity())),
-            types::Target(3, "Barco_Distante (1.2km)", types::Pose(pontoTeste.get_x() + 1000.0, pontoTeste.get_y() + 800.0, 0.0), types::Kinematics(types::Velocity()))
+        std::vector<types::Target> simulated_targets = {
+            types::Target(1, "Barco_Proximo (30m)",    types::Pose(test_point.get_x() + 20.0,  test_point.get_y() + 20.0,  0.0), types::Kinematics(types::Velocity())),
+            types::Target(2, "Barco_Medio (250m)",     types::Pose(test_point.get_x() + 200.0, test_point.get_y() + 150.0, 0.0), types::Kinematics(types::Velocity())),
+            types::Target(3, "Barco_Distante (1.2km)", types::Pose(test_point.get_x() + 1000.0, test_point.get_y() + 800.0, 0.0), types::Kinematics(types::Velocity()))
         };
-        motorEspacial.update_global_targets(alvosSimulados);
+        spatial_engine.update_global_targets(simulated_targets);
 
-        float raioBuscaMetros = 500.0f;
-        auto alvosLocais = motorEspacial.get_active_local_targets(pontoTeste, raioBuscaMetros);
+        float search_radius_meters = 500.0f;
+        auto local_targets = spatial_engine.get_active_local_targets(test_point, search_radius_meters);
         
-        std::cout << "-> Alvos detectados no raio de " << raioBuscaMetros << "m: " << alvosLocais.size() << "\n";
-        for (const auto& alvo : alvosLocais) {
-            std::cout << "   * [Alvo Local] " << alvo.get_description() << " (ID: " << alvo.get_id() << ")\n";
+        std::cout << "-> Alvos detectados no raio de " << search_radius_meters << "m: " << local_targets.size() << "\n";
+        for (const auto& target : local_targets) {
+            std::cout << "   * [Alvo Local] " << target.get_description() << " (ID: " << target.get_id() << ")\n";
         }
 
-        geometrias.liberarMemoria();
-        navMesh.liberarMemoria();
+        // Limpeza de memória
+        geometries.free_memory();
+        nav_mesh.free_memory();
 
         std::cout << "\n[Sistema] Execucao finalizada com sucesso!\n";
     } catch (const std::exception& e) {

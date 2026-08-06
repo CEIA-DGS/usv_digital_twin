@@ -15,47 +15,47 @@ namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;
 
 // Definições de primitivas geométricas utilizando o motor Boost.Geometry
-typedef bg::model::d2::point_xy<double> BgPonto;
-typedef bg::model::segment<BgPonto> BgSegmento;
-typedef bg::model::box<BgPonto> BgCaixaReal;
-typedef bg::model::polygon<BgPonto> BgPoligono;
+typedef bg::model::d2::point_xy<double> BgPoint;
+typedef bg::model::segment<BgPoint> BgSegment;
+typedef bg::model::box<BgPoint> BgBox;
+typedef bg::model::polygon<BgPoint> BgPolygon;
 
 // Pares indexados para inserção eficiente nas estruturas R-Tree do Boost
-typedef std::pair<BgCaixaReal, BgSegmento> ValorRTreeSegmento;
-typedef std::pair<BgCaixaReal, size_t> ValorRTreePoligono;
+typedef std::pair<BgBox, BgSegment> RTreeSegmentValue;
+typedef std::pair<BgBox, size_t> RTreePolygonValue;
 
 /**
  * @brief Motor de indexação e consultas espaciais em alta performance.
  * 
  * Utiliza árvores espaciais R-Tree (via Boost.Geometry) para realizar buscas de 
- * proximidade em tempo real (OLogN), verificação de zonas restritas (NavMesh) 
+ * proximidade em tempo real (OLogN), verificação de zonas restricted (NavMesh) 
  * e gerenciamento de alvos dinâmicos no ecossistema do robô.
  */
-class IndiceEspacial {
+class SpatialIndex {
 private:
-    bgi::rtree<ValorRTreeSegmento, bgi::quadratic<16>> rtree_margem_; ///< Índice espacial R-Tree para os segmentos da margem de segurança.
-    bgi::rtree<ValorRTreePoligono, bgi::quadratic<16>> rtree_malha_;  ///< Índice espacial R-Tree para os polígonos triangulados da NavMesh.
-    std::vector<BgPoligono> triangulos_malha_;                       ///< Cache de geometria dos triângulos para consultas de inclusão.
-    std::vector<types::Target> alvos_globais_cache_;                 ///< Cache interno para gerenciar o estado dos alvos dinâmicos.
+    bgi::rtree<RTreeSegmentValue, bgi::quadratic<16>> rtree_margin_; ///< Índice espacial R-Tree para os segmentos da margem de segurança.
+    bgi::rtree<RTreePolygonValue, bgi::quadratic<16>> rtree_mesh_;   ///< Índice espacial R-Tree para os polígonos triangulados da NavMesh.
+    std::vector<BgPolygon> mesh_triangles_;                          ///< Cache de geometria dos triângulos para consultas de inclusão.
+    std::vector<types::Target> global_targets_cache_;                ///< Cache interno para gerenciar o estado dos alvos dinâmicos.
 
 public:
     /**
-     * @brief Construtor padrão da classe IndiceEspacial.
+     * @brief Construtor padrão da classe SpatialIndex.
      */
-    IndiceEspacial() = default;
+    SpatialIndex() = default;
 
     /**
-     * @brief Destrutor padrão da classe IndiceEspacial.
+     * @brief Destrutor padrão da classe SpatialIndex.
      */
-    ~IndiceEspacial() = default;
+    ~SpatialIndex() = default;
 
     /**
      * @brief Carrega, processa e constrói as R-Trees espaciais a partir de arquivos Shapefile em disco.
-     * @param shpMargem Caminho para o arquivo `.shp` referente à margem de segurança.
-     * @param shpMalha Caminho para o arquivo `.shp` referente à malha de navegação.
+     * @param margin_shp Caminho para o arquivo `.shp` referente à margem de segurança.
+     * @param mesh_shp Caminho para o arquivo `.shp` referente à malha de navegação.
      * @return true se o carregamento e indexação ocorreram com sucesso, false caso contrário.
      */
-    bool carregarShapefiles(const std::string& shpMargem, const std::string& shpMalha);
+    bool load_shapefiles(const std::string& margin_shp, const std::string& mesh_shp);
 
     /**
      * @brief Calcula a distância euclidiana até o obstáculo estático mais próximo.
@@ -91,23 +91,23 @@ public:
 
     /**
      * @brief Método auxiliar que calcula a distância exata em metros até a margem de segurança.
-     * @param posicao Posição de referência em formato `types::Point`.
+     * @param position Posição de referência em formato `types::Point`.
      * @return Menor distância geométrica calculada via R-Tree.
      */
-    double calcularDistanciaMargem(const types::Point& posicao) const;
+    double calculate_margin_distance(const types::Point& position) const;
 
     /**
      * @brief Avalia se um ponto específico pertence estritamente ao polígono navegável.
-     * @param posicao Coordenadas de teste.
+     * @param position Coordenadas de teste.
      * @return true se o ponto estiver contido na malha navegável, false caso contrário.
      */
-    bool isNavegavel(const types::Point& posicao) const;
+    bool is_navigable(const types::Point& position) const;
 
     /**
      * @brief Gera arquivos de depuração espacial para validação de consultas da R-Tree via QGIS.
-     * @param pontos_teste Vetor de pontos de amostra para testes de proximidade.
-     * @param pastaSaida Diretório de salvamento dos arquivos vetoriais gerados.
+     * @param test_points Vetor de pontos de amostra para testes de proximidade.
+     * @param output_folder Diretório de salvamento dos arquivos vetoriais gerados.
      * @param epsg_utm Código EPSG da projeção cartográfica UTM aplicada.
      */
-    void exportarDebugRTree(const std::vector<types::Point>& pontos_teste, const std::string& pastaSaida, int epsg_utm) const;
+    void export_rtree_debug(const std::vector<types::Point>& test_points, const std::string& output_folder, int epsg_utm) const;
 };

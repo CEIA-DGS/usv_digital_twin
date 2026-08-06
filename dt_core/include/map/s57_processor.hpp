@@ -4,40 +4,38 @@
 #include "gdal_priv.h"
 #include "ogrsf_frmts.h"
 #include "ogr_spatialref.h"
-#include "GerenciadorConfig.h"
+#include "config_manager.hpp"
 
 /**
  * @brief Contêiner para armazenamento das geometrias processadas extraídas das cartas S-57.
  * Encapsula a lógica de gerenciamento de memória das estruturas OGRGeometry.
  */
-
-struct GeometriasProcessadas {
-    std::vector<OGRGeometry*> areaNavegavel;
-    std::vector<OGRGeometry*> obstaculos;
-    int epsg_utm;
+struct ProcessedGeometries {
+    std::vector<OGRGeometry*> navigable_area;
+    std::vector<OGRGeometry*> obstacles;
+    int dynamic_utm_epsg;
 
     /**
      * @brief Executa a desalocação forçada de cada geometria OGR e limpa os vetores.
      */
-    void liberarMemoria() {
-        for (auto geom : areaNavegavel) OGRGeometryFactory::destroyGeometry(geom);
-        for (auto geom : obstaculos) OGRGeometryFactory::destroyGeometry(geom);
-        areaNavegavel.clear();
-        obstaculos.clear();
+    void free_memory() {
+        for (auto geom : navigable_area) OGRGeometryFactory::destroyGeometry(geom);
+        for (auto geom : obstacles) OGRGeometryFactory::destroyGeometry(geom);
+        navigable_area.clear();
+        obstacles.clear();
     }
 };
 
 /**
  * @brief Processador especializado na ingestão, extração e tratamento de dados geoespaciais S-57.
  */
-
-class ProcessadorS57 {
+class S57Processor {
 public:
     /**
      * @brief Abre uma carta náutica S-57, filtra camadas via configuração e reprojeta coordenadas para EPSG:3857.
-     * @param caminhoS57 Caminho físico da carta (.000).
+     * @param s57_path Caminho físico da carta (.000).
      * @param config Configuração contendo as classes de camadas a serem extraídas.
-     * @return Objeto GeometriasProcessadas contendo os dados reprojetados prontos para uso.
+     * @return Objeto ProcessedGeometries contendo os dados reprojetados prontos para uso.
      */
-    static GeometriasProcessadas processarCarta(const std::string& caminhoS57, const ConfiguracaoMapa& config);
+    static ProcessedGeometries process_chart(const std::string& s57_path, const MapConfiguration& config);
 };
