@@ -27,7 +27,7 @@ private:
     std::shared_ptr<SpatialIndex> _spatial_index;
 
 public:
-    ConcreteWorldStateSnapshot(const types::MapData& map, 
+    ConcreteWorldStateSnapshot(const types::MapData& map,  
                                const types::Pose& pose, 
                                const std::vector<types::Target>& targets,
                                const types::Trajectory& planned_trajectory, 
