@@ -7,6 +7,7 @@
 #include <dt_msgs/msg/waypoint_array.hpp>
 #include <dt_core/types.hpp>
 #include <dt_core/twin_interface.hpp>
+#include <dt_ros/conversions.hpp>
 #include <memory>
 
 namespace dt_ros {

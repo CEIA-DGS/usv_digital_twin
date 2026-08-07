@@ -74,109 +74,32 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
         return;
     }
 
-    double utm_x, utm_y;
-    latLonToUTM(msg->latitude, msg->longitude, utm_x, utm_y);
+    // A lógica de extração e conversão UTM foi para a camada de conversão
+    conversions::applyGpsToPose(*msg, current_pose_);
 
     RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
-        "GPS Recebido! Lat: %.4f | Lon: %.4f --> UTM_X: %.1f | UTM_Y: %.1f", 
-        msg->latitude, msg->longitude, utm_x, utm_y);
-
-    // Precisamos instanciar um Point intermediário para usar o set_lat_lon
-    types::Point p;
-    p.set_lat_lon(msg->latitude, msg->longitude); // Salva o dado bruto
-    p.set_x(utm_x); // Salva a posição espacial real em metros (UTM)
-    p.set_y(utm_y); // Salva a posição espacial real em metros (UTM)
-    p.set_z(msg->altitude);
-
-    // Substitui a posição dentro da Pose
-    current_pose_.set_position(p);
+        "GPS Recebido e Pose atualizada! Lat: %.4f | Lon: %.4f", 
+        msg->latitude, msg->longitude);
 
     dt_core_->update_vehicle_pose(current_pose_);
 }
 
 void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    // Converte Quaternion do ROS para Ângulos de Euler (Roll, Pitch, Yaw)
-    tf2::Quaternion q(
-        msg->orientation.x,
-        msg->orientation.y,
-        msg->orientation.z,
-        msg->orientation.w
-    );
-    double roll, pitch, yaw;
-    tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
-
-    // Compensação do referencial do Unity (90 graus)
-    yaw += (M_PI / 2.0);
-
-    // Normaliza o ângulo para mantê-lo sempre no intervalo circular [-PI, PI]
-    if (yaw > M_PI) {
-        yaw -= 2.0 * M_PI;
-    } else if (yaw < -M_PI) {
-        yaw += 2.0 * M_PI;
-    }
-
-    // Atualiza a orientação usando os setters encapsulados
-    current_pose_.set_orientation(roll, pitch, yaw);
+    // A conversão de Quaternion, normalização e offset do Unity estão encapsulados
+    conversions::applyImuToPose(*msg, current_pose_);
 }
 
 void DigitalTwinNode::ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg) {
-    std::vector<types::Target> core_targets;
-    core_targets.reserve(msg->targets.size());
-
-    const double KNOTS_TO_MS = 0.514444;
-    const double DEG_TO_RAD = M_PI / 180.0;
-
-    for (const auto& ais_target : msg->targets) {
-        // 1. Converte a coordenada geográfica do alvo para UTM
-        double target_utm_x, target_utm_y;
-        latLonToUTM(ais_target.latitude, ais_target.longitude, target_utm_x, target_utm_y);
-
-        // 2. Constrói a pose usando as coordenadas UTM planas
-        types::Pose target_pose(target_utm_x, target_utm_y, 0.0, 0.0, 0.0, ais_target.heading * DEG_TO_RAD);
-        
-        // Além disso, é vital salvar o Lat/Lon original para inspeção
-        types::Point p = target_pose.get_position();
-        p.set_lat_lon(ais_target.latitude, ais_target.longitude);
-        target_pose.set_position(p);
-
-        types::Velocity target_vel(ais_target.sog * KNOTS_TO_MS, 0.0, 0.0);
-        types::Kinematics target_kin(target_vel);
-
-        types::Target t(
-            static_cast<int32_t>(ais_target.mmsi),
-            "AIS_Target",
-            target_pose,
-            target_kin
-        );
-        
-        core_targets.push_back(t);
-    }
-
+    // A callback agora se lê como um livro. Recebe ROS, converte, atualiza o core.
+    std::vector<types::Target> core_targets = conversions::aisToCoreTargets(*msg);
     dt_core_->update_dynamic_targets(core_targets);
 }
 
 void DigitalTwinNode::waypoint_callback(const dt_msgs::msg::WaypointArray::SharedPtr msg) {
-    types::Trajectory planned_trajectory;
-    
-    for (const auto& wp : msg->waypoints) {
-        double utm_x, utm_y;
-        latLonToUTM(wp.latitude, wp.longitude, utm_x, utm_y);
-
-        types::Point p;
-        p.set_lat_lon(wp.latitude, wp.longitude);
-        p.set_x(utm_x);
-        p.set_y(utm_y);
-        p.set_z(wp.altitude);
-
-        types::Pose wp_pose;
-        wp_pose.set_position(p);
-        
-        planned_trajectory.add_pose(wp_pose);
-    }
-
+    types::Trajectory planned_trajectory = conversions::waypointsToTrajectory(*msg);
     dt_core_->update_planned_trajectory(planned_trajectory);
     
-    RCLCPP_INFO(this->get_logger(), "Nova rota recebida com %zu waypoints e enviada ao Core.", msg->waypoints.size());
+    RCLCPP_INFO(this->get_logger(), "Nova rota com %zu waypoints atualizada.", msg->waypoints.size());
 }
 
 } // namespace dt_ros
