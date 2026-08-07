@@ -12,7 +12,7 @@
 namespace dt_ros {
 namespace conversions {
 
-void applyGpsToPose(const sensor_msgs::msg::NavSatFix& msg, types::Pose& pose) {
+void apply_gps_to_pose(const sensor_msgs::msg::NavSatFix& msg, types::Pose& pose) {
     utils::UTMCoord utm = utils::lat_lon_to_utm(msg.latitude, msg.longitude);
 
     types::Point p;
@@ -24,7 +24,7 @@ void applyGpsToPose(const sensor_msgs::msg::NavSatFix& msg, types::Pose& pose) {
     pose.set_position(p);
 }
 
-void applyImuToPose(const sensor_msgs::msg::Imu& msg, types::Pose& pose) {
+void apply_imu_to_pose(const sensor_msgs::msg::Imu& msg, types::Pose& pose) {
     tf2::Quaternion q(
         msg.orientation.x,
         msg.orientation.y,
@@ -48,7 +48,7 @@ void applyImuToPose(const sensor_msgs::msg::Imu& msg, types::Pose& pose) {
     pose.set_orientation(roll, pitch, yaw);
 }
 
-std::vector<types::Target> aisToCoreTargets(const dt_msgs::msg::AisReport& msg) {
+std::vector<types::Target> ais_to_core_targets(const dt_msgs::msg::AisReport& msg) {
     std::vector<types::Target> core_targets;
     core_targets.reserve(msg.targets.size());
 
@@ -77,7 +77,7 @@ std::vector<types::Target> aisToCoreTargets(const dt_msgs::msg::AisReport& msg) 
     return core_targets;
 }
 
-types::Trajectory waypointsToTrajectory(const dt_msgs::msg::WaypointArray& msg) {
+types::Trajectory waypoints_to_trajectory(const dt_msgs::msg::WaypointArray& msg) {
     types::Trajectory planned_trajectory;
     
     for (const auto& wp : msg.waypoints) {

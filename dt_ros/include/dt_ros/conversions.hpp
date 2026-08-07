@@ -32,7 +32,7 @@ namespace conversions {
      * @param msg The incoming ROS AIS report message.
      * @return std::vector<types::Target> A list of targets with computed UTM positions and velocities.
      */
-    std::vector<types::Target> aisToCoreTargets(const dt_msgs::msg::AisReport& msg);
+    std::vector<types::Target> ais_to_core_targets(const dt_msgs::msg::AisReport& msg);
 
     /**
      * @brief Updates a domain Pose object using geographical GPS data.
@@ -42,7 +42,7 @@ namespace conversions {
      * @param msg The incoming ROS NavSatFix message.
      * @param pose Reference to the Pose object to be updated.
      */
-    void applyGpsToPose(const sensor_msgs::msg::NavSatFix& msg, types::Pose& pose);
+    void apply_gps_to_pose(const sensor_msgs::msg::NavSatFix& msg, types::Pose& pose);
 
     /**
      * @brief Updates a domain Pose object using IMU orientation data.
@@ -53,7 +53,7 @@ namespace conversions {
      * @param msg The incoming ROS Imu message.
      * @param pose Reference to the Pose object to be updated.
      */
-    void applyImuToPose(const sensor_msgs::msg::Imu& msg, types::Pose& pose);
+    void apply_imu_to_pose(const sensor_msgs::msg::Imu& msg, types::Pose& pose);
 
     /**
      * @brief Converts a ROS waypoint mission array into a Core Trajectory.
@@ -61,7 +61,7 @@ namespace conversions {
      * @param msg The incoming ROS WaypointArray message.
      * @return types::Trajectory The resulting planned trajectory with UTM coordinates.
      */
-    types::Trajectory waypointsToTrajectory(const dt_msgs::msg::WaypointArray& msg);
+    types::Trajectory waypoints_to_trajectory(const dt_msgs::msg::WaypointArray& msg);
 
 } // namespace conversions
 } // namespace dt_ros

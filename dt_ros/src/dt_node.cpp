@@ -43,7 +43,7 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
         return;
     }
 
-    conversions::applyGpsToPose(*msg, current_pose_);
+    conversions::apply_gps_to_pose(*msg, current_pose_);
 
     RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
         "GPS Received and Pose updated! Lat: %.4f | Lon: %.4f", 
@@ -53,16 +53,16 @@ void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr 
 }
 
 void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {
-    conversions::applyImuToPose(*msg, current_pose_);
+    conversions::apply_imu_to_pose(*msg, current_pose_);
 }
 
 void DigitalTwinNode::ais_callback(const dt_msgs::msg::AisReport::SharedPtr msg) {
-    std::vector<types::Target> core_targets = conversions::aisToCoreTargets(*msg);
+    std::vector<types::Target> core_targets = conversions::ais_to_core_targets(*msg);
     dt_core_->update_dynamic_targets(core_targets);
 }
 
 void DigitalTwinNode::waypoint_callback(const dt_msgs::msg::WaypointArray::SharedPtr msg) {
-    types::Trajectory planned_trajectory = conversions::waypointsToTrajectory(*msg);
+    types::Trajectory planned_trajectory = conversions::waypoints_to_trajectory(*msg);
     dt_core_->update_planned_trajectory(planned_trajectory);
     
     RCLCPP_INFO(this->get_logger(), "New route updated with %zu waypoints.", msg->waypoints.size());
