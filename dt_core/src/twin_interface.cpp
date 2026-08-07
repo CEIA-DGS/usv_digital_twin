@@ -6,6 +6,7 @@
 #include "prediction/prediction.hpp"
 #include "map/IndiceEspacial.hpp"
 #include "dt_core/types.hpp"
+#include <ament_index_cpp/get_package_share_directory.hpp>
 
 namespace dt {
 
@@ -14,6 +15,7 @@ private:
     types::MapData _static_map;
     types::Pose _vehicle_pose;
     std::vector<types::Target> _targets;
+    types::Trajectory _planned_trajectory;
     
     // Ponteiro compartilhado para o motor espacial já carregado
     std::shared_ptr<IndiceEspacial> _indice_espacial;
@@ -22,10 +24,14 @@ public:
     ConcreteWorldStateSnapshot(const types::MapData& map, 
                                const types::Pose& pose, 
                                const std::vector<types::Target>& targets,
+                               const types::Trajectory& planned_trajectory, // Add this parameter
                                std::shared_ptr<IndiceEspacial> indice_espacial)
-        : _static_map(map), _vehicle_pose(pose), _targets(targets), _indice_espacial(indice_espacial) {
+        : _static_map(map), 
+          _vehicle_pose(pose), 
+          _targets(targets), 
+          _planned_trajectory(planned_trajectory), // Initialize member
+          _indice_espacial(indice_espacial) {
         
-        // Atualiza a lista de alvos dinâmicos no motor espacial para este snapshot
         if (_indice_espacial) {
             _indice_espacial->update_global_targets(_targets);
         }
@@ -34,6 +40,10 @@ public:
     float get_closest_static_obstacle_distance(const types::Point& pos) const override {
         if (!_indice_espacial) return -1.0f;
         return _indice_espacial->get_closest_static_obstacle_distance(pos);
+    }
+
+    types::Trajectory get_planned_trajectory() const override {
+        return _planned_trajectory;
     }
 
     // --- Classe C: Acesso de Estado Bruto (Para a Interface Gráfica) ---
@@ -76,21 +86,33 @@ private:
     types::Pose _current_pose;
     std::vector<types::Target> _current_targets;
     std::shared_ptr<const ConcreteWorldStateSnapshot> _latest_snapshot;
+    types::Trajectory _current_planned_trajectory;
     
     // Instância única do Motor Espacial mantida em memória
     std::shared_ptr<IndiceEspacial> _motor_espacial;
 
 public:
     DigitalTwinCoreImpl() {
-        // 1. Instancia o motor espacial
         _motor_espacial = std::make_shared<IndiceEspacial>();
         
         // 2. Carrega os Shapefiles do disco para a RAM apenas UMA VEZ na inicialização
-        std::string dir = "../dt_core/data/output/NavMesh_Shapefiles_BR401410"; //Shapefile estático préprocessado
+        std::string dt_core_share_dir = ament_index_cpp::get_package_share_directory("dt_core");
+        std::string dir = dt_core_share_dir + "/data/output/NavMesh_Shapefiles_BR501511";
         _motor_espacial->carregarShapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
 
-        // 3. Inicializa com um snapshot seguro repassando o motor espacial
-        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets, _motor_espacial);
+        // Pass the empty trajectory initially
+        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
+            _current_map, 
+            _current_pose, 
+            _current_targets, 
+            _current_planned_trajectory, // Add this argument
+            _motor_espacial);
+    }
+
+    void update_planned_trajectory(const types::Trajectory& traj) {
+        std::lock_guard<std::mutex> lock(_mutex);
+        _current_planned_trajectory = traj;
+        refresh_snapshot_unlocked();
     }
 
     void update_static_map(const types::MapData& map) {
@@ -118,15 +140,22 @@ public:
 
 private:
     void refresh_snapshot_unlocked() {
-        // A cada atualização (pose, alvo, mapa), gera um novo snapshot passando o motor já carregado
-        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(_current_map, _current_pose, _current_targets, _motor_espacial);
+        _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
+            _current_map, 
+            _current_pose, 
+            _current_targets, 
+            _current_planned_trajectory,
+            _motor_espacial);
     }
 };
-
 
 static DigitalTwinCoreImpl& get_core_impl() {
     static DigitalTwinCoreImpl instance;
     return instance;
+}
+
+void DigitalTwinCore::update_planned_trajectory(const types::Trajectory& traj) {
+    get_core_impl().update_planned_trajectory(traj);
 }
 
 void DigitalTwinCore::update_static_map(const types::MapData& map) {

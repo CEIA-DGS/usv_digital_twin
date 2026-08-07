@@ -17,8 +17,8 @@
 #include <algorithm>
 #include <cmath>
 
-// Biblioteca GDAL para leitura direta do Shapefile
 #include <ogrsf_frmts.h>
+#include <ament_index_cpp/get_package_share_directory.hpp>
 
 MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent)
 : QMainWindow(parent),
@@ -180,8 +180,12 @@ void MainWindow::drawFreeZone()
 {
   GDALAllRegister();
   
-  // Caminho absoluto para a leitura direta do mapa no HD
-  std::string caminho = "/home/pedroh/ros2_jazzy/src/usv_digital_twin/dt_core/data/output/NavMesh_Shapefiles_BR401410/4_Malha_NavMesh.shp";
+  GDALAllRegister();
+  
+  // Busca automaticamente a raiz do pacote dt_core no computador atual
+  std::string dt_core_path = ament_index_cpp::get_package_share_directory("dt_core");
+  std::string caminho = dt_core_path + "/data/output/NavMesh_Shapefiles_BR501511/4_Malha_NavMesh.shp";
+  
   GDALDataset* ds = (GDALDataset*)GDALOpenEx(caminho.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
 
   if (!ds) {
@@ -189,27 +193,24 @@ void MainWindow::drawFreeZone()
     return;
   }
 
-  // Estilo da NavMesh (Azul Claro para representar a área navegável)
   QPen border_pen(QColor(100, 160, 220, 100)); 
   border_pen.setWidthF(0.5);
   QBrush fill_brush(QColor(175, 215, 250, 120)); 
 
   OGRLayer* layer = ds->GetLayer(0);
 
-  // Extrai os limites (bounding box) da NavMesh
   OGREnvelope envelope;
   if (layer->GetExtent(&envelope) == OGRERR_NONE) {
     map_center_x_ = (envelope.MinX + envelope.MaxX) / 2.0;
-    map_center_y_ = (envelope.MinY + envelope.MaxY) / 2.0;
+    // INVERSÃO 1: O Centro geométrico ganha o Y invertido
+    map_center_y_ = -((envelope.MinY + envelope.MaxY) / 2.0); 
     
-    // Foca a câmera inicial no centro geográfico do mapa
     view_->centerOn(map_center_x_, map_center_y_);
   }
 
   OGRFeature* feat;
   layer->ResetReading();
 
-  // Desenha cada triângulo da malha na cena
   while ((feat = layer->GetNextFeature()) != nullptr) {
     OGRGeometry* geom = feat->GetGeometryRef();
     if (geom && wkbFlatten(geom->getGeometryType()) == wkbPolygon) {
@@ -217,7 +218,8 @@ void MainWindow::drawFreeZone()
       if (ring) {
         QPolygonF qpoly;
         for (int i = 0; i < ring->getNumPoints(); i++) {
-          qpoly << QPointF(ring->getX(i), ring->getY(i));
+          // INVERSÃO 2: As coordenadas da malha ganham o Y invertido
+          qpoly << QPointF(ring->getX(i), -ring->getY(i));
         }
         auto* item = scene_->addPolygon(qpoly, border_pen, fill_brush);
         item->setZValue(-1.0);
@@ -317,23 +319,30 @@ void MainWindow::updateSimulation()
   const types::Pose usv_pose = snapshot->get_vehicle_pose();
   double usv_x = usv_pose.get_x();
   double usv_y = usv_pose.get_y();
-  const double heading = usv_pose.get_yaw() * (180.0 / M_PI); 
+  
+  // INVERSÃO DO ÂNGULO: O Yaw do ROS (Anti-horário) precisa ser invertido para o Qt (Horário)
+  const double heading = -usv_pose.get_yaw() * (180.0 / M_PI); 
 
   // HACK: Se o barco ainda estiver na origem (0,0) por falta de sinal GPS,
   // teleportamos ele visualmente para o centro da carta náutica.
   if (std::abs(usv_x) < 0.1 && std::abs(usv_y) < 0.1) {
       usv_x = map_center_x_;
-      usv_y = map_center_y_;
+      // map_center_y_ já está negativo; revertemos para a lógica UTM manter a coerência
+      usv_y = -map_center_y_; 
   }
 
-  // Atualiza as posições do USV na cena
-  usv_->setPos(usv_x, usv_y);
+  // VARIÁVEIS DE TELA (O Qt desenha invertido)
+  const double render_x = usv_x;
+  const double render_y = -usv_y;
+
+  // Atualiza as posições do USV na cena usando os valores invertidos
+  usv_->setPos(render_x, render_y);
   usv_->setRotation(heading);
-  usv_label_->setPos(usv_x, usv_y); 
-  heading_line_->setPos(usv_x, usv_y);
+  usv_label_->setPos(render_x, render_y); 
+  heading_line_->setPos(render_x, render_y);
   heading_line_->setRotation(heading);
   
-  updateUsvTrajectory(usv_x, usv_y);
+  updateUsvTrajectory(render_x, render_y);
 
   // Lê e atualiza os Alvos AIS
   const auto targets = snapshot->get_all_targets();
@@ -342,6 +351,10 @@ void MainWindow::updateSimulation()
     std::uint32_t mmsi = target.get_id();
     double t_x = target.get_pose().get_x();
     double t_y = target.get_pose().get_y();
+
+    // VARIÁVEIS DE TELA PARA OS ALVOS
+    double render_t_x = t_x;
+    double render_t_y = -t_y;
 
     // Cria visualização do alvo se ele ainda não existe na cena
     if (vessel_items_by_mmsi_.find(mmsi) == vessel_items_by_mmsi_.end()) {
@@ -361,10 +374,27 @@ void MainWindow::updateSimulation()
       vessel_labels_by_mmsi_[mmsi] = label;
     }
 
-    // Atualiza a posição (o transform garante o offset do texto)
-    vessel_items_by_mmsi_[mmsi]->setPos(t_x, t_y);
-    vessel_labels_by_mmsi_[mmsi]->setPos(t_x, t_y);
+    // Atualiza a posição no Qt
+    vessel_items_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
+    vessel_labels_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
   }
+
+  const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
+  const auto& core_waypoints = planned_traj.get_poses();
+
+  // 2. Converte para o RoutePoint que o Qt espera, invertendo o Y!
+  std::vector<RoutePoint> display_route;
+  display_route.reserve(core_waypoints.size());
+
+  for (const auto& wp : core_waypoints) {
+      RoutePoint rp;
+      rp.x = wp.get_x();
+      rp.y = -wp.get_y(); // INVERSÃO CRÍTICA PARA O QT
+      display_route.push_back(rp);
+  }
+
+  // 3. Manda desenhar na tela
+  updatePlannedRoute(display_route);
 
   // Atualiza painel lateral e barra de status
   updateInformationPanel(usv_x, usv_y, heading);

@@ -9,10 +9,12 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # 1. DEPENDÊNCIAS DO SISTEMA
 # Requer: sudo apt install libgdal-dev libglfw3-dev libgl1-mesa-dev libboost-all-dev
 # ==============================================================================
+find_package(ament_cmake REQUIRED)
 find_package(GDAL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(Boost REQUIRED)
+find_package(ament_index_cpp REQUIRED)
 
 # ==============================================================================
 # 2. DEPENDÊNCIAS FETCHCONTENT
@@ -51,12 +53,14 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 target_link_libraries(${PROJECT_NAME} 
     PUBLIC
         ${GDAL_LIBRARIES}
+        ament_index_cpp::ament_index_cpp
     PRIVATE
         glfw
         OpenGL::GL
         nlohmann_json::nlohmann_json
         poly2tri
 )
+
 
 # ==============================================================================
 # 4. CONSTRUÇÃO DO EXECUTÁVEL STANDALONE
@@ -82,6 +86,10 @@ install(DIRECTORY include/
     FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
 )
 
+install(DIRECTORY data
+    DESTINATION share/${PROJECT_NAME}
+)
+
 install(EXPORT ${PROJECT_NAME}Targets
     FILE ${PROJECT_NAME}Targets.cmake
     NAMESPACE ${PROJECT_NAME}::
@@ -102,3 +110,5 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
+
+ament_package()

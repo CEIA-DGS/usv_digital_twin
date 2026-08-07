@@ -22,6 +22,8 @@ public:
     // --- Classe C: Acesso de Estado Bruto (Para a Interface Gráfica) ---
     virtual types::Pose get_vehicle_pose() const = 0;
     virtual std::vector<types::Target> get_all_targets() const = 0;
+
+    virtual types::Trajectory get_planned_trajectory() const = 0;
 };
 
 // Interface Principal do Gêmeo Digital (Gerenciador do Buffer)
@@ -31,6 +33,7 @@ public:
     void update_static_map(const types::MapData& map);
     void update_vehicle_pose(const types::Pose& pose);
     void update_dynamic_targets(const std::vector<types::Target>& targets);
+    void update_planned_trajectory(const types::Trajectory& traj);
 
     // Método chamado pela NAVEGAÇÃO (Síncrono, Thread-Safe, Lock-free ou low-latency)
     // Retorna um ponteiro inteligente para o snapshot atualizado (Double Buffering)
