@@ -78,6 +78,10 @@ public:
     double get_dynamic_risk_field(const types::Point& position, double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const override {
         return prediction::get_dynamic_risk_field(position, timestamp, usv_state, targets);
     }
+
+    types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const override {
+        return prediction::make_trajectory_between(origin, destination, step);
+    }
 };
 
 // -----------------------------------------------------------------------------

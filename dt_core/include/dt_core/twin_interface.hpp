@@ -79,6 +79,15 @@ public:
      */
     virtual double get_dynamic_risk_field(const types::Point& position, double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const = 0;
     
+    /**
+     * @brief Discretizes a trajectory between two points in space.
+     * @param origin Starting point.
+     * @param destination Ending point.
+     * @param step Distance between discrete inner trajectory points.
+     * @return Trajectory between origin and destination.
+     */
+    virtual types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step);
+
     // --- Raw State Access (For GUI / Visualization) ---
 
     /**
