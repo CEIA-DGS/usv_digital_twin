@@ -4,7 +4,6 @@
 
 namespace prediction{
   types::Trajectory predict_trajectory(const types::Entity& entity, const double time_horizon, const double time_step){
-    /* Prevê a trajetória linear de um objeto 'time_horizon' segundos no futuro a um passo de tempo de 'time_step' segundos */
 
     if(time_horizon <= 0.0){
       throw std::invalid_argument("Error: time_horizon must be positive!");
@@ -74,14 +73,14 @@ namespace prediction{
     }
 
     if(step > distance){
-      throw std::invalid_argument("Error: distance between waypoints must be greater than step!");
+      throw std::invalid_argument("Error: distance between border Points must be greater than step!");
     }
 
     double num_segments = distance / step;
     
     types::Pose pose = types::Pose();
 
-    // garante inclusão da origem e destino evitando erros por arredondamento
+    // ensures the inclusion of origin and destination, avoiding rounding errors
     pose.set_position(origin.get_x(), origin.get_y(), 0.0);
     trajectory.add_pose(pose);
 
@@ -139,14 +138,14 @@ namespace prediction{
           report.set_id(target.get_id());
         }
 
-        // Fusão de Covariância
+        // Covariance Fusion
         double cov_xx = target.get_covariance().get_xx() + usv_state.get_covariance().get_xx() + 1.0;
         double cov_yy = target.get_covariance().get_yy() + usv_state.get_covariance().get_yy() + 1.0;
         double cov_xy = target.get_covariance().get_xy() + usv_state.get_covariance().get_xy();
 
-        // Inversão da Matriz 2x2 para a Distância de Mahalanobis
+        // Inversion of the 2x2 Matrix for Mahalanobis Distance
         double det = (cov_xx * cov_yy) - (cov_xy * cov_xy);
-        if (det < 1e-6) det = 1e-6; // Evita matriz singular ou divisão por zero
+        if (det < 1e-6) det = 1e-6; // Avoids singular matrix or division by zero.
 
         double inv_xx = cov_yy / det;
         double inv_yy = cov_xx / det;
@@ -156,15 +155,15 @@ namespace prediction{
         double d_m_sq = (relative_x * inv_xx + relative_y * inv_xy) * relative_x + 
                         (relative_x * inv_xy + relative_y * inv_yy) * relative_y;
 
-        // Conversão geométrica de Mahalanobis para campo escalar de Risco
-        // Função decaimento exponencial Gaussiana: Risk = exp(-0.5 * D_M^2)
+        // Geometric Mahalanobis conversion to a scalar risk field
+        // Gaussian exponential decay function: Risk = exp(-0.5 * D_M^2)
         double risk = std::exp(-0.5 * d_m_sq);
         
         if(risk > report.get_risk()){
           report.set_risk(risk);
         }
 
-        double threshold = 0.55; // % de certeza de colisão 0 a 1
+        double threshold = 0.55; // Collision certainty % (0 to 1)
         if(risk > threshold){
           report.set_safety(false);
           report.set_id(target.get_id());
@@ -190,14 +189,14 @@ namespace prediction{
       double relative_x = position.get_x() - target_future_x;
       double relative_y = position.get_y() - target_future_y;
 
-      // Fusão de Covariância
+      // Covariance Fusion
       double cov_xx = target.get_covariance().get_xx() + usv_state.get_covariance().get_xx() + 1.0;
       double cov_yy = target.get_covariance().get_yy() + usv_state.get_covariance().get_yy() + 1.0;
       double cov_xy = target.get_covariance().get_xy() + usv_state.get_covariance().get_xy();
 
-      // Inversão da Matriz 2x2 para a Distância de Mahalanobis
+      // Inversion of the 2x2 Matrix for Mahalanobis Distance
       double det = (cov_xx * cov_yy) - (cov_xy * cov_xy);
-      if (det < 1e-6) det = 1e-6; // Evita matriz singular ou divisão por zero
+      if (det < 1e-6) det = 1e-6; // Avoids singular matrix or division by zero.
 
       double inv_xx = cov_yy / det;
       double inv_yy = cov_xx / det;
@@ -207,8 +206,8 @@ namespace prediction{
       double d_m_sq = (relative_x * inv_xx + relative_y * inv_xy) * relative_x + 
                       (relative_x * inv_xy + relative_y * inv_yy) * relative_y;
 
-      // Conversão geométrica de Mahalanobis para campo escalar de Risco
-      // Função decaimento exponencial Gaussiana: Risk = exp(-0.5 * D_M^2)
+      // Geometric Mahalanobis conversion to a scalar risk field
+      // Gaussian exponential decay function: Risk = exp(-0.5 * D_M^2)
       double risk = std::exp(-0.5 * d_m_sq);
 
       if(risk > max_risk){

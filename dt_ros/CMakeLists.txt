@@ -12,7 +12,11 @@ find_package(dt_msgs REQUIRED)
 find_package(dt_core REQUIRED)
 find_package(tf2 REQUIRED)
 
-add_library(dt_ros_node SHARED src/dt_node.cpp)
+add_library(dt_ros_node SHARED 
+  src/dt_node.cpp
+  src/conversions.cpp
+  src/utils/geo_utils.cpp
+)
 
 target_include_directories(dt_ros_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
