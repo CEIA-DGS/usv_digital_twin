@@ -86,7 +86,7 @@ public:
      * @param step Distance between discrete inner trajectory points.
      * @return Trajectory between origin and destination.
      */
-    virtual types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step);
+    virtual types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const = 0;
 
     // --- Raw State Access (For GUI / Visualization) ---
 
