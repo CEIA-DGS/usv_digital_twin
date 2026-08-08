@@ -5,11 +5,6 @@
 
 using json = nlohmann::json;
 
-/**
- * @brief Loads and decodes operational parameters and geospatial feature classes from a JSON file.
- * @param file_path Physical path of the system configuration file.
- * @return MapConfiguration structure populated with safety variables and layer filters.
- */
 MapConfiguration ConfigManager::load_configuration(const std::string& file_path) {
     MapConfiguration config;
     std::ifstream file(file_path);

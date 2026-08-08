@@ -35,12 +35,6 @@ struct AppState {
     OGREnvelope bounds;
 };
 
-/**
- * @brief Performs recursive parsing of GDAL geometries into the internal rendering structure.
- * Handles MultiPolygons and geometry collections.
- * @param geom Pointer to the original GDAL geometry.
- * @param target_list Output list where the extracted 2D polygons will be stored.
- */
 static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& target_list) {
     if (!geom) return;
     OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
@@ -71,16 +65,6 @@ static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& tar
     }
 }
 
-/**
- * @brief Loads features from a GDAL layer into the rendering memory.
- * @param dataset Pointer to the open GDAL Dataset.
- * @param layer_name Name of the layer to be extracted.
- * @param fill_color Fill color of the polygons.
- * @param line_color Border line color.
- * @param line_width Thickness of the border lines.
- * @param is_filled Boolean flag indicating whether the polygon should be filled.
- * @return RenderLayer structure configured and populated with geometries.
- */
 static RenderLayer load_shapefile_layer(GDALDataset* dataset, const char* layer_name, Color fill_color, Color line_color, float line_width, bool is_filled) {
     RenderLayer layer;
     layer.fill_color = fill_color;
@@ -103,9 +87,6 @@ static RenderLayer load_shapefile_layer(GDALDataset* dataset, const char* layer_
 
 // Input Callbacks
 
-/**
- * @brief Callback function to handle mouse button events (dragging initialization).
- */
 static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     if (button == GLFW_MOUSE_BUTTON_LEFT) {
@@ -116,9 +97,6 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
     }
 }
 
-/**
- * @brief Callback function to handle cursor movement and execute camera panning.
- */
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     if (state->is_dragging) {
@@ -129,9 +107,6 @@ static void cursor_position_callback(GLFWwindow* window, double xpos, double ypo
     }
 }
 
-/**
- * @brief Callback function to handle mouse scroll wheel events (zoom in/out).
- */
 static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
     AppState* state = static_cast<AppState*>(glfwGetWindowUserPointer(window));
     double zoom_factor = (yoffset > 0) ? 1.15 : (1.0 / 1.15);
@@ -147,11 +122,6 @@ static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) 
     state->pan_y = world_y_before - (state->window_height / 2.0 - mouse_y) / state->zoom;
 }
 
-/**
- * @brief Starts the rendering loop and displays the geographic layers contained in the target directory.
- * @param shapefiles_folder Path to the directory containing the processed .shp files.
- * @param chart_name Chart identifier, used for labeling the display window.
- */
 void VectorVisualizer::display(const std::string& shapefiles_folder, const std::string& chart_name) {
     if (!glfwInit()) return;
 

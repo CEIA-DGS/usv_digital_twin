@@ -3,12 +3,6 @@
 #include <cmath>
 #include "../../include/map/gdal_initializer.hpp"
 
-/**
- * @brief Executes the analytical parsing of S-57 nautical charts, extracting and reprojecting cartographic features to dynamic UTM.
- * @param s57_path Physical path of the S-57 binary file (.000).
- * @param config Structure containing the string vectors with the desired mapping classes.
- * @return ProcessedGeometries structure containing the pointers of the geometries reprojected to real metric UTM.
- */
 ProcessedGeometries S57Processor::process_chart(const std::string& s57_path, const MapConfiguration& config) {
     ProcessedGeometries result;
 

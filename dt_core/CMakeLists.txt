@@ -63,17 +63,11 @@ target_link_libraries(${PROJECT_NAME}
 
 
 # ==============================================================================
-# 4. CONSTRUÇÃO DO EXECUTÁVEL STANDALONE
-# ==============================================================================
-add_executable(navmesh_gen src/map/main.cpp)
-target_link_libraries(navmesh_gen PRIVATE ${PROJECT_NAME})
-
-# ==============================================================================
-# 5. REGRAS DE INSTALAÇÃO
+# 4. REGRAS DE INSTALAÇÃO
 # ==============================================================================
 include(GNUInstallDirs)
 
-install(TARGETS ${PROJECT_NAME} navmesh_gen
+install(TARGETS ${PROJECT_NAME}
     EXPORT ${PROJECT_NAME}Targets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

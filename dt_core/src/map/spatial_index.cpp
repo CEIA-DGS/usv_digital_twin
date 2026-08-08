@@ -5,11 +5,6 @@
 #include "ogrsf_frmts.h"
 #include "../../include/map/gdal_initializer.hpp"
 
-/**
- * @brief Internal auxiliary function to inject vertices of a linear ring into the distance R-Tree.
- * @param ring Pointer to the linear ring (OGRLinearRing) containing the geometry vertices.
- * @param rtree Reference to the segment R-Tree where the bounding boxes will be inserted.
- */
 void inject_ring_into_rtree(OGRLinearRing* ring, bgi::rtree<RTreeSegmentValue, bgi::quadratic<16>>& rtree) {
     if (!ring) return;
     for (int i = 0; i < ring->getNumPoints() - 1; i++) {
@@ -25,12 +20,6 @@ void inject_ring_into_rtree(OGRLinearRing* ring, bgi::rtree<RTreeSegmentValue, b
 
 // DATA LOADING (MARGIN AND NAVMESH)
 
-/**
- * @brief Loads, processes, and builds spatial R-Trees from Shapefiles on disk.
- * @param margin_shp Path to the `.shp` file regarding the safety margin.
- * @param mesh_shp Path to the `.shp` file regarding the navigation mesh.
- * @return true if loading and indexing were successful, false otherwise.
- */
 bool SpatialIndex::load_shapefiles(const std::string& margin_shp, const std::string& mesh_shp) {
     rtree_margin_.clear();
     rtree_mesh_.clear();
@@ -111,11 +100,6 @@ bool SpatialIndex::load_shapefiles(const std::string& margin_shp, const std::str
 
 // FAST MATHEMATICAL CALCULATION FUNCTIONS
 
-/**
- * @brief Auxiliary method that calculates the exact distance in meters to the safety margin.
- * @param position Reference position in `types::Point` format.
- * @return Shortest geometric distance calculated via R-Tree.
- */
 double SpatialIndex::calculate_margin_distance(const types::Point& position) const {
     if (rtree_margin_.empty()) return -1.0; 
 
@@ -139,11 +123,6 @@ double SpatialIndex::calculate_margin_distance(const types::Point& position) con
     return exact_min_distance;
 }
 
-/**
- * @brief Evaluates whether a specific point strictly belongs to the navigable polygon.
- * @param position Test coordinates.
- * @return true if the point is contained within the navigable mesh, false otherwise.
- */
 bool SpatialIndex::is_navigable(const types::Point& position) const {
     if (rtree_mesh_.empty()) return false;
 
@@ -164,12 +143,6 @@ bool SpatialIndex::is_navigable(const types::Point& position) const {
 
 // VISUAL DEBUGGING OF R-TREES AND DISTANCE LINES FOR NAVIGABLE POINTS
 
-/**
- * @brief Generates spatial debugging files to validate R-Tree queries via QGIS.
- * @param test_points Vector of sample points for proximity testing.
- * @param output_folder Save directory for the generated vector files.
- * @param epsg_utm EPSG code of the applied UTM cartographic projection.
- */
 void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_points, const std::string& output_folder, int epsg_utm) const {
     GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("ESRI Shapefile");
     OGRSpatialReference srs; 
@@ -312,38 +285,18 @@ void SpatialIndex::export_rtree_debug(const std::vector<types::Point>& test_poin
 
 // INTERFACE METHODS
 
-/**
- * @brief Calculates the Euclidean distance to the nearest static obstacle.
- * @param position Current position of the vehicle (containing X and Y coordinates).
- * @return Distance in meters to the nearest mapped margin or obstacle.
- */
 float SpatialIndex::get_closest_static_obstacle_distance(const types::Point& position) const {
     return static_cast<float>(calculate_margin_distance(position));
 }
 
-/**
- * @brief Checks if a given position is inside a restricted zone (outside the NavMesh).
- * @param position Current position of the vehicle to be tested.
- * @return true if the point is in a restricted/dangerous zone, false if it is in a safe navigable area.
- */
 bool SpatialIndex::is_inside_restricted_zone(const types::Point& position) const {
     return !is_navigable(position);
 }
 
-/**
- * @brief Updates the internal cache of global targets monitored by the system.
- * @param targets Vector containing the new targets processed by the perception layer.
- */
 void SpatialIndex::update_global_targets(const std::vector<types::Target>& targets) {
     global_targets_cache_ = targets;
 }
 
-/**
- * @brief Filters and returns active targets within a local range radius relative to a center.
- * @param center Central reference point.
- * @param radius Maximum search radius in meters.
- * @return Vector containing only the targets located within the area of interest.
- */
 std::vector<types::Target> SpatialIndex::get_active_local_targets(const types::Point& center, float radius) const {
     std::vector<types::Target> local_targets;
     

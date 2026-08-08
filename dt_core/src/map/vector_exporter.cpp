@@ -2,12 +2,6 @@
 #include <iostream>
 #include "map/gdal_initializer.hpp"
 
-/**
- * @brief Exports geographic components and the navigation mesh to ESRI Shapefiles in real UTM.
- * @param nav_mesh Structure containing the processed geometries and generated triangles.
- * @param output_dir Directory path where the layers (.shp) will be saved.
- * @param epsg_utm Dynamically calculated UTM EPSG code to ensure real distances.
- */
 void VectorExporter::export_shapefile(const NavigationMesh& nav_mesh, const std::string& output_dir, int epsg_utm) {
     std::cout << "[Exporter] Generating Shapefiles in UTM (EPSG:" << epsg_utm << ") at: " << output_dir << std::endl;
 
@@ -64,11 +58,6 @@ void VectorExporter::export_shapefile(const NavigationMesh& nav_mesh, const std:
     std::cout << "[Exporter] Vector export in UTM completed successfully!" << std::endl;
 }
 
-/**
- * @brief Envelopes a pure OGR geometry into a Feature and consolidates it in the target layer.
- * @param layer Pointer to the destination OGR layer.
- * @param geom Pointer to the geometry to be inserted.
- */
 void VectorExporter::insert_geometry(OGRLayer* layer, OGRGeometry* geom) {
     if (!geom || !layer) return;
     
