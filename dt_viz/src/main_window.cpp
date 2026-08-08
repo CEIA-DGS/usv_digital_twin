@@ -1,5 +1,4 @@
 #include "dt_viz/main_window.hpp"
-#include "dt_viz/shapefile_loader.hpp"
 
 #include <QBrush>
 #include <QColor>
@@ -12,7 +11,6 @@
 #include <QVBoxLayout>
 #include <QWheelEvent>
 #include <QTransform>
-#include <filesystem>
 
 #include <algorithm>
 #include <cmath>
@@ -156,20 +154,8 @@ void MainWindow::createInformationPanel()
 
 void MainWindow::createScene()
 {
-  scene_->setSceneRect(
-    -500.0,
-    -350.0,
-    1000.0,
-    700.0);
-
-  drawGrid();
-  drawAxes();
-
-  // A zona livre fixa foi substituída pela carta náutica.
-  // drawFreeZone();
-
+  drawFreeZone();
   drawUsv();
-  drawTrackedVessels();
   drawScaleBar();
 }
 
@@ -584,222 +570,4 @@ void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminen
     label_iterator->second->setText(QString("MMSI %1").arg(mmsi));
     label_iterator->second->setBrush(QBrush(QColor(125, 45, 30)));
   }
-}
-
-void MainWindow::clearNauticalChart()
-{
-  for (auto * item : nautical_chart_items_) {
-    if (item == nullptr) {
-      continue;
-    }
-
-    scene_->removeItem(item);
-    delete item;
-  }
-
-  nautical_chart_items_.clear();
-}
-
-bool MainWindow::loadNauticalChartDirectory(
-  const std::string & directory)
-{
-  namespace fs = std::filesystem;
-
-  clearNauticalChart();
-
-  /**
-   * Cada camada recebe uma aparência distinta.
-   *
-   * A ordem visual é definida pelo z_value:
-   * quanto maior o valor, mais acima a camada será desenhada.
-   */
-  struct LayerDefinition
-  {
-    std::string file_name;
-    QPen pen;
-    QBrush brush;
-    double z_value;
-  };
-
-  const std::vector<LayerDefinition> layer_definitions = {
-    {
-      "3_Area_Navegavel_Limpa.shp",
-      QPen(QColor(75, 145, 185), 1.0),
-      QBrush(QColor(155, 215, 235, 130)),
-      -40.0
-    },
-    {
-      "1_Terra_Firme.shp",
-      QPen(QColor(90, 75, 50), 1.5),
-      QBrush(QColor(184, 160, 115, 230)),
-      -30.0
-    },
-    {
-      "2_Margem_Seguranca.shp",
-      QPen(QColor(210, 145, 20), 1.5),
-      QBrush(QColor(255, 205, 70, 105)),
-      -20.0
-    },
-    {
-      "4_Malha_NavMesh.shp",
-      QPen(QColor(70, 90, 110, 150), 0.8),
-      QBrush(Qt::NoBrush),
-      -10.0
-    }
-  };
-
-  struct LoadedLayer
-  {
-    LayerDefinition definition;
-    std::vector<ShapefileGeometry> geometries;
-  };
-
-  std::vector<LoadedLayer> loaded_layers;
-
-  QRectF source_bounds;
-  bool has_source_bounds = false;
-
-  for (const auto & definition : layer_definitions) {
-    const fs::path shapefile_path =
-      fs::path(directory) /
-      definition.file_name;
-
-    if (!fs::exists(shapefile_path)) {
-      statusBar()->showMessage(
-        QString(
-          "Arquivo não encontrado: %1")
-          .arg(
-            QString::fromStdString(
-              shapefile_path.string())));
-
-      continue;
-    }
-
-    std::vector<ShapefileGeometry> geometries =
-      ShapefileLoader::load(
-        shapefile_path.string());
-
-    if (geometries.empty()) {
-      continue;
-    }
-
-    for (const auto & geometry : geometries) {
-      if (!has_source_bounds) {
-        source_bounds = geometry.bounds;
-        has_source_bounds = true;
-      } else {
-        source_bounds =
-          source_bounds.united(
-            geometry.bounds);
-      }
-    }
-
-    loaded_layers.push_back({
-      definition,
-      std::move(geometries)
-    });
-  }
-
-  if (!has_source_bounds || loaded_layers.empty()) {
-    statusBar()->showMessage(
-      "Nenhuma geometria válida foi encontrada na carta.");
-
-    return false;
-  }
-
-  if (source_bounds.width() <= 0.0 ||
-      source_bounds.height() <= 0.0)
-  {
-    statusBar()->showMessage(
-      "Os limites da carta náutica são inválidos.");
-
-    return false;
-  }
-
-  // Área reservada da cena para desenhar a carta.
-  const QRectF target_bounds =
-    scene_->sceneRect().adjusted(
-      35.0,
-      35.0,
-      -35.0,
-      -35.0);
-
-  const double scale_x =
-    target_bounds.width() /
-    source_bounds.width();
-
-  const double scale_y =
-    target_bounds.height() /
-    source_bounds.height();
-
-  // Mantém a proporção da carta.
-  const double scale =
-    std::min(scale_x, scale_y);
-
-  const double mapped_width =
-    source_bounds.width() * scale;
-
-  const double mapped_height =
-    source_bounds.height() * scale;
-
-  const double offset_x =
-    target_bounds.left() +
-    (target_bounds.width() - mapped_width) / 2.0;
-
-  const double offset_y =
-    target_bounds.top() +
-    (target_bounds.height() - mapped_height) / 2.0;
-
-  /**
-   * Transformação comum para todas as camadas.
-   *
-   * Isso garante que terra firme, margem, área navegável
-   * e NavMesh permaneçam espacialmente alinhadas.
-   */
-  const QTransform chart_transform(
-    scale,
-    0.0,
-    0.0,
-    scale,
-    offset_x - source_bounds.left() * scale,
-    offset_y - source_bounds.top() * scale);
-
-  std::size_t item_count = 0;
-
-  for (const auto & layer : loaded_layers) {
-    for (const auto & geometry : layer.geometries) {
-      const QPainterPath transformed_path =
-        chart_transform.map(
-          geometry.path);
-
-      auto * item = scene_->addPath(
-        transformed_path,
-        layer.definition.pen,
-        layer.definition.brush);
-
-      item->setZValue(
-        layer.definition.z_value);
-
-      nautical_chart_items_.push_back(item);
-      ++item_count;
-    }
-  }
-
-  if (item_count == 0) {
-    statusBar()->showMessage(
-      "A carta foi lida, mas nenhuma geometria foi desenhada.");
-
-    return false;
-  }
-
-  view_->fitInView(
-    scene_->sceneRect(),
-    Qt::KeepAspectRatio);
-
-  statusBar()->showMessage(
-    QString(
-      "Carta náutica carregada: %1 elementos gráficos.")
-      .arg(item_count));
-
-  return true;
 }
