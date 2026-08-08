@@ -1,0 +1,42 @@
+\doxysection{Fuzzer\+Random.\+h}
+\hypertarget{FuzzerRandom_8h_source}{}\label{FuzzerRandom_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerRandom.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerRandom.h}}
+\mbox{\hyperlink{FuzzerRandom_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerRandom.h\ -\/\ Internal\ header\ for\ the\ Fuzzer\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ fuzzer::Random}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_RANDOM\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_RANDOM\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1Random}{Random}}\ \{}
+\DoxyCodeLine{00019\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classfuzzer_1_1Random_afd423b2e9cc76fe2f344d9804c1ba46b}{Random}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ seed)\ :\ R(seed)\ \{\}}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Random_afe62c39a4f5590cf858998e73aad3a23}{Rand}}()\ \{\ \textcolor{keywordflow}{return}\ R();\ \}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Random_ad1b676d839fb8857db1e222f4c8d66a8}{RandBool}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classfuzzer_1_1Random_afe62c39a4f5590cf858998e73aad3a23}{Rand}}()\ \%\ 2;\ \}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Random_ae60979187cdba1590c49ec3bcb7bd38c}{operator()}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}\ ?\ \mbox{\hyperlink{classfuzzer_1_1Random_afe62c39a4f5590cf858998e73aad3a23}{Rand}}()\ \%\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}\ :\ 0;\ \}}
+\DoxyCodeLine{00024\ \ \ intptr\_t\ \mbox{\hyperlink{classfuzzer_1_1Random_aa3c0366c346fa592693643c6fae04c92}{operator()}}(intptr\_t\ From,\ intptr\_t\ To)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(From\ <\ To);}
+\DoxyCodeLine{00026\ \ \ \ \ intptr\_t\ RangeSize\ =\ To\ -\/\ From\ +\ 1;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classfuzzer_1_1Random_ae60979187cdba1590c49ec3bcb7bd38c}{operator()}}(RangeSize)\ +\ From;}
+\DoxyCodeLine{00028\ \ \ \}}
+\DoxyCodeLine{00029\ \ \ std::mt19937\ \&\mbox{\hyperlink{classfuzzer_1_1Random_a7bd3aafc09609dd128095b33e84ff06e}{Get\_mt19937}}()\ \{\ \textcolor{keywordflow}{return}\ R;\ \}}
+\DoxyCodeLine{00030\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ std::mt19937\ R;}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_RANDOM\_H}}
+
+\end{DoxyCode}

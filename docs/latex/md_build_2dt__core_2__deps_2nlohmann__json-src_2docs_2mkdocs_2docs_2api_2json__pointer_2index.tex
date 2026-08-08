@@ -1,0 +1,52 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}json\+\_\+pointer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}\index{$<$small$>$nlohmann::$<$/small$>$json\_pointer@{$<$small$>$nlohmann::$<$/small$>$json\_pointer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md989}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md989}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RefStringType>}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classjson__pointer}{json\_pointer}};}
+
+\end{DoxyCode}
+
+
+A JSON pointer defines a string syntax for identifying a specific value within a JSON document. It can be used with functions \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\`{}at\`{}}{0} and \`{}operator\mbox{[}\mbox{]}\`{}. Furthermore, JSON pointers are the base for JSON patches.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md990}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md990}
+{\ttfamily Ref\+String\+Type} \+: the string type used for the reference tokens making up the JSON pointer
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}For backwards compatibility `RefStringType` may also be a specialization of [`basic_json`](../basic_json/index.md)
+in which case `string_t` will be deduced as [`basic_json::string_t`](../basic_json/string_t.md). This feature is
+deprecated and may be removed in a future major version.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md991}{}\doxysection{\texorpdfstring{Member types}{Member types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md991}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2string__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}string\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ the string type used for the reference tokens
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md992}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md992}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer}{(constructor)}{0}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+string\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return a string representation of the JSON pointer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__string__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator string\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return a string representation of the JSON pointer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator==\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ compare\+: equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__ne}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator!=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ compare\+: not equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__slasheq}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator/=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ append to the end of the JSON pointer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__slash}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator/\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ create JSON Pointer by appending
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2parent__pointer}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parent\+\_\+pointer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns the parent of this JSON pointer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2pop__back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pop\+\_\+back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ remove last reference token
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return last reference token
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}push\+\_\+back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ append an unescaped token at the end of the pointer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2empty}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}empty\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether pointer points to the root document
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md993}{}\doxysection{\texorpdfstring{Literals}{Literals}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md993}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json__pointer}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator"{}"{}\+\_\+json\+\_\+pointer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ user-\/defined string literal for JSON pointers 
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md994}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md994}
+
+\begin{DoxyItemize}
+\item \href{https://datatracker.ietf.org/doc/html/rfc6901}{\texttt{ RFC 6901}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md995}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index_autotoc_md995}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0.
+\item Changed template parameter from {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} to string type in version 3.\+11.\+0. 
+\end{DoxyItemize}

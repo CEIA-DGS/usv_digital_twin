@@ -83,7 +83,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ace70c402bcd9eb3005ebaa2bee0e084f" id="r_ace70c402bcd9eb3005ebaa2bee0e084f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classtypes_1_1Target.html">types::Target</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#ace70c402bcd9eb3005ebaa2bee0e084f">ais_to_core_targets</a> (const dt_msgs::msg::AisReport &amp;msg)</td></tr>
+<tr class="memitem:ace70c402bcd9eb3005ebaa2bee0e084f" id="r_ace70c402bcd9eb3005ebaa2bee0e084f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classtypes_1_1Target.html">types::Target</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#ace70c402bcd9eb3005ebaa2bee0e084f">ais_to_core_targets</a> (const <a class="el" href="classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport.html">dt_msgs::msg::AisReport</a> &amp;msg)</td></tr>
 <tr class="memdesc:ace70c402bcd9eb3005ebaa2bee0e084f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an array of ROS AIS targets into Core domain targets.  <br /></td></tr>
 <tr class="separator:ace70c402bcd9eb3005ebaa2bee0e084f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cea50dc4a95939e365d6c5761cd8770" id="r_a1cea50dc4a95939e365d6c5761cd8770"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a1cea50dc4a95939e365d6c5761cd8770">apply_gps_to_pose</a> (const sensor_msgs::msg::NavSatFix &amp;msg, <a class="el" href="classtypes_1_1Pose.html">types::Pose</a> &amp;pose)</td></tr>
@@ -92,7 +92,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ad2f2c9ac548f9b3501c70de5e9c515e2" id="r_ad2f2c9ac548f9b3501c70de5e9c515e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#ad2f2c9ac548f9b3501c70de5e9c515e2">apply_imu_to_pose</a> (const sensor_msgs::msg::Imu &amp;msg, <a class="el" href="classtypes_1_1Pose.html">types::Pose</a> &amp;pose)</td></tr>
 <tr class="memdesc:ad2f2c9ac548f9b3501c70de5e9c515e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates a domain Pose object using IMU orientation data.  <br /></td></tr>
 <tr class="separator:ad2f2c9ac548f9b3501c70de5e9c515e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef460e7d1c1ad35702bcb2824c257c95" id="r_aef460e7d1c1ad35702bcb2824c257c95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtypes_1_1Trajectory.html">types::Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#aef460e7d1c1ad35702bcb2824c257c95">waypoints_to_trajectory</a> (const dt_msgs::msg::WaypointArray &amp;msg)</td></tr>
+<tr class="memitem:aef460e7d1c1ad35702bcb2824c257c95" id="r_aef460e7d1c1ad35702bcb2824c257c95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtypes_1_1Trajectory.html">types::Trajectory</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#aef460e7d1c1ad35702bcb2824c257c95">waypoints_to_trajectory</a> (const <a class="el" href="classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray.html">dt_msgs::msg::WaypointArray</a> &amp;msg)</td></tr>
 <tr class="memdesc:aef460e7d1c1ad35702bcb2824c257c95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a ROS waypoint mission array into a Core Trajectory.  <br /></td></tr>
 <tr class="separator:aef460e7d1c1ad35702bcb2824c257c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -101,10 +101,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a05cbd7e19b9a2c7c946544a8b3315c60" id="r_a05cbd7e19b9a2c7c946544a8b3315c60"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a05cbd7e19b9a2c7c946544a8b3315c60">KNOTS_TO_MS</a> = 0.514444</td></tr>
 <tr class="memdesc:a05cbd7e19b9a2c7c946544a8b3315c60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion factor from knots to meters per second.  <br /></td></tr>
 <tr class="separator:a05cbd7e19b9a2c7c946544a8b3315c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d0952b6bfdf3d345eeb30c5db157ae9" id="r_a6d0952b6bfdf3d345eeb30c5db157ae9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a6d0952b6bfdf3d345eeb30c5db157ae9">DEG_TO_RAD</a> = M_PI / 180.0</td></tr>
+<tr class="memitem:a6d0952b6bfdf3d345eeb30c5db157ae9" id="r_a6d0952b6bfdf3d345eeb30c5db157ae9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a6d0952b6bfdf3d345eeb30c5db157ae9">DEG_TO_RAD</a> = <a class="el" href="utils_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 180.0</td></tr>
 <tr class="memdesc:a6d0952b6bfdf3d345eeb30c5db157ae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion factor from degrees to radians.  <br /></td></tr>
 <tr class="separator:a6d0952b6bfdf3d345eeb30c5db157ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26d2082b4cd4f71e0cbb19f58c81f1d0" id="r_a26d2082b4cd4f71e0cbb19f58c81f1d0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a26d2082b4cd4f71e0cbb19f58c81f1d0">UNITY_YAW_OFFSET</a> = M_PI / 2.0</td></tr>
+<tr class="memitem:a26d2082b4cd4f71e0cbb19f58c81f1d0" id="r_a26d2082b4cd4f71e0cbb19f58c81f1d0"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacedt__ros_1_1conversions.html#a26d2082b4cd4f71e0cbb19f58c81f1d0">UNITY_YAW_OFFSET</a> = <a class="el" href="utils_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2.0</td></tr>
 <tr class="memdesc:a26d2082b4cd4f71e0cbb19f58c81f1d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yaw offset to align the ROS coordinate frame with the Unity left-handed frame.  <br /></td></tr>
 <tr class="separator:a26d2082b4cd4f71e0cbb19f58c81f1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -118,7 +118,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">std::vector&lt; <a class="el" href="classtypes_1_1Target.html">types::Target</a> &gt; dt_ros::conversions::ais_to_core_targets </td>
           <td>(</td>
-          <td class="paramtype">const dt_msgs::msg::AisReport &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport.html">dt_msgs::msg::AisReport</a> &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -221,7 +221,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="classtypes_1_1Trajectory.html">types::Trajectory</a> dt_ros::conversions::waypoints_to_trajectory </td>
           <td>(</td>
-          <td class="paramtype">const dt_msgs::msg::WaypointArray &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray.html">dt_msgs::msg::WaypointArray</a> &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
@@ -250,7 +250,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double dt_ros::conversions::DEG_TO_RAD = M_PI / 180.0</td>
+          <td class="memname">constexpr double dt_ros::conversions::DEG_TO_RAD = <a class="el" href="utils_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 180.0</td>
         </tr>
       </table>
   </td>
@@ -298,7 +298,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double dt_ros::conversions::UNITY_YAW_OFFSET = M_PI / 2.0</td>
+          <td class="memname">constexpr double dt_ros::conversions::UNITY_YAW_OFFSET = <a class="el" href="utils_8h.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2.0</td>
         </tr>
       </table>
   </td>

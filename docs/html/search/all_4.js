@@ -1,18 +1,18 @@
 var searchData=
 [
-  ['e_20dependências_0',['⚙️ Pré-Requisitos e Dependências',['../md_README.html#autotoc_md55',1,'']]],
-  ['e_20mensagens_1',['📡 API ROS2 (Tópicos e Mensagens)',['../md_README.html#autotoc_md60',1,'']]],
-  ['emitidos_20pelo_20sistema_2',['Publishers (Tópicos Emitidos pelo Sistema)',['../md_README.html#autotoc_md62',1,'']]],
-  ['empty_3',['empty',['../classtypes_1_1Trajectory.html#a46dcab3bed5b4b23069b9ed54f7df157',1,'types::Trajectory']]],
-  ['entity_4',['entity',['../classtypes_1_1Entity.html',1,'types::Entity'],['../classtypes_1_1Entity.html#a3f2675098b2400cfda4fab614e4805b2',1,'types::Entity::Entity()']]],
-  ['estado_20atual_5',['Estado atual',['../md_dt__viz_2README.html#autotoc_md43',1,'']]],
-  ['estrutura_20de_20diretórios_6',['📂 Estrutura de Diretórios',['../md_README.html#autotoc_md54',1,'']]],
-  ['estrutura_20do_20pacote_7',['Estrutura do pacote',['../md_dt__viz_2README.html#autotoc_md6',1,'']]],
-  ['etapas_8',['Próximas etapas',['../md_dt__viz_2README.html#autotoc_md45',1,'']]],
-  ['eventfilter_9',['eventFilter',['../classMainWindow.html#ade305265b2120df2489a5ebeb07ebbe1',1,'MainWindow']]],
-  ['execução_10',['Execução',['../md_dt__viz_2README.html#autotoc_md33',1,'']]],
-  ['execução_20do_20código_20compilado_11',['🖥️ Execução do código compilado',['../md_README.html#autotoc_md58',1,'']]],
-  ['export_5frtree_5fdebug_12',['export_rtree_debug',['../classSpatialIndex.html#a68fb3f71e7f41b1b655ef5c8d69fc11f',1,'SpatialIndex']]],
-  ['export_5fshapefile_13',['export_shapefile',['../classVectorExporter.html#ac3415835ef94506bd648435649919dcb',1,'VectorExporter']]],
-  ['extract_5fclean_5fcontour_14',['extract_clean_contour',['../mesh__generator_8cpp.html#a90774796f843b47a2d20ce0fa59a09e1',1,'mesh_generator.cpp']]]
+  ['4_0',['v2.0.4',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1682',1,'']]],
+  ['4_200_1',['v3.4.0',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1605',1,'']]],
+  ['4_200_20v3_204_200_20a_202018_2010_2030_2',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.4.0&quot; &gt;v3.4.0&lt;/a&gt; (2018-10-30)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md21',1,'']]],
+  ['4_20ros_202_20api_20topics_20interfaces_3',['4. ROS 2 API (Topics &amp; Interfaces)',['../index.html#ros_api_sec',1,'']]],
+  ['4_20v2_200_204_20a_202016_2009_2011_4',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v2.0.4&quot; &gt;v2.0.4&lt;/a&gt; (2016-09-11)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md48',1,'']]],
+  ['4_20v3_2010_204_20a_202021_2010_2016_5',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.10.4&quot; &gt;v3.10.4&lt;/a&gt; (2021-10-16)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md5',1,'']]],
+  ['401_6',['json.exception.out_of_range.401',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1536',1,'']]],
+  ['402_7',['json.exception.out_of_range.402',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1537',1,'']]],
+  ['403_8',['json.exception.out_of_range.403',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1538',1,'']]],
+  ['404_9',['json.exception.out_of_range.404',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1539',1,'']]],
+  ['405_10',['json.exception.out_of_range.405',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1540',1,'']]],
+  ['406_11',['json.exception.out_of_range.406',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1541',1,'']]],
+  ['407_12',['json.exception.out_of_range.407',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1542',1,'']]],
+  ['408_13',['json.exception.out_of_range.408',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1543',1,'']]],
+  ['409_14',['json.exception.out_of_range.409',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1544',1,'']]]
 ];

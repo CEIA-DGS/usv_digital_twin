@@ -1,0 +1,196 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}at}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$at@{$<$small$>$nlohmann::basic\_json::$<$/small$>$at}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md99}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md99}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{reference\ at(size\_type\ idx);}
+\DoxyCodeLine{const\_reference\ at(size\_type\ idx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{reference\ at(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key);}
+\DoxyCodeLine{const\_reference\ at(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{reference\ at(KeyType\&\&\ key);}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{const\_reference\ at(KeyType\&\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (4)}}
+\DoxyCodeLine{reference\ at(\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr);}
+\DoxyCodeLine{const\_reference\ at(\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Returns a reference to the array element at specified location {\ttfamily idx}, with bounds checking.
+\item Returns a reference to the object element with specified key {\ttfamily key}, with bounds checking.
+\item See 2. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\item Returns a reference to the element at specified JSON pointer {\ttfamily ptr}, with bounds checking.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md100}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md100}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md101}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md101}
+{\ttfamily idx} (in) \+: index of the element to access
+
+{\ttfamily key} (in) \+: object key of the elements to access
+
+{\ttfamily ptr} (in) \+: JSON pointer to the desired element\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md102}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md102}
+
+\begin{DoxyEnumerate}
+\item reference to the element at index {\ttfamily idx}
+\item reference to the element at key {\ttfamily key}
+\item reference to the element at key {\ttfamily key}
+\item reference to the element pointed to by {\ttfamily ptr}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md103}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md103}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md104}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md104}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error304}{\texttt{ {\ttfamily type\+\_\+error.\+304}}} if the JSON value is not an array; in this case, calling {\ttfamily at} with an index makes no sense. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range401}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+401}}} if the index {\ttfamily idx} is out of range of the array; that is, {\ttfamily idx \texorpdfstring{$>$}{>}= size()}. See example below.
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error304}{\texttt{ {\ttfamily type\+\_\+error.\+304}}} if the JSON value is not an object; in this case, calling {\ttfamily at} with a key makes no sense. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range403}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+403}}} if the key {\ttfamily key} is not stored in the object; that is, {\ttfamily find(key) == end()}. See example below.
+\end{DoxyItemize}
+\item See 2.
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error106}{\texttt{ {\ttfamily parse\+\_\+error.\+106}}} if an array index in the passed JSON pointer {\ttfamily ptr} begins with \textquotesingle{}0\textquotesingle{}. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error109}{\texttt{ {\ttfamily parse\+\_\+error.\+109}}} if an array index in the passed JSON pointer {\ttfamily ptr} is not a number. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range401}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+401}}} if an array index in the passed JSON pointer {\ttfamily ptr} is out of range. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range402}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+402}}} if the array index \textquotesingle{}-\/\textquotesingle{} is used in the passed JSON pointer {\ttfamily ptr}. As {\ttfamily at} provides checked access (and no elements are implicitly inserted), the index \textquotesingle{}-\/\textquotesingle{} is always invalid. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range403}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+403}}} if the JSON pointer describes a key of an object which cannot be found. See example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range404}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+404}}} if the JSON pointer {\ttfamily ptr} can not be resolved. See example below.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md105}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md105}
+
+\begin{DoxyEnumerate}
+\item Constant.
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md106}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md106}
+??? example "{}\+Example\+: (1) access specified array element with bounds checking"{} \begin{DoxyVerb}The example below shows how array elements can be read and written using `at()`. It also demonstrates the different
+exceptions that can be thrown.
+
+```cpp
+--8<-- "examples/at__size_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__size_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (1) access specified array element with bounds checking"{} \begin{DoxyVerb}The example below shows how array elements can be read using `at()`. It also demonstrates the different exceptions
+that can be thrown.
+
+```cpp
+--8<-- "examples/at__size_type_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__size_type_const.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) access specified object element with bounds checking"{} \begin{DoxyVerb}The example below shows how object elements can be read and written using `at()`. It also demonstrates the different
+exceptions that can be thrown.
+
+```cpp
+--8<-- "examples/at__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) access specified object element with bounds checking"{} \begin{DoxyVerb}The example below shows how object elements can be read using `at()`. It also demonstrates the different exceptions
+that can be thrown.
+
+```cpp
+--8<-- "examples/at__object_t_key_type_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__object_t_key_type_const.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) access specified object element using string\+\_\+view with bounds checking"{} \begin{DoxyVerb}The example below shows how object elements can be read and written using `at()`. It also demonstrates the different
+exceptions that can be thrown.
+
+```cpp
+--8<-- "examples/at__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) access specified object element using string\+\_\+view with bounds checking"{} \begin{DoxyVerb}The example below shows how object elements can be read using `at()`. It also demonstrates the different exceptions
+that can be thrown.
+
+```cpp
+--8<-- "examples/at__keytype_const.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__keytype_const.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (4) access specified element via JSON Pointer"{} \begin{DoxyVerb}The example below shows how object elements can be read and written using `at()`. It also demonstrates the different
+exceptions that can be thrown.
+
+```cpp
+--8<-- "examples/at__json_pointer.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__json_pointer.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (4) access specified element via JSON Pointer"{} \begin{DoxyVerb}The example below shows how object elements can be read using `at()`. It also demonstrates the different exceptions
+that can be thrown.
+
+```cpp
+--8<-- "examples/at__json_pointer_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/at__json_pointer_const.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md107}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md107}
+
+\begin{DoxyItemize}
+\item documentation on \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2checked__access}{checked access}{0}
+\item see \`{}operator\mbox{[}\mbox{]}\`{} for unchecked access by reference
+\item see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}{\`{}value\`{}}{0} for access with default value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md108}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at_autotoc_md108}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0.
+\item Added in version 1.\+0.\+0.
+\item Added in version 3.\+11.\+0.
+\item Added in version 2.\+0.\+0. 
+\end{DoxyEnumerate}

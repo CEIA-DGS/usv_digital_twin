@@ -1,0 +1,75 @@
+\doxysection{Malha\+Navegacao Struct Reference}
+\hypertarget{structMalhaNavegacao}{}\label{structMalhaNavegacao}\index{MalhaNavegacao@{MalhaNavegacao}}
+
+
+Estrutura de dados contendo a malha triangular processada e geometrias auxiliares.  
+
+
+
+
+{\ttfamily \#include $<$Gerador\+Malha.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structMalhaNavegacao_aeb2ebcbc57b354f9dacf944d493d1212}{liberar\+Memoria}} ()
+\begin{DoxyCompactList}\small\item\em Desaloca a memória ocupada pelas geometrias OGR mantidas em cache. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTriangulo}{Triangulo}} $>$ \mbox{\hyperlink{structMalhaNavegacao_a0f8bc471cf08e0c08ae95fc464dca447}{triangulos}}
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881}{terra\+Original}} = nullptr
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b}{margem\+Seguranca}} = nullptr
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208}{perimetro\+Navegavel\+Seguro}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estrutura de dados contendo a malha triangular processada e geometrias auxiliares. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structMalhaNavegacao_aeb2ebcbc57b354f9dacf944d493d1212}\label{structMalhaNavegacao_aeb2ebcbc57b354f9dacf944d493d1212} 
+\index{MalhaNavegacao@{MalhaNavegacao}!liberarMemoria@{liberarMemoria}}
+\index{liberarMemoria@{liberarMemoria}!MalhaNavegacao@{MalhaNavegacao}}
+\doxysubsubsection{\texorpdfstring{liberarMemoria()}{liberarMemoria()}}
+{\footnotesize\ttfamily void Malha\+Navegacao\+::liberar\+Memoria (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Desaloca a memória ocupada pelas geometrias OGR mantidas em cache. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b}\label{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b} 
+\index{MalhaNavegacao@{MalhaNavegacao}!margemSeguranca@{margemSeguranca}}
+\index{margemSeguranca@{margemSeguranca}!MalhaNavegacao@{MalhaNavegacao}}
+\doxysubsubsection{\texorpdfstring{margemSeguranca}{margemSeguranca}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Malha\+Navegacao\+::margem\+Seguranca = nullptr}
+
+\Hypertarget{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208}\label{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208} 
+\index{MalhaNavegacao@{MalhaNavegacao}!perimetroNavegavelSeguro@{perimetroNavegavelSeguro}}
+\index{perimetroNavegavelSeguro@{perimetroNavegavelSeguro}!MalhaNavegacao@{MalhaNavegacao}}
+\doxysubsubsection{\texorpdfstring{perimetroNavegavelSeguro}{perimetroNavegavelSeguro}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Malha\+Navegacao\+::perimetro\+Navegavel\+Seguro = nullptr}
+
+\Hypertarget{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881}\label{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881} 
+\index{MalhaNavegacao@{MalhaNavegacao}!terraOriginal@{terraOriginal}}
+\index{terraOriginal@{terraOriginal}!MalhaNavegacao@{MalhaNavegacao}}
+\doxysubsubsection{\texorpdfstring{terraOriginal}{terraOriginal}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Malha\+Navegacao\+::terra\+Original = nullptr}
+
+\Hypertarget{structMalhaNavegacao_a0f8bc471cf08e0c08ae95fc464dca447}\label{structMalhaNavegacao_a0f8bc471cf08e0c08ae95fc464dca447} 
+\index{MalhaNavegacao@{MalhaNavegacao}!triangulos@{triangulos}}
+\index{triangulos@{triangulos}!MalhaNavegacao@{MalhaNavegacao}}
+\doxysubsubsection{\texorpdfstring{triangulos}{triangulos}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structTriangulo}{Triangulo}}$>$ Malha\+Navegacao\+::triangulos}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{GeradorMalha_8h}{Gerador\+Malha.\+h}}\end{DoxyCompactItemize}

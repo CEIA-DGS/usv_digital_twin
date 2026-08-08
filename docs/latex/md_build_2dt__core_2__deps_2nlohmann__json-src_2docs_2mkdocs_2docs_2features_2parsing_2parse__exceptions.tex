@@ -1,0 +1,117 @@
+\chapter{Parsing and Exceptions}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions}\index{Parsing and Exceptions@{Parsing and Exceptions}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1423}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1423}%
+ When the input is not valid JSON, an exception of type \href{../../home/exceptions.md\#parse-errors}{\texttt{ {\ttfamily parse\+\_\+error}}} is thrown. This exception contains the position in the input where the error occurred, together with a diagnostic message and the last read input token. The exceptions page contains a \href{../../home/exceptions.md\#parse-errors}{\texttt{ list of examples for parse error exceptions}}. In case you process untrusted input, always enclose your code with a {\ttfamily \#!cpp try}/{\ttfamily \#!cpp catch} block, like
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{\textcolor{keywordflow}{try}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(my\_input);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keywordflow}{catch}\ (\mbox{\hyperlink{classnlohmann_1_1detail_1_1parse__error}{json::parse\_error}}\&\ ex)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}parse\ error\ at\ byte\ "{}}\ <<\ ex.\mbox{\hyperlink{classnlohmann_1_1detail_1_1parse__error_a9505aaa1ca943be927eec7cc579592ff}{byte}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+In case exceptions are undesired or not supported by the environment, there are different ways to proceed\+:\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1424}{}\doxysection{\texorpdfstring{Switch off exceptions}{Switch off exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1424}
+The {\ttfamily parse()} function accepts a {\ttfamily \#!cpp bool} parameter {\ttfamily allow\+\_\+exceptions} which controls whether an exception is thrown when a parse error occurs ({\ttfamily \#!cpp true}, default) or whether a discarded value should be returned ({\ttfamily \#!cpp false}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(my\_input,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_aecaaa0613d3f3a5b49b34b02afc5f85d}{is\_discarded}}())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}parse\ error"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Note there is no diagnostic information available in this scenario.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1425}{}\doxysection{\texorpdfstring{Use accept() function}{Use accept() function}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1425}
+Alternatively, function {\ttfamily accept()} can be used which does not return a {\ttfamily json} value, but a {\ttfamily \#!cpp bool} indicating whether the input is valid JSON.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classnlohmann_1_1basic__json_a32872afe5bfd040777e3e2bb85f0ca55}{json::accept}}(my\_input))}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}parse\ error"{}}\ <<\ std::endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Again, there is no diagnostic information available.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1426}{}\doxysection{\texorpdfstring{User-\/defined SAX interface}{User-defined SAX interface}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions_autotoc_md1426}
+Finally, you can implement the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface}{SAX interface}{0} and decide what should happen in case of a parse error.
+
+This function has the following interface\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ parse\_error(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ position,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ last\_token,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1detail_1_1exception}{json::exception}}\&\ ex);}
+
+\end{DoxyCode}
+
+
+The return value indicates whether the parsing should continue, so the function should usually return {\ttfamily \#!cpp false}.
+
+??? example \begin{DoxyVerb}```cpp
+#include <iostream>
+#include "json.hpp"
+
+using json = nlohmann::json;
+
+class sax_no_exception : public nlohmann::detail::json_sax_dom_parser<json>
+{
+  public:
+    sax_no_exception(json& j)
+      : nlohmann::detail::json_sax_dom_parser<json>(j, false)
+    {}
+
+    bool parse_error(std::size_t position,
+                     const std::string& last_token,
+                     const json::exception& ex)
+    {
+        std::cerr << "parse error at input byte " << position << "\n"
+                  << ex.what() << "\n"
+                  << "last read: \"" << last_token << "\""
+                  << std::endl;
+        return false;
+    }
+};
+
+int main()
+{
+    std::string myinput = "[1,2,3,]";
+
+    json result;
+    sax_no_exception sax(result);
+
+    bool parse_result = json::sax_parse(myinput, &sax);
+    if (!parse_result)
+    {
+        std::cerr << "parsing unsuccessful!" << std::endl;
+    }
+
+    std::cout << "parsed value: " << result << std::endl;
+}
+```
+
+Output:
+
+```
+parse error at input byte 8
+[json.exception.parse_error.101] parse error at line 1, column 8: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+last read: "3,]"
+parsing unsuccessful!
+parsed value: [1,2,3]
+```
+\end{DoxyVerb}
+ 

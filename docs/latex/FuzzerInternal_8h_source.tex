@@ -1,0 +1,188 @@
+\doxysection{Fuzzer\+Internal.\+h}
+\hypertarget{FuzzerInternal_8h_source}{}\label{FuzzerInternal_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerInternal.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerInternal.h}}
+\mbox{\hyperlink{FuzzerInternal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerInternal.h\ -\/\ Internal\ header\ for\ the\ Fuzzer\ -\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Define\ the\ main\ class\ fuzzer::Fuzzer\ and\ most\ functions.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_INTERNAL\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_INTERNAL\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerDefs_8h}{FuzzerDefs.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerExtFunctions_8h}{FuzzerExtFunctions.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerInterface_8h}{FuzzerInterface.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerOptions_8h}{FuzzerOptions.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerSHA1_8h}{FuzzerSHA1.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerValueBitMap_8h}{FuzzerValueBitMap.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <atomic>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <climits>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{using\ namespace\ }std::chrono;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ Aggregates\ all\ available\ coverage\ measurements.}}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage}{Coverage}}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a092eae98f0832c48ac5b8ed6133774fb}{Coverage}}()\ \{\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a9b32118b4e98093c8fe25ed1d5030f03}{Reset}}();\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a9b32118b4e98093c8fe25ed1d5030f03}{Reset}}()\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a2344e8e663c5d51b32549cbabb2cbf27}{BlockCoverage}}\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a86afe60233745175e7cadcb81afc7660}{CallerCalleeCoverage}}\ =\ 0;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a8afef7f1f43d1b8db6302ecae07a7691}{CounterBitmapBits}}\ =\ 0;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a12e9b0d471561f21b3cb67b146e938f6}{CounterBitmap}}.clear();}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_ae2fbe7bb9b8c7e1dab37eee324d47585}{VPMap}}.\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf}{Reset}}();}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a2344e8e663c5d51b32549cbabb2cbf27}{BlockCoverage}};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a86afe60233745175e7cadcb81afc7660}{CallerCalleeCoverage}};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ Precalculated\ number\ of\ bits\ in\ CounterBitmap.}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a8afef7f1f43d1b8db6302ecae07a7691}{CounterBitmapBits}};}
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<uint8\_t>\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_a12e9b0d471561f21b3cb67b146e938f6}{CounterBitmap}};}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{ValueBitMap}}\ \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage_ae2fbe7bb9b8c7e1dab37eee324d47585}{VPMap}};}
+\DoxyCodeLine{00053\ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}(\mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{UserCallback}}\ CB,\ \mbox{\hyperlink{classfuzzer_1_1InputCorpus}{InputCorpus}}\ \&Corpus,\ \mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{MutationDispatcher}}\ \&MD,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions}{FuzzingOptions}}\ Options);}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aefb9e12ca91c3532740f92cb3f987e0d}{\string~Fuzzer}}();}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a0306e29f06ced3d24ed0417ea2fef34b}{Loop}}();}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a54326d89b0de8eb858c70dfa78c5cc57}{MinimizeCrashLoop}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U);}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a368fcca328a7e72c500caf081227f7ef}{ShuffleAndMinimize}}(\mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}}\ *V);}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a9f3aadcfbeb0e69ee8a0d6ad8133e455}{InitializeTraceState}}();}
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a44506dc46253928eb73397091d6c4c32}{RereadOutputCorpus}}(\textcolor{keywordtype}{size\_t}\ MaxSize);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5}{secondsSinceProcessStartUp}}()\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ duration\_cast<seconds>(system\_clock::now()\ -\/\ ProcessStartTime)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ .count();}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_acde1eccc2e342f62136ab3531b2b5630}{TimedOut}}()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ Options.\mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_aad54436eb7e99e63e8e26f6d4e52d5fd}{MaxTotalTimeSec}}\ >\ 0\ \&\&}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5}{secondsSinceProcessStartUp}}()\ >}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(Options.\mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_aad54436eb7e99e63e8e26f6d4e52d5fd}{MaxTotalTimeSec}});}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aa88607925eeffcf7d373ac58e767d7d5}{execPerSec}}()\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Seconds\ =\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5}{secondsSinceProcessStartUp}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ Seconds\ ?\ TotalNumberOfRuns\ /\ Seconds\ :\ 0;}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af8117818c8156811dc998b34cdcf7ddb}{getTotalNumberOfRuns}}()\ \{\ \textcolor{keywordflow}{return}\ TotalNumberOfRuns;\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a8e5cc850a9e02c0650f196981ced0b78}{StaticAlarmCallback}}();}
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a53ec06c88c7260710d7c7fcae14bf568}{StaticCrashSignalCallback}}();}
+\DoxyCodeLine{00084\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_ade17502cb3deeb915a59e0e98cb109da}{StaticInterruptCallback}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a5a299bed53a0c2d2ffd6557c173f7e40}{ExecuteCallback}}(\textcolor{keyword}{const}\ uint8\_t\ *\mbox{\hyperlink{structData}{Data}},\ \textcolor{keywordtype}{size\_t}\ Size);}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c}{RunOne}}(\textcolor{keyword}{const}\ uint8\_t\ *\mbox{\hyperlink{structData}{Data}},\ \textcolor{keywordtype}{size\_t}\ Size);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ Merge\ Corpora[1:]\ into\ Corpora[0].}}
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aad1ef6d2a186b7b2462363111398e54e}{Merge}}(\textcolor{keyword}{const}\ std::vector<std::string>\ \&Corpora);}
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a3777acf379198d5339bf6baf0e9ad011}{CrashResistantMerge}}(\textcolor{keyword}{const}\ std::vector<std::string>\ \&Args,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \&Corpora);}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a960f37bdf1d61e7043609ace07d411e4}{CrashResistantMergeInternalStep}}(\textcolor{keyword}{const}\ std::string\ \&ControlFilePath);}
+\DoxyCodeLine{00094\ \ \ \textcolor{comment}{//\ Returns\ a\ subset\ of\ 'Extra'\ that\ adds\ coverage\ to\ 'Initial'.}}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a6a4abd6692ba305867fcb7df7bfe79cc}{FindExtraUnits}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}}\ \&Initial,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}}\ \&Extra);}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{MutationDispatcher}}\ \&\mbox{\hyperlink{classfuzzer_1_1Fuzzer_a8b8d0ef2f5292085afb55957ac513b24}{GetMD}}()\ \{\ \textcolor{keywordflow}{return}\ MD;\ \}}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a7caa04e4384d37875ab1d2eb745f5978}{PrintFinalStats}}();}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af049926833d09bb487062779d6f881ba}{SetMaxInputLen}}(\textcolor{keywordtype}{size\_t}\ MaxInputLen);}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a294a565231ed605981b9600e0ce60722}{SetMaxMutationLen}}(\textcolor{keywordtype}{size\_t}\ MaxMutationLen);}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aaff2d6a9892349f851f17dd3f0da5ac0}{RssLimitCallback}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \textcolor{comment}{//\ Public\ for\ tests.}}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_abbc24e3115c1bf70ff10e81dedfe38c6}{ResetCoverage}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a6b8043b43eaa243299df6d64ba8413b6}{InFuzzingThread}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ IsMyThread;\ \}}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af1d13fc1411234ad0cb2b10175d71141}{GetCurrentUnitInFuzzingThead}}(\textcolor{keyword}{const}\ uint8\_t\ **\mbox{\hyperlink{structData}{Data}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a7b4edc3276350436fe6ed3f4200b0226}{TryDetectingAMemoryLeak}}(\textcolor{keyword}{const}\ uint8\_t\ *\mbox{\hyperlink{structData}{Data}},\ \textcolor{keywordtype}{size\_t}\ Size,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ DuringInitialCorpusExecution);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aedd1fa002d658fbcc1e0870ae28c4489}{HandleMalloc}}(\textcolor{keywordtype}{size\_t}\ Size);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ AlarmCallback();}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ CrashCallback();}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{void}\ InterruptCallback();}
+\DoxyCodeLine{00116\ \ \ \textcolor{keywordtype}{void}\ MutateAndTestOne();}
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ ReportNewCoverage(\mbox{\hyperlink{structfuzzer_1_1InputInfo}{InputInfo}}\ *II,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U);}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c}{RunOne}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c}{RunOne}}(U.data(),\ U.size());\ \}}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ WriteToOutputCorpus(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U);}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ WriteUnitToFileWithPrefix(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Prefix);}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{void}\ PrintStats(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Where,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *End\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ \textcolor{keywordtype}{size\_t}\ Units\ =\ 0);}
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ PrintStatusForNewUnit(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U);}
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{void}\ ShuffleCorpus(\mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}}\ *V);}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ AddToCorpus(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U);}
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ CheckExitOnSrcPosOrItem();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \textcolor{comment}{//\ Trace-\/based\ fuzzing:\ we\ run\ a\ unit\ with\ some\ kind\ of\ tracing}}
+\DoxyCodeLine{00128\ \ \ \textcolor{comment}{//\ enabled\ and\ record\ potentially\ useful\ mutations.\ Then}}
+\DoxyCodeLine{00129\ \ \ \textcolor{comment}{//\ We\ apply\ these\ mutations\ one\ by\ one\ to\ the\ unit\ and\ run\ it\ again.}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{comment}{//\ Start\ tracing;\ forget\ all\ previously\ proposed\ mutations.}}
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{void}\ StartTraceRecording();}
+\DoxyCodeLine{00133\ \ \ \textcolor{comment}{//\ Stop\ tracing.}}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ StopTraceRecording();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \textcolor{keywordtype}{void}\ SetDeathCallback();}
+\DoxyCodeLine{00137\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ StaticDeathCallback();}
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{void}\ DumpCurrentUnit(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Prefix);}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{void}\ DeathCallback();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \textcolor{keywordtype}{void}\ ResetEdgeCoverage();}
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{void}\ ResetCounters();}
+\DoxyCodeLine{00143\ \ \ \textcolor{keywordtype}{void}\ PrepareCounters(Fuzzer::Coverage\ *C);}
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{bool}\ RecordMaxCoverage(Fuzzer::Coverage\ *C);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordtype}{void}\ AllocateCurrentUnitData();}
+\DoxyCodeLine{00147\ \ \ uint8\_t\ *CurrentUnitData\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00148\ \ \ std::atomic<size\_t>\ CurrentUnitSize;}
+\DoxyCodeLine{00149\ \ \ uint8\_t\ BaseSha1[kSHA1NumBytes];\ \ \textcolor{comment}{//\ Checksum\ of\ the\ base\ unit.}}
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{bool}\ RunningCB\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keywordtype}{size\_t}\ TotalNumberOfRuns\ =\ 0;}
+\DoxyCodeLine{00153\ \ \ \textcolor{keywordtype}{size\_t}\ NumberOfNewUnitsAdded\ =\ 0;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{bool}\ HasMoreMallocsThanFrees\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{size\_t}\ NumberOfLeakDetectionAttempts\ =\ 0;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{UserCallback}}\ CB;}
+\DoxyCodeLine{00159\ \ \ InputCorpus\ \&Corpus;}
+\DoxyCodeLine{00160\ \ \ MutationDispatcher\ \&MD;}
+\DoxyCodeLine{00161\ \ \ FuzzingOptions\ Options;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ system\_clock::time\_point\ ProcessStartTime\ =\ system\_clock::now();}
+\DoxyCodeLine{00164\ \ \ system\_clock::time\_point\ UnitStartTime,\ UnitStopTime;}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordtype}{long}\ TimeOfLongestUnitInSeconds\ =\ 0;}
+\DoxyCodeLine{00166\ \ \ \textcolor{keywordtype}{long}\ EpochOfLastReadOfOutputCorpus\ =\ 0;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \textcolor{comment}{//\ Maximum\ recorded\ coverage.}}
+\DoxyCodeLine{00169\ \ \ Coverage\ MaxCoverage;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordtype}{size\_t}\ MaxInputLen\ =\ 0;}
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordtype}{size\_t}\ MaxMutationLen\ =\ 0;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \textcolor{comment}{//\ Need\ to\ know\ our\ own\ thread.}}
+\DoxyCodeLine{00175\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{thread\_local}\ \textcolor{keywordtype}{bool}\ IsMyThread;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{bool}\ InMergeMode\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00178\ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \};\ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LLVM\_FUZZER\_INTERNAL\_H}}
+
+\end{DoxyCode}

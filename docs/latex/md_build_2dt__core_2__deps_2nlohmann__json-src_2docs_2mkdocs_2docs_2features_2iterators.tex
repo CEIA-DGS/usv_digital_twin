@@ -1,0 +1,154 @@
+\chapter{Iterators}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators}\index{Iterators@{Iterators}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1367}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1367}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1368}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1368}
+A {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} value is a container and allows access via iterators. Depending on the value type, {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} stores zero or more values.
+
+As for other containers, {\ttfamily begin()} returns an iterator to the first value and {\ttfamily end()} returns an iterator to the value following the last value. The latter iterator is a placeholder and cannot be dereferenced. In case of null values, empty arrays, or empty objects, {\ttfamily begin()} will return {\ttfamily end()}.
+
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1369}{}\doxysubsection{\texorpdfstring{Iteration order for objects}{Iteration order for objects}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1369}
+When iterating over objects, values are ordered with respect to the {\ttfamily object\+\_\+comparator\+\_\+t} type which defaults to {\ttfamily std\+::less}. See the \href{types/index.md\#key-order}{\texttt{ types documentation}} for more information.
+
+??? example \begin{DoxyVerb}```cpp
+// create JSON object {"one": 1, "two": 2, "three": 3}
+json j;
+j["one"] = 1;
+j["two"] = 2;
+j["three"] = 3;
+
+for (auto it = j.begin(); it != j.end(); ++it)
+{
+    std::cout << *it << std::endl;
+}
+```
+
+Output:
+
+```json
+1
+3
+2
+```
+
+The reason for the order is the lexicographic ordering of the object keys "one", "three", "two".
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1370}{}\doxysubsection{\texorpdfstring{Access object key during iteration}{Access object key during iteration}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1370}
+The JSON iterators have two member functions, {\ttfamily key()} and {\ttfamily value()} to access the object key and stored value, respectively. When calling {\ttfamily key()} on a non-\/object iterator, an \href{../home/exceptions.md\#jsonexceptioninvalid_iterator207}{\texttt{ invalid\+\_\+iterator.\+207}} exception is thrown.
+
+??? example \begin{DoxyVerb}```cpp
+// create JSON object {"one": 1, "two": 2, "three": 3}
+json j;
+j["one"] = 1;
+j["two"] = 2;
+j["three"] = 3;
+
+for (auto it = j.begin(); it != j.end(); ++it)
+{
+    std::cout << it.key() << " : " << it.value() << std::endl;
+}
+```
+
+Output:
+
+```json
+one : 1
+three : 3
+two : 2
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1371}{}\doxysubsection{\texorpdfstring{Range-\/based for loops}{Range-based for loops}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1371}
+C++11 allows using range-\/based for loops to iterate over a container.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ :\ j\_object)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ "{}it"{}\ is\ of\ type\ json::reference\ and\ has\ no\ key()\ member}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}value:\ "{}}\ <<\ it\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+For this reason, the {\ttfamily items()} function allows accessing {\ttfamily iterator\+::key()} and {\ttfamily iterator\+::value()} during range-\/based for loops. In these loops, a reference to the JSON values is returned, so there is no access to the underlying iterator.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ el\ :\ j\_object.items())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key:\ "{}}\ <<\ el.key()\ <<\ \textcolor{stringliteral}{"{},\ value:"{}}\ <<\ el.value()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The items() function also allows using structured bindings (C++17)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ val]\ :\ j\_object.items())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key:\ "{}}\ <<\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\ <<\ \textcolor{stringliteral}{"{},\ value:"{}}\ <<\ val\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+!!! note \begin{DoxyVerb}When iterating over an array, `key()` will return the index of the element as string. For primitive types (e.g., numbers), `key()` returns an empty string.
+\end{DoxyVerb}
+ !!! warning \begin{DoxyVerb}Using `items()` on temporary objects is dangerous. Make sure the object's lifetime exceeds the iteration. See <https://github.com/nlohmann/json/issues/2040> for more information.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1372}{}\doxysubsection{\texorpdfstring{Reverse iteration order}{Reverse iteration order}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1372}
+{\ttfamily rbegin()} and {\ttfamily rend()} return iterators in the reverse sequence.
+
+
+
+??? example \begin{DoxyVerb}```cpp
+json j = {1, 2, 3, 4};
+
+for (auto it = j.rbegin(); it != j.rend(); ++it)
+{
+    std::cout << *it << std::endl;
+}
+```
+
+Output:
+
+```json
+4
+3
+2
+1
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1373}{}\doxysubsection{\texorpdfstring{Iterating strings and binary values}{Iterating strings and binary values}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1373}
+Note that "{}value"{} means a JSON value in this setting, not values stored in the underlying containers. That is, {\ttfamily \texorpdfstring{$\ast$}{*}begin()} returns the complete string or binary array and is also safe the underlying string or binary array is empty.
+
+??? example \begin{DoxyVerb}```cpp
+json j = "Hello, world";
+for (auto it = j.begin(); it != j.end(); ++it)
+{
+    std::cout << *it << std::endl;
+}
+```
+
+Output:
+
+```json
+"Hello, world"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1374}{}\doxysection{\texorpdfstring{Iterator invalidation}{Iterator invalidation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2iterators_autotoc_md1374}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operations   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ invalidated iterators    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operations   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ invalidated iterators    }\\\cline{1-2}
+\endhead
+{\ttfamily clear}   &all   \\\cline{1-2}
+\end{longtabu}

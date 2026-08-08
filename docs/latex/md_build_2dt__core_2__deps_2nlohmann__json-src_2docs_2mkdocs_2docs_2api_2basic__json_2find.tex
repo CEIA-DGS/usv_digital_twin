@@ -1,0 +1,64 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}find}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$find@{$<$small$>$nlohmann::basic\_json::$<$/small$>$find}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md279}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md279}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{iterator\ find(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key);}
+\DoxyCodeLine{const\_iterator\ find(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{iterator\ find(KeyType\&\&\ key);}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{const\_iterator\ find(KeyType\&\&\ key)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Finds an element in a JSON object with a key equivalent to {\ttfamily key}. If the element is not found or the JSON value is not an object, {\ttfamily end()} is returned.
+\item See 1. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md280}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md280}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md281}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md281}
+{\ttfamily key} (in) \+: key value of the element to search for.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md282}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md282}
+Iterator to an element with a key equivalent to {\ttfamily key}. If no such element is found or the JSON value is not an object, a past-\/the-\/end iterator (see {\ttfamily end()}) is returned.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md283}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md283}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md284}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md284}
+Logarithmic in the size of the JSON object.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md285}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md285}
+This method always returns {\ttfamily end()} when executed on a JSON type that is not an object.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md286}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md286}
+??? example "{}\+Example\+: (1) find object element by key"{} \begin{DoxyVerb}The example shows how `find()` is used.
+
+```cpp
+--8<-- "examples/find__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/find__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) find object element by key using string\+\_\+view"{} \begin{DoxyVerb}The example shows how `find()` is used.
+
+```cpp
+--8<-- "examples/find__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/find__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md287}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md287}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains}{contains}{0} checks whether a key exists
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md288}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find_autotoc_md288}
+
+\begin{DoxyEnumerate}
+\item Added in version 3.\+11.\+0.
+\item Added in version 1.\+0.\+0. Changed to support comparable types in version 3.\+11.\+0. 
+\end{DoxyEnumerate}

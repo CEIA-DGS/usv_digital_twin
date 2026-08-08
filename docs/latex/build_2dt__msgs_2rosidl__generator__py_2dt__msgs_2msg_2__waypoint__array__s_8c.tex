@@ -1,0 +1,86 @@
+\doxysection{build/dt\+\_\+msgs/rosidl\+\_\+generator\+\_\+py/dt\+\_\+msgs/msg/\+\_\+waypoint\+\_\+array\+\_\+s.c File Reference}
+\hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c}{}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c}\index{build/dt\_msgs/rosidl\_generator\_py/dt\_msgs/msg/\_waypoint\_array\_s.c@{build/dt\_msgs/rosidl\_generator\_py/dt\_msgs/msg/\_waypoint\_array\_s.c}}
+{\ttfamily \#include $<$Python.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}numpy/ndarrayobject.\+h"{}}\newline
+{\ttfamily \#include "{}rosidl\+\_\+runtime\+\_\+c/visibility\+\_\+control.\+h"{}}\newline
+{\ttfamily \#include "{}dt\+\_\+msgs/msg/detail/waypoint\+\_\+array\+\_\+\+\_\+struct.\+h"{}}\newline
+{\ttfamily \#include "{}dt\+\_\+msgs/msg/detail/waypoint\+\_\+array\+\_\+\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}rosidl\+\_\+runtime\+\_\+c/primitives\+\_\+sequence.\+h"{}}\newline
+{\ttfamily \#include "{}rosidl\+\_\+runtime\+\_\+c/primitives\+\_\+sequence\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}sensor\+\_\+msgs/msg/detail/nav\+\_\+sat\+\_\+fix\+\_\+\+\_\+functions.\+h"{}}\newline
+Include dependency graph for \+\_\+waypoint\+\_\+array\+\_\+s.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_ab6e6ee86736f9ebb56e74ae21bf3ff8a}{NPY\+\_\+\+NO\+\_\+\+DEPRECATED\+\_\+\+API}}~NPY\+\_\+1\+\_\+7\+\_\+\+API\+\_\+\+VERSION
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT bool \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a880748040aa70c02f0ca4f1587343c2e}{std\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+header\+\_\+\+\_\+convert\+\_\+from\+\_\+py}} (Py\+Object \texorpdfstring{$\ast$}{*}\+\_\+pymsg, void \texorpdfstring{$\ast$}{*}\+\_\+ros\+\_\+message)
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT Py\+Object \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_aff7703b85927a02348c366f6eae7e6bc}{std\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+header\+\_\+\+\_\+convert\+\_\+to\+\_\+py}} (void \texorpdfstring{$\ast$}{*}raw\+\_\+ros\+\_\+message)
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT bool \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_acbc3a6925e501b84bfbaf8682ff6806d}{sensor\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+nav\+\_\+sat\+\_\+fix\+\_\+\+\_\+convert\+\_\+from\+\_\+py}} (Py\+Object \texorpdfstring{$\ast$}{*}\+\_\+pymsg, void \texorpdfstring{$\ast$}{*}\+\_\+ros\+\_\+message)
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT Py\+Object \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a4471cdbbe7c6a7beb522073e676e28ec}{sensor\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+nav\+\_\+sat\+\_\+fix\+\_\+\+\_\+convert\+\_\+to\+\_\+py}} (void \texorpdfstring{$\ast$}{*}raw\+\_\+ros\+\_\+message)
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+EXPORT bool \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a1a09b5c5c519a990b693af2d0e676c25}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+waypoint\+\_\+array\+\_\+\+\_\+convert\+\_\+from\+\_\+py}} (Py\+Object \texorpdfstring{$\ast$}{*}\+\_\+pymsg, void \texorpdfstring{$\ast$}{*}\+\_\+ros\+\_\+message)
+\item 
+ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+EXPORT Py\+Object \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a70a7ea9b3f0c1cc2bfa56b0ea877e622}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+waypoint\+\_\+array\+\_\+\+\_\+convert\+\_\+to\+\_\+py}} (void \texorpdfstring{$\ast$}{*}raw\+\_\+ros\+\_\+message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_ab6e6ee86736f9ebb56e74ae21bf3ff8a}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_ab6e6ee86736f9ebb56e74ae21bf3ff8a} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!NPY\_NO\_DEPRECATED\_API@{NPY\_NO\_DEPRECATED\_API}}
+\index{NPY\_NO\_DEPRECATED\_API@{NPY\_NO\_DEPRECATED\_API}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{NPY\_NO\_DEPRECATED\_API}{NPY\_NO\_DEPRECATED\_API}}
+{\footnotesize\ttfamily \#define NPY\+\_\+\+NO\+\_\+\+DEPRECATED\+\_\+\+API~NPY\+\_\+1\+\_\+7\+\_\+\+API\+\_\+\+VERSION}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a1a09b5c5c519a990b693af2d0e676c25}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a1a09b5c5c519a990b693af2d0e676c25} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py@{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py}}
+\index{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py@{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py()}{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_from\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+EXPORT bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+waypoint\+\_\+array\+\_\+\+\_\+convert\+\_\+from\+\_\+py (\begin{DoxyParamCaption}\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{\+\_\+pymsg,  }\item[{void \texorpdfstring{$\ast$}{*}}]{\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a70a7ea9b3f0c1cc2bfa56b0ea877e622}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a70a7ea9b3f0c1cc2bfa56b0ea877e622} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py@{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py}}
+\index{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py@{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py()}{dt\_msgs\_\_msg\_\_waypoint\_array\_\_convert\_to\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+EXPORT Py\+Object \texorpdfstring{$\ast$}{*} dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+waypoint\+\_\+array\+\_\+\+\_\+convert\+\_\+to\+\_\+py (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{raw\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_acbc3a6925e501b84bfbaf8682ff6806d}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_acbc3a6925e501b84bfbaf8682ff6806d} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py@{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py}}
+\index{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py@{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py()}{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_from\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT bool sensor\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+nav\+\_\+sat\+\_\+fix\+\_\+\+\_\+convert\+\_\+from\+\_\+py (\begin{DoxyParamCaption}\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{\+\_\+pymsg,  }\item[{void \texorpdfstring{$\ast$}{*}}]{\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a4471cdbbe7c6a7beb522073e676e28ec}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a4471cdbbe7c6a7beb522073e676e28ec} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py@{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py}}
+\index{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py@{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py()}{sensor\_msgs\_\_msg\_\_nav\_sat\_fix\_\_convert\_to\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT Py\+Object \texorpdfstring{$\ast$}{*} sensor\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+nav\+\_\+sat\+\_\+fix\+\_\+\+\_\+convert\+\_\+to\+\_\+py (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{raw\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a880748040aa70c02f0ca4f1587343c2e}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_a880748040aa70c02f0ca4f1587343c2e} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!std\_msgs\_\_msg\_\_header\_\_convert\_from\_py@{std\_msgs\_\_msg\_\_header\_\_convert\_from\_py}}
+\index{std\_msgs\_\_msg\_\_header\_\_convert\_from\_py@{std\_msgs\_\_msg\_\_header\_\_convert\_from\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{std\_msgs\_\_msg\_\_header\_\_convert\_from\_py()}{std\_msgs\_\_msg\_\_header\_\_convert\_from\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT bool std\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+header\+\_\+\+\_\+convert\+\_\+from\+\_\+py (\begin{DoxyParamCaption}\item[{Py\+Object \texorpdfstring{$\ast$}{*}}]{\+\_\+pymsg,  }\item[{void \texorpdfstring{$\ast$}{*}}]{\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+
+\Hypertarget{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_aff7703b85927a02348c366f6eae7e6bc}\label{build_2dt__msgs_2rosidl__generator__py_2dt__msgs_2msg_2__waypoint__array__s_8c_aff7703b85927a02348c366f6eae7e6bc} 
+\index{\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}!std\_msgs\_\_msg\_\_header\_\_convert\_to\_py@{std\_msgs\_\_msg\_\_header\_\_convert\_to\_py}}
+\index{std\_msgs\_\_msg\_\_header\_\_convert\_to\_py@{std\_msgs\_\_msg\_\_header\_\_convert\_to\_py}!\_waypoint\_array\_s.c@{\_waypoint\_array\_s.c}}
+\doxysubsubsection{\texorpdfstring{std\_msgs\_\_msg\_\_header\_\_convert\_to\_py()}{std\_msgs\_\_msg\_\_header\_\_convert\_to\_py()}}
+{\footnotesize\ttfamily ROSIDL\+\_\+\+GENERATOR\+\_\+\+C\+\_\+\+IMPORT Py\+Object \texorpdfstring{$\ast$}{*} std\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+header\+\_\+\+\_\+convert\+\_\+to\+\_\+py (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{raw\+\_\+ros\+\_\+message }\end{DoxyParamCaption})}
+

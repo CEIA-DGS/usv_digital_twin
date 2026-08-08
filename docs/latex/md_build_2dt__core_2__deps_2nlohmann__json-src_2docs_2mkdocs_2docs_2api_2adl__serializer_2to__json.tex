@@ -1,0 +1,40 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::adl\+\_\+serializer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}to\+\_\+json}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json}\index{$<$small$>$nlohmann::adl\_serializer::$<$/small$>$to\_json@{$<$small$>$nlohmann::adl\_serializer::$<$/small$>$to\_json}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md67}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md67}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType,\ \textcolor{keyword}{typename}\ TargetType\ =\ ValueType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ TargetType\ \&\&\ val)\ \textcolor{keyword}{noexcept}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{noexcept}(::nlohmann::to\_json(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ std::forward<TargetType>(val))))}
+\DoxyCodeLine{-\/>\ \textcolor{keyword}{decltype}(::nlohmann::to\_json(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ std::forward<TargetType>(val)),\ void())}
+
+\end{DoxyCode}
+
+
+This function is usually called by the constructors of the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}{basic\+\_\+json}{0} class.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md68}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md68}
+{\ttfamily j} (out) \+: JSON value to write to
+
+{\ttfamily val} (in) \+: value to read from\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md69}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md69}
+??? example \begin{DoxyVerb}The example below shows how a `to_json` function can be implemented for a user-defined type. This function is called
+by the `adl_serializer` when the constructor `basic_json(ns::person)` is called.
+
+```cpp
+--8<-- "examples/to_json.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/to_json.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md70}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md70}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json}{from\+\_\+json}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md71}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json_autotoc_md71}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+1.\+0. 
+\end{DoxyItemize}

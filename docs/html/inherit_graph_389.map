@@ -1,0 +1,89 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,1138,124,1163"/>
+<area shape="rect" id="Node000001" href="$structdetail_1_1has__from__json.html" title=" " alt="" coords="191,5,426,45"/>
+<area shape="poly" id="edge76_Node000000_Node000001" title=" " alt="" coords="64,1124,72,902,91,562,105,389,123,236,144,120,156,80,170,56,190,39,193,44,174,59,161,82,149,121,128,237,111,390,97,563,78,903,69,1125"/>
+<area shape="rect" id="Node000002" href="$structdetail_1_1has__non__default__from__json.html" title=" " alt="" coords="206,70,411,125"/>
+<area shape="poly" id="edge77_Node000000_Node000002" title=" " alt="" coords="64,1124,74,917,95,603,109,443,126,302,146,194,158,157,170,134,186,120,204,109,207,114,189,124,174,138,163,159,151,195,131,303,114,443,100,603,79,917,70,1125"/>
+<area shape="rect" id="Node000003" href="$structdetail_1_1has__to__json.html" title=" " alt="" coords="234,149,383,203"/>
+<area shape="poly" id="edge78_Node000000_Node000003" title=" " alt="" coords="65,1124,76,931,97,643,112,497,129,367,148,269,159,235,170,214,199,192,233,179,235,184,201,196,174,218,163,237,153,270,134,368,117,497,102,643,81,932,70,1124"/>
+<area shape="rect" id="Node000004" href="$structdetail_1_1is__basic__json.html" title=" " alt="" coords="232,228,385,268"/>
+<area shape="poly" id="edge79_Node000000_Node000004" title=" " alt="" coords="65,1124,76,942,98,674,113,538,130,419,149,328,159,298,170,278,198,258,231,247,233,252,201,263,174,282,164,300,154,330,135,420,118,539,104,674,82,943,70,1124"/>
+<area shape="rect" id="Node000005" href="$structdetail_1_1is__comparable.html" title=" " alt="" coords="199,292,418,332"/>
+<area shape="poly" id="edge80_Node000000_Node000005" title=" " alt="" coords="63,1124,64,966,76,731,88,609,108,498,134,405,151,370,170,342,198,322,201,326,174,346,156,372,139,407,113,499,94,610,81,732,69,966,68,1124"/>
+<area shape="rect" id="Node000006" href="$structdetail_1_1is__compatible__array__type__impl.html" title=" " alt="" coords="203,356,415,425"/>
+<area shape="poly" id="edge81_Node000000_Node000006" title=" " alt="" coords="64,1124,69,983,84,777,97,671,115,573,139,492,154,460,170,436,201,411,204,415,174,439,158,463,144,494,121,574,102,672,89,778,74,983,69,1124"/>
+<area shape="rect" id="Node000008" href="$structdetail_1_1is__compatible__integer__type__impl.html" title=" " alt="" coords="175,449,442,519"/>
+<area shape="poly" id="edge83_Node000000_Node000008" title=" " alt="" coords="64,1124,72,1000,89,822,103,731,121,647,143,577,156,550,170,529,182,517,186,521,174,532,160,553,148,579,126,648,108,731,95,823,77,1000,70,1125"/>
+<area shape="rect" id="Node000010" href="$structdetail_1_1is__compatible__object__type__impl.html" title=" " alt="" coords="199,543,418,612"/>
+<area shape="poly" id="edge85_Node000000_Node000010" title=" " alt="" coords="65,1124,75,1016,95,866,109,790,126,720,146,662,170,622,197,601,200,605,174,626,151,665,131,722,114,791,100,867,81,1017,71,1124"/>
+<area shape="rect" id="Node000012" href="$structdetail_1_1is__compatible__type__impl.html" title=" " alt="" coords="199,637,419,691"/>
+<area shape="poly" id="edge87_Node000000_Node000012" title=" " alt="" coords="66,1124,78,1031,99,905,130,783,149,735,170,702,197,682,200,687,174,706,153,738,135,785,105,906,83,1031,71,1125"/>
+<area shape="rect" id="Node000014" href="$structdetail_1_1is__complete__type.html" title=" " alt="" coords="223,716,394,756"/>
+<area shape="poly" id="edge89_Node000000_Node000014" title=" " alt="" coords="62,1124,64,1053,77,957,90,905,109,854,136,807,170,766,195,749,222,739,224,744,197,754,174,770,140,810,114,857,95,907,82,958,69,1053,68,1124"/>
+<area shape="rect" id="Node000015" href="$structdetail_1_1is__constructible__array__type__impl.html" title=" " alt="" coords="175,781,442,835"/>
+<area shape="poly" id="edge90_Node000000_Node000015" title=" " alt="" coords="65,1124,72,1066,88,991,102,952,120,913,142,877,170,845,185,833,188,837,174,849,147,880,124,915,107,954,93,993,77,1067,70,1124"/>
+<area shape="rect" id="Node000017" href="$structdetail_1_1is__constructible__object__type__impl.html" title=" " alt="" coords="172,859,445,914"/>
+<area shape="poly" id="edge92_Node000000_Node000017" title=" " alt="" coords="68,1124,80,1081,100,1027,129,972,148,947,170,925,188,912,191,917,174,929,152,950,134,975,105,1029,85,1082,74,1125"/>
+<area shape="rect" id="Node000019" href="$structdetail_1_1is__constructible__tuple.html" title=" " alt="" coords="224,939,393,979"/>
+<area shape="poly" id="edge94_Node000000_Node000019" title=" " alt="" coords="73,1124,88,1093,109,1056,136,1019,170,988,196,975,223,966,225,971,198,980,174,993,140,1023,113,1059,93,1095,78,1126"/>
+<area shape="rect" id="Node000020" href="$structdetail_1_1is__iterator__traits.html" title=" " alt="" coords="221,1003,396,1043"/>
+<area shape="poly" id="edge95_Node000000_Node000020" title=" " alt="" coords="83,1126,121,1088,171,1052,220,1034,222,1039,173,1057,125,1092,87,1129"/>
+<area shape="rect" id="Node000021" href="$structdetail_1_1is__json__iterator__of.html" title=" " alt="" coords="219,1067,399,1107"/>
+<area shape="poly" id="edge96_Node000000_Node000021" title=" " alt="" coords="118,1131,171,1116,218,1104,220,1109,173,1121,120,1136"/>
+<area shape="rect" id="Node000022" href="$structdetail_1_1is__json__ref.html" title=" " alt="" coords="240,1131,377,1171"/>
+<area shape="poly" id="edge97_Node000000_Node000022" title=" " alt="" coords="138,1148,240,1148,240,1153,138,1153"/>
+<area shape="rect" id="Node000023" href="$structdetail_1_1is__specialization__of.html" title=" " alt="" coords="221,1195,396,1235"/>
+<area shape="poly" id="edge98_Node000000_Node000023" title=" " alt="" coords="120,1165,173,1180,222,1193,221,1198,171,1185,118,1170"/>
+<area shape="rect" id="Node000024" href="$structnlohmann_1_1detail_1_1has__from__json.html" title=" " alt="" coords="206,1259,411,1314"/>
+<area shape="poly" id="edge99_Node000000_Node000024" title=" " alt="" coords="88,1172,126,1209,173,1244,207,1260,205,1265,171,1249,122,1213,84,1176"/>
+<area shape="rect" id="Node000025" href="$structnlohmann_1_1detail_1_1has__non__default__from__json.html" title=" " alt="" coords="191,1338,426,1393"/>
+<area shape="poly" id="edge100_Node000000_Node000025" title=" " alt="" coords="77,1175,91,1209,112,1249,139,1289,174,1323,193,1335,190,1340,170,1327,135,1293,107,1252,86,1211,72,1177"/>
+<area shape="rect" id="Node000026" href="$structnlohmann_1_1detail_1_1has__to__json.html" title=" " alt="" coords="215,1417,402,1471"/>
+<area shape="poly" id="edge101_Node000000_Node000026" title=" " alt="" coords="72,1177,82,1225,101,1286,130,1348,150,1377,174,1402,194,1416,216,1426,214,1431,191,1421,170,1406,146,1380,126,1351,96,1288,77,1226,67,1178"/>
+<area shape="rect" id="Node000027" href="$structnlohmann_1_1detail_1_1is__basic__json.html" title=" " alt="" coords="212,1496,405,1536"/>
+<area shape="poly" id="edge102_Node000000_Node000027" title=" " alt="" coords="69,1177,74,1239,89,1321,102,1365,120,1407,144,1446,174,1481,192,1494,213,1503,211,1508,189,1498,170,1485,140,1450,116,1410,97,1367,84,1322,68,1240,64,1177"/>
+<area shape="rect" id="Node000028" href="$structnlohmann_1_1detail_1_1is__compatible__array__type__impl.html" title=" " alt="" coords="185,1560,433,1629"/>
+<area shape="poly" id="edge103_Node000000_Node000028" title=" " alt="" coords="68,1177,70,1249,83,1348,96,1401,115,1453,141,1502,174,1546,187,1558,184,1562,170,1550,136,1505,110,1455,91,1402,78,1349,65,1250,62,1177"/>
+<area shape="rect" id="Node000030" href="$structnlohmann_1_1detail_1_1is__compatible__integer__type__impl.html" title=" " alt="" coords="192,1654,425,1738"/>
+<area shape="poly" id="edge105_Node000000_Node000030" title=" " alt="" coords="71,1177,83,1278,103,1416,118,1486,134,1550,153,1603,174,1640,193,1657,190,1661,170,1643,148,1606,129,1552,112,1487,98,1417,77,1278,66,1177"/>
+<area shape="rect" id="Node000032" href="$structnlohmann_1_1detail_1_1is__compatible__object__type__impl.html" title=" " alt="" coords="185,1763,433,1832"/>
+<area shape="poly" id="edge107_Node000000_Node000032" title=" " alt="" coords="70,1177,78,1298,96,1469,110,1556,127,1637,149,1703,161,1728,174,1748,187,1760,184,1764,170,1751,156,1731,144,1705,122,1638,105,1557,91,1470,73,1298,65,1177"/>
+<area shape="rect" id="Node000034" href="$structnlohmann_1_1detail_1_1is__compatible__type__impl.html" title=" " alt="" coords="185,1856,432,1925"/>
+<area shape="poly" id="edge109_Node000000_Node000034" title=" " alt="" coords="69,1177,75,1315,90,1514,104,1617,122,1711,145,1789,159,1819,174,1842,187,1855,183,1858,170,1846,154,1822,140,1791,117,1713,99,1618,85,1515,69,1315,64,1178"/>
+<area shape="rect" id="Node000036" href="$structnlohmann_1_1detail_1_1is__complete__type.html" title=" " alt="" coords="189,1949,428,1989"/>
+<area shape="poly" id="edge111_Node000000_Node000036" title=" " alt="" coords="68,1177,70,1332,82,1561,95,1679,114,1787,140,1876,156,1910,174,1936,191,1949,187,1954,170,1939,151,1913,135,1878,109,1788,90,1679,77,1561,65,1332,63,1177"/>
+<area shape="rect" id="Node000037" href="$structnlohmann_1_1detail_1_1is__constructible__array__type__impl.html" title=" " alt="" coords="206,2014,411,2098"/>
+<area shape="poly" id="edge112_Node000000_Node000037" title=" " alt="" coords="68,1177,70,1341,83,1587,96,1715,115,1834,140,1932,156,1970,174,2000,189,2015,207,2027,204,2032,186,2019,170,2003,152,1973,135,1934,109,1835,91,1716,78,1588,65,1341,63,1177"/>
+<area shape="rect" id="Node000039" href="$structnlohmann_1_1detail_1_1is__constructible__object__type__impl.html" title=" " alt="" coords="206,2122,411,2206"/>
+<area shape="poly" id="edge114_Node000000_Node000039" title=" " alt="" coords="70,1177,81,1374,103,1670,118,1820,135,1953,154,2054,164,2088,174,2109,189,2124,207,2136,205,2141,186,2128,170,2112,159,2090,148,2055,129,1954,113,1821,98,1671,76,1374,65,1177"/>
+<area shape="rect" id="Node000041" href="$structnlohmann_1_1detail_1_1is__constructible__tuple.html" title=" " alt="" coords="232,2230,385,2285"/>
+<area shape="poly" id="edge116_Node000000_Node000041" title=" " alt="" coords="70,1177,79,1394,98,1725,112,1894,130,2043,150,2156,162,2194,174,2217,200,2238,233,2249,231,2254,198,2242,170,2220,157,2196,145,2157,125,2043,107,1894,93,1725,73,1394,64,1177"/>
+<area shape="rect" id="Node000042" href="$structnlohmann_1_1detail_1_1is__iterator__traits.html" title=" " alt="" coords="233,2309,384,2363"/>
+<area shape="poly" id="edge117_Node000000_Node000042" title=" " alt="" coords="69,1177,77,1408,96,1765,110,1947,128,2107,149,2230,161,2271,174,2296,201,2317,234,2328,232,2333,198,2321,170,2299,156,2273,144,2231,122,2108,105,1947,91,1765,72,1409,64,1177"/>
+<area shape="rect" id="Node000043" href="$structnlohmann_1_1detail_1_1is__json__ref.html" title=" " alt="" coords="220,2388,397,2428"/>
+<area shape="poly" id="edge118_Node000000_Node000043" title=" " alt="" coords="69,1177,76,1423,93,1805,106,2000,124,2173,147,2304,160,2348,174,2374,195,2391,221,2401,219,2406,192,2396,170,2378,155,2350,142,2305,119,2173,101,2001,87,1806,70,1424,64,1177"/>
+<area shape="rect" id="Node000007" href="$structdetail_1_1is__compatible__array__type.html" title=" " alt="" coords="527,363,737,418"/>
+<area shape="poly" id="edge82_Node000006_Node000007" title=" " alt="" coords="429,388,527,388,527,393,429,393"/>
+<area shape="rect" id="Node000009" href="$structdetail_1_1is__compatible__integer__type.html" title=" " alt="" coords="510,457,754,511"/>
+<area shape="poly" id="edge84_Node000008_Node000009" title=" " alt="" coords="456,481,509,481,509,487,456,487"/>
+<area shape="rect" id="Node000011" href="$structdetail_1_1is__compatible__object__type.html" title=" " alt="" coords="524,550,740,605"/>
+<area shape="poly" id="edge86_Node000010_Node000011" title=" " alt="" coords="432,575,524,575,524,580,432,580"/>
+<area shape="rect" id="Node000013" href="$structdetail_1_1is__compatible__type.html" title=" " alt="" coords="547,637,717,691"/>
+<area shape="poly" id="edge88_Node000012_Node000013" title=" " alt="" coords="432,661,547,661,547,667,432,667"/>
+<area shape="rect" id="Node000016" href="$structdetail_1_1is__constructible__array__type.html" title=" " alt="" coords="527,781,737,835"/>
+<area shape="poly" id="edge91_Node000015_Node000016" title=" " alt="" coords="456,805,527,805,527,811,456,811"/>
+<area shape="rect" id="Node000018" href="$structdetail_1_1is__constructible__object__type.html" title=" " alt="" coords="524,859,740,914"/>
+<area shape="poly" id="edge93_Node000017_Node000018" title=" " alt="" coords="459,884,524,884,524,889,459,889"/>
+<area shape="rect" id="Node000029" href="$structnlohmann_1_1detail_1_1is__compatible__array__type.html" title=" " alt="" coords="509,1560,755,1629"/>
+<area shape="poly" id="edge104_Node000028_Node000029" title=" " alt="" coords="446,1592,508,1592,508,1597,446,1597"/>
+<area shape="rect" id="Node000031" href="$structnlohmann_1_1detail_1_1is__compatible__integer__type.html" title=" " alt="" coords="493,1661,771,1731"/>
+<area shape="poly" id="edge106_Node000030_Node000031" title=" " alt="" coords="439,1693,493,1693,493,1699,439,1699"/>
+<area shape="rect" id="Node000033" href="$structnlohmann_1_1detail_1_1is__compatible__object__type.html" title=" " alt="" coords="505,1763,759,1832"/>
+<area shape="poly" id="edge108_Node000032_Node000033" title=" " alt="" coords="447,1795,504,1795,504,1800,447,1800"/>
+<area shape="rect" id="Node000035" href="$structnlohmann_1_1detail_1_1is__compatible__type.html" title=" " alt="" coords="525,1863,739,1918"/>
+<area shape="poly" id="edge110_Node000034_Node000035" title=" " alt="" coords="446,1888,525,1888,525,1893,446,1893"/>
+<area shape="rect" id="Node000038" href="$structnlohmann_1_1detail_1_1is__constructible__array__type.html" title=" " alt="" coords="536,2021,728,2091"/>
+<area shape="poly" id="edge113_Node000037_Node000038" title=" " alt="" coords="425,2053,536,2053,536,2059,425,2059"/>
+<area shape="rect" id="Node000040" href="$structnlohmann_1_1detail_1_1is__constructible__object__type.html" title=" " alt="" coords="533,2129,731,2199"/>
+<area shape="poly" id="edge115_Node000039_Node000040" title=" " alt="" coords="425,2161,533,2161,533,2167,425,2167"/>
+</map>

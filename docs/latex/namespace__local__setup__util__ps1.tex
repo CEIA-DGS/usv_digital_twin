@@ -1,0 +1,274 @@
+\doxysection{\+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1 Namespace Reference}
+\hypertarget{namespace__local__setup__util__ps1}{}\label{namespace__local__setup__util__ps1}\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a8bf70df8be3bb3ab4f099d874dbf4958}{main}} (\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}}=sys.\+argv\mbox{[}1\+:\mbox{]})
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_af4566f9d8a9625549cdd313766c26a2c}{get\+\_\+packages}} (prefix\+\_\+path, merged\+\_\+install)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a0140ccf5d4f6a5dc962c92b3fd752afe}{add\+\_\+package\+\_\+runtime\+\_\+dependencies}} (path, packages)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a26191bb84775784d32faf60010454dda}{order\+\_\+packages}} (packages)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a6c5ad6f0354555b29c84359fea5ce7dc}{reduce\+\_\+cycle\+\_\+set}} (packages)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a931442d27ac8d688ce2b7de389605445}{\+\_\+include\+\_\+comments}} ()
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a11218be58a598ea8472a878f88e15609}{get\+\_\+commands}} (pkg\+\_\+name, prefix, primary\+\_\+extension, additional\+\_\+extension)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a8cfac08d60472704d804e681d045a35f}{process\+\_\+dsv\+\_\+file}} (dsv\+\_\+path, prefix, primary\+\_\+extension=None, additional\+\_\+extension=None)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a5d732013bde9374e3d925a40f7357e52}{handle\+\_\+dsv\+\_\+types\+\_\+except\+\_\+source}} (type\+\_\+, remainder, prefix)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a2ee6e72b520395f48af99942816c8be3}{\+\_\+append\+\_\+unique\+\_\+value}} (name, value)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_ad001aca4b88e81f10abe679d0b9fe8a7}{\+\_\+prepend\+\_\+unique\+\_\+value}} (name, value)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_ae2234c850a28939348768d5714e4406e}{\+\_\+remove\+\_\+ending\+\_\+separators}} ()
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a552fefcfac3bb17e032adc2c5c9900c8}{\+\_\+set}} (name, value)
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_ac946c1c910cad7edf9a8525aa8c596b4}{\+\_\+set\+\_\+if\+\_\+unset}} (name, value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a1dbbb1fea9cc200a4e04a78eb146d967}{FORMAT\+\_\+\+STR\+\_\+\+COMMENT\+\_\+\+LINE}} = \textquotesingle{}\# \{comment\}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a2cba465928b54c3cfa0c8ef52d4c70de}{FORMAT\+\_\+\+STR\+\_\+\+SET\+\_\+\+ENV\+\_\+\+VAR}} = \textquotesingle{}Set-\/Item -\/Path "{}Env\+:\{name\}"{} -\/Value "{}\{value\}"{}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a94ef77ce4686275a52970576ad230b04}{FORMAT\+\_\+\+STR\+\_\+\+USE\+\_\+\+ENV\+\_\+\+VAR}} = \textquotesingle{}\$env\+:\{name\}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_abdb395f0b8f9134894b8a3adf08e0cc6}{FORMAT\+\_\+\+STR\+\_\+\+INVOKE\+\_\+\+SCRIPT}} = \textquotesingle{}\+\_\+colcon\+\_\+prefix\+\_\+powershell\+\_\+source\+\_\+script "{}\{script\+\_\+path\}"{}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_adfcc9b6bed2404a6dccd322a92cc4390}{FORMAT\+\_\+\+STR\+\_\+\+REMOVE\+\_\+\+LEADING\+\_\+\+SEPARATOR}} = \textquotesingle{}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a742a45aa4c70e33c38740c7731b5f2fe}{FORMAT\+\_\+\+STR\+\_\+\+REMOVE\+\_\+\+TRAILING\+\_\+\+SEPARATOR}} = \textquotesingle{}\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a55c418a0715f40af4c85bcfe909020e9}{DSV\+\_\+\+TYPE\+\_\+\+APPEND\+\_\+\+NON\+\_\+\+DUPLICATE}} = \textquotesingle{}append-\/non-\/duplicate\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_adc5eca4340a268881672a196ac0af468}{DSV\+\_\+\+TYPE\+\_\+\+PREPEND\+\_\+\+NON\+\_\+\+DUPLICATE}} = \textquotesingle{}prepend-\/non-\/duplicate\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a44589524e1645c1d1b8db0150f6dafe4}{DSV\+\_\+\+TYPE\+\_\+\+PREPEND\+\_\+\+NON\+\_\+\+DUPLICATE\+\_\+\+IF\+\_\+\+EXISTS}} = \textquotesingle{}prepend-\/non-\/duplicate-\/\mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}-\/exists\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_add50c1f505c0cbddbc49d8f2bc8670a3}{DSV\+\_\+\+TYPE\+\_\+\+SET}} = \textquotesingle{}set\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a133e31be5c824ec35a473a58ce2d9f7b}{DSV\+\_\+\+TYPE\+\_\+\+SET\+\_\+\+IF\+\_\+\+UNSET}} = \textquotesingle{}set-\/\mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}-\/unset\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespace__local__setup__util__ps1_a0af28520193af7d1d58fb29d55408730}{DSV\+\_\+\+TYPE\+\_\+\+SOURCE}} = \textquotesingle{}source\textquotesingle{}
+\item 
+dict \mbox{\hyperlink{namespace__local__setup__util__ps1_a6e185f97df72a49c6925f75401bc0581}{env\+\_\+state}} = \{\}
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_aafb1ac7e0d5b0a696e337c730e2e4830}{rc}} = \mbox{\hyperlink{namespace__local__setup__util__ps1_a8bf70df8be3bb3ab4f099d874dbf4958}{main}}()
+\item 
+\mbox{\hyperlink{namespace__local__setup__util__ps1_a2d82f0862abcccc453a824bee330545f}{file}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace__local__setup__util__ps1_a2ee6e72b520395f48af99942816c8be3}\label{namespace__local__setup__util__ps1_a2ee6e72b520395f48af99942816c8be3} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_append\_unique\_value@{\_append\_unique\_value}}
+\index{\_append\_unique\_value@{\_append\_unique\_value}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_append\_unique\_value()}{\_append\_unique\_value()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+append\+\_\+unique\+\_\+value (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a931442d27ac8d688ce2b7de389605445}\label{namespace__local__setup__util__ps1_a931442d27ac8d688ce2b7de389605445} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_include\_comments@{\_include\_comments}}
+\index{\_include\_comments@{\_include\_comments}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_include\_comments()}{\_include\_comments()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+include\+\_\+comments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_ad001aca4b88e81f10abe679d0b9fe8a7}\label{namespace__local__setup__util__ps1_ad001aca4b88e81f10abe679d0b9fe8a7} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_prepend\_unique\_value@{\_prepend\_unique\_value}}
+\index{\_prepend\_unique\_value@{\_prepend\_unique\_value}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_prepend\_unique\_value()}{\_prepend\_unique\_value()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+prepend\+\_\+unique\+\_\+value (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_ae2234c850a28939348768d5714e4406e}\label{namespace__local__setup__util__ps1_ae2234c850a28939348768d5714e4406e} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_remove\_ending\_separators@{\_remove\_ending\_separators}}
+\index{\_remove\_ending\_separators@{\_remove\_ending\_separators}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_remove\_ending\_separators()}{\_remove\_ending\_separators()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+remove\+\_\+ending\+\_\+separators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a552fefcfac3bb17e032adc2c5c9900c8}\label{namespace__local__setup__util__ps1_a552fefcfac3bb17e032adc2c5c9900c8} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_set@{\_set}}
+\index{\_set@{\_set}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_set()}{\_set()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+set (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_ac946c1c910cad7edf9a8525aa8c596b4}\label{namespace__local__setup__util__ps1_ac946c1c910cad7edf9a8525aa8c596b4} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!\_set\_if\_unset@{\_set\_if\_unset}}
+\index{\_set\_if\_unset@{\_set\_if\_unset}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{\_set\_if\_unset()}{\_set\_if\_unset()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+\_\+set\+\_\+if\+\_\+unset (\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a0140ccf5d4f6a5dc962c92b3fd752afe}\label{namespace__local__setup__util__ps1_a0140ccf5d4f6a5dc962c92b3fd752afe} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!add\_package\_runtime\_dependencies@{add\_package\_runtime\_dependencies}}
+\index{add\_package\_runtime\_dependencies@{add\_package\_runtime\_dependencies}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{add\_package\_runtime\_dependencies()}{add\_package\_runtime\_dependencies()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+add\+\_\+package\+\_\+runtime\+\_\+dependencies (\begin{DoxyParamCaption}\item[{}]{path,  }\item[{}]{packages }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Check the path and if it exists extract the packages runtime dependencies.
+
+:param Path path: The resource file containing the runtime dependencies
+:param dict packages: A mapping from package names to the sets of runtime
+  dependencies to add to
+\end{DoxyVerb}
+ \Hypertarget{namespace__local__setup__util__ps1_a11218be58a598ea8472a878f88e15609}\label{namespace__local__setup__util__ps1_a11218be58a598ea8472a878f88e15609} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!get\_commands@{get\_commands}}
+\index{get\_commands@{get\_commands}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{get\_commands()}{get\_commands()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+get\+\_\+commands (\begin{DoxyParamCaption}\item[{}]{pkg\+\_\+name,  }\item[{}]{prefix,  }\item[{}]{primary\+\_\+extension,  }\item[{}]{additional\+\_\+extension }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace__local__setup__util__ps1_af4566f9d8a9625549cdd313766c26a2c}\label{namespace__local__setup__util__ps1_af4566f9d8a9625549cdd313766c26a2c} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!get\_packages@{get\_packages}}
+\index{get\_packages@{get\_packages}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{get\_packages()}{get\_packages()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+get\+\_\+packages (\begin{DoxyParamCaption}\item[{}]{prefix\+\_\+path,  }\item[{}]{merged\+\_\+install }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Find packages based on colcon-specific files created during installation.
+
+:param Path prefix_path: The install prefix path of all packages
+:param bool merged_install: The flag if the packages are all installed
+  directly in the prefix or if each package is installed in a subdirectory
+  named after the package
+:returns: A mapping from the package name to the set of runtime
+  dependencies
+:rtype: dict
+\end{DoxyVerb}
+ \Hypertarget{namespace__local__setup__util__ps1_a5d732013bde9374e3d925a40f7357e52}\label{namespace__local__setup__util__ps1_a5d732013bde9374e3d925a40f7357e52} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!handle\_dsv\_types\_except\_source@{handle\_dsv\_types\_except\_source}}
+\index{handle\_dsv\_types\_except\_source@{handle\_dsv\_types\_except\_source}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{handle\_dsv\_types\_except\_source()}{handle\_dsv\_types\_except\_source()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+handle\+\_\+dsv\+\_\+types\+\_\+except\+\_\+source (\begin{DoxyParamCaption}\item[{}]{type\+\_\+,  }\item[{}]{remainder,  }\item[{}]{prefix }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace__local__setup__util__ps1_a8bf70df8be3bb3ab4f099d874dbf4958}\label{namespace__local__setup__util__ps1_a8bf70df8be3bb3ab4f099d874dbf4958} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!main@{main}}
+\index{main@{main}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+main (\begin{DoxyParamCaption}\item[{}]{argv = {\ttfamily sys.argv\mbox{[}1\+:\mbox{]}} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace__local__setup__util__ps1_a26191bb84775784d32faf60010454dda}\label{namespace__local__setup__util__ps1_a26191bb84775784d32faf60010454dda} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!order\_packages@{order\_packages}}
+\index{order\_packages@{order\_packages}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{order\_packages()}{order\_packages()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+order\+\_\+packages (\begin{DoxyParamCaption}\item[{}]{packages }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Order packages topologically.
+
+:param dict packages: A mapping from package name to the set of runtime
+  dependencies
+:returns: The package names
+:rtype: list
+\end{DoxyVerb}
+ \Hypertarget{namespace__local__setup__util__ps1_a8cfac08d60472704d804e681d045a35f}\label{namespace__local__setup__util__ps1_a8cfac08d60472704d804e681d045a35f} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!process\_dsv\_file@{process\_dsv\_file}}
+\index{process\_dsv\_file@{process\_dsv\_file}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{process\_dsv\_file()}{process\_dsv\_file()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+process\+\_\+dsv\+\_\+file (\begin{DoxyParamCaption}\item[{}]{dsv\+\_\+path,  }\item[{}]{prefix,  }\item[{}]{primary\+\_\+extension = {\ttfamily None},  }\item[{}]{additional\+\_\+extension = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace__local__setup__util__ps1_a6c5ad6f0354555b29c84359fea5ce7dc}\label{namespace__local__setup__util__ps1_a6c5ad6f0354555b29c84359fea5ce7dc} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!reduce\_cycle\_set@{reduce\_cycle\_set}}
+\index{reduce\_cycle\_set@{reduce\_cycle\_set}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{reduce\_cycle\_set()}{reduce\_cycle\_set()}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+reduce\+\_\+cycle\+\_\+set (\begin{DoxyParamCaption}\item[{}]{packages }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Reduce the set of packages to the ones part of the circular dependency.
+
+:param dict packages: A mapping from package name to the set of runtime
+  dependencies which is modified in place
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace__local__setup__util__ps1_a55c418a0715f40af4c85bcfe909020e9}\label{namespace__local__setup__util__ps1_a55c418a0715f40af4c85bcfe909020e9} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_APPEND\_NON\_DUPLICATE@{DSV\_TYPE\_APPEND\_NON\_DUPLICATE}}
+\index{DSV\_TYPE\_APPEND\_NON\_DUPLICATE@{DSV\_TYPE\_APPEND\_NON\_DUPLICATE}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_APPEND\_NON\_DUPLICATE}{DSV\_TYPE\_APPEND\_NON\_DUPLICATE}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+APPEND\+\_\+\+NON\+\_\+\+DUPLICATE = \textquotesingle{}append-\/non-\/duplicate\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_adc5eca4340a268881672a196ac0af468}\label{namespace__local__setup__util__ps1_adc5eca4340a268881672a196ac0af468} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_PREPEND\_NON\_DUPLICATE@{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE}}
+\index{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE@{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE}{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+PREPEND\+\_\+\+NON\+\_\+\+DUPLICATE = \textquotesingle{}prepend-\/non-\/duplicate\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a44589524e1645c1d1b8db0150f6dafe4}\label{namespace__local__setup__util__ps1_a44589524e1645c1d1b8db0150f6dafe4} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS@{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS}}
+\index{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS@{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS}{DSV\_TYPE\_PREPEND\_NON\_DUPLICATE\_IF\_EXISTS}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+PREPEND\+\_\+\+NON\+\_\+\+DUPLICATE\+\_\+\+IF\+\_\+\+EXISTS = \textquotesingle{}prepend-\/non-\/duplicate-\/\mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}-\/exists\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_add50c1f505c0cbddbc49d8f2bc8670a3}\label{namespace__local__setup__util__ps1_add50c1f505c0cbddbc49d8f2bc8670a3} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_SET@{DSV\_TYPE\_SET}}
+\index{DSV\_TYPE\_SET@{DSV\_TYPE\_SET}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_SET}{DSV\_TYPE\_SET}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+SET = \textquotesingle{}set\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a133e31be5c824ec35a473a58ce2d9f7b}\label{namespace__local__setup__util__ps1_a133e31be5c824ec35a473a58ce2d9f7b} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_SET\_IF\_UNSET@{DSV\_TYPE\_SET\_IF\_UNSET}}
+\index{DSV\_TYPE\_SET\_IF\_UNSET@{DSV\_TYPE\_SET\_IF\_UNSET}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_SET\_IF\_UNSET}{DSV\_TYPE\_SET\_IF\_UNSET}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+SET\+\_\+\+IF\+\_\+\+UNSET = \textquotesingle{}set-\/\mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}-\/unset\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a0af28520193af7d1d58fb29d55408730}\label{namespace__local__setup__util__ps1_a0af28520193af7d1d58fb29d55408730} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!DSV\_TYPE\_SOURCE@{DSV\_TYPE\_SOURCE}}
+\index{DSV\_TYPE\_SOURCE@{DSV\_TYPE\_SOURCE}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{DSV\_TYPE\_SOURCE}{DSV\_TYPE\_SOURCE}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+DSV\+\_\+\+TYPE\+\_\+\+SOURCE = \textquotesingle{}source\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a6e185f97df72a49c6925f75401bc0581}\label{namespace__local__setup__util__ps1_a6e185f97df72a49c6925f75401bc0581} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!env\_state@{env\_state}}
+\index{env\_state@{env\_state}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{env\_state}{env\_state}}
+{\footnotesize\ttfamily dict \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+env\+\_\+state = \{\}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a2d82f0862abcccc453a824bee330545f}\label{namespace__local__setup__util__ps1_a2d82f0862abcccc453a824bee330545f} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!file@{file}}
+\index{file@{file}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+file}
+
+\Hypertarget{namespace__local__setup__util__ps1_a1dbbb1fea9cc200a4e04a78eb146d967}\label{namespace__local__setup__util__ps1_a1dbbb1fea9cc200a4e04a78eb146d967} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_COMMENT\_LINE@{FORMAT\_STR\_COMMENT\_LINE}}
+\index{FORMAT\_STR\_COMMENT\_LINE@{FORMAT\_STR\_COMMENT\_LINE}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_COMMENT\_LINE}{FORMAT\_STR\_COMMENT\_LINE}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+COMMENT\+\_\+\+LINE = \textquotesingle{}\# \{comment\}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_abdb395f0b8f9134894b8a3adf08e0cc6}\label{namespace__local__setup__util__ps1_abdb395f0b8f9134894b8a3adf08e0cc6} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_INVOKE\_SCRIPT@{FORMAT\_STR\_INVOKE\_SCRIPT}}
+\index{FORMAT\_STR\_INVOKE\_SCRIPT@{FORMAT\_STR\_INVOKE\_SCRIPT}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_INVOKE\_SCRIPT}{FORMAT\_STR\_INVOKE\_SCRIPT}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+INVOKE\+\_\+\+SCRIPT = \textquotesingle{}\+\_\+colcon\+\_\+prefix\+\_\+powershell\+\_\+source\+\_\+script "{}\{script\+\_\+path\}"{}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_adfcc9b6bed2404a6dccd322a92cc4390}\label{namespace__local__setup__util__ps1_adfcc9b6bed2404a6dccd322a92cc4390} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR@{FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR}}
+\index{FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR@{FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR}{FORMAT\_STR\_REMOVE\_LEADING\_SEPARATOR}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+REMOVE\+\_\+\+LEADING\+\_\+\+SEPARATOR = \textquotesingle{}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a742a45aa4c70e33c38740c7731b5f2fe}\label{namespace__local__setup__util__ps1_a742a45aa4c70e33c38740c7731b5f2fe} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR@{FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR}}
+\index{FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR@{FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR}{FORMAT\_STR\_REMOVE\_TRAILING\_SEPARATOR}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+REMOVE\+\_\+\+TRAILING\+\_\+\+SEPARATOR = \textquotesingle{}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a2cba465928b54c3cfa0c8ef52d4c70de}\label{namespace__local__setup__util__ps1_a2cba465928b54c3cfa0c8ef52d4c70de} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_SET\_ENV\_VAR@{FORMAT\_STR\_SET\_ENV\_VAR}}
+\index{FORMAT\_STR\_SET\_ENV\_VAR@{FORMAT\_STR\_SET\_ENV\_VAR}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_SET\_ENV\_VAR}{FORMAT\_STR\_SET\_ENV\_VAR}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+SET\+\_\+\+ENV\+\_\+\+VAR = \textquotesingle{}Set-\/Item -\/Path "{}Env\+:\{name\}"{} -\/Value "{}\{value\}"{}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_a94ef77ce4686275a52970576ad230b04}\label{namespace__local__setup__util__ps1_a94ef77ce4686275a52970576ad230b04} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!FORMAT\_STR\_USE\_ENV\_VAR@{FORMAT\_STR\_USE\_ENV\_VAR}}
+\index{FORMAT\_STR\_USE\_ENV\_VAR@{FORMAT\_STR\_USE\_ENV\_VAR}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{FORMAT\_STR\_USE\_ENV\_VAR}{FORMAT\_STR\_USE\_ENV\_VAR}}
+{\footnotesize\ttfamily str \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+FORMAT\+\_\+\+STR\+\_\+\+USE\+\_\+\+ENV\+\_\+\+VAR = \textquotesingle{}\$env\+:\{name\}\textquotesingle{}}
+
+\Hypertarget{namespace__local__setup__util__ps1_aafb1ac7e0d5b0a696e337c730e2e4830}\label{namespace__local__setup__util__ps1_aafb1ac7e0d5b0a696e337c730e2e4830} 
+\index{\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}!rc@{rc}}
+\index{rc@{rc}!\_local\_setup\_util\_ps1@{\_local\_setup\_util\_ps1}}
+\doxysubsubsection{\texorpdfstring{rc}{rc}}
+{\footnotesize\ttfamily int \+\_\+local\+\_\+setup\+\_\+util\+\_\+ps1.\+rc = \mbox{\hyperlink{namespace__local__setup__util__ps1_a8bf70df8be3bb3ab4f099d874dbf4958}{main}}()}
+

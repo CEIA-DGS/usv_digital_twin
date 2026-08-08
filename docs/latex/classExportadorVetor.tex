@@ -1,0 +1,62 @@
+\doxysection{Exportador\+Vetor Class Reference}
+\hypertarget{classExportadorVetor}{}\label{classExportadorVetor}\index{ExportadorVetor@{ExportadorVetor}}
+
+
+Utilitário responsável por exportar as estruturas geradas da Nav\+Mesh para arquivos vetoriais (Shapefiles).  
+
+
+
+
+{\ttfamily \#include $<$Exportador\+Vetor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classExportadorVetor_a1efa81e8ac52d4560e2cd145d961d1d9}{Exportador\+Vetor}} ()=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classExportadorVetor_a5be89ab6802b5b6dd748653e84bb190e}{exportar\+Shapefile}} (const \mbox{\hyperlink{structMalhaNavegacao}{Malha\+Navegacao}} \&nav\+Mesh, const std\+::string \&diretorio\+Saida, int epsg\+\_\+utm)
+\begin{DoxyCompactList}\small\item\em Exporta as geometrias (terra original, margem de segurança e malha de triângulos) para arquivos .shp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utilitário responsável por exportar as estruturas geradas da Nav\+Mesh para arquivos vetoriais (Shapefiles). 
+
+Atua como uma classe estática pura, encapsulando as operações de I/O em disco e conversão geométrica utilizando a biblioteca GDAL/\+OGR. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classExportadorVetor_a1efa81e8ac52d4560e2cd145d961d1d9}\label{classExportadorVetor_a1efa81e8ac52d4560e2cd145d961d1d9} 
+\index{ExportadorVetor@{ExportadorVetor}!ExportadorVetor@{ExportadorVetor}}
+\index{ExportadorVetor@{ExportadorVetor}!ExportadorVetor@{ExportadorVetor}}
+\doxysubsubsection{\texorpdfstring{ExportadorVetor()}{ExportadorVetor()}}
+{\footnotesize\ttfamily Exportador\+Vetor\+::\+Exportador\+Vetor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classExportadorVetor_a5be89ab6802b5b6dd748653e84bb190e}\label{classExportadorVetor_a5be89ab6802b5b6dd748653e84bb190e} 
+\index{ExportadorVetor@{ExportadorVetor}!exportarShapefile@{exportarShapefile}}
+\index{exportarShapefile@{exportarShapefile}!ExportadorVetor@{ExportadorVetor}}
+\doxysubsubsection{\texorpdfstring{exportarShapefile()}{exportarShapefile()}}
+{\footnotesize\ttfamily static void Exportador\+Vetor\+::exportar\+Shapefile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structMalhaNavegacao}{Malha\+Navegacao}} \&}]{nav\+Mesh,  }\item[{const std\+::string \&}]{diretorio\+Saida,  }\item[{int}]{epsg\+\_\+utm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Exporta as geometrias (terra original, margem de segurança e malha de triângulos) para arquivos .shp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nav\+Mesh} & Referência constante para a estrutura contendo os dados processados da malha de navegação. \\
+\hline
+{\em diretorio\+Saida} & Caminho absoluto ou relativo do diretório onde os Shapefiles serão gravados. \\
+\hline
+{\em epsg\+\_\+utm} & Código EPSG da projeção UTM para garantir o georreferenciamento correto dos arquivos gerados. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{ExportadorVetor_8h}{Exportador\+Vetor.\+h}}\end{DoxyCompactItemize}

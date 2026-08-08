@@ -1,0 +1,111 @@
+\doxysection{ns Namespace Reference}
+\hypertarget{namespacens}{}\label{namespacens}\index{ns@{ns}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structns_1_1foo}{foo}}
+\item 
+struct \mbox{\hyperlink{structns_1_1foo__serializer}{foo\+\_\+serializer}}
+\item 
+struct \mbox{\hyperlink{structns_1_1foo__serializer_3_01T_00_01typename_01std_1_1enable__if_3_01_9std_1_1is__same_3_01fo7040e43a8e428c2ddd21aad2ba9685f3}{foo\+\_\+serializer$<$ T, typename std\+::enable\+\_\+if$<$ !std\+::is\+\_\+same$<$ foo, T $>$\+::value $>$\+::type $>$}}
+\item 
+struct \mbox{\hyperlink{structns_1_1foo__serializer_3_01T_00_01typename_01std_1_1enable__if_3_01std_1_1is__same_3_01foo_a8669d5a81841e940ae8221106b95111}{foo\+\_\+serializer$<$ T, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+same$<$ foo, T $>$\+::value $>$\+::type $>$}}
+\item 
+struct \mbox{\hyperlink{structns_1_1person}{person}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{Task\+State}} \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\+\_\+\+STOPPED}}
+, \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\+\_\+\+RUNNING}}
+, \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\+\_\+\+COMPLETED}}
+, \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\+\_\+\+INVALID}} = -\/1
+ \}
+\item 
+enum class \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8e}{Color}} \{ \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8eabda9643ac6601722a28f238714274da4}{red}}
+, \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8ea9f27410725ab8cc8854a2769c7a516b8}{green}}
+, \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8ea48d6215903dff56238e52e8891380c8f}{blue}}
+, \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8eaad921d60486366258809553a3db49a4a}{unknown}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacens_ad67f860ce03e82b028279f77f50cd6e7}{from\+\_\+json}} (const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, \mbox{\hyperlink{structns_1_1person}{person}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+void \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\+\_\+json}} (\mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} \&nlohmann\+\_\+json\+\_\+j, const \mbox{\hyperlink{structns_1_1person}{person}} \&nlohmann\+\_\+json\+\_\+t)
+\item 
+\mbox{\hyperlink{namespacens_ab78dc8b33fb51b2229d4d4842e501662}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM}} (\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{Task\+State}}, \{ \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\+\_\+\+INVALID}}, nullptr \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\+\_\+\+STOPPED}}, "{}stopped"{} \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\+\_\+\+RUNNING}}, "{}running"{} \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\+\_\+\+COMPLETED}}, "{}completed"{} \} \}) enum class \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8e}{Color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacens_a47438d3e8996f24450a38e50fab3bd8e}\label{namespacens_a47438d3e8996f24450a38e50fab3bd8e} 
+\index{ns@{ns}!Color@{Color}}
+\index{Color@{Color}!ns@{ns}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespacens_a47438d3e8996f24450a38e50fab3bd8e}{ns\+::\+Color}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{red@{red}!ns@{ns}}\index{ns@{ns}!red@{red}}}\Hypertarget{namespacens_a47438d3e8996f24450a38e50fab3bd8eabda9643ac6601722a28f238714274da4}\label{namespacens_a47438d3e8996f24450a38e50fab3bd8eabda9643ac6601722a28f238714274da4} 
+red&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{green@{green}!ns@{ns}}\index{ns@{ns}!green@{green}}}\Hypertarget{namespacens_a47438d3e8996f24450a38e50fab3bd8ea9f27410725ab8cc8854a2769c7a516b8}\label{namespacens_a47438d3e8996f24450a38e50fab3bd8ea9f27410725ab8cc8854a2769c7a516b8} 
+green&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{blue@{blue}!ns@{ns}}\index{ns@{ns}!blue@{blue}}}\Hypertarget{namespacens_a47438d3e8996f24450a38e50fab3bd8ea48d6215903dff56238e52e8891380c8f}\label{namespacens_a47438d3e8996f24450a38e50fab3bd8ea48d6215903dff56238e52e8891380c8f} 
+blue&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{unknown@{unknown}!ns@{ns}}\index{ns@{ns}!unknown@{unknown}}}\Hypertarget{namespacens_a47438d3e8996f24450a38e50fab3bd8eaad921d60486366258809553a3db49a4a}\label{namespacens_a47438d3e8996f24450a38e50fab3bd8eaad921d60486366258809553a3db49a4a} 
+unknown&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}\label{namespacens_a959f2abff14bca2c3fc8ce8c18e82424} 
+\index{ns@{ns}!TaskState@{TaskState}}
+\index{TaskState@{TaskState}!ns@{ns}}
+\doxysubsubsection{\texorpdfstring{TaskState}{TaskState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{ns\+::\+Task\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TS\_STOPPED@{TS\_STOPPED}!ns@{ns}}\index{ns@{ns}!TS\_STOPPED@{TS\_STOPPED}}}\Hypertarget{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}\label{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e} 
+TS\+\_\+\+STOPPED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TS\_RUNNING@{TS\_RUNNING}!ns@{ns}}\index{ns@{ns}!TS\_RUNNING@{TS\_RUNNING}}}\Hypertarget{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}\label{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e} 
+TS\+\_\+\+RUNNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TS\_COMPLETED@{TS\_COMPLETED}!ns@{ns}}\index{ns@{ns}!TS\_COMPLETED@{TS\_COMPLETED}}}\Hypertarget{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}\label{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d} 
+TS\+\_\+\+COMPLETED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TS\_INVALID@{TS\_INVALID}!ns@{ns}}\index{ns@{ns}!TS\_INVALID@{TS\_INVALID}}}\Hypertarget{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}\label{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c} 
+TS\+\_\+\+INVALID&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacens_ad67f860ce03e82b028279f77f50cd6e7}\label{namespacens_ad67f860ce03e82b028279f77f50cd6e7} 
+\index{ns@{ns}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!ns@{ns}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}}
+{\footnotesize\ttfamily void ns\+::from\+\_\+json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j,  }\item[{\mbox{\hyperlink{structns_1_1person}{person}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacens_ab78dc8b33fb51b2229d4d4842e501662}\label{namespacens_ab78dc8b33fb51b2229d4d4842e501662} 
+\index{ns@{ns}!NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}
+\index{NLOHMANN\_JSON\_SERIALIZE\_ENUM@{NLOHMANN\_JSON\_SERIALIZE\_ENUM}!ns@{ns}}
+\doxysubsubsection{\texorpdfstring{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}{NLOHMANN\_JSON\_SERIALIZE\_ENUM()}}
+{\footnotesize\ttfamily ns\+::\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{Task\+State}}}]{,  }\item[{\{ \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\+\_\+\+INVALID}}, nullptr \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\+\_\+\+STOPPED}}, "{}stopped"{} \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\+\_\+\+RUNNING}}, "{}running"{} \}, \{ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\+\_\+\+COMPLETED}}, "{}completed"{} \} \}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacens_a651f29af9e1ea7c702a6806105b16018}\label{namespacens_a651f29af9e1ea7c702a6806105b16018} 
+\index{ns@{ns}!to\_json@{to\_json}}
+\index{to\_json@{to\_json}!ns@{ns}}
+\doxysubsubsection{\texorpdfstring{to\_json()}{to\_json()}}
+{\footnotesize\ttfamily void ns\+::to\+\_\+json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} \&}]{nlohmann\+\_\+json\+\_\+j,  }\item[{const \mbox{\hyperlink{structns_1_1person}{person}} \&}]{nlohmann\+\_\+json\+\_\+t }\end{DoxyParamCaption})}
+

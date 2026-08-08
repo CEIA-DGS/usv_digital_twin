@@ -1,0 +1,84 @@
+\chapter{SAX Interface}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface}\index{SAX Interface@{SAX Interface}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface_autotoc_md1431}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface_autotoc_md1431}%
+ The library uses a SAX-\/like interface with the following functions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{interface\ json::sax\_t\ \{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ null()}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ boolean(bool\ val)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ number\_integer(number\_integer\_t\ val)}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ number\_unsigned(number\_unsigned\_t\ val)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ number\_float(number\_float\_t\ val,\ const\ string\_t\&\ s)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ string(string\_t\&\ val)}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ binary(binary\_t\&\ val)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ start\_object(std::size\_t\ elements)}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ end\_object()}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ start\_array(std::size\_t\ elements)}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ end\_array()}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ key(string\_t\&\ val)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ +\ \{abstract\}\ bool\ parse\_error(std::size\_t\ position,\ const\ std::string\&\ last\_token,\ const\ json::exception\&\ ex)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ null\ is\ parsed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a37a6259cc0c1dae299a7866489dff0bd}{null}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ boolean\ is\ parsed;\ value\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a84e2c64f38f78ba3ea5c905ab5a2da27}{boolean}}(\textcolor{keywordtype}{bool}\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ signed\ or\ unsigned\ integer\ number\ is\ parsed;\ value\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__integer}{number\_integer}}(number\_integer\_t\ val);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__unsigned}{number\_unsigned}}(number\_unsigned\_t\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ floating-\/point\ number\ is\ parsed;\ value\ and\ original\ string\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__float}{number\_float}}(number\_float\_t\ val,\ \textcolor{keyword}{const}\ string\_t\&\ s);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ string\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classstring}{string}}(string\_t\&\ val);}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ binary\ value\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(binary\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ an\ object\ or\ array\ begins\ or\ ends,\ resp.\ The\ number\ of\ elements\ is\ passed\ (or\ -\/1\ if\ not\ known)}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ start\_object(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ elements);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ end\_object();}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ start\_array(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ elements);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ end\_array();}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ an\ object\ key\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}(string\_t\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ parse\ error\ occurs;\ byte\ position,\ the\ last\ token,\ and\ an\ exception\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ parse\_error(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ position,\ \textcolor{keyword}{const}\ std::string\&\ last\_token,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1detail_1_1exception}{json::exception}}\&\ ex);}
+
+\end{DoxyCode}
+
+
+The return value of each function determines whether parsing should proceed.
+
+To implement your own SAX handler, proceed as follows\+:
+
+
+\begin{DoxyEnumerate}
+\item Implement the SAX interface in a class. You can use class {\ttfamily nlohmann\+::json\+\_\+sax\texorpdfstring{$<$}{<}json\texorpdfstring{$>$}{>}} as base class, but you can also use any class where the functions described above are implemented and public.
+\item Create an object of your SAX interface class, e.\+g. {\ttfamily my\+\_\+sax}.
+\item Call {\ttfamily \#!cpp bool \doxylink{classnlohmann_1_1basic__json_a12b382c6407da5543827ce4b24bb5008}{json\+::sax\+\_\+parse}(input, \&my\+\_\+sax);} where the first parameter can be any input like a string or an input stream and the second parameter is a pointer to your SAX interface.
+\end{DoxyEnumerate}
+
+Note the {\ttfamily sax\+\_\+parse} function only returns a {\ttfamily \#!cpp bool} indicating the result of the last executed SAX event. It does not return {\ttfamily json} value -\/ it is up to you to decide what to do with the SAX events. Furthermore, no exceptions are thrown in case of a parse error -\/ it is up to you what to do with the exception object passed to your {\ttfamily parse\+\_\+error} implementation. Internally, the SAX interface is used for the DOM parser (class {\ttfamily json\+\_\+sax\+\_\+dom\+\_\+parser}) as well as the acceptor ({\ttfamily json\+\_\+sax\+\_\+acceptor}), see file {\ttfamily \doxylink{json__sax_8hpp}{json\+\_\+sax.\+hpp}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface_autotoc_md1432}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2sax__interface_autotoc_md1432}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index}{json\+\_\+sax}{0} -\/ documentation of the SAX interface
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}{sax\+\_\+parse}{0} -\/ SAX parser 
+\end{DoxyItemize}

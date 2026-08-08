@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['dgs_0',['Digital Twin - CEIA-DGS',['../md_README.html',1,'']]],
-  ['digital_20twin_20ceia_20dgs_1',['Digital Twin - CEIA-DGS',['../md_README.html',1,'']]],
-  ['dt_20viz_20interface_20gráfica_2',['DT Viz - Interface Gráfica',['../md_dt__viz_2README.html',1,'']]]
+  ['_5fjson_0',['&lt;small&gt;nlohmann::&lt;/small&gt;operator&quot;&quot;_json',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json.html',1,'']]],
+  ['_5fjson_5fpointer_1',['&lt;small&gt;nlohmann::&lt;/small&gt;operator&quot;&quot;_json_pointer',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json__pointer.html',1,'']]]
 ];

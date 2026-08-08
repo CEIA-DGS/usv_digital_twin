@@ -1,7 +1,7 @@
 \chapter{DT Viz -\/ Interface Gráfica}
 \hypertarget{md_dt__viz_2README}{}\label{md_dt__viz_2README}\index{DT Viz -\/ Interface Gráfica@{DT Viz -\/ Interface Gráfica}}
-\label{md_dt__viz_2README_autotoc_md0}%
-\Hypertarget{md_dt__viz_2README_autotoc_md0}%
+\label{md_dt__viz_2README_autotoc_md1837}%
+\Hypertarget{md_dt__viz_2README_autotoc_md1837}%
  Pacote responsável pela interface gráfica do módulo Digital Twin do projeto CEIA-\/\+DGS.
 
 A aplicação foi desenvolvida em {\bfseries{C++}}, utilizando {\bfseries{Qt 5}} e {\bfseries{ROS 2 Humble}}, com o objetivo de apresentar uma visualização bidimensional em vista superior dos principais elementos relacionados à navegação do USV.
@@ -20,7 +20,7 @@ A interface permite visualizar\+:
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md2}{}\doxysection{\texorpdfstring{Objetivo}{Objetivo}}\label{md_dt__viz_2README_autotoc_md2}
+\hypertarget{md_dt__viz_2README_autotoc_md1839}{}\doxysection{\texorpdfstring{Objetivo}{Objetivo}}\label{md_dt__viz_2README_autotoc_md1839}
 O pacote {\ttfamily dt\+\_\+viz} tem como objetivo fornecer uma ferramenta de diagnóstico visual para os dados produzidos pelos demais módulos do sistema.
 
 Nesta etapa, a interface recebe\+:
@@ -35,7 +35,7 @@ Nesta etapa, a interface recebe\+:
 Quando um alerta de colisão é recebido, a interface identifica o alvo pelo MMSI e altera sua aparência visual.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md4}{}\doxysection{\texorpdfstring{Tecnologias utilizadas}{Tecnologias utilizadas}}\label{md_dt__viz_2README_autotoc_md4}
+\hypertarget{md_dt__viz_2README_autotoc_md1841}{}\doxysection{\texorpdfstring{Tecnologias utilizadas}{Tecnologias utilizadas}}\label{md_dt__viz_2README_autotoc_md1841}
 
 \begin{DoxyItemize}
 \item Ubuntu 22.\+04;
@@ -44,13 +44,13 @@ Quando um alerta de colisão é recebido, a interface identifica o alvo pelo MMS
 \item Qt 5 Widgets;
 \item {\ttfamily rclcpp};
 \item {\ttfamily nav\+\_\+msgs};
-\item {\ttfamily dt\+\_\+msgs};
+\item {\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}};
 \item {\ttfamily ament\+\_\+cmake};
 \item {\ttfamily colcon}.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md6}{}\doxysection{\texorpdfstring{Estrutura do pacote}{Estrutura do pacote}}\label{md_dt__viz_2README_autotoc_md6}
+\hypertarget{md_dt__viz_2README_autotoc_md1843}{}\doxysection{\texorpdfstring{Estrutura do pacote}{Estrutura do pacote}}\label{md_dt__viz_2README_autotoc_md1843}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{dt\_viz/}
@@ -70,8 +70,8 @@ Quando um alerta de colisão é recebido, a interface identifica o alvo pelo MMS
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md8}{}\doxysection{\texorpdfstring{Descrição dos arquivos}{Descrição dos arquivos}}\label{md_dt__viz_2README_autotoc_md8}
-\hypertarget{md_dt__viz_2README_autotoc_md9}{}\doxysubsection{\texorpdfstring{$<$tt$>$include/dt\+\_\+viz/main\+\_\+window.\+hpp$<$/tt$>$}{<tt>include/dt\_viz/main\_window.hpp</tt>}}\label{md_dt__viz_2README_autotoc_md9}
+\hypertarget{md_dt__viz_2README_autotoc_md1845}{}\doxysection{\texorpdfstring{Descrição dos arquivos}{Descrição dos arquivos}}\label{md_dt__viz_2README_autotoc_md1845}
+\hypertarget{md_dt__viz_2README_autotoc_md1846}{}\doxysubsection{\texorpdfstring{$<$tt$>$include/dt\+\_\+viz/main\+\_\+window.\+hpp$<$/tt$>$}{<tt>include/dt\_viz/main\_window.hpp</tt>}}\label{md_dt__viz_2README_autotoc_md1846}
 Declara a classe principal da interface gráfica.
 
 Esse arquivo contém\+:
@@ -101,7 +101,7 @@ Principais métodos públicos\+:
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ collision\_imminent);}
 
 \end{DoxyCode}
-\hypertarget{md_dt__viz_2README_autotoc_md10}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/main\+\_\+window.\+cpp$<$/tt$>$}{<tt>src/main\_window.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md10}
+\hypertarget{md_dt__viz_2README_autotoc_md1847}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/main\+\_\+window.\+cpp$<$/tt$>$}{<tt>src/main\_window.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md1847}
 Implementa a camada visual da aplicação.
 
 É responsável por\+:
@@ -119,7 +119,7 @@ Implementa a camada visual da aplicação.
 \item Criar os marcadores de waypoints;
 \item Atualizar os rótulos;
 \item Destacar uma embarcação com risco de colisão.
-\end{DoxyItemize}\hypertarget{md_dt__viz_2README_autotoc_md11}{}\doxysubsection{\texorpdfstring{$<$tt$>$include/dt\+\_\+viz/viz\+\_\+node.\+hpp$<$/tt$>$}{<tt>include/dt\_viz/viz\_node.hpp</tt>}}\label{md_dt__viz_2README_autotoc_md11}
+\end{DoxyItemize}\hypertarget{md_dt__viz_2README_autotoc_md1848}{}\doxysubsection{\texorpdfstring{$<$tt$>$include/dt\+\_\+viz/viz\+\_\+node.\+hpp$<$/tt$>$}{<tt>include/dt\_viz/viz\_node.hpp</tt>}}\label{md_dt__viz_2README_autotoc_md1848}
 Declara o nó ROS 2 que conecta os tópicos do sistema à interface gráfica.
 
 O nó recebe\+:
@@ -130,7 +130,7 @@ O nó recebe\+:
 \DoxyCodeLine{/collision\_alert}
 
 \end{DoxyCode}
-\hypertarget{md_dt__viz_2README_autotoc_md12}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/viz\+\_\+node.\+cpp$<$/tt$>$}{<tt>src/viz\_node.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md12}
+\hypertarget{md_dt__viz_2README_autotoc_md1849}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/viz\+\_\+node.\+cpp$<$/tt$>$}{<tt>src/viz\_node.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md1849}
 Implementa os subscribers ROS 2.
 
 O callback da rota recebe uma mensagem do tipo\+:
@@ -153,7 +153,7 @@ O callback de colisão recebe\+:
 \end{DoxyCode}
 
 
-O MMSI e o estado do alerta são encaminhados à janela principal.\hypertarget{md_dt__viz_2README_autotoc_md13}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/main.\+cpp$<$/tt$>$}{<tt>src/main.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md13}
+O MMSI e o estado do alerta são encaminhados à janela principal.\hypertarget{md_dt__viz_2README_autotoc_md1850}{}\doxysubsection{\texorpdfstring{$<$tt$>$src/main.\+cpp$<$/tt$>$}{<tt>src/main.cpp</tt>}}\label{md_dt__viz_2README_autotoc_md1850}
 Inicializa\+:
 
 
@@ -177,7 +177,7 @@ O ROS 2 é processado utilizando\+:
 Esse processamento é chamado por um {\ttfamily QTimer}, mantendo as atualizações da interface na thread principal do Qt.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md15}{}\doxysection{\texorpdfstring{Dependências}{Dependências}}\label{md_dt__viz_2README_autotoc_md15}
+\hypertarget{md_dt__viz_2README_autotoc_md1852}{}\doxysection{\texorpdfstring{Dependências}{Dependências}}\label{md_dt__viz_2README_autotoc_md1852}
 O pacote depende de\+:
 
 
@@ -190,7 +190,7 @@ O pacote depende de\+:
 \end{DoxyCode}
 
 
-O pacote {\ttfamily dt\+\_\+msgs} deve estar disponível na mesma workspace e precisa gerar a mensagem\+:
+O pacote {\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}} deve estar disponível na mesma workspace e precisa gerar a mensagem\+:
 
 
 \begin{DoxyCode}{0}
@@ -200,8 +200,8 @@ O pacote {\ttfamily dt\+\_\+msgs} deve estar disponível na mesma workspace e pr
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md17}{}\doxysection{\texorpdfstring{Tópicos utilizados}{Tópicos utilizados}}\label{md_dt__viz_2README_autotoc_md17}
-\hypertarget{md_dt__viz_2README_autotoc_md18}{}\doxysubsection{\texorpdfstring{Derrota planejada}{Derrota planejada}}\label{md_dt__viz_2README_autotoc_md18}
+\hypertarget{md_dt__viz_2README_autotoc_md1854}{}\doxysection{\texorpdfstring{Tópicos utilizados}{Tópicos utilizados}}\label{md_dt__viz_2README_autotoc_md1854}
+\hypertarget{md_dt__viz_2README_autotoc_md1855}{}\doxysubsection{\texorpdfstring{Derrota planejada}{Derrota planejada}}\label{md_dt__viz_2README_autotoc_md1855}
 Nome\+:
 
 
@@ -239,7 +239,7 @@ Fluxo\+:
 \DoxyCodeLine{Linha\ da\ derrota\ e\ waypoints}
 
 \end{DoxyCode}
-\hypertarget{md_dt__viz_2README_autotoc_md19}{}\doxysubsection{\texorpdfstring{Alerta de colisão}{Alerta de colisão}}\label{md_dt__viz_2README_autotoc_md19}
+\hypertarget{md_dt__viz_2README_autotoc_md1856}{}\doxysubsection{\texorpdfstring{Alerta de colisão}{Alerta de colisão}}\label{md_dt__viz_2README_autotoc_md1856}
 Nome\+:
 
 
@@ -278,7 +278,7 @@ Fluxo\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md21}{}\doxysection{\texorpdfstring{Funcionamento da derrota planejada}{Funcionamento da derrota planejada}}\label{md_dt__viz_2README_autotoc_md21}
+\hypertarget{md_dt__viz_2README_autotoc_md1858}{}\doxysection{\texorpdfstring{Funcionamento da derrota planejada}{Funcionamento da derrota planejada}}\label{md_dt__viz_2README_autotoc_md1858}
 Ao receber uma mensagem em {\ttfamily /planned\+\_\+route}, a interface\+:
 
 
@@ -312,7 +312,7 @@ para a linha da rota e\+:
 para os marcadores dos waypoints.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md23}{}\doxysection{\texorpdfstring{Funcionamento do alerta de colisão}{Funcionamento do alerta de colisão}}\label{md_dt__viz_2README_autotoc_md23}
+\hypertarget{md_dt__viz_2README_autotoc_md1860}{}\doxysection{\texorpdfstring{Funcionamento do alerta de colisão}{Funcionamento do alerta de colisão}}\label{md_dt__viz_2README_autotoc_md1860}
 Ao receber um alerta, a interface utiliza o campo MMSI para localizar a embarcação correta.
 
 Quando\+:
@@ -347,7 +347,7 @@ Quando\+:
 a aparência normal do alvo é restaurada.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md25}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{md_dt__viz_2README_autotoc_md25}
+\hypertarget{md_dt__viz_2README_autotoc_md1862}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{md_dt__viz_2README_autotoc_md1862}
 O ambiente recomendado é\+:
 
 
@@ -377,7 +377,7 @@ Instale as dependências necessárias\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md27}{}\doxysection{\texorpdfstring{Organização na workspace}{Organização na workspace}}\label{md_dt__viz_2README_autotoc_md27}
+\hypertarget{md_dt__viz_2README_autotoc_md1864}{}\doxysection{\texorpdfstring{Organização na workspace}{Organização na workspace}}\label{md_dt__viz_2README_autotoc_md1864}
 A estrutura esperada é\+:
 
 
@@ -391,10 +391,10 @@ A estrutura esperada é\+:
 \end{DoxyCode}
 
 
-O pacote {\ttfamily dt\+\_\+msgs} deve estar presente porque {\ttfamily dt\+\_\+viz} utiliza a mensagem {\ttfamily Collision\+Alert}.
+O pacote {\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}} deve estar presente porque {\ttfamily dt\+\_\+viz} utiliza a mensagem {\ttfamily Collision\+Alert}.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md29}{}\doxysection{\texorpdfstring{Instalação das dependências}{Instalação das dependências}}\label{md_dt__viz_2README_autotoc_md29}
+\hypertarget{md_dt__viz_2README_autotoc_md1866}{}\doxysection{\texorpdfstring{Instalação das dependências}{Instalação das dependências}}\label{md_dt__viz_2README_autotoc_md1866}
 Na raiz da workspace\+:
 
 
@@ -427,8 +427,8 @@ Instale as dependências\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md31}{}\doxysection{\texorpdfstring{Compilação}{Compilação}}\label{md_dt__viz_2README_autotoc_md31}
-Como o {\ttfamily dt\+\_\+viz} depende de {\ttfamily dt\+\_\+msgs}, compile os pacotes respeitando a ordem de dependências\+:
+\hypertarget{md_dt__viz_2README_autotoc_md1868}{}\doxysection{\texorpdfstring{Compilação}{Compilação}}\label{md_dt__viz_2README_autotoc_md1868}
+Como o {\ttfamily dt\+\_\+viz} depende de {\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}}, compile os pacotes respeitando a ordem de dependências\+:
 
 
 \begin{DoxyCode}{0}
@@ -468,7 +468,7 @@ Também é possível compilar separadamente\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md33}{}\doxysection{\texorpdfstring{Execução}{Execução}}\label{md_dt__viz_2README_autotoc_md33}
+\hypertarget{md_dt__viz_2README_autotoc_md1870}{}\doxysection{\texorpdfstring{Execução}{Execução}}\label{md_dt__viz_2README_autotoc_md1870}
 Execute a interface\+:
 
 
@@ -481,7 +481,7 @@ Execute a interface\+:
 A janela deverá ser aberta com a visualização gráfica.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md35}{}\doxysection{\texorpdfstring{Teste da derrota planejada}{Teste da derrota planejada}}\label{md_dt__viz_2README_autotoc_md35}
+\hypertarget{md_dt__viz_2README_autotoc_md1872}{}\doxysection{\texorpdfstring{Teste da derrota planejada}{Teste da derrota planejada}}\label{md_dt__viz_2README_autotoc_md1872}
 Em outro terminal, carregue o ambiente\+:
 
 
@@ -541,7 +541,7 @@ Publique uma rota\+:
 A interface deverá exibir a linha da derrota e os waypoints.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md37}{}\doxysection{\texorpdfstring{Teste do alerta de colisão}{Teste do alerta de colisão}}\label{md_dt__viz_2README_autotoc_md37}
+\hypertarget{md_dt__viz_2README_autotoc_md1874}{}\doxysection{\texorpdfstring{Teste do alerta de colisão}{Teste do alerta de colisão}}\label{md_dt__viz_2README_autotoc_md1874}
 Nesta versão, os alvos simulados utilizam MMSIs fictícios\+:
 
 
@@ -588,7 +588,7 @@ Para remover o alerta\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md39}{}\doxysection{\texorpdfstring{Inspeção dos tópicos}{Inspeção dos tópicos}}\label{md_dt__viz_2README_autotoc_md39}
+\hypertarget{md_dt__viz_2README_autotoc_md1876}{}\doxysection{\texorpdfstring{Inspeção dos tópicos}{Inspeção dos tópicos}}\label{md_dt__viz_2README_autotoc_md1876}
 Liste os tópicos disponíveis\+:
 
 
@@ -651,7 +651,7 @@ Observe as mensagens\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md41}{}\doxysection{\texorpdfstring{Imagem da interface}{Imagem da interface}}\label{md_dt__viz_2README_autotoc_md41}
+\hypertarget{md_dt__viz_2README_autotoc_md1878}{}\doxysection{\texorpdfstring{Imagem da interface}{Imagem da interface}}\label{md_dt__viz_2README_autotoc_md1878}
 Adicione uma captura de tela em\+:
 
 
@@ -675,7 +675,7 @@ Resultado esperado\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md43}{}\doxysection{\texorpdfstring{Estado atual}{Estado atual}}\label{md_dt__viz_2README_autotoc_md43}
+\hypertarget{md_dt__viz_2README_autotoc_md1880}{}\doxysection{\texorpdfstring{Estado atual}{Estado atual}}\label{md_dt__viz_2README_autotoc_md1880}
 O pacote está preparado para\+:
 
 
@@ -690,7 +690,7 @@ O pacote está preparado para\+:
 As posições das embarcações ainda podem ser simuladas na interface, dependendo do estágio de integração com os outros módulos.
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md45}{}\doxysection{\texorpdfstring{Próximas etapas}{Próximas etapas}}\label{md_dt__viz_2README_autotoc_md45}
+\hypertarget{md_dt__viz_2README_autotoc_md1882}{}\doxysection{\texorpdfstring{Próximas etapas}{Próximas etapas}}\label{md_dt__viz_2README_autotoc_md1882}
 
 \begin{DoxyItemize}
 \item Receber {\ttfamily dt\+\_\+msgs/msg/\+Ais\+Report};
@@ -705,7 +705,7 @@ As posições das embarcações ainda podem ser simuladas na interface, dependen
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md47}{}\doxysection{\texorpdfstring{Pontos de alinhamento}{Pontos de alinhamento}}\label{md_dt__viz_2README_autotoc_md47}
+\hypertarget{md_dt__viz_2README_autotoc_md1884}{}\doxysection{\texorpdfstring{Pontos de alinhamento}{Pontos de alinhamento}}\label{md_dt__viz_2README_autotoc_md1884}
 Antes da integração definitiva com os demais módulos, devem ser confirmados\+:
 
 
@@ -744,7 +744,7 @@ A implementação atual considera\+:
 
 
 \DoxyHorRuler{0}
-\hypertarget{md_dt__viz_2README_autotoc_md49}{}\doxysection{\texorpdfstring{Critérios de conclusão}{Critérios de conclusão}}\label{md_dt__viz_2README_autotoc_md49}
+\hypertarget{md_dt__viz_2README_autotoc_md1886}{}\doxysection{\texorpdfstring{Critérios de conclusão}{Critérios de conclusão}}\label{md_dt__viz_2README_autotoc_md1886}
 A implementação pode ser considerada concluída quando\+:
 
 

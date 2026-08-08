@@ -1,0 +1,261 @@
+\doxysection{install/dt\+\_\+msgs/include/dt\+\_\+msgs/dt\+\_\+msgs/msg/detail/ais\+\_\+report\+\_\+\+\_\+functions.c File Reference}
+\hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c}{}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c}\index{install/dt\_msgs/include/dt\_msgs/dt\_msgs/msg/detail/ais\_report\_\_functions.c@{install/dt\_msgs/include/dt\_msgs/dt\_msgs/msg/detail/ais\_report\_\_functions.c}}
+{\ttfamily \#include "{}dt\+\_\+msgs/msg/detail/ais\+\_\+report\+\_\+\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}rcutils/allocator.\+h"{}}\newline
+{\ttfamily \#include "{}std\+\_\+msgs/msg/detail/header\+\_\+\+\_\+functions.\+h"{}}\newline
+{\ttfamily \#include "{}dt\+\_\+msgs/msg/detail/ais\+\_\+target\+\_\+\+\_\+functions.\+h"{}}\newline
+Include dependency graph for ais\+\_\+report\+\_\+\+\_\+functions.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8113a70839e6d3d1a6746816fcf19211}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+init}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Initialize msg/\+Ais\+Report message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a80e022b8a147f3421763e87046084cea}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+fini}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Finalize msg/\+Ais\+Report message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ae071bea12b64a6fa6de0d29d920c41c6}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+are\+\_\+equal}} (const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}rhs)
+\begin{DoxyCompactList}\small\item\em Check for msg/\+Ais\+Report message equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0f9e9ee4f20ee8047acf30629cfd8584}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+copy}} (const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}input, \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{ordered__map_8cpp_ab916cefa993ae4a2ef8d43dc1a428fe9}{output}})
+\begin{DoxyCompactList}\small\item\em Copy a msg/\+Ais\+Report message. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a14c68d18070ee960376a8bc4fcd1aee1}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+create}} (void)
+\begin{DoxyCompactList}\small\item\em Create msg/\+Ais\+Report message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a45d101f40dca69a37add5cec59f4ab9e}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+destroy}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em Destroy msg/\+Ais\+Report message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_acc00cc937c87e755d5af36b5e6bf86e5}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+init}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classarray}{array}}, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Initialize array of msg/\+Ais\+Report messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a29f76c6edc328d29bf153d879d80f0e9}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+fini}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classarray}{array}})
+\begin{DoxyCompactList}\small\item\em Finalize array of msg/\+Ais\+Report messages. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8636ef615a323c428e56196405bbf441}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+create}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Create array of msg/\+Ais\+Report messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ab8e4b96ff5307e464bcb84321e24dfba}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+destroy}} (\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classarray}{array}})
+\begin{DoxyCompactList}\small\item\em Destroy array of msg/\+Ais\+Report messages. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0e62a6d61f6a88177c55f8444dccb7ea}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+are\+\_\+equal}} (const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}lhs, const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}rhs)
+\begin{DoxyCompactList}\small\item\em Check for msg/\+Ais\+Report message array equality. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a1b70146cafb4b774a8d3520f58552f40}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+copy}} (const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}input, \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{ordered__map_8cpp_ab916cefa993ae4a2ef8d43dc1a428fe9}{output}})
+\begin{DoxyCompactList}\small\item\em Copy an array of msg/\+Ais\+Report messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ae071bea12b64a6fa6de0d29d920c41c6}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ae071bea12b64a6fa6de0d29d920c41c6} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal@{dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal@{dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal()}{dt\_msgs\_\_msg\_\_AisReport\_\_are\_equal()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+are\+\_\+equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{lhs,  }\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Check for msg/\+Ais\+Report message equality. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The message on the left hand size of the equality operator. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The message on the right hand size of the equality operator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if messages are equal, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0f9e9ee4f20ee8047acf30629cfd8584}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0f9e9ee4f20ee8047acf30629cfd8584} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_copy@{dt\_msgs\_\_msg\_\_AisReport\_\_copy}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_copy@{dt\_msgs\_\_msg\_\_AisReport\_\_copy}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_copy()}{dt\_msgs\_\_msg\_\_AisReport\_\_copy()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{input,  }\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{output }\end{DoxyParamCaption})}
+
+
+
+Copy a msg/\+Ais\+Report message. 
+
+This functions performs a deep copy, as opposed to the shallow copy that plain assignment yields.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The source message pointer. \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & The target message pointer, which must have been initialized before calling this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, or false if either pointer is null or memory allocation fails. 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a14c68d18070ee960376a8bc4fcd1aee1}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a14c68d18070ee960376a8bc4fcd1aee1} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_create@{dt\_msgs\_\_msg\_\_AisReport\_\_create}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_create@{dt\_msgs\_\_msg\_\_AisReport\_\_create}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_create()}{dt\_msgs\_\_msg\_\_AisReport\_\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*} dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create msg/\+Ais\+Report message. 
+
+It allocates the memory for the message, sets the memory to zero, and calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a29fe30b1317bc6d49174ae12887d5f11}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+init()}. \begin{DoxyReturn}{Returns}
+The pointer to the initialized message if successful, otherwise NULL 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a45d101f40dca69a37add5cec59f4ab9e}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a45d101f40dca69a37add5cec59f4ab9e} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_destroy@{dt\_msgs\_\_msg\_\_AisReport\_\_destroy}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_destroy@{dt\_msgs\_\_msg\_\_AisReport\_\_destroy}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_destroy()}{dt\_msgs\_\_msg\_\_AisReport\_\_destroy()}}
+{\footnotesize\ttfamily void dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Destroy msg/\+Ais\+Report message. 
+
+It calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a1fb59f49cb58df73529fe8856e95a83b}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+fini()} and frees the memory of the message. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em msg} & The allocated message pointer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a80e022b8a147f3421763e87046084cea}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a80e022b8a147f3421763e87046084cea} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_fini@{dt\_msgs\_\_msg\_\_AisReport\_\_fini}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_fini@{dt\_msgs\_\_msg\_\_AisReport\_\_fini}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_fini()}{dt\_msgs\_\_msg\_\_AisReport\_\_fini()}}
+{\footnotesize\ttfamily void dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+fini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Finalize msg/\+Ais\+Report message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em msg} & The allocated message pointer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8113a70839e6d3d1a6746816fcf19211}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8113a70839e6d3d1a6746816fcf19211} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_init@{dt\_msgs\_\_msg\_\_AisReport\_\_init}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_init@{dt\_msgs\_\_msg\_\_AisReport\_\_init}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_init()}{dt\_msgs\_\_msg\_\_AisReport\_\_init()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report}} \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+Initialize msg/\+Ais\+Report message. 
+
+If the init function is called twice for the same message without calling fini inbetween previously allocated memory will be leaked. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em msg} & The previously allocated message pointer. Fields without a default value will not be initialized by this function. You might want to call memset(msg, 0, sizeof( dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report )) before or use \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a4d4cd99d132f2329ec25ffc69dae2b74}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+create()} to allocate and initialize the message. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if initialization was successful, otherwise false 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0e62a6d61f6a88177c55f8444dccb7ea}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a0e62a6d61f6a88177c55f8444dccb7ea} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_are\_equal()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+are\+\_\+equal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{lhs,  }\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Check for msg/\+Ais\+Report message array equality. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em lhs} & The message array on the left hand size of the equality operator. \\
+\hline
+\mbox{\texttt{ in}}  & {\em rhs} & The message array on the right hand size of the equality operator. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if message arrays are equal in size and content, otherwise false. 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a1b70146cafb4b774a8d3520f58552f40}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a1b70146cafb4b774a8d3520f58552f40} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_copy()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{input,  }\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{output }\end{DoxyParamCaption})}
+
+
+
+Copy an array of msg/\+Ais\+Report messages. 
+
+This functions performs a deep copy, as opposed to the shallow copy that plain assignment yields.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & The source array pointer. \\
+\hline
+\mbox{\texttt{ out}}  & {\em output} & The target array pointer, which must have been initialized before calling this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if successful, or false if either pointer is null or memory allocation fails. 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8636ef615a323c428e56196405bbf441}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a8636ef615a323c428e56196405bbf441} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*} dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+create (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Create array of msg/\+Ais\+Report messages. 
+
+It allocates the memory for the array and calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a339619617f95ef98134da823794817c2}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+init()}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em size} & The size / capacity of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the initialized array if successful, otherwise NULL 
+\end{DoxyReturn}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ab8e4b96ff5307e464bcb84321e24dfba}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_ab8e4b96ff5307e464bcb84321e24dfba} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_destroy()}}
+{\footnotesize\ttfamily void dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{array }\end{DoxyParamCaption})}
+
+
+
+Destroy array of msg/\+Ais\+Report messages. 
+
+It calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_ac15d097c2ac9aa3656b36d7ff364679b}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+fini()} on the array, and frees the memory of the array. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em array} & The initialized array pointer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a29f76c6edc328d29bf153d879d80f0e9}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_a29f76c6edc328d29bf153d879d80f0e9} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_fini()}}
+{\footnotesize\ttfamily void dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+fini (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{array }\end{DoxyParamCaption})}
+
+
+
+Finalize array of msg/\+Ais\+Report messages. 
+
+It calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a1fb59f49cb58df73529fe8856e95a83b}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+fini()} for each element of the array and frees the memory for the number of elements. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em array} & The initialized array pointer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_acc00cc937c87e755d5af36b5e6bf86e5}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8c_acc00cc937c87e755d5af36b5e6bf86e5} 
+\index{ais\_report\_\_functions.c@{ais\_report\_\_functions.c}!dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init}}
+\index{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init@{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init}!ais\_report\_\_functions.c@{ais\_report\_\_functions.c}}
+\doxysubsubsection{\texorpdfstring{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init()}{dt\_msgs\_\_msg\_\_AisReport\_\_Sequence\_\_init()}}
+{\footnotesize\ttfamily bool dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence\+\_\+\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdt__msgs____msg____AisReport____Sequence}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+\+Sequence}} \texorpdfstring{$\ast$}{*}}]{array,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Initialize array of msg/\+Ais\+Report messages. 
+
+It allocates the memory for the number of elements and calls \doxylink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2detail_2ais__report____functions_8h_a29fe30b1317bc6d49174ae12887d5f11}{dt\+\_\+msgs\+\_\+\+\_\+msg\+\_\+\+\_\+\+Ais\+Report\+\_\+\+\_\+init()} for each element of the array. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em array} & The allocated array pointer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The size / capacity of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if initialization was successful, otherwise false If the array pointer is valid and the size is zero it is guaranteed 
+\end{DoxyReturn}
+\hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8h_autotoc_md1833}{}\doxysubsection{\texorpdfstring{to return true.}{to return true.}}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2ais__report____functions_8h_autotoc_md1833}

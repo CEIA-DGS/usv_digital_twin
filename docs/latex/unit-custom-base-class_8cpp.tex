@@ -1,0 +1,66 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/custom-\/base-\/class.cpp File Reference}
+\hypertarget{unit-custom-base-class_8cpp}{}\label{unit-custom-base-class_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/custom-\/base-\/class.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/custom-\/base-\/class.cpp}}
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+Include dependency graph for unit-\/custom-\/base-\/class.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-custom-base-class_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classjson__metadata}{json\+\_\+metadata$<$ Meta\+Data\+Type $>$}}
+\item 
+class \mbox{\hyperlink{classvisitor__adaptor}{visitor\+\_\+adaptor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\using \mbox{\hyperlink{unit-custom-base-class_8cpp_a4b682051ea5525a6a1276ac59c93a7b8}{json\+\_\+with\+\_\+metadata}} = \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structnlohmann_1_1adl__serializer}{nlohmann\+::adl\+\_\+serializer}}, std\+::vector$<$ std\+::uint8\+\_\+t $>$, \mbox{\hyperlink{classjson__metadata}{json\+\_\+metadata}}$<$ T $>$ $>$
+\item 
+using \mbox{\hyperlink{unit-custom-base-class_8cpp_a760402582b599bccf7dcaeacdfa93f0d}{json\+\_\+with\+\_\+visitor\+\_\+t}} = \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structnlohmann_1_1adl__serializer}{nlohmann\+::adl\+\_\+serializer}}, std\+::vector$<$ std\+::uint8\+\_\+t $>$, \mbox{\hyperlink{classvisitor__adaptor}{visitor\+\_\+adaptor}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-custom-base-class_8cpp_a682568c67f2f67f2864043cfc923875d}{TEST\+\_\+\+CASE}} ("{}JSON Node Metadata"{})
+\item 
+\mbox{\hyperlink{unit-custom-base-class_8cpp_a7e37c90c0e5607229611e712d8ccda35}{TEST\+\_\+\+CASE}} ("{}JSON Visit Node"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{unit-custom-base-class_8cpp_a4b682051ea5525a6a1276ac59c93a7b8}\label{unit-custom-base-class_8cpp_a4b682051ea5525a6a1276ac59c93a7b8} 
+\index{unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}!json\_with\_metadata@{json\_with\_metadata}}
+\index{json\_with\_metadata@{json\_with\_metadata}!unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}}
+\doxysubsubsection{\texorpdfstring{json\_with\_metadata}{json\_with\_metadata}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+using \mbox{\hyperlink{unit-custom-base-class_8cpp_a4b682051ea5525a6a1276ac59c93a7b8}{json\+\_\+with\+\_\+metadata}} =  \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}} $<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structnlohmann_1_1adl__serializer}{nlohmann\+::adl\+\_\+serializer}}, std\+::vector$<$std\+::uint8\+\_\+t$>$, \mbox{\hyperlink{classjson__metadata}{json\+\_\+metadata}}$<$T$>$ $>$}
+
+\Hypertarget{unit-custom-base-class_8cpp_a760402582b599bccf7dcaeacdfa93f0d}\label{unit-custom-base-class_8cpp_a760402582b599bccf7dcaeacdfa93f0d} 
+\index{unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}!json\_with\_visitor\_t@{json\_with\_visitor\_t}}
+\index{json\_with\_visitor\_t@{json\_with\_visitor\_t}!unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}}
+\doxysubsubsection{\texorpdfstring{json\_with\_visitor\_t}{json\_with\_visitor\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{unit-custom-base-class_8cpp_a760402582b599bccf7dcaeacdfa93f0d}{json\+\_\+with\+\_\+visitor\+\_\+t}} =  \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}} $<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structnlohmann_1_1adl__serializer}{nlohmann\+::adl\+\_\+serializer}}, std\+::vector$<$std\+::uint8\+\_\+t$>$, \mbox{\hyperlink{classvisitor__adaptor}{visitor\+\_\+adaptor}} $>$}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-custom-base-class_8cpp_a682568c67f2f67f2864043cfc923875d}\label{unit-custom-base-class_8cpp_a682568c67f2f67f2864043cfc923875d} 
+\index{unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}JSON Node Metadata"{}         }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-custom-base-class_8cpp_a7e37c90c0e5607229611e712d8ccda35}\label{unit-custom-base-class_8cpp_a7e37c90c0e5607229611e712d8ccda35} 
+\index{unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/custom-\/base-\/class.cpp@{unit-\/custom-\/base-\/class.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}JSON Visit Node"{}         }]{ }\end{DoxyParamCaption})}
+

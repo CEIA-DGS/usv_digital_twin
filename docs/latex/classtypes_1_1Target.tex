@@ -11,8 +11,7 @@ Represents a tracked dynamic object, such as an AIS vessel.
 
 
 
-Inheritance diagram for types\+::Target\+:
-\nopagebreak
+Inheritance diagram for types\+::Target\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for types\+::Target\+:
 \end{figure}
 
 
-Collaboration diagram for types\+::Target\+:
-\nopagebreak
+Collaboration diagram for types\+::Target\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,6 +41,20 @@ void \mbox{\hyperlink{classtypes_1_1Target_a8c6f70f0decfa52b0353671f4af22356}{se
 uint32\+\_\+t \mbox{\hyperlink{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce}{get\+\_\+id}} () const
 \item 
 const std\+::string \& \mbox{\hyperlink{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b}{get\+\_\+description}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c}{get\+\_\+radius}} () const
+\item 
+\mbox{\hyperlink{classtypes_1_1Target_a823c1c907ab7f5a6d9ae13beb5562629}{Target}} (const int32\+\_\+t id, const std\+::string \&description, const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&initial\+\_\+pose, const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&initial\+\_\+kinematics, const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&initial\+\_\+covariance=\mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}(), double radius=1.\+0)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Target_a7dd763639286948f26bfbd5110cfe3a4}{set\+\_\+description}} (const std\+::string \&new\+\_\+description)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Target_affae50f87ba6cc2d9c05ae7e3c29ea93}{set\+\_\+id}} (const int32\+\_\+t new\+\_\+id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce}{get\+\_\+id}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b}{get\+\_\+description}} () const
+\item 
+void \mbox{\hyperlink{classtypes_1_1Target_a02e5242df6a48efebef325c4b4981be3}{set\+\_\+radius}} (double new\+\_\+radius)
 \item 
 double \mbox{\hyperlink{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c}{get\+\_\+radius}} () const
 \end{DoxyCompactItemize}
@@ -68,6 +80,26 @@ const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& \mbox{\hyperlin
 const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& \mbox{\hyperlink{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}{get\+\_\+covariance}} () const
 \item 
 const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& \mbox{\hyperlink{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}{get\+\_\+velocity}} () const
+\item 
+\mbox{\hyperlink{classtypes_1_1Entity_a3eb1cbfa75f93879703df83b42c8a59b}{Entity}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&initial\+\_\+pose, const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&initial\+\_\+kinematics, const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} initial\+\_\+covariance=\mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}())
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=default
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a0dd69bc96cc8c10dad089deffe8807ae}{set\+\_\+pose}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&new\+\_\+pose)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a47592057aef7ab2f7efd3d01b90648a2}{set\+\_\+kinematics}} (const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&new\+\_\+kinematics)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_ae78788a7bcfe429e1b5fee2acfce6150}{set\+\_\+covariance}} (const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&new\+\_\+covariance)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a15afa03537dd42c4eaa75460cf39ae60}{set\+\_\+velocity}} (const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \&new\+\_\+velocity)
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd}{get\+\_\+pose}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& \mbox{\hyperlink{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae}{get\+\_\+kinematics}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& \mbox{\hyperlink{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}{get\+\_\+covariance}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& \mbox{\hyperlink{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}{get\+\_\+velocity}} () const
 \end{DoxyCompactItemize}
 
 
@@ -78,8 +110,14 @@ Represents a tracked dynamic object, such as an AIS vessel.
 \Hypertarget{classtypes_1_1Target_a27846d3f14a9a8cc82cacecd1549a859}\label{classtypes_1_1Target_a27846d3f14a9a8cc82cacecd1549a859} 
 \index{types::Target@{types::Target}!Target@{Target}}
 \index{Target@{Target}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{Target()}{Target()}}
+\doxysubsubsection{\texorpdfstring{Target()}{Target()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily types\+::\+Target\+::\+Target (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{id,  }\item[{const std\+::string \&}]{description,  }\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{initial\+\_\+pose,  }\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{initial\+\_\+kinematics,  }\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&}]{initial\+\_\+covariance = {\ttfamily \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}()},  }\item[{double}]{radius = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_a823c1c907ab7f5a6d9ae13beb5562629}\label{classtypes_1_1Target_a823c1c907ab7f5a6d9ae13beb5562629} 
+\index{types::Target@{types::Target}!Target@{Target}}
+\index{Target@{Target}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{Target()}{Target()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily types\+::\+Target\+::\+Target (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{id,  }\item[{const std\+::string \&}]{description,  }\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{initial\+\_\+pose,  }\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{initial\+\_\+kinematics,  }\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&}]{initial\+\_\+covariance = {\ttfamily \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}()},  }\item[{double}]{radius = {\ttfamily 1.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -87,41 +125,78 @@ Represents a tracked dynamic object, such as an AIS vessel.
 \Hypertarget{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b}\label{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b} 
 \index{types::Target@{types::Target}!get\_description@{get\_description}}
 \index{get\_description@{get\_description}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::string \& types\+::\+Target\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b}\label{classtypes_1_1Target_adc589858b9b2cb3f7cfe25c25714f99b} 
+\index{types::Target@{types::Target}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const std\+::string \& types\+::\+Target\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce}\label{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce} 
 \index{types::Target@{types::Target}!get\_id@{get\_id}}
 \index{get\_id@{get\_id}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t types\+::\+Target\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce}\label{classtypes_1_1Target_af8aa3cfc09a0f1f0abb7e0b62d5b86ce} 
+\index{types::Target@{types::Target}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily uint32\+\_\+t types\+::\+Target\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c}\label{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c} 
 \index{types::Target@{types::Target}!get\_radius@{get\_radius}}
 \index{get\_radius@{get\_radius}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{get\_radius()}{get\_radius()}}
+\doxysubsubsection{\texorpdfstring{get\_radius()}{get\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double types\+::\+Target\+::get\+\_\+radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c}\label{classtypes_1_1Target_acaac93ac44f6138b273ca91a8f005e2c} 
+\index{types::Target@{types::Target}!get\_radius@{get\_radius}}
+\index{get\_radius@{get\_radius}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{get\_radius()}{get\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily double types\+::\+Target\+::get\+\_\+radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Target_a0189ad16711eafcef4849363bfaee6f9}\label{classtypes_1_1Target_a0189ad16711eafcef4849363bfaee6f9} 
 \index{types::Target@{types::Target}!set\_description@{set\_description}}
 \index{set\_description@{set\_description}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{set\_description()}{set\_description()}}
+\doxysubsubsection{\texorpdfstring{set\_description()}{set\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{description }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_a7dd763639286948f26bfbd5110cfe3a4}\label{classtypes_1_1Target_a7dd763639286948f26bfbd5110cfe3a4} 
+\index{types::Target@{types::Target}!set\_description@{set\_description}}
+\index{set\_description@{set\_description}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{set\_description()}{set\_description()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+description (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{new\+\_\+description }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_affae50f87ba6cc2d9c05ae7e3c29ea93}\label{classtypes_1_1Target_affae50f87ba6cc2d9c05ae7e3c29ea93} 
+\index{types::Target@{types::Target}!set\_id@{set\_id}}
+\index{set\_id@{set\_id}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{new\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Target_a66e855f88759166b169ea667457d6aeb}\label{classtypes_1_1Target_a66e855f88759166b169ea667457d6aeb} 
 \index{types::Target@{types::Target}!set\_id@{set\_id}}
 \index{set\_id@{set\_id}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
+\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Target_a02e5242df6a48efebef325c4b4981be3}\label{classtypes_1_1Target_a02e5242df6a48efebef325c4b4981be3} 
+\index{types::Target@{types::Target}!set\_radius@{set\_radius}}
+\index{set\_radius@{set\_radius}!types::Target@{types::Target}}
+\doxysubsubsection{\texorpdfstring{set\_radius()}{set\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+radius (\begin{DoxyParamCaption}\item[{double}]{new\+\_\+radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Target_a8c6f70f0decfa52b0353671f4af22356}\label{classtypes_1_1Target_a8c6f70f0decfa52b0353671f4af22356} 
 \index{types::Target@{types::Target}!set\_radius@{set\_radius}}
 \index{set\_radius@{set\_radius}!types::Target@{types::Target}}
-\doxysubsubsection{\texorpdfstring{set\_radius()}{set\_radius()}}
+\doxysubsubsection{\texorpdfstring{set\_radius()}{set\_radius()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Target\+::set\+\_\+radius (\begin{DoxyParamCaption}\item[{double}]{radius }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\item 
+install/dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{install_2dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

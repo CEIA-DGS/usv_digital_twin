@@ -1,0 +1,116 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+Trace\+State.cpp File Reference}
+\hypertarget{FuzzerTraceState_8cpp}{}\label{FuzzerTraceState_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTraceState.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTraceState.cpp}}
+{\ttfamily \#include "{}Fuzzer\+Dictionary.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Internal.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Mutate.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Random.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Trace\+PC.\+h"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+Include dependency graph for Fuzzer\+Trace\+State.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerTraceState_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfuzzer_1_1TraceBasedMutation}{fuzzer\+::\+Trace\+Based\+Mutation}}
+\item 
+class \mbox{\hyperlink{classfuzzer_1_1TraceState}{fuzzer\+::\+Trace\+State}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FuzzerTraceState_8cpp_ae11a1b638349caf635d7797678987169}{LLVM\+\_\+\+FUZZER\+\_\+\+DEFINES\+\_\+\+SANITIZER\+\_\+\+WEAK\+\_\+\+HOOOKS}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_a43228990e9e44e88d4b3243252e40ad3}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+memcmp}} (void \texorpdfstring{$\ast$}{*}caller\+\_\+pc, const void \texorpdfstring{$\ast$}{*}s1, const void \texorpdfstring{$\ast$}{*}s2, size\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, int \mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_a000b7fe9a111a8b501ddef439f95e065}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strncmp}} (void \texorpdfstring{$\ast$}{*}caller\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, size\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, int \mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_ae558ebb8cef5368c10d9def8c101e865}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcmp}} (void \texorpdfstring{$\ast$}{*}caller\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, int \mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_a289014feb172a9f61b9b19638cd3795a}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strncasecmp}} (void \texorpdfstring{$\ast$}{*}called\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, size\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, int \mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_aaf41cc0658e4eed506755faed029c2a9}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcasecmp}} (void \texorpdfstring{$\ast$}{*}called\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, int \mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_aa47ef7f01d1be7ebfd06392bb5f5b0d8}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strstr}} (void \texorpdfstring{$\ast$}{*}called\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_a08388689c8a8dbaaf40f45eb9018366e}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcasestr}} (void \texorpdfstring{$\ast$}{*}called\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\item 
+void \mbox{\hyperlink{FuzzerTraceState_8cpp_ad23cfacebb288a76b35317abb1a5c85d}{\+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+memmem}} (void \texorpdfstring{$\ast$}{*}called\+\_\+pc, const void \texorpdfstring{$\ast$}{*}s1, size\+\_\+t len1, const void \texorpdfstring{$\ast$}{*}s2, size\+\_\+t len2, void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{sax__parse_8cpp_a5734a27c6f335279bf9b0b57ae9b8f76}{result}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FuzzerTraceState_8cpp_ae11a1b638349caf635d7797678987169}\label{FuzzerTraceState_8cpp_ae11a1b638349caf635d7797678987169} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS@{LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS}}
+\index{LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS@{LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS}{LLVM\_FUZZER\_DEFINES\_SANITIZER\_WEAK\_HOOOKS}}
+{\footnotesize\ttfamily \#define LLVM\+\_\+\+FUZZER\+\_\+\+DEFINES\+\_\+\+SANITIZER\+\_\+\+WEAK\+\_\+\+HOOOKS~1}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerTraceState_8cpp_a43228990e9e44e88d4b3243252e40ad3}\label{FuzzerTraceState_8cpp_a43228990e9e44e88d4b3243252e40ad3} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_memcmp@{\_\_sanitizer\_weak\_hook\_memcmp}}
+\index{\_\_sanitizer\_weak\_hook\_memcmp@{\_\_sanitizer\_weak\_hook\_memcmp}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_memcmp()}{\_\_sanitizer\_weak\_hook\_memcmp()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+memcmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{caller\+\_\+pc,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{n,  }\item[{int}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_ad23cfacebb288a76b35317abb1a5c85d}\label{FuzzerTraceState_8cpp_ad23cfacebb288a76b35317abb1a5c85d} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_memmem@{\_\_sanitizer\_weak\_hook\_memmem}}
+\index{\_\_sanitizer\_weak\_hook\_memmem@{\_\_sanitizer\_weak\_hook\_memmem}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_memmem()}{\_\_sanitizer\_weak\_hook\_memmem()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+memmem (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{called\+\_\+pc,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{size\+\_\+t}]{len1,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{len2,  }\item[{void \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_aaf41cc0658e4eed506755faed029c2a9}\label{FuzzerTraceState_8cpp_aaf41cc0658e4eed506755faed029c2a9} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strcasecmp@{\_\_sanitizer\_weak\_hook\_strcasecmp}}
+\index{\_\_sanitizer\_weak\_hook\_strcasecmp@{\_\_sanitizer\_weak\_hook\_strcasecmp}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strcasecmp()}{\_\_sanitizer\_weak\_hook\_strcasecmp()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcasecmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{called\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{int}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_a08388689c8a8dbaaf40f45eb9018366e}\label{FuzzerTraceState_8cpp_a08388689c8a8dbaaf40f45eb9018366e} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strcasestr@{\_\_sanitizer\_weak\_hook\_strcasestr}}
+\index{\_\_sanitizer\_weak\_hook\_strcasestr@{\_\_sanitizer\_weak\_hook\_strcasestr}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strcasestr()}{\_\_sanitizer\_weak\_hook\_strcasestr()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcasestr (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{called\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_ae558ebb8cef5368c10d9def8c101e865}\label{FuzzerTraceState_8cpp_ae558ebb8cef5368c10d9def8c101e865} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strcmp@{\_\_sanitizer\_weak\_hook\_strcmp}}
+\index{\_\_sanitizer\_weak\_hook\_strcmp@{\_\_sanitizer\_weak\_hook\_strcmp}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strcmp()}{\_\_sanitizer\_weak\_hook\_strcmp()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strcmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{caller\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{int}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_a289014feb172a9f61b9b19638cd3795a}\label{FuzzerTraceState_8cpp_a289014feb172a9f61b9b19638cd3795a} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strncasecmp@{\_\_sanitizer\_weak\_hook\_strncasecmp}}
+\index{\_\_sanitizer\_weak\_hook\_strncasecmp@{\_\_sanitizer\_weak\_hook\_strncasecmp}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strncasecmp()}{\_\_sanitizer\_weak\_hook\_strncasecmp()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strncasecmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{called\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{n,  }\item[{int}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_a000b7fe9a111a8b501ddef439f95e065}\label{FuzzerTraceState_8cpp_a000b7fe9a111a8b501ddef439f95e065} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strncmp@{\_\_sanitizer\_weak\_hook\_strncmp}}
+\index{\_\_sanitizer\_weak\_hook\_strncmp@{\_\_sanitizer\_weak\_hook\_strncmp}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strncmp()}{\_\_sanitizer\_weak\_hook\_strncmp()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strncmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{caller\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{n,  }\item[{int}]{result }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTraceState_8cpp_aa47ef7f01d1be7ebfd06392bb5f5b0d8}\label{FuzzerTraceState_8cpp_aa47ef7f01d1be7ebfd06392bb5f5b0d8} 
+\index{FuzzerTraceState.cpp@{FuzzerTraceState.cpp}!\_\_sanitizer\_weak\_hook\_strstr@{\_\_sanitizer\_weak\_hook\_strstr}}
+\index{\_\_sanitizer\_weak\_hook\_strstr@{\_\_sanitizer\_weak\_hook\_strstr}!FuzzerTraceState.cpp@{FuzzerTraceState.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_sanitizer\_weak\_hook\_strstr()}{\_\_sanitizer\_weak\_hook\_strstr()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+sanitizer\+\_\+weak\+\_\+hook\+\_\+strstr (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{called\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{char \texorpdfstring{$\ast$}{*}}]{result }\end{DoxyParamCaption})}
+

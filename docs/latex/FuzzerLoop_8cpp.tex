@@ -1,0 +1,77 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+Loop.cpp File Reference}
+\hypertarget{FuzzerLoop_8cpp}{}\label{FuzzerLoop_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerLoop.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerLoop.cpp}}
+{\ttfamily \#include "{}Fuzzer\+Corpus.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Internal.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Mutate.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Random.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Trace\+PC.\+h"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+Include dependency graph for Fuzzer\+Loop.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerLoop_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfuzzer_1_1MallocFreeTracer}{fuzzer\+::\+Malloc\+Free\+Tracer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FuzzerLoop_8cpp_aa734c24a0be4accd18fc125916f19b67}{NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}}
+\item 
+\#define \mbox{\hyperlink{FuzzerLoop_8cpp_a504b9951b65f501dd479075226ad5363}{CHECK\+\_\+\+EXTERNAL\+\_\+\+FUNCTION}}(fn)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FuzzerDefs_8h_aba27fdbafd0fb6245e4f1426aad8e478}{ATTRIBUTE\+\_\+\+NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}} void \mbox{\hyperlink{namespacefuzzer_a67334e5ee52c2a7e608740d58d88f2cf}{fuzzer\+::\+Malloc\+Hook}} (const volatile void \texorpdfstring{$\ast$}{*}ptr, size\+\_\+t size)
+\item 
+\mbox{\hyperlink{FuzzerDefs_8h_aba27fdbafd0fb6245e4f1426aad8e478}{ATTRIBUTE\+\_\+\+NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}} void \mbox{\hyperlink{namespacefuzzer_aa682bdc2f3e46a8c581106581e235482}{fuzzer\+::\+Free\+Hook}} (const volatile void \texorpdfstring{$\ast$}{*}ptr)
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerLoop_8cpp_a707cf06cec36db401461e605e1515f51}{LLVMFuzzer\+Mutate}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, size\+\_\+t Max\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FuzzerLoop_8cpp_a504b9951b65f501dd479075226ad5363}\label{FuzzerLoop_8cpp_a504b9951b65f501dd479075226ad5363} 
+\index{FuzzerLoop.cpp@{FuzzerLoop.cpp}!CHECK\_EXTERNAL\_FUNCTION@{CHECK\_EXTERNAL\_FUNCTION}}
+\index{CHECK\_EXTERNAL\_FUNCTION@{CHECK\_EXTERNAL\_FUNCTION}!FuzzerLoop.cpp@{FuzzerLoop.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_EXTERNAL\_FUNCTION}{CHECK\_EXTERNAL\_FUNCTION}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+EXTERNAL\+\_\+\+FUNCTION(\begin{DoxyParamCaption}\item[{}]{fn }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (!(EF-\/>fn))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ MissingExternalApiFunction(\#fn);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+\Hypertarget{FuzzerLoop_8cpp_aa734c24a0be4accd18fc125916f19b67}\label{FuzzerLoop_8cpp_aa734c24a0be4accd18fc125916f19b67} 
+\index{FuzzerLoop.cpp@{FuzzerLoop.cpp}!NO\_SANITIZE\_MEMORY@{NO\_SANITIZE\_MEMORY}}
+\index{NO\_SANITIZE\_MEMORY@{NO\_SANITIZE\_MEMORY}!FuzzerLoop.cpp@{FuzzerLoop.cpp}}
+\doxysubsubsection{\texorpdfstring{NO\_SANITIZE\_MEMORY}{NO\_SANITIZE\_MEMORY}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerLoop_8cpp_a707cf06cec36db401461e605e1515f51}\label{FuzzerLoop_8cpp_a707cf06cec36db401461e605e1515f51} 
+\index{FuzzerLoop.cpp@{FuzzerLoop.cpp}!LLVMFuzzerMutate@{LLVMFuzzerMutate}}
+\index{LLVMFuzzerMutate@{LLVMFuzzerMutate}!FuzzerLoop.cpp@{FuzzerLoop.cpp}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerMutate()}{LLVMFuzzerMutate()}}
+{\footnotesize\ttfamily size\+\_\+t LLVMFuzzer\+Mutate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size,  }\item[{size\+\_\+t}]{Max\+Size }\end{DoxyParamCaption})}
+

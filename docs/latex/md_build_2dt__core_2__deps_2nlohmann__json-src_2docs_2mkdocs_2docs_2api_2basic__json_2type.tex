@@ -1,0 +1,57 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}type}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$type@{$<$small$>$nlohmann::basic\_json::$<$/small$>$type}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md891}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md891}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632}{value\_t}}\ \mbox{\hyperlink{namespacegenerate__natvis_a9cecd88609d8e9af8497edf804bf9d25}{type}}()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+Return the type of the JSON value as a value from the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{\`{}value\+\_\+t\`{}}{0} enumeration.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md892}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md892}
+the type of the JSON value
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ return value    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ return value    }\\\cline{1-2}
+\endhead
+{\ttfamily \#!json null}   &{\ttfamily value\+\_\+t\+::null}    \\\cline{1-2}
+boolean   &{\ttfamily value\+\_\+t\+::boolean}    \\\cline{1-2}
+string   &{\ttfamily value\+\_\+t\+::string}    \\\cline{1-2}
+number (integer)   &{\ttfamily value\+\_\+t\+::number\+\_\+integer}    \\\cline{1-2}
+number (unsigned integer)   &{\ttfamily value\+\_\+t\+::number\+\_\+unsigned}    \\\cline{1-2}
+number (floating-\/point)   &{\ttfamily value\+\_\+t\+::number\+\_\+float}    \\\cline{1-2}
+object   &{\ttfamily value\+\_\+t\+::object}    \\\cline{1-2}
+array   &{\ttfamily value\+\_\+t\+::array}    \\\cline{1-2}
+binary   &{\ttfamily value\+\_\+t\+::binary}    \\\cline{1-2}
+discarded   &{\ttfamily value\+\_\+t\+::discarded}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md893}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md893}
+No-\/throw guarantee\+: this member function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md894}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md894}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md895}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md895}
+??? example \begin{DoxyVerb}The following code exemplifies `type()` for all JSON types.
+
+```cpp
+--8<-- "examples/type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/type.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md896}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type_autotoc_md896}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Added unsigned integer type in version 2.\+0.\+0.
+\item Added binary type in version 3.\+8.\+0. 
+\end{DoxyItemize}

@@ -1,0 +1,106 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/input/input\+\_\+adapters.hpp File Reference}
+\hypertarget{input__adapters_8hpp}{}\label{input__adapters_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/input\_adapters.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/input\_adapters.hpp}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/iterator\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/type\+\_\+traits.\+hpp$>$}\newline
+Include dependency graph for input\+\_\+adapters.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input__adapters_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input__adapters_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdetail_1_1file__input__adapter}{detail\+::file\+\_\+input\+\_\+adapter}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1input__stream__adapter}{detail\+::input\+\_\+stream\+\_\+adapter}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1iterator__input__adapter}{detail\+::iterator\+\_\+input\+\_\+adapter$<$ Iterator\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1wide__string__input__helper_3_01BaseInputAdapter_00_014_01_4}{detail\+::wide\+\_\+string\+\_\+input\+\_\+helper$<$ Base\+Input\+Adapter, 4 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1wide__string__input__helper_3_01BaseInputAdapter_00_012_01_4}{detail\+::wide\+\_\+string\+\_\+input\+\_\+helper$<$ Base\+Input\+Adapter, 2 $>$}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1wide__string__input__adapter}{detail\+::wide\+\_\+string\+\_\+input\+\_\+adapter$<$ Base\+Input\+Adapter, Wide\+Char\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1iterator__input__adapter__factory}{detail\+::iterator\+\_\+input\+\_\+adapter\+\_\+factory$<$ Iterator\+Type, Enable $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__iterator__of__multibyte}{detail\+::is\+\_\+iterator\+\_\+of\+\_\+multibyte$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1iterator__input__adapter__factory_3_01IteratorType_00_01enable__if__t_3_01is__it379df2cab17a32e3e44924a3e0b8f300}{detail\+::iterator\+\_\+input\+\_\+adapter\+\_\+factory$<$ Iterator\+Type, enable\+\_\+if\+\_\+t$<$ is\+\_\+iterator\+\_\+of\+\_\+multibyte$<$ Iterator\+Type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory}{detail\+::container\+\_\+input\+\_\+adapter\+\_\+factory\+\_\+impl\+::container\+\_\+input\+\_\+adapter\+\_\+factory$<$ Container\+Type, Enable $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory_3983614ac0e8828aa386ca24b1ddc2bd1}{detail\+::container\+\_\+input\+\_\+adapter\+\_\+factory\+\_\+impl\+::container\+\_\+input\+\_\+adapter\+\_\+factory$<$ Container\+Type, void\+\_\+t$<$ decltype(begin(std\+::declval$<$ Container\+Type $>$()), end(std\+::declval$<$ Container\+Type $>$()))$>$ $>$}}
+\item 
+class \mbox{\hyperlink{classdetail_1_1span__input__adapter}{detail\+::span\+\_\+input\+\_\+adapter}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedetail_1_1container__input__adapter__factory__impl}{detail\+::container\+\_\+input\+\_\+adapter\+\_\+factory\+\_\+impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacedetail_a809ec57ce6ae319867de3f432b84d2e0}{detail\+::contiguous\+\_\+bytes\+\_\+input\+\_\+adapter}} = decltype(\mbox{\hyperlink{namespacedetail_aada1510d1b55ad2faf4a71c70cffb374}{input\+\_\+adapter}}(std\+::declval$<$ const char \texorpdfstring{$\ast$}{*} $>$(), std\+::declval$<$ const char \texorpdfstring{$\ast$}{*} $>$()))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04f}{detail\+::input\+\_\+format\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04fa466deec76ecdf5fca6d38571f6324d54}{detail\+::json}}
+, \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04faaf9de350d652f0c9055ddab514bd23ea}{detail\+::cbor}}
+, \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04fac40d516627022a54003ac2b74a82688a}{detail\+::msgpack}}
+, \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04fa4537f20910e85437f6d07701864084e8}{detail\+::ubjson}}
+, \newline
+\mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04fa0b6879b186bfb2b1ec65d2460e4eccd4}{detail\+::bson}}
+, \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04fa42facb1448d9878ab35f152ae236e0b8}{detail\+::bjdata}}
+, {\bfseries detail\+::json}
+, {\bfseries detail\+::cbor}
+, \newline
+{\bfseries detail\+::msgpack}
+, {\bfseries detail\+::ubjson}
+, {\bfseries detail\+::bson}
+, {\bfseries detail\+::bjdata}
+ \}
+\begin{DoxyCompactList}\small\item\em the supported input formats \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Iterator\+Type $>$ }\\\mbox{\hyperlink{structdetail_1_1iterator__input__adapter__factory}{iterator\+\_\+input\+\_\+adapter\+\_\+factory}}$<$ Iterator\+Type $>$\+::adapter\+\_\+type \mbox{\hyperlink{namespacedetail_aada1510d1b55ad2faf4a71c70cffb374}{detail\+::input\+\_\+adapter}} (Iterator\+Type first, Iterator\+Type last)
+\item 
+{\footnotesize template$<$typename Container\+Type $>$ }\\\mbox{\hyperlink{structdetail_1_1container__input__adapter__factory__impl_1_1container__input__adapter__factory}{container\+\_\+input\+\_\+adapter\+\_\+factory\+\_\+impl\+::container\+\_\+input\+\_\+adapter\+\_\+factory}}$<$ Container\+Type $>$\+::adapter\+\_\+type \mbox{\hyperlink{namespacedetail_a05aea72cf760e0ea9d49bce2ff8a63eb}{detail\+::input\+\_\+adapter}} (const Container\+Type \&container)
+\item 
+\mbox{\hyperlink{classdetail_1_1file__input__adapter}{file\+\_\+input\+\_\+adapter}} \mbox{\hyperlink{namespacedetail_aa7b34bd54868366a47c9adad778867bc}{detail\+::input\+\_\+adapter}} (std\+::\+FILE \texorpdfstring{$\ast$}{*}file)
+\item 
+\mbox{\hyperlink{classdetail_1_1input__stream__adapter}{input\+\_\+stream\+\_\+adapter}} \mbox{\hyperlink{namespacedetail_acb4166ff849c629ef37849b96fd8b72e}{detail\+::input\+\_\+adapter}} (\mbox{\hyperlink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}} \&stream)
+\item 
+\mbox{\hyperlink{classdetail_1_1input__stream__adapter}{input\+\_\+stream\+\_\+adapter}} \mbox{\hyperlink{namespacedetail_a2e2919023b93a7f354cf35d46a493282}{detail\+::input\+\_\+adapter}} (\mbox{\hyperlink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}} \&\&stream)
+\item 
+{\footnotesize template$<$typename CharT , typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+pointer$<$ CharT $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!std\+::is\+\_\+array$<$ CharT $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&std\+::is\+\_\+integral$<$ typename std\+::remove\+\_\+pointer$<$ CharT $>$\+::type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&sizeof(typename std\+::remove\+\_\+pointer$<$ CharT $>$\+::type)==1, int $>$\+::type  = 0$>$ }\\\mbox{\hyperlink{namespacedetail_a809ec57ce6ae319867de3f432b84d2e0}{contiguous\+\_\+bytes\+\_\+input\+\_\+adapter}} \mbox{\hyperlink{namespacedetail_a53fa6fb154a643a2202e31cb18f47c97}{detail\+::input\+\_\+adapter}} (CharT b)
+\item 
+{\footnotesize template$<$typename T , \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} N$>$ }\\auto \mbox{\hyperlink{namespacedetail_a15bd0aaa9bdb9a169ef1601f9f9613e3}{detail\+::input\+\_\+adapter}} (T(\&\mbox{\hyperlink{classarray}{array}})\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\mbox{]}) -\/$>$ decltype(input\+\_\+adapter(\mbox{\hyperlink{classarray}{array}}, \mbox{\hyperlink{classarray}{array}}+\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}))
+\end{DoxyCompactItemize}

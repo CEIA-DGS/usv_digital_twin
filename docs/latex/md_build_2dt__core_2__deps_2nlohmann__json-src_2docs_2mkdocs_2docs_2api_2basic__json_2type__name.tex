@@ -1,0 +1,56 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}type\+\_\+name}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$type\_name@{$<$small$>$nlohmann::basic\_json::$<$/small$>$type\_name}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md903}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md903}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ type\_name()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+Returns the type name as string to be used in error messages -- usually to indicate that a function was called on a wrong JSON type.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md904}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md904}
+a string representation of the type (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{\`{}value\+\_\+t\`{}}{0})\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ return value    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ return value    }\\\cline{1-2}
+\endhead
+{\ttfamily \#!json null}   &{\ttfamily "{}null"{}}    \\\cline{1-2}
+boolean   &{\ttfamily "{}boolean"{}}    \\\cline{1-2}
+string   &{\ttfamily "{}string"{}}    \\\cline{1-2}
+number (integer, unsigned integer, floating-\/point)   &{\ttfamily "{}number"{}}    \\\cline{1-2}
+object   &{\ttfamily "{}object"{}}    \\\cline{1-2}
+array   &{\ttfamily "{}array"{}}    \\\cline{1-2}
+binary   &{\ttfamily "{}binary"{}}    \\\cline{1-2}
+discarded   &{\ttfamily "{}discarded"{}}   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md905}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md905}
+No-\/throw guarantee\+: this member function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md906}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md906}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md907}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md907}
+??? example \begin{DoxyVerb}The following code exemplifies `type_name()` for all JSON types.
+
+```cpp
+--8<-- "examples/type_name.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/type_name.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md908}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name_autotoc_md908}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Part of the public API version since 2.\+1.\+0.
+\item Changed return value to {\ttfamily const char\texorpdfstring{$\ast$}{*}} and added {\ttfamily noexcept} in version 3.\+0.\+0.
+\item Added support for binary type in version 3.\+8.\+0. 
+\end{DoxyItemize}

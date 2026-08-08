@@ -1,0 +1,76 @@
+\chapter{Binary Formats}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index}\index{Binary Formats@{Binary Formats}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1331}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1331}%
+ Though JSON is a ubiquitous data format, it is not a very compact format suitable for data exchange, for instance over a network. Hence, the library supports
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata}{BJData}{0} (Binary JData),
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}{BSON}{0} (Binary JSON),
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2cbor}{CBOR}{0} (Concise Binary Object Representation),
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2messagepack}{Message\+Pack}{0}, and
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2ubjson}{UBJSON}{0} (Universal Binary JSON)
+\end{DoxyItemize}
+
+to efficiently encode JSON values to byte vectors and to decode such vectors.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1332}{}\doxysection{\texorpdfstring{Comparison}{Comparison}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1332}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1333}{}\doxysubsection{\texorpdfstring{Completeness}{Completeness}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1333}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Serialization   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Deserialization    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Serialization   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Deserialization    }\\\cline{1-3}
+\endhead
+BJData   &complete   &complete    \\\cline{1-3}
+BSON   &incomplete\+: top-\/level value must be an object   &incomplete, but all JSON types are supported    \\\cline{1-3}
+CBOR   &complete   &incomplete, but all JSON types are supported    \\\cline{1-3}
+Message\+Pack   &complete   &complete    \\\cline{1-3}
+UBJSON   &complete   &complete   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1334}{}\doxysubsection{\texorpdfstring{Binary values}{Binary values}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1334}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary values   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary subtypes    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary values   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Binary subtypes    }\\\cline{1-3}
+\endhead
+BJData   &not supported   &not supported    \\\cline{1-3}
+BSON   &supported   &supported    \\\cline{1-3}
+CBOR   &supported   &supported    \\\cline{1-3}
+Message\+Pack   &supported   &supported    \\\cline{1-3}
+UBJSON   &not supported   &not supported   \\\cline{1-3}
+\end{longtabu}
+
+
+See \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values}{binary values}{0} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1335}{}\doxysubsection{\texorpdfstring{Sizes}{Sizes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index_autotoc_md1335}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ canada.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ twitter.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ citm\+\_\+catalog.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ jeopardy.\+json    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Format   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ canada.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ twitter.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ citm\+\_\+catalog.\+json   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ jeopardy.\+json    }\\\cline{1-5}
+\endhead
+BJData   &53.\+2 \%   &91.\+1 \%   &78.\+1 \%   &96.\+6 \%    \\\cline{1-5}
+BJData (size)   &58.\+6 \%   &92.\+1 \%   &86.\+7 \%   &97.\+4 \%    \\\cline{1-5}
+BJData (size+tyoe)   &58.\+6 \%   &92.\+1 \%   &86.\+5 \%   &97.\+4 \%    \\\cline{1-5}
+BSON   &85.\+8 \%   &95.\+2 \%   &95.\+8 \%   &106.\+7 \%    \\\cline{1-5}
+CBOR   &50.\+5 \%   &86.\+3 \%   &68.\+4 \%   &88.\+0 \%    \\\cline{1-5}
+Message\+Pack   &50.\+5 \%   &86.\+0 \%   &68.\+5 \%   &87.\+9 \%    \\\cline{1-5}
+UBJSON   &53.\+2 \%   &91.\+3 \%   &78.\+2 \%   &96.\+6 \%    \\\cline{1-5}
+UBJSON (size)   &58.\+6 \%   &92.\+3 \%   &86.\+8 \%   &97.\+4 \%    \\\cline{1-5}
+UBJSON (size+type)   &55.\+9 \%   &92.\+3 \%   &85.\+0 \%   &95.\+0 \%   \\\cline{1-5}
+\end{longtabu}
+
+
+Sizes compared to minified JSON value. 

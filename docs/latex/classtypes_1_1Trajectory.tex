@@ -27,6 +27,22 @@ void \mbox{\hyperlink{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939
 const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8}{get\+\_\+pose\+\_\+by\+\_\+index}} (size\+\_\+t index) const
 \item 
 const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \& \mbox{\hyperlink{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b}{get\+\_\+poses}} () const
+\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory_af55ccd5cfcaa6d7d788f330f1735cc75}{Trajectory}} ()=default
+\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory_a29e468e7de1c4c29af89a6a4bc7286a0}{Trajectory}} (const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \&poses)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Trajectory_a2ff971f5703b9933cebd9884b338f4ff}{add\+\_\+pose}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&pose)
+\item 
+size\+\_\+t \mbox{\hyperlink{classtypes_1_1Trajectory_a5c9e00e17e77b6fb872a83dbae49a5a2}{size}} () const
+\item 
+bool \mbox{\hyperlink{classtypes_1_1Trajectory_a46dcab3bed5b4b23069b9ed54f7df157}{empty}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8}{get\+\_\+pose\+\_\+by\+\_\+index}} (size\+\_\+t index) const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \& \mbox{\hyperlink{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b}{get\+\_\+poses}} () const
+\item 
+void \mbox{\hyperlink{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939}{clear}} ()
 \end{DoxyCompactItemize}
 
 
@@ -37,13 +53,25 @@ Defines a planned path or historical route as a sequence of poses.
 \Hypertarget{classtypes_1_1Trajectory_af55ccd5cfcaa6d7d788f330f1735cc75}\label{classtypes_1_1Trajectory_af55ccd5cfcaa6d7d788f330f1735cc75} 
 \index{types::Trajectory@{types::Trajectory}!Trajectory@{Trajectory}}
 \index{Trajectory@{Trajectory}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily types\+::\+Trajectory\+::\+Trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a29e468e7de1c4c29af89a6a4bc7286a0}\label{classtypes_1_1Trajectory_a29e468e7de1c4c29af89a6a4bc7286a0} 
 \index{types::Trajectory@{types::Trajectory}!Trajectory@{Trajectory}}
 \index{Trajectory@{Trajectory}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily types\+::\+Trajectory\+::\+Trajectory (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \&}]{poses }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\Hypertarget{classtypes_1_1Trajectory_af55ccd5cfcaa6d7d788f330f1735cc75}\label{classtypes_1_1Trajectory_af55ccd5cfcaa6d7d788f330f1735cc75} 
+\index{types::Trajectory@{types::Trajectory}!Trajectory@{Trajectory}}
+\index{Trajectory@{Trajectory}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily types\+::\+Trajectory\+::\+Trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a29e468e7de1c4c29af89a6a4bc7286a0}\label{classtypes_1_1Trajectory_a29e468e7de1c4c29af89a6a4bc7286a0} 
+\index{types::Trajectory@{types::Trajectory}!Trajectory@{Trajectory}}
+\index{Trajectory@{Trajectory}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{Trajectory()}{Trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily types\+::\+Trajectory\+::\+Trajectory (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \&}]{poses }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
 
 
@@ -52,41 +80,78 @@ Defines a planned path or historical route as a sequence of poses.
 \Hypertarget{classtypes_1_1Trajectory_a2ff971f5703b9933cebd9884b338f4ff}\label{classtypes_1_1Trajectory_a2ff971f5703b9933cebd9884b338f4ff} 
 \index{types::Trajectory@{types::Trajectory}!add\_pose@{add\_pose}}
 \index{add\_pose@{add\_pose}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{add\_pose()}{add\_pose()}}
+\doxysubsubsection{\texorpdfstring{add\_pose()}{add\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Trajectory\+::add\+\_\+pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{pose }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a2ff971f5703b9933cebd9884b338f4ff}\label{classtypes_1_1Trajectory_a2ff971f5703b9933cebd9884b338f4ff} 
+\index{types::Trajectory@{types::Trajectory}!add\_pose@{add\_pose}}
+\index{add\_pose@{add\_pose}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{add\_pose()}{add\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Trajectory\+::add\+\_\+pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{pose }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939}\label{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939} 
 \index{types::Trajectory@{types::Trajectory}!clear@{clear}}
 \index{clear@{clear}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Trajectory\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939}\label{classtypes_1_1Trajectory_a15f03096ff92a527f0b1f6c638e0e939} 
+\index{types::Trajectory@{types::Trajectory}!clear@{clear}}
+\index{clear@{clear}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Trajectory\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a46dcab3bed5b4b23069b9ed54f7df157}\label{classtypes_1_1Trajectory_a46dcab3bed5b4b23069b9ed54f7df157} 
 \index{types::Trajectory@{types::Trajectory}!empty@{empty}}
 \index{empty@{empty}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool types\+::\+Trajectory\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a46dcab3bed5b4b23069b9ed54f7df157}\label{classtypes_1_1Trajectory_a46dcab3bed5b4b23069b9ed54f7df157} 
+\index{types::Trajectory@{types::Trajectory}!empty@{empty}}
+\index{empty@{empty}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily bool types\+::\+Trajectory\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8}\label{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8} 
 \index{types::Trajectory@{types::Trajectory}!get\_pose\_by\_index@{get\_pose\_by\_index}}
 \index{get\_pose\_by\_index@{get\_pose\_by\_index}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{get\_pose\_by\_index()}{get\_pose\_by\_index()}}
+\doxysubsubsection{\texorpdfstring{get\_pose\_by\_index()}{get\_pose\_by\_index()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Trajectory\+::get\+\_\+pose\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8}\label{classtypes_1_1Trajectory_a984f934d47625c8e1213a78bd19419f8} 
+\index{types::Trajectory@{types::Trajectory}!get\_pose\_by\_index@{get\_pose\_by\_index}}
+\index{get\_pose\_by\_index@{get\_pose\_by\_index}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{get\_pose\_by\_index()}{get\_pose\_by\_index()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Trajectory\+::get\+\_\+pose\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b}\label{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b} 
 \index{types::Trajectory@{types::Trajectory}!get\_poses@{get\_poses}}
 \index{get\_poses@{get\_poses}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{get\_poses()}{get\_poses()}}
+\doxysubsubsection{\texorpdfstring{get\_poses()}{get\_poses()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \& types\+::\+Trajectory\+::get\+\_\+poses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b}\label{classtypes_1_1Trajectory_a160c4af03c1730eae4ad7c817b69127b} 
+\index{types::Trajectory@{types::Trajectory}!get\_poses@{get\_poses}}
+\index{get\_poses@{get\_poses}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{get\_poses()}{get\_poses()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} $>$ \& types\+::\+Trajectory\+::get\+\_\+poses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Trajectory_a5c9e00e17e77b6fb872a83dbae49a5a2}\label{classtypes_1_1Trajectory_a5c9e00e17e77b6fb872a83dbae49a5a2} 
 \index{types::Trajectory@{types::Trajectory}!size@{size}}
 \index{size@{size}!types::Trajectory@{types::Trajectory}}
-\doxysubsubsection{\texorpdfstring{size()}{size()}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t types\+::\+Trajectory\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Trajectory_a5c9e00e17e77b6fb872a83dbae49a5a2}\label{classtypes_1_1Trajectory_a5c9e00e17e77b6fb872a83dbae49a5a2} 
+\index{types::Trajectory@{types::Trajectory}!size@{size}}
+\index{size@{size}!types::Trajectory@{types::Trajectory}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily size\+\_\+t types\+::\+Trajectory\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\item 
+install/dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{install_2dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

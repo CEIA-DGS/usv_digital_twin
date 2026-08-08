@@ -1,0 +1,63 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/meta/is\+\_\+sax.hpp File Reference}
+\hypertarget{is__sax_8hpp}{}\label{is__sax_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/is\_sax.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/is\_sax.hpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/abi\+\_\+macros.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/detected.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/type\+\_\+traits.\+hpp$>$}\newline
+Include dependency graph for is\+\_\+sax.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{is__sax_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{is__sax_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__sax}{detail\+::is\+\_\+sax$<$ SAX, Basic\+Json\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__sax__static__asserts}{detail\+::is\+\_\+sax\+\_\+static\+\_\+asserts$<$ SAX, Basic\+Json\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ad1ffe4e230a072251f2dc8614402be92}{detail\+::null\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a37a6259cc0c1dae299a7866489dff0bd}{null}}())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ae30aad89df30f87812488131798c04f3}{detail\+::boolean\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a84e2c64f38f78ba3ea5c905ab5a2da27}{boolean}}(std\+::declval$<$ bool $>$()))
+\item 
+{\footnotesize template$<$typename T , typename Integer $>$ }\\using \mbox{\hyperlink{namespacedetail_a6e0a81589d754c68363229711186bbc3}{detail\+::number\+\_\+integer\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{classnumber__integer}{number\+\_\+integer}}(std\+::declval$<$ Integer $>$()))
+\item 
+{\footnotesize template$<$typename T , typename Unsigned $>$ }\\using \mbox{\hyperlink{namespacedetail_af0210e44153a964b7c8fa438b10123d4}{detail\+::number\+\_\+unsigned\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{classnumber__unsigned}{number\+\_\+unsigned}}(std\+::declval$<$ Unsigned $>$()))
+\item 
+{\footnotesize template$<$typename T , typename Float , typename String $>$ }\\using \mbox{\hyperlink{namespacedetail_a70e0225bd96a0638b8609645b15144e2}{detail\+::number\+\_\+float\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{classnumber__float}{number\+\_\+float}}(std\+::declval$<$ Float $>$(), std\+::declval$<$ const String \& $>$()))
+\item 
+{\footnotesize template$<$typename T , typename String $>$ }\\using \mbox{\hyperlink{namespacedetail_adfab15e52e28c4be475c5ab10eda9709}{detail\+::string\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{classstring}{string}}(std\+::declval$<$ String \& $>$()))
+\item 
+{\footnotesize template$<$typename T , typename Binary $>$ }\\using \mbox{\hyperlink{namespacedetail_a9642e9834ddb777ad1cc009423c1bd75}{detail\+::binary\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(std\+::declval$<$ Binary \& $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_aec6300e0d2b191d5821d213689816c1e}{detail\+::start\+\_\+object\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().start\+\_\+object(std\+::declval$<$ \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} $>$()))
+\item 
+{\footnotesize template$<$typename T , typename String $>$ }\\using \mbox{\hyperlink{namespacedetail_affa322c2f0600d0aa40f4355a90f664a}{detail\+::key\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}(std\+::declval$<$ String \& $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ae647e5e6d1d31930446c6bba53a5b644}{detail\+::end\+\_\+object\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().end\+\_\+object())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a146589cb3d5a99611405e426a993761a}{detail\+::start\+\_\+array\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().start\+\_\+array(std\+::declval$<$ \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} $>$()))
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ab653e6a6465c781e219314cad287aec7}{detail\+::end\+\_\+array\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().end\+\_\+array())
+\item 
+{\footnotesize template$<$typename T , typename Exception $>$ }\\using \mbox{\hyperlink{namespacedetail_a1ab879c6b4f380d8ba7115d6b7ef948e}{detail\+::parse\+\_\+error\+\_\+function\+\_\+t}} = decltype(std\+::declval$<$ T \& $>$().\mbox{\hyperlink{classdetail_1_1parse__error}{parse\+\_\+error}}(std\+::declval$<$ \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} $>$(), std\+::declval$<$ const std\+::string \& $>$(), std\+::declval$<$ const Exception \& $>$()))
+\end{DoxyCompactItemize}

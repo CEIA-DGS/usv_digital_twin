@@ -1,0 +1,29 @@
+<map id="build/dt_msgs/rosidl_typesupport_fastrtps_c/dt_msgs/msg/detail/collision_alert__type_support_c.cpp" name="build/dt_msgs/rosidl_typesupport_fastrtps_c/dt_msgs/msg/detail/collision_alert__type_support_c.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="771,5,939,89"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,137,196,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="772,60,524,90,369,113,210,140,209,135,368,108,523,85,771,55"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="221,152,290,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="771,56,674,64,556,80,428,104,303,140,285,148,283,143,301,135,427,99,555,75,673,59,771,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="315,152,385,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="772,60,597,87,497,110,399,140,381,148,379,143,397,135,496,105,596,82,771,55"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="410,152,469,177"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="772,63,633,91,556,113,482,140,468,147,465,142,480,135,555,108,632,86,770,58"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="493,152,551,177"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="771,71,671,99,564,140,551,147,548,142,562,135,669,94,770,65"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="576,145,743,185"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="787,92,705,140,702,135,784,87"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="767,137,944,192"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="858,89,858,124,853,124,853,89"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="968,137,1113,192"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="923,87,988,128,985,132,920,92"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1137,137,1309,192"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="941,72,1127,131,1126,136,939,78"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1334,137,1505,192"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="940,60,1112,91,1321,135,1320,140,1111,97,939,65"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1529,145,1709,185"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="940,54,1198,84,1358,107,1517,135,1537,139,1536,144,1516,140,1357,112,1198,90,939,59"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1734,145,1937,185"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="940,51,1282,79,1502,103,1722,135,1746,139,1745,144,1722,140,1501,109,1282,84,939,56"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1961,152,2065,177"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="940,50,1164,61,1456,79,1742,104,1860,118,1949,135,1978,144,1976,149,1948,140,1859,124,1741,109,1455,84,1164,66,939,55"/>
+</map>

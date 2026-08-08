@@ -1,0 +1,39 @@
+\doxysection{viz\+\_\+node.\+hpp}
+\hypertarget{dt__viz_2include_2dt__viz_2viz__node_8hpp_source}{}\label{dt__viz_2include_2dt__viz_2viz__node_8hpp_source}\index{dt\_viz/include/dt\_viz/viz\_node.hpp@{dt\_viz/include/dt\_viz/viz\_node.hpp}}
+\mbox{\hyperlink{dt__viz_2include_2dt__viz_2viz__node_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DT\_VIZ\_VIZ\_NODE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DT\_VIZ\_VIZ\_NODE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}dt\_viz/main\_window.hpp"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <dt\_msgs/msg/collision\_alert.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <nav\_msgs/msg/path.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <rclcpp/rclcpp.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classVizNode}{VizNode}}\ :\ \textcolor{keyword}{public}\ rclcpp::Node}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classVizNode}{VizNode}}(\mbox{\hyperlink{classMainWindow}{MainWindow}}\ *\ \mbox{\hyperlink{main_8cc_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ plannedRouteCallback(}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ nav\_msgs::msg::Path::SharedPtr\ message);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ collisionAlertCallback(}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a92856f5b601d3cc18c43deccddec90af}{dt\_msgs::msg::CollisionAlert::SharedPtr}}\ message);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classMainWindow}{MainWindow}}\ *\ window\_;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ rclcpp::Subscription<}
+\DoxyCodeLine{00034\ \ \ \ \ nav\_msgs::msg::Path}
+\DoxyCodeLine{00035\ \ \ >::SharedPtr\ planned\_route\_subscription\_;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ rclcpp::Subscription<}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__collision__alert_1_1CollisionAlert}{dt\_msgs::msg::CollisionAlert}}}
+\DoxyCodeLine{00039\ \ \ >::SharedPtr\ collision\_alert\_subscription\_;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

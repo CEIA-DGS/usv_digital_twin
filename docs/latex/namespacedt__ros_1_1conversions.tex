@@ -3,22 +3,22 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{namespacedt__ros_1_1conversions_ace70c402bcd9eb3005ebaa2bee0e084f}{ais\+\_\+to\+\_\+core\+\_\+targets}} (const dt\+\_\+msgs\+::msg\+::\+Ais\+Report \&msg)
+std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{namespacedt__ros_1_1conversions_ace70c402bcd9eb3005ebaa2bee0e084f}{ais\+\_\+to\+\_\+core\+\_\+targets}} (const \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport}{dt\+\_\+msgs\+::msg\+::\+Ais\+Report}} \&msg)
 \begin{DoxyCompactList}\small\item\em Converts an array of ROS AIS targets into Core domain targets. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacedt__ros_1_1conversions_a1cea50dc4a95939e365d6c5761cd8770}{apply\+\_\+gps\+\_\+to\+\_\+pose}} (const sensor\+\_\+msgs\+::msg\+::\+Nav\+Sat\+Fix \&msg, \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&pose)
 \begin{DoxyCompactList}\small\item\em Updates a domain Pose object using geographical GPS data. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespacedt__ros_1_1conversions_ad2f2c9ac548f9b3501c70de5e9c515e2}{apply\+\_\+imu\+\_\+to\+\_\+pose}} (const sensor\+\_\+msgs\+::msg\+::\+Imu \&msg, \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&pose)
 \begin{DoxyCompactList}\small\item\em Updates a domain Pose object using IMU orientation data. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespacedt__ros_1_1conversions_aef460e7d1c1ad35702bcb2824c257c95}{waypoints\+\_\+to\+\_\+trajectory}} (const dt\+\_\+msgs\+::msg\+::\+Waypoint\+Array \&msg)
+\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespacedt__ros_1_1conversions_aef460e7d1c1ad35702bcb2824c257c95}{waypoints\+\_\+to\+\_\+trajectory}} (const \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray}{dt\+\_\+msgs\+::msg\+::\+Waypoint\+Array}} \&msg)
 \begin{DoxyCompactList}\small\item\em Converts a ROS waypoint mission array into a Core Trajectory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a05cbd7e19b9a2c7c946544a8b3315c60}{KNOTS\+\_\+\+TO\+\_\+\+MS}} = 0.\+514444
 \begin{DoxyCompactList}\small\item\em Conversion factor from knots to meters per second. \end{DoxyCompactList}\item 
-constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a6d0952b6bfdf3d345eeb30c5db157ae9}{DEG\+\_\+\+TO\+\_\+\+RAD}} = M\+\_\+\+PI / 180.\+0
+constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a6d0952b6bfdf3d345eeb30c5db157ae9}{DEG\+\_\+\+TO\+\_\+\+RAD}} = \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 180.\+0
 \begin{DoxyCompactList}\small\item\em Conversion factor from degrees to radians. \end{DoxyCompactList}\item 
-constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a26d2082b4cd4f71e0cbb19f58c81f1d0}{UNITY\+\_\+\+YAW\+\_\+\+OFFSET}} = M\+\_\+\+PI / 2.\+0
+constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a26d2082b4cd4f71e0cbb19f58c81f1d0}{UNITY\+\_\+\+YAW\+\_\+\+OFFSET}} = \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 2.\+0
 \begin{DoxyCompactList}\small\item\em Yaw offset to align the ROS coordinate frame with the Unity left-\/handed frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -27,7 +27,7 @@ constexpr double \mbox{\hyperlink{namespacedt__ros_1_1conversions_a26d2082b4cd4f
 \index{dt\_ros::conversions@{dt\_ros::conversions}!ais\_to\_core\_targets@{ais\_to\_core\_targets}}
 \index{ais\_to\_core\_targets@{ais\_to\_core\_targets}!dt\_ros::conversions@{dt\_ros::conversions}}
 \doxysubsubsection{\texorpdfstring{ais\_to\_core\_targets()}{ais\_to\_core\_targets()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+\_\+ros\+::conversions\+::ais\+\_\+to\+\_\+core\+\_\+targets (\begin{DoxyParamCaption}\item[{const dt\+\_\+msgs\+::msg\+::\+Ais\+Report \&}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+\_\+ros\+::conversions\+::ais\+\_\+to\+\_\+core\+\_\+targets (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport}{dt\+\_\+msgs\+::msg\+::\+Ais\+Report}} \&}]{msg }\end{DoxyParamCaption})}
 
 
 
@@ -83,7 +83,7 @@ Converts ROS Quaternions to Euler angles, applies visualization coordinate frame
 \index{dt\_ros::conversions@{dt\_ros::conversions}!waypoints\_to\_trajectory@{waypoints\_to\_trajectory}}
 \index{waypoints\_to\_trajectory@{waypoints\_to\_trajectory}!dt\_ros::conversions@{dt\_ros::conversions}}
 \doxysubsubsection{\texorpdfstring{waypoints\_to\_trajectory()}{waypoints\_to\_trajectory()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+\_\+ros\+::conversions\+::waypoints\+\_\+to\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const dt\+\_\+msgs\+::msg\+::\+Waypoint\+Array \&}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+\_\+ros\+::conversions\+::waypoints\+\_\+to\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray}{dt\+\_\+msgs\+::msg\+::\+Waypoint\+Array}} \&}]{msg }\end{DoxyParamCaption})}
 
 
 
@@ -104,7 +104,7 @@ Converts a ROS waypoint mission array into a Core Trajectory.
 \index{dt\_ros::conversions@{dt\_ros::conversions}!DEG\_TO\_RAD@{DEG\_TO\_RAD}}
 \index{DEG\_TO\_RAD@{DEG\_TO\_RAD}!dt\_ros::conversions@{dt\_ros::conversions}}
 \doxysubsubsection{\texorpdfstring{DEG\_TO\_RAD}{DEG\_TO\_RAD}}
-{\footnotesize\ttfamily constexpr double dt\+\_\+ros\+::conversions\+::\+DEG\+\_\+\+TO\+\_\+\+RAD = M\+\_\+\+PI / 180.\+0\hspace{0.3cm}{\ttfamily [constexpr]}}
+{\footnotesize\ttfamily constexpr double dt\+\_\+ros\+::conversions\+::\+DEG\+\_\+\+TO\+\_\+\+RAD = \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 180.\+0\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
@@ -124,7 +124,7 @@ Conversion factor from knots to meters per second.
 \index{dt\_ros::conversions@{dt\_ros::conversions}!UNITY\_YAW\_OFFSET@{UNITY\_YAW\_OFFSET}}
 \index{UNITY\_YAW\_OFFSET@{UNITY\_YAW\_OFFSET}!dt\_ros::conversions@{dt\_ros::conversions}}
 \doxysubsubsection{\texorpdfstring{UNITY\_YAW\_OFFSET}{UNITY\_YAW\_OFFSET}}
-{\footnotesize\ttfamily constexpr double dt\+\_\+ros\+::conversions\+::\+UNITY\+\_\+\+YAW\+\_\+\+OFFSET = M\+\_\+\+PI / 2.\+0\hspace{0.3cm}{\ttfamily [constexpr]}}
+{\footnotesize\ttfamily constexpr double dt\+\_\+ros\+::conversions\+::\+UNITY\+\_\+\+YAW\+\_\+\+OFFSET = \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 2.\+0\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 

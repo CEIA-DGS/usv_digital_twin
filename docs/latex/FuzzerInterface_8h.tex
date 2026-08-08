@@ -1,0 +1,64 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+Interface.h File Reference}
+\hypertarget{FuzzerInterface_8h}{}\label{FuzzerInterface_8h}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerInterface.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerInterface.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for Fuzzer\+Interface.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{FuzzerInterface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerInterface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{FuzzerInterface_8h_a1c473c9665269a78ef9001573a6995df}{LLVMFuzzer\+Test\+One\+Input}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\item 
+int \mbox{\hyperlink{FuzzerInterface_8h_aa30889313cc057073351a87b2590b886}{LLVMFuzzer\+Initialize}} (int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}})
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerInterface_8h_a3b281a5909310708b6527566346e50e7}{LLVMFuzzer\+Custom\+Mutator}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, size\+\_\+t Max\+Size, unsigned int Seed)
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerInterface_8h_a64107a3e01dcb18d4a402a90c7625d30}{LLVMFuzzer\+Custom\+Cross\+Over}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data1, size\+\_\+t Size1, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data2, size\+\_\+t Size2, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Out, size\+\_\+t Max\+Out\+Size, unsigned int Seed)
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerInterface_8h_a707cf06cec36db401461e605e1515f51}{LLVMFuzzer\+Mutate}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, size\+\_\+t Max\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerInterface_8h_a64107a3e01dcb18d4a402a90c7625d30}\label{FuzzerInterface_8h_a64107a3e01dcb18d4a402a90c7625d30} 
+\index{FuzzerInterface.h@{FuzzerInterface.h}!LLVMFuzzerCustomCrossOver@{LLVMFuzzerCustomCrossOver}}
+\index{LLVMFuzzerCustomCrossOver@{LLVMFuzzerCustomCrossOver}!FuzzerInterface.h@{FuzzerInterface.h}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerCustomCrossOver()}{LLVMFuzzerCustomCrossOver()}}
+{\footnotesize\ttfamily size\+\_\+t LLVMFuzzer\+Custom\+Cross\+Over (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data1,  }\item[{size\+\_\+t}]{Size1,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data2,  }\item[{size\+\_\+t}]{Size2,  }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Out,  }\item[{size\+\_\+t}]{Max\+Out\+Size,  }\item[{unsigned int}]{Seed }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerInterface_8h_a3b281a5909310708b6527566346e50e7}\label{FuzzerInterface_8h_a3b281a5909310708b6527566346e50e7} 
+\index{FuzzerInterface.h@{FuzzerInterface.h}!LLVMFuzzerCustomMutator@{LLVMFuzzerCustomMutator}}
+\index{LLVMFuzzerCustomMutator@{LLVMFuzzerCustomMutator}!FuzzerInterface.h@{FuzzerInterface.h}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerCustomMutator()}{LLVMFuzzerCustomMutator()}}
+{\footnotesize\ttfamily size\+\_\+t LLVMFuzzer\+Custom\+Mutator (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size,  }\item[{size\+\_\+t}]{Max\+Size,  }\item[{unsigned int}]{Seed }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerInterface_8h_aa30889313cc057073351a87b2590b886}\label{FuzzerInterface_8h_aa30889313cc057073351a87b2590b886} 
+\index{FuzzerInterface.h@{FuzzerInterface.h}!LLVMFuzzerInitialize@{LLVMFuzzerInitialize}}
+\index{LLVMFuzzerInitialize@{LLVMFuzzerInitialize}!FuzzerInterface.h@{FuzzerInterface.h}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerInitialize()}{LLVMFuzzerInitialize()}}
+{\footnotesize\ttfamily int LLVMFuzzer\+Initialize (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerInterface_8h_a707cf06cec36db401461e605e1515f51}\label{FuzzerInterface_8h_a707cf06cec36db401461e605e1515f51} 
+\index{FuzzerInterface.h@{FuzzerInterface.h}!LLVMFuzzerMutate@{LLVMFuzzerMutate}}
+\index{LLVMFuzzerMutate@{LLVMFuzzerMutate}!FuzzerInterface.h@{FuzzerInterface.h}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerMutate()}{LLVMFuzzerMutate()}}
+{\footnotesize\ttfamily size\+\_\+t LLVMFuzzer\+Mutate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size,  }\item[{size\+\_\+t}]{Max\+Size }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerInterface_8h_a1c473c9665269a78ef9001573a6995df}\label{FuzzerInterface_8h_a1c473c9665269a78ef9001573a6995df} 
+\index{FuzzerInterface.h@{FuzzerInterface.h}!LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}}
+\index{LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}!FuzzerInterface.h@{FuzzerInterface.h}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerTestOneInput()}{LLVMFuzzerTestOneInput()}}
+{\footnotesize\ttfamily int LLVMFuzzer\+Test\+One\+Input (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+

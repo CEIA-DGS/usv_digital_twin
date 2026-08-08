@@ -1,0 +1,108 @@
+\doxysection{fuzzer\+::Dictionary\+Entry Class Reference}
+\hypertarget{classfuzzer_1_1DictionaryEntry}{}\label{classfuzzer_1_1DictionaryEntry}\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Dictionary.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a5c5f623a978e342e85e67fc65b090925}{Dictionary\+Entry}} ()
+\item 
+\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a5e297f9aeeb401316a64e5bf19b18ac1}{Dictionary\+Entry}} (\mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} W)
+\item 
+\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a227b77b999b2e714db792d36350eb970}{Dictionary\+Entry}} (\mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} W, size\+\_\+t Position\+Hint)
+\item 
+const \mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} \& \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ab558eebaa898b41de86f4ce8aa4112e8}{GetW}} () const
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948}{Has\+Position\+Hint}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ac13669a76798a5255cf4de5df3f94a8c}{Get\+Position\+Hint}} () const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ad44342736684a6ba2587440fc0c7a9a5}{Inc\+Use\+Count}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a1e3b55a806cec039ea453f088d7f26f5}{Inc\+Success\+Count}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a92db3fde5416ecd216bf96628db4382a}{Get\+Use\+Count}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ad82ccad7635080cb88772dc41df54bef}{Get\+Success\+Count}} () const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a7b5d7ff5db0c5f0478df3c3787fa3e49}{Print}} (const char \texorpdfstring{$\ast$}{*}Print\+After="{}\textbackslash{}n"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a5c5f623a978e342e85e67fc65b090925}\label{classfuzzer_1_1DictionaryEntry_a5c5f623a978e342e85e67fc65b090925} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!DictionaryEntry@{DictionaryEntry}}
+\index{DictionaryEntry@{DictionaryEntry}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{DictionaryEntry()}{DictionaryEntry()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily fuzzer\+::\+Dictionary\+Entry\+::\+Dictionary\+Entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a5e297f9aeeb401316a64e5bf19b18ac1}\label{classfuzzer_1_1DictionaryEntry_a5e297f9aeeb401316a64e5bf19b18ac1} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!DictionaryEntry@{DictionaryEntry}}
+\index{DictionaryEntry@{DictionaryEntry}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{DictionaryEntry()}{DictionaryEntry()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily fuzzer\+::\+Dictionary\+Entry\+::\+Dictionary\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}}}]{W }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a227b77b999b2e714db792d36350eb970}\label{classfuzzer_1_1DictionaryEntry_a227b77b999b2e714db792d36350eb970} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!DictionaryEntry@{DictionaryEntry}}
+\index{DictionaryEntry@{DictionaryEntry}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{DictionaryEntry()}{DictionaryEntry()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily fuzzer\+::\+Dictionary\+Entry\+::\+Dictionary\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}}}]{W,  }\item[{size\+\_\+t}]{Position\+Hint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1DictionaryEntry_ac13669a76798a5255cf4de5df3f94a8c}\label{classfuzzer_1_1DictionaryEntry_ac13669a76798a5255cf4de5df3f94a8c} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!GetPositionHint@{GetPositionHint}}
+\index{GetPositionHint@{GetPositionHint}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{GetPositionHint()}{GetPositionHint()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Dictionary\+Entry\+::\+Get\+Position\+Hint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_ad82ccad7635080cb88772dc41df54bef}\label{classfuzzer_1_1DictionaryEntry_ad82ccad7635080cb88772dc41df54bef} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!GetSuccessCount@{GetSuccessCount}}
+\index{GetSuccessCount@{GetSuccessCount}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{GetSuccessCount()}{GetSuccessCount()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Dictionary\+Entry\+::\+Get\+Success\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a92db3fde5416ecd216bf96628db4382a}\label{classfuzzer_1_1DictionaryEntry_a92db3fde5416ecd216bf96628db4382a} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!GetUseCount@{GetUseCount}}
+\index{GetUseCount@{GetUseCount}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{GetUseCount()}{GetUseCount()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Dictionary\+Entry\+::\+Get\+Use\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_ab558eebaa898b41de86f4ce8aa4112e8}\label{classfuzzer_1_1DictionaryEntry_ab558eebaa898b41de86f4ce8aa4112e8} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!GetW@{GetW}}
+\index{GetW@{GetW}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{GetW()}{GetW()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} \& fuzzer\+::\+Dictionary\+Entry\+::\+GetW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948}\label{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!HasPositionHint@{HasPositionHint}}
+\index{HasPositionHint@{HasPositionHint}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{HasPositionHint()}{HasPositionHint()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Dictionary\+Entry\+::\+Has\+Position\+Hint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a1e3b55a806cec039ea453f088d7f26f5}\label{classfuzzer_1_1DictionaryEntry_a1e3b55a806cec039ea453f088d7f26f5} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!IncSuccessCount@{IncSuccessCount}}
+\index{IncSuccessCount@{IncSuccessCount}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{IncSuccessCount()}{IncSuccessCount()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Dictionary\+Entry\+::\+Inc\+Success\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_ad44342736684a6ba2587440fc0c7a9a5}\label{classfuzzer_1_1DictionaryEntry_ad44342736684a6ba2587440fc0c7a9a5} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!IncUseCount@{IncUseCount}}
+\index{IncUseCount@{IncUseCount}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{IncUseCount()}{IncUseCount()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Dictionary\+Entry\+::\+Inc\+Use\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1DictionaryEntry_a7b5d7ff5db0c5f0478df3c3787fa3e49}\label{classfuzzer_1_1DictionaryEntry_a7b5d7ff5db0c5f0478df3c3787fa3e49} 
+\index{fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}!Print@{Print}}
+\index{Print@{Print}!fuzzer::DictionaryEntry@{fuzzer::DictionaryEntry}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Dictionary\+Entry\+::\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{Print\+After = {\ttfamily "{}\textbackslash{}n"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerDictionary_8h}{Fuzzer\+Dictionary.\+h}}\end{DoxyCompactItemize}

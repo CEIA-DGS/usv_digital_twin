@@ -1,0 +1,96 @@
+\doxysection{fuzzer\+::Trace\+State Class Reference}
+\hypertarget{classfuzzer_1_1TraceState}{}\label{classfuzzer_1_1TraceState}\index{fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfuzzer_1_1TraceState_aa76275fc21df8dabdab8707cc7707825}{Trace\+State}} (\mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \&MD, const \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions}{Fuzzing\+Options}} \&Options, const \mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}} \texorpdfstring{$\ast$}{*}F)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a19ca7e78b3705def9767cef2d55d04ca}{Trace\+Memcmp\+Callback}} (size\+\_\+t Cmp\+Size, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data1, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Data2)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a90c1b3e1c63873c2ea8faa00ad29d411}{Trace\+Switch\+Callback}} (uintptr\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}}, size\+\_\+t Val\+Size\+In\+Bits, uint64\+\_\+t Val, size\+\_\+t Num\+Cases, uint64\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}})
+\item 
+int \mbox{\hyperlink{classfuzzer_1_1TraceState_acf2bff66ee5368a9ca0d44d2926a5d6c}{Try\+To\+Add\+Desired\+Data}} (uint64\+\_\+t Present\+Data, uint64\+\_\+t Desired\+Data, size\+\_\+t Data\+Size)
+\item 
+int \mbox{\hyperlink{classfuzzer_1_1TraceState_abd1b3dc526c6a18c167fe57c611b5b78}{Try\+To\+Add\+Desired\+Data}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Present\+Data, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}Desired\+Data, size\+\_\+t Data\+Size)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a0c3b5e922389f8b18e5cbc9add9dda0b}{Start\+Trace\+Recording}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a7e610df0349a397e09d67a10c251dc07}{Stop\+Trace\+Recording}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a3cfaba51f138339caf55beb176fd25d2}{Add\+Mutation}} (uint32\+\_\+t Pos, uint32\+\_\+t Size, const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}})
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_ad45c505dd4e607fd1de68d49de1a5537}{Add\+Mutation}} (uint32\+\_\+t Pos, uint32\+\_\+t Size, uint64\+\_\+t \mbox{\hyperlink{structData}{Data}})
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TraceState_a956f37bcffd013e84d1f014a739b3a23}{Add\+Interesting\+Word}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfuzzer_1_1TraceState_aa76275fc21df8dabdab8707cc7707825}\label{classfuzzer_1_1TraceState_aa76275fc21df8dabdab8707cc7707825} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!TraceState@{TraceState}}
+\index{TraceState@{TraceState}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{TraceState()}{TraceState()}}
+{\footnotesize\ttfamily fuzzer\+::\+Trace\+State\+::\+Trace\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \&}]{MD,  }\item[{const \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions}{Fuzzing\+Options}} \&}]{Options,  }\item[{const \mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}} \texorpdfstring{$\ast$}{*}}]{F }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1TraceState_a956f37bcffd013e84d1f014a739b3a23}\label{classfuzzer_1_1TraceState_a956f37bcffd013e84d1f014a739b3a23} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!AddInterestingWord@{AddInterestingWord}}
+\index{AddInterestingWord@{AddInterestingWord}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{AddInterestingWord()}{AddInterestingWord()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Add\+Interesting\+Word (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TraceState_a3cfaba51f138339caf55beb176fd25d2}\label{classfuzzer_1_1TraceState_a3cfaba51f138339caf55beb176fd25d2} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!AddMutation@{AddMutation}}
+\index{AddMutation@{AddMutation}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{AddMutation()}{AddMutation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Add\+Mutation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Pos,  }\item[{uint32\+\_\+t}]{Size,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TraceState_ad45c505dd4e607fd1de68d49de1a5537}\label{classfuzzer_1_1TraceState_ad45c505dd4e607fd1de68d49de1a5537} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!AddMutation@{AddMutation}}
+\index{AddMutation@{AddMutation}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{AddMutation()}{AddMutation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Add\+Mutation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Pos,  }\item[{uint32\+\_\+t}]{Size,  }\item[{uint64\+\_\+t}]{Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TraceState_a0c3b5e922389f8b18e5cbc9add9dda0b}\label{classfuzzer_1_1TraceState_a0c3b5e922389f8b18e5cbc9add9dda0b} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!StartTraceRecording@{StartTraceRecording}}
+\index{StartTraceRecording@{StartTraceRecording}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{StartTraceRecording()}{StartTraceRecording()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Start\+Trace\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TraceState_a7e610df0349a397e09d67a10c251dc07}\label{classfuzzer_1_1TraceState_a7e610df0349a397e09d67a10c251dc07} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!StopTraceRecording@{StopTraceRecording}}
+\index{StopTraceRecording@{StopTraceRecording}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{StopTraceRecording()}{StopTraceRecording()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Stop\+Trace\+Recording (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TraceState_a19ca7e78b3705def9767cef2d55d04ca}\label{classfuzzer_1_1TraceState_a19ca7e78b3705def9767cef2d55d04ca} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!TraceMemcmpCallback@{TraceMemcmpCallback}}
+\index{TraceMemcmpCallback@{TraceMemcmpCallback}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{TraceMemcmpCallback()}{TraceMemcmpCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Trace\+Memcmp\+Callback (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Cmp\+Size,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data1,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data2 }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TraceState_a90c1b3e1c63873c2ea8faa00ad29d411}\label{classfuzzer_1_1TraceState_a90c1b3e1c63873c2ea8faa00ad29d411} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!TraceSwitchCallback@{TraceSwitchCallback}}
+\index{TraceSwitchCallback@{TraceSwitchCallback}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{TraceSwitchCallback()}{TraceSwitchCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+State\+::\+Trace\+Switch\+Callback (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{PC,  }\item[{size\+\_\+t}]{Val\+Size\+In\+Bits,  }\item[{uint64\+\_\+t}]{Val,  }\item[{size\+\_\+t}]{Num\+Cases,  }\item[{uint64\+\_\+t \texorpdfstring{$\ast$}{*}}]{Cases }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TraceState_abd1b3dc526c6a18c167fe57c611b5b78}\label{classfuzzer_1_1TraceState_abd1b3dc526c6a18c167fe57c611b5b78} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!TryToAddDesiredData@{TryToAddDesiredData}}
+\index{TryToAddDesiredData@{TryToAddDesiredData}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{TryToAddDesiredData()}{TryToAddDesiredData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int fuzzer\+::\+Trace\+State\+::\+Try\+To\+Add\+Desired\+Data (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Present\+Data,  }\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Desired\+Data,  }\item[{size\+\_\+t}]{Data\+Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TraceState_acf2bff66ee5368a9ca0d44d2926a5d6c}\label{classfuzzer_1_1TraceState_acf2bff66ee5368a9ca0d44d2926a5d6c} 
+\index{fuzzer::TraceState@{fuzzer::TraceState}!TryToAddDesiredData@{TryToAddDesiredData}}
+\index{TryToAddDesiredData@{TryToAddDesiredData}!fuzzer::TraceState@{fuzzer::TraceState}}
+\doxysubsubsection{\texorpdfstring{TryToAddDesiredData()}{TryToAddDesiredData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int fuzzer\+::\+Trace\+State\+::\+Try\+To\+Add\+Desired\+Data (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{Present\+Data,  }\item[{uint64\+\_\+t}]{Desired\+Data,  }\item[{size\+\_\+t}]{Data\+Size }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerTraceState_8cpp}{Fuzzer\+Trace\+State.\+cpp}}\end{DoxyCompactItemize}

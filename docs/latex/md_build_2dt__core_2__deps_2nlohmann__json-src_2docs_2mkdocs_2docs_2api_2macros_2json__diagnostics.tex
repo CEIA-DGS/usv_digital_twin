@@ -1,0 +1,68 @@
+\chapter{JSON\+\_\+\+DIAGNOSTICS}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}\index{JSON\_DIAGNOSTICS@{JSON\_DIAGNOSTICS}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1149}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1149}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_DIAGNOSTICS\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro enables \href{../../home/exceptions.md\#extended-diagnostic-messages}{\texttt{ extended diagnostics for exception messages}}. Possible values are {\ttfamily 1} to enable or {\ttfamily 0} to disable (default).
+
+When enabled, exception messages contain a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer}{JSON Pointer}{0} to the JSON value that triggered the exception. Note that enabling this macro increases the size of every JSON value by one pointer and adds some runtime overhead.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1150}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1150}
+The default value is {\ttfamily 0} (extended diagnostics are switched off).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_DIAGNOSTICS\ 0}}
+
+\end{DoxyCode}
+
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1151}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1151}
+!!! note "{}\+ABI compatibility"{} \begin{DoxyVerb}As of version 3.11.0, this macro is no longer required to be defined consistently throughout a codebase to avoid
+One Definition Rule (ODR) violations, as the value of this macro is encoded in the namespace, resulting in distinct
+symbol names. 
+
+This allows different parts of a codebase to use different versions or configurations of this library without
+causing improper behavior.
+
+Where possible, it is still recommended that all code define this the same way for maximum interoperability.
+\end{DoxyVerb}
+ !!! hint "{}\+CMake option"{} \begin{DoxyVerb}Diagnostic messages can also be controlled with the CMake option
+[`JSON_Diagnostics`](../../integration/cmake.md#json_diagnostics) (`OFF` by default)
+which defines `JSON_DIAGNOSTICS` accordingly.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1152}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1152}
+??? example "{}\+Example 1\+: default behavior"{} \begin{DoxyVerb}```cpp
+--8<-- "examples/diagnostics_standard.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/diagnostics_standard.output"
+```
+
+This exception can be hard to debug if storing the value `#!c "12"` and accessing it is further apart.
+\end{DoxyVerb}
+ ??? example "{}\+Example 2\+: extended diagnostic messages"{} \begin{DoxyVerb}```cpp
+--8<-- "examples/diagnostics_extended.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/diagnostics_extended.output"
+```
+
+Now the exception message contains a JSON Pointer `/address/housenumber` that indicates which value has the wrong type.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1153}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics_autotoc_md1153}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+10.\+0.
+\item As of version 3.\+11.\+0 the definition is allowed to vary between translation units. 
+\end{DoxyItemize}

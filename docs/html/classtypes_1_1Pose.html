@@ -84,7 +84,7 @@ $(function() {
 <p>Combines position and orientation to fully describe an object's spatial state.  
  <a href="classtypes_1_1Pose.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="types_8hpp_source.html">types.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="dt__core_2include_2dt__core_2types_8hpp_source.html">types.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -116,12 +116,40 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ada6a5975aa31e5c58a62faf9d7c494b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa8baa910f66313141769b89fac34e4d" id="r_aaa8baa910f66313141769b89fac34e4d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#aaa8baa910f66313141769b89fac34e4d">get_yaw</a> () const</td></tr>
 <tr class="separator:aaa8baa910f66313141769b89fac34e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e3abfdbeebc8cfa068453d7e63bd15" id="r_ac2e3abfdbeebc8cfa068453d7e63bd15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#ac2e3abfdbeebc8cfa068453d7e63bd15">Pose</a> (const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp;initial_position, const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp;initial_orientation)</td></tr>
+<tr class="separator:ac2e3abfdbeebc8cfa068453d7e63bd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe205e85a7290d8158c5c806b0bbf93" id="r_adfe205e85a7290d8158c5c806b0bbf93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#adfe205e85a7290d8158c5c806b0bbf93">Pose</a> (const double initial_x=0.0, const double initial_y=0.0, const double initial_z=0.0, const double initial_roll=0.0, const double initial_pitch=0.0, const double initial_yaw=0.0)</td></tr>
+<tr class="separator:adfe205e85a7290d8158c5c806b0bbf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e586dd6d3fdf7ab6a5a36bbb500e584" id="r_a2e586dd6d3fdf7ab6a5a36bbb500e584"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#a2e586dd6d3fdf7ab6a5a36bbb500e584">set_position</a> (const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp;new_position)</td></tr>
+<tr class="separator:a2e586dd6d3fdf7ab6a5a36bbb500e584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda94440fe92c5a2eea621b5be8c5a1d" id="r_adda94440fe92c5a2eea621b5be8c5a1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#adda94440fe92c5a2eea621b5be8c5a1d">set_position</a> (const double new_x, const double new_y, const double new_z)</td></tr>
+<tr class="separator:adda94440fe92c5a2eea621b5be8c5a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab123dd9789b369d8f53ba7b29d66b167" id="r_ab123dd9789b369d8f53ba7b29d66b167"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#ab123dd9789b369d8f53ba7b29d66b167">set_orientation</a> (const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp;new_orientation)</td></tr>
+<tr class="separator:ab123dd9789b369d8f53ba7b29d66b167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9fc7ec63a8b90972d3f33f95478a8e8" id="r_aa9fc7ec63a8b90972d3f33f95478a8e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#aa9fc7ec63a8b90972d3f33f95478a8e8">set_orientation</a> (const double new_roll, const double new_pitch, const double new_yaw)</td></tr>
+<tr class="separator:aa9fc7ec63a8b90972d3f33f95478a8e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5d7c96b8bb14f2c9804eacdb1498d6" id="r_a7e5d7c96b8bb14f2c9804eacdb1498d6"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#a7e5d7c96b8bb14f2c9804eacdb1498d6">get_position</a> () const</td></tr>
+<tr class="separator:a7e5d7c96b8bb14f2c9804eacdb1498d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c6fe12856855eab62a1f986b44a340" id="r_ab2c6fe12856855eab62a1f986b44a340"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#ab2c6fe12856855eab62a1f986b44a340">get_orientation</a> () const</td></tr>
+<tr class="separator:ab2c6fe12856855eab62a1f986b44a340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a961d560161ef085cf4432862f0c9409e" id="r_a961d560161ef085cf4432862f0c9409e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#a961d560161ef085cf4432862f0c9409e">get_x</a> () const</td></tr>
+<tr class="separator:a961d560161ef085cf4432862f0c9409e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29a37447b417b6cc8133549d2ffdb44e" id="r_a29a37447b417b6cc8133549d2ffdb44e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#a29a37447b417b6cc8133549d2ffdb44e">get_y</a> () const</td></tr>
+<tr class="separator:a29a37447b417b6cc8133549d2ffdb44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a5d9205ab1723afa0a1101a2855e9bd" id="r_a0a5d9205ab1723afa0a1101a2855e9bd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#a0a5d9205ab1723afa0a1101a2855e9bd">get_z</a> () const</td></tr>
+<tr class="separator:a0a5d9205ab1723afa0a1101a2855e9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac308cdaa0f7ebe1c830af08f46ad193f" id="r_ac308cdaa0f7ebe1c830af08f46ad193f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#ac308cdaa0f7ebe1c830af08f46ad193f">get_roll</a> () const</td></tr>
+<tr class="separator:ac308cdaa0f7ebe1c830af08f46ad193f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada6a5975aa31e5c58a62faf9d7c494b0" id="r_ada6a5975aa31e5c58a62faf9d7c494b0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#ada6a5975aa31e5c58a62faf9d7c494b0">get_pitch</a> () const</td></tr>
+<tr class="separator:ada6a5975aa31e5c58a62faf9d7c494b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa8baa910f66313141769b89fac34e4d" id="r_aaa8baa910f66313141769b89fac34e4d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtypes_1_1Pose.html#aaa8baa910f66313141769b89fac34e4d">get_yaw</a> () const</td></tr>
+<tr class="separator:aaa8baa910f66313141769b89fac34e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Combines position and orientation to fully describe an object's spatial state. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac2e3abfdbeebc8cfa068453d7e63bd15" name="ac2e3abfdbeebc8cfa068453d7e63bd15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2e3abfdbeebc8cfa068453d7e63bd15">&#9670;&#160;</a></span>Pose() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e3abfdbeebc8cfa068453d7e63bd15">&#9670;&#160;</a></span>Pose() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +185,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="aff6f27ae211fffcd4b007558fea12c6f" name="aff6f27ae211fffcd4b007558fea12c6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff6f27ae211fffcd4b007558fea12c6f">&#9670;&#160;</a></span>Pose() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aff6f27ae211fffcd4b007558fea12c6f">&#9670;&#160;</a></span>Pose() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,9 +244,130 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ac2e3abfdbeebc8cfa068453d7e63bd15" name="ac2e3abfdbeebc8cfa068453d7e63bd15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e3abfdbeebc8cfa068453d7e63bd15">&#9670;&#160;</a></span>Pose() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">types::Pose::Pose </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>initial_position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp;&#160;</td>
+          <td class="paramname"><em>initial_orientation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfe205e85a7290d8158c5c806b0bbf93" name="adfe205e85a7290d8158c5c806b0bbf93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe205e85a7290d8158c5c806b0bbf93">&#9670;&#160;</a></span>Pose() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">types::Pose::Pose </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_x</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_y</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_z</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_roll</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_pitch</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>initial_yaw</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab2c6fe12856855eab62a1f986b44a340" name="ab2c6fe12856855eab62a1f986b44a340"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c6fe12856855eab62a1f986b44a340">&#9670;&#160;</a></span>get_orientation()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c6fe12856855eab62a1f986b44a340">&#9670;&#160;</a></span>get_orientation() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp; types::Pose::get_orientation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab2c6fe12856855eab62a1f986b44a340" name="ab2c6fe12856855eab62a1f986b44a340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c6fe12856855eab62a1f986b44a340">&#9670;&#160;</a></span>get_orientation() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +392,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ada6a5975aa31e5c58a62faf9d7c494b0" name="ada6a5975aa31e5c58a62faf9d7c494b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada6a5975aa31e5c58a62faf9d7c494b0">&#9670;&#160;</a></span>get_pitch()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6a5975aa31e5c58a62faf9d7c494b0">&#9670;&#160;</a></span>get_pitch() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_pitch </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada6a5975aa31e5c58a62faf9d7c494b0" name="ada6a5975aa31e5c58a62faf9d7c494b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6a5975aa31e5c58a62faf9d7c494b0">&#9670;&#160;</a></span>get_pitch() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +442,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a7e5d7c96b8bb14f2c9804eacdb1498d6" name="a7e5d7c96b8bb14f2c9804eacdb1498d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e5d7c96b8bb14f2c9804eacdb1498d6">&#9670;&#160;</a></span>get_position()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5d7c96b8bb14f2c9804eacdb1498d6">&#9670;&#160;</a></span>get_position() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp; types::Pose::get_position </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e5d7c96b8bb14f2c9804eacdb1498d6" name="a7e5d7c96b8bb14f2c9804eacdb1498d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5d7c96b8bb14f2c9804eacdb1498d6">&#9670;&#160;</a></span>get_position() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,7 +492,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="ac308cdaa0f7ebe1c830af08f46ad193f" name="ac308cdaa0f7ebe1c830af08f46ad193f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac308cdaa0f7ebe1c830af08f46ad193f">&#9670;&#160;</a></span>get_roll()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac308cdaa0f7ebe1c830af08f46ad193f">&#9670;&#160;</a></span>get_roll() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_roll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac308cdaa0f7ebe1c830af08f46ad193f" name="ac308cdaa0f7ebe1c830af08f46ad193f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac308cdaa0f7ebe1c830af08f46ad193f">&#9670;&#160;</a></span>get_roll() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,7 +542,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a961d560161ef085cf4432862f0c9409e" name="a961d560161ef085cf4432862f0c9409e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a961d560161ef085cf4432862f0c9409e">&#9670;&#160;</a></span>get_x()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a961d560161ef085cf4432862f0c9409e">&#9670;&#160;</a></span>get_x() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_x </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a961d560161ef085cf4432862f0c9409e" name="a961d560161ef085cf4432862f0c9409e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a961d560161ef085cf4432862f0c9409e">&#9670;&#160;</a></span>get_x() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +592,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a29a37447b417b6cc8133549d2ffdb44e" name="a29a37447b417b6cc8133549d2ffdb44e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29a37447b417b6cc8133549d2ffdb44e">&#9670;&#160;</a></span>get_y()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a37447b417b6cc8133549d2ffdb44e">&#9670;&#160;</a></span>get_y() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_y </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29a37447b417b6cc8133549d2ffdb44e" name="a29a37447b417b6cc8133549d2ffdb44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29a37447b417b6cc8133549d2ffdb44e">&#9670;&#160;</a></span>get_y() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +642,32 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="aaa8baa910f66313141769b89fac34e4d" name="aaa8baa910f66313141769b89fac34e4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8baa910f66313141769b89fac34e4d">&#9670;&#160;</a></span>get_yaw()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8baa910f66313141769b89fac34e4d">&#9670;&#160;</a></span>get_yaw() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_yaw </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa8baa910f66313141769b89fac34e4d" name="aaa8baa910f66313141769b89fac34e4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8baa910f66313141769b89fac34e4d">&#9670;&#160;</a></span>get_yaw() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -393,7 +692,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a0a5d9205ab1723afa0a1101a2855e9bd" name="a0a5d9205ab1723afa0a1101a2855e9bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a5d9205ab1723afa0a1101a2855e9bd">&#9670;&#160;</a></span>get_z()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5d9205ab1723afa0a1101a2855e9bd">&#9670;&#160;</a></span>get_z() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,8 +716,101 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0a5d9205ab1723afa0a1101a2855e9bd" name="a0a5d9205ab1723afa0a1101a2855e9bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a5d9205ab1723afa0a1101a2855e9bd">&#9670;&#160;</a></span>get_z() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double types::Pose::get_z </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa9fc7ec63a8b90972d3f33f95478a8e8" name="aa9fc7ec63a8b90972d3f33f95478a8e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9fc7ec63a8b90972d3f33f95478a8e8">&#9670;&#160;</a></span>set_orientation() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void types::Pose::set_orientation </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_roll</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_yaw</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab123dd9789b369d8f53ba7b29d66b167" name="ab123dd9789b369d8f53ba7b29d66b167"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab123dd9789b369d8f53ba7b29d66b167">&#9670;&#160;</a></span>set_orientation() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void types::Pose::set_orientation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Orientation.html">Orientation</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_orientation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac15cbb8317bf6cc22aa3f5736da843d" name="aac15cbb8317bf6cc22aa3f5736da843d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac15cbb8317bf6cc22aa3f5736da843d">&#9670;&#160;</a></span>set_orientation() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aac15cbb8317bf6cc22aa3f5736da843d">&#9670;&#160;</a></span>set_orientation() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,7 +836,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a80901e2e4469b72cc46dc631fb2be5b4" name="a80901e2e4469b72cc46dc631fb2be5b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80901e2e4469b72cc46dc631fb2be5b4">&#9670;&#160;</a></span>set_orientation() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a80901e2e4469b72cc46dc631fb2be5b4">&#9670;&#160;</a></span>set_orientation() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -485,8 +877,76 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="adda94440fe92c5a2eea621b5be8c5a1d" name="adda94440fe92c5a2eea621b5be8c5a1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda94440fe92c5a2eea621b5be8c5a1d">&#9670;&#160;</a></span>set_position() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void types::Pose::set_position </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>new_z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e586dd6d3fdf7ab6a5a36bbb500e584" name="a2e586dd6d3fdf7ab6a5a36bbb500e584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e586dd6d3fdf7ab6a5a36bbb500e584">&#9670;&#160;</a></span>set_position() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void types::Pose::set_position </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Point.html">Point</a> &amp;&#160;</td>
+          <td class="paramname"><em>new_position</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a739b2b6db5e577c068884d65206b98df" name="a739b2b6db5e577c068884d65206b98df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a739b2b6db5e577c068884d65206b98df">&#9670;&#160;</a></span>set_position() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a739b2b6db5e577c068884d65206b98df">&#9670;&#160;</a></span>set_position() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -512,7 +972,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a6ab20badec8a524dc7bbd6f053762e98" name="a6ab20badec8a524dc7bbd6f053762e98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ab20badec8a524dc7bbd6f053762e98">&#9670;&#160;</a></span>set_position() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab20badec8a524dc7bbd6f053762e98">&#9670;&#160;</a></span>set_position() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -553,8 +1013,9 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>dt_core/include/dt_core/<a class="el" href="types_8hpp_source.html">types.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>dt_core/include/dt_core/<a class="el" href="dt__core_2include_2dt__core_2types_8hpp_source.html">types.hpp</a></li>
+<li>install/dt_core/include/dt_core/<a class="el" href="install_2dt__core_2include_2dt__core_2types_8hpp_source.html">types.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,0 +1,412 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/test/\+Fuzzer\+Unittest.cpp File Reference}
+\hypertarget{FuzzerUnittest_8cpp}{}\label{FuzzerUnittest_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/test/FuzzerUnittest.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/test/FuzzerUnittest.cpp}}
+{\ttfamily \#include "{}Fuzzer\+Corpus.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Internal.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Dictionary.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Merge.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Mutate.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Random.\+h"{}}\newline
+{\ttfamily \#include "{}gtest/gtest.\+h"{}}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+Include dependency graph for Fuzzer\+Unittest.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerUnittest_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FuzzerUnittest_8cpp_a5343738c5b87768065a903a6aeabb580}{\+\_\+\+LIBCPP\+\_\+\+HAS\+\_\+\+NO\+\_\+\+ASAN}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef size\+\_\+t(Mutation\+Dispatcher\+::\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, size\+\_\+t Max\+Size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{FuzzerUnittest_8cpp_a1c473c9665269a78ef9001573a6995df}{LLVMFuzzer\+Test\+One\+Input}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aef764bdec7e02fbbd4c6f0b2d718160a}{TEST}} (\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}, Cross\+Over)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a2917978eccc0cf92d847f8b06103fcbd}{TEST}} (\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}, Hash)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a9d2e01c1e1caba545d1e22bf678b1fe2}{Test\+Erase\+Bytes}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_ae946340c90524e010854d931031bb4df}{TEST}} (Fuzzer\+Mutate, Erase\+Bytes1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aeaef2bc2fb4a9c7af6db7ea1f0f198b7}{TEST}} (Fuzzer\+Mutate, Erase\+Bytes2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_ade32c028e1f73a092d3b5612e4563b3d}{Test\+Insert\+Byte}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a156e979cefb0dda232dd8c36ef52647b}{TEST}} (Fuzzer\+Mutate, Insert\+Byte1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aba449081eb433d71f5801865c6a48657}{TEST}} (Fuzzer\+Mutate, Insert\+Byte2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_aa63b636a8c4dd5b713d1cb9c0790bf0c}{Test\+Insert\+Repeated\+Bytes}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_ae25a0bff85abcd19ee94a5a3e855d405}{TEST}} (Fuzzer\+Mutate, Insert\+Repeated\+Bytes1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a08bfd7dc67a7ad6818c638c4dcf34b5d}{TEST}} (Fuzzer\+Mutate, Insert\+Repeated\+Bytes2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_ab2a276c8baa49927b0ccf85d90d1287e}{Test\+Change\+Byte}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a33ed921173886eb5f10cb05e2beafc8b}{TEST}} (Fuzzer\+Mutate, Change\+Byte1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_ac194da37e18a2ad23ec75c59367f0de9}{TEST}} (Fuzzer\+Mutate, Change\+Byte2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a82e040b313cd5105ee6629d47b58c760}{Test\+Change\+Bit}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a1b087885957b0f8c5b69a17d33cbeee4}{TEST}} (Fuzzer\+Mutate, Change\+Bit1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a610166d0105a8c2545b3e2d86a666773}{TEST}} (Fuzzer\+Mutate, Change\+Bit2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a38efce6f73de9357957e49987ebfffce}{Test\+Shuffle\+Bytes}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a55bfdc06458f7f3f9ccfcffd97185ece}{TEST}} (Fuzzer\+Mutate, Shuffle\+Bytes1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_ac8864b52510ffc804e15d4dbc7645698}{TEST}} (Fuzzer\+Mutate, Shuffle\+Bytes2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a0364a2e0d3bb7c705fd70e774edc9fb7}{Test\+Copy\+Part}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_ab40968a5e618fd40847a764a0b3b890b}{TEST}} (Fuzzer\+Mutate, Copy\+Part1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a7a45818c35b759905c0c71964ffab99c}{TEST}} (Fuzzer\+Mutate, Copy\+Part2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a00c4a1a2a790d27b66b188622855245c}{Test\+Add\+Word\+From\+Dictionary}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a834d88310acb73e27857275302140860}{TEST}} (Fuzzer\+Mutate, Add\+Word\+From\+Dictionary1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a62282e5242fb713b8f86bdae470d4fb4}{TEST}} (Fuzzer\+Mutate, Add\+Word\+From\+Dictionary2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_abaa5673e660442bca4e55dd4b1fa58a6}{Test\+Add\+Word\+From\+Dictionary\+With\+Hint}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_adf6154fdc787c7f7c87d1f8d95ddaf9f}{TEST}} (Fuzzer\+Mutate, Add\+Word\+From\+Dictionary\+With\+Hint1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a75dbdfb646677b6714c2af5a854f65f0}{TEST}} (Fuzzer\+Mutate, Add\+Word\+From\+Dictionary\+With\+Hint2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_acb6081d19593d3c1fbaf8565421ca804}{Test\+Change\+ASCIIInteger}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aecd15415182e0749d65dc17bfad3602c}{TEST}} (Fuzzer\+Mutate, Change\+ASCIIInteger1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a02e07e7934913f07a182b32be95c600b}{TEST}} (Fuzzer\+Mutate, Change\+ASCIIInteger2)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_aec5b0c554cce14e8ff36a5dd4eb53873}{Test\+Change\+Binary\+Integer}} (\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}} M, int Num\+Iter)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a775f0c21e79b41d11771f79bb8bb313e}{TEST}} (Fuzzer\+Mutate, Change\+Binary\+Integer1)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a66e0e5b207bb7484d98826708dda3c1f}{TEST}} (Fuzzer\+Mutate, Change\+Binary\+Integer2)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a651ab54af5bf656dd58504a138a61ede}{TEST}} (Fuzzer\+Dictionary, Parse\+One\+Dictionary\+Entry)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a81ba921eb0f59ff691bf0f07cbbfdbba}{TEST}} (Fuzzer\+Dictionary, Parse\+Dictionary\+File)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aeaf26647330a995816cd62b1cae1f76e}{TEST}} (Fuzzer\+Util, Base64)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aad9e8923a41140151cf52209bd2b76b4}{TEST}} (Corpus, Distribution)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_aaca518a7349ca163f96f2ddb2392ba41}{TEST}} (Merge, Bad)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a25865e645c325e4f24c1a05f1e452c8b}{EQ}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&A, const std\+::vector$<$ uint32\+\_\+t $>$ \&B)
+\item 
+void \mbox{\hyperlink{FuzzerUnittest_8cpp_a2357ad9e7ddba5538aab5affc13e4262}{EQ}} (const std\+::vector$<$ std\+::string $>$ \&A, const std\+::vector$<$ std\+::string $>$ \&B)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a80f1c81c6eff2bd5dd6b63b893f1c835}{TEST}} (Merge, Good)
+\item 
+\mbox{\hyperlink{FuzzerUnittest_8cpp_a358de58f67b75df85389c26957a82c8d}{TEST}} (Merge, Merge)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FuzzerUnittest_8cpp_a5343738c5b87768065a903a6aeabb580}\label{FuzzerUnittest_8cpp_a5343738c5b87768065a903a6aeabb580} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!\_LIBCPP\_HAS\_NO\_ASAN@{\_LIBCPP\_HAS\_NO\_ASAN}}
+\index{\_LIBCPP\_HAS\_NO\_ASAN@{\_LIBCPP\_HAS\_NO\_ASAN}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{\_LIBCPP\_HAS\_NO\_ASAN}{\_LIBCPP\_HAS\_NO\_ASAN}}
+{\footnotesize\ttfamily \#define \+\_\+\+LIBCPP\+\_\+\+HAS\+\_\+\+NO\+\_\+\+ASAN}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}\label{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!Mutator@{Mutator}}
+\index{Mutator@{Mutator}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{Mutator}{Mutator}}
+{\footnotesize\ttfamily typedef size\+\_\+t(Mutation\+Dispatcher\+::\texorpdfstring{$\ast$}{*} Mutator) (uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, size\+\_\+t Max\+Size)}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerUnittest_8cpp_a2357ad9e7ddba5538aab5affc13e4262}\label{FuzzerUnittest_8cpp_a2357ad9e7ddba5538aab5affc13e4262} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!EQ@{EQ}}
+\index{EQ@{EQ}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{EQ()}{EQ()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void EQ (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{A,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{B }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a25865e645c325e4f24c1a05f1e452c8b}\label{FuzzerUnittest_8cpp_a25865e645c325e4f24c1a05f1e452c8b} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!EQ@{EQ}}
+\index{EQ@{EQ}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{EQ()}{EQ()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void EQ (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{A,  }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{B }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a1c473c9665269a78ef9001573a6995df}\label{FuzzerUnittest_8cpp_a1c473c9665269a78ef9001573a6995df} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}}
+\index{LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerTestOneInput()}{LLVMFuzzerTestOneInput()}}
+{\footnotesize\ttfamily int LLVMFuzzer\+Test\+One\+Input (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aad9e8923a41140151cf52209bd2b76b4}\label{FuzzerUnittest_8cpp_aad9e8923a41140151cf52209bd2b76b4} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Corpus}]{,  }\item[{Distribution}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aef764bdec7e02fbbd4c6f0b2d718160a}\label{FuzzerUnittest_8cpp_aef764bdec7e02fbbd4c6f0b2d718160a} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}}]{,  }\item[{Cross\+Over}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a2917978eccc0cf92d847f8b06103fcbd}\label{FuzzerUnittest_8cpp_a2917978eccc0cf92d847f8b06103fcbd} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}}}]{,  }\item[{Hash}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a81ba921eb0f59ff691bf0f07cbbfdbba}\label{FuzzerUnittest_8cpp_a81ba921eb0f59ff691bf0f07cbbfdbba} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Dictionary}]{,  }\item[{Parse\+Dictionary\+File}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a651ab54af5bf656dd58504a138a61ede}\label{FuzzerUnittest_8cpp_a651ab54af5bf656dd58504a138a61ede} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [5/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Dictionary}]{,  }\item[{Parse\+One\+Dictionary\+Entry}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a834d88310acb73e27857275302140860}\label{FuzzerUnittest_8cpp_a834d88310acb73e27857275302140860} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [6/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Add\+Word\+From\+Dictionary1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a62282e5242fb713b8f86bdae470d4fb4}\label{FuzzerUnittest_8cpp_a62282e5242fb713b8f86bdae470d4fb4} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [7/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Add\+Word\+From\+Dictionary2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_adf6154fdc787c7f7c87d1f8d95ddaf9f}\label{FuzzerUnittest_8cpp_adf6154fdc787c7f7c87d1f8d95ddaf9f} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [8/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Add\+Word\+From\+Dictionary\+With\+Hint1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a75dbdfb646677b6714c2af5a854f65f0}\label{FuzzerUnittest_8cpp_a75dbdfb646677b6714c2af5a854f65f0} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [9/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Add\+Word\+From\+Dictionary\+With\+Hint2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aecd15415182e0749d65dc17bfad3602c}\label{FuzzerUnittest_8cpp_aecd15415182e0749d65dc17bfad3602c} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [10/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+ASCIIInteger1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a02e07e7934913f07a182b32be95c600b}\label{FuzzerUnittest_8cpp_a02e07e7934913f07a182b32be95c600b} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [11/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+ASCIIInteger2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a775f0c21e79b41d11771f79bb8bb313e}\label{FuzzerUnittest_8cpp_a775f0c21e79b41d11771f79bb8bb313e} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [12/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Binary\+Integer1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a66e0e5b207bb7484d98826708dda3c1f}\label{FuzzerUnittest_8cpp_a66e0e5b207bb7484d98826708dda3c1f} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [13/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Binary\+Integer2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a1b087885957b0f8c5b69a17d33cbeee4}\label{FuzzerUnittest_8cpp_a1b087885957b0f8c5b69a17d33cbeee4} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [14/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Bit1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a610166d0105a8c2545b3e2d86a666773}\label{FuzzerUnittest_8cpp_a610166d0105a8c2545b3e2d86a666773} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [15/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Bit2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a33ed921173886eb5f10cb05e2beafc8b}\label{FuzzerUnittest_8cpp_a33ed921173886eb5f10cb05e2beafc8b} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [16/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Byte1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ac194da37e18a2ad23ec75c59367f0de9}\label{FuzzerUnittest_8cpp_ac194da37e18a2ad23ec75c59367f0de9} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [17/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Change\+Byte2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ab40968a5e618fd40847a764a0b3b890b}\label{FuzzerUnittest_8cpp_ab40968a5e618fd40847a764a0b3b890b} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [18/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Copy\+Part1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a7a45818c35b759905c0c71964ffab99c}\label{FuzzerUnittest_8cpp_a7a45818c35b759905c0c71964ffab99c} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [19/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Copy\+Part2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ae946340c90524e010854d931031bb4df}\label{FuzzerUnittest_8cpp_ae946340c90524e010854d931031bb4df} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [20/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Erase\+Bytes1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aeaef2bc2fb4a9c7af6db7ea1f0f198b7}\label{FuzzerUnittest_8cpp_aeaef2bc2fb4a9c7af6db7ea1f0f198b7} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [21/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Erase\+Bytes2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a156e979cefb0dda232dd8c36ef52647b}\label{FuzzerUnittest_8cpp_a156e979cefb0dda232dd8c36ef52647b} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [22/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Insert\+Byte1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aba449081eb433d71f5801865c6a48657}\label{FuzzerUnittest_8cpp_aba449081eb433d71f5801865c6a48657} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [23/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Insert\+Byte2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ae25a0bff85abcd19ee94a5a3e855d405}\label{FuzzerUnittest_8cpp_ae25a0bff85abcd19ee94a5a3e855d405} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [24/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Insert\+Repeated\+Bytes1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a08bfd7dc67a7ad6818c638c4dcf34b5d}\label{FuzzerUnittest_8cpp_a08bfd7dc67a7ad6818c638c4dcf34b5d} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [25/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Insert\+Repeated\+Bytes2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a55bfdc06458f7f3f9ccfcffd97185ece}\label{FuzzerUnittest_8cpp_a55bfdc06458f7f3f9ccfcffd97185ece} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [26/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Shuffle\+Bytes1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ac8864b52510ffc804e15d4dbc7645698}\label{FuzzerUnittest_8cpp_ac8864b52510ffc804e15d4dbc7645698} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [27/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Mutate}]{,  }\item[{Shuffle\+Bytes2}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aeaf26647330a995816cd62b1cae1f76e}\label{FuzzerUnittest_8cpp_aeaf26647330a995816cd62b1cae1f76e} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [28/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Fuzzer\+Util}]{,  }\item[{Base64}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aaca518a7349ca163f96f2ddb2392ba41}\label{FuzzerUnittest_8cpp_aaca518a7349ca163f96f2ddb2392ba41} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [29/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Merge}]{,  }\item[{Bad}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a80f1c81c6eff2bd5dd6b63b893f1c835}\label{FuzzerUnittest_8cpp_a80f1c81c6eff2bd5dd6b63b893f1c835} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [30/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Merge}]{,  }\item[{Good}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a358de58f67b75df85389c26957a82c8d}\label{FuzzerUnittest_8cpp_a358de58f67b75df85389c26957a82c8d} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [31/31]}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{Merge}]{,  }\item[{Merge}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a00c4a1a2a790d27b66b188622855245c}\label{FuzzerUnittest_8cpp_a00c4a1a2a790d27b66b188622855245c} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestAddWordFromDictionary@{TestAddWordFromDictionary}}
+\index{TestAddWordFromDictionary@{TestAddWordFromDictionary}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestAddWordFromDictionary()}{TestAddWordFromDictionary()}}
+{\footnotesize\ttfamily void Test\+Add\+Word\+From\+Dictionary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_abaa5673e660442bca4e55dd4b1fa58a6}\label{FuzzerUnittest_8cpp_abaa5673e660442bca4e55dd4b1fa58a6} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestAddWordFromDictionaryWithHint@{TestAddWordFromDictionaryWithHint}}
+\index{TestAddWordFromDictionaryWithHint@{TestAddWordFromDictionaryWithHint}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestAddWordFromDictionaryWithHint()}{TestAddWordFromDictionaryWithHint()}}
+{\footnotesize\ttfamily void Test\+Add\+Word\+From\+Dictionary\+With\+Hint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_acb6081d19593d3c1fbaf8565421ca804}\label{FuzzerUnittest_8cpp_acb6081d19593d3c1fbaf8565421ca804} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestChangeASCIIInteger@{TestChangeASCIIInteger}}
+\index{TestChangeASCIIInteger@{TestChangeASCIIInteger}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestChangeASCIIInteger()}{TestChangeASCIIInteger()}}
+{\footnotesize\ttfamily void Test\+Change\+ASCIIInteger (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aec5b0c554cce14e8ff36a5dd4eb53873}\label{FuzzerUnittest_8cpp_aec5b0c554cce14e8ff36a5dd4eb53873} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestChangeBinaryInteger@{TestChangeBinaryInteger}}
+\index{TestChangeBinaryInteger@{TestChangeBinaryInteger}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestChangeBinaryInteger()}{TestChangeBinaryInteger()}}
+{\footnotesize\ttfamily void Test\+Change\+Binary\+Integer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a82e040b313cd5105ee6629d47b58c760}\label{FuzzerUnittest_8cpp_a82e040b313cd5105ee6629d47b58c760} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestChangeBit@{TestChangeBit}}
+\index{TestChangeBit@{TestChangeBit}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestChangeBit()}{TestChangeBit()}}
+{\footnotesize\ttfamily void Test\+Change\+Bit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ab2a276c8baa49927b0ccf85d90d1287e}\label{FuzzerUnittest_8cpp_ab2a276c8baa49927b0ccf85d90d1287e} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestChangeByte@{TestChangeByte}}
+\index{TestChangeByte@{TestChangeByte}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestChangeByte()}{TestChangeByte()}}
+{\footnotesize\ttfamily void Test\+Change\+Byte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a0364a2e0d3bb7c705fd70e774edc9fb7}\label{FuzzerUnittest_8cpp_a0364a2e0d3bb7c705fd70e774edc9fb7} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestCopyPart@{TestCopyPart}}
+\index{TestCopyPart@{TestCopyPart}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestCopyPart()}{TestCopyPart()}}
+{\footnotesize\ttfamily void Test\+Copy\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a9d2e01c1e1caba545d1e22bf678b1fe2}\label{FuzzerUnittest_8cpp_a9d2e01c1e1caba545d1e22bf678b1fe2} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestEraseBytes@{TestEraseBytes}}
+\index{TestEraseBytes@{TestEraseBytes}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestEraseBytes()}{TestEraseBytes()}}
+{\footnotesize\ttfamily void Test\+Erase\+Bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_ade32c028e1f73a092d3b5612e4563b3d}\label{FuzzerUnittest_8cpp_ade32c028e1f73a092d3b5612e4563b3d} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestInsertByte@{TestInsertByte}}
+\index{TestInsertByte@{TestInsertByte}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestInsertByte()}{TestInsertByte()}}
+{\footnotesize\ttfamily void Test\+Insert\+Byte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_aa63b636a8c4dd5b713d1cb9c0790bf0c}\label{FuzzerUnittest_8cpp_aa63b636a8c4dd5b713d1cb9c0790bf0c} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestInsertRepeatedBytes@{TestInsertRepeatedBytes}}
+\index{TestInsertRepeatedBytes@{TestInsertRepeatedBytes}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestInsertRepeatedBytes()}{TestInsertRepeatedBytes()}}
+{\footnotesize\ttfamily void Test\+Insert\+Repeated\+Bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerUnittest_8cpp_a38efce6f73de9357957e49987ebfffce}\label{FuzzerUnittest_8cpp_a38efce6f73de9357957e49987ebfffce} 
+\index{FuzzerUnittest.cpp@{FuzzerUnittest.cpp}!TestShuffleBytes@{TestShuffleBytes}}
+\index{TestShuffleBytes@{TestShuffleBytes}!FuzzerUnittest.cpp@{FuzzerUnittest.cpp}}
+\doxysubsubsection{\texorpdfstring{TestShuffleBytes()}{TestShuffleBytes()}}
+{\footnotesize\ttfamily void Test\+Shuffle\+Bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerUnittest_8cpp_a4d25c7dd0a40bf7201a32501976c5e93}{Mutator}}}]{M,  }\item[{int}]{Num\+Iter }\end{DoxyParamCaption})}
+

@@ -1,0 +1,355 @@
+\chapter{Binary Values}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values}\index{Binary Values@{Binary Values}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1342}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1342}%
+ The library implements several \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index}{binary formats}{0} that encode JSON in an efficient way. Most of these formats support binary values; that is, values that have semantics define outside the library and only define a sequence of bytes to be stored.
+
+JSON itself does not have a binary value. As such, binary values are an extension that this library implements to store values received by a binary format. Binary values are never created by the JSON parser, and are only part of a serialized JSON text if they have been created manually or via a binary format.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1343}{}\doxysection{\texorpdfstring{API for binary values}{API for binary values}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1343}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{class\ json::binary\_t\ \{}
+\DoxyCodeLine{\ \ \ \ -\/-\/\ setters\ -\/-\/}
+\DoxyCodeLine{\ \ \ \ +void\ set\_subtype(std::uint64\_t\ subtype)}
+\DoxyCodeLine{\ \ \ \ +void\ clear\_subtype()}
+\DoxyCodeLine{\ \ \ \ -\/-\/\ getters\ -\/-\/}
+\DoxyCodeLine{\ \ \ \ +std::uint64\_t\ subtype()\ const}
+\DoxyCodeLine{\ \ \ \ +bool\ has\_subtype()\ const}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{"{}std::vector<uint8\_t>"{}\ <|-\/-\/\ json::binary\_t}
+
+\end{DoxyCode}
+
+
+By default, binary values are stored as {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}}. This type can be changed by providing a template parameter to the {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type. To store binary subtypes, the storage type is extended and exposed as {\ttfamily \doxylink{classnlohmann_1_1basic__json_ad6c955145bebde84d93991ffed7cd389}{json\+::binary\+\_\+t}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_ad6c955145bebde84d93991ffed7cd389}{json::binary\_t}}(\{0xCA,\ 0xFE,\ 0xBA,\ 0xBE\});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ binary\_with\_subtype\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_ad6c955145bebde84d93991ffed7cd389}{json::binary\_t}}(\{0xCA,\ 0xFE,\ 0xBA,\ 0xBE\},\ 42);}
+
+\end{DoxyCode}
+
+
+There are several convenience functions to check and set the subtype\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.has\_subtype();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ returns\ false}}
+\DoxyCodeLine{binary\_with\_subtype.\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_a9fc42fb07003bf7048c2f1fc79478e02}{has\_subtype}}();\ \ \ \ \ \ \textcolor{comment}{//\ returns\ true}}
+\DoxyCodeLine{}
+\DoxyCodeLine{binary\_with\_subtype.\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_a7b122b28ff2b8680557ca44ac9748e49}{clear\_subtype}}();}
+\DoxyCodeLine{binary\_with\_subtype.\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_a9fc42fb07003bf7048c2f1fc79478e02}{has\_subtype}}();\ \ \ \ \ \ \textcolor{comment}{//\ returns\ true}}
+\DoxyCodeLine{}
+\DoxyCodeLine{binary\_with\_subtype.\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_aa8f9fca70673949d7483a6097d00d61c}{set\_subtype}}(42);}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.set\_subtype(23);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.subtype();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ returns\ 23}}
+
+\end{DoxyCode}
+
+
+As {\ttfamily \doxylink{classnlohmann_1_1basic__json_ad6c955145bebde84d93991ffed7cd389}{json\+::binary\+\_\+t}} is subclassing {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}}, all member functions are available\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.size();\ \ \textcolor{comment}{//\ returns\ 4}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}[1];\ \ \ \ \ \ \textcolor{comment}{//\ returns\ 0xFE}}
+
+\end{DoxyCode}
+
+
+JSON values can be constructed from {\ttfamily \doxylink{classnlohmann_1_1basic__json_ad6c955145bebde84d93991ffed7cd389}{json\+::binary\+\_\+t}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}};}
+
+\end{DoxyCode}
+
+
+Binary values are primitive values just like numbers or strings\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a9576224f7b3ff812a308e7c1e784ea80}{is\_binary}}();\ \ \ \ \textcolor{comment}{//\ returns\ true}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a548d2d4013da24e7d7510d90febc80c4}{is\_primitive}}();\ \textcolor{comment}{//\ returns\ true}}
+
+\end{DoxyCode}
+
+
+Given a binary JSON value, the {\ttfamily binary\+\_\+t} can be accessed by reference as via {\ttfamily get\+\_\+binary()}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23c2e02101cc62e1aec1d6ddaef0e340}{get\_binary}}().\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_a9fc42fb07003bf7048c2f1fc79478e02}{has\_subtype}}();\ \ \textcolor{comment}{//\ returns\ true}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23c2e02101cc62e1aec1d6ddaef0e340}{get\_binary}}().size();\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ returns\ 4}}
+
+\end{DoxyCode}
+
+
+For convenience, binary JSON values can be constructed via {\ttfamily json\+::binary}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}}\ =\ json::binary(\{0xCA,\ 0xFE,\ 0xBA,\ 0xBE\},\ 23);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ j3\ =\ json::binary(\{0xCA,\ 0xFE,\ 0xBA,\ 0xBE\});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}}\ ==\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ returns\ true}}
+\DoxyCodeLine{j3.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23c2e02101cc62e1aec1d6ddaef0e340}{get\_binary}}().\mbox{\hyperlink{classnlohmann_1_1byte__container__with__subtype_a9fc42fb07003bf7048c2f1fc79478e02}{has\_subtype}}();\ \ \textcolor{comment}{//\ returns\ false}}
+\DoxyCodeLine{j3.get\_binary().subtype();\ \ \ \ \ \ \textcolor{comment}{//\ returns\ std::uint64\_t(-\/1)\ as\ j3\ has\ no\ subtype}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1344}{}\doxysection{\texorpdfstring{Serialization}{Serialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1344}
+Binary values are serialized differently according to the formats.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1345}{}\doxysubsection{\texorpdfstring{JSON}{JSON}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1345}
+JSON does not have a binary type, and this library does not introduce a new type as this would break conformance. Instead, binary values are serialized as an object with two keys\+: {\ttfamily bytes} holds an array of integers, and {\ttfamily subtype} is an integer or {\ttfamily null}.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// serialize to standard output
+std::cout << j.dump(2) << std::endl;
+```
+
+Output:
+
+```json
+{
+  "binary": {
+    "bytes": [202, 254, 186, 190],
+    "subtype": 42
+  }
+}
+```
+\end{DoxyVerb}
+ !!! warning "{}\+No roundtrip for binary values"{} \begin{DoxyVerb}The JSON parser will not parse the objects generated by binary values back to binary values. This is by design to
+remain standards compliant. Serializing binary values to JSON is only implemented for debugging purposes.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1346}{}\doxysubsection{\texorpdfstring{BJData}{BJData}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1346}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata}{BJData}{0} neither supports binary values nor subtypes, and proposes to serialize binary values as array of uint8 values. This translation is implemented by the library.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42 (will be ignored in BJData)
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// convert to BJData
+auto v = json::to_bjdata(j);      
+```
+
+`v` is a `std::vector<std::uint8t>` with the following 20 elements:
+
+```c
+0x7B                                             // '{'
+    0x69 0x06                                    // i 6 (length of the key)
+    0x62 0x69 0x6E 0x61 0x72 0x79                // "binary"
+    0x5B                                         // '['
+        0x55 0xCA 0x55 0xFE 0x55 0xBA 0x55 0xBE  // content (each byte prefixed with 'U')
+    0x5D                                         // ']'
+0x7D                                             // '}'
+```
+
+The following code uses the type and size optimization for UBJSON:
+
+```cpp
+// convert to UBJSON using the size and type optimization
+auto v = json::to_bjdata(j, true, true);
+```
+
+The resulting vector has 22 elements; the optimization is not effective for examples with few values:
+
+```c
+0x7B                                // '{'
+    0x23 0x69 0x01                  // '#' 'i' type of the array elements: unsigned integers
+    0x69 0x06                       // i 6 (length of the key)
+    0x62 0x69 0x6E 0x61 0x72 0x79   // "binary"
+    0x5B                            // '[' array
+        0x24 0x55                   // '$' 'U' type of the array elements: unsigned integers
+        0x23 0x69 0x04              // '#' i 4 number of array elements
+        0xCA 0xFE 0xBA 0xBE         // content
+```
+
+Note that subtype (42) is **not** serialized and that UBJSON has **no binary type**, and deserializing `v` would
+yield the following value:
+
+```json
+{
+  "binary": [202, 254, 186, 190]
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1347}{}\doxysubsection{\texorpdfstring{BSON}{BSON}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1347}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}{BSON}{0} supports binary values and subtypes. If a subtype is given, it is used and added as unsigned 8-\/bit integer. If no subtype is given, the generic binary subtype 0x00 is used.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// convert to BSON
+auto v = json::to_bson(j);      
+```
+
+`v` is a `std::vector<std::uint8t>` with the following 22 elements:
+
+```c
+0x16 0x00 0x00 0x00                         // number of bytes in the document
+    0x05                                    // binary value
+        0x62 0x69 0x6E 0x61 0x72 0x79 0x00  // key "binary" + null byte
+        0x04 0x00 0x00 0x00                 // number of bytes
+        0x2a                                // subtype
+        0xCA 0xFE 0xBA 0xBE                 // content
+0x00                                        // end of the document
+```
+
+Note that the serialization preserves the subtype, and deserializing `v` would yield the following value:
+
+```json
+{
+  "binary": {
+    "bytes": [202, 254, 186, 190],
+    "subtype": 42
+  }
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1348}{}\doxysubsection{\texorpdfstring{CBOR}{CBOR}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1348}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2cbor}{CBOR}{0} supports binary values, but no subtypes. Subtypes will be serialized as tags. Any binary value will be serialized as byte strings. The library will choose the smallest representation using the length of the byte array.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// convert to CBOR
+auto v = json::to_cbor(j);      
+```
+
+`v` is a `std::vector<std::uint8t>` with the following 15 elements:
+
+```c
+0xA1                                   // map(1)
+    0x66                               // text(6)
+        0x62 0x69 0x6E 0x61 0x72 0x79  // "binary"
+    0xD8 0x2A                          // tag(42)
+    0x44                               // bytes(4)
+        0xCA 0xFE 0xBA 0xBE            // content
+```
+
+Note that the subtype is serialized as tag. However, parsing tagged values yield a parse error unless
+`json::cbor_tag_handler_t::ignore` or `json::cbor_tag_handler_t::store` is passed to `json::from_cbor`.
+
+```json
+{
+  "binary": {
+    "bytes": [202, 254, 186, 190],
+    "subtype": null
+  }
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1349}{}\doxysubsection{\texorpdfstring{Message\+Pack}{MessagePack}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1349}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2messagepack}{Message\+Pack}{0} supports binary values and subtypes. If a subtype is given, the ext family is used. The library will choose the smallest representation among fixext1, fixext2, fixext4, fixext8, ext8, ext16, and ext32. The subtype is then added as signed 8-\/bit integer.
+
+If no subtype is given, the bin family (bin8, bin16, bin32) is used.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// convert to MessagePack
+auto v = json::to_msgpack(j);      
+```
+
+`v` is a `std::vector<std::uint8t>` with the following 14 elements:
+
+```c
+0x81                                   // fixmap1
+    0xA6                               // fixstr6
+        0x62 0x69 0x6E 0x61 0x72 0x79  // "binary"
+    0xD6                               // fixext4
+        0x2A                           // subtype
+        0xCA 0xFE 0xBA 0xBE            // content
+```
+
+Note that the serialization preserves the subtype, and deserializing `v` would yield the following value:
+
+```json
+{
+  "binary": {
+    "bytes": [202, 254, 186, 190],
+    "subtype": 42
+  }
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1350}{}\doxysubsection{\texorpdfstring{UBJSON}{UBJSON}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__values_autotoc_md1350}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2ubjson}{UBJSON}{0} neither supports binary values nor subtypes, and proposes to serialize binary values as array of uint8 values. This translation is implemented by the library.
+
+??? example \begin{DoxyVerb}Code:
+
+```cpp
+// create a binary value of subtype 42 (will be ignored in UBJSON)
+json j;
+j["binary"] = json::binary({0xCA, 0xFE, 0xBA, 0xBE}, 42);
+
+// convert to UBJSON
+auto v = json::to_ubjson(j);      
+```
+
+`v` is a `std::vector<std::uint8t>` with the following 20 elements:
+
+```c
+0x7B                                             // '{'
+    0x69 0x06                                    // i 6 (length of the key)
+    0x62 0x69 0x6E 0x61 0x72 0x79                // "binary"
+    0x5B                                         // '['
+        0x55 0xCA 0x55 0xFE 0x55 0xBA 0x55 0xBE  // content (each byte prefixed with 'U')
+    0x5D                                         // ']'
+0x7D                                             // '}'
+```
+
+The following code uses the type and size optimization for UBJSON:
+
+```cpp
+// convert to UBJSON using the size and type optimization
+auto v = json::to_ubjson(j, true, true);
+```
+
+The resulting vector has 23 elements; the optimization is not effective for examples with few values:
+
+```c
+0x7B                                // '{'
+    0x24                            // '$' type of the object elements
+    0x5B                            // '[' array
+    0x23 0x69 0x01                  // '#' i 1 number of object elements
+    0x69 0x06                       // i 6 (length of the key)
+    0x62 0x69 0x6E 0x61 0x72 0x79   // "binary"
+        0x24 0x55                   // '$' 'U' type of the array elements: unsigned integers
+        0x23 0x69 0x04              // '#' i 4 number of array elements
+        0xCA 0xFE 0xBA 0xBE         // content
+```
+
+Note that subtype (42) is **not** serialized and that UBJSON has **no binary type**, and deserializing `v` would
+yield the following value:
+
+```json
+{
+  "binary": [202, 254, 186, 190]
+}
+```
+\end{DoxyVerb}
+ 

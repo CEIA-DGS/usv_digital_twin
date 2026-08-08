@@ -84,7 +84,7 @@ $(function() {
 <p>ROS 2 Node responsible for bridging ROS data to the Digital Twin Core.  
  <a href="classdt__ros_1_1DigitalTwinNode.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="dt__node_8hpp_source.html">dt_node.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="dt__ros_2include_2dt__ros_2dt__node_8hpp_source.html">dt_node.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for dt_ros::DigitalTwinNode:</div>
 <div class="dyncontent">
@@ -92,7 +92,8 @@ Inheritance diagram for dt_ros::DigitalTwinNode:</div>
 <map name="adt__ros_1_1DigitalTwinNode_inherit__map" id="adt__ros_1_1DigitalTwinNode_inherit__map">
 <area shape="rect" title="ROS 2 Node responsible for bridging ROS data to the Digital Twin Core." alt="" coords="5,79,181,104"/>
 <area shape="rect" title=" " alt="" coords="42,5,145,31"/>
-<area shape="poly" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
+<area shape="poly" title=" " alt="" coords="87,44,89,78,84,79,82,45"/>
+<area shape="poly" title=" " alt="" coords="105,45,103,79,98,78,99,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -102,7 +103,8 @@ Collaboration diagram for dt_ros::DigitalTwinNode:</div>
 <map name="adt__ros_1_1DigitalTwinNode_coll__map" id="adt__ros_1_1DigitalTwinNode_coll__map">
 <area shape="rect" title="ROS 2 Node responsible for bridging ROS data to the Digital Twin Core." alt="" coords="5,79,181,104"/>
 <area shape="rect" title=" " alt="" coords="42,5,145,31"/>
-<area shape="poly" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
+<area shape="poly" title=" " alt="" coords="87,44,89,78,84,79,82,45"/>
+<area shape="poly" title=" " alt="" coords="105,45,103,79,98,78,99,44"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -111,13 +113,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a451e8ffbd36dc7ebdf241af9f4bd0dad" id="r_a451e8ffbd36dc7ebdf241af9f4bd0dad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt__ros_1_1DigitalTwinNode.html#a451e8ffbd36dc7ebdf241af9f4bd0dad">DigitalTwinNode</a> (std::shared_ptr&lt; <a class="el" href="classdt_1_1DigitalTwinCore.html">dt::DigitalTwinCore</a> &gt; dt_core, const rclcpp::NodeOptions &amp;options=rclcpp::NodeOptions())</td></tr>
 <tr class="memdesc:a451e8ffbd36dc7ebdf241af9f4bd0dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Digital Twin Node object.  <br /></td></tr>
 <tr class="separator:a451e8ffbd36dc7ebdf241af9f4bd0dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451e8ffbd36dc7ebdf241af9f4bd0dad" id="r_a451e8ffbd36dc7ebdf241af9f4bd0dad"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt__ros_1_1DigitalTwinNode.html#a451e8ffbd36dc7ebdf241af9f4bd0dad">DigitalTwinNode</a> (std::shared_ptr&lt; <a class="el" href="classdt_1_1DigitalTwinCore.html">dt::DigitalTwinCore</a> &gt; dt_core, const rclcpp::NodeOptions &amp;options=rclcpp::NodeOptions())</td></tr>
+<tr class="separator:a451e8ffbd36dc7ebdf241af9f4bd0dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ROS 2 Node responsible for bridging ROS data to the Digital Twin Core. </p>
 <p>This node subscribes to telemetry, navigation, and environmental data (GPS, IMU, AIS, Waypoints), converts the ROS messages into domain-specific types, and updates the core digital twin state. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a451e8ffbd36dc7ebdf241af9f4bd0dad" name="a451e8ffbd36dc7ebdf241af9f4bd0dad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a451e8ffbd36dc7ebdf241af9f4bd0dad">&#9670;&#160;</a></span>DigitalTwinNode()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a451e8ffbd36dc7ebdf241af9f4bd0dad">&#9670;&#160;</a></span>DigitalTwinNode() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,8 +165,45 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a451e8ffbd36dc7ebdf241af9f4bd0dad" name="a451e8ffbd36dc7ebdf241af9f4bd0dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451e8ffbd36dc7ebdf241af9f4bd0dad">&#9670;&#160;</a></span>DigitalTwinNode() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dt_ros::DigitalTwinNode::DigitalTwinNode </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classdt_1_1DigitalTwinCore.html">dt::DigitalTwinCore</a> &gt;&#160;</td>
+          <td class="paramname"><em>dt_core</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const rclcpp::NodeOptions &amp;&#160;</td>
+          <td class="paramname"><em>options</em> = <code>rclcpp::NodeOptions()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>dt_ros/include/dt_ros/<a class="el" href="dt__node_8hpp_source.html">dt_node.hpp</a></li>
+<li>dt_ros/include/dt_ros/<a class="el" href="dt__ros_2include_2dt__ros_2dt__node_8hpp_source.html">dt_node.hpp</a></li>
+<li>install/dt_ros/include/dt_ros/<a class="el" href="install_2dt__ros_2include_2dt__ros_2dt__node_8hpp_source.html">dt_node.hpp</a></li>
 <li>dt_ros/src/<a class="el" href="dt__node_8cpp.html">dt_node.cpp</a></li>
 </ul>
 </div><!-- contents -->

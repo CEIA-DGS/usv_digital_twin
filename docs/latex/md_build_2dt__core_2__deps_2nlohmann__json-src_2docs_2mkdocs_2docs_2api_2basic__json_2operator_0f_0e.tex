@@ -1,0 +1,204 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator\mbox{[}\mbox{]}}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator\mbox{[}\mbox{]}@{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator[]}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md636}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md636}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{reference\ operator[](size\_type\ idx);}
+\DoxyCodeLine{const\_reference\ operator[](size\_type\ idx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{reference\ operator[](\textcolor{keyword}{typename}\ object\_t::key\_type\ key);}
+\DoxyCodeLine{const\_reference\ operator[](\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{reference\ operator[](KeyType\&\&\ key);}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{const\_reference\ operator[](KeyType\&\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (4)}}
+\DoxyCodeLine{reference\ operator[](\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr);}
+\DoxyCodeLine{const\_reference\ operator[](\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Returns a reference to the array element at specified location {\ttfamily idx}.
+\item Returns a reference to the object element with specified key {\ttfamily key}. The non-\/const qualified overload takes the key by value.
+\item See 2. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\item Returns a reference to the element with specified JSON pointer {\ttfamily ptr}.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md637}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md637}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md638}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md638}
+{\ttfamily idx} (in) \+: index of the element to access
+
+{\ttfamily key} (in) \+: object key of the element to access
+
+{\ttfamily ptr} (in) \+: JSON pointer to the desired element\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md639}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md639}
+
+\begin{DoxyEnumerate}
+\item (const) reference to the element at index {\ttfamily idx}
+\item (const) reference to the element at key {\ttfamily key}
+\item (const) reference to the element at key {\ttfamily key}
+\item (const) reference to the element pointed to by {\ttfamily ptr}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md640}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md640}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md641}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md641}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error305}{\texttt{ {\ttfamily type\+\_\+error.\+305}}} if the JSON value is not an array or null; in that case, using the {\ttfamily \mbox{[}\mbox{]}} operator with an index makes no sense.
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error305}{\texttt{ {\ttfamily type\+\_\+error.\+305}}} if the JSON value is not an object or null; in that case, using the {\ttfamily \mbox{[}\mbox{]}} operator with a key makes no sense.
+\end{DoxyItemize}
+\item See 2.
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error106}{\texttt{ {\ttfamily parse\+\_\+error.\+106}}} if an array index in the passed JSON pointer {\ttfamily ptr} begins with \textquotesingle{}0\textquotesingle{}.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error109}{\texttt{ {\ttfamily parse\+\_\+error.\+109}}} if an array index in the passed JSON pointer {\ttfamily ptr} is not a number.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range402}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+402}}} if the array index \textquotesingle{}-\/\textquotesingle{} is used in the passed JSON pointer {\ttfamily ptr} for the const version.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range404}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+404}}} if the JSON pointer {\ttfamily ptr} can not be resolved.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md642}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md642}
+
+\begin{DoxyEnumerate}
+\item Constant if {\ttfamily idx} is in the range of the array. Otherwise, linear in {\ttfamily idx -\/ size()}.
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md643}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md643}
+!!! danger "{}\+Undefined behavior and runtime assertions"{} \begin{DoxyVerb}1. If the element with key `idx` does not exist, the behavior is undefined.
+2. If the element with key `key` does not exist, the behavior is undefined and is **guarded by a
+   [runtime assertion](../../features/assertions.md)**!
+\end{DoxyVerb}
+
+\begin{DoxyEnumerate}
+\item The non-\/const version may add values\+: If {\ttfamily idx} is beyond the range of the array (i.\+e., {\ttfamily idx \texorpdfstring{$>$}{>}= size()}), then the array is silently filled up with {\ttfamily \#!json null} values to make {\ttfamily idx} a valid reference to the last stored element. In case the value was {\ttfamily \#!json null} before, it is converted to an array.
+\item If {\ttfamily key} is not found in the object, then it is silently added to the object and filled with a {\ttfamily \#!json null} value to make {\ttfamily key} a valid reference. In case the value was {\ttfamily \#!json null} before, it is converted to an object.
+\item See 2.
+\item {\ttfamily null} values are created in arrays and objects if necessary.
+
+In particular\+:
+\begin{DoxyItemize}
+\item If the JSON pointer points to an object key that does not exist, it is created and filled with a {\ttfamily \#!json null} value before a reference to it is returned.
+\item If the JSON pointer points to an array index that does not exist, it is created and filled with a {\ttfamily \#!json null} value before a reference to it is returned. All indices between the current maximum and the given index are also filled with {\ttfamily \#!json null}.
+\item The special value {\ttfamily -\/} is treated as a synonym for the index past the end.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md644}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md644}
+??? example "{}\+Example\+: (1) access specified array element"{} \begin{DoxyVerb}The example below shows how array elements can be read and written using `[]` operator. Note the addition of
+`#!json null` values.
+
+```cpp
+--8<-- "examples/operator_array__size_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__size_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (1) access specified array element (const)"{} \begin{DoxyVerb}The example below shows how array elements can be read using the `[]` operator.
+
+```cpp
+--8<-- "examples/operator_array__size_type_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__size_type_const.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) access specified object element"{} \begin{DoxyVerb}The example below shows how object elements can be read and written using the `[]` operator.
+
+```cpp
+--8<-- "examples/operator_array__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) access specified object element (const)"{} \begin{DoxyVerb}The example below shows how object elements can be read using the `[]` operator.
+
+```cpp
+--8<-- "examples/operator_array__object_t_key_type_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__object_t_key_type_const.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) access specified object element using string\+\_\+view"{} \begin{DoxyVerb}The example below shows how object elements can be read using the `[]` operator.
+
+```cpp
+--8<-- "examples/operator_array__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) access specified object element using string\+\_\+view (const)"{} \begin{DoxyVerb}The example below shows how object elements can be read using the `[]` operator.
+
+```cpp
+--8<-- "examples/operator_array__keytype_const.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__keytype_const.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (4) access specified element via JSON Pointer"{} \begin{DoxyVerb}The example below shows how values can be read and written using JSON Pointers.
+
+```cpp
+--8<-- "examples/operator_array__json_pointer.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__json_pointer.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (4) access specified element via JSON Pointer (const)"{} \begin{DoxyVerb}The example below shows how values can be read using JSON Pointers.
+
+```cpp
+--8<-- "examples/operator_array__json_pointer_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_array__json_pointer_const.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md645}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md645}
+
+\begin{DoxyItemize}
+\item documentation on \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2unchecked__access}{unchecked access}{0}
+\item documentation on \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions}{runtime assertions}{0}
+\item see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\`{}at\`{}}{0} for access by reference with range checking
+\item see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}{\`{}value\`{}}{0} for access with default value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md646}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e_autotoc_md646}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0.
+\item Added in version 1.\+0.\+0. Added overloads for {\ttfamily T\texorpdfstring{$\ast$}{*} key} in version 1.\+1.\+0. Removed overloads for {\ttfamily T\texorpdfstring{$\ast$}{*} key} (replaced by 3) in version 3.\+11.\+0.
+\item Added in version 3.\+11.\+0.
+\item Added in version 2.\+0.\+0. 
+\end{DoxyEnumerate}

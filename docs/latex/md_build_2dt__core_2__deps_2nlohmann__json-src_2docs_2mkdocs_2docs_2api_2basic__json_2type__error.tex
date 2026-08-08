@@ -1,0 +1,72 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}type\+\_\+error}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$type\_error@{$<$small$>$nlohmann::basic\_json::$<$/small$>$type\_error}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md897}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md897}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }type\_error\ :\ \textcolor{keyword}{public}\ exception;}
+
+\end{DoxyCode}
+
+
+This exception is thrown in case of a type error; that is, a library function is executed on a JSON value whose type does not match the expected semantics.
+
+Exceptions have ids 3xx (see \href{../../home/exceptions.md\#type-errors}{\texttt{ list of type errors}}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::exception\ <|-\/-\/\ basic\_json::exception}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::parse\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::invalid\_iterator}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::type\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::out\_of\_range}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::other\_error}
+\DoxyCodeLine{}
+\DoxyCodeLine{interface\ std::exception\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::exception\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ int\ id}
+\DoxyCodeLine{\ \ \ \ +\ const\ char*\ what()\ const}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::parse\_error\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ std::size\_t\ byte}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::type\_error\ \#FFFF00\ \{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md898}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md898}
+
+\begin{DoxyItemize}
+\item {\bfseries{what}} -\/ returns explanatory string
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md899}{}\doxysection{\texorpdfstring{Member variables}{Member variables}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md899}
+
+\begin{DoxyItemize}
+\item {\bfseries{id}} -\/ the id of the exception
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md900}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md900}
+??? example \begin{DoxyVerb}The following code shows how a `type_error` exception can be caught.
+
+```cpp
+--8<-- "examples/type_error.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/type_error.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md901}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md901}
+
+\begin{DoxyItemize}
+\item \href{../../home/exceptions.md\#type-errors}{\texttt{ List of type errors}}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error}{\`{}parse\+\_\+error\`{}}{0} for exceptions indicating a parse error
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2invalid__iterator}{\`{}invalid\+\_\+iterator\`{}}{0} for exceptions indicating errors with iterators
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2out__of__range}{\`{}out\+\_\+of\+\_\+range\`{}}{0} for exceptions indicating access out of the defined range
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2other__error}{\`{}other\+\_\+error\`{}}{0} for exceptions indicating other library errors
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md902}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error_autotoc_md902}
+
+\begin{DoxyItemize}
+\item Since version 3.\+0.\+0. 
+\end{DoxyItemize}

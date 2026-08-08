@@ -1,0 +1,126 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/utils.h@{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/utils.h}}
+\mbox{\hyperlink{utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Poly2Tri\ Copyright\ (c)\ 2009-\/2018,\ Poly2Tri\ Contributors}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ https://github.com/jhasse/poly2tri}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ modification,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ documentation}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ *\ Neither\ the\ name\ of\ Poly2Tri\ nor\ the\ names\ of\ its\ contributors\ may\ be}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this\ software\ without\ specific}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ prior\ written\ permission.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Otherwise\ \#defines\ like\ M\_PI\ are\ undeclared\ under\ Visual\ Studio}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ \_USE\_MATH\_DEFINES}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shapes_8h}{shapes.h}}"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{//\ C99\ removes\ M\_PI\ from\ math.h}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifndef\ M\_PI}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ M\_PI\ 3.14159265358979323846264338327}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacep2t}{p2t}}\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacep2t_a8f5d342ebd2614a9169a41fa6952b5f9}{PI\_3div4}}\ =\ 3\ *\ \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\_PI}}\ /\ 4;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacep2t_abd7f6949620798fa69359d45d8c46f98}{PI\_div2}}\ =\ 1.57079632679489661923;}
+\DoxyCodeLine{00051\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}{EPSILON}}\ =\ 1e-\/12;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}}\ \{\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b}{CW}},\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a}{CCW}},\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387}{COLLINEAR}}\ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00065\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}}\ \mbox{\hyperlink{namespacep2t_a9fa090c7f13c6b2665d3bdcd48b3478b}{Orient2d}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pc)}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{double}\ detleft\ =\ (pa.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})\ *\ (pb.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{double}\ detright\ =\ (pa.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})\ *\ (pb.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}});}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{double}\ val\ =\ detleft\ -\/\ detright;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ Using\ a\ tolerance\ here\ fails\ on\ concave-\/by-\/subepsilon\ boundaries}}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ \ \ if\ (val\ >\ -\/EPSILON\ \&\&\ val\ <\ EPSILON)\ \{}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ Using\ ==\ on\ double\ makes\ -\/Wfloat-\/equal\ warnings\ yell\ at\ us}}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{if}\ (std::fpclassify(val)\ ==\ FP\_ZERO)\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387}{COLLINEAR}};}
+\DoxyCodeLine{00076\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (val\ >\ 0)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a}{CCW}};}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b}{CW}};}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00083\ \textcolor{comment}{bool\ InScanArea(Point\&\ pa,\ Point\&\ pb,\ Point\&\ pc,\ Point\&\ pd)}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\{}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ double\ pdx\ =\ pd.x;}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ double\ pdy\ =\ pd.y;}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ \ double\ adx\ =\ pa.x\ -\/\ pdx;}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ double\ ady\ =\ pa.y\ -\/\ pdy;}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ double\ bdx\ =\ pb.x\ -\/\ pdx;}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ double\ bdy\ =\ pb.y\ -\/\ pdy;}}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ double\ adxbdy\ =\ adx\ *\ bdy;}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ \ double\ bdxady\ =\ bdx\ *\ ady;}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ double\ oabd\ =\ adxbdy\ -\/\ bdxady;}}
+\DoxyCodeLine{00095\ \textcolor{comment}{}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ if\ (oabd\ <=\ EPSILON)\ \{}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ return\ false;}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00099\ \textcolor{comment}{}}
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ double\ cdx\ =\ pc.x\ -\/\ pdx;}}
+\DoxyCodeLine{00101\ \textcolor{comment}{\ \ double\ cdy\ =\ pc.y\ -\/\ pdy;}}
+\DoxyCodeLine{00102\ \textcolor{comment}{}}
+\DoxyCodeLine{00103\ \textcolor{comment}{\ \ double\ cdxady\ =\ cdx\ *\ ady;}}
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ double\ adxcdy\ =\ adx\ *\ cdy;}}
+\DoxyCodeLine{00105\ \textcolor{comment}{\ \ double\ ocad\ =\ cdxady\ -\/\ adxcdy;}}
+\DoxyCodeLine{00106\ \textcolor{comment}{}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ if\ (ocad\ <=\ EPSILON)\ \{}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ return\ false;}}
+\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00110\ \textcolor{comment}{}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ return\ true;}}
+\DoxyCodeLine{00112\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00113\ \textcolor{comment}{}}
+\DoxyCodeLine{00114\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacep2t_a1330a3bcb418a415c43ea27af996231d}{InScanArea}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pd)}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{double}\ oadb\ =\ (pa.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pb.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})*(pd.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pb.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})\ -\/\ (pd.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pb.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})*(pa.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pb.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{if}\ (oadb\ >=\ -\/\mbox{\hyperlink{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}{EPSILON}})\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00121\ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{double}\ oadc\ =\ (pa.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})*(pd.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})\ -\/\ (pd.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})*(pa.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ pc.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordflow}{if}\ (oadc\ <=\ \mbox{\hyperlink{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}{EPSILON}})\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00126\ \ \ \}}
+\DoxyCodeLine{00127\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00128\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \}}
+
+\end{DoxyCode}

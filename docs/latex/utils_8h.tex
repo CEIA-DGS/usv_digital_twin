@@ -1,0 +1,70 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/common/utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/utils.h@{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/utils.h}}
+{\ttfamily \#include "{}shapes.\+h"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+Include dependency graph for utils.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacep2t}{p2t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utils_8h_a525335710b53cb064ca56b936120431e}{\+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}}
+\item 
+\#define \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846264338327
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{p2t\+::\+Orientation}} \{ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b}{p2t\+::\+CW}}
+, \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a}{p2t\+::\+CCW}}
+, \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387}{p2t\+::\+COLLINEAR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}} \mbox{\hyperlink{namespacep2t_a9fa090c7f13c6b2665d3bdcd48b3478b}{p2t\+::\+Orient2d}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pa, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pb, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pc)
+\item 
+bool \mbox{\hyperlink{namespacep2t_a1330a3bcb418a415c43ea27af996231d}{p2t\+::\+In\+Scan\+Area}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pa, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pb, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pc, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pd)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{namespacep2t_a8f5d342ebd2614a9169a41fa6952b5f9}{p2t\+::\+PI\+\_\+3div4}} = 3 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 4
+\item 
+const double \mbox{\hyperlink{namespacep2t_abd7f6949620798fa69359d45d8c46f98}{p2t\+::\+PI\+\_\+div2}} = 1.\+57079632679489661923
+\item 
+const double \mbox{\hyperlink{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}{p2t\+::\+EPSILON}} = 1e-\/12
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{utils_8h_a525335710b53cb064ca56b936120431e}\label{utils_8h_a525335710b53cb064ca56b936120431e} 
+\index{utils.h@{utils.h}!\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}}
+\index{\_USE\_MATH\_DEFINES@{\_USE\_MATH\_DEFINES}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{\_USE\_MATH\_DEFINES}{\_USE\_MATH\_DEFINES}}
+{\footnotesize\ttfamily \#define \+\_\+\+USE\+\_\+\+MATH\+\_\+\+DEFINES}
+
+\Hypertarget{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}\label{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3} 
+\index{utils.h@{utils.h}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265358979323846264338327}
+

@@ -1,0 +1,92 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+SHA1.cpp File Reference}
+\hypertarget{FuzzerSHA1_8cpp}{}\label{FuzzerSHA1_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerSHA1.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerSHA1.cpp}}
+{\ttfamily \#include "{}Fuzzer\+SHA1.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Defs.\+h"{}}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$endian.\+h$>$}\newline
+Include dependency graph for Fuzzer\+SHA1.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerSHA1_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_a927f1d06c8acd0e4fa5184019223d8bd}{SHA\+\_\+\+BIG\+\_\+\+ENDIAN}}
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_a42eb19b10bf0faee9c8decb218bdeae9}{HASH\+\_\+\+LENGTH}}~20
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_a22a79078d4bc53268ab86f316856248f}{BLOCK\+\_\+\+LENGTH}}~64
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_a59aea905a7ea020a3d1eba5d013513be}{SHA1\+\_\+\+K0}}~0x5a827999
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_ac3c4ca9807337af20670ff55cb3c3f2d}{SHA1\+\_\+\+K20}}~0x6ed9eba1
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_aba7eca0ec91975b954b7a8900dac6336}{SHA1\+\_\+\+K40}}~0x8f1bbcdc
+\item 
+\#define \mbox{\hyperlink{FuzzerSHA1_8cpp_a097e853c667675f2bebe57ed04898c8b}{SHA1\+\_\+\+K60}}~0xca62c1d6
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacefuzzer_a315b24f5436223321f5dd87f04ad90fc}{fuzzer\+::\+Compute\+SHA1}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Len, uint8\+\_\+t \texorpdfstring{$\ast$}{*}Out)
+\item 
+std\+::string \mbox{\hyperlink{namespacefuzzer_af169a5e81c6e590e4240ccfbb84b8b6a}{fuzzer\+::\+Sha1\+To\+String}} (const uint8\+\_\+t Sha1\mbox{[}k\+SHA1\+Num\+Bytes\mbox{]})
+\item 
+std\+::string \mbox{\hyperlink{namespacefuzzer_abebfdee7cc880967073a09d61e12e182}{fuzzer\+::\+Hash}} (const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&U)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FuzzerSHA1_8cpp_a22a79078d4bc53268ab86f316856248f}\label{FuzzerSHA1_8cpp_a22a79078d4bc53268ab86f316856248f} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!BLOCK\_LENGTH@{BLOCK\_LENGTH}}
+\index{BLOCK\_LENGTH@{BLOCK\_LENGTH}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{BLOCK\_LENGTH}{BLOCK\_LENGTH}}
+{\footnotesize\ttfamily \#define BLOCK\+\_\+\+LENGTH~64}
+
+\Hypertarget{FuzzerSHA1_8cpp_a42eb19b10bf0faee9c8decb218bdeae9}\label{FuzzerSHA1_8cpp_a42eb19b10bf0faee9c8decb218bdeae9} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!HASH\_LENGTH@{HASH\_LENGTH}}
+\index{HASH\_LENGTH@{HASH\_LENGTH}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{HASH\_LENGTH}{HASH\_LENGTH}}
+{\footnotesize\ttfamily \#define HASH\+\_\+\+LENGTH~20}
+
+\Hypertarget{FuzzerSHA1_8cpp_a59aea905a7ea020a3d1eba5d013513be}\label{FuzzerSHA1_8cpp_a59aea905a7ea020a3d1eba5d013513be} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!SHA1\_K0@{SHA1\_K0}}
+\index{SHA1\_K0@{SHA1\_K0}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{SHA1\_K0}{SHA1\_K0}}
+{\footnotesize\ttfamily \#define SHA1\+\_\+\+K0~0x5a827999}
+
+\Hypertarget{FuzzerSHA1_8cpp_ac3c4ca9807337af20670ff55cb3c3f2d}\label{FuzzerSHA1_8cpp_ac3c4ca9807337af20670ff55cb3c3f2d} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!SHA1\_K20@{SHA1\_K20}}
+\index{SHA1\_K20@{SHA1\_K20}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{SHA1\_K20}{SHA1\_K20}}
+{\footnotesize\ttfamily \#define SHA1\+\_\+\+K20~0x6ed9eba1}
+
+\Hypertarget{FuzzerSHA1_8cpp_aba7eca0ec91975b954b7a8900dac6336}\label{FuzzerSHA1_8cpp_aba7eca0ec91975b954b7a8900dac6336} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!SHA1\_K40@{SHA1\_K40}}
+\index{SHA1\_K40@{SHA1\_K40}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{SHA1\_K40}{SHA1\_K40}}
+{\footnotesize\ttfamily \#define SHA1\+\_\+\+K40~0x8f1bbcdc}
+
+\Hypertarget{FuzzerSHA1_8cpp_a097e853c667675f2bebe57ed04898c8b}\label{FuzzerSHA1_8cpp_a097e853c667675f2bebe57ed04898c8b} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!SHA1\_K60@{SHA1\_K60}}
+\index{SHA1\_K60@{SHA1\_K60}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{SHA1\_K60}{SHA1\_K60}}
+{\footnotesize\ttfamily \#define SHA1\+\_\+\+K60~0xca62c1d6}
+
+\Hypertarget{FuzzerSHA1_8cpp_a927f1d06c8acd0e4fa5184019223d8bd}\label{FuzzerSHA1_8cpp_a927f1d06c8acd0e4fa5184019223d8bd} 
+\index{FuzzerSHA1.cpp@{FuzzerSHA1.cpp}!SHA\_BIG\_ENDIAN@{SHA\_BIG\_ENDIAN}}
+\index{SHA\_BIG\_ENDIAN@{SHA\_BIG\_ENDIAN}!FuzzerSHA1.cpp@{FuzzerSHA1.cpp}}
+\doxysubsubsection{\texorpdfstring{SHA\_BIG\_ENDIAN}{SHA\_BIG\_ENDIAN}}
+{\footnotesize\ttfamily \#define SHA\+\_\+\+BIG\+\_\+\+ENDIAN}
+

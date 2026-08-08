@@ -1,0 +1,60 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}to\+\_\+bjdata}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$to\_bjdata@{$<$small$>$nlohmann::basic\_json::$<$/small$>$to\_bjdata}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md846}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md846}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ std::vector<std::uint8\_t>\ to\_bjdata(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_size\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_type\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ to\_bjdata(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \mbox{\hyperlink{classdetail_1_1output__adapter}{detail::output\_adapter<std::uint8\_t>}}\ o,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_size\ =\ \textcolor{keyword}{false},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_type\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ to\_bjdata(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \mbox{\hyperlink{classdetail_1_1output__adapter}{detail::output\_adapter<char>}}\ o,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_size\ =\ \textcolor{keyword}{false},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ use\_type\ =\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+
+
+Serializes a given JSON value {\ttfamily j} to a byte vector using the BJData (Binary JData) serialization format. BJData aims to be more compact than JSON itself, yet more efficient to parse.
+
+
+\begin{DoxyEnumerate}
+\item Returns a byte vector containing the BJData serialization.
+\item Writes the BJData serialization to an output adapter.
+\end{DoxyEnumerate}
+
+The exact mapping and its limitations is described on a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata}{dedicated page}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md847}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md847}
+{\ttfamily j} (in) \+: JSON value to serialize
+
+{\ttfamily o} (in) \+: output adapter to write serialization to
+
+{\ttfamily use\+\_\+size} (in) \+: whether to add size annotations to container types; optional, {\ttfamily \#!cpp false} by default.
+
+{\ttfamily use\+\_\+type} (in) \+: whether to add type annotations to container types (must be combined with {\ttfamily \#!cpp use\+\_\+size = true}); optional, {\ttfamily \#!cpp false} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md848}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md848}
+
+\begin{DoxyEnumerate}
+\item BJData serialization as byte vector
+\item (none)
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md849}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md849}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md850}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md850}
+Linear in the size of the JSON value {\ttfamily j}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md851}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md851}
+??? example \begin{DoxyVerb}The example shows the serialization of a JSON value to a byte vector in BJData format.
+
+```cpp
+--8<-- "examples/to_bjdata.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/to_bjdata.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md852}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata_autotoc_md852}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

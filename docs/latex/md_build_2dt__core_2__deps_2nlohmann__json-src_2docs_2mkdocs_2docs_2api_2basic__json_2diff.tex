@@ -1,0 +1,48 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}diff}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$diff@{$<$small$>$nlohmann::basic\_json::$<$/small$>$diff}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md211}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md211}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ diff(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ source,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ target);}
+
+\end{DoxyCode}
+
+
+Creates a \href{http://jsonpatch.com}{\texttt{ JSON Patch}} so that value {\ttfamily source} can be changed into the value {\ttfamily target} by calling \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch}{\`{}patch\`{}}{0} function.
+
+For two JSON values {\ttfamily source} and {\ttfamily target}, the following code yields always {\ttfamily \#!cpp true}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source.patch(diff(source,\ target))\ ==\ target;}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md212}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md212}
+{\ttfamily source} (in) \+: JSON value to compare from
+
+{\ttfamily target} (in) \+: JSON value to compare against\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md213}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md213}
+a JSON patch to convert the {\ttfamily source} to {\ttfamily target}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md214}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md214}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md215}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md215}
+Linear in the lengths of {\ttfamily source} and {\ttfamily target}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md216}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md216}
+Currently, only {\ttfamily remove}, {\ttfamily add}, and {\ttfamily replace} operations are generated.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md217}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md217}
+??? example \begin{DoxyVerb}The following code shows how a JSON patch is created as a diff for two JSON values.
+
+```cpp
+--8<-- "examples/diff.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/diff.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md218}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md218}
+
+\begin{DoxyItemize}
+\item \href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902 (JSON Patch)}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md219}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff_autotoc_md219}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0. 
+\end{DoxyItemize}

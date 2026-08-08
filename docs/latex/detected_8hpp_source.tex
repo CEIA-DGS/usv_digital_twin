@@ -1,0 +1,76 @@
+\doxysection{detected.\+hpp}
+\hypertarget{detected_8hpp_source}{}\label{detected_8hpp_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/detected.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/detected.hpp}}
+\mbox{\hyperlink{detected_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ \ \ \ \ \_\_\ \_\_\_\_\_\ \_\_\_\_\_\ \_\_\_\_\_}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ \ \_\_|\ \ |\ \ \ \_\_|\ \ \ \ \ |\ \ \ |\ |\ \ JSON\ for\ Modern\ C++}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ |\ \ |\ \ |\_\_\ \ \ |\ \ |\ \ |\ |\ |\ |\ \ version\ 3.11.3}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ |\_\_\_\_\_|\_\_\_\_\_|\_\_\_\_\_|\_|\_\_\_|\ \ https://github.com/nlohmann/json}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ SPDX-\/FileCopyrightText:\ 2013-\/2023\ Niels\ Lohmann\ <https://nlohmann.me>}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ SPDX-\/License-\/Identifier:\ MIT}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{void__t_8hpp}{nlohmann/detail/meta/void\_t.hpp}}>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \mbox{\hyperlink{abi__macros_8hpp_ac7a66dcd7a3ddd51927365b7f804d95e}{NLOHMANN\_JSON\_NAMESPACE\_BEGIN}}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedetail}{detail}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ https://en.cppreference.com/w/cpp/experimental/is\_detected}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{structdetail_1_1nonesuch_a283c791aacfbfba2e7bd0d1512fc439b}{nonesuch}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structdetail_1_1nonesuch_a66e806397cf13e4b7166e91f6160a7aa}{\string~nonesuch}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{structdetail_1_1nonesuch_ad569eaaae39f63de66bf4ed523d8db18}{nonesuch}}(\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structdetail_1_1nonesuch_a1f1515e16d847406e50a1586ca9165c5}{nonesuch}}(\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}\ \textcolor{keyword}{const}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structdetail_1_1nonesuch_a92143f4de1976c007305eb56b63e4eea}{operator=}}(\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structdetail_1_1nonesuch_a862d5984131f27c50c6dc78cb0349d28}{operator=}}(\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}\&\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }Default,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }AlwaysVoid,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00034\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1detector}{detector}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1detector_a2604e13aaf568d9ca9f846b18d732483}{value\_t}}\ =\ std::false\_type;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1detector_ad3f1aaa147d15ce3ac8e40f780e8c93b}{type}}\ =\ Default;}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }Default,\ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1detector}{detector}}<Default,\ \mbox{\hyperlink{namespacedetail_a138aa0af34e28b5a1032f00c712d376b}{void\_t}}<Op<Args...>>,\ Op,\ Args...>}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4_a5d1d57c0a1b9e8b9d7ecb78dd0b7f386}{value\_t}}\ =\ std::true\_type;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4_afac40ba5f8649babce55fe469f7cfa3b}{type}}\ =\ Op<Args...>;}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00048\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\_detected}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structdetail_1_1detector}{detector}}<\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}},\ void,\ Op,\ Args...>\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632}{::value\_t}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00051\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdetail_1_1is__detected__lazy}{is\_detected\_lazy}}\ :\ \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\_detected}}<Op,\ Args...>\ \{\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{template}<\textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00054\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detected\_t}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structdetail_1_1detector}{detector}}<\mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}},\ void,\ Op,\ Args...>::type;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }Default,\ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00057\ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdetail_1_1detector}{detected\_or}}\ =\ \mbox{\hyperlink{structdetail_1_1detector}{detector}}<Default,\ void,\ Op,\ Args...>;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }Default,\ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00060\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a7c8c357df0fc3008a19bf4dca3bedcc9}{detected\_or\_t}}\ =\ \textcolor{keyword}{typename}\ \mbox{\hyperlink{structdetail_1_1detector}{detected\_or}}<Default,\ Op,\ Args...>::type;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }Expected,\ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00063\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a0f0f7c3e1f48f7df9b5bbceada5b1a07}{is\_detected\_exact}}\ =\ std::is\_same<Expected,\ \mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detected\_t}}<Op,\ Args...>>;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}<\textcolor{keyword}{class\ }To,\ \textcolor{keyword}{template}<\textcolor{keyword}{class}...>\ \textcolor{keyword}{class\ }Op,\ \textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{00066\ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a599dfec0fd1c4cc9fcaa98e6fc804e7f}{is\_detected\_convertible}}\ =}
+\DoxyCodeLine{00067\ \ \ \ \ std::is\_convertible<\mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detected\_t}}<Op,\ Args...>,\ To>;}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \}\ \ \textcolor{comment}{//\ namespace\ detail}}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{abi__macros_8hpp_a9a4005b8c985f1d04dcc87918cab2019}{NLOHMANN\_JSON\_NAMESPACE\_END}}}
+
+\end{DoxyCode}

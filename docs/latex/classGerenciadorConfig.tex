@@ -1,0 +1,45 @@
+\doxysection{Gerenciador\+Config Class Reference}
+\hypertarget{classGerenciadorConfig}{}\label{classGerenciadorConfig}\index{GerenciadorConfig@{GerenciadorConfig}}
+
+
+Gerencia a leitura, parsing e validação do arquivo de configuração do sistema (JSON).  
+
+
+
+
+{\ttfamily \#include $<$Gerenciador\+Config.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structConfiguracaoMapa}{Configuracao\+Mapa}} \mbox{\hyperlink{classGerenciadorConfig_aaa751c6b2ec22bf252c6ca7a200f85d0}{carregar\+Configuracao}} (const std\+::string \&caminho\+Arquivo)
+\begin{DoxyCompactList}\small\item\em Carrega os parâmetros de um arquivo JSON externo e popula a estrutura de configuração. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gerencia a leitura, parsing e validação do arquivo de configuração do sistema (JSON). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGerenciadorConfig_aaa751c6b2ec22bf252c6ca7a200f85d0}\label{classGerenciadorConfig_aaa751c6b2ec22bf252c6ca7a200f85d0} 
+\index{GerenciadorConfig@{GerenciadorConfig}!carregarConfiguracao@{carregarConfiguracao}}
+\index{carregarConfiguracao@{carregarConfiguracao}!GerenciadorConfig@{GerenciadorConfig}}
+\doxysubsubsection{\texorpdfstring{carregarConfiguracao()}{carregarConfiguracao()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structConfiguracaoMapa}{Configuracao\+Mapa}} Gerenciador\+Config\+::carregar\+Configuracao (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caminho\+Arquivo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Carrega os parâmetros de um arquivo JSON externo e popula a estrutura de configuração. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caminho\+Arquivo} & Caminho físico do arquivo JSON de configuração. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Objeto \doxylink{structConfiguracaoMapa}{Configuracao\+Mapa} preenchido com os valores lidos. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{GerenciadorConfig_8h}{Gerenciador\+Config.\+h}}\end{DoxyCompactItemize}

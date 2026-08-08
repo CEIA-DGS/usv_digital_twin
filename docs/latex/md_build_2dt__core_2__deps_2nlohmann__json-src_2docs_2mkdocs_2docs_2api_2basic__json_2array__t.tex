@@ -1,0 +1,52 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}array\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$array\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$array\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md91}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md91}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }array\_t\ =\ ArrayType<basic\_json,\ AllocatorType<basic\_json>>;}
+
+\end{DoxyCode}
+
+
+The type used to store JSON arrays.
+
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} describes JSON arrays as follows\+: \begin{quote}
+An array is an ordered sequence of zero or more values. \end{quote}
+To store objects in C++, a type is defined by the template parameters explained below.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md92}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md92}
+{\ttfamily Array\+Type} \+: container type to store arrays (e.\+g., {\ttfamily std\+::vector} or {\ttfamily std\+::list})
+
+{\ttfamily Allocator\+Type} \+: the allocator to use for objects (e.\+g., {\ttfamily std\+::allocator})\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md93}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md93}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md94}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md94}
+With the default values for {\ttfamily Array\+Type} ({\ttfamily std\+::vector}) and {\ttfamily Allocator\+Type} ({\ttfamily std\+::allocator}), the default value for {\ttfamily array\+\_\+t} is\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classbasic__json}{basic\_json}},\ \textcolor{comment}{//\ value\_type}}
+\DoxyCodeLine{\ \ std::allocator<basic\_json>\ \textcolor{comment}{//\ allocator\_type}}
+\DoxyCodeLine{>}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md95}{}\doxysubsubsection{\texorpdfstring{Limits}{Limits}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md95}
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} specifies\+: \begin{quote}
+An implementation may set limits on the maximum depth of nesting. \end{quote}
+In this class, the array\textquotesingle{}s limit of nesting is not explicitly constrained. However, a maximum depth of nesting may be introduced by the compiler or runtime environment. A theoretical limit can be queried by calling the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2max__size}{\`{}max\+\_\+size\`{}}{0} function of a JSON array.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md96}{}\doxysubsubsection{\texorpdfstring{Storage}{Storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md96}
+Arrays are stored as pointers in a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type. That is, for any access to array values, a pointer of type {\ttfamily \#!cpp array\+\_\+t\texorpdfstring{$\ast$}{*}} must be dereferenced.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md97}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md97}
+??? example \begin{DoxyVerb}The following code shows that `array_t` is by default, a typedef to `#!cpp std::vector<nlohmann::json>`.
+
+```cpp
+--8<-- "examples/array_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/array_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md98}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t_autotoc_md98}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

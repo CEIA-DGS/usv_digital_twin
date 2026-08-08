@@ -1,0 +1,20 @@
+\chapter{Documentation}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README}\index{Documentation@{Documentation}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README_autotoc_md1755}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README_autotoc_md1755}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README_autotoc_md1756}{}\doxysection{\texorpdfstring{Generate documentation}{Generate documentation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2README_autotoc_md1756}
+Note on documentation\+: The source files contain links to the online documentation at \href{https://json.nlohmann.me}{\texttt{ https\+://json.\+nlohmann.\+me}}. This URL contains the most recent documentation and should also be applicable to previous versions; documentation for deprecated functions is not removed, but marked deprecated.
+
+If you want to see the documentation for a specific tag or commit hash, you can generate it as follows (here for tag {\ttfamily v3.\+10.\+2})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/nlohmann/json.git}
+\DoxyCodeLine{cd\ json}
+\DoxyCodeLine{git\ checkout\ v3.10.2}
+\DoxyCodeLine{make\ install\_venv\ serve\ -\/C\ docs/mkdocs}
+
+\end{DoxyCode}
+
+
+Open URL \href{http://127.0.0.1:8000/}{\texttt{ http\+://127.\+0.\+0.\+1\+:8000/}} in your browser. Replace from any URL from the source code {\ttfamily \href{https://json.nlohmann.me}{\texttt{ https\+://json.\+nlohmann.\+me}}} with {\ttfamily \href{http://127.0.0.1:8000}{\texttt{ http\+://127.\+0.\+0.\+1\+:8000}}} to see the documentation for your tag or commit hash. 

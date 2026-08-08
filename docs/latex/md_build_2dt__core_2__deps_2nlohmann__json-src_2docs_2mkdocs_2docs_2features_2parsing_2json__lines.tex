@@ -1,0 +1,48 @@
+\chapter{JSON Lines}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2json__lines}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2json__lines}\index{JSON Lines@{JSON Lines}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2json__lines_autotoc_md1422}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2json__lines_autotoc_md1422}%
+ The \href{https://jsonlines.org}{\texttt{ JSON Lines}} format is a text format of newline-\/delimited JSON. In particular\+:
+
+
+\begin{DoxyEnumerate}
+\item The input must be UTF-\/8 encoded.
+\item Every line must be a valid JSON value.
+\item The line separator must be {\ttfamily \textbackslash{}n}. As {\ttfamily \textbackslash{}r} is silently ignored, {\ttfamily \textbackslash{}r\textbackslash{}n} is also supported.
+\item The final character may be {\ttfamily \textbackslash{}n}, but is not required to be one.
+\end{DoxyEnumerate}
+
+!!! example "{}\+JSON Text example"{} \begin{DoxyVerb}```json
+{"name": "Gilbert", "wins": [["straight", "7♣"], ["one pair", "10♥"]]}
+{"name": "Alexa", "wins": [["two pair", "4♠"], ["two pair", "9♠"]]}
+{"name": "May", "wins": []}
+{"name": "Deloise", "wins": [["three of a kind", "5♣"]]}
+```
+\end{DoxyVerb}
+ JSON Lines input with more than one value is treated as invalid JSON by the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{\`{}parse\`{}}{0} or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2accept}{\`{}accept\`{}}{0} functions. To process it line by line, functions like \href{https://en.cppreference.com/w/cpp/string/basic_string/getline}{\texttt{ {\ttfamily std\+::getline}}} can be used\+:
+
+!!! example "{}\+Example\+: Parse JSON Text input line by line"{} \begin{DoxyVerb}The example below demonstrates how JSON Lines can be processed.
+
+```cpp
+--8<-- "examples/json_lines.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/json_lines.output"
+```
+\end{DoxyVerb}
+ !!! warning "{}\+Note"{} \begin{DoxyVerb}Using [`operator>>`](../../api/operator_gtgt.md) like
+
+```cpp
+json j;
+while (input >> j)
+{
+    std::cout << j << std::endl;
+}
+```
+
+with a JSON Lines input does not work, because the parser will try to parse one value after the last one.
+\end{DoxyVerb}
+ 

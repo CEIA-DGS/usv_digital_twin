@@ -1,0 +1,37 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}emplace\+\_\+back}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$emplace\_back@{$<$small$>$nlohmann::basic\_json::$<$/small$>$emplace\_back}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md237}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md237}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{reference\ emplace\_back(Args\&\&\ ...\ args);}
+
+\end{DoxyCode}
+
+
+Creates a JSON value from the passed parameters {\ttfamily args} to the end of the JSON value. If the function is called on a JSON {\ttfamily \#!json null} value, an empty array is created before appending the value created from {\ttfamily args}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md238}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md238}
+{\ttfamily Args} \+: compatible types to create a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} object\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md239}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md239}
+{\ttfamily args} (in) \+: arguments to forward to a constructor of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md240}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md240}
+reference to the inserted element\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md241}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md241}
+Throws \href{../../home/exceptions.md\#jsonexceptiontype_error311}{\texttt{ {\ttfamily type\+\_\+error.\+311}}} when called on a type other than JSON array or {\ttfamily \#!json null}; example\+: {\ttfamily "{}cannot use emplace\+\_\+back() with number"{}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md242}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md242}
+Amortized constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md243}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md243}
+??? example \begin{DoxyVerb}The example shows how `emplace_back()` can be used to add elements to a JSON array. Note how the `null` value was
+silently converted to a JSON array.
+
+```cpp
+--8<-- "examples/emplace_back.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/emplace_back.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md244}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back_autotoc_md244}
+
+\begin{DoxyItemize}
+\item Since version 2.\+0.\+8.
+\item Returns reference since 3.\+7.\+0. 
+\end{DoxyItemize}

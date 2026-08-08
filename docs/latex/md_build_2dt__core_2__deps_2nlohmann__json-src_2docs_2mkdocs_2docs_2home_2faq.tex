@@ -1,0 +1,136 @@
+\chapter{Frequently Asked Questions (FAQ)}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq}\index{Frequently Asked Questions (FAQ)@{Frequently Asked Questions (FAQ)}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1547}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1547}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1548}{}\doxysection{\texorpdfstring{Known bugs}{Known bugs}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1548}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1549}{}\doxysubsection{\texorpdfstring{Brace initialization yields arrays}{Brace initialization yields arrays}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1549}
+!!! question \begin{DoxyVerb}Why does
+
+```cpp
+json j{true};
+```
+
+and
+
+```cpp
+json j(true);
+```
+
+yield different results (`#!json [true]` vs. `#!json true`)?
+\end{DoxyVerb}
+ This is a known issue, and -- even worse -- the behavior differs between GCC and Clang. The "{}culprit"{} for this is the library\textquotesingle{}s constructor overloads for initializer lists to allow syntax like
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{classarray}{array}}\ =\ \{1,\ 2,\ 3,\ 4\};}
+
+\end{DoxyCode}
+
+
+for arrays and
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \textcolor{keywordtype}{object}\ =\ \{\{\textcolor{stringliteral}{"{}one"{}},\ 1\},\ \{\textcolor{stringliteral}{"{}two"{}},\ 2\}\};\ }
+
+\end{DoxyCode}
+
+
+for objects.
+
+!!! tip \begin{DoxyVerb}To avoid any confusion and ensure portable code, **do not** use brace initialization with the types `basic_json`, `json`, or `ordered_json` unless you want to create an object or array as shown in the examples above.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1550}{}\doxysection{\texorpdfstring{Limitations}{Limitations}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1550}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1551}{}\doxysubsection{\texorpdfstring{Relaxed parsing}{Relaxed parsing}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1551}
+!!! question \begin{DoxyVerb}Can you add an option to ignore trailing commas?
+\end{DoxyVerb}
+ This library does not support any feature which would jeopardize interoperability.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1552}{}\doxysubsection{\texorpdfstring{Parse errors reading non-\/\+ASCII characters}{Parse errors reading non-ASCII characters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1552}
+!!! question "{}\+Questions"{} \begin{DoxyVerb}- Why is the parser complaining about a Chinese character?
+- Does the library support Unicode?
+- I get an exception `[json.exception.parse_error.101] parse error at line 1, column 53: syntax error while parsing value - invalid string: ill-formed UTF-8 byte; last read: '"Testé$')"`
+\end{DoxyVerb}
+ The library supports {\bfseries{Unicode input}} as follows\+:
+
+
+\begin{DoxyItemize}
+\item Only {\bfseries{UTF-\/8}} encoded input is supported which is the default encoding for JSON according to \href{https://tools.ietf.org/html/rfc8259.html\#section-8.1}{\texttt{ RFC 8259}}.
+\item {\ttfamily std\+::u16string} and {\ttfamily std\+::u32string} can be parsed, assuming UTF-\/16 and UTF-\/32 encoding, respectively. These encodings are not supported when reading from files or other input containers.
+\item Other encodings such as Latin-\/1 or ISO 8859-\/1 are {\bfseries{not}} supported and will yield parse or serialization errors.
+\item \href{http://www.unicode.org/faq/private_use.html\#nonchar1}{\texttt{ Unicode noncharacters}} will not be replaced by the library.
+\item Invalid surrogates (e.\+g., incomplete pairs such as {\ttfamily \textbackslash{}u\+DEAD}) will yield parse errors.
+\item The strings stored in the library are UTF-\/8 encoded. When using the default string type ({\ttfamily std\+::string}), note that its length/size functions return the number of stored bytes rather than the number of characters or glyphs.
+\item When you store strings with different encodings in the library, calling \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a50ec80b02d0f3f51130d4abb5d1cfdc5.html\#a50ec80b02d0f3f51130d4abb5d1cfdc5}{\texttt{ {\ttfamily dump()}}} may throw an exception unless {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::replace} or {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::ignore} are used as error handlers.
+\end{DoxyItemize}
+
+In most cases, the parser is right to complain, because the input is not UTF-\/8 encoded. This is especially true for Microsoft Windows where Latin-\/1 or ISO 8859-\/1 is often the standard encoding.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1553}{}\doxysubsection{\texorpdfstring{Wide string handling}{Wide string handling}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1553}
+!!! question \begin{DoxyVerb}Why are wide strings (e.g., `std::wstring`) dumped as arrays of numbers?
+\end{DoxyVerb}
+ As described above, the library assumes UTF-\/8 as encoding. To store a wide string, you need to change the encoding.
+
+!!! example \begin{DoxyVerb}```cpp
+#include <codecvt> // codecvt_utf8
+#include <locale>  // wstring_convert
+
+// encoding function
+std::string to_utf8(std::wstring& wide_string)
+{
+    static std::wstring_convert<std::codecvt_utf8<wchar_t>> utf8_conv;
+    return utf8_conv.to_bytes(wide_string);
+}
+
+json j;
+std::wstring ws = L"車B1234 こんにちは";
+
+j["original"] = ws;
+j["encoded"] = to_utf8(ws);
+
+std::cout << j << std::endl;
+```
+
+The result is:
+
+```json
+{
+  "encoded": "車B1234 こんにちは",
+  "original": [36554, 66, 49, 50, 51, 52, 32, 12371, 12435, 12395, 12385, 12399]
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1554}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1554}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1555}{}\doxysubsection{\texorpdfstring{Parsing without exceptions}{Parsing without exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1555}
+!!! question \begin{DoxyVerb}Is it possible to indicate a parse error without throwing an exception?
+\end{DoxyVerb}
+ Yes, see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parse__exceptions}{Parsing and exceptions}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1556}{}\doxysubsection{\texorpdfstring{Key name in exceptions}{Key name in exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1556}
+!!! question \begin{DoxyVerb}Can I get the key of the object item that caused an exception?
+\end{DoxyVerb}
+ Yes, you can. Please define the symbol \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}{\`{}\+JSON\+\_\+\+DIAGNOSTICS\`{}}{0} to get \href{exceptions.md\#extended-diagnostic-messages}{\texttt{ extended diagnostics messages}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1557}{}\doxysection{\texorpdfstring{Serialization issues}{Serialization issues}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1557}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1558}{}\doxysubsection{\texorpdfstring{Number precision}{Number precision}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1558}
+!!! question \begin{DoxyVerb}- It seems that precision is lost when serializing a double.
+- Can I change the precision for floating-point serialization?
+\end{DoxyVerb}
+ The library uses {\ttfamily std\+::numeric\+\_\+limits\texorpdfstring{$<$}{<}number\+\_\+float\+\_\+t\texorpdfstring{$>$}{>}::digits10} (15 for IEEE {\ttfamily double}s) digits for serialization. This value is sufficient to guarantee roundtripping. If one uses more than this number of digits of precision, then string -\/\texorpdfstring{$>$}{>} value -\/\texorpdfstring{$>$}{>} string is not guaranteed to round-\/trip.
+
+!!! quote "{}\mbox{[}cppreference.\+com\mbox{]}(https\+://en.\+cppreference.\+com/w/cpp/types/numeric\+\_\+limits/digits10)"{} \begin{DoxyVerb}The value of `std::numeric_limits<T>::digits10` is the number of base-10 digits that can be represented by the type T without change, that is, any number with this many significant decimal digits can be converted to a value of type T and back to decimal form, without change due to rounding or overflow. 
+\end{DoxyVerb}
+ !!! tip \begin{DoxyVerb}The website https://float.exposed gives a good insight into the internal storage of floating-point numbers.
+\end{DoxyVerb}
+ See \href{../features/types/number_handling.md\#number-serialization}{\texttt{ this section}} on the library\textquotesingle{}s number handling for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1559}{}\doxysection{\texorpdfstring{Compilation issues}{Compilation issues}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1559}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1560}{}\doxysubsection{\texorpdfstring{Android SDK}{Android SDK}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1560}
+!!! question \begin{DoxyVerb}Why does the code not compile with Android SDK?
+\end{DoxyVerb}
+ Android defaults to using very old compilers and C++ libraries. To fix this, add the following to your {\ttfamily Application.\+mk}. This will switch to the LLVM C++ library, the Clang compiler, and enable C++11 and other features disabled by default.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{APP\_STL\ :=\ c++\_shared}
+\DoxyCodeLine{NDK\_TOOLCHAIN\_VERSION\ :=\ clang3.6}
+\DoxyCodeLine{APP\_CPPFLAGS\ +=\ -\/frtti\ -\/fexceptions}
+
+\end{DoxyCode}
+
+
+The code compiles successfully with \href{https://developer.android.com/ndk/index.html?hl=ml}{\texttt{ Android NDK}}, Revision 9 -\/ 11 (and possibly later) and \href{https://www.crystax.net/en/android/ndk}{\texttt{ CrystaX\textquotesingle{}s Android NDK}} version 10.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1561}{}\doxysubsection{\texorpdfstring{Missing STL function}{Missing STL function}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2faq_autotoc_md1561}
+!!! question "{}\+Questions"{} \begin{DoxyVerb}- Why do I get a compilation error `'to_string' is not a member of 'std'` (or similarly, for `strtod` or `strtof`)?
+- Why does the code not compile with MinGW or Android SDK?
+\end{DoxyVerb}
+ This is not an issue with the code, but rather with the compiler itself. On Android, see above to build with a newer environment. For Min\+GW, please refer to \href{http://tehsausage.com/mingw-to-string}{\texttt{ this site}} and \href{https://github.com/nlohmann/json/issues/136}{\texttt{ this discussion}} for information on how to fix this bug. For Android NDK using {\ttfamily APP\+\_\+\+STL \+:= gnustl\+\_\+static}, please refer to \href{https://github.com/nlohmann/json/issues/219}{\texttt{ this discussion}}. 

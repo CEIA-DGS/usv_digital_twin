@@ -1,0 +1,130 @@
+\doxysection{Fuzzer\+Dictionary.\+h}
+\hypertarget{FuzzerDictionary_8h_source}{}\label{FuzzerDictionary_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDictionary.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDictionary.h}}
+\mbox{\hyperlink{FuzzerDictionary_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerDictionary.h\ -\/\ Internal\ header\ for\ the\ Fuzzer\ -\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ fuzzer::Dictionary}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_DICTIONARY\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_DICTIONARY\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerDefs_8h}{FuzzerDefs.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerIO_8h}{FuzzerIO.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerUtil_8h}{FuzzerUtil.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ A\ simple\ POD\ sized\ array\ of\ bytes.}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ kMaxSize>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1FixedWord}{FixedWord}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{classfuzzer_1_1FixedWord_ae93735cf06f73042d39d97733fec1b66}{FixedWord}}()\ \{\}}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classfuzzer_1_1FixedWord_aeca5643bdf714328b73e455e97d75028}{FixedWord}}(\textcolor{keyword}{const}\ uint8\_t\ *B,\ uint8\_t\ S)\ \{\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_acea981cee0ac28687e7d96d0f07fb2df}{Set}}(B,\ S);\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_acea981cee0ac28687e7d96d0f07fb2df}{Set}}(\textcolor{keyword}{const}\ uint8\_t\ *B,\ uint8\_t\ S)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(S\ <=\ kMaxSize);}
+\DoxyCodeLine{00030\ \ \ \ \ memcpy(\mbox{\hyperlink{structData}{Data}},\ B,\ S);}
+\DoxyCodeLine{00031\ \ \ \ \ Size\ =\ S;}
+\DoxyCodeLine{00032\ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_a8d72bf9667ebca88ae87c47a5129b90a}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{FixedWord<kMaxSize>}}\ \&w)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ Size\ ==\ w.Size\ \&\&\ 0\ ==\ memcmp(\mbox{\hyperlink{structData}{Data}},\ w.Data,\ Size);}
+\DoxyCodeLine{00036\ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_a0f7a6fbeeebcbfcfb7a76f9ec2cea13a}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{FixedWord<kMaxSize>}}\ \&w)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (Size\ !=\ w.Size)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Size\ <\ w.Size;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ memcmp(\mbox{\hyperlink{structData}{Data}},\ w.Data,\ Size)\ <\ 0;}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_a84e8edae6226d23a367c854de3c90a41}{GetMaxSize}}()\ \{\ \textcolor{keywordflow}{return}\ kMaxSize;\ \}}
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{const}\ uint8\_t\ *\mbox{\hyperlink{classfuzzer_1_1FixedWord_a821fc4e3cb623473866d1f65fa7cac99}{data}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structData}{Data}};\ \}}
+\DoxyCodeLine{00046\ \ \ uint8\_t\ \mbox{\hyperlink{classfuzzer_1_1FixedWord_a97ffcbd9ec743adabd6bdf85f0911e53}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Size;\ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ uint8\_t\ Size\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ uint8\_t\ \mbox{\hyperlink{structData}{Data}}[kMaxSize];}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{FixedWord<27>}}\ \mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}};\ \textcolor{comment}{//\ 28\ bytes.}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ \{}
+\DoxyCodeLine{00056\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a5c5f623a978e342e85e67fc65b090925}{DictionaryEntry}}()\ \{\}}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a5e297f9aeeb401316a64e5bf19b18ac1}{DictionaryEntry}}(\mbox{\hyperlink{classfuzzer_1_1FixedWord}{Word}}\ W)\ :\ W(W)\ \{\}}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a227b77b999b2e714db792d36350eb970}{DictionaryEntry}}(\mbox{\hyperlink{classfuzzer_1_1FixedWord}{Word}}\ W,\ \textcolor{keywordtype}{size\_t}\ PositionHint)\ :\ W(W),\ PositionHint(PositionHint)\ \{\}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{Word}}\ \&\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ab558eebaa898b41de86f4ce8aa4112e8}{GetW}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ W;\ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948}{HasPositionHint}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ PositionHint\ !=\ std::numeric\_limits<size\_t>::max();\ \}}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ac13669a76798a5255cf4de5df3f94a8c}{GetPositionHint}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948}{HasPositionHint}}());}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ PositionHint;}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ad44342736684a6ba2587440fc0c7a9a5}{IncUseCount}}()\ \{\ UseCount++;\ \}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a1e3b55a806cec039ea453f088d7f26f5}{IncSuccessCount}}()\ \{\ SuccessCount++;\ \}}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a92db3fde5416ecd216bf96628db4382a}{GetUseCount}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ UseCount;\ \}}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ad82ccad7635080cb88772dc41df54bef}{GetSuccessCount}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ SuccessCount;\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_a7b5d7ff5db0c5f0478df3c3787fa3e49}{Print}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *PrintAfter\ =\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}})\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{namespacefuzzer_a9442fce93604c76077e5f6e65b85f13e}{PrintASCII}}(W.\mbox{\hyperlink{classfuzzer_1_1FixedWord_a821fc4e3cb623473866d1f65fa7cac99}{data}}(),\ W.\mbox{\hyperlink{classfuzzer_1_1FixedWord_a97ffcbd9ec743adabd6bdf85f0911e53}{size}}());}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_aef31554f5e06b0ea9c504400d32f5948}{HasPositionHint}}())}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{namespacefuzzer_afab785891fdb74f8fd33bca421bde935}{Printf}}(\textcolor{stringliteral}{"{}@\%zd"{}},\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ac13669a76798a5255cf4de5df3f94a8c}{GetPositionHint}}());}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{namespacefuzzer_afab785891fdb74f8fd33bca421bde935}{Printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ PrintAfter);}
+\DoxyCodeLine{00077\ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{Word}}\ W;}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{size\_t}\ PositionHint\ =\ std::numeric\_limits<size\_t>::max();}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{size\_t}\ UseCount\ =\ 0;}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{size\_t}\ SuccessCount\ =\ 0;}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1Dictionary}{Dictionary}}\ \{}
+\DoxyCodeLine{00087\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96}{kMaxDictSize}}\ =\ 1\ <<\ 14;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a7a967b81935c414244bc95a2210e9a9a}{ContainsWord}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1FixedWord}{Word}}\ \&W)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ std::any\_of(\mbox{\hyperlink{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72}{begin}}(),\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_ab0021075e53a9bc5378a4ace26b1d149}{end}}(),\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ \&DE)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ DE.\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry_ab558eebaa898b41de86f4ce8aa4112e8}{GetW}}()\ ==\ W;}
+\DoxyCodeLine{00093\ \ \ \ \ \});}
+\DoxyCodeLine{00094\ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ *\mbox{\hyperlink{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72}{begin}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&DE[0];\ \}}
+\DoxyCodeLine{00096\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ *\mbox{\hyperlink{classfuzzer_1_1Dictionary_ab0021075e53a9bc5378a4ace26b1d149}{end}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72}{begin}}()\ +\ Size;\ \}}
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ \&\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_ac579eb968d020fc26d166b4080c0fe27}{operator[]\ }}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ <\ Size);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{return}\ DE[\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}];}
+\DoxyCodeLine{00100\ \ \ \}}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a3677ae3fd0761b6b0d8c1c54e6450419}{push\_back}}(\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ DE)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{if}\ (Size\ <\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96}{kMaxDictSize}})}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ this-\/>DE[Size++]\ =\ DE;}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_ac38844813c2053ae89d3eac63f4fd8b7}{clear}}()\ \{\ Size\ =\ 0;\ \}}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a1ecbd766274c5b9f725953c00fa9b443}{empty}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Size\ ==\ 0;\ \}}
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1Dictionary_a67f72362929be6e769d674e5adf04482}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ Size;\ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{DictionaryEntry}}\ DE[\mbox{\hyperlink{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96}{kMaxDictSize}}];}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{size\_t}\ Size\ =\ 0;}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ Parses\ one\ dictionary\ entry.}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ If\ successfull,\ write\ the\ enty\ to\ Unit\ and\ returns\ true,}}
+\DoxyCodeLine{00116\ \textcolor{comment}{//\ otherwise\ returns\ false.}}
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacefuzzer_ad59287c2a560adb283485b9a1d783498}{ParseOneDictionaryEntry}}(\textcolor{keyword}{const}\ std::string\ \&Str,\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ *U);}
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ Parses\ the\ dictionary\ file,\ fills\ Units,\ returns\ true\ iff\ all\ lines}}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ were\ parsed\ succesfully.}}
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacefuzzer_a7bef2839d0371999da51361db463e769}{ParseDictionaryFile}}(\textcolor{keyword}{const}\ std::string\ \&Text,\ std::vector<Unit>\ *Units);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_DICTIONARY\_H}}
+
+\end{DoxyCode}

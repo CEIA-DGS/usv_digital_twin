@@ -1,0 +1,37 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator=}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator=@{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator=}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md631}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md631}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ operator=(\mbox{\hyperlink{classbasic__json}{basic\_json}}\ other)\ \textcolor{keyword}{noexcept}\ (}
+\DoxyCodeLine{\ \ \ \ std::is\_nothrow\_move\_constructible<value\_t>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ std::is\_nothrow\_move\_assignable<value\_t>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ std::is\_nothrow\_move\_constructible<json\_value>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ std::is\_nothrow\_move\_assignable<json\_value>::value}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+Copy assignment operator. Copies a JSON value via the "{}copy and swap"{} strategy\+: It is expressed in terms of the copy constructor, destructor, and the {\ttfamily swap()} member function.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md632}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md632}
+{\ttfamily other} (in) \+: value to copy from\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md633}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md633}
+Linear.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md634}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md634}
+??? example \begin{DoxyVerb}The code below shows and example for the copy assignment. It creates a copy of value `a` which is then swapped with
+`b`. Finally, the copy of `a` (which is the null value after the swap) is destroyed.
+
+```cpp
+--8<-- "examples/basic_json__copyassignment.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/basic_json__copyassignment.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md635}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a_autotoc_md635}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

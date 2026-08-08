@@ -1,0 +1,149 @@
+\doxysection{main\+\_\+window.\+hpp}
+\hypertarget{install_2dt__viz_2include_2dt__viz_2main__window_8hpp_source}{}\label{install_2dt__viz_2include_2dt__viz_2main__window_8hpp_source}\index{install/dt\_viz/include/dt\_viz/main\_window.hpp@{install/dt\_viz/include/dt\_viz/main\_window.hpp}}
+\mbox{\hyperlink{install_2dt__viz_2include_2dt__viz_2main__window_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DT\_VIZ\_MAIN\_WINDOW\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DT\_VIZ\_MAIN\_WINDOW\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}dt\_core/twin\_interface.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Bibliotecas\ Qt}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QBrush>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QGraphicsEllipseItem>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <QGraphicsLineItem>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QGraphicsPathItem>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QGraphicsPolygonItem>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QGraphicsScene>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QGraphicsSimpleTextItem>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QGraphicsView>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <QPainterPath>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <QResizeEvent>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <QWheelEvent>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Bibliotecas\ padrão\ do\ C++}}
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ ============================================================}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRoutePoint}{RoutePoint}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structRoutePoint_a3b5b06029acf5c5dd1c697a3ab786b54}{x}};}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structRoutePoint_afc46227f05fcbfa8f12877c1ee544620}{y}};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMainWindow}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMainWindow_a50409fb68ef23c7dc9f7ea4a5a663436}{MainWindow}}(std::shared\_ptr<dt::DigitalTwinCore>\ dt\_core,\ QWidget\ *\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a184717c126f6325643731a76dc202b58}{updatePlannedRoute}}(}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<RoutePoint>\ \&\ route);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_a190ff56109c4f48d710a9e7b2af9c891}{updateCollisionAlert}}(}
+\DoxyCodeLine{00073\ \ \ \ \ std::uint32\_t\ mmsi,}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ collision\_imminent);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00080\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMainWindow_aad75236c74a5c340c3e18749a9b5eb4f}{resizeEvent}}(QResizeEvent\ *\ event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMainWindow_ade305265b2120df2489a5ebeb07ebbe1}{eventFilter}}(QObject\ *watched,\ QEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00088\ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ std::shared\_ptr<dt::DigitalTwinCore>\ dt\_core\_;}
+\DoxyCodeLine{00090\ \ \ }
+\DoxyCodeLine{00091\ \ \ \textcolor{comment}{//\ Armazena\ o\ centro\ geométrico\ da\ NavMesh\ para\ posicionamento\ inicial}}
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{double}\ map\_center\_x\_\ =\ 0.0;}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordtype}{double}\ map\_center\_y\_\ =\ 0.0;}
+\DoxyCodeLine{00094\ \ \ }
+\DoxyCodeLine{00095\ \ \ \textcolor{comment}{//\ Configuração\ inicial.}}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ configureWindow();}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ createScene();}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ createInformationPanel();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \textcolor{comment}{//\ Elementos\ gráficos.}}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ drawGrid();}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{void}\ drawAxes();}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ drawFreeZone();}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ drawUsv();}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{void}\ drawScaleBar();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{comment}{//\ Derrota\ planejada.}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}\ drawPlannedRoute();}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ clearPlannedRoute();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ Atualização\ dos\ dados\ simulados.}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ updateSimulation();}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ updateUsvTrajectory(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordtype}{void}\ updateInformationPanel(}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{double}\ usv\_x,}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{double}\ usv\_y,}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{double}\ heading);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{comment}{//\ Aparência\ dos\ alvos.}}
+\DoxyCodeLine{00121\ \ \ QBrush\ normalVesselBrush()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ \ \ QBrush\ collisionVesselBrush()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{comment}{//\ Componentes\ principais.}}
+\DoxyCodeLine{00125\ \ \ QGraphicsScene\ *\ scene\_;}
+\DoxyCodeLine{00126\ \ \ QGraphicsView\ *\ view\_;}
+\DoxyCodeLine{00127\ \ \ QTimer\ *\ timer\_;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ QWidget\ *\ central\_widget\_;}
+\DoxyCodeLine{00130\ \ \ QWidget\ *\ information\_panel\_;}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ QLabel\ *\ usv\_position\_label\_;}
+\DoxyCodeLine{00133\ \ \ QLabel\ *\ heading\_label\_;}
+\DoxyCodeLine{00134\ \ \ QLabel\ *\ vessel\_count\_label\_;}
+\DoxyCodeLine{00135\ \ \ QLabel\ *\ simulation\_status\_label\_;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{comment}{//\ Zona\ livre\ e\ USV.}}
+\DoxyCodeLine{00138\ \ \ QGraphicsPolygonItem\ *\ free\_zone\_;}
+\DoxyCodeLine{00139\ \ \ QGraphicsPolygonItem\ *\ usv\_;}
+\DoxyCodeLine{00140\ \ \ QGraphicsSimpleTextItem\ *\ usv\_label\_;}
+\DoxyCodeLine{00141\ \ \ QGraphicsLineItem\ *\ heading\_line\_;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \textcolor{comment}{//\ Trajetória\ já\ percorrida.}}
+\DoxyCodeLine{00144\ \ \ QGraphicsPathItem\ *\ trajectory\_item\_;}
+\DoxyCodeLine{00145\ \ \ QPainterPath\ trajectory\_path\_;}
+\DoxyCodeLine{00146\ \ \ std::vector<QPointF>\ trajectory\_points\_;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \textcolor{comment}{//\ Derrota\ futura\ planejada.}}
+\DoxyCodeLine{00149\ \ \ std::vector<RoutePoint>\ planned\_route\_;}
+\DoxyCodeLine{00150\ \ \ QGraphicsPathItem\ *\ planned\_route\_item\_;}
+\DoxyCodeLine{00151\ \ \ std::vector<QGraphicsEllipseItem\ *>\ waypoint\_items\_;}
+\DoxyCodeLine{00152\ \ \ std::vector<QGraphicsSimpleTextItem\ *>\ waypoint\_labels\_;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \textcolor{comment}{//\ Embarcações\ monitoradas.}}
+\DoxyCodeLine{00155\ \ \ std::vector<QGraphicsEllipseItem\ *>\ vessels\_;}
+\DoxyCodeLine{00156\ \ \ std::vector<QGraphicsSimpleTextItem\ *>\ vessel\_labels\_;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{comment}{//\ Permitem\ localizar\ um\ alvo\ específico\ pelo\ MMSI.}}
+\DoxyCodeLine{00159\ \ \ std::unordered\_map<}
+\DoxyCodeLine{00160\ \ \ \ \ std::uint32\_t,}
+\DoxyCodeLine{00161\ \ \ \ \ QGraphicsEllipseItem\ *}
+\DoxyCodeLine{00162\ \ \ >\ vessel\_items\_by\_mmsi\_;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ std::unordered\_map<}
+\DoxyCodeLine{00165\ \ \ \ \ std::uint32\_t,}
+\DoxyCodeLine{00166\ \ \ \ \ QGraphicsSimpleTextItem\ *}
+\DoxyCodeLine{00167\ \ \ >\ vessel\_labels\_by\_mmsi\_;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordtype}{double}\ simulation\_time\_;}
+\DoxyCodeLine{00170\ \};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

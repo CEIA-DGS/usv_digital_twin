@@ -1,0 +1,59 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}merge\+\_\+patch}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$merge\_patch@{$<$small$>$nlohmann::basic\_json::$<$/small$>$merge\_patch}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md563}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md563}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ merge\_patch(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ apply\_patch);}
+
+\end{DoxyCode}
+
+
+The merge patch format is primarily intended for use with the HTTP PATCH method as a means of describing a set of modifications to a target resource\textquotesingle{}s content. This function applies a merge patch to the current JSON value.
+
+The function implements the following algorithm from Section 2 of \href{https://tools.ietf.org/html/rfc7396}{\texttt{ RFC 7396 (JSON Merge Patch)}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{define\ MergePatch(Target,\ Patch):}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ Patch\ \textcolor{keywordflow}{is}\ an\ Object:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ Target\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ an\ Object:}
+\DoxyCodeLine{\ \ \ \ \ \ Target\ =\ \{\}\ //\ Ignore\ the\ contents\ \textcolor{keywordflow}{and}\ set\ it\ to\ an\ empty\ Object}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ each\ Name/Value\ pair\ \textcolor{keywordflow}{in}\ Patch:}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ Value\ \textcolor{keywordflow}{is}\ null:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ Name\ exists\ \textcolor{keywordflow}{in}\ Target:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ remove\ the\ Name/Value\ pair\ \textcolor{keyword}{from}\ Target}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Target[Name]\ =\ MergePatch(Target[Name],\ Value)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ Target}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ Patch}
+
+\end{DoxyCode}
+
+
+Thereby, {\ttfamily Target} is the current object; that is, the patch is applied to the current value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md564}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md564}
+{\ttfamily apply\+\_\+patch} (in) \+: the patch to apply\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md565}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md565}
+Linear in the lengths of {\ttfamily apply\+\_\+patch}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md566}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md566}
+??? example \begin{DoxyVerb}The following code shows how a JSON Merge Patch is applied to a JSON document.
+
+```cpp
+--8<-- "examples/merge_patch.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/merge_patch.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md567}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md567}
+
+\begin{DoxyItemize}
+\item \href{https://tools.ietf.org/html/rfc7396}{\texttt{ RFC 7396 (JSON Merge Patch)}}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch}{patch}{0} apply a JSON patch
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md568}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch_autotoc_md568}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+0.\+0. 
+\end{DoxyItemize}

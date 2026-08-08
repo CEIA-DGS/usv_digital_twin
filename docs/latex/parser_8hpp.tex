@@ -1,0 +1,65 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/input/parser.hpp File Reference}
+\hypertarget{parser_8hpp}{}\label{parser_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/parser.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/parser.hpp}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/exceptions.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/input\+\_\+adapters.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/json\+\_\+sax.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/lexer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/is\+\_\+sax.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/string\+\_\+concat.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/value\+\_\+t.\+hpp$>$}\newline
+Include dependency graph for parser.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parser_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{parser_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdetail_1_1parser}{detail\+::parser$<$ Basic\+Json\+Type, Input\+Adapter\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em syntax analysis \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\using \mbox{\hyperlink{namespacedetail_a20a6b9b232b9f47ce057fe5cc5bbf511}{detail\+::parser\+\_\+callback\+\_\+t}} = std\+::function$<$ bool(int, \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312ef}{parse\+\_\+event\+\_\+t}}, Basic\+Json\+Type \&)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312ef}{detail\+::parse\+\_\+event\+\_\+t}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efae73f17027cb0acbb537f29d0a6944b26}{detail\+::object\+\_\+start}}
+, \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efaf63e2a2468a37aa4f394fcc3bcb8249c}{detail\+::object\+\_\+end}}
+, \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efaa4388a3d92419edbb1c6efd4d52461f3}{detail\+::array\+\_\+start}}
+, \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa49642fb732aa2e112188fba1f9d3ef7f}{detail\+::array\+\_\+end}}
+, \newline
+\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{detail\+::key}}
+, \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{detail\+::value}}
+, {\bfseries detail\+::object\+\_\+start}
+, {\bfseries detail\+::object\+\_\+end}
+, \newline
+{\bfseries detail\+::array\+\_\+start}
+, {\bfseries detail\+::array\+\_\+end}
+, {\bfseries detail\+::key}
+, {\bfseries detail\+::value}
+ \}
+\end{DoxyCompactItemize}

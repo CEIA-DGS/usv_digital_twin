@@ -1,0 +1,33 @@
+\chapter{JSON\+\_\+\+HAS\+\_\+\+FILESYSTEM / JSON\+\_\+\+HAS\+\_\+\+EXPERIMENTAL\+\_\+\+FILESYSTEM}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem}\index{JSON\_HAS\_FILESYSTEM / JSON\_HAS\_EXPERIMENTAL\_FILESYSTEM@{JSON\_HAS\_FILESYSTEM / JSON\_HAS\_EXPERIMENTAL\_FILESYSTEM}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1165}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1165}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_FILESYSTEM\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_EXPERIMENTAL\_FILESYSTEM\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+When compiling with C++17, the library provides conversions from and to \href{https://en.cppreference.com/w/cpp/filesystem/path}{\texttt{ {\ttfamily std\+::filesystem\+::path}}}. As compiler support for filesystem is limited, the library tries to detect whether \href{https://en.cppreference.com/w/cpp/header/filesystem}{\texttt{ {\ttfamily \texorpdfstring{$<$}{<}filesystem\texorpdfstring{$>$}{>}}/{\ttfamily std\+::filesystem}}} ({\ttfamily JSON\+\_\+\+HAS\+\_\+\+FILESYSTEM}) or \href{https://en.cppreference.com/w/cpp/header/experimental/filesystem}{\texttt{ {\ttfamily \texorpdfstring{$<$}{<}experimental/filesystem\texorpdfstring{$>$}{>}}/{\ttfamily std\+::experimental\+::filesystem}}} ({\ttfamily JSON\+\_\+\+HAS\+\_\+\+EXPERIMENTAL\+\_\+\+FILESYSTEM}) should be used. To override the built-\/in check, define {\ttfamily JSON\+\_\+\+HAS\+\_\+\+FILESYSTEM} or {\ttfamily JSON\+\_\+\+HAS\+\_\+\+EXPERIMENTAL\+\_\+\+FILESYSTEM} to {\ttfamily 1}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1166}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1166}
+The default value is detected based on the preprocessor macros {\ttfamily \#!cpp \+\_\+\+\_\+cpp\+\_\+lib\+\_\+filesystem}, {\ttfamily \#!cpp \+\_\+\+\_\+cpp\+\_\+lib\+\_\+experimental\+\_\+filesystem}, {\ttfamily \#!cpp \+\_\+\+\_\+has\+\_\+include(\texorpdfstring{$<$}{<}filesystem\texorpdfstring{$>$}{>})}, or {\ttfamily \#!cpp \+\_\+\+\_\+has\+\_\+include(\texorpdfstring{$<$}{<}experimental/filesystem\texorpdfstring{$>$}{>})}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1167}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1167}
+
+\begin{DoxyItemize}
+\item Note that older compilers or older versions of libstd++ also require the library {\ttfamily stdc++fs} to be linked to for filesystem support.
+\item Both macros are undefined outside the library.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1168}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1168}
+??? example \begin{DoxyVerb}The code below forces the library to use the header `<experimental/filesystem>`.
+
+```cpp
+#define JSON_HAS_EXPERIMENTAL_FILESYSTEM 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1169}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__filesystem_autotoc_md1169}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+10.\+5. 
+\end{DoxyItemize}

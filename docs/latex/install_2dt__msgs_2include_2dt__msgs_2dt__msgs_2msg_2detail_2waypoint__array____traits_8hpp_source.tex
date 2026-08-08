@@ -1,0 +1,160 @@
+\doxysection{waypoint\+\_\+array\+\_\+\+\_\+traits.\+hpp}
+\hypertarget{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2waypoint__array____traits_8hpp_source}{}\label{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2waypoint__array____traits_8hpp_source}\index{install/dt\_msgs/include/dt\_msgs/dt\_msgs/msg/detail/waypoint\_array\_\_traits.hpp@{install/dt\_msgs/include/dt\_msgs/dt\_msgs/msg/detail/waypoint\_array\_\_traits.hpp}}
+\mbox{\hyperlink{install_2dt__msgs_2include_2dt__msgs_2dt__msgs_2msg_2detail_2waypoint__array____traits_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ generated\ from\ rosidl\_generator\_cpp/resource/idl\_\_traits.hpp.em}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ with\ input\ from\ dt\_msgs:msg/WaypointArray.idl}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ generated\ code\ does\ not\ contain\ a\ copyright\ notice}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ IWYU\ pragma:\ private,\ include\ "{}dt\_msgs/msg/waypoint\_array.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_TRAITS\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_TRAITS\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}dt\_msgs/msg/detail/waypoint\_array\_\_struct.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/traits.hpp"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Include\ directives\ for\ member\ types}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Member\ 'header'}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}std\_msgs/msg/detail/header\_\_traits.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Member\ 'waypoints'}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}sensor\_msgs/msg/detail/nav\_sat\_fix\_\_traits.hpp"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{namespace\ }msg}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedt__msgs_1_1msg_afac73a4aeae3ca01238ea9703c5c2d3d}{to\_flow\_style\_yaml}}(}
+\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{const}\ WaypointArray\ \&\ msg,}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classstd_1_1basic__ostream}{std::ostream}}\ \&\ out)}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ \ \ out\ <<\ \textcolor{stringliteral}{"{}\{"{}};}
+\DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ member:\ header}}
+\DoxyCodeLine{00038\ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}header:\ "{}};}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_afac73a4aeae3ca01238ea9703c5c2d3d}{to\_flow\_style\_yaml}}(msg.header,\ out);}
+\DoxyCodeLine{00041\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00042\ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{comment}{//\ member:\ waypoints}}
+\DoxyCodeLine{00045\ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.waypoints.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}waypoints:\ []"{}};}
+\DoxyCodeLine{00048\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}waypoints:\ ["{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ pending\_items\ =\ msg.waypoints.size();}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ item\ :\ msg.waypoints)\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_afac73a4aeae3ca01238ea9703c5c2d3d}{to\_flow\_style\_yaml}}(item,\ out);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/-\/pending\_items\ >\ 0)\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ \ \ out\ <<\ \textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{00061\ \}\ \ \textcolor{comment}{//\ NOLINT(readability/fn\_size)}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a6cb09fb5b49a8a1e26c013b8c6e88b2a}{to\_block\_style\_yaml}}(}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{const}\ WaypointArray\ \&\ msg,}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{classstd_1_1basic__ostream}{std::ostream}}\ \&\ out,\ \textcolor{keywordtype}{size\_t}\ indentation\ =\ 0)}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ member:\ header}}
+\DoxyCodeLine{00068\ \ \ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (indentation\ >\ 0)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ out\ <<\ std::string(indentation,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}header:\(\backslash\)n"{}};}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a6cb09fb5b49a8a1e26c013b8c6e88b2a}{to\_block\_style\_yaml}}(msg.header,\ out,\ indentation\ +\ 2);}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ member:\ waypoints}}
+\DoxyCodeLine{00077\ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (indentation\ >\ 0)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ out\ <<\ std::string(indentation,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{if}\ (msg.waypoints.size()\ ==\ 0)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}waypoints:\ []\(\backslash\)n"{}};}
+\DoxyCodeLine{00083\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}waypoints:\(\backslash\)n"{}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ item\ :\ msg.waypoints)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (indentation\ >\ 0)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ out\ <<\ std::string(indentation,\ \textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}-\/\(\backslash\)n"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a6cb09fb5b49a8a1e26c013b8c6e88b2a}{to\_block\_style\_yaml}}(item,\ out,\ indentation\ +\ 2);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \}}
+\DoxyCodeLine{00094\ \}\ \ \textcolor{comment}{//\ NOLINT(readability/fn\_size)}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a1f2bffefd9c3a410cc14c6fa1dd3c72d}{to\_yaml}}(\textcolor{keyword}{const}\ WaypointArray\ \&\ msg,\ \textcolor{keywordtype}{bool}\ use\_flow\_style\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \ \ std::ostringstream\ out;}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordflow}{if}\ (use\_flow\_style)\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_afac73a4aeae3ca01238ea9703c5c2d3d}{to\_flow\_style\_yaml}}(msg,\ out);}
+\DoxyCodeLine{00101\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a6cb09fb5b49a8a1e26c013b8c6e88b2a}{to\_block\_style\_yaml}}(msg,\ out);}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordflow}{return}\ out.str();}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \}\ \ \textcolor{comment}{//\ namespace\ msg}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \}\ \ \textcolor{comment}{//\ namespace\ dt\_msgs}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerosidl__generator__traits}{rosidl\_generator\_traits}}}
+\DoxyCodeLine{00112\ \{}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ [[deprecated(\textcolor{stringliteral}{"{}use\ dt\_msgs::msg::to\_block\_style\_yaml()\ instead"{}})]]}
+\DoxyCodeLine{00115\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerosidl__generator__traits_a0a71881deb25139bdd05a026b181a860}{to\_yaml}}(}
+\DoxyCodeLine{00116\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray}{dt\_msgs::msg::WaypointArray}}\ \&\ msg,}
+\DoxyCodeLine{00117\ \ \ \mbox{\hyperlink{classstd_1_1basic__ostream}{std::ostream}}\ \&\ out,\ \textcolor{keywordtype}{size\_t}\ indentation\ =\ 0)}
+\DoxyCodeLine{00118\ \{}
+\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a6cb09fb5b49a8a1e26c013b8c6e88b2a}{dt\_msgs::msg::to\_block\_style\_yaml}}(msg,\ out,\ indentation);}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ [[deprecated(\textcolor{stringliteral}{"{}use\ dt\_msgs::msg::to\_yaml()\ instead"{}})]]}
+\DoxyCodeLine{00123\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespacerosidl__generator__traits_a0a71881deb25139bdd05a026b181a860}{to\_yaml}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray}{dt\_msgs::msg::WaypointArray}}\ \&\ msg)}
+\DoxyCodeLine{00124\ \{}
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacedt__msgs_1_1msg_a1f2bffefd9c3a410cc14c6fa1dd3c72d}{dt\_msgs::msg::to\_yaml}}(msg);}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00129\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespacerosidl__generator__traits_a6c7d5e4fd0785c8faebf3119184eca34}{data\_type<dt\_msgs::msg::WaypointArray>}}()}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}dt\_msgs::msg::WaypointArray"{}};}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00135\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{namespacerosidl__generator__traits_abbbaf501167466840855b717e2e94be8}{name<dt\_msgs::msg::WaypointArray>}}()}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}dt\_msgs/msg/WaypointArray"{}};}
+\DoxyCodeLine{00138\ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00141\ \textcolor{keyword}{struct\ }has\_fixed\_size<\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}::msg::WaypointArray>}
+\DoxyCodeLine{00142\ \ \ :\ std::integral\_constant<bool,\ false>\ \{\};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00145\ \textcolor{keyword}{struct\ }has\_bounded\_size<\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}::msg::WaypointArray>}
+\DoxyCodeLine{00146\ \ \ :\ std::integral\_constant<bool,\ false>\ \{\};}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00149\ \textcolor{keyword}{struct\ }is\_message<\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}::msg::WaypointArray>}
+\DoxyCodeLine{00150\ \ \ :\ std::true\_type\ \{\};}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \}\ \ \textcolor{comment}{//\ namespace\ rosidl\_generator\_traits}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_TRAITS\_HPP\_}}
+
+\end{DoxyCode}

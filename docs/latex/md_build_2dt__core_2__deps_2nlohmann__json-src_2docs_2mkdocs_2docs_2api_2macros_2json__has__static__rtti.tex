@@ -1,0 +1,29 @@
+\chapter{JSON\+\_\+\+HAS\+\_\+\+STATIC\+\_\+\+RTTI}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti}\index{JSON\_HAS\_STATIC\_RTTI@{JSON\_HAS\_STATIC\_RTTI}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1174}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1174}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_STATIC\_RTTI\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro indicates whether the standard library has any support for RTTI (run time type information). Possible values are {\ttfamily 1} when supported or {\ttfamily 0} when unsupported.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1175}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1175}
+The default value is detected based on the preprocessor macro {\ttfamily \#!cpp \+\_\+\+HAS\+\_\+\+STATIC\+\_\+\+RTTI}.
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1176}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1176}
+??? example \begin{DoxyVerb}The code below forces the library to enable support for libraries with RTTI dependence:
+
+```cpp
+#define JSON_HAS_STATIC_RTTI 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1177}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__static__rtti_autotoc_md1177}
+
+\begin{DoxyItemize}
+\item Added in version ?. 
+\end{DoxyItemize}

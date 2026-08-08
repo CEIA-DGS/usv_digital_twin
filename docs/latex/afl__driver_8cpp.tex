@@ -1,0 +1,109 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/afl/afl\+\_\+driver.cpp File Reference}
+\hypertarget{afl__driver_8cpp}{}\label{afl__driver_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/afl/afl\_driver.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/afl/afl\_driver.cpp}}
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$sys/resource.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+Include dependency graph for afl\+\_\+driver.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{afl__driver_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{afl__driver_8cpp_a4edc48973ba985ce28e5d873e55460d9}{CHECK\+\_\+\+ERROR}}(cond,  error\+\_\+message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{afl__driver_8cpp_a1c473c9665269a78ef9001573a6995df}{LLVMFuzzer\+Test\+One\+Input}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\item 
+\mbox{\hyperlink{afl__driver_8cpp_a968031a1a2e0fba9fd2b94ae28107d68}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak)) int \mbox{\hyperlink{FuzzerInterface_8h_aa30889313cc057073351a87b2590b886}{LLVMFuzzer\+Initialize}}(int \texorpdfstring{$\ast$}{*}argc
+\item 
+int \mbox{\hyperlink{afl__driver_8cpp_a023d74b1151acaad78dc9ef0bb534023}{\+\_\+\+\_\+afl\+\_\+persistent\+\_\+loop}} (unsigned int)
+\item 
+void \mbox{\hyperlink{afl__driver_8cpp_af3d8718f727716a637bb950fafc62e9a}{\+\_\+\+\_\+afl\+\_\+manual\+\_\+init}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{afl__driver_8cpp_a6b1c9549462c500839ac0bc8c5bf1c58}{Get\+Peak\+RSSMb}} ()
+\item 
+int \mbox{\hyperlink{afl__driver_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{afl__driver_8cpp_a4edc48973ba985ce28e5d873e55460d9}\label{afl__driver_8cpp_a4edc48973ba985ce28e5d873e55460d9} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!CHECK\_ERROR@{CHECK\_ERROR}}
+\index{CHECK\_ERROR@{CHECK\_ERROR}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_ERROR}{CHECK\_ERROR}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{error\+\_\+message }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!(cond))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ fprintf(stderr,\ (error\_message));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ abort();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{afl__driver_8cpp_af3d8718f727716a637bb950fafc62e9a}\label{afl__driver_8cpp_af3d8718f727716a637bb950fafc62e9a} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!\_\_afl\_manual\_init@{\_\_afl\_manual\_init}}
+\index{\_\_afl\_manual\_init@{\_\_afl\_manual\_init}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_afl\_manual\_init()}{\_\_afl\_manual\_init()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+afl\+\_\+manual\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{afl__driver_8cpp_a023d74b1151acaad78dc9ef0bb534023}\label{afl__driver_8cpp_a023d74b1151acaad78dc9ef0bb534023} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!\_\_afl\_persistent\_loop@{\_\_afl\_persistent\_loop}}
+\index{\_\_afl\_persistent\_loop@{\_\_afl\_persistent\_loop}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_afl\_persistent\_loop()}{\_\_afl\_persistent\_loop()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+afl\+\_\+persistent\+\_\+loop (\begin{DoxyParamCaption}\item[{unsigned int}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{afl__driver_8cpp_a968031a1a2e0fba9fd2b94ae28107d68}\label{afl__driver_8cpp_a968031a1a2e0fba9fd2b94ae28107d68} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{afl__driver_8cpp_a6b1c9549462c500839ac0bc8c5bf1c58}\label{afl__driver_8cpp_a6b1c9549462c500839ac0bc8c5bf1c58} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!GetPeakRSSMb@{GetPeakRSSMb}}
+\index{GetPeakRSSMb@{GetPeakRSSMb}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{GetPeakRSSMb()}{GetPeakRSSMb()}}
+{\footnotesize\ttfamily size\+\_\+t Get\+Peak\+RSSMb (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{afl__driver_8cpp_a1c473c9665269a78ef9001573a6995df}\label{afl__driver_8cpp_a1c473c9665269a78ef9001573a6995df} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}}
+\index{LLVMFuzzerTestOneInput@{LLVMFuzzerTestOneInput}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{LLVMFuzzerTestOneInput()}{LLVMFuzzerTestOneInput()}}
+{\footnotesize\ttfamily int LLVMFuzzer\+Test\+One\+Input (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\Hypertarget{afl__driver_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{afl__driver_8cpp_a3c04138a5bfe5d72780bb7e82a18e627} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!main@{main}}
+\index{main@{main}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}\label{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58} 
+\index{afl\_driver.cpp@{afl\_driver.cpp}!argv@{argv}}
+\index{argv@{argv}!afl\_driver.cpp@{afl\_driver.cpp}}
+\doxysubsubsection{\texorpdfstring{argv}{argv}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} argv}
+

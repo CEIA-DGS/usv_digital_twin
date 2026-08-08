@@ -1,0 +1,37 @@
+\doxysection{detail\+::is\+\_\+iterator\+\_\+traits\texorpdfstring{$<$}{<} iterator\+\_\+traits\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4}{}\label{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4}\index{detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$@{detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$}}
+
+
+{\ttfamily \#include $<$type\+\_\+traits.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4_a2dea8206c9104b2699d6ca8b495b11c8}{value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4_a2dea8206c9104b2699d6ca8b495b11c8}\label{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4_a2dea8206c9104b2699d6ca8b495b11c8} 
+\index{detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$@{detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$}!value@{value}}
+\index{value@{value}!detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$@{detail::is\_iterator\_traits$<$ iterator\_traits$<$ T $>$ $>$}}
+\doxysubsubsection{\texorpdfstring{value}{value}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+static constexpr auto \mbox{\hyperlink{structdetail_1_1is__iterator__traits}{detail\+::is\+\_\+iterator\+\_\+traits}}$<$ \mbox{\hyperlink{structdetail_1_1iterator__traits}{iterator\+\_\+traits}}$<$ T $>$ $>$\+::value\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ is\_detected<value\_type\_t,\ traits>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ is\_detected<difference\_type\_t,\ traits>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ is\_detected<pointer\_t,\ traits>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ is\_detected<iterator\_category\_t,\ traits>::value\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ is\_detected<reference\_t,\ traits>::value}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/meta/\mbox{\hyperlink{type__traits_8hpp}{type\+\_\+traits.\+hpp}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/single\+\_\+include/nlohmann/\mbox{\hyperlink{single__include_2nlohmann_2json_8hpp}{json.\+hpp}}\end{DoxyCompactItemize}

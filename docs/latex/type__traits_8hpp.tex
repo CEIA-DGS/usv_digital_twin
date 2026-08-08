@@ -1,0 +1,258 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/meta/type\+\_\+traits.hpp File Reference}
+\hypertarget{type__traits_8hpp}{}\label{type__traits_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/type\_traits.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/type\_traits.hpp}}
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/iterator\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/call\+\_\+std/begin.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/call\+\_\+std/end.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/cpp\+\_\+future.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/detected.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/json\+\_\+fwd.\+hpp$>$}\newline
+Include dependency graph for type\+\_\+traits.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{type__traits_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{type__traits_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__basic__json}{detail\+::is\+\_\+basic\+\_\+json$<$ typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__basic__json_3_01NLOHMANN__BASIC__JSON__TPL_01_4}{detail\+::is\+\_\+basic\+\_\+json$<$ NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__basic__json__context}{detail\+::is\+\_\+basic\+\_\+json\+\_\+context$<$ Basic\+Json\+Context $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__json__ref}{detail\+::is\+\_\+json\+\_\+ref$<$ typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__json__ref_3_01json__ref_3_01T_01_4_01_4}{detail\+::is\+\_\+json\+\_\+ref$<$ json\+\_\+ref$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__from__json}{detail\+::has\+\_\+from\+\_\+json$<$ Basic\+Json\+Type, T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__getable}{detail\+::is\+\_\+getable$<$ Basic\+Json\+Type, T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__from__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__basic__json_3_01T_01_4_1_1value_01_4_01_4}{detail\+::has\+\_\+from\+\_\+json$<$ Basic\+Json\+Type, T, enable\+\_\+if\+\_\+t$<$ !is\+\_\+basic\+\_\+json$<$ T $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__non__default__from__json}{detail\+::has\+\_\+non\+\_\+default\+\_\+from\+\_\+json$<$ Basic\+Json\+Type, T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__non__default__from__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_912047717fa07cfa9d99fe9eafcf1e11e}{detail\+::has\+\_\+non\+\_\+default\+\_\+from\+\_\+json$<$ Basic\+Json\+Type, T, enable\+\_\+if\+\_\+t$<$ !is\+\_\+basic\+\_\+json$<$ T $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__to__json}{detail\+::has\+\_\+to\+\_\+json$<$ Basic\+Json\+Type, T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__to__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__basic__json_3_01T_01_4_1_1value_01_4_01_4}{detail\+::has\+\_\+to\+\_\+json$<$ Basic\+Json\+Type, T, enable\+\_\+if\+\_\+t$<$ !is\+\_\+basic\+\_\+json$<$ T $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1has__key__compare}{detail\+::has\+\_\+key\+\_\+compare$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1actual__object__comparator}{detail\+::actual\+\_\+object\+\_\+comparator$<$ Basic\+Json\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1char__traits}{detail\+::char\+\_\+traits$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1char__traits_3_01unsigned_01char_01_4}{detail\+::char\+\_\+traits$<$ unsigned char $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1char__traits_3_01signed_01char_01_4}{detail\+::char\+\_\+traits$<$ signed char $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1conjunction}{detail\+::conjunction$<$... $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1conjunction_3_01B_01_4}{detail\+::conjunction$<$ B $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1conjunction_3_01B_00_01Bn_8_8_8_01_4}{detail\+::conjunction$<$ B, Bn... $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1negation}{detail\+::negation$<$ B $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__default__constructible}{detail\+::is\+\_\+default\+\_\+constructible$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__default__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{detail\+::is\+\_\+default\+\_\+constructible$<$ std\+::pair$<$ T1, T2 $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__default__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{detail\+::is\+\_\+default\+\_\+constructible$<$ const std\+::pair$<$ T1, T2 $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__default__constructible_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4}{detail\+::is\+\_\+default\+\_\+constructible$<$ std\+::tuple$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__default__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4}{detail\+::is\+\_\+default\+\_\+constructible$<$ const std\+::tuple$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible}{detail\+::is\+\_\+constructible$<$ T, Args $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{detail\+::is\+\_\+constructible$<$ std\+::pair$<$ T1, T2 $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4}{detail\+::is\+\_\+constructible$<$ const std\+::pair$<$ T1, T2 $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4}{detail\+::is\+\_\+constructible$<$ std\+::tuple$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4}{detail\+::is\+\_\+constructible$<$ const std\+::tuple$<$ Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__iterator__traits}{detail\+::is\+\_\+iterator\+\_\+traits$<$ T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__iterator__traits_3_01iterator__traits_3_01T_01_4_01_4}{detail\+::is\+\_\+iterator\+\_\+traits$<$ iterator\+\_\+traits$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__range}{detail\+::is\+\_\+range$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__complete__type}{detail\+::is\+\_\+complete\+\_\+type$<$ T, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__complete__type_3_01T_00_01decltype_07void_07sizeof_07T_08_08_08_4}{detail\+::is\+\_\+complete\+\_\+type$<$ T, decltype(void(sizeof(\+T)))$>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__object__type__impl}{detail\+::is\+\_\+compatible\+\_\+object\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Object\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__object__type__impl_3_01BasicJsonType_00_01CompatibleObjectType_01530c59509aa77cdb5f1e95cf109944f}{detail\+::is\+\_\+compatible\+\_\+object\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Object\+Type, enable\+\_\+if\+\_\+t$<$ is\+\_\+detected$<$ mapped\+\_\+type\+\_\+t, Compatible\+Object\+Type $>$\+::value \&\&is\+\_\+detected$<$ key\+\_\+type\+\_\+t, Compatible\+Object\+Type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__object__type}{detail\+::is\+\_\+compatible\+\_\+object\+\_\+type$<$ Basic\+Json\+Type, Compatible\+Object\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__object__type__impl}{detail\+::is\+\_\+constructible\+\_\+object\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Constructible\+Object\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__object__type__impl_3_01BasicJsonType_00_01ConstructibleObject435b838380c31b9738383402f7bb5943}{detail\+::is\+\_\+constructible\+\_\+object\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Constructible\+Object\+Type, enable\+\_\+if\+\_\+t$<$ is\+\_\+detected$<$ mapped\+\_\+type\+\_\+t, Constructible\+Object\+Type $>$\+::value \&\&is\+\_\+detected$<$ key\+\_\+type\+\_\+t, Constructible\+Object\+Type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__object__type}{detail\+::is\+\_\+constructible\+\_\+object\+\_\+type$<$ Basic\+Json\+Type, Constructible\+Object\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__string__type}{detail\+::is\+\_\+compatible\+\_\+string\+\_\+type$<$ Basic\+Json\+Type, Compatible\+String\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__string__type}{detail\+::is\+\_\+constructible\+\_\+string\+\_\+type$<$ Basic\+Json\+Type, Constructible\+String\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__array__type__impl}{detail\+::is\+\_\+compatible\+\_\+array\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Array\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__array__type__impl_3_01BasicJsonType_00_01CompatibleArrayType_00_ba7b30737b5c65ad9adb609a3762b85a}{detail\+::is\+\_\+compatible\+\_\+array\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Array\+Type, enable\+\_\+if\+\_\+t$<$ is\+\_\+detected$<$ iterator\+\_\+t, Compatible\+Array\+Type $>$\+::value \&\&is\+\_\+iterator\+\_\+traits$<$ iterator\+\_\+traits$<$ detected\+\_\+t$<$ iterator\+\_\+t, Compatible\+Array\+Type $>$ $>$ $>$\+::value \&\&!std\+::is\+\_\+same$<$ Compatible\+Array\+Type, detected\+\_\+t$<$ range\+\_\+value\+\_\+t, Compatible\+Array\+Type $>$ $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__array__type}{detail\+::is\+\_\+compatible\+\_\+array\+\_\+type$<$ Basic\+Json\+Type, Compatible\+Array\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__array__type__impl}{detail\+::is\+\_\+constructible\+\_\+array\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Constructible\+Array\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__array__type__impl_3_01BasicJsonType_00_01ConstructibleArrayTyff4af2af9684a1cc8580410ec8c319a4}{detail\+::is\+\_\+constructible\+\_\+array\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Constructible\+Array\+Type, enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ Constructible\+Array\+Type, typename Basic\+Json\+Type\+::value\+\_\+type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__array__type__impl_3_01BasicJsonType_00_01ConstructibleArrayTy3a773789b90b07cf1d15e358c6d585ac}{detail\+::is\+\_\+constructible\+\_\+array\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Constructible\+Array\+Type, enable\+\_\+if\+\_\+t$<$ !std\+::is\+\_\+same$<$ Constructible\+Array\+Type, typename Basic\+Json\+Type\+::value\+\_\+type $>$\+::value \&\&!is\+\_\+compatible\+\_\+string\+\_\+type$<$ Basic\+Json\+Type, Constructible\+Array\+Type $>$\+::value \&\&is\+\_\+default\+\_\+constructible$<$ Constructible\+Array\+Type $>$\+::value \&\&(std\+::is\+\_\+move\+\_\+assignable$<$ Constructible\+Array\+Type $>$\+::value\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}std\+::is\+\_\+copy\+\_\+assignable$<$ Constructible\+Array\+Type $>$\+::value)\&\&is\+\_\+detected$<$ iterator\+\_\+t, Constructible\+Array\+Type $>$\+::value \&\&is\+\_\+iterator\+\_\+traits$<$ iterator\+\_\+traits$<$ detected\+\_\+t$<$ iterator\+\_\+t, Constructible\+Array\+Type $>$ $>$ $>$\+::value \&\&is\+\_\+detected$<$ range\+\_\+value\+\_\+t, Constructible\+Array\+Type $>$\+::value \&\&!std\+::is\+\_\+same$<$ Constructible\+Array\+Type, detected\+\_\+t$<$ range\+\_\+value\+\_\+t, Constructible\+Array\+Type $>$ $>$\+::value \&\&is\+\_\+complete\+\_\+type$<$ detected\+\_\+t$<$ range\+\_\+value\+\_\+t, Constructible\+Array\+Type $>$ $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__array__type}{detail\+::is\+\_\+constructible\+\_\+array\+\_\+type$<$ Basic\+Json\+Type, Constructible\+Array\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__integer__type__impl}{detail\+::is\+\_\+compatible\+\_\+integer\+\_\+type\+\_\+impl$<$ Real\+Integer\+Type, Compatible\+Number\+Integer\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__integer__type__impl_3_01RealIntegerType_00_01CompatibleNumberInt5b484fcfc2d1ae63b1211da72eabe33b}{detail\+::is\+\_\+compatible\+\_\+integer\+\_\+type\+\_\+impl$<$ Real\+Integer\+Type, Compatible\+Number\+Integer\+Type, enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+integral$<$ Real\+Integer\+Type $>$\+::value \&\&std\+::is\+\_\+integral$<$ Compatible\+Number\+Integer\+Type $>$\+::value \&\&!std\+::is\+\_\+same$<$ bool, Compatible\+Number\+Integer\+Type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__integer__type}{detail\+::is\+\_\+compatible\+\_\+integer\+\_\+type$<$ Real\+Integer\+Type, Compatible\+Number\+Integer\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__type__impl}{detail\+::is\+\_\+compatible\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Type, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__type__impl_3_01BasicJsonType_00_01CompatibleType_00_01enable__if67e19080e9bd0cd565bd49f604895399}{detail\+::is\+\_\+compatible\+\_\+type\+\_\+impl$<$ Basic\+Json\+Type, Compatible\+Type, enable\+\_\+if\+\_\+t$<$ is\+\_\+complete\+\_\+type$<$ Compatible\+Type $>$\+::value $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__compatible__type}{detail\+::is\+\_\+compatible\+\_\+type$<$ Basic\+Json\+Type, Compatible\+Type $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__tuple}{detail\+::is\+\_\+constructible\+\_\+tuple$<$ T1, T2 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__constructible__tuple_3_01T1_00_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4}{detail\+::is\+\_\+constructible\+\_\+tuple$<$ T1, std\+::tuple$<$ Args... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__json__iterator__of}{detail\+::is\+\_\+json\+\_\+iterator\+\_\+of$<$ Basic\+Json\+Type, T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__json__iterator__of_3_01BasicJsonType_00_01typename_01BasicJsonType_1_1iterator_01_4}{detail\+::is\+\_\+json\+\_\+iterator\+\_\+of$<$ Basic\+Json\+Type, typename Basic\+Json\+Type\+::iterator $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__json__iterator__of_3_01BasicJsonType_00_01typename_01BasicJsonType_1_1const__iterator_01_4}{detail\+::is\+\_\+json\+\_\+iterator\+\_\+of$<$ Basic\+Json\+Type, typename Basic\+Json\+Type\+::const\+\_\+iterator $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__specialization__of}{detail\+::is\+\_\+specialization\+\_\+of$<$ Primary, T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__specialization__of_3_01Primary_00_01Primary_3_01Args_8_8_8_01_4_01_4}{detail\+::is\+\_\+specialization\+\_\+of$<$ Primary, Primary$<$ Args... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__comparable}{detail\+::is\+\_\+comparable$<$ Compare, A, B, typename $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__comparable_3_01Compare_00_01A_00_01B_00_01void__t_3_01decltype_07std_1_1decle5e3400d312093eca0a7154409c6a227}{detail\+::is\+\_\+comparable$<$ Compare, A, B, void\+\_\+t$<$ decltype(std\+::declval$<$ Compare $>$()(std\+::declval$<$ A $>$(), std\+::declval$<$ B $>$())), decltype(std\+::declval$<$ Compare $>$()(std\+::declval$<$ B $>$(), std\+::declval$<$ A $>$()))$>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__ordered__map}{detail\+::is\+\_\+ordered\+\_\+map$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__ordered__map_1_1two}{detail\+::is\+\_\+ordered\+\_\+map$<$ T $>$\+::two}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl2_3_01OfType_00_01T_00_01false_00_01false_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl2$<$ Of\+Type, T, false, false $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl2_3_01OfType_00_01T_00_01true_00_01false_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl2$<$ Of\+Type, T, true, false $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl2_3_01OfType_00_01T_00_01false_00_01true_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl2$<$ Of\+Type, T, false, true $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl2_3_01OfType_00_01T_00_01true_00_01true_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl2$<$ Of\+Type, T, true, true $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl1_3_01OfType_00_01T_00_01false_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl1$<$ Of\+Type, T, false $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1value__in__range__of__impl1_3_01OfType_00_01T_00_01true_01_4}{detail\+::value\+\_\+in\+\_\+range\+\_\+of\+\_\+impl1$<$ Of\+Type, T, true $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__c__string}{detail\+::is\+\_\+c\+\_\+string$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__transparent}{detail\+::is\+\_\+transparent$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedetail_1_1impl}{detail\+::impl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a6f0f5d9b1fa1f5ed1be64165f3cf887f}{detail\+::mapped\+\_\+type\+\_\+t}} = typename T\+::mapped\+\_\+type
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a8e60ec97eaa2afdff62c6217cbbbd747}{detail\+::key\+\_\+type\+\_\+t}} = typename T\+::key\+\_\+type
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a53f74b6382403d25215a9433897255b4}{detail\+::value\+\_\+type\+\_\+t}} = typename T\+::value\+\_\+type
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ad4e225ffcce63aef0a259e2c6bd839c1}{detail\+::difference\+\_\+type\+\_\+t}} = typename T\+::difference\+\_\+type
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a41f3f767ccb40a3a5db595b172207340}{detail\+::pointer\+\_\+t}} = typename T\+::pointer
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ae10a42b2797e1b62417091ff3d330832}{detail\+::reference\+\_\+t}} = typename T\+::reference
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_aa2e68a64b10d08b88f50a96c4f968be2}{detail\+::iterator\+\_\+category\+\_\+t}} = typename T\+::iterator\+\_\+category
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a30a52995475a3d1522a15e7a8200c59e}{detail\+::to\+\_\+json\+\_\+function}} = decltype(T\+::to\+\_\+json(std\+::declval$<$ Args $>$()...))
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a7d0993334c14a7e8055e1ec5ff237133}{detail\+::from\+\_\+json\+\_\+function}} = decltype(T\+::from\+\_\+json(std\+::declval$<$ Args $>$()...))
+\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\using \mbox{\hyperlink{namespacedetail_a34780011ee13a3ede041ddcee288f484}{detail\+::get\+\_\+template\+\_\+function}} = decltype(std\+::declval$<$ T $>$().template \mbox{\hyperlink{namespacedetail_a7116703ea757fe9821bf2e903b91c160}{get}}$<$ U $>$())
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_aeb149366faaa55aa6bf1e510900353ea}{detail\+::detect\+\_\+key\+\_\+compare}} = typename T\+::key\+\_\+compare
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\using \mbox{\hyperlink{namespacedetail_acf3e5af512080ec5b71496dde9e0651c}{detail\+::actual\+\_\+object\+\_\+comparator\+\_\+t}} = typename \mbox{\hyperlink{structdetail_1_1actual__object__comparator}{actual\+\_\+object\+\_\+comparator}}$<$ Basic\+Json\+Type $>$\+::type
+\item 
+{\footnotesize template$<$typename R $>$ }\\using \mbox{\hyperlink{namespacedetail_a70f53d4fa21096275fc0e3016e27daf1}{detail\+::iterator\+\_\+t}} = \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1is__range}{is\+\_\+range}}$<$ R $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, result\+\_\+of\+\_\+begin$<$ decltype(std\+::declval$<$ R \& $>$())$>$ $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ac2653c739e3ac41529a35735397b4f41}{detail\+::range\+\_\+value\+\_\+t}} = \mbox{\hyperlink{namespacedetail_a53f74b6382403d25215a9433897255b4}{value\+\_\+type\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1iterator__traits}{iterator\+\_\+traits}}$<$ \mbox{\hyperlink{namespacedetail_a70f53d4fa21096275fc0e3016e27daf1}{iterator\+\_\+t}}$<$ T $>$ $>$ $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a6d62ae589bb3ae01d156629c0b58b0f2}{detail\+::is\+\_\+json\+\_\+pointer}} = \mbox{\hyperlink{structdetail_1_1is__specialization__of}{is\+\_\+specialization\+\_\+of}}$<$\mbox{\hyperlink{classnlohmann_1_1json__pointer}{\+::nlohmann\+::json\+\_\+pointer}}, \mbox{\hyperlink{namespacedetail_ad76afb2c3a23eb88e7efb7c5d5499574}{uncvref\+\_\+t}}$<$ T $>$ $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_add6a1fa89738d39f7f123db6bad96101}{detail\+::detect\+\_\+is\+\_\+transparent}} = typename T\+::is\+\_\+transparent
+\item 
+{\footnotesize template$<$typename Comparator , typename Object\+Key\+Type , typename Key\+Type\+CVRef , bool Require\+Transparent\+Comparator = true, bool Exclude\+Object\+Key\+Type = Require\+Transparent\+Comparator, typename Key\+Type  = uncvref\+\_\+t$<$\+Key\+Type\+CVRef$>$$>$ }\\using \mbox{\hyperlink{namespacedetail_a9d80ed747c2ea999c378519a7a6d6d31}{detail\+::is\+\_\+usable\+\_\+as\+\_\+key\+\_\+type}} = typename std\+::conditional$<$ \mbox{\hyperlink{structdetail_1_1is__comparable}{is\+\_\+comparable}}$<$ Comparator, Object\+Key\+Type, Key\+Type\+CVRef $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!(Exclude\+Object\+Key\+Type \&\&std\+::is\+\_\+same$<$ Key\+Type, Object\+Key\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}) \&\&(!Require\+Transparent\+Comparator\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_add6a1fa89738d39f7f123db6bad96101}{detect\+\_\+is\+\_\+transparent}}, Comparator $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}) \&\&!\mbox{\hyperlink{namespacedetail_a6d62ae589bb3ae01d156629c0b58b0f2}{is\+\_\+json\+\_\+pointer}}$<$ Key\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, std\+::true\+\_\+type, std\+::false\+\_\+type $>$\+::type
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Key\+Type\+CVRef , bool Require\+Transparent\+Comparator = true, bool Exclude\+Object\+Key\+Type = Require\+Transparent\+Comparator, typename Key\+Type  = uncvref\+\_\+t$<$\+Key\+Type\+CVRef$>$$>$ }\\using \mbox{\hyperlink{namespacedetail_a394f5970957ff03ced71ce77b9417b00}{detail\+::is\+\_\+usable\+\_\+as\+\_\+basic\+\_\+json\+\_\+key\+\_\+type}} = typename std\+::conditional$<$ \mbox{\hyperlink{namespacedetail_a9d80ed747c2ea999c378519a7a6d6d31}{is\+\_\+usable\+\_\+as\+\_\+key\+\_\+type}}$<$ typename Basic\+Json\+Type\+::object\+\_\+comparator\+\_\+t, typename Basic\+Json\+Type\+::object\+\_\+t\+::key\+\_\+type, Key\+Type\+CVRef, Require\+Transparent\+Comparator, Exclude\+Object\+Key\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{structdetail_1_1is__json__iterator__of}{is\+\_\+json\+\_\+iterator\+\_\+of}}$<$ Basic\+Json\+Type, Key\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, std\+::true\+\_\+type, std\+::false\+\_\+type $>$\+::type
+\item 
+{\footnotesize template$<$typename Object\+Type , typename Key\+Type $>$ }\\using \mbox{\hyperlink{namespacedetail_ae8fd4ed53e2a6c71fe1fa557e1923b9f}{detail\+::detect\+\_\+erase\+\_\+with\+\_\+key\+\_\+type}} = decltype(std\+::declval$<$ Object\+Type \& $>$().erase(std\+::declval$<$ Key\+Type $>$()))
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Key\+Type $>$ }\\using \mbox{\hyperlink{namespacedetail_abd4a9f5dc3f5e2b43c8dc87698d6d689}{detail\+::has\+\_\+erase\+\_\+with\+\_\+key\+\_\+type}} = typename std\+::conditional$<$ \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_ae8fd4ed53e2a6c71fe1fa557e1923b9f}{detect\+\_\+erase\+\_\+with\+\_\+key\+\_\+type}}, typename Basic\+Json\+Type\+::object\+\_\+t, Key\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, std\+::true\+\_\+type, std\+::false\+\_\+type $>$\+::type
+\item 
+{\footnotesize template$<$typename... Types$>$ }\\using \mbox{\hyperlink{namespacedetail_a76f25f590a08b4a0e4c26e515471003d}{detail\+::all\+\_\+integral}} = \mbox{\hyperlink{structdetail_1_1conjunction}{conjunction}}$<$ std\+::is\+\_\+integral$<$ Types $>$... $>$
+\item 
+{\footnotesize template$<$typename... Types$>$ }\\using \mbox{\hyperlink{namespacedetail_ac78ba866159e98c93c50a9a1140901dc}{detail\+::all\+\_\+signed}} = \mbox{\hyperlink{structdetail_1_1conjunction}{conjunction}}$<$ std\+::is\+\_\+signed$<$ Types $>$... $>$
+\item 
+{\footnotesize template$<$typename... Types$>$ }\\using \mbox{\hyperlink{namespacedetail_a804e13d43be14f983b738e18f0bb8eb9}{detail\+::all\+\_\+unsigned}} = \mbox{\hyperlink{structdetail_1_1conjunction}{conjunction}}$<$ std\+::is\+\_\+unsigned$<$ Types $>$... $>$
+\item 
+{\footnotesize template$<$typename... Types$>$ }\\using \mbox{\hyperlink{namespacedetail_a91e73e1b9fba3c45b9ad1b0b7f4f1c9b}{detail\+::same\+\_\+sign}} = std\+::integral\+\_\+constant$<$ bool, \mbox{\hyperlink{namespacedetail_ac78ba866159e98c93c50a9a1140901dc}{all\+\_\+signed}}$<$ Types... $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{namespacedetail_a804e13d43be14f983b738e18f0bb8eb9}{all\+\_\+unsigned}}$<$ Types... $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} $>$
+\item 
+{\footnotesize template$<$typename Of\+Type , typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_af80e4e59be493e62842fb40354351e8b}{detail\+::never\+\_\+out\+\_\+of\+\_\+range}} = std\+::integral\+\_\+constant$<$ bool,(std\+::is\+\_\+signed$<$ Of\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&(sizeof(T)$<$ sizeof(Of\+Type)))\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}(\mbox{\hyperlink{namespacedetail_a91e73e1b9fba3c45b9ad1b0b7f4f1c9b}{same\+\_\+sign}}$<$ Of\+Type, T $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&sizeof(Of\+Type)==sizeof(T)) $>$
+\item 
+{\footnotesize template$<$bool Value$>$ }\\using \mbox{\hyperlink{namespacedetail_a867b6755c86931c5824f5c97cba3b470}{detail\+::bool\+\_\+constant}} = std\+::integral\+\_\+constant$<$ bool, Value $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_a9d99cdff6fa6a48145e5f7209d60db5a}{detail\+::is\+\_\+c\+\_\+string\+\_\+uncvref}} = \mbox{\hyperlink{structdetail_1_1is__c__string}{is\+\_\+c\+\_\+string}}$<$ \mbox{\hyperlink{namespacedetail_ad76afb2c3a23eb88e7efb7c5d5499574}{uncvref\+\_\+t}}$<$ T $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename U , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ !std\+::is\+\_\+same$<$ T, U $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\T \mbox{\hyperlink{namespacedetail_a5d17f1d261bd9fec64c08343c9f809fc}{detail\+::conditional\+\_\+static\+\_\+cast}} (U \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}})
+\item 
+{\footnotesize template$<$typename Of\+Type , typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacedetail_a8e7a4119c6c8e86cef8f1c904c8bf040}{detail\+::value\+\_\+in\+\_\+range\+\_\+of}} (T val)
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacedetail_1_1impl_ac7d52b8817f5a5d4147a8b39dc31a8f1}{detail\+::impl\+::is\+\_\+c\+\_\+string}} ()
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespacedetail_1_1impl_a4d80d22e33fe18699115e86773075879}{detail\+::impl\+::is\+\_\+transparent}} ()
+\end{DoxyCompactItemize}

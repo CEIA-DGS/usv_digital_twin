@@ -1,0 +1,146 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/regression2.cpp File Reference}
+\hypertarget{unit-regression2_8cpp}{}\label{unit-regression2_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/regression2.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/regression2.cpp}}
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$locale$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+Include dependency graph for unit-\/regression2.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-regression2_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structData}{Data}}
+\item 
+struct \mbox{\hyperlink{structnlohmann_1_1adl__serializer_3_01NonDefaultFromJsonStruct_01_4}{nlohmann\+::adl\+\_\+serializer$<$ Non\+Default\+From\+Json\+Struct $>$}}
+\item 
+struct \mbox{\hyperlink{structNotSerializableData}{Not\+Serializable\+Data}}
+\item 
+struct \mbox{\hyperlink{structNonDefaultConstructible}{Non\+Default\+Constructible}}
+\item 
+struct \mbox{\hyperlink{structnlohmann_1_1adl__serializer_3_01NonDefaultConstructible_01_4}{nlohmann\+::adl\+\_\+serializer$<$ Non\+Default\+Constructible $>$}}
+\item 
+class \mbox{\hyperlink{classsax__no__exception}{sax\+\_\+no\+\_\+exception}}
+\item 
+class \mbox{\hyperlink{classmy__allocator}{my\+\_\+allocator$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structmy__allocator_1_1rebind}{my\+\_\+allocator$<$ T $>$\+::rebind$<$ U $>$}}
+\item 
+class \mbox{\hyperlink{classFooAlloc}{Foo\+Alloc}}
+\item 
+class \mbox{\hyperlink{classFoo}{Foo}}
+\item 
+class \mbox{\hyperlink{classFooBar}{Foo\+Bar}}
+\item 
+struct \mbox{\hyperlink{structfor__3171__base}{for\+\_\+3171\+\_\+base}}
+\item 
+struct \mbox{\hyperlink{structfor__3171__derived}{for\+\_\+3171\+\_\+derived}}
+\item 
+struct \mbox{\hyperlink{structfor__3204__foo}{for\+\_\+3204\+\_\+foo}}
+\item 
+struct \mbox{\hyperlink{structfor__3204__bar}{for\+\_\+3204\+\_\+bar}}
+\item 
+struct \mbox{\hyperlink{structfor__3333}{for\+\_\+3333}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacenlohmann}{nlohmann}}
+\begin{DoxyCompactList}\small\item\em namespace for Niels Lohmann \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unit-regression2_8cpp_aac81588c35115b6f19794f631c05cbe4}{JSON\+\_\+\+TESTS\+\_\+\+PRIVATE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{unit-regression2_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\item 
+using \mbox{\hyperlink{unit-regression2_8cpp_a7a7eb87c9ed558274a643ed90dc01eb4}{ordered\+\_\+json}} = \mbox{\hyperlink{namespacenlohmann_ad53cef358adfa7f07cea23eb1e28b9ea}{nlohmann\+::ordered\+\_\+json}}
+\item 
+using \mbox{\hyperlink{unit-regression2_8cpp_a5978f8da8252891e513419a0546a2e37}{float\+\_\+json}} = \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, float $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json}} (const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, \mbox{\hyperlink{structData}{Data}} \&data)
+\item 
+bool \mbox{\hyperlink{unit-regression2_8cpp_adcd61d2936c5f4f652496b7f8184c143}{operator==}} (\mbox{\hyperlink{structData}{Data}} const \&lhs, \mbox{\hyperlink{structData}{Data}} const \&rhs)
+\item 
+void \mbox{\hyperlink{unit-regression2_8cpp_a11859b18f00265a59bfb968d1ecfe1cb}{from\+\_\+json}} (const \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, \mbox{\hyperlink{classFooBar}{Foo\+Bar}} \&fb)
+\item 
+void \mbox{\hyperlink{unit-regression2_8cpp_acbdb92b656a54fd2e9ad1428c23258d3}{from\+\_\+json}} (const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, \mbox{\hyperlink{structfor__3171__base}{for\+\_\+3171\+\_\+base}} \&tb)
+\item 
+\mbox{\hyperlink{unit-regression2_8cpp_ae883c8adabfa3509d184fc46902df3bb}{TEST\+\_\+\+CASE}} ("{}regression tests 2"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{unit-regression2_8cpp_aac81588c35115b6f19794f631c05cbe4}\label{unit-regression2_8cpp_aac81588c35115b6f19794f631c05cbe4} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!JSON\_TESTS\_PRIVATE@{JSON\_TESTS\_PRIVATE}}
+\index{JSON\_TESTS\_PRIVATE@{JSON\_TESTS\_PRIVATE}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{JSON\_TESTS\_PRIVATE}{JSON\_TESTS\_PRIVATE}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+TESTS\+\_\+\+PRIVATE}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{unit-regression2_8cpp_a5978f8da8252891e513419a0546a2e37}\label{unit-regression2_8cpp_a5978f8da8252891e513419a0546a2e37} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!float\_json@{float\_json}}
+\index{float\_json@{float\_json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{float\_json}{float\_json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{unit-regression2_8cpp_a5978f8da8252891e513419a0546a2e37}{float\+\_\+json}} =  \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$\mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, float$>$}
+
+\Hypertarget{unit-regression2_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{unit-regression2_8cpp_ab701e3ac61a85b337ec5c1abaad6742d} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!json@{json}}
+\index{json@{json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+\Hypertarget{unit-regression2_8cpp_a7a7eb87c9ed558274a643ed90dc01eb4}\label{unit-regression2_8cpp_a7a7eb87c9ed558274a643ed90dc01eb4} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!ordered\_json@{ordered\_json}}
+\index{ordered\_json@{ordered\_json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{ordered\_json}{ordered\_json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{ordered__json_8cpp_a7a7eb87c9ed558274a643ed90dc01eb4}{ordered\+\_\+json}} =  \mbox{\hyperlink{namespacenlohmann_ad53cef358adfa7f07cea23eb1e28b9ea}{nlohmann\+::ordered\+\_\+json}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}\label{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void from\+\_\+json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j,  }\item[{\mbox{\hyperlink{structData}{Data}} \&}]{data }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-regression2_8cpp_acbdb92b656a54fd2e9ad1428c23258d3}\label{unit-regression2_8cpp_acbdb92b656a54fd2e9ad1428c23258d3} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void from\+\_\+json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} \&}]{j,  }\item[{\mbox{\hyperlink{structfor__3171__base}{for\+\_\+3171\+\_\+base}} \&}]{tb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{unit-regression2_8cpp_a11859b18f00265a59bfb968d1ecfe1cb}\label{unit-regression2_8cpp_a11859b18f00265a59bfb968d1ecfe1cb} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!from\_json@{from\_json}}
+\index{from\_json@{from\_json}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{from\_json()}{from\_json()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void from\+\_\+json (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} \&}]{j,  }\item[{\mbox{\hyperlink{classFooBar}{Foo\+Bar}} \&}]{fb }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{unit-regression2_8cpp_adcd61d2936c5f4f652496b7f8184c143}\label{unit-regression2_8cpp_adcd61d2936c5f4f652496b7f8184c143} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structData}{Data}} const \&}]{lhs,  }\item[{\mbox{\hyperlink{structData}{Data}} const \&}]{rhs }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-regression2_8cpp_ae883c8adabfa3509d184fc46902df3bb}\label{unit-regression2_8cpp_ae883c8adabfa3509d184fc46902df3bb} 
+\index{unit-\/regression2.cpp@{unit-\/regression2.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/regression2.cpp@{unit-\/regression2.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}regression tests 2"{}        }]{ }\end{DoxyParamCaption})}
+

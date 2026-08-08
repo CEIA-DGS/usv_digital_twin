@@ -1,0 +1,133 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}update}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$update@{$<$small$>$nlohmann::basic\_json::$<$/small$>$update}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md918}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md918}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ update(const\_reference\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keywordtype}{bool}\ merge\_objects\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ update(const\_iterator\ first,\ const\_iterator\ last,\ \textcolor{keywordtype}{bool}\ merge\_objects\ =\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Inserts all values from JSON object {\ttfamily j}.
+\item Inserts all values from range {\ttfamily \mbox{[}first, last)}
+\end{DoxyEnumerate}
+
+When {\ttfamily merge\+\_\+objects} is {\ttfamily \#!c false} (default), existing keys are overwritten. When {\ttfamily merge\+\_\+objects} is {\ttfamily \#!c true}, recursively merges objects with common keys.
+
+The function is motivated by Python\textquotesingle{}s \href{https://docs.python.org/3.6/library/stdtypes.html\#dict.update}{\texttt{ dict.\+update}} function.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md919}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md919}
+{\ttfamily j} (in) \+: JSON object to read values from
+
+{\ttfamily merge\+\_\+objects} (in) \+: when {\ttfamily \#!c true}, existing keys are not overwritten, but contents of objects are merged recursively (default\+: {\ttfamily \#!c false})
+
+{\ttfamily first} (in) \+: begin of the range of elements to insert
+
+{\ttfamily last} (in) \+: end of the range of elements to insert\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md920}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md920}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error312}{\texttt{ {\ttfamily type\+\_\+error.\+312}}} if called on JSON values other than objects; example\+: {\ttfamily "{}cannot use update() with string"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error312}{\texttt{ {\ttfamily type\+\_\+error.\+312}}} if called on JSON values other than objects; example\+: {\ttfamily "{}cannot use update() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator210}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+210}}} if {\ttfamily first} and {\ttfamily last} do not belong to the same JSON value; example\+: {\ttfamily "{}iterators do not fit"{}}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md921}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md921}
+
+\begin{DoxyEnumerate}
+\item O(N\texorpdfstring{$\ast$}{*}log(size() + N)), where N is the number of elements to insert.
+\item O(N\texorpdfstring{$\ast$}{*}log(size() + N)), where N is the number of elements to insert.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md922}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md922}
+??? example \begin{DoxyVerb}The example shows how `update()` is used.
+
+```cpp
+--8<-- "examples/update.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/update.output"
+```
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}The example shows how `update()` is used.
+
+```cpp
+--8<-- "examples/update__range.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/update__range.output"
+```
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}One common use case for this function is the handling of user settings. Assume your application can be configured in
+some aspects:
+
+```json
+{
+    "color": "red",
+    "active": true,
+    "name": {"de": "Maus", "en": "mouse"}
+}
+```
+
+The user may override the default settings selectively:
+
+```json
+{
+    "color": "blue",
+    "name": {"es": "ratón"},
+}
+```
+
+Then `update` manages the merging of default settings and user settings:
+
+```cpp
+auto user_settings = json::parse("config.json");
+auto effective_settings = get_default_settings();
+effective_settings.update(user_settings);
+```
+
+Now `effective_settings` contains the default settings, but those keys set by the user are overwritten:
+
+```json
+{
+    "color": "blue",
+    "active": true,
+    "name": {"es": "ratón"}
+}
+```
+
+Note existing keys were just overwritten. To merge objects, `merge_objects` setting should be set to `#!c true`:
+
+```cpp
+auto user_settings = json::parse("config.json");
+auto effective_settings = get_default_settings();
+effective_settings.update(user_settings, true);
+```
+
+```json
+{
+    "color": "blue",
+    "active": true,
+    "name": {"de": "Maus", "en": "mouse", "es": "ratón"}
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md923}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update_autotoc_md923}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+0.\+0.
+\item Added {\ttfamily merge\+\_\+objects} parameter in 3.\+10.\+4. 
+\end{DoxyItemize}

@@ -1,0 +1,93 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}push\+\_\+back}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$push\_back@{$<$small$>$nlohmann::basic\_json::$<$/small$>$push\_back}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md786}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md786}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(\mbox{\hyperlink{classbasic__json}{basic\_json}}\&\&\ val);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::value\_type\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(initializer\_list\_t\ init);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Appends the given element {\ttfamily val} to the end of the JSON array. If the function is called on a JSON null value, an empty array is created before appending {\ttfamily val}.
+\item Inserts the given element {\ttfamily val} to the JSON object. If the function is called on a JSON null value, an empty object is created before inserting {\ttfamily val}.
+\item This function allows using {\ttfamily push\+\_\+back} with an initializer list. In case
+\begin{DoxyEnumerate}
+\item the current value is an object,
+\item the initializer list {\ttfamily init} contains only two elements, and
+\item the first element of {\ttfamily init} is a string,
+\end{DoxyEnumerate}
+
+{\ttfamily init} is converted into an object element and added using {\ttfamily push\+\_\+back(const typename object\+\_\+t\+::value\+\_\+type\&)}. Otherwise, {\ttfamily init} is converted to a JSON value and added using {\ttfamily push\+\_\+back(\doxylink{classbasic__json}{basic\+\_\+json}\&\&)}.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md787}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md787}
+{\ttfamily val} (in) \+: the value to add to the JSON array/object
+
+{\ttfamily init} (in) \+: an initializer list\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md788}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md788}
+All functions can throw the following exception\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error308}{\texttt{ {\ttfamily type\+\_\+error.\+308}}} when called on a type other than JSON array or null; example\+: {\ttfamily "{}cannot use push\+\_\+back() with number"{}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md789}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md789}
+
+\begin{DoxyEnumerate}
+\item Amortized constant.
+\item Logarithmic in the size of the container, O(log({\ttfamily size()})).
+\item Linear in the size of the initializer list {\ttfamily init}.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md790}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md790}
+(3) This function is required to resolve an ambiguous overload error, because pairs like {\ttfamily \{"{}key"{}, "{}value"{}\}} can be both interpreted as {\ttfamily object\+\_\+t\+::value\+\_\+type} or {\ttfamily std\+::initializer\+\_\+list\texorpdfstring{$<$}{<}\doxylink{classbasic__json}{basic\+\_\+json}\texorpdfstring{$>$}{>}}, see \href{https://github.com/nlohmann/json/issues/235}{\texttt{ \#235}} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md791}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md791}
+??? example "{}\+Example\+: (1) add element to array"{} \begin{DoxyVerb}The example shows how `push_back()` and `+=` can be used to add elements to a JSON array. Note how the `null` value
+was silently converted to a JSON array.
+
+```cpp
+--8<-- "examples/push_back.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/push_back.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) add element to object"{} \begin{DoxyVerb}The example shows how `push_back()` and `+=` can be used to add elements to a JSON object. Note how the `null` value
+was silently converted to a JSON object.
+
+```cpp
+--8<-- "examples/push_back__object_t__value.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/push_back__object_t__value.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) add to object from initializer list"{} \begin{DoxyVerb}The example shows how initializer lists are treated as objects when possible.
+
+```cpp
+--8<-- "examples/push_back__initializer_list.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/push_back__initializer_list.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md792}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back_autotoc_md792}
+
+\begin{DoxyEnumerate}
+\item Since version 1.\+0.\+0.
+\item Since version 1.\+0.\+0.
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Since version 2.\+0.\+0. 
+\end{DoxyEnumerate}

@@ -1,0 +1,36 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::json\+\_\+pointer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}json\+\_\+pointer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer}\index{$<$small$>$nlohmann::json\_pointer::$<$/small$>$json\_pointer@{$<$small$>$nlohmann::json\_pointer::$<$/small$>$json\_pointer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md996}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md996}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{explicit}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}(\textcolor{keyword}{const}\ string\_t\&\ s\ =\ \textcolor{stringliteral}{"{}"{}});}
+
+\end{DoxyCode}
+
+
+Create a JSON pointer according to the syntax described in \href{https://tools.ietf.org/html/rfc6901\#section-3}{\texttt{ Section 3 of RFC6901}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md997}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md997}
+{\ttfamily s} (in) \+: string representing the JSON pointer; if omitted, the empty string is assumed which references the whole JSON value\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md998}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md998}
+
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error107}{\texttt{ parse\+\_\+error.\+107}} if the given JSON pointer {\ttfamily s} is nonempty and does not begin with a slash ({\ttfamily /}); see example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error108}{\texttt{ parse\+\_\+error.\+108}} if a tilde ({\ttfamily \texorpdfstring{$\sim$}{\string~}}) in the given JSON pointer {\ttfamily s} is not followed by {\ttfamily 0} (representing {\ttfamily \texorpdfstring{$\sim$}{\string~}}) or {\ttfamily 1} (representing {\ttfamily /}); see example below.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md999}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md999}
+??? example \begin{DoxyVerb}The example shows the construction several valid JSON pointers as well as the exceptional behavior.
+
+```cpp
+--8<-- "examples/json_pointer.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/json_pointer.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md1000}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer_autotoc_md1000}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0.
+\item Changed type of {\ttfamily s} to {\ttfamily string\+\_\+t} in version 3.\+11.\+0. 
+\end{DoxyItemize}

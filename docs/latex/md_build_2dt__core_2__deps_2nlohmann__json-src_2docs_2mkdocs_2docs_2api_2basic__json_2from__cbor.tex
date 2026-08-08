@@ -1,0 +1,92 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}from\+\_\+cbor}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$from\_cbor@{$<$small$>$nlohmann::basic\_json::$<$/small$>$from\_cbor}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md316}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md316}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ InputType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ from\_cbor(InputType\&\&\ i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ cbor\_tag\_handler\_t\ tag\_handler\ =\ cbor\_tag\_handler\_t::error);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ IteratorType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ from\_cbor(IteratorType\ first,\ IteratorType\ last,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ cbor\_tag\_handler\_t\ tag\_handler\ =\ cbor\_tag\_handler\_t::error);}
+
+\end{DoxyCode}
+
+
+Deserializes a given input to a JSON value using the CBOR (Concise Binary Object Representation) serialization format.
+
+
+\begin{DoxyEnumerate}
+\item Reads from a compatible input.
+\item Reads from an iterator range.
+\end{DoxyEnumerate}
+
+The exact mapping and its limitations is described on a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2cbor}{dedicated page}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md317}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md317}
+{\ttfamily Input\+Type} \+: A compatible input, for instance\+: \begin{DoxyVerb}- an `std::istream` object
+- a `FILE` pointer
+- a C-style array of characters
+- a pointer to a null-terminated string of single byte characters
+- an object `obj` for which `begin(obj)` and `end(obj)` produces a valid pair of iterators.
+\end{DoxyVerb}
+ {\ttfamily Iterator\+Type} \+: a compatible iterator type\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md318}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md318}
+{\ttfamily i} (in) \+: an input in CBOR format convertible to an input adapter
+
+{\ttfamily first} (in) \+: iterator to start of the input
+
+{\ttfamily last} (in) \+: iterator to end of the input
+
+{\ttfamily strict} (in) \+: whether to expect the input to be consumed until EOF ({\ttfamily \#!cpp true} by default)
+
+{\ttfamily allow\+\_\+exceptions} (in) \+: whether to throw exceptions in case of a parse error (optional, {\ttfamily \#!cpp true} by default)
+
+{\ttfamily tag\+\_\+handler} (in) \+: how to treat CBOR tags (optional, {\ttfamily error} by default); see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t}{\`{}cbor\+\_\+tag\+\_\+handler\+\_\+t\`{}}{0} for more information\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md319}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md319}
+deserialized JSON value; in case of a parse error and {\ttfamily allow\+\_\+exceptions} set to {\ttfamily \#!cpp false}, the return value will be {\ttfamily value\+\_\+t\+::discarded}. The latter can be checked with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__discarded}{\`{}is\+\_\+discarded\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md320}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md320}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md321}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md321}
+
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error110}{\texttt{ parse\+\_\+error.\+110}} if the given input ends prematurely or the end of file was not reached when {\ttfamily strict} was set to true
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error112}{\texttt{ parse\+\_\+error.\+112}} if unsupported features from CBOR were used in the given input or if the input is not valid CBOR
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error113}{\texttt{ parse\+\_\+error.\+113}} if a string was expected as map key, but not found
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md322}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md322}
+Linear in the size of the input.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md323}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md323}
+??? example \begin{DoxyVerb}The example shows the deserialization of a byte vector in CBOR format to a JSON value.
+
+```cpp
+--8<-- "examples/from_cbor.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_cbor.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md324}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor_autotoc_md324}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+9.
+\item Parameter {\ttfamily start\+\_\+index} since version 2.\+1.\+1.
+\item Changed to consume input adapters, removed {\ttfamily start\+\_\+index} parameter, and added {\ttfamily strict} parameter in version 3.\+0.\+0.
+\item Added {\ttfamily allow\+\_\+exceptions} parameter in version 3.\+2.\+0.
+\item Added {\ttfamily tag\+\_\+handler} parameter in version 3.\+9.\+0.
+\end{DoxyItemize}
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}- Overload (2) replaces calls to `from_cbor` with a pointer and a length as first two parameters, which has been
+  deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+  `#!cpp from_cbor(ptr, len, ...);` with `#!cpp from_cbor(ptr, ptr+len, ...);`.
+- Overload (2) replaces calls to `from_cbor` with a pair of iterators as their first parameter, which has been
+  deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+  `#!cpp from_cbor({ptr, ptr+len}, ...);` with `#!cpp from_cbor(ptr, ptr+len, ...);`.
+
+You should be warned by your compiler with a `-Wdeprecated-declarations` warning if you are using a deprecated
+function.
+\end{DoxyVerb}
+ 

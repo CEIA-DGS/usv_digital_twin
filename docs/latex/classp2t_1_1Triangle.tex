@@ -1,0 +1,351 @@
+\doxysection{p2t\+::Triangle Class Reference}
+\hypertarget{classp2t_1_1Triangle}{}\label{classp2t_1_1Triangle}\index{p2t::Triangle@{p2t::Triangle}}
+
+
+{\ttfamily \#include $<$shapes.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classp2t_1_1Triangle_ae5e05ccd7c0d899b4fdafd70c144d798}{Triangle}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b, \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_ab5c51c688c77eb2ac07ce664c27c732d}{Get\+Point}} (int index)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a65da065d19ff77ef3b3ea90207a2a624}{Point\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a9d580108ef260298ece9655d848efbbc}{Point\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a6f55cfb2699ce6e4f5ff47c100f88f9d}{Opposite\+Point}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&t, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a223b7a85850adcdadb8f5a7a2576e640}{Get\+Neighbor}} (int index)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a9164f8f3212ef95a6da9015d73dd41bd}{Mark\+Neighbor}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}p1, \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}, \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}t)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_af34b61f225778d880b20f95aaacd59ae}{Mark\+Neighbor}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&t)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_add63b8693810fb5beef807069c2f335f}{Mark\+Constrained\+Edge}} (int index)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a0787666cf3b3ddfa20670d4d9db911e6}{Mark\+Constrained\+Edge}} (\mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \&edge)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_ab7473df18094a9e777c5c1e04792f71d}{Mark\+Constrained\+Edge}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}q)
+\item 
+int \mbox{\hyperlink{classp2t_1_1Triangle_a2728c35a436784a2f8919f58c2593f6d}{Index}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+int \mbox{\hyperlink{classp2t_1_1Triangle_a5322a27e9794fff7fefe904593bc5772}{Edge\+Index}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}p1, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}})
+\item 
+\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a4716c82581333da83ce3543356f95f22}{Neighbor\+Across}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_ae42b01015306da686cd4dbe57eb1cccf}{Neighbor\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1Triangle_a1674dc6f724eeb8de1b63a0438d478fc}{Neighbor\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a33952591bb6c5c34cf94e05539c11d7f}{Get\+Constrained\+Edge\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_ab1ef2d965172acdf1e985fcbcf703a97}{Get\+Constrained\+Edge\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a848bc52bf13601b1a101a37afbbab5ad}{Set\+Constrained\+Edge\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, bool ce)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a67b6c4801d2c2bbc5dbdbcc20017f6cf}{Set\+Constrained\+Edge\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, bool ce)
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_afca07f913415fa098ade3802902b1858}{Get\+Delunay\+Edge\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_aa1f838b6d2f6c049bf444051a182a6c6}{Get\+Delunay\+Edge\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a443b15adfacb912d1eb9e9fb31e0322b}{Set\+Delunay\+Edge\+CCW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, bool e)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a38d5d66e655040b819db03b64a6a92a4}{Set\+Delunay\+Edge\+CW}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, bool e)
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Contains}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a0f114b21e57a40eb10ac7064772b41a0}{Contains}} (const \mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \&e)
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a7e0bb4b72d8a1481ff605d2a61ea5c28}{Contains}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}q)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_ab9aba40377c6eb249451da43c40341de}{Legalize}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a297b1c66e693b6bbc9d64f93dc4b8866}{Legalize}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&opoint, \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&npoint)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a621468777e1685455c9fe1763e90b0bd}{Clear}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a880406b7982b8f70a336c4d6a4964646}{Clear\+Neighbor}} (const \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}triangle)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a6073d6c3a3246e741954fdaa6ec1a938}{Clear\+Neighbors}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a4048dd780e71556f06c58e2184afd488}{Clear\+Delunay\+Edges}} ()
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_aa3ec752fef9d4abe86b67eb4ef62fa6f}{Is\+Interior}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_ae376125beedf79277b644beae1a3147a}{Is\+Interior}} (bool b)
+\item 
+void \mbox{\hyperlink{classp2t_1_1Triangle_a10ecbfda6b0126b5c7b3b803992d4160}{Debug\+Print}} ()
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a75eccc7096e23cef4bad553284d123e6}{Circumcicle\+Contains}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_a66aea3f70ccfd359372cb747581f1653}{constrained\+\_\+edge}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Flags to determine if an edge is a Constrained edge. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classp2t_1_1Triangle_acbfdd0dba623a7b5d1dc8b81059c48b5}{delaunay\+\_\+edge}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Flags to determine if an edge is a Delauney edge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classp2t_1_1Triangle_ae5e05ccd7c0d899b4fdafd70c144d798}\label{classp2t_1_1Triangle_ae5e05ccd7c0d899b4fdafd70c144d798} 
+\index{p2t::Triangle@{p2t::Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Triangle()}{Triangle()}}
+{\footnotesize\ttfamily Triangle\+::\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b,  }\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classp2t_1_1Triangle_a75eccc7096e23cef4bad553284d123e6}\label{classp2t_1_1Triangle_a75eccc7096e23cef4bad553284d123e6} 
+\index{p2t::Triangle@{p2t::Triangle}!CircumcicleContains@{CircumcicleContains}}
+\index{CircumcicleContains@{CircumcicleContains}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{CircumcicleContains()}{CircumcicleContains()}}
+{\footnotesize\ttfamily bool Triangle\+::\+Circumcicle\+Contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classp2t_1_1Triangle_a621468777e1685455c9fe1763e90b0bd}\label{classp2t_1_1Triangle_a621468777e1685455c9fe1763e90b0bd} 
+\index{p2t::Triangle@{p2t::Triangle}!Clear@{Clear}}
+\index{Clear@{Clear}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Triangle\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Clears all references to all other triangles and points \Hypertarget{classp2t_1_1Triangle_a4048dd780e71556f06c58e2184afd488}\label{classp2t_1_1Triangle_a4048dd780e71556f06c58e2184afd488} 
+\index{p2t::Triangle@{p2t::Triangle}!ClearDelunayEdges@{ClearDelunayEdges}}
+\index{ClearDelunayEdges@{ClearDelunayEdges}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{ClearDelunayEdges()}{ClearDelunayEdges()}}
+{\footnotesize\ttfamily void Triangle\+::\+Clear\+Delunay\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a880406b7982b8f70a336c4d6a4964646}\label{classp2t_1_1Triangle_a880406b7982b8f70a336c4d6a4964646} 
+\index{p2t::Triangle@{p2t::Triangle}!ClearNeighbor@{ClearNeighbor}}
+\index{ClearNeighbor@{ClearNeighbor}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{ClearNeighbor()}{ClearNeighbor()}}
+{\footnotesize\ttfamily void Triangle\+::\+Clear\+Neighbor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}}]{triangle }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a6073d6c3a3246e741954fdaa6ec1a938}\label{classp2t_1_1Triangle_a6073d6c3a3246e741954fdaa6ec1a938} 
+\index{p2t::Triangle@{p2t::Triangle}!ClearNeighbors@{ClearNeighbors}}
+\index{ClearNeighbors@{ClearNeighbors}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{ClearNeighbors()}{ClearNeighbors()}}
+{\footnotesize\ttfamily void Triangle\+::\+Clear\+Neighbors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a0f114b21e57a40eb10ac7064772b41a0}\label{classp2t_1_1Triangle_a0f114b21e57a40eb10ac7064772b41a0} 
+\index{p2t::Triangle@{p2t::Triangle}!Contains@{Contains}}
+\index{Contains@{Contains}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Triangle\+::\+Contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}\label{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6} 
+\index{p2t::Triangle@{p2t::Triangle}!Contains@{Contains}}
+\index{Contains@{Contains}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Triangle\+::\+Contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_a7e0bb4b72d8a1481ff605d2a61ea5c28}\label{classp2t_1_1Triangle_a7e0bb4b72d8a1481ff605d2a61ea5c28} 
+\index{p2t::Triangle@{p2t::Triangle}!Contains@{Contains}}
+\index{Contains@{Contains}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Contains()}{Contains()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Triangle\+::\+Contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_a10ecbfda6b0126b5c7b3b803992d4160}\label{classp2t_1_1Triangle_a10ecbfda6b0126b5c7b3b803992d4160} 
+\index{p2t::Triangle@{p2t::Triangle}!DebugPrint@{DebugPrint}}
+\index{DebugPrint@{DebugPrint}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{DebugPrint()}{DebugPrint()}}
+{\footnotesize\ttfamily void Triangle\+::\+Debug\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a5322a27e9794fff7fefe904593bc5772}\label{classp2t_1_1Triangle_a5322a27e9794fff7fefe904593bc5772} 
+\index{p2t::Triangle@{p2t::Triangle}!EdgeIndex@{EdgeIndex}}
+\index{EdgeIndex@{EdgeIndex}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{EdgeIndex()}{EdgeIndex()}}
+{\footnotesize\ttfamily int Triangle\+::\+Edge\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p1,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p2 }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a33952591bb6c5c34cf94e05539c11d7f}\label{classp2t_1_1Triangle_a33952591bb6c5c34cf94e05539c11d7f} 
+\index{p2t::Triangle@{p2t::Triangle}!GetConstrainedEdgeCCW@{GetConstrainedEdgeCCW}}
+\index{GetConstrainedEdgeCCW@{GetConstrainedEdgeCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetConstrainedEdgeCCW()}{GetConstrainedEdgeCCW()}}
+{\footnotesize\ttfamily bool Triangle\+::\+Get\+Constrained\+Edge\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_ab1ef2d965172acdf1e985fcbcf703a97}\label{classp2t_1_1Triangle_ab1ef2d965172acdf1e985fcbcf703a97} 
+\index{p2t::Triangle@{p2t::Triangle}!GetConstrainedEdgeCW@{GetConstrainedEdgeCW}}
+\index{GetConstrainedEdgeCW@{GetConstrainedEdgeCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetConstrainedEdgeCW()}{GetConstrainedEdgeCW()}}
+{\footnotesize\ttfamily bool Triangle\+::\+Get\+Constrained\+Edge\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_afca07f913415fa098ade3802902b1858}\label{classp2t_1_1Triangle_afca07f913415fa098ade3802902b1858} 
+\index{p2t::Triangle@{p2t::Triangle}!GetDelunayEdgeCCW@{GetDelunayEdgeCCW}}
+\index{GetDelunayEdgeCCW@{GetDelunayEdgeCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetDelunayEdgeCCW()}{GetDelunayEdgeCCW()}}
+{\footnotesize\ttfamily bool Triangle\+::\+Get\+Delunay\+Edge\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_aa1f838b6d2f6c049bf444051a182a6c6}\label{classp2t_1_1Triangle_aa1f838b6d2f6c049bf444051a182a6c6} 
+\index{p2t::Triangle@{p2t::Triangle}!GetDelunayEdgeCW@{GetDelunayEdgeCW}}
+\index{GetDelunayEdgeCW@{GetDelunayEdgeCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetDelunayEdgeCW()}{GetDelunayEdgeCW()}}
+{\footnotesize\ttfamily bool Triangle\+::\+Get\+Delunay\+Edge\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a223b7a85850adcdadb8f5a7a2576e640}\label{classp2t_1_1Triangle_a223b7a85850adcdadb8f5a7a2576e640} 
+\index{p2t::Triangle@{p2t::Triangle}!GetNeighbor@{GetNeighbor}}
+\index{GetNeighbor@{GetNeighbor}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetNeighbor()}{GetNeighbor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Get\+Neighbor (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_ab5c51c688c77eb2ac07ce664c27c732d}\label{classp2t_1_1Triangle_ab5c51c688c77eb2ac07ce664c27c732d} 
+\index{p2t::Triangle@{p2t::Triangle}!GetPoint@{GetPoint}}
+\index{GetPoint@{GetPoint}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{GetPoint()}{GetPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Get\+Point (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_a2728c35a436784a2f8919f58c2593f6d}\label{classp2t_1_1Triangle_a2728c35a436784a2f8919f58c2593f6d} 
+\index{p2t::Triangle@{p2t::Triangle}!Index@{Index}}
+\index{Index@{Index}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Index()}{Index()}}
+{\footnotesize\ttfamily int Triangle\+::\+Index (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_aa3ec752fef9d4abe86b67eb4ef62fa6f}\label{classp2t_1_1Triangle_aa3ec752fef9d4abe86b67eb4ef62fa6f} 
+\index{p2t::Triangle@{p2t::Triangle}!IsInterior@{IsInterior}}
+\index{IsInterior@{IsInterior}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{IsInterior()}{IsInterior()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Triangle\+::\+Is\+Interior (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_ae376125beedf79277b644beae1a3147a}\label{classp2t_1_1Triangle_ae376125beedf79277b644beae1a3147a} 
+\index{p2t::Triangle@{p2t::Triangle}!IsInterior@{IsInterior}}
+\index{IsInterior@{IsInterior}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{IsInterior()}{IsInterior()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Triangle\+::\+Is\+Interior (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1Triangle_a297b1c66e693b6bbc9d64f93dc4b8866}\label{classp2t_1_1Triangle_a297b1c66e693b6bbc9d64f93dc4b8866} 
+\index{p2t::Triangle@{p2t::Triangle}!Legalize@{Legalize}}
+\index{Legalize@{Legalize}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Legalize()}{Legalize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Triangle\+::\+Legalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{opoint,  }\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{npoint }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_ab9aba40377c6eb249451da43c40341de}\label{classp2t_1_1Triangle_ab9aba40377c6eb249451da43c40341de} 
+\index{p2t::Triangle@{p2t::Triangle}!Legalize@{Legalize}}
+\index{Legalize@{Legalize}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{Legalize()}{Legalize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Triangle\+::\+Legalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a0787666cf3b3ddfa20670d4d9db911e6}\label{classp2t_1_1Triangle_a0787666cf3b3ddfa20670d4d9db911e6} 
+\index{p2t::Triangle@{p2t::Triangle}!MarkConstrainedEdge@{MarkConstrainedEdge}}
+\index{MarkConstrainedEdge@{MarkConstrainedEdge}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{MarkConstrainedEdge()}{MarkConstrainedEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Triangle\+::\+Mark\+Constrained\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \&}]{edge }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_add63b8693810fb5beef807069c2f335f}\label{classp2t_1_1Triangle_add63b8693810fb5beef807069c2f335f} 
+\index{p2t::Triangle@{p2t::Triangle}!MarkConstrainedEdge@{MarkConstrainedEdge}}
+\index{MarkConstrainedEdge@{MarkConstrainedEdge}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{MarkConstrainedEdge()}{MarkConstrainedEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Triangle\+::\+Mark\+Constrained\+Edge (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_ab7473df18094a9e777c5c1e04792f71d}\label{classp2t_1_1Triangle_ab7473df18094a9e777c5c1e04792f71d} 
+\index{p2t::Triangle@{p2t::Triangle}!MarkConstrainedEdge@{MarkConstrainedEdge}}
+\index{MarkConstrainedEdge@{MarkConstrainedEdge}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{MarkConstrainedEdge()}{MarkConstrainedEdge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Triangle\+::\+Mark\+Constrained\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p,  }\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{q }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a9164f8f3212ef95a6da9015d73dd41bd}\label{classp2t_1_1Triangle_a9164f8f3212ef95a6da9015d73dd41bd} 
+\index{p2t::Triangle@{p2t::Triangle}!MarkNeighbor@{MarkNeighbor}}
+\index{MarkNeighbor@{MarkNeighbor}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{MarkNeighbor()}{MarkNeighbor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Triangle\+::\+Mark\+Neighbor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p1,  }\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p2,  }\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_af34b61f225778d880b20f95aaacd59ae}\label{classp2t_1_1Triangle_af34b61f225778d880b20f95aaacd59ae} 
+\index{p2t::Triangle@{p2t::Triangle}!MarkNeighbor@{MarkNeighbor}}
+\index{MarkNeighbor@{MarkNeighbor}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{MarkNeighbor()}{MarkNeighbor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Triangle\+::\+Mark\+Neighbor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a4716c82581333da83ce3543356f95f22}\label{classp2t_1_1Triangle_a4716c82581333da83ce3543356f95f22} 
+\index{p2t::Triangle@{p2t::Triangle}!NeighborAcross@{NeighborAcross}}
+\index{NeighborAcross@{NeighborAcross}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{NeighborAcross()}{NeighborAcross()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Neighbor\+Across (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a1674dc6f724eeb8de1b63a0438d478fc}\label{classp2t_1_1Triangle_a1674dc6f724eeb8de1b63a0438d478fc} 
+\index{p2t::Triangle@{p2t::Triangle}!NeighborCCW@{NeighborCCW}}
+\index{NeighborCCW@{NeighborCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{NeighborCCW()}{NeighborCCW()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Neighbor\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_ae42b01015306da686cd4dbe57eb1cccf}\label{classp2t_1_1Triangle_ae42b01015306da686cd4dbe57eb1cccf} 
+\index{p2t::Triangle@{p2t::Triangle}!NeighborCW@{NeighborCW}}
+\index{NeighborCW@{NeighborCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{NeighborCW()}{NeighborCW()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Neighbor\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a6f55cfb2699ce6e4f5ff47c100f88f9d}\label{classp2t_1_1Triangle_a6f55cfb2699ce6e4f5ff47c100f88f9d} 
+\index{p2t::Triangle@{p2t::Triangle}!OppositePoint@{OppositePoint}}
+\index{OppositePoint@{OppositePoint}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{OppositePoint()}{OppositePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Opposite\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&}]{t,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a9d580108ef260298ece9655d848efbbc}\label{classp2t_1_1Triangle_a9d580108ef260298ece9655d848efbbc} 
+\index{p2t::Triangle@{p2t::Triangle}!PointCCW@{PointCCW}}
+\index{PointCCW@{PointCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{PointCCW()}{PointCCW()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Point\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a65da065d19ff77ef3b3ea90207a2a624}\label{classp2t_1_1Triangle_a65da065d19ff77ef3b3ea90207a2a624} 
+\index{p2t::Triangle@{p2t::Triangle}!PointCW@{PointCW}}
+\index{PointCW@{PointCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{PointCW()}{PointCW()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} Triangle\+::\+Point\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a848bc52bf13601b1a101a37afbbab5ad}\label{classp2t_1_1Triangle_a848bc52bf13601b1a101a37afbbab5ad} 
+\index{p2t::Triangle@{p2t::Triangle}!SetConstrainedEdgeCCW@{SetConstrainedEdgeCCW}}
+\index{SetConstrainedEdgeCCW@{SetConstrainedEdgeCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{SetConstrainedEdgeCCW()}{SetConstrainedEdgeCCW()}}
+{\footnotesize\ttfamily void Triangle\+::\+Set\+Constrained\+Edge\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p,  }\item[{bool}]{ce }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a67b6c4801d2c2bbc5dbdbcc20017f6cf}\label{classp2t_1_1Triangle_a67b6c4801d2c2bbc5dbdbcc20017f6cf} 
+\index{p2t::Triangle@{p2t::Triangle}!SetConstrainedEdgeCW@{SetConstrainedEdgeCW}}
+\index{SetConstrainedEdgeCW@{SetConstrainedEdgeCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{SetConstrainedEdgeCW()}{SetConstrainedEdgeCW()}}
+{\footnotesize\ttfamily void Triangle\+::\+Set\+Constrained\+Edge\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p,  }\item[{bool}]{ce }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a443b15adfacb912d1eb9e9fb31e0322b}\label{classp2t_1_1Triangle_a443b15adfacb912d1eb9e9fb31e0322b} 
+\index{p2t::Triangle@{p2t::Triangle}!SetDelunayEdgeCCW@{SetDelunayEdgeCCW}}
+\index{SetDelunayEdgeCCW@{SetDelunayEdgeCCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{SetDelunayEdgeCCW()}{SetDelunayEdgeCCW()}}
+{\footnotesize\ttfamily void Triangle\+::\+Set\+Delunay\+Edge\+CCW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p,  }\item[{bool}]{e }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1Triangle_a38d5d66e655040b819db03b64a6a92a4}\label{classp2t_1_1Triangle_a38d5d66e655040b819db03b64a6a92a4} 
+\index{p2t::Triangle@{p2t::Triangle}!SetDelunayEdgeCW@{SetDelunayEdgeCW}}
+\index{SetDelunayEdgeCW@{SetDelunayEdgeCW}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{SetDelunayEdgeCW()}{SetDelunayEdgeCW()}}
+{\footnotesize\ttfamily void Triangle\+::\+Set\+Delunay\+Edge\+CW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{p,  }\item[{bool}]{e }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classp2t_1_1Triangle_a66aea3f70ccfd359372cb747581f1653}\label{classp2t_1_1Triangle_a66aea3f70ccfd359372cb747581f1653} 
+\index{p2t::Triangle@{p2t::Triangle}!constrained\_edge@{constrained\_edge}}
+\index{constrained\_edge@{constrained\_edge}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{constrained\_edge}{constrained\_edge}}
+{\footnotesize\ttfamily bool p2t\+::\+Triangle\+::constrained\+\_\+edge\mbox{[}3\mbox{]}}
+
+
+
+Flags to determine if an edge is a Constrained edge. 
+
+\Hypertarget{classp2t_1_1Triangle_acbfdd0dba623a7b5d1dc8b81059c48b5}\label{classp2t_1_1Triangle_acbfdd0dba623a7b5d1dc8b81059c48b5} 
+\index{p2t::Triangle@{p2t::Triangle}!delaunay\_edge@{delaunay\_edge}}
+\index{delaunay\_edge@{delaunay\_edge}!p2t::Triangle@{p2t::Triangle}}
+\doxysubsubsection{\texorpdfstring{delaunay\_edge}{delaunay\_edge}}
+{\footnotesize\ttfamily bool p2t\+::\+Triangle\+::delaunay\+\_\+edge\mbox{[}3\mbox{]}}
+
+
+
+Flags to determine if an edge is a Delauney edge. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/common/\mbox{\hyperlink{shapes_8h}{shapes.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/common/\mbox{\hyperlink{shapes_8cc}{shapes.\+cc}}\end{DoxyCompactItemize}

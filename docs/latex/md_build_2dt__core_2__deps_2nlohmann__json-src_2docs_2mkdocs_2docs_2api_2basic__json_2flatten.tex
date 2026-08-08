@@ -1,0 +1,37 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}flatten}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$flatten@{$<$small$>$nlohmann::basic\_json::$<$/small$>$flatten}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md289}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md289}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classbasic__json}{basic\_json}}\ flatten()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+The function creates a JSON object whose keys are JSON pointers (see \href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) and whose values are all primitive (see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive}{\`{}is\+\_\+primitive()\`{}}{0} for more information). The original JSON value can be restored using the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{\`{}unflatten()\`{}}{0} function.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md290}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md290}
+an object that maps JSON pointers to primitive values\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md291}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md291}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md292}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md292}
+Linear in the size the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md293}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md293}
+Empty objects and arrays are flattened to {\ttfamily \#!json null} and will not be reconstructed correctly by the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{\`{}unflatten()\`{}}{0} function.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md294}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md294}
+??? example \begin{DoxyVerb}The following code shows how a JSON object is flattened to an object whose keys consist of JSON pointers.
+
+```cpp
+--8<-- "examples/flatten.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/flatten.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md295}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md295}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{unflatten}{0} the reverse function
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md296}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten_autotoc_md296}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0. 
+\end{DoxyItemize}

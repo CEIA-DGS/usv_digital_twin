@@ -1,0 +1,116 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}get}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$get@{$<$small$>$nlohmann::basic\_json::$<$/small$>$get}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md352}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md352}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ValueType>}
+\DoxyCodeLine{ValueType\ \mbox{\hyperlink{namespacedetail_a7116703ea757fe9821bf2e903b91c160}{get}}()\ const\ noexcept(}
+\DoxyCodeLine{\ \ \ \ noexcept(JSONSerializer<ValueType>::\mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\_json}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::declval<const\ basic\_json\_t\&>(),\ \mbox{\hyperlink{namespacestd}{std}}::declval<ValueType\&>())));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{template<typename\ BasicJsonType>}
+\DoxyCodeLine{BasicJsonType\ get()\ const;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{template<typename\ PointerType>}
+\DoxyCodeLine{PointerType\ get\_ptr();}
+\DoxyCodeLine{}
+\DoxyCodeLine{template<typename\ PointerType>}
+\DoxyCodeLine{constexpr\ const\ PointerType\ get\_ptr()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Explicit type conversion between the JSON value and a compatible value which is \href{https://en.cppreference.com/w/cpp/named_req/CopyConstructible}{\texttt{ Copy\+Constructible}} and \href{https://en.cppreference.com/w/cpp/named_req/DefaultConstructible}{\texttt{ Default\+Constructible}}. The value is converted by calling the {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method.
+
+The function is equivalent to executing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ValueType\ ret;}
+\DoxyCodeLine{JSONSerializer<ValueType>::from\_json(*\textcolor{keyword}{this},\ ret);}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ ret;}
+
+\end{DoxyCode}
+
+
+This overload is chosen if\+:
+\begin{DoxyItemize}
+\item {\ttfamily Value\+Type} is not {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}},
+\item {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} has a {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method of the form {\ttfamily void from\+\_\+json(const \doxylink{classbasic__json}{basic\+\_\+json}\&, Value\+Type\&)}, and
+\item {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} does not have a {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method of the form {\ttfamily Value\+Type from\+\_\+json(const \doxylink{classbasic__json}{basic\+\_\+json}\&)}
+\end{DoxyItemize}
+
+If the type is {\bfseries{not}} \href{https://en.cppreference.com/w/cpp/named_req/CopyConstructible}{\texttt{ Copy\+Constructible}} and {\bfseries{not}} \href{https://en.cppreference.com/w/cpp/named_req/DefaultConstructible}{\texttt{ Default\+Constructible}}, the value is converted by calling the {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method.
+
+The function is then equivalent to executing {\ttfamily cpp return JSONSerializer\texorpdfstring{$<$}{<}Value\+Type\+CV\texorpdfstring{$>$}{>}::from\+\_\+json(\texorpdfstring{$\ast$}{*}this); }
+
+This overload is chosen if\+:
+\begin{DoxyItemize}
+\item {\ttfamily Value\+Type} is not {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} and
+\item {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} has a {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method of the form {\ttfamily Value\+Type from\+\_\+json(const \doxylink{classbasic__json}{basic\+\_\+json}\&)}
+\end{DoxyItemize}
+
+If {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} has both overloads of {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}}, the latter one is chosen.
+\item Overload for {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} specializations. The function is equivalent to executing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+
+\end{DoxyCode}
+
+\item Explicit pointer access to the internally stored JSON value. No copies are made.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md353}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md353}
+{\ttfamily Value\+Type} \+: the value type to return
+
+{\ttfamily Basic\+Json\+Type} \+: a specialization of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}
+
+{\ttfamily Pointer\+Type} \+: pointer type; must be a pointer to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{\`{}array\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}{\`{}boolean\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\`{}number\+\_\+integer\+\_\+t\`{}}{0}, or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{\`{}number\+\_\+unsigned\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\`{}number\+\_\+float\+\_\+t\`{}}{0}, or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{\`{}binary\+\_\+t\`{}}{0}. Other types will not compile.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md354}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md354}
+
+\begin{DoxyEnumerate}
+\item copy of the JSON value, converted to {\ttfamily Value\+Type}
+\item a copy of {\ttfamily \#!cpp \texorpdfstring{$\ast$}{*}this}, converted into {\ttfamily Basic\+Json\+Type}
+\item pointer to the internally stored JSON value if the requested pointer type fits to the JSON value; {\ttfamily \#!cpp nullptr} otherwise
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md355}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md355}
+Depends on what {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method throws\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md356}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md356}
+!!! danger "{}\+Undefined behavior"{} \begin{DoxyVerb}Writing data to the pointee (overload 3) of the result yields an undefined state.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md357}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md357}
+??? example \begin{DoxyVerb}The example below shows several conversions from JSON values
+to other types. There a few things to note: (1) Floating-point numbers can
+be converted to integers, (2) A JSON array can be converted to a standard
+`std::vector<short>`, (3) A JSON object can be converted to C++
+associative containers such as `std::unordered_map<std::string, json>`.
+
+```cpp
+--8<-- "examples/get__ValueType_const.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/get__ValueType_const.output"
+```
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}The example below shows how pointers to internal values of a JSON value can be requested. Note that no type
+conversions are made and a `#cpp nullptr` is returned if the value and the requested pointer type does not match.
+
+```cpp
+--8<-- "examples/get__PointerType.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/get__PointerType.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md358}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get_autotoc_md358}
+
+\begin{DoxyEnumerate}
+\item Since version 2.\+1.\+0.
+\item Since version 2.\+1.\+0. Extended to work with other specializations of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} in version 3.\+2.\+0.
+\item Since version 1.\+0.\+0. 
+\end{DoxyEnumerate}

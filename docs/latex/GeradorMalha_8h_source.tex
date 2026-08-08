@@ -1,0 +1,41 @@
+\doxysection{Gerador\+Malha.\+h}
+\hypertarget{GeradorMalha_8h_source}{}\label{GeradorMalha_8h_source}\index{install/dt\_core/include/map/GeradorMalha.h@{install/dt\_core/include/map/GeradorMalha.h}}
+\mbox{\hyperlink{GeradorMalha_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ProcessadorS57_8h}{ProcessadorS57.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPonto2D}{Ponto2D}}\ \{\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structPonto2D_af7da8e8bd6fb560710d1327ab091058c}{x}},\ \mbox{\hyperlink{structPonto2D_a661a8a91d91689f1198b280a4ce369b9}{y}};\ \};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTriangulo}{Triangulo}}\ \{\ \mbox{\hyperlink{structPonto2D}{Ponto2D}}\ \mbox{\hyperlink{structTriangulo_aab1bae1fbf12275fd4b1e0af16831485}{p1}},\ \mbox{\hyperlink{structTriangulo_ad81f4666f06cdf39dd440de532da309e}{p2}},\ \mbox{\hyperlink{structTriangulo_a07f08fb5aef93bb19fe0ff12009b2ebd}{p3}};\ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMalhaNavegacao}{MalhaNavegacao}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<Triangulo>\ \mbox{\hyperlink{structMalhaNavegacao_a0f8bc471cf08e0c08ae95fc464dca447}{triangulos}};}
+\DoxyCodeLine{00017\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881}{terraOriginal}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00018\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b}{margemSeguranca}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00019\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208}{perimetroNavegavelSeguro}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structMalhaNavegacao_aeb2ebcbc57b354f9dacf944d493d1212}{liberarMemoria}}()\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881}{terraOriginal}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structMalhaNavegacao_a5fea6fce83913d53aab613d132d36881}{terraOriginal}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b}{margemSeguranca}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structMalhaNavegacao_aa96a89072a9a52728718527742dd358b}{margemSeguranca}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208}{perimetroNavegavelSeguro}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structMalhaNavegacao_af330a28b4a1dc1454341d887529e7208}{perimetroNavegavelSeguro}});}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGeradorMalha}{GeradorMalha}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Evita\ a\ instanciação\ acidental\ da\ classe}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classGeradorMalha_a6600b367c6aa47c15995f999853bd0cb}{GeradorMalha}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structMalhaNavegacao}{MalhaNavegacao}}\ \mbox{\hyperlink{classGeradorMalha_a443a047b8ae27f896e7a0f747bec1197}{gerar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structGeometriasProcessadas}{GeometriasProcessadas}}\&\ geometrias,\ \textcolor{keywordtype}{double}\ margemMetros,\ \textcolor{keywordtype}{double}\ toleranciaSimplificacao);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ OGRGeometry*\ unirGeometrias(\textcolor{keyword}{const}\ std::vector<OGRGeometry*>\&\ listaGeometrias);}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ triangularPoligono(OGRPolygon*\ poligono,\ std::vector<Triangulo>\&\ listaDestino,\ \textcolor{keywordtype}{int}\&\ contadorFalhas);}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ OGRGeometry*\ filtrarPorArea(OGRGeometry*\ geom,\ \textcolor{keywordtype}{double}\ areaMinima);}
+\DoxyCodeLine{00074\ \};}
+
+\end{DoxyCode}

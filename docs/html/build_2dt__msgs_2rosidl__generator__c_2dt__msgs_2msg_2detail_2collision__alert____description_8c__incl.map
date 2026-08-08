@@ -1,0 +1,9 @@
+<map id="build/dt_msgs/rosidl_generator_c/dt_msgs/msg/detail/collision_alert__description.c" name="build/dt_msgs/rosidl_generator_c/dt_msgs/msg/detail/collision_alert__description.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="187,5,352,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,123,208,163"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,77,150,118,148,113,213,73"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="232,130,307,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,75,272,116,267,116,267,75"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="331,130,402,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="304,73,347,118,344,122,300,77"/>
+</map>

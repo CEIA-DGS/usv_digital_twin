@@ -1,0 +1,48 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/output/output\+\_\+adapters.hpp File Reference}
+\hypertarget{output__adapters_8hpp}{}\label{output__adapters_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/output/output\_adapters.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/output/output\_adapters.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$ios$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+Include dependency graph for output\+\_\+adapters.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{output__adapters_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{output__adapters_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1output__adapter__protocol}{detail\+::output\+\_\+adapter\+\_\+protocol$<$ Char\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em abstract output adapter interface \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdetail_1_1output__vector__adapter}{detail\+::output\+\_\+vector\+\_\+adapter$<$ Char\+Type, Allocator\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em output adapter for byte vectors \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdetail_1_1output__stream__adapter}{detail\+::output\+\_\+stream\+\_\+adapter$<$ Char\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em output adapter for output streams \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdetail_1_1output__string__adapter}{detail\+::output\+\_\+string\+\_\+adapter$<$ Char\+Type, String\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em output adapter for basic\+\_\+string \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classdetail_1_1output__adapter}{detail\+::output\+\_\+adapter$<$ Char\+Type, String\+Type $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Char\+Type $>$ }\\using \mbox{\hyperlink{namespacedetail_a160eb5d333fe01b259af32d3d4798a7b}{detail\+::output\+\_\+adapter\+\_\+t}} = std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structdetail_1_1output__adapter__protocol}{output\+\_\+adapter\+\_\+protocol}}$<$ Char\+Type $>$ $>$
+\begin{DoxyCompactList}\small\item\em a type to simplify interfaces \end{DoxyCompactList}\end{DoxyCompactItemize}

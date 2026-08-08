@@ -1,0 +1,99 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}items}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$items@{$<$small$>$nlohmann::basic\_json::$<$/small$>$items}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md536}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md536}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{iteration\_proxy<iterator>\ items()\ noexcept;}
+\DoxyCodeLine{iteration\_proxy<const\_iterator>\ items()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+This function allows accessing {\ttfamily iterator\+::key()} and {\ttfamily iterator\+::value()} during range-\/based for loops. In these loops, a reference to the JSON values is returned, so there is no access to the underlying iterator.
+
+For loop without {\ttfamily items()} function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ j\_object.begin();\ it\ !=\ j\_object.end();\ ++it)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key:\ "{}}\ <<\ it.key()\ <<\ \textcolor{stringliteral}{"{},\ value:"{}}\ <<\ it.value()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Range-\/based for loop without {\ttfamily items()} function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ :\ j\_object)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ "{}it"{}\ is\ of\ type\ json::reference\ and\ has\ no\ key()\ member}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}value:\ "{}}\ <<\ it\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Range-\/based for loop with {\ttfamily items()} function\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ el\ :\ j\_object.items())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key:\ "{}}\ <<\ el.key()\ <<\ \textcolor{stringliteral}{"{},\ value:"{}}\ <<\ el.value()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The {\ttfamily items()} function also allows using \href{https://en.cppreference.com/w/cpp/language/structured_binding}{\texttt{ structured bindings}} (C++17)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ val]\ :\ j\_object.items())}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}key:\ "{}}\ <<\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\ <<\ \textcolor{stringliteral}{"{},\ value:"{}}\ <<\ val\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md537}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md537}
+iteration proxy object wrapping the current value with an interface to use in range-\/based for loops\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md538}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md538}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md539}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md539}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md540}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md540}
+When iterating over an array, {\ttfamily key()} will return the index of the element as string (see example). For primitive types (e.\+g., numbers), {\ttfamily key()} returns an empty string.
+
+!!! danger "{}\+Lifetime issues"{} \begin{DoxyVerb}Using `items()` on temporary objects is dangerous. Make sure the object's lifetime exceeds the iteration. See
+<https://github.com/nlohmann/json/issues/2040> for more information.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md541}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md541}
+??? example \begin{DoxyVerb}The following code shows an example for `items()`.
+
+```cpp
+--8<-- "examples/items.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/items.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md542}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items_autotoc_md542}
+
+\begin{DoxyItemize}
+\item Added {\ttfamily iterator\+\_\+wrapper} in version 3.\+0.\+0.
+\item Added {\ttfamily items} and deprecated {\ttfamily iterator\+\_\+wrapper} in version 3.\+1.\+0.
+\item Added structured binding support in version 3.\+5.\+0.
+\end{DoxyItemize}
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}This function replaces the static function `iterator_wrapper` which was introduced in version 1.0.0, but has been
+deprecated in version 3.1.0. Function `iterator_wrapper` will be removed in version 4.0.0. Please replace all
+occurrences of `#!cpp iterator_wrapper(j)` with `#!cpp j.items()`.
+
+You should be warned by your compiler with a `-Wdeprecated-declarations` warning if you are using a deprecated
+function.
+\end{DoxyVerb}
+ 

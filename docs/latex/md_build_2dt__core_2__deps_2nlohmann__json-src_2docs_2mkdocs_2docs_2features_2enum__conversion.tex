@@ -1,0 +1,62 @@
+\chapter{Specializing enum conversion}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion}\index{Specializing enum conversion@{Specializing enum conversion}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1364}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1364}%
+ By default, enum values are serialized to JSON as integers. In some cases this could result in undesired behavior. If an enum is modified or re-\/ordered after data has been serialized to JSON, the later de-\/serialized JSON data may be undefined or a different enum value than was originally intended.
+
+It is possible to more precisely specify how a given enum is mapped to and from JSON as shown below\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ example\ enum\ type\ declaration}}
+\DoxyCodeLine{\textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{TaskState}}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\_RUNNING}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\_COMPLETED}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\_INVALID}}=-\/1,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ map\ TaskState\ values\ to\ JSON\ as\ strings}}
+\DoxyCodeLine{\mbox{\hyperlink{macro__scope_8hpp_a4c5d399dfa9252e70f876756f3f49084}{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}(\ TaskState,\ \{}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\_INVALID}},\ \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}},\ \textcolor{stringliteral}{"{}stopped"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\_RUNNING}},\ \textcolor{stringliteral}{"{}running"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\_COMPLETED}},\ \textcolor{stringliteral}{"{}completed"{}}\},}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+The \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2nlohmann__json__serialize__enum}{\`{}\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM()\`{} macro}{0} declares a set of {\ttfamily to\+\_\+json()} / {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} functions for type {\ttfamily Task\+State} while avoiding repetition and boilerplate serialization code.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1365}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1365}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ enum\ to\ JSON\ as\ string}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}};}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ ==\ \textcolor{stringliteral}{"{}stopped"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ json\ string\ to\ enum}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j3\ =\ \textcolor{stringliteral}{"{}running"{}};}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(j3.template\ get<TaskState>()\ ==\ TS\_RUNNING);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ undefined\ json\ value\ to\ enum\ (where\ the\ first\ map\ entry\ above\ is\ the\ default)}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ jPi\ =\ 3.14;}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(jPi.template\ get<TaskState>()\ ==\ TS\_INVALID\ );}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1366}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2enum__conversion_autotoc_md1366}
+Just as in \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2arbitrary__types}{Arbitrary Type Conversions}{0} above,
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2nlohmann__json__serialize__enum}{\`{}\+NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM()\`{}}{0} MUST be declared in your enum type\textquotesingle{}s namespace (which can be the global namespace), or the library will not be able to locate it, and it will default to integer serialization.
+\item It MUST be available (e.\+g., proper headers must be included) everywhere you use the conversions.
+\end{DoxyItemize}
+
+Other Important points\+:
+
+
+\begin{DoxyItemize}
+\item When using {\ttfamily template get\texorpdfstring{$<$}{<}ENUM\+\_\+\+TYPE\texorpdfstring{$>$}{>}()}, undefined JSON values will default to the first pair specified in your map. Select this default pair carefully.
+\item If an enum or JSON value is specified more than once in your map, the first matching occurrence from the top of the map will be returned when converting to or from JSON.
+\item To disable the default serialization of enumerators as integers and force a compiler error instead, see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__disable__enum__serialization}{\`{}\+JSON\+\_\+\+DISABLE\+\_\+\+ENUM\+\_\+\+SERIALIZATION\`{}}{0}. 
+\end{DoxyItemize}

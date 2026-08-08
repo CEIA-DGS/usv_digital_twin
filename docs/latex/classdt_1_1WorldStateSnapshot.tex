@@ -11,8 +11,7 @@ Represents an immutable snapshot of the world state at a specific instant.
 
 
 
-Inheritance diagram for dt\+::World\+State\+Snapshot\+:
-\nopagebreak
+Inheritance diagram for dt\+::World\+State\+Snapshot\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,7 +42,25 @@ virtual \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \mbox{\hyperlink{
 virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454}{get\+\_\+all\+\_\+targets}} () const =0
 \begin{DoxyCompactList}\small\item\em Retrieves the complete list of tracked targets. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e}{get\+\_\+planned\+\_\+trajectory}} () const =0
-\begin{DoxyCompactList}\small\item\em Retrieves the planned trajectory at the time of the snapshot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves the planned trajectory at the time of the snapshot. \end{DoxyCompactList}\item 
+virtual float \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203}{get\+\_\+closest\+\_\+static\+\_\+obstacle\+\_\+distance}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&pos) const =0
+\item 
+virtual bool \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0}{is\+\_\+inside\+\_\+restricted\+\_\+zone}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&pos) const =0
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9}{get\+\_\+active\+\_\+local\+\_\+targets}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&center, float radius) const =0
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a36836a0d2f1d0fce4c5e98dfb2ea70a7}{predict\+\_\+trajectory\+\_\+by\+\_\+id}} (const int32\+\_\+t id, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets, const double time\+\_\+horizon, const double time\+\_\+step) const =0
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}} \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a1842bf162527e9b9d43943ae22b4924e}{check\+\_\+collisions\+\_\+on\+\_\+trajectory}} (const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&candidate\+\_\+trajectory, const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&usv\+\_\+state, double speed\+\_\+profile, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets, const double start\+\_\+time=0.\+0) const =0
+\item 
+virtual double \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_ab6e793858f9079414856cd6f25082cfb}{get\+\_\+dynamic\+\_\+risk\+\_\+field}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position, const double timestamp, const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&usv\+\_\+state, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets) const =0
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d}{get\+\_\+vehicle\+\_\+pose}} () const =0
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454}{get\+\_\+all\+\_\+targets}} () const =0
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e}{get\+\_\+planned\+\_\+trajectory}} () const =0
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -61,10 +78,20 @@ This interface is designed for high-\/speed, thread-\/safe access by the navigat
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classdt_1_1WorldStateSnapshot_a1842bf162527e9b9d43943ae22b4924e}\label{classdt_1_1WorldStateSnapshot_a1842bf162527e9b9d43943ae22b4924e} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}}
+\index{check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{check\_collisions\_on\_trajectory()}{check\_collisions\_on\_trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}} dt\+::\+World\+State\+Snapshot\+::check\+\_\+collisions\+\_\+on\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&}]{candidate\+\_\+trajectory,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{double}]{speed\+\_\+profile,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{const double}]{start\+\_\+time = {\ttfamily 0.0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a50bc70aa3a53c7688b8af0b1c59e3c37}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_a2b41d894c612cf6d22c4b003b824eb8f}\label{classdt_1_1WorldStateSnapshot_a2b41d894c612cf6d22c4b003b824eb8f} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}}
 \index{check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{check\_collisions\_on\_trajectory()}{check\_collisions\_on\_trajectory()}}
+\doxysubsubsection{\texorpdfstring{check\_collisions\_on\_trajectory()}{check\_collisions\_on\_trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}} dt\+::\+World\+State\+Snapshot\+::check\+\_\+collisions\+\_\+on\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&}]{candidate\+\_\+trajectory,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{double}]{speed\+\_\+profile,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{double}]{start\+\_\+time = {\ttfamily 0.0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -94,7 +121,7 @@ Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a50bc70aa3
 \Hypertarget{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9}\label{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_active\_local\_targets@{get\_active\_local\_targets}}
 \index{get\_active\_local\_targets@{get\_active\_local\_targets}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_active\_local\_targets()}{get\_active\_local\_targets()}}
+\doxysubsubsection{\texorpdfstring{get\_active\_local\_targets()}{get\_active\_local\_targets()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+::\+World\+State\+Snapshot\+::get\+\_\+active\+\_\+local\+\_\+targets (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{center,  }\item[{float}]{radius }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -115,10 +142,20 @@ Vector of active targets found within the radius.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ad89f8cac4542bd58accd9e643de8ed34}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9}\label{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_active\_local\_targets@{get\_active\_local\_targets}}
+\index{get\_active\_local\_targets@{get\_active\_local\_targets}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_active\_local\_targets()}{get\_active\_local\_targets()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+::\+World\+State\+Snapshot\+::get\+\_\+active\+\_\+local\+\_\+targets (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{center,  }\item[{float}]{radius }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ad89f8cac4542bd58accd9e643de8ed34}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454}\label{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_all\_targets@{get\_all\_targets}}
 \index{get\_all\_targets@{get\_all\_targets}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_all\_targets()}{get\_all\_targets()}}
+\doxysubsubsection{\texorpdfstring{get\_all\_targets()}{get\_all\_targets()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+::\+World\+State\+Snapshot\+::get\+\_\+all\+\_\+targets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -132,10 +169,20 @@ Vector of all known dynamic targets.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a591efecd9a0a43fa95fedcaf0a98c2ac}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454}\label{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_all\_targets@{get\_all\_targets}}
+\index{get\_all\_targets@{get\_all\_targets}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_all\_targets()}{get\_all\_targets()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ dt\+::\+World\+State\+Snapshot\+::get\+\_\+all\+\_\+targets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a591efecd9a0a43fa95fedcaf0a98c2ac}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203}\label{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}}
 \index{get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_closest\_static\_obstacle\_distance()}{get\_closest\_static\_obstacle\_distance()}}
+\doxysubsubsection{\texorpdfstring{get\_closest\_static\_obstacle\_distance()}{get\_closest\_static\_obstacle\_distance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual float dt\+::\+World\+State\+Snapshot\+::get\+\_\+closest\+\_\+static\+\_\+obstacle\+\_\+distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -154,10 +201,30 @@ Distance in meters, or a negative value if unavailable.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a6b690f689245434a71736d379d5b20f7}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203}\label{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}}
+\index{get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_closest\_static\_obstacle\_distance()}{get\_closest\_static\_obstacle\_distance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual float dt\+::\+World\+State\+Snapshot\+::get\+\_\+closest\+\_\+static\+\_\+obstacle\+\_\+distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a6b690f689245434a71736d379d5b20f7}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
+\Hypertarget{classdt_1_1WorldStateSnapshot_ab6e793858f9079414856cd6f25082cfb}\label{classdt_1_1WorldStateSnapshot_ab6e793858f9079414856cd6f25082cfb} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}}
+\index{get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_dynamic\_risk\_field()}{get\_dynamic\_risk\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual double dt\+::\+World\+State\+Snapshot\+::get\+\_\+dynamic\+\_\+risk\+\_\+field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position,  }\item[{const double}]{timestamp,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_aa9571423957bb399c873071999c326a3}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_ac1b1645139a39e35750839b62cf00796}\label{classdt_1_1WorldStateSnapshot_ac1b1645139a39e35750839b62cf00796} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}}
 \index{get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_dynamic\_risk\_field()}{get\_dynamic\_risk\_field()}}
+\doxysubsubsection{\texorpdfstring{get\_dynamic\_risk\_field()}{get\_dynamic\_risk\_field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual double dt\+::\+World\+State\+Snapshot\+::get\+\_\+dynamic\+\_\+risk\+\_\+field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position,  }\item[{double}]{timestamp,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -185,7 +252,7 @@ Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_aa95714239
 \Hypertarget{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e}\label{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_planned\_trajectory@{get\_planned\_trajectory}}
 \index{get\_planned\_trajectory@{get\_planned\_trajectory}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_planned\_trajectory()}{get\_planned\_trajectory()}}
+\doxysubsubsection{\texorpdfstring{get\_planned\_trajectory()}{get\_planned\_trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+::\+World\+State\+Snapshot\+::get\+\_\+planned\+\_\+trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -199,10 +266,20 @@ The planned trajectory structure.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ab2c1a11efb5eaa29930c2a1420ebb30f}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e}\label{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_planned\_trajectory@{get\_planned\_trajectory}}
+\index{get\_planned\_trajectory@{get\_planned\_trajectory}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_planned\_trajectory()}{get\_planned\_trajectory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+::\+World\+State\+Snapshot\+::get\+\_\+planned\+\_\+trajectory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ab2c1a11efb5eaa29930c2a1420ebb30f}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d}\label{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_vehicle\_pose@{get\_vehicle\_pose}}
 \index{get\_vehicle\_pose@{get\_vehicle\_pose}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{get\_vehicle\_pose()}{get\_vehicle\_pose()}}
+\doxysubsubsection{\texorpdfstring{get\_vehicle\_pose()}{get\_vehicle\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} dt\+::\+World\+State\+Snapshot\+::get\+\_\+vehicle\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -216,10 +293,20 @@ Current 3D pose and orientation.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ac720086c7db1d99161ae4583cf64cb3b}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d}\label{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!get\_vehicle\_pose@{get\_vehicle\_pose}}
+\index{get\_vehicle\_pose@{get\_vehicle\_pose}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{get\_vehicle\_pose()}{get\_vehicle\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} dt\+::\+World\+State\+Snapshot\+::get\+\_\+vehicle\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ac720086c7db1d99161ae4583cf64cb3b}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0}\label{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}}
 \index{is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{is\_inside\_restricted\_zone()}{is\_inside\_restricted\_zone()}}
+\doxysubsubsection{\texorpdfstring{is\_inside\_restricted\_zone()}{is\_inside\_restricted\_zone()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual bool dt\+::\+World\+State\+Snapshot\+::is\+\_\+inside\+\_\+restricted\+\_\+zone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -234,6 +321,16 @@ Verifies if a given point lies within a restricted/non-\/navigable zone.
 \begin{DoxyReturn}{Returns}
 True if the point is in a restricted zone, false otherwise. 
 \end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ab6929a0f68ca4eb0b872d2d783c25d77}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
+\Hypertarget{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0}\label{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}}
+\index{is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{is\_inside\_restricted\_zone()}{is\_inside\_restricted\_zone()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual bool dt\+::\+World\+State\+Snapshot\+::is\+\_\+inside\+\_\+restricted\+\_\+zone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
 
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ab6929a0f68ca4eb0b872d2d783c25d77}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
@@ -264,10 +361,20 @@ Trajectory between origin and destination.
 
 Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_ae5533e42fc6426822e059b91fbb35717}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
 
+\Hypertarget{classdt_1_1WorldStateSnapshot_a36836a0d2f1d0fce4c5e98dfb2ea70a7}\label{classdt_1_1WorldStateSnapshot_a36836a0d2f1d0fce4c5e98dfb2ea70a7} 
+\index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}}
+\index{predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
+\doxysubsubsection{\texorpdfstring{predict\_trajectory\_by\_id()}{predict\_trajectory\_by\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+::\+World\+State\+Snapshot\+::predict\+\_\+trajectory\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{id,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{const double}]{time\+\_\+horizon,  }\item[{const double}]{time\+\_\+step }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a1265241dbc3999f6be2cc9bca4a9ea24}{dt\+::\+Concrete\+World\+State\+Snapshot}}.
+
 \Hypertarget{classdt_1_1WorldStateSnapshot_a8f29a5559f71ce1dd9f3aefe82cb5f55}\label{classdt_1_1WorldStateSnapshot_a8f29a5559f71ce1dd9f3aefe82cb5f55} 
 \index{dt::WorldStateSnapshot@{dt::WorldStateSnapshot}!predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}}
 \index{predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}!dt::WorldStateSnapshot@{dt::WorldStateSnapshot}}
-\doxysubsubsection{\texorpdfstring{predict\_trajectory\_by\_id()}{predict\_trajectory\_by\_id()}}
+\doxysubsubsection{\texorpdfstring{predict\_trajectory\_by\_id()}{predict\_trajectory\_by\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} dt\+::\+World\+State\+Snapshot\+::predict\+\_\+trajectory\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{id,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{double}]{time\+\_\+horizon,  }\item[{double}]{time\+\_\+step }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
@@ -294,6 +401,7 @@ Implemented in \mbox{\hyperlink{classdt_1_1ConcreteWorldStateSnapshot_a1265241db
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{twin__interface_8hpp}{twin\+\_\+interface.\+hpp}}\end{DoxyCompactItemize}
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{dt__core_2include_2dt__core_2twin__interface_8hpp}{twin\+\_\+interface.\+hpp}}\item 
+install/dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{install_2dt__core_2include_2dt__core_2twin__interface_8hpp}{twin\+\_\+interface.\+hpp}}\end{DoxyCompactItemize}

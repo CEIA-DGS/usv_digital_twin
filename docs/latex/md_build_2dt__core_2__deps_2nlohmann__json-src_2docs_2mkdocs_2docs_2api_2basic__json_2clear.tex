@@ -1,0 +1,63 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}clear}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$clear@{$<$small$>$nlohmann::basic\_json::$<$/small$>$clear}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md171}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md171}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ clear()\ noexcept;}
+
+\end{DoxyCode}
+
+
+Clears the content of a JSON value and resets it to the default value as if \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{\`{}basic\+\_\+json(value\+\_\+t)\`{}}{0} would have been called with the current value type from \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}{\`{}type()\`{}}{0}\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ initial value    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ initial value    }\\\cline{1-2}
+\endhead
+null   &{\ttfamily null}    \\\cline{1-2}
+boolean   &{\ttfamily false}    \\\cline{1-2}
+string   &{\ttfamily "{}"{}}    \\\cline{1-2}
+number   &{\ttfamily 0}    \\\cline{1-2}
+binary   &An empty byte vector    \\\cline{1-2}
+object   &{\ttfamily \{\}}    \\\cline{1-2}
+array   &{\ttfamily \mbox{[}\mbox{]}}   \\\cline{1-2}
+\end{longtabu}
+
+
+Has the same effect as calling
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{*\textcolor{keyword}{this}\ =\ \mbox{\hyperlink{classbasic__json}{basic\_json}}(\mbox{\hyperlink{namespacegenerate__natvis_a9cecd88609d8e9af8497edf804bf9d25}{type}}());}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md172}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md172}
+No-\/throw guarantee\+: this function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md173}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md173}
+Linear in the size of the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md174}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md174}
+All iterators, pointers and references related to this container are invalidated.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md175}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md175}
+??? example \begin{DoxyVerb}The example below shows the effect of `clear()` to different
+JSON types.
+
+```cpp
+--8<-- "examples/clear.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/clear.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md176}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear_autotoc_md176}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Added support for binary types in version 3.\+8.\+0. 
+\end{DoxyItemize}

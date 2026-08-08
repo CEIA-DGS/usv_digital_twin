@@ -1,0 +1,37 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::json\+\_\+sax\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}parse\+\_\+error}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error}\index{$<$small$>$nlohmann::json\_sax::$<$/small$>$parse\_error@{$<$small$>$nlohmann::json\_sax::$<$/small$>$parse\_error}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1111}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1111}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ parse\_error(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ position,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ last\_token,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdetail_1_1exception}{detail::exception}}\&\ ex)\ =\ 0;}
+
+\end{DoxyCode}
+
+
+A parse error occurred.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1112}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1112}
+{\ttfamily position} (in) \+: the position in the input where the error occurs
+
+{\ttfamily last\+\_\+token} (in) \+: the last read token
+
+{\ttfamily ex} (in) \+: an exception object describing the error\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1113}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1113}
+Whether parsing should proceed ({\bfseries{must return {\ttfamily \#!cpp false}}}).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1114}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1114}
+??? example \begin{DoxyVerb}The example below shows how the SAX interface is used.
+
+```cpp
+--8<-- "examples/sax_parse.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/sax_parse.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1115}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error_autotoc_md1115}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+2.\+0. 
+\end{DoxyItemize}

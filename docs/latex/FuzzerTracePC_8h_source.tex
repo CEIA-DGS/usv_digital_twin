@@ -1,0 +1,164 @@
+\doxysection{Fuzzer\+Trace\+PC.\+h}
+\hypertarget{FuzzerTracePC_8h_source}{}\label{FuzzerTracePC_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTracePC.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTracePC.h}}
+\mbox{\hyperlink{FuzzerTracePC_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerTracePC.h\ -\/\ Internal\ header\ for\ the\ Fuzzer\ -\/-\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ fuzzer::TracePC}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_TRACE\_PC}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_TRACE\_PC}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerDefs_8h}{FuzzerDefs.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerValueBitMap_8h}{FuzzerValueBitMap.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ TableOfRecentCompares\ (TORC)\ remembers\ the\ most\ recently\ performed}}
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ comparisons\ of\ type\ T.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ We\ record\ the\ arguments\ of\ CMP\ instructions\ in\ this\ table\ unconditionally}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ because\ it\ seems\ cheaper\ this\ way\ than\ to\ compute\ some\ expensive}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ conditions\ inside\ \_\_sanitizer\_cov\_trace\_cmp*.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ After\ the\ unit\ has\ been\ executed\ we\ may\ decide\ to\ use\ the\ contents\ of}}
+\DoxyCodeLine{00027\ \textcolor{comment}{//\ this\ table\ to\ populate\ a\ Dictionary.}}
+\DoxyCodeLine{00028\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T,\ \textcolor{keywordtype}{size\_t}\ kSizeT>}
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{TableOfRecentCompares}}\ \{}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_a23bdcfb87bf57850c3c1fc8be4c22303}{kSize}}\ =\ kSizeT;}
+\DoxyCodeLine{00031\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair}{Pair}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ T\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair_a910d176c99d9ff4fbd95729407f896f5}{A}},\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair_a9b7452acde2ad0f86b63e362389a58a0}{B}};}
+\DoxyCodeLine{00033\ \ \ \};}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_a29dbb452cdb923ebed73e45e9227ac3f}{Insert}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}},\ T\ Arg1,\ T\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}})\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ \%\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_a23bdcfb87bf57850c3c1fc8be4c22303}{kSize}};}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_afd284ad53a02b2ee2cb7acb3b88400f4}{Table}}[\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}].\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair_a910d176c99d9ff4fbd95729407f896f5}{A}}\ =\ Arg1;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_afd284ad53a02b2ee2cb7acb3b88400f4}{Table}}[\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}].\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair_a9b7452acde2ad0f86b63e362389a58a0}{B}}\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}};}
+\DoxyCodeLine{00038\ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair}{Pair}}\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_accb71f8e9b6cf12e2d623ba2d24639fc}{Get}}(\textcolor{keywordtype}{size\_t}\ I)\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_afd284ad53a02b2ee2cb7acb3b88400f4}{Table}}[I\ \%\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_a23bdcfb87bf57850c3c1fc8be4c22303}{kSize}}];\ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_1_1Pair}{Pair}}\ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_afd284ad53a02b2ee2cb7acb3b88400f4}{Table}}[\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares_a23bdcfb87bf57850c3c1fc8be4c22303}{kSize}}];}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classfuzzer_1_1TracePC}{TracePC}}\ \{}
+\DoxyCodeLine{00046\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a8ec97bc9273ad4a6f83d615a3febdf14}{kFeatureSetSize}}\ =\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}{ValueBitMap::kNumberOfItems}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_ab20ed3fc1b2097e1eab4e81611379262}{HandleTrace}}(uint32\_t\ *guard,\ uintptr\_t\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}});}
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_af86ce8a7e9b8e36f8fdf6349a5e9a7d9}{HandleInit}}(uint32\_t\ *start,\ uint32\_t\ *stop);}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_ac1f1ba5b505fd07061ad78563c2bc3ef}{HandleCallerCallee}}(uintptr\_t\ Caller,\ uintptr\_t\ Callee);}
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a55700216637d404ebbdfd2329c9b57a0}{HandleValueProfile}}(\textcolor{keywordtype}{size\_t}\ Value)\ \{\ ValueProfileMap.\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a716c1fc151b968063db3e37955ef530d}{AddValue}}(Value);\ \}}
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a7f62dfcd6b2ed7c706957392d66e13c3}{HandleCmp}}(\textcolor{keywordtype}{void}\ *\mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}},\ T\ Arg1,\ T\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}});}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a888cf0015b8ac746350399865731e503}{GetTotalPCCoverage}}();}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a4c7ecc16a4d3e4c86ea1d3b1427ebaca}{SetUseCounters}}(\textcolor{keywordtype}{bool}\ UC)\ \{\ UseCounters\ =\ UC;\ \}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_aa49d07c1499054b4c71aa8dd4dec3707}{SetUseValueProfile}}(\textcolor{keywordtype}{bool}\ VP)\ \{\ UseValueProfile\ =\ VP;\ \}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a391035f3a6eb4f505cb4045d57400b3c}{SetPrintNewPCs}}(\textcolor{keywordtype}{bool}\ P)\ \{\ DoPrintNewPCs\ =\ P;\ \}}
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Callback>\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a55ed957cdbb049a9e2d5bb4fb9455d79}{CollectFeatures}}(Callback\ CB);}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a0b16b7fef77ffd1f2db211cbf79120cc}{UpdateValueProfileMap}}(\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{ValueBitMap}}\ *MaxValueProfileMap)\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{return}\ UseValueProfile\ \&\&\ MaxValueProfileMap-\/>\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af95bf22fe5b5b440c5bfd78e6f59dd60}{MergeFrom}}(ValueProfileMap);}
+\DoxyCodeLine{00061\ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_ab843236d692511688e9d754f926de962}{ResetMaps}}()\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ ValueProfileMap.\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf}{Reset}}();}
+\DoxyCodeLine{00065\ \ \ \ \ memset(Counters,\ 0,\ \textcolor{keyword}{sizeof}(Counters));}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a873c3c3f919210f5f33914a5b294c5df}{UpdateFeatureSet}}(\textcolor{keywordtype}{size\_t}\ CurrentElementIdx,\ \textcolor{keywordtype}{size\_t}\ CurrentElementSize);}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a85d6cd5dd4f0eaac1e99153bf02dc4f4}{PrintFeatureSet}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_ab89ecada02c3f23046007a167f012df0}{PrintModuleInfo}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a820d41fac36e0d082c01574d5cb73dd1}{PrintCoverage}}();}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a00d12d3dc9f3f859e0ae382e5dc4569b}{DumpCoverage}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a47c71efc3d53df2f48819ab66de12534}{AddValueForMemcmp}}(\textcolor{keywordtype}{void}\ *caller\_pc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *s2,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}});}
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a4bfdf3de732a5e284a1d3f469e123716}{AddValueForStrcmp}}(\textcolor{keywordtype}{void}\ *caller\_pc,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *s2,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a29a541c6620ce8b571bc0657205134e6}{UsingTracePcGuard}}()\textcolor{keyword}{\ const\ }\{\textcolor{keywordflow}{return}\ NumModules;\ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{kTORCSize}}\ =\ 1\ <<\ 5;}
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{TableOfRecentCompares<uint32\_t,\ kTORCSize>}}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_af492c551bf45803f6f5b4155e063f782}{TORC4}};}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{TableOfRecentCompares<uint64\_t,\ kTORCSize>}}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a135e60be2738df19fa33a53f3ccdddb9}{TORC8}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a931f7014f06e06d35313b5565eb2a3a1}{PrintNewPCs}}();}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a29c324a4bb01920cc5e6d322c112fea3}{GetNumPCs}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacefuzzer_a5d55e117eab080df334785a11032f9a1}{Min}}(kNumPCs,\ NumGuards\ +\ 1);\ \}}
+\DoxyCodeLine{00089\ \ \ uintptr\_t\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a21a8b9180c0bee32482acc3ab890167a}{GetPC}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ <\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a29c324a4bb01920cc5e6d322c112fea3}{GetNumPCs}}());}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ PCs[\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}];}
+\DoxyCodeLine{00092\ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{bool}\ UseCounters\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{bool}\ UseValueProfile\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{bool}\ DoPrintNewPCs\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{struct\ }Module\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ uint32\_t\ *Start,\ *\mbox{\hyperlink{FuzzerTracePC_8cpp_aff07dda81eaf318a2363886ff231917f}{Stop}};}
+\DoxyCodeLine{00101\ \ \ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ Module\ Modules[4096];}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{size\_t}\ NumModules;\ \ \textcolor{comment}{//\ linker-\/initialized.}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordtype}{size\_t}\ NumGuards;\ \ \textcolor{comment}{//\ linker-\/initialized.}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ kNumCounters\ =\ 1\ <<\ 14;}
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{alignas}(8)\ uint8\_t\ Counters[kNumCounters];}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ kNumPCs\ =\ 1\ <<\ 24;}
+\DoxyCodeLine{00111\ \ \ uintptr\_t\ PCs[kNumPCs];}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ std::set<uintptr\_t>\ *PrintedPCs;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ ValueBitMap\ ValueProfileMap;}
+\DoxyCodeLine{00116\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Callback>}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classfuzzer_1_1TracePC_a55ed957cdbb049a9e2d5bb4fb9455d79}{TracePC::CollectFeatures}}(Callback\ CB)\ \{}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classfuzzer_1_1TracePC_a29a541c6620ce8b571bc0657205134e6}{UsingTracePcGuard}}())\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordtype}{size\_t}\ Res\ =\ 0;}
+\DoxyCodeLine{00122\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ Step\ =\ 8;}
+\DoxyCodeLine{00123\ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\textcolor{keyword}{reinterpret\_cast<}uintptr\_t\textcolor{keyword}{>}(Counters)\ \%\ Step\ ==\ 0);}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\ =\ \mbox{\hyperlink{namespacefuzzer_a5d55e117eab080df334785a11032f9a1}{Min}}(kNumCounters,\ NumGuards\ +\ 1);}
+\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\ =\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\ +\ Step\ -\/\ 1)\ \&\ \string~(Step\ -\/\ 1);\ \ \textcolor{comment}{//\ Round\ up.}}
+\DoxyCodeLine{00126\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ =\ 0;\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ <\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}};\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ +=\ Step)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ uint64\_t\ Bundle\ =\ *\textcolor{keyword}{reinterpret\_cast<}uint64\_t*\textcolor{keyword}{>}(\&Counters[\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}]);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (!Bundle)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}};\ i\ <\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ +\ Step;\ i++)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ =\ (Bundle\ >>\ ((i\ -\/\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})\ *\ 8))\ \&\ 0xff;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}})\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ Counters[i]\ =\ 0;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ Bit\ =\ 0;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 128)\ Bit\ =\ 7;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 32)\ Bit\ =\ 6;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 16)\ Bit\ =\ 5;}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 8)\ Bit\ =\ 4;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 4)\ Bit\ =\ 3;}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 3)\ Bit\ =\ 2;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}\ >=\ 2)\ Bit\ =\ 1;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ Feature\ =\ (i\ *\ 8\ +\ Bit);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (CB(Feature))}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ Res++;}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \}}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{if}\ (UseValueProfile)}
+\DoxyCodeLine{00147\ \ \ \ \ ValueProfileMap.\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a152e13d2af4b78d639e4225f2dd2f040}{ForEach}}([\&](\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (CB(NumGuards\ *\ 8\ +\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}))}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ Res++;}
+\DoxyCodeLine{00150\ \ \ \ \ \});}
+\DoxyCodeLine{00151\ \ \ \textcolor{keywordflow}{return}\ Res;}
+\DoxyCodeLine{00152\ \}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classfuzzer_1_1TracePC}{TracePC}}\ \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{TPC}};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_TRACE\_PC}}
+
+\end{DoxyCode}

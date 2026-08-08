@@ -1,0 +1,133 @@
+\chapter{JSON Pointer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer}\index{JSON Pointer@{JSON Pointer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1378}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1378}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1379}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1379}
+The library supports {\bfseries{JSON Pointer}} (\href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) as alternative means to address structured values. A JSON Pointer is a string that identifies a specific value within a JSON document.
+
+Consider the following JSON document
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ "{}array"{}:\ ["{}A"{},\ "{}B"{},\ "{}C"{}],}
+\DoxyCodeLine{\ \ \ \ "{}nested"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ "{}one"{}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ "{}two"{}:\ 2,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ "{}three"{}:\ [true,\ false]}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Then every value inside the JSON document can be identified as follows\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON Pointer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON Pointer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value    }\\\cline{1-2}
+\endhead
+\`{}{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json \{"{}array"{}\+:\mbox{[}"{}\+A"{},"{}\+B"{},"{}\+C"{}\mbox{]},"{}nested"{}\+:\{"{}one"{}\+:1,"{}two"{}\+:2,"{}three"{}\+:\mbox{[}true,false\mbox{]}\}\}{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Even"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/array{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json \mbox{[}"{}\+A"{},"{}\+B"{},"{}\+C"{}\mbox{]}{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Odd"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/array/0{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json A{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Even"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/array/1{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json B{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Odd"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/array/2{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json C{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Even"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json \{"{}one"{}\+:1,"{}two"{}\+:2,"{}three"{}\+:\mbox{[}true,false\mbox{]}\}{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Odd"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested/one{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json 1{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Even"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested/two{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json 2{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Odd"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested/three{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json \mbox{[}true,false\mbox{]}{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Even"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested/three/0{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json true{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/tr\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}tr class="{}markdown\+Table\+Row\+Odd"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}/nested/three/1{\ttfamily \textbackslash{}ilinebr \texorpdfstring{$<$}{<}/td\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}td class="{}markdown\+Table\+Body\+None"{}\texorpdfstring{$>$}{>}}\#!json false\`{}   \\\cline{1-2}
+\end{longtabu}
+
+
+Note {\ttfamily /} does not identify the root (i.\+e., the whole document), but an object entry with empty key {\ttfamily "{}"{}}. See \href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1380}{}\doxysection{\texorpdfstring{JSON Pointer creation}{JSON Pointer creation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1380}
+JSON Pointers can be created from a string\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1json__pointer}{json::json\_pointer}}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ =\ \textcolor{stringliteral}{"{}/nested/one"{}};}
+
+\end{DoxyCode}
+
+
+Furthermore, a user-\/defined string literal can be used to achieve the same result\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ =\ \textcolor{stringliteral}{"{}/nested/one"{}}\_json\_pointer;}
+
+\end{DoxyCode}
+
+
+The escaping rules of \href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}} are implemented. See the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2json__pointer}{constructor documentation}{0} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1381}{}\doxysection{\texorpdfstring{Value access}{Value access}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1381}
+JSON Pointers can be used in the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\`{}at\`{}}{0}, \`{}operator\mbox{[}\mbox{]}\`{}, and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}{\`{}value\`{}}{0} functions just like object keys or array indices.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ JSON\ value\ from\ above}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(R\textcolor{stringliteral}{"{}(\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}array"{}:\ ["{}A"{},\ "{}B"{},\ "{}C"{}],}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}nested"{}:\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}one"{}:\ 1,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}two"{}:\ 2,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}three"{}:\ [true,\ false]}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\})"{});}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ access\ values}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ val\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}/"{}}\_json\_pointer];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \{"{}array"{}:["{}A"{},"{}B"{},"{}C"{}],...\}}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ val1\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}/nested/one"{}}\_json\_pointer];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ val2\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}[\mbox{\hyperlink{classnlohmann_1_1basic__json_aa8f1f93b32da01b42413643be32b2c27}{json::json\_pointer}}(\textcolor{stringliteral}{"{}/nested/three/1"{}})];\ \ \ \ \textcolor{comment}{//\ false}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ val3\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a11641b35219676b225d9bd15c7677659}{value}}[\mbox{\hyperlink{classnlohmann_1_1basic__json_aa8f1f93b32da01b42413643be32b2c27}{json::json\_pointer}}(\textcolor{stringliteral}{"{}/nested/four"{}},\ 0)];\ \textcolor{comment}{//\ 0}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1382}{}\doxysection{\texorpdfstring{Flatten / unflatten}{Flatten / unflatten}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1382}
+The library implements a function \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{\`{}flatten\`{}}{0} to convert any JSON document into a JSON object where each key is a JSON Pointer and each value is a primitive JSON value (i.\+e., a string, boolean, number, or null).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ JSON\ value\ from\ above}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(R\textcolor{stringliteral}{"{}(\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}array"{}:\ ["{}A"{},\ "{}B"{},\ "{}C"{}],}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}nested"{}:\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}one"{}:\ 1,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}two"{}:\ 2,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}three"{}:\ [true,\ false]}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\})"{});}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ create\ flattened\ value}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ j\_flat\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab7aa6e048e659481a036f2d872c7cba6}{flatten}}();}
+
+\end{DoxyCode}
+
+
+The resulting value {\ttfamily j\+\_\+flat} is\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}/array/0"{}:\ "{}A"{},}
+\DoxyCodeLine{\ \ "{}/array/1"{}:\ "{}B"{},}
+\DoxyCodeLine{\ \ "{}/array/2"{}:\ "{}C"{},}
+\DoxyCodeLine{\ \ "{}/nested/one"{}:\ 1,}
+\DoxyCodeLine{\ \ "{}/nested/two"{}:\ 2,}
+\DoxyCodeLine{\ \ "{}/nested/three/0"{}:\ true,}
+\DoxyCodeLine{\ \ "{}/nested/three/1"{}:\ false}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The reverse function, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{\`{}unflatten\`{}}{0} recreates the original value.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ j\_original\ =\ j\_flat.unflatten();}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1383}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer_autotoc_md1383}
+
+\begin{DoxyItemize}
+\item Class \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0}
+\item Function \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{\`{}flatten\`{}}{0}
+\item Function \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{\`{}unflatten\`{}}{0}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch}{JSON Patch}{0} 
+\end{DoxyItemize}

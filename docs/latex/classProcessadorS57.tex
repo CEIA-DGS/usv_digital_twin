@@ -1,0 +1,47 @@
+\doxysection{Processador\+S57 Class Reference}
+\hypertarget{classProcessadorS57}{}\label{classProcessadorS57}\index{ProcessadorS57@{ProcessadorS57}}
+
+
+Processador especializado na ingestão, extração e tratamento de dados geoespaciais S-\/57.  
+
+
+
+
+{\ttfamily \#include $<$Processador\+S57.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structGeometriasProcessadas}{Geometrias\+Processadas}} \mbox{\hyperlink{classProcessadorS57_a88ef71d15863816caa7e4194d5098e27}{processar\+Carta}} (const std\+::string \&caminho\+S57, const \mbox{\hyperlink{structConfiguracaoMapa}{Configuracao\+Mapa}} \&config)
+\begin{DoxyCompactList}\small\item\em Abre uma carta náutica S-\/57, filtra camadas via configuração e reprojeta coordenadas para EPSG\+:3857. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Processador especializado na ingestão, extração e tratamento de dados geoespaciais S-\/57. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classProcessadorS57_a88ef71d15863816caa7e4194d5098e27}\label{classProcessadorS57_a88ef71d15863816caa7e4194d5098e27} 
+\index{ProcessadorS57@{ProcessadorS57}!processarCarta@{processarCarta}}
+\index{processarCarta@{processarCarta}!ProcessadorS57@{ProcessadorS57}}
+\doxysubsubsection{\texorpdfstring{processarCarta()}{processarCarta()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structGeometriasProcessadas}{Geometrias\+Processadas}} Processador\+S57\+::processar\+Carta (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{caminho\+S57,  }\item[{const \mbox{\hyperlink{structConfiguracaoMapa}{Configuracao\+Mapa}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Abre uma carta náutica S-\/57, filtra camadas via configuração e reprojeta coordenadas para EPSG\+:3857. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caminho\+S57} & Caminho físico da carta (.000). \\
+\hline
+{\em config} & Configuração contendo as classes de camadas a serem extraídas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Objeto \doxylink{structGeometriasProcessadas}{Geometrias\+Processadas} contendo os dados reprojetados prontos para uso. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{ProcessadorS57_8h}{Processador\+S57.\+h}}\end{DoxyCompactItemize}

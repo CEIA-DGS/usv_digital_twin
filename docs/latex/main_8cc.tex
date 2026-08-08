@@ -1,0 +1,323 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/testbed/main.cc File Reference}
+\hypertarget{main_8cc}{}\label{main_8cc}\index{build/dt\_core/\_deps/poly2tri-\/src/testbed/main.cc@{build/dt\_core/\_deps/poly2tri-\/src/testbed/main.cc}}
+{\ttfamily \#include $<$poly2tri/poly2tri.\+h$>$}\newline
+{\ttfamily \#include $<$GLFW/glfw3.\+h$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$list$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for main.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cc__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{main_8cc_a4a75272cce59295514a3d30f55d95587}{Parse\+File}} (\mbox{\hyperlink{classstring}{string}} filename, vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&out\+\_\+polyline, vector$<$ vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ $>$ \&out\+\_\+holes, vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&out\+\_\+steiner)
+\item 
+std\+::pair$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}}, \mbox{\hyperlink{structp2t_1_1Point}{Point}} $>$ \mbox{\hyperlink{main_8cc_a1270b52bf1304e90d77fd017aa61547f}{Bounding\+Box}} (const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}})
+\item 
+void \mbox{\hyperlink{main_8cc_ac6e904426a0b66a381fa156ef14f5054}{Generate\+Random\+Point\+Distribution}} (size\+\_\+t num\+\_\+points, double min, double max, vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&out\+\_\+polyline, vector$<$ vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ $>$ \&out\+\_\+holes, vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&out\+\_\+steiner)
+\item 
+void \mbox{\hyperlink{main_8cc_afe075840e1b334f6bf44475f91c171cf}{Init}} (int window\+\_\+width, int window\+\_\+height)
+\item 
+void \mbox{\hyperlink{main_8cc_a32d222f703fa6dce19ef9ffc74e17fbf}{Shut\+Down}} (int return\+\_\+code)
+\item 
+void \mbox{\hyperlink{main_8cc_ae49dba59a038ebe96934cc7bd0dd84ff}{Main\+Loop}} (const double zoom)
+\item 
+void \mbox{\hyperlink{main_8cc_a7244c32613251ddae79f3c8f136b08b8}{Draw}} (const double zoom)
+\item 
+void \mbox{\hyperlink{main_8cc_a6848959bcaa9569f455745ab70557cef}{Draw\+Map}} (const double zoom)
+\item 
+void \mbox{\hyperlink{main_8cc_a072dd583c3768ca1ebecd6c4c98cc459}{Constrained\+Color}} (bool constrain)
+\item 
+double \mbox{\hyperlink{main_8cc_a7449e5d58a3b1d8aec2c40295317bc85}{String\+To\+Double}} (const std\+::string \&s)
+\item 
+double \mbox{\hyperlink{main_8cc_a5ef34641088c8f0bd272ef5b395e8bce}{Random}} (double(\texorpdfstring{$\ast$}{*}fun)(double), double xmin, double xmax)
+\item 
+double \mbox{\hyperlink{main_8cc_aee069b3d5bd3ea44aaf6c916ce553f39}{Fun}} (double x)
+\item 
+{\footnotesize template$<$class C $>$ }\\void \mbox{\hyperlink{main_8cc_af535d049298b358067087232545eb603}{Free\+Clear}} (C \&cntr)
+\item 
+int \mbox{\hyperlink{main_8cc_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}}\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{main_8cc_a4704d7a240c1589e817ce8f5ddf3f548}{Reset\+Zoom}} (double zoom, double \mbox{\hyperlink{main_8cc_ac176cb816ac192bd8ec2f73c40b43309}{cx}}, double \mbox{\hyperlink{main_8cc_a2d6a093e4a6fe06658d3d01563d028c9}{cy}}, double width, double height)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{main_8cc_aa2b2c931938813238e9d3004b7cc3e0c}{rotate\+\_\+y}} = 0.\+0
+\item 
+double \mbox{\hyperlink{main_8cc_a664e10c19bd65bd4ceb231c09d2b1318}{rotate\+\_\+z}} = 0.\+0
+\item 
+const double \mbox{\hyperlink{main_8cc_ae4a78459795e92be395c5211fb37626b}{rotations\+\_\+per\+\_\+tick}} = 0.\+2
+\item 
+constexpr int \mbox{\hyperlink{main_8cc_ae975a2adbe3cd6b21bb79c138c882497}{default\+\_\+window\+\_\+width}} = 800
+\begin{DoxyCompactList}\small\item\em Default window size. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{main_8cc_a96f9836074eaabcf3b1a031c0088b69f}{default\+\_\+window\+\_\+height}} = 600
+\item 
+const double \mbox{\hyperlink{main_8cc_a0c0f910cb76dea45ec2520e127df86ec}{autozoom\+\_\+border}} = 0.\+05
+\begin{DoxyCompactList}\small\item\em Autozoom border (percentage) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cc_ac176cb816ac192bd8ec2f73c40b43309}{cx}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Screen center x. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{main_8cc_a2d6a093e4a6fe06658d3d01563d028c9}{cy}} = 0.\+0
+\begin{DoxyCompactList}\small\item\em Screen center y. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{main_8cc_a0bfb198c46314ca042fabb81caa08de0}{triangles}}
+\begin{DoxyCompactList}\small\item\em Constrained triangles. \end{DoxyCompactList}\item 
+list$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{map}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structTriangle}{Triangle} map. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}}
+\begin{DoxyCompactList}\small\item\em Polylines. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ $>$ \mbox{\hyperlink{main_8cc_ab417a0ff4a4218a8b30d9ff30c8226d4}{holes}}
+\item 
+vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{main_8cc_a79c0e09ed71fb1f4f3d236ee965e35db}{steiner}}
+\item 
+bool \mbox{\hyperlink{main_8cc_a88e3a7858db999a8157c7722708ad42d}{draw\+\_\+map}} = false
+\begin{DoxyCompactList}\small\item\em Draw the entire triangle map? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cc_a1c8440cf472a99da103f0fcd76e0e2be}{random\+\_\+distribution}} = false
+\begin{DoxyCompactList}\small\item\em Create a random distribution of points? \end{DoxyCompactList}\item 
+GLFWwindow \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cc_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cc_a1270b52bf1304e90d77fd017aa61547f}\label{main_8cc_a1270b52bf1304e90d77fd017aa61547f} 
+\index{main.cc@{main.cc}!BoundingBox@{BoundingBox}}
+\index{BoundingBox@{BoundingBox}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{BoundingBox()}{BoundingBox()}}
+{\footnotesize\ttfamily std\+::pair$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}}, \mbox{\hyperlink{structp2t_1_1Point}{Point}} $>$ Bounding\+Box (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{polyline }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a072dd583c3768ca1ebecd6c4c98cc459}\label{main_8cc_a072dd583c3768ca1ebecd6c4c98cc459} 
+\index{main.cc@{main.cc}!ConstrainedColor@{ConstrainedColor}}
+\index{ConstrainedColor@{ConstrainedColor}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{ConstrainedColor()}{ConstrainedColor()}}
+{\footnotesize\ttfamily void Constrained\+Color (\begin{DoxyParamCaption}\item[{bool}]{constrain }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a7244c32613251ddae79f3c8f136b08b8}\label{main_8cc_a7244c32613251ddae79f3c8f136b08b8} 
+\index{main.cc@{main.cc}!Draw@{Draw}}
+\index{Draw@{Draw}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Draw (\begin{DoxyParamCaption}\item[{const double}]{zoom }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a6848959bcaa9569f455745ab70557cef}\label{main_8cc_a6848959bcaa9569f455745ab70557cef} 
+\index{main.cc@{main.cc}!DrawMap@{DrawMap}}
+\index{DrawMap@{DrawMap}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{DrawMap()}{DrawMap()}}
+{\footnotesize\ttfamily void Draw\+Map (\begin{DoxyParamCaption}\item[{const double}]{zoom }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_af535d049298b358067087232545eb603}\label{main_8cc_af535d049298b358067087232545eb603} 
+\index{main.cc@{main.cc}!FreeClear@{FreeClear}}
+\index{FreeClear@{FreeClear}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{FreeClear()}{FreeClear()}}
+{\footnotesize\ttfamily template$<$class C $>$ \\
+void Free\+Clear (\begin{DoxyParamCaption}\item[{C \&}]{cntr }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_aee069b3d5bd3ea44aaf6c916ce553f39}\label{main_8cc_aee069b3d5bd3ea44aaf6c916ce553f39} 
+\index{main.cc@{main.cc}!Fun@{Fun}}
+\index{Fun@{Fun}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{Fun()}{Fun()}}
+{\footnotesize\ttfamily double Fun (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_ac6e904426a0b66a381fa156ef14f5054}\label{main_8cc_ac6e904426a0b66a381fa156ef14f5054} 
+\index{main.cc@{main.cc}!GenerateRandomPointDistribution@{GenerateRandomPointDistribution}}
+\index{GenerateRandomPointDistribution@{GenerateRandomPointDistribution}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{GenerateRandomPointDistribution()}{GenerateRandomPointDistribution()}}
+{\footnotesize\ttfamily void Generate\+Random\+Point\+Distribution (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+points,  }\item[{double}]{min,  }\item[{double}]{max,  }\item[{vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{out\+\_\+polyline,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ $>$ \&}]{out\+\_\+holes,  }\item[{vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{out\+\_\+steiner }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_afe075840e1b334f6bf44475f91c171cf}\label{main_8cc_afe075840e1b334f6bf44475f91c171cf} 
+\index{main.cc@{main.cc}!Init@{Init}}
+\index{Init@{Init}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Init (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+width,  }\item[{int}]{window\+\_\+height }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cc_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cc@{main.cc}!main@{main}}
+\index{main@{main}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_ae49dba59a038ebe96934cc7bd0dd84ff}\label{main_8cc_ae49dba59a038ebe96934cc7bd0dd84ff} 
+\index{main.cc@{main.cc}!MainLoop@{MainLoop}}
+\index{MainLoop@{MainLoop}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{MainLoop()}{MainLoop()}}
+{\footnotesize\ttfamily void Main\+Loop (\begin{DoxyParamCaption}\item[{const double}]{zoom }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a4a75272cce59295514a3d30f55d95587}\label{main_8cc_a4a75272cce59295514a3d30f55d95587} 
+\index{main.cc@{main.cc}!ParseFile@{ParseFile}}
+\index{ParseFile@{ParseFile}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{ParseFile()}{ParseFile()}}
+{\footnotesize\ttfamily bool Parse\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classstring}{string}}}]{filename,  }\item[{vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{out\+\_\+polyline,  }\item[{vector$<$ vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ $>$ \&}]{out\+\_\+holes,  }\item[{vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{out\+\_\+steiner }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a5ef34641088c8f0bd272ef5b395e8bce}\label{main_8cc_a5ef34641088c8f0bd272ef5b395e8bce} 
+\index{main.cc@{main.cc}!Random@{Random}}
+\index{Random@{Random}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily double Random (\begin{DoxyParamCaption}\item[{double(\texorpdfstring{$\ast$}{*})(double)}]{fun,  }\item[{double}]{xmin = {\ttfamily 0},  }\item[{double}]{xmax = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a4704d7a240c1589e817ce8f5ddf3f548}\label{main_8cc_a4704d7a240c1589e817ce8f5ddf3f548} 
+\index{main.cc@{main.cc}!ResetZoom@{ResetZoom}}
+\index{ResetZoom@{ResetZoom}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{ResetZoom()}{ResetZoom()}}
+{\footnotesize\ttfamily void Reset\+Zoom (\begin{DoxyParamCaption}\item[{double}]{zoom,  }\item[{double}]{cx,  }\item[{double}]{cy,  }\item[{double}]{width,  }\item[{double}]{height }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a32d222f703fa6dce19ef9ffc74e17fbf}\label{main_8cc_a32d222f703fa6dce19ef9ffc74e17fbf} 
+\index{main.cc@{main.cc}!ShutDown@{ShutDown}}
+\index{ShutDown@{ShutDown}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{ShutDown()}{ShutDown()}}
+{\footnotesize\ttfamily void Shut\+Down (\begin{DoxyParamCaption}\item[{int}]{return\+\_\+code }\end{DoxyParamCaption})}
+
+\Hypertarget{main_8cc_a7449e5d58a3b1d8aec2c40295317bc85}\label{main_8cc_a7449e5d58a3b1d8aec2c40295317bc85} 
+\index{main.cc@{main.cc}!StringToDouble@{StringToDouble}}
+\index{StringToDouble@{StringToDouble}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{StringToDouble()}{StringToDouble()}}
+{\footnotesize\ttfamily double String\+To\+Double (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8cc_a0c0f910cb76dea45ec2520e127df86ec}\label{main_8cc_a0c0f910cb76dea45ec2520e127df86ec} 
+\index{main.cc@{main.cc}!autozoom\_border@{autozoom\_border}}
+\index{autozoom\_border@{autozoom\_border}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{autozoom\_border}{autozoom\_border}}
+{\footnotesize\ttfamily const double autozoom\+\_\+border = 0.\+05}
+
+
+
+Autozoom border (percentage) 
+
+\Hypertarget{main_8cc_ac176cb816ac192bd8ec2f73c40b43309}\label{main_8cc_ac176cb816ac192bd8ec2f73c40b43309} 
+\index{main.cc@{main.cc}!cx@{cx}}
+\index{cx@{cx}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{cx}{cx}}
+{\footnotesize\ttfamily double cx = 0.\+0}
+
+
+
+Screen center x. 
+
+\Hypertarget{main_8cc_a2d6a093e4a6fe06658d3d01563d028c9}\label{main_8cc_a2d6a093e4a6fe06658d3d01563d028c9} 
+\index{main.cc@{main.cc}!cy@{cy}}
+\index{cy@{cy}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{cy}{cy}}
+{\footnotesize\ttfamily double cy = 0.\+0}
+
+
+
+Screen center y. 
+
+\Hypertarget{main_8cc_a96f9836074eaabcf3b1a031c0088b69f}\label{main_8cc_a96f9836074eaabcf3b1a031c0088b69f} 
+\index{main.cc@{main.cc}!default\_window\_height@{default\_window\_height}}
+\index{default\_window\_height@{default\_window\_height}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{default\_window\_height}{default\_window\_height}}
+{\footnotesize\ttfamily constexpr int default\+\_\+window\+\_\+height = 600\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{main_8cc_ae975a2adbe3cd6b21bb79c138c882497}\label{main_8cc_ae975a2adbe3cd6b21bb79c138c882497} 
+\index{main.cc@{main.cc}!default\_window\_width@{default\_window\_width}}
+\index{default\_window\_width@{default\_window\_width}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{default\_window\_width}{default\_window\_width}}
+{\footnotesize\ttfamily constexpr int default\+\_\+window\+\_\+width = 800\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Default window size. 
+
+\Hypertarget{main_8cc_a88e3a7858db999a8157c7722708ad42d}\label{main_8cc_a88e3a7858db999a8157c7722708ad42d} 
+\index{main.cc@{main.cc}!draw\_map@{draw\_map}}
+\index{draw\_map@{draw\_map}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{draw\_map}{draw\_map}}
+{\footnotesize\ttfamily bool draw\+\_\+map = false}
+
+
+
+Draw the entire triangle map? 
+
+\Hypertarget{main_8cc_ab417a0ff4a4218a8b30d9ff30c8226d4}\label{main_8cc_ab417a0ff4a4218a8b30d9ff30c8226d4} 
+\index{main.cc@{main.cc}!holes@{holes}}
+\index{holes@{holes}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{holes}{holes}}
+{\footnotesize\ttfamily vector$<$vector$<$\mbox{\hyperlink{structp2t_1_1Point}{Point}}\texorpdfstring{$\ast$}{*}$>$ $>$ holes}
+
+\Hypertarget{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}\label{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b} 
+\index{main.cc@{main.cc}!map@{map}}
+\index{map@{map}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily list$<$\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\texorpdfstring{$\ast$}{*}$>$ map}
+
+
+
+\doxylink{structTriangle}{Triangle} map. 
+
+\Hypertarget{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}\label{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833} 
+\index{main.cc@{main.cc}!polyline@{polyline}}
+\index{polyline@{polyline}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{polyline}{polyline}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{structp2t_1_1Point}{Point}}\texorpdfstring{$\ast$}{*}$>$ polyline}
+
+
+
+Polylines. 
+
+\Hypertarget{main_8cc_a1c8440cf472a99da103f0fcd76e0e2be}\label{main_8cc_a1c8440cf472a99da103f0fcd76e0e2be} 
+\index{main.cc@{main.cc}!random\_distribution@{random\_distribution}}
+\index{random\_distribution@{random\_distribution}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{random\_distribution}{random\_distribution}}
+{\footnotesize\ttfamily bool random\+\_\+distribution = false}
+
+
+
+Create a random distribution of points? 
+
+\Hypertarget{main_8cc_aa2b2c931938813238e9d3004b7cc3e0c}\label{main_8cc_aa2b2c931938813238e9d3004b7cc3e0c} 
+\index{main.cc@{main.cc}!rotate\_y@{rotate\_y}}
+\index{rotate\_y@{rotate\_y}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{rotate\_y}{rotate\_y}}
+{\footnotesize\ttfamily double rotate\+\_\+y = 0.\+0}
+
+\Hypertarget{main_8cc_a664e10c19bd65bd4ceb231c09d2b1318}\label{main_8cc_a664e10c19bd65bd4ceb231c09d2b1318} 
+\index{main.cc@{main.cc}!rotate\_z@{rotate\_z}}
+\index{rotate\_z@{rotate\_z}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{rotate\_z}{rotate\_z}}
+{\footnotesize\ttfamily double rotate\+\_\+z = 0.\+0}
+
+\Hypertarget{main_8cc_ae4a78459795e92be395c5211fb37626b}\label{main_8cc_ae4a78459795e92be395c5211fb37626b} 
+\index{main.cc@{main.cc}!rotations\_per\_tick@{rotations\_per\_tick}}
+\index{rotations\_per\_tick@{rotations\_per\_tick}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{rotations\_per\_tick}{rotations\_per\_tick}}
+{\footnotesize\ttfamily const double rotations\+\_\+per\+\_\+tick = 0.\+2}
+
+\Hypertarget{main_8cc_a79c0e09ed71fb1f4f3d236ee965e35db}\label{main_8cc_a79c0e09ed71fb1f4f3d236ee965e35db} 
+\index{main.cc@{main.cc}!steiner@{steiner}}
+\index{steiner@{steiner}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{steiner}{steiner}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{structp2t_1_1Point}{Point}}\texorpdfstring{$\ast$}{*}$>$ steiner}
+
+\Hypertarget{main_8cc_a0bfb198c46314ca042fabb81caa08de0}\label{main_8cc_a0bfb198c46314ca042fabb81caa08de0} 
+\index{main.cc@{main.cc}!triangles@{triangles}}
+\index{triangles@{triangles}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{triangles}{triangles}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\texorpdfstring{$\ast$}{*}$>$ triangles}
+
+
+
+Constrained triangles. 
+
+\Hypertarget{main_8cc_a80de27bd7dc4e2b2ad3d5895b97a70f0}\label{main_8cc_a80de27bd7dc4e2b2ad3d5895b97a70f0} 
+\index{main.cc@{main.cc}!window@{window}}
+\index{window@{window}!main.cc@{main.cc}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily GLFWwindow\texorpdfstring{$\ast$}{*} window = NULL}
+

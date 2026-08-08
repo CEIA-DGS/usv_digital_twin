@@ -1,0 +1,33 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}json\+\_\+base\+\_\+class\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$json\_base\_class\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$json\_base\_class\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md543}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md543}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }json\_base\_class\_t\ =\ \mbox{\hyperlink{namespacedetail_ae0ea2ae325b8654ea5ce36e2c5043f0a}{detail::json\_base\_class<CustomBaseClass>}};}
+
+\end{DoxyCode}
+
+
+The base class used to inject custom functionality into each instance of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}. Examples of such functionality might be metadata, additional member functions (e.\+g., visitors), or other application-\/specific code.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md544}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md544}
+{\ttfamily Custom\+Base\+Class} \+: the base class to be added to {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md545}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md545}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md546}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md546}
+The default value for {\ttfamily Custom\+Base\+Class} is {\ttfamily void}. In this case an \href{https://en.cppreference.com/w/cpp/language/ebo}{\texttt{ empty base class}} is used and no additional functionality is injected.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md547}{}\doxysubsubsection{\texorpdfstring{Limitations}{Limitations}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md547}
+The type {\ttfamily Custom\+Base\+Class} has to be a default-\/constructible class. {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} only supports copy/move construction/assignment if {\ttfamily Custom\+Base\+Class} does so as well.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md548}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md548}
+??? example \begin{DoxyVerb}The following code shows how to inject custom data and methods for each node.
+
+```cpp
+--8<-- "examples/json_base_class_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/json_base_class_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md549}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t_autotoc_md549}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+12.\+0. 
+\end{DoxyItemize}

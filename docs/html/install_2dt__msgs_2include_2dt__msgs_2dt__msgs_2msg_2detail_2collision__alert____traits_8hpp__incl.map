@@ -1,0 +1,15 @@
+<map id="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/collision_alert__traits.hpp" name="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/collision_alert__traits.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="171,5,385,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,76,141"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,63,83,113,82,108,210,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,115,175,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="240,62,168,110,165,106,237,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="199,115,258,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="266,62,244,104,239,101,262,59"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,115,375,141"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="295,59,318,102,313,104,290,62"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="399,108,595,148"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="341,58,441,100,439,105,338,63"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="619,108,766,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="385,55,606,105,605,110,384,60"/>
+</map>

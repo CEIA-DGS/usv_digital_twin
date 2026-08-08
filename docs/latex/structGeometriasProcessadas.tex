@@ -1,0 +1,67 @@
+\doxysection{Geometrias\+Processadas Struct Reference}
+\hypertarget{structGeometriasProcessadas}{}\label{structGeometriasProcessadas}\index{GeometriasProcessadas@{GeometriasProcessadas}}
+
+
+Contêiner para armazenamento das geometrias processadas extraídas das cartas S-\/57. Encapsula a lógica de gerenciamento de memória das estruturas OGRGeometry.  
+
+
+
+
+{\ttfamily \#include $<$Processador\+S57.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structGeometriasProcessadas_aa0246f9a94fe55b93389b65362a4f161}{liberar\+Memoria}} ()
+\begin{DoxyCompactList}\small\item\em Executa a desalocação forçada de cada geometria OGR e limpa os vetores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ OGRGeometry \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structGeometriasProcessadas_aded8240b517ec67d173813837b0e14d9}{area\+Navegavel}}
+\item 
+std\+::vector$<$ OGRGeometry \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structGeometriasProcessadas_ab39f4444efda70c953e9953cac1b5669}{obstaculos}}
+\item 
+int \mbox{\hyperlink{structGeometriasProcessadas_ad67646980692a29ebd347c0e75c28442}{epsg\+\_\+utm}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contêiner para armazenamento das geometrias processadas extraídas das cartas S-\/57. Encapsula a lógica de gerenciamento de memória das estruturas OGRGeometry. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structGeometriasProcessadas_aa0246f9a94fe55b93389b65362a4f161}\label{structGeometriasProcessadas_aa0246f9a94fe55b93389b65362a4f161} 
+\index{GeometriasProcessadas@{GeometriasProcessadas}!liberarMemoria@{liberarMemoria}}
+\index{liberarMemoria@{liberarMemoria}!GeometriasProcessadas@{GeometriasProcessadas}}
+\doxysubsubsection{\texorpdfstring{liberarMemoria()}{liberarMemoria()}}
+{\footnotesize\ttfamily void Geometrias\+Processadas\+::liberar\+Memoria (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Executa a desalocação forçada de cada geometria OGR e limpa os vetores. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structGeometriasProcessadas_aded8240b517ec67d173813837b0e14d9}\label{structGeometriasProcessadas_aded8240b517ec67d173813837b0e14d9} 
+\index{GeometriasProcessadas@{GeometriasProcessadas}!areaNavegavel@{areaNavegavel}}
+\index{areaNavegavel@{areaNavegavel}!GeometriasProcessadas@{GeometriasProcessadas}}
+\doxysubsubsection{\texorpdfstring{areaNavegavel}{areaNavegavel}}
+{\footnotesize\ttfamily std\+::vector$<$OGRGeometry\texorpdfstring{$\ast$}{*}$>$ Geometrias\+Processadas\+::area\+Navegavel}
+
+\Hypertarget{structGeometriasProcessadas_ad67646980692a29ebd347c0e75c28442}\label{structGeometriasProcessadas_ad67646980692a29ebd347c0e75c28442} 
+\index{GeometriasProcessadas@{GeometriasProcessadas}!epsg\_utm@{epsg\_utm}}
+\index{epsg\_utm@{epsg\_utm}!GeometriasProcessadas@{GeometriasProcessadas}}
+\doxysubsubsection{\texorpdfstring{epsg\_utm}{epsg\_utm}}
+{\footnotesize\ttfamily int Geometrias\+Processadas\+::epsg\+\_\+utm}
+
+\Hypertarget{structGeometriasProcessadas_ab39f4444efda70c953e9953cac1b5669}\label{structGeometriasProcessadas_ab39f4444efda70c953e9953cac1b5669} 
+\index{GeometriasProcessadas@{GeometriasProcessadas}!obstaculos@{obstaculos}}
+\index{obstaculos@{obstaculos}!GeometriasProcessadas@{GeometriasProcessadas}}
+\doxysubsubsection{\texorpdfstring{obstaculos}{obstaculos}}
+{\footnotesize\ttfamily std\+::vector$<$OGRGeometry\texorpdfstring{$\ast$}{*}$>$ Geometrias\+Processadas\+::obstaculos}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{ProcessadorS57_8h}{Processador\+S57.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}binary\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$binary\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$binary\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md141}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md141}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }binary\_t\ =\ \mbox{\hyperlink{classbyte__container__with__subtype}{byte\_container\_with\_subtype<BinaryType>}};}
+
+\end{DoxyCode}
+
+
+This type is a type designed to carry binary data that appears in various serialized formats, such as CBOR\textquotesingle{}s Major Type 2, Message\+Pack\textquotesingle{}s bin, and BSON\textquotesingle{}s generic binary subtype. This type is NOT a part of standard JSON and exists solely for compatibility with these binary types. As such, it is simply defined as an ordered sequence of zero or more byte values.
+
+Additionally, as an implementation detail, the subtype of the binary data is carried around as a {\ttfamily std\+::uint64\+\_\+t}, which is compatible with both of the binary data formats that use binary subtyping, (though the specific numbering is incompatible with each other, and it is up to the user to translate between them). The subtype is added to {\ttfamily Binary\+Type} via the helper type \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index}{byte\+\_\+container\+\_\+with\+\_\+subtype}{0}.
+
+\href{https://tools.ietf.org/html/rfc7049}{\texttt{ CBOR\textquotesingle{}s RFC 7049}} describes this type as\+: \begin{quote}
+Major type 2\+: a byte string. The string\textquotesingle{}s length in bytes is represented following the rules for positive integers (major type 0). \end{quote}
+\href{https://github.com/msgpack/msgpack/blob/master/spec.md\#bin-format-family}{\texttt{ Message\+Pack\textquotesingle{}s documentation on the bin type family}} describes this type as\+: \begin{quote}
+Bin format family stores a byte array in 2, 3, or 5 bytes of extra bytes in addition to the size of the byte array. \end{quote}
+\href{http://bsonspec.org/spec.html}{\texttt{ BSON\textquotesingle{}s specifications}} describe several binary types; however, this type is intended to represent the generic binary type which has the description\+: \begin{quote}
+Generic binary subtype -\/ This is the most commonly used binary subtype and should be the \textquotesingle{}default\textquotesingle{} for drivers and tools. \end{quote}
+None of these impose any limitations on the internal representation other than the basic unit of storage be some type of array whose parts are decomposable into bytes.
+
+The default representation of this binary format is a {\ttfamily \#!cpp std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}}, which is a very common way to represent a byte array in modern C++.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md142}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md142}
+{\ttfamily Binary\+Type} \+: container type to store arrays\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md143}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md143}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md144}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md144}
+The default values for {\ttfamily Binary\+Type} is {\ttfamily \#!cpp std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md145}{}\doxysubsubsection{\texorpdfstring{Storage}{Storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md145}
+Binary Arrays are stored as pointers in a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type. That is, for any access to array values, a pointer of the type {\ttfamily \#!cpp binary\+\_\+t\texorpdfstring{$\ast$}{*}} must be dereferenced.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md146}{}\doxysubsubsection{\texorpdfstring{Notes on subtypes}{Notes on subtypes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md146}
+
+\begin{DoxyItemize}
+\item CBOR
+\begin{DoxyItemize}
+\item Binary values are represented as byte strings. Subtypes are written as tags.
+\end{DoxyItemize}
+\item Message\+Pack
+\begin{DoxyItemize}
+\item If a subtype is given and the binary array contains exactly 1, 2, 4, 8, or 16 elements, the fixext family (fixext1, fixext2, fixext4, fixext8) is used. For other sizes, the ext family (ext8, ext16, ext32) is used. The subtype is then added as signed 8-\/bit integer.
+\item If no subtype is given, the bin family (bin8, bin16, bin32) is used.
+\end{DoxyItemize}
+\item BSON
+\begin{DoxyItemize}
+\item If a subtype is given, it is used and added as unsigned 8-\/bit integer.
+\item If no subtype is given, the generic binary subtype 0x00 is used.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md147}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md147}
+??? example \begin{DoxyVerb}The following code shows that `binary_t` is by default, a typedef to
+`#!cpp nlohmann::byte_container_with_subtype<std::vector<std::uint8_t>>`.
+
+```cpp
+--8<-- "examples/binary_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/binary_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md148}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md148}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index}{byte\+\_\+container\+\_\+with\+\_\+subtype}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md149}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t_autotoc_md149}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+8.\+0. Changed type of subtype to {\ttfamily std\+::uint64\+\_\+t} in version 3.\+10.\+0. 
+\end{DoxyItemize}

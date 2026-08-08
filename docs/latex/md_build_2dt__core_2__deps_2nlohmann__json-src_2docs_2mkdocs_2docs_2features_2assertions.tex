@@ -1,0 +1,104 @@
+\chapter{Runtime Assertions}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions}\index{Runtime Assertions@{Runtime Assertions}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1314}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1314}%
+ The code contains numerous debug assertions to ensure class invariants are valid or to detect undefined behavior. Whereas the former class invariants are nothing to be concerned of, the latter checks for undefined behavior are to detect bugs in client code.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1315}{}\doxysection{\texorpdfstring{Switch off runtime assertions}{Switch off runtime assertions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1315}
+Runtime assertions can be switched off by defining the preprocessor macro {\ttfamily NDEBUG} (see the \href{https://en.cppreference.com/w/cpp/error/assert}{\texttt{ documentation of assert}}) which is the default for release builds.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1316}{}\doxysection{\texorpdfstring{Change assertion behavior}{Change assertion behavior}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1316}
+The behavior of runtime assertions can be changes by defining macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert}{\`{}\+JSON\+\_\+\+ASSERT(x)\`{}}{0} before including the {\ttfamily json.\+hpp} header.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1317}{}\doxysection{\texorpdfstring{Function with runtime assertions}{Function with runtime assertions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1317}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1318}{}\doxysubsection{\texorpdfstring{Unchecked object access to a const value}{Unchecked object access to a const value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1318}
+Function \`{}operator\mbox{[}\mbox{]}\`{} implements unchecked access for objects. Whereas a missing key is added in case of non-\/const objects, accessing a const object with a missing key is undefined behavior (think of a dereferenced null pointer) and yields a runtime assertion.
+
+If you are not sure whether an element in an object exists, use checked access with the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\`{}at\`{} function}{0} or call the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains}{\`{}contains\`{} function}{0} before.
+
+See also the documentation on \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2index}{element access}{0}.
+
+??? example "{}\+Example 1\+: Missing object key"{} \begin{DoxyVerb}The following code will trigger an assertion at runtime:
+
+```cpp
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+    const json j = {{"key", "value"}};
+    auto v = j["missing"];
+}
+```
+
+Output:
+
+```
+Assertion failed: (m_value.object->find(key) != m_value.object->end()), function operator[], file json.hpp, line 2144.
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1319}{}\doxysubsection{\texorpdfstring{Constructing from an uninitialized iterator range}{Constructing from an uninitialized iterator range}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1319}
+Constructing a JSON value from an iterator range (see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{constructor}{0}) with an uninitialized iterator is undefined behavior and yields a runtime assertion.
+
+??? example "{}\+Example 2\+: Uninitialized iterator range"{} \begin{DoxyVerb}The following code will trigger an assertion at runtime:
+
+```cpp
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+    json::iterator it1, it2;
+    json j(it1, it2);
+}
+```
+
+Output:
+
+```
+Assertion failed: (m_object != nullptr), function operator++, file iter_impl.hpp, line 368.
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1320}{}\doxysubsection{\texorpdfstring{Operations on uninitialized iterators}{Operations on uninitialized iterators}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1320}
+Any operation on uninitialized iterators (i.\+e., iterators that are not associated with any JSON value) is undefined behavior and yields a runtime assertion.
+
+??? example "{}\+Example 3\+: Uninitialized iterator"{} \begin{DoxyVerb}The following code will trigger an assertion at runtime:
+
+```cpp
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+  json::iterator it;
+  ++it;
+}
+```
+
+Output:
+
+```
+Assertion failed: (m_object != nullptr), function operator++, file iter_impl.hpp, line 368.
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1321}{}\doxysubsection{\texorpdfstring{Reading from a null $<$tt$>$\+FILE$<$/tt$>$ pointer}{Reading from a null <tt>FILE</tt> pointer}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions_autotoc_md1321}
+Reading from a null {\ttfamily \#!cpp FILE} pointer is undefined behavior and yields a runtime assertion. This can happen when calling {\ttfamily \#!cpp std\+::fopen} on a nonexistent file.
+
+??? example "{}\+Example 4\+: Uninitialized iterator"{} \begin{DoxyVerb}The following code will trigger an assertion at runtime:
+
+```cpp
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+  std::FILE* f = std::fopen("nonexistent_file.json", "r");
+  json j = json::parse(f);
+}
+```
+
+Output:
+
+```
+Assertion failed: (m_file != nullptr), function file_input_adapter, file input_adapters.hpp, line 55.
+```
+\end{DoxyVerb}
+ 

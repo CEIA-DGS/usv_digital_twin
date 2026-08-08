@@ -1,0 +1,5 @@
+<map id="Triangulo" name="Triangulo">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,87,148"/>
+<area shape="rect" id="Node000002" href="$structPonto2D.html" title="Primitivas geométricas para representação da malha de navegação." alt="" coords="7,5,85,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="49,44,49,123,43,123,43,44"/>
+</map>

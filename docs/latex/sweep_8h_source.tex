@@ -1,0 +1,131 @@
+\doxysection{sweep.\+h}
+\hypertarget{sweep_8h_source}{}\label{sweep_8h_source}\index{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/sweep/sweep.h@{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/sweep/sweep.h}}
+\mbox{\hyperlink{sweep_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Poly2Tri\ Copyright\ (c)\ 2009-\/2018,\ Poly2Tri\ Contributors}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ https://github.com/jhasse/poly2tri}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ modification,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ documentation}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ *\ Neither\ the\ name\ of\ Poly2Tri\ nor\ the\ names\ of\ its\ contributors\ may\ be}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this\ software\ without\ specific}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ prior\ written\ permission.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacep2t}{p2t}}\ \{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }SweepContext;}
+\DoxyCodeLine{00046\ \textcolor{keyword}{struct\ }Node;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }Point;}
+\DoxyCodeLine{00048\ \textcolor{keyword}{struct\ }Edge;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{structTriangle}{Triangle}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classp2t_1_1Sweep}{Sweep}}}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1Sweep_a1b7060836f00801c4dbb0a529d78628a}{Triangulate}}(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{classp2t_1_1Sweep_a2b271def7a18df2324464fed9af1e1e7}{\string~Sweep}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ SweepPoints(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ PointEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ EdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ EdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ ep,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ eq,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ triangle,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00106\ \ \ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ NewFrontTriangle(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ Fill(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keywordtype}{bool}\ Legalize(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{bool}\ Incircle(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pb,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pc,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ pd)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{void}\ RotateTrianglePair(\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ ot,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ op)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordtype}{void}\ FillAdvancingFront(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}});}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \textcolor{comment}{//\ Decision-\/making\ about\ when\ to\ Fill\ hole.}}
+\DoxyCodeLine{00172\ \ \ \textcolor{comment}{//\ Contributed\ by\ ToolmakerSteve2}}
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordtype}{bool}\ LargeHole\_DontFill(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00174\ \ \ \textcolor{keywordtype}{bool}\ AngleIsNegative(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00175\ \ \ \textcolor{keywordtype}{bool}\ AngleExceeds90Degrees(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{bool}\ AngleExceedsPlus90DegreesOrIsNegative(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{double}\ Angle(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pa,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ pb)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00184\ \ \ \textcolor{keywordtype}{double}\ HoleAngle(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordtype}{double}\ BasinAngle(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordtype}{void}\ FillBasin(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordtype}{void}\ FillBasinReq(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \textcolor{keywordtype}{bool}\ IsShallow(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{bool}\ IsEdgeSideOfTriangle(\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ triangle,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ ep,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ eq);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \textcolor{keywordtype}{void}\ FillEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \ \ \textcolor{keywordtype}{void}\ FillRightAboveEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordtype}{void}\ FillRightBelowEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \textcolor{keywordtype}{void}\ FillRightConcaveEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{void}\ FillRightConvexEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordtype}{void}\ FillLeftAboveEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordtype}{void}\ FillLeftBelowEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \textcolor{keywordtype}{void}\ FillLeftConcaveEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \textcolor{keywordtype}{void}\ FillLeftConvexEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}*\ edge,\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ node);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{void}\ FlipEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ ep,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ eq,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ t,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00247\ \ \ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ NextFlipTriangle(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \textcolor{keywordtype}{int}\ o,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ \ t,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ ot,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ op);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00260\ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ NextFlipPoint(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ ep,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ eq,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ ot,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ op);}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00275\ \ \ \textcolor{keywordtype}{void}\ FlipScanEdgeEvent(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ ep,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ eq,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ flip\_triangle,\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \textcolor{keywordtype}{void}\ FinalizationPolygon(\mbox{\hyperlink{classp2t_1_1SweepContext}{SweepContext}}\&\ tcx);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ std::vector<Node*>\ nodes\_;}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \};}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,30 @@
+\chapter{Access with default value\+: value}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value}\index{Access with default value: value@{Access with default value: value}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1356}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1356}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1357}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1357}
+In many situations such as configuration files, missing values are not exceptional, but may be treated as if a default value was present.
+
+??? example \begin{DoxyVerb}Consider the following JSON value:
+
+```json
+{
+    "logOutput": "result.log",
+    "append": true
+}
+```
+
+Assume the value is parsed to a `json` variable `j`.
+
+| expression | value |
+| ---------- | ----- |
+| `#!cpp j`  | `#!json {"logOutput": "result.log", "append": true}` |
+| `#!cpp j.value("logOutput", "logfile.log")`  | `#!json "result.log"` |
+| `#!cpp j.value("append", true)`  | `#!json true` |
+| `#!cpp j.value("append", false)`  | `#!json true` |
+| `#!cpp j.value("logLevel", "verbose")`  | `#!json "verbose"` |
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1358}{}\doxysection{\texorpdfstring{Note}{Note}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2element__access_2default__value_autotoc_md1358}
+!!! failure "{}\+Exceptions"{} \begin{DoxyVerb}- `value` can only be used with objects. For other types, a [`basic_json::type_error`](../../home/exceptions.md#jsonexceptiontype_error306) is thrown.
+\end{DoxyVerb}
+ 

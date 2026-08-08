@@ -1,0 +1,45 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}array}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$array@{$<$small$>$nlohmann::basic\_json::$<$/small$>$array}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md82}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md82}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{classarray}{array}}(initializer\_list\_t\ init\ =\ \{\});}
+
+\end{DoxyCode}
+
+
+Creates a JSON array value from a given initializer list. That is, given a list of values {\ttfamily a, b, c}, creates the JSON value {\ttfamily \#!json \mbox{[}a, b, c\mbox{]}}. If the initializer list is empty, the empty array {\ttfamily \#!json \mbox{[}\mbox{]}} is created.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md83}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md83}
+{\ttfamily init} (in) \+: initializer list with JSON values to create an array from (optional)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md84}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md84}
+JSON array value\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md85}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md85}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md86}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md86}
+Linear in the size of {\ttfamily init}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md87}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md87}
+This function is only needed to express two edge cases that cannot be realized with the initializer list constructor (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{\`{}basic\+\_\+json(initializer\+\_\+list\+\_\+t, bool, value\+\_\+t)\`{}}{0}). These cases are\+:
+
+
+\begin{DoxyEnumerate}
+\item creating an array whose elements are all pairs whose first element is a string -- in this case, the initializer list constructor would create an object, taking the first elements as keys
+\item creating an empty array -- passing the empty initializer list to the initializer list constructor yields an empty object
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md88}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md88}
+??? example \begin{DoxyVerb}The following code shows an example for the `array` function.
+
+```cpp
+--8<-- "examples/array.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/array.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md89}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md89}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{\`{}basic\+\_\+json(initializer\+\_\+list\+\_\+t)\`{}}{0} -\/ create a JSON value from an initializer list
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object}{\`{}object\`{}}{0} -\/ create a JSON object value from an initializer list
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md90}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array_autotoc_md90}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

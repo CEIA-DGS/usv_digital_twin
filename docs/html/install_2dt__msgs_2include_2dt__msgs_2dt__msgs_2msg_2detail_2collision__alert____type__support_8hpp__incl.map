@@ -1,0 +1,9 @@
+<map id="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/collision_alert__type_support.hpp" name="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/collision_alert__type_support.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="155,5,399,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,156,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="227,62,131,111,129,107,224,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="181,108,373,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="279,60,279,94,274,94,274,60"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="397,115,631,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="339,58,458,107,456,112,337,62"/>
+</map>

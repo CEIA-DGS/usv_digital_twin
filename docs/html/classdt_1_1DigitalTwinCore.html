@@ -84,13 +84,13 @@ $(function() {
 <p>Primary interface and state manager for the Digital Twin.  
  <a href="classdt_1_1DigitalTwinCore.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="twin__interface_8hpp_source.html">twin_interface.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="dt__core_2include_2dt__core_2twin__interface_8hpp_source.html">twin_interface.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a948b919c2b6c49291acc50f7535fd85b" id="r_a948b919c2b6c49291acc50f7535fd85b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a948b919c2b6c49291acc50f7535fd85b">~DigitalTwinCore</a> ()=default</td></tr>
 <tr class="separator:a948b919c2b6c49291acc50f7535fd85b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33946105a99857efaadfda4a9a5a00fb" id="r_a33946105a99857efaadfda4a9a5a00fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a33946105a99857efaadfda4a9a5a00fb">update_static_map</a> (const <a class="el" href="classtypes_1_1MapData.html">types::MapData</a> &amp;map)</td></tr>
+<tr class="memitem:a33946105a99857efaadfda4a9a5a00fb" id="r_a33946105a99857efaadfda4a9a5a00fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a33946105a99857efaadfda4a9a5a00fb">update_static_map</a> (const <a class="el" href="classtypes_1_1MapData.html">types::MapData</a> &amp;<a class="el" href="main_8cc.html#a2a2b35229154e6ebff3aa55ede6e324b">map</a>)</td></tr>
 <tr class="memdesc:a33946105a99857efaadfda4a9a5a00fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously updates the static map data.  <br /></td></tr>
 <tr class="separator:a33946105a99857efaadfda4a9a5a00fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4af73c241e244d7f0af5e5e7a621523d" id="r_a4af73c241e244d7f0af5e5e7a621523d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a4af73c241e244d7f0af5e5e7a621523d">update_vehicle_pose</a> (const <a class="el" href="classtypes_1_1Pose.html">types::Pose</a> &amp;pose)</td></tr>
@@ -104,6 +104,16 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aea125f9e8b5ce128ac65416ac31de502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6cd7a28a93e2af12bfca549c08263fc" id="r_ae6cd7a28a93e2af12bfca549c08263fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; const <a class="el" href="classdt_1_1WorldStateSnapshot.html">WorldStateSnapshot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#ae6cd7a28a93e2af12bfca549c08263fc">get_latest_state</a> () const</td></tr>
 <tr class="memdesc:ae6cd7a28a93e2af12bfca549c08263fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronously fetches the most recent thread-safe state snapshot.  <br /></td></tr>
+<tr class="separator:ae6cd7a28a93e2af12bfca549c08263fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33946105a99857efaadfda4a9a5a00fb" id="r_a33946105a99857efaadfda4a9a5a00fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a33946105a99857efaadfda4a9a5a00fb">update_static_map</a> (const <a class="el" href="classtypes_1_1MapData.html">types::MapData</a> &amp;<a class="el" href="main_8cc.html#a2a2b35229154e6ebff3aa55ede6e324b">map</a>)</td></tr>
+<tr class="separator:a33946105a99857efaadfda4a9a5a00fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4af73c241e244d7f0af5e5e7a621523d" id="r_a4af73c241e244d7f0af5e5e7a621523d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#a4af73c241e244d7f0af5e5e7a621523d">update_vehicle_pose</a> (const <a class="el" href="classtypes_1_1Pose.html">types::Pose</a> &amp;pose)</td></tr>
+<tr class="separator:a4af73c241e244d7f0af5e5e7a621523d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa610ed8c1128f5398e428e5322a07c6e" id="r_aa610ed8c1128f5398e428e5322a07c6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#aa610ed8c1128f5398e428e5322a07c6e">update_dynamic_targets</a> (const std::vector&lt; <a class="el" href="classtypes_1_1Target.html">types::Target</a> &gt; &amp;targets)</td></tr>
+<tr class="separator:aa610ed8c1128f5398e428e5322a07c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea125f9e8b5ce128ac65416ac31de502" id="r_aea125f9e8b5ce128ac65416ac31de502"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#aea125f9e8b5ce128ac65416ac31de502">update_planned_trajectory</a> (const <a class="el" href="classtypes_1_1Trajectory.html">types::Trajectory</a> &amp;traj)</td></tr>
+<tr class="separator:aea125f9e8b5ce128ac65416ac31de502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6cd7a28a93e2af12bfca549c08263fc" id="r_ae6cd7a28a93e2af12bfca549c08263fc"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; const <a class="el" href="classdt_1_1WorldStateSnapshot.html">WorldStateSnapshot</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdt_1_1DigitalTwinCore.html#ae6cd7a28a93e2af12bfca549c08263fc">get_latest_state</a> () const</td></tr>
 <tr class="separator:ae6cd7a28a93e2af12bfca549c08263fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -137,7 +147,7 @@ Public Member Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae6cd7a28a93e2af12bfca549c08263fc" name="ae6cd7a28a93e2af12bfca549c08263fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6cd7a28a93e2af12bfca549c08263fc">&#9670;&#160;</a></span>get_latest_state()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6cd7a28a93e2af12bfca549c08263fc">&#9670;&#160;</a></span>get_latest_state() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,8 +166,25 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae6cd7a28a93e2af12bfca549c08263fc" name="ae6cd7a28a93e2af12bfca549c08263fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6cd7a28a93e2af12bfca549c08263fc">&#9670;&#160;</a></span>get_latest_state() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; const <a class="el" href="classdt_1_1WorldStateSnapshot.html">WorldStateSnapshot</a> &gt; dt::DigitalTwinCore::get_latest_state </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa610ed8c1128f5398e428e5322a07c6e" name="aa610ed8c1128f5398e428e5322a07c6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa610ed8c1128f5398e428e5322a07c6e">&#9670;&#160;</a></span>update_dynamic_targets()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa610ed8c1128f5398e428e5322a07c6e">&#9670;&#160;</a></span>update_dynamic_targets() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,8 +209,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa610ed8c1128f5398e428e5322a07c6e" name="aa610ed8c1128f5398e428e5322a07c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa610ed8c1128f5398e428e5322a07c6e">&#9670;&#160;</a></span>update_dynamic_targets() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dt::DigitalTwinCore::update_dynamic_targets </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classtypes_1_1Target.html">types::Target</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>targets</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aea125f9e8b5ce128ac65416ac31de502" name="aea125f9e8b5ce128ac65416ac31de502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea125f9e8b5ce128ac65416ac31de502">&#9670;&#160;</a></span>update_planned_trajectory()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aea125f9e8b5ce128ac65416ac31de502">&#9670;&#160;</a></span>update_planned_trajectory() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,8 +253,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aea125f9e8b5ce128ac65416ac31de502" name="aea125f9e8b5ce128ac65416ac31de502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea125f9e8b5ce128ac65416ac31de502">&#9670;&#160;</a></span>update_planned_trajectory() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dt::DigitalTwinCore::update_planned_trajectory </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Trajectory.html">types::Trajectory</a> &amp;&#160;</td>
+          <td class="paramname"><em>traj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a33946105a99857efaadfda4a9a5a00fb" name="a33946105a99857efaadfda4a9a5a00fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33946105a99857efaadfda4a9a5a00fb">&#9670;&#160;</a></span>update_static_map()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a33946105a99857efaadfda4a9a5a00fb">&#9670;&#160;</a></span>update_static_map() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,8 +297,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a33946105a99857efaadfda4a9a5a00fb" name="a33946105a99857efaadfda4a9a5a00fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33946105a99857efaadfda4a9a5a00fb">&#9670;&#160;</a></span>update_static_map() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dt::DigitalTwinCore::update_static_map </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1MapData.html">types::MapData</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a4af73c241e244d7f0af5e5e7a621523d" name="a4af73c241e244d7f0af5e5e7a621523d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4af73c241e244d7f0af5e5e7a621523d">&#9670;&#160;</a></span>update_vehicle_pose()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af73c241e244d7f0af5e5e7a621523d">&#9670;&#160;</a></span>update_vehicle_pose() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,8 +341,27 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a4af73c241e244d7f0af5e5e7a621523d" name="a4af73c241e244d7f0af5e5e7a621523d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4af73c241e244d7f0af5e5e7a621523d">&#9670;&#160;</a></span>update_vehicle_pose() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dt::DigitalTwinCore::update_vehicle_pose </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtypes_1_1Pose.html">types::Pose</a> &amp;&#160;</td>
+          <td class="paramname"><em>pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>dt_core/include/dt_core/<a class="el" href="twin__interface_8hpp_source.html">twin_interface.hpp</a></li>
+<li>dt_core/include/dt_core/<a class="el" href="dt__core_2include_2dt__core_2twin__interface_8hpp_source.html">twin_interface.hpp</a></li>
+<li>install/dt_core/include/dt_core/<a class="el" href="install_2dt__core_2include_2dt__core_2twin__interface_8hpp_source.html">twin_interface.hpp</a></li>
 <li>dt_core/src/<a class="el" href="twin__interface_8cpp.html">twin_interface.cpp</a></li>
 </ul>
 </div><!-- contents -->

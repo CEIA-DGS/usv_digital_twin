@@ -11,8 +11,7 @@ Base class for any physical object in the Digital Twin environment.
 
 
 
-Inheritance diagram for types\+::Entity\+:
-\nopagebreak
+Inheritance diagram for types\+::Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,6 +40,26 @@ const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& \mbox{\hyperlin
 const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& \mbox{\hyperlink{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}{get\+\_\+covariance}} () const
 \item 
 const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& \mbox{\hyperlink{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}{get\+\_\+velocity}} () const
+\item 
+\mbox{\hyperlink{classtypes_1_1Entity_a3eb1cbfa75f93879703df83b42c8a59b}{Entity}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&initial\+\_\+pose, const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&initial\+\_\+kinematics, const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} initial\+\_\+covariance=\mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}())
+\item 
+virtual \mbox{\hyperlink{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e}{\texorpdfstring{$\sim$}{\string~}\+Entity}} ()=default
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a0dd69bc96cc8c10dad089deffe8807ae}{set\+\_\+pose}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&new\+\_\+pose)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a47592057aef7ab2f7efd3d01b90648a2}{set\+\_\+kinematics}} (const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&new\+\_\+kinematics)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_ae78788a7bcfe429e1b5fee2acfce6150}{set\+\_\+covariance}} (const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&new\+\_\+covariance)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Entity_a15afa03537dd42c4eaa75460cf39ae60}{set\+\_\+velocity}} (const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \&new\+\_\+velocity)
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd}{get\+\_\+pose}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& \mbox{\hyperlink{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae}{get\+\_\+kinematics}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& \mbox{\hyperlink{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}{get\+\_\+covariance}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& \mbox{\hyperlink{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}{get\+\_\+velocity}} () const
 \end{DoxyCompactItemize}
 
 
@@ -51,13 +70,25 @@ Base class for any physical object in the Digital Twin environment.
 \Hypertarget{classtypes_1_1Entity_a3f2675098b2400cfda4fab614e4805b2}\label{classtypes_1_1Entity_a3f2675098b2400cfda4fab614e4805b2} 
 \index{types::Entity@{types::Entity}!Entity@{Entity}}
 \index{Entity@{Entity}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily types\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{initial\+\_\+pose,  }\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{initial\+\_\+kinematics,  }\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&}]{initial\+\_\+covariance = {\ttfamily \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e}\label{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e} 
 \index{types::Entity@{types::Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
 \index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual types\+::\+Entity\+::\texorpdfstring{$\sim$}{\string~}\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\Hypertarget{classtypes_1_1Entity_a3eb1cbfa75f93879703df83b42c8a59b}\label{classtypes_1_1Entity_a3eb1cbfa75f93879703df83b42c8a59b} 
+\index{types::Entity@{types::Entity}!Entity@{Entity}}
+\index{Entity@{Entity}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{Entity()}{Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily types\+::\+Entity\+::\+Entity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{initial\+\_\+pose,  }\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{initial\+\_\+kinematics,  }\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}}]{initial\+\_\+covariance = {\ttfamily \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e}\label{classtypes_1_1Entity_a0e90c766327271b3e0cc17005f5c471e} 
+\index{types::Entity@{types::Entity}!````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}}
+\index{````~Entity@{\texorpdfstring{$\sim$}{\string~}Entity}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Entity()}{\string~Entity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual types\+::\+Entity\+::\texorpdfstring{$\sim$}{\string~}\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
 
 
@@ -66,53 +97,102 @@ Base class for any physical object in the Digital Twin environment.
 \Hypertarget{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}\label{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785} 
 \index{types::Entity@{types::Entity}!get\_covariance@{get\_covariance}}
 \index{get\_covariance@{get\_covariance}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{get\_covariance()}{get\_covariance()}}
+\doxysubsubsection{\texorpdfstring{get\_covariance()}{get\_covariance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& types\+::\+Entity\+::get\+\_\+covariance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785}\label{classtypes_1_1Entity_a84e3e6e9f92a2f36587fe50e5b460785} 
+\index{types::Entity@{types::Entity}!get\_covariance@{get\_covariance}}
+\index{get\_covariance@{get\_covariance}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{get\_covariance()}{get\_covariance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \& types\+::\+Entity\+::get\+\_\+covariance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae}\label{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae} 
 \index{types::Entity@{types::Entity}!get\_kinematics@{get\_kinematics}}
 \index{get\_kinematics@{get\_kinematics}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{get\_kinematics()}{get\_kinematics()}}
+\doxysubsubsection{\texorpdfstring{get\_kinematics()}{get\_kinematics()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& types\+::\+Entity\+::get\+\_\+kinematics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae}\label{classtypes_1_1Entity_aa893ed304a5476092a5c0de97f1a37ae} 
+\index{types::Entity@{types::Entity}!get\_kinematics@{get\_kinematics}}
+\index{get\_kinematics@{get\_kinematics}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{get\_kinematics()}{get\_kinematics()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \& types\+::\+Entity\+::get\+\_\+kinematics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd}\label{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd} 
 \index{types::Entity@{types::Entity}!get\_pose@{get\_pose}}
 \index{get\_pose@{get\_pose}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{get\_pose()}{get\_pose()}}
+\doxysubsubsection{\texorpdfstring{get\_pose()}{get\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Entity\+::get\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd}\label{classtypes_1_1Entity_a6d9fe27df546e36d3348608c61d3e7fd} 
+\index{types::Entity@{types::Entity}!get\_pose@{get\_pose}}
+\index{get\_pose@{get\_pose}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{get\_pose()}{get\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Entity\+::get\+\_\+pose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}\label{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e} 
 \index{types::Entity@{types::Entity}!get\_velocity@{get\_velocity}}
 \index{get\_velocity@{get\_velocity}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{get\_velocity()}{get\_velocity()}}
+\doxysubsubsection{\texorpdfstring{get\_velocity()}{get\_velocity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& types\+::\+Entity\+::get\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e}\label{classtypes_1_1Entity_a65be6cc8e7e6cca73989943c889c164e} 
+\index{types::Entity@{types::Entity}!get\_velocity@{get\_velocity}}
+\index{get\_velocity@{get\_velocity}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{get\_velocity()}{get\_velocity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \& types\+::\+Entity\+::get\+\_\+velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_abb8f3b3dd45a8a8d026656a1ed19df20}\label{classtypes_1_1Entity_abb8f3b3dd45a8a8d026656a1ed19df20} 
 \index{types::Entity@{types::Entity}!set\_covariance@{set\_covariance}}
 \index{set\_covariance@{set\_covariance}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{set\_covariance()}{set\_covariance()}}
+\doxysubsubsection{\texorpdfstring{set\_covariance()}{set\_covariance()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+covariance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&}]{covariance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_ae78788a7bcfe429e1b5fee2acfce6150}\label{classtypes_1_1Entity_ae78788a7bcfe429e1b5fee2acfce6150} 
+\index{types::Entity@{types::Entity}!set\_covariance@{set\_covariance}}
+\index{set\_covariance@{set\_covariance}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{set\_covariance()}{set\_covariance()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+covariance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Covariance}{Covariance}} \&}]{new\+\_\+covariance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_aaad032861d7d281be463e54ee30e217b}\label{classtypes_1_1Entity_aaad032861d7d281be463e54ee30e217b} 
 \index{types::Entity@{types::Entity}!set\_kinematics@{set\_kinematics}}
 \index{set\_kinematics@{set\_kinematics}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{set\_kinematics()}{set\_kinematics()}}
+\doxysubsubsection{\texorpdfstring{set\_kinematics()}{set\_kinematics()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+kinematics (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{kinematics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a47592057aef7ab2f7efd3d01b90648a2}\label{classtypes_1_1Entity_a47592057aef7ab2f7efd3d01b90648a2} 
+\index{types::Entity@{types::Entity}!set\_kinematics@{set\_kinematics}}
+\index{set\_kinematics@{set\_kinematics}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{set\_kinematics()}{set\_kinematics()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+kinematics (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Kinematics}{Kinematics}} \&}]{new\+\_\+kinematics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a0dd69bc96cc8c10dad089deffe8807ae}\label{classtypes_1_1Entity_a0dd69bc96cc8c10dad089deffe8807ae} 
+\index{types::Entity@{types::Entity}!set\_pose@{set\_pose}}
+\index{set\_pose@{set\_pose}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{set\_pose()}{set\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{new\+\_\+pose }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_af7fbf83f1f786f5e5ec1a6e8a48dc76b}\label{classtypes_1_1Entity_af7fbf83f1f786f5e5ec1a6e8a48dc76b} 
 \index{types::Entity@{types::Entity}!set\_pose@{set\_pose}}
 \index{set\_pose@{set\_pose}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{set\_pose()}{set\_pose()}}
+\doxysubsubsection{\texorpdfstring{set\_pose()}{set\_pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{pose }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Entity_a15afa03537dd42c4eaa75460cf39ae60}\label{classtypes_1_1Entity_a15afa03537dd42c4eaa75460cf39ae60} 
+\index{types::Entity@{types::Entity}!set\_velocity@{set\_velocity}}
+\index{set\_velocity@{set\_velocity}!types::Entity@{types::Entity}}
+\doxysubsubsection{\texorpdfstring{set\_velocity()}{set\_velocity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \&}]{new\+\_\+velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 \Hypertarget{classtypes_1_1Entity_a2c018c3db988b081db94dce69703b9da}\label{classtypes_1_1Entity_a2c018c3db988b081db94dce69703b9da} 
 \index{types::Entity@{types::Entity}!set\_velocity@{set\_velocity}}
 \index{set\_velocity@{set\_velocity}!types::Entity@{types::Entity}}
-\doxysubsubsection{\texorpdfstring{set\_velocity()}{set\_velocity()}}
+\doxysubsubsection{\texorpdfstring{set\_velocity()}{set\_velocity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void types\+::\+Entity\+::set\+\_\+velocity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Velocity}{Velocity}} \&}]{velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\item 
+install/dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{install_2dt__core_2include_2dt__core_2types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

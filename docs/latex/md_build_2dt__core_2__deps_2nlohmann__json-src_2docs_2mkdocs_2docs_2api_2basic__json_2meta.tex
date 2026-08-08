@@ -1,0 +1,57 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}meta}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$meta@{$<$small$>$nlohmann::basic\_json::$<$/small$>$meta}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md569}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md569}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ meta();}
+
+\end{DoxyCode}
+
+
+This function returns a JSON object with information about the library, including the version number and information on the platform and compiler.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md570}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md570}
+JSON object holding version information
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ key   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ key   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description    }\\\cline{1-2}
+\endhead
+{\ttfamily compiler}   &Information on the used compiler. It is an object with the following keys\+: {\ttfamily c++} (the used C++ standard), {\ttfamily family} (the compiler family; possible values are {\ttfamily clang}, {\ttfamily icc}, {\ttfamily gcc}, {\ttfamily ilecpp}, {\ttfamily msvc}, {\ttfamily pgcpp}, {\ttfamily sunpro}, and {\ttfamily unknown}), and {\ttfamily version} (the compiler version).    \\\cline{1-2}
+{\ttfamily copyright}   &The copyright line for the library as string.    \\\cline{1-2}
+{\ttfamily name}   &The name of the library as string.    \\\cline{1-2}
+{\ttfamily platform}   &The used platform as string. Possible values are {\ttfamily win32}, {\ttfamily linux}, {\ttfamily apple}, {\ttfamily unix}, and {\ttfamily unknown}.    \\\cline{1-2}
+{\ttfamily url}   &The URL of the project as string.    \\\cline{1-2}
+{\ttfamily version}   &The version of the library. It is an object with the following keys\+: {\ttfamily major}, {\ttfamily minor}, and {\ttfamily patch} as defined by \href{http://semver.org}{\texttt{ Semantic Versioning}}, and {\ttfamily string} (the version string).   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md571}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md571}
+Strong guarantee\+: if an exception is thrown, there are no changes to any JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md572}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md572}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md573}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md573}
+??? example \begin{DoxyVerb}The following code shows an example output of the `meta()` function.
+
+```cpp
+--8<-- "examples/meta.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/meta.output"
+```
+
+Note the output is platform-dependent.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md574}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md574}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2nlohmann__json__version__major}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MAJOR\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MINOR\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}/\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+PATCH\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ library version information
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md575}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta_autotoc_md575}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+1.\+0. 
+\end{DoxyItemize}

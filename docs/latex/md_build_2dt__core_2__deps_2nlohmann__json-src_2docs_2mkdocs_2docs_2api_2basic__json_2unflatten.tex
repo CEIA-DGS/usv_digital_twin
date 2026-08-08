@@ -1,0 +1,51 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}unflatten}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$unflatten@{$<$small$>$nlohmann::basic\_json::$<$/small$>$unflatten}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md909}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md909}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classbasic__json}{basic\_json}}\ unflatten()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+The function restores the arbitrary nesting of a JSON value that has been flattened before using the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{\`{}flatten()\`{}}{0} function. The JSON value must meet certain constraints\+:
+
+
+\begin{DoxyEnumerate}
+\item The value must be an object.
+\item The keys must be JSON pointers (see \href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}})
+\item The mapped values must be primitive JSON types.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md910}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md910}
+the original JSON from a flattened version\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md911}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md911}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md912}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md912}
+The function can throw the following exceptions\+:
+
+
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error314}{\texttt{ {\ttfamily type\+\_\+error.\+314}}} if value is not an object
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error315}{\texttt{ {\ttfamily type\+\_\+error.\+315}}} if object values are not primitive
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md913}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md913}
+Linear in the size the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md914}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md914}
+Empty objects and arrays are flattened by \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{\`{}flatten()\`{}}{0} to {\ttfamily \#!json null} values and can not unflattened to their original type. Apart from this example, for a JSON value {\ttfamily j}, the following is always true\+: {\ttfamily \#!cpp j == j.\+flatten().unflatten()}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md915}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md915}
+??? example \begin{DoxyVerb}The following code shows how a flattened JSON object is unflattened into the original nested JSON object.
+
+```cpp
+--8<-- "examples/unflatten.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/unflatten.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md916}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md916}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{flatten}{0} the reverse function
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md917}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten_autotoc_md917}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0. 
+\end{DoxyItemize}

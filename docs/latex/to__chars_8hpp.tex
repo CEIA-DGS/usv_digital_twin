@@ -1,0 +1,71 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/conversions/to\+\_\+chars.hpp File Reference}
+\hypertarget{to__chars_8hpp}{}\label{to__chars_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/conversions/to\_chars.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/conversions/to\_chars.hpp}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+Include dependency graph for to\+\_\+chars.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{to__chars_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{to__chars_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{detail\+::dtoa\+\_\+impl\+::diyfp}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1boundaries}{detail\+::dtoa\+\_\+impl\+::boundaries}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1cached__power}{detail\+::dtoa\+\_\+impl\+::cached\+\_\+power}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedetail_1_1dtoa__impl}{detail\+::dtoa\+\_\+impl}}
+\begin{DoxyCompactList}\small\item\em implements the Grisu2 algorithm for binary to decimal floating-\/point conversion. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Target , typename Source $>$ }\\Target \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a3c879bf97b806cacbcbb2da07a5ff5c8}{detail\+::dtoa\+\_\+impl\+::reinterpret\+\_\+bits}} (const Source source)
+\item 
+{\footnotesize template$<$typename Float\+Type $>$ }\\\mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1boundaries}{boundaries}} \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a6a5ccf11847aab7a0f42f587b33935df}{detail\+::dtoa\+\_\+impl\+::compute\+\_\+boundaries}} (Float\+Type \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}})
+\item 
+\mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1cached__power}{cached\+\_\+power}} \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a29ae6574f6be09a5c8ab08da9a3f71b4}{detail\+::dtoa\+\_\+impl\+::get\+\_\+cached\+\_\+power\+\_\+for\+\_\+binary\+\_\+exponent}} (int e)
+\item 
+int \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a04eb234a28617519974fc962cd4da666}{detail\+::dtoa\+\_\+impl\+::find\+\_\+largest\+\_\+pow10}} (const std\+::uint32\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, std\+::uint32\+\_\+t \&pow10)
+\item 
+void \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a73a15efcb5c2157ea0e1375b98ef0e83}{detail\+::dtoa\+\_\+impl\+::grisu2\+\_\+round}} (char \texorpdfstring{$\ast$}{*}buf, int len, std\+::uint64\+\_\+t dist, std\+::uint64\+\_\+t delta, std\+::uint64\+\_\+t rest, std\+::uint64\+\_\+t ten\+\_\+k)
+\item 
+void \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_ae877aa13ab872c99a1c614e5e1524807}{detail\+::dtoa\+\_\+impl\+::grisu2\+\_\+digit\+\_\+gen}} (char \texorpdfstring{$\ast$}{*}buffer, int \&length, int \&decimal\+\_\+exponent, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} M\+\_\+minus, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} w, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} M\+\_\+plus)
+\item 
+void \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_ad549352ed1a9676a092d143a2daa3dee}{detail\+::dtoa\+\_\+impl\+::grisu2}} (char \texorpdfstring{$\ast$}{*}buf, int \&len, int \&decimal\+\_\+exponent, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} m\+\_\+minus, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} v, \mbox{\hyperlink{structdetail_1_1dtoa__impl_1_1diyfp}{diyfp}} m\+\_\+plus)
+\item 
+{\footnotesize template$<$typename Float\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_abdf6bc05c54068a5930f66c2e803e8b8}{detail\+::dtoa\+\_\+impl\+::grisu2}} (char \texorpdfstring{$\ast$}{*}buf, int \&len, int \&decimal\+\_\+exponent, Float\+Type \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}})
+\item 
+\mbox{\hyperlink{hedley_8hpp_a5f2aaec3b681d0a72f7d6e90b70cdcd1}{JSON\+\_\+\+HEDLEY\+\_\+\+RETURNS\+\_\+\+NON\+\_\+\+NULL}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_aec9f6655c3b629aeb0e8c887aea5da87}{detail\+::dtoa\+\_\+impl\+::append\+\_\+exponent}} (char \texorpdfstring{$\ast$}{*}buf, int e)
+\begin{DoxyCompactList}\small\item\em appends a decimal representation of e to buf \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hedley_8hpp_a5f2aaec3b681d0a72f7d6e90b70cdcd1}{JSON\+\_\+\+HEDLEY\+\_\+\+RETURNS\+\_\+\+NON\+\_\+\+NULL}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_afab91abfdd1cdf43cc2fcd5b9c4a7456}{detail\+::dtoa\+\_\+impl\+::format\+\_\+buffer}} (char \texorpdfstring{$\ast$}{*}buf, int len, int decimal\+\_\+exponent, int min\+\_\+exp, int max\+\_\+exp)
+\begin{DoxyCompactList}\small\item\em prettify v = buf \texorpdfstring{$\ast$}{*} 10\texorpdfstring{$^\wedge$}{\string^}decimal\+\_\+exponent \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Float\+Type $>$ }\\\mbox{\hyperlink{hedley_8hpp_a5f2aaec3b681d0a72f7d6e90b70cdcd1}{JSON\+\_\+\+HEDLEY\+\_\+\+RETURNS\+\_\+\+NON\+\_\+\+NULL}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacedetail_a3f0588f1a546b169113e6e1e293168f4}{detail\+::to\+\_\+chars}} (char \texorpdfstring{$\ast$}{*}first, const char \texorpdfstring{$\ast$}{*}last, Float\+Type \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}})
+\begin{DoxyCompactList}\small\item\em generates a decimal representation of the floating-\/point number value in \mbox{[}first, last). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_a95c569b7627a9372686f1f77d73e8660}{detail\+::dtoa\+\_\+impl\+::k\+Alpha}} = -\/60
+\item 
+constexpr int \mbox{\hyperlink{namespacedetail_1_1dtoa__impl_ae152a095d2dd1a6dd41ef8ad39c26e19}{detail\+::dtoa\+\_\+impl\+::k\+Gamma}} = -\/32
+\end{DoxyCompactItemize}

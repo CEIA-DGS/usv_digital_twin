@@ -1,0 +1,49 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}patch\+\_\+inplace}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$patch\_inplace@{$<$small$>$nlohmann::basic\_json::$<$/small$>$patch\_inplace}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md777}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md777}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ patch\_inplace(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ json\_patch)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+\href{http://jsonpatch.com}{\texttt{ JSON Patch}} defines a JSON document structure for expressing a sequence of operations to apply to a JSON document. With this function, a JSON Patch is applied to the current JSON value by executing all operations from the patch. This function applies a JSON patch in place and returns void.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md778}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md778}
+{\ttfamily json\+\_\+patch} (in) \+: JSON patch document\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md779}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md779}
+No guarantees, value may be corrupted by an unsuccessful patch operation.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md780}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md780}
+
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error104}{\texttt{ {\ttfamily parse\+\_\+error.\+104}}} if the JSON patch does not consist of an array of objects.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error105}{\texttt{ {\ttfamily parse\+\_\+error.\+105}}} if the JSON patch is malformed (e.\+g., mandatory attributes are missing); example\+: {\ttfamily "{}operation add must have member path"{}}.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range401}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+401}}} if an array index is out of range.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range403}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+403}}} if a JSON pointer inside the patch could not be resolved successfully in the current JSON value; example\+: {\ttfamily "{}key baz not found"{}}.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range405}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+405}}} if JSON pointer has no parent ("{}add"{}, "{}remove"{}, "{}move"{})
+\item Throws \href{../../home/exceptions.md\#jsonexceptionother_error501}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+501}}} if "{}test"{} operation was unsuccessful.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md781}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md781}
+Linear in the size of the JSON value and the length of the JSON patch. As usually only a fraction of the JSON value is affected by the patch, the complexity can usually be neglected.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md782}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md782}
+Unlike \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch}{\`{}patch\`{}}{0}, {\ttfamily patch\+\_\+inplace} applies the operation "{}in place"{} and no copy of the JSON value is created. That makes it faster for large documents by avoiding the copy. However, the JSON value might be corrupted if the function throws an exception.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md783}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md783}
+??? example \begin{DoxyVerb}The following code shows how a JSON patch is applied to a value.
+
+```cpp
+--8<-- "examples/patch_inplace.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/patch_inplace.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md784}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md784}
+
+\begin{DoxyItemize}
+\item \href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902 (JSON Patch)}}
+\item \href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901 (JSON Pointer)}}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch}{patch}{0} applies a JSON Merge Patch
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch}{merge\+\_\+patch}{0} applies a JSON Merge Patch
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md785}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace_autotoc_md785}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

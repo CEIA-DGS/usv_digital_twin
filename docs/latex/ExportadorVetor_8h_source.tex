@@ -1,0 +1,23 @@
+\doxysection{Exportador\+Vetor.\+h}
+\hypertarget{ExportadorVetor_8h_source}{}\label{ExportadorVetor_8h_source}\index{install/dt\_core/include/map/ExportadorVetor.h@{install/dt\_core/include/map/ExportadorVetor.h}}
+\mbox{\hyperlink{ExportadorVetor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GeradorMalha_8h}{GeradorMalha.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ogrsf\_frmts.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classExportadorVetor}{ExportadorVetor}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Evita\ a\ instanciação\ acidental\ da\ classe}}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classExportadorVetor_a1efa81e8ac52d4560e2cd145d961d1d9}{ExportadorVetor}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExportadorVetor_a5be89ab6802b5b6dd748653e84bb190e}{exportarShapefile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMalhaNavegacao}{MalhaNavegacao}}\&\ navMesh,\ \textcolor{keyword}{const}\ std::string\&\ diretorioSaida,\ \textcolor{keywordtype}{int}\ epsg\_utm);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ inserirGeometria(OGRLayer*\ layer,\ OGRGeometry*\ geom);}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

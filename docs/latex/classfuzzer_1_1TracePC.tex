@@ -1,0 +1,263 @@
+\doxysection{fuzzer\+::Trace\+PC Class Reference}
+\hypertarget{classfuzzer_1_1TracePC}{}\label{classfuzzer_1_1TracePC}\index{fuzzer::TracePC@{fuzzer::TracePC}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Trace\+PC.\+h$>$}
+
+
+
+Collaboration diagram for fuzzer\+::Trace\+PC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classfuzzer_1_1TracePC__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_ab20ed3fc1b2097e1eab4e81611379262}{Handle\+Trace}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}guard, uintptr\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}})
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_af86ce8a7e9b8e36f8fdf6349a5e9a7d9}{Handle\+Init}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}start, uint32\+\_\+t \texorpdfstring{$\ast$}{*}stop)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_ac1f1ba5b505fd07061ad78563c2bc3ef}{Handle\+Caller\+Callee}} (uintptr\+\_\+t Caller, uintptr\+\_\+t Callee)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a55700216637d404ebbdfd2329c9b57a0}{Handle\+Value\+Profile}} (size\+\_\+t Value)
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{classfuzzer_1_1TracePC_a7f62dfcd6b2ed7c706957392d66e13c3}{Handle\+Cmp}} (void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}}, T Arg1, T \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}})
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a888cf0015b8ac746350399865731e503}{Get\+Total\+PCCoverage}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a4c7ecc16a4d3e4c86ea1d3b1427ebaca}{Set\+Use\+Counters}} (bool UC)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_aa49d07c1499054b4c71aa8dd4dec3707}{Set\+Use\+Value\+Profile}} (bool VP)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a391035f3a6eb4f505cb4045d57400b3c}{Set\+Print\+New\+PCs}} (bool P)
+\item 
+{\footnotesize template$<$class Callback $>$ }\\size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a55ed957cdbb049a9e2d5bb4fb9455d79}{Collect\+Features}} (Callback CB)
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1TracePC_a0b16b7fef77ffd1f2db211cbf79120cc}{Update\+Value\+Profile\+Map}} (\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{Value\+Bit\+Map}} \texorpdfstring{$\ast$}{*}Max\+Value\+Profile\+Map)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_ab843236d692511688e9d754f926de962}{Reset\+Maps}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a873c3c3f919210f5f33914a5b294c5df}{Update\+Feature\+Set}} (size\+\_\+t Current\+Element\+Idx, size\+\_\+t Current\+Element\+Size)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a85d6cd5dd4f0eaac1e99153bf02dc4f4}{Print\+Feature\+Set}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_ab89ecada02c3f23046007a167f012df0}{Print\+Module\+Info}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a820d41fac36e0d082c01574d5cb73dd1}{Print\+Coverage}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a00d12d3dc9f3f859e0ae382e5dc4569b}{Dump\+Coverage}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a47c71efc3d53df2f48819ab66de12534}{Add\+Value\+For\+Memcmp}} (void \texorpdfstring{$\ast$}{*}caller\+\_\+pc, const void \texorpdfstring{$\ast$}{*}s1, const void \texorpdfstring{$\ast$}{*}s2, size\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a4bfdf3de732a5e284a1d3f469e123716}{Add\+Value\+For\+Strcmp}} (void \texorpdfstring{$\ast$}{*}caller\+\_\+pc, const char \texorpdfstring{$\ast$}{*}s1, const char \texorpdfstring{$\ast$}{*}s2, size\+\_\+t \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1TracePC_a29a541c6620ce8b571bc0657205134e6}{Using\+Trace\+Pc\+Guard}} () const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1TracePC_a931f7014f06e06d35313b5565eb2a3a1}{Print\+New\+PCs}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a29c324a4bb01920cc5e6d322c112fea3}{Get\+Num\+PCs}} () const
+\item 
+uintptr\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a21a8b9180c0bee32482acc3ab890167a}{Get\+PC}} (size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{FuzzerDefs_8h_acdbef8108a762fe633c274db701603ab}{ATTRIBUTE\+\_\+\+TARGET\+\_\+\+POPCNT}} void \mbox{\hyperlink{classfuzzer_1_1TracePC_a5792ee9a8fcb9876890ece99f8fae9cb}{Handle\+Cmp}} (void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}}, T Arg1, T \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{Table\+Of\+Recent\+Compares}}$<$ uint32\+\_\+t, \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{k\+TORCSize}} $>$ \mbox{\hyperlink{classfuzzer_1_1TracePC_af492c551bf45803f6f5b4155e063f782}{TORC4}}
+\item 
+\mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{Table\+Of\+Recent\+Compares}}$<$ uint64\+\_\+t, \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{k\+TORCSize}} $>$ \mbox{\hyperlink{classfuzzer_1_1TracePC_a135e60be2738df19fa33a53f3ccdddb9}{TORC8}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a8ec97bc9273ad4a6f83d615a3febdf14}{k\+Feature\+Set\+Size}} = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}{Value\+Bit\+Map\+::k\+Number\+Of\+Items}}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{k\+TORCSize}} = 1 $<$$<$ 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1TracePC_a47c71efc3d53df2f48819ab66de12534}\label{classfuzzer_1_1TracePC_a47c71efc3d53df2f48819ab66de12534} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!AddValueForMemcmp@{AddValueForMemcmp}}
+\index{AddValueForMemcmp@{AddValueForMemcmp}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{AddValueForMemcmp()}{AddValueForMemcmp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{FuzzerDefs_8h_aba27fdbafd0fb6245e4f1426aad8e478}{ATTRIBUTE\+\_\+\+NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}} void fuzzer\+::\+Trace\+PC\+::\+Add\+Value\+For\+Memcmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{caller\+\_\+pc,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a4bfdf3de732a5e284a1d3f469e123716}\label{classfuzzer_1_1TracePC_a4bfdf3de732a5e284a1d3f469e123716} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!AddValueForStrcmp@{AddValueForStrcmp}}
+\index{AddValueForStrcmp@{AddValueForStrcmp}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{AddValueForStrcmp()}{AddValueForStrcmp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{FuzzerDefs_8h_aba27fdbafd0fb6245e4f1426aad8e478}{ATTRIBUTE\+\_\+\+NO\+\_\+\+SANITIZE\+\_\+\+MEMORY}} void fuzzer\+::\+Trace\+PC\+::\+Add\+Value\+For\+Strcmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{caller\+\_\+pc,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{s2,  }\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a55ed957cdbb049a9e2d5bb4fb9455d79}\label{classfuzzer_1_1TracePC_a55ed957cdbb049a9e2d5bb4fb9455d79} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!CollectFeatures@{CollectFeatures}}
+\index{CollectFeatures@{CollectFeatures}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{CollectFeatures()}{CollectFeatures()}}
+{\footnotesize\ttfamily template$<$class Callback $>$ \\
+size\+\_\+t fuzzer\+::\+Trace\+PC\+::\+Collect\+Features (\begin{DoxyParamCaption}\item[{Callback}]{CB }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a00d12d3dc9f3f859e0ae382e5dc4569b}\label{classfuzzer_1_1TracePC_a00d12d3dc9f3f859e0ae382e5dc4569b} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!DumpCoverage@{DumpCoverage}}
+\index{DumpCoverage@{DumpCoverage}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{DumpCoverage()}{DumpCoverage()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Dump\+Coverage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a29c324a4bb01920cc5e6d322c112fea3}\label{classfuzzer_1_1TracePC_a29c324a4bb01920cc5e6d322c112fea3} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!GetNumPCs@{GetNumPCs}}
+\index{GetNumPCs@{GetNumPCs}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{GetNumPCs()}{GetNumPCs()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Trace\+PC\+::\+Get\+Num\+PCs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a21a8b9180c0bee32482acc3ab890167a}\label{classfuzzer_1_1TracePC_a21a8b9180c0bee32482acc3ab890167a} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!GetPC@{GetPC}}
+\index{GetPC@{GetPC}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{GetPC()}{GetPC()}}
+{\footnotesize\ttfamily uintptr\+\_\+t fuzzer\+::\+Trace\+PC\+::\+Get\+PC (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a888cf0015b8ac746350399865731e503}\label{classfuzzer_1_1TracePC_a888cf0015b8ac746350399865731e503} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!GetTotalPCCoverage@{GetTotalPCCoverage}}
+\index{GetTotalPCCoverage@{GetTotalPCCoverage}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{GetTotalPCCoverage()}{GetTotalPCCoverage()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Trace\+PC\+::\+Get\+Total\+PCCoverage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_ac1f1ba5b505fd07061ad78563c2bc3ef}\label{classfuzzer_1_1TracePC_ac1f1ba5b505fd07061ad78563c2bc3ef} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleCallerCallee@{HandleCallerCallee}}
+\index{HandleCallerCallee@{HandleCallerCallee}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleCallerCallee()}{HandleCallerCallee()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Handle\+Caller\+Callee (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{Caller,  }\item[{uintptr\+\_\+t}]{Callee }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a5792ee9a8fcb9876890ece99f8fae9cb}\label{classfuzzer_1_1TracePC_a5792ee9a8fcb9876890ece99f8fae9cb} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleCmp@{HandleCmp}}
+\index{HandleCmp@{HandleCmp}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleCmp()}{HandleCmp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{FuzzerDefs_8h_acdbef8108a762fe633c274db701603ab}{ATTRIBUTE\+\_\+\+TARGET\+\_\+\+POPCNT}} void fuzzer\+::\+Trace\+PC\+::\+Handle\+Cmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{PC,  }\item[{T}]{Arg1,  }\item[{T}]{Arg2 }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a7f62dfcd6b2ed7c706957392d66e13c3}\label{classfuzzer_1_1TracePC_a7f62dfcd6b2ed7c706957392d66e13c3} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleCmp@{HandleCmp}}
+\index{HandleCmp@{HandleCmp}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleCmp()}{HandleCmp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void fuzzer\+::\+Trace\+PC\+::\+Handle\+Cmp (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{PC,  }\item[{T}]{Arg1,  }\item[{T}]{Arg2 }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_af86ce8a7e9b8e36f8fdf6349a5e9a7d9}\label{classfuzzer_1_1TracePC_af86ce8a7e9b8e36f8fdf6349a5e9a7d9} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleInit@{HandleInit}}
+\index{HandleInit@{HandleInit}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleInit()}{HandleInit()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Handle\+Init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{start,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{stop }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_ab20ed3fc1b2097e1eab4e81611379262}\label{classfuzzer_1_1TracePC_ab20ed3fc1b2097e1eab4e81611379262} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleTrace@{HandleTrace}}
+\index{HandleTrace@{HandleTrace}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleTrace()}{HandleTrace()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Handle\+Trace (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{guard,  }\item[{uintptr\+\_\+t}]{PC }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a55700216637d404ebbdfd2329c9b57a0}\label{classfuzzer_1_1TracePC_a55700216637d404ebbdfd2329c9b57a0} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!HandleValueProfile@{HandleValueProfile}}
+\index{HandleValueProfile@{HandleValueProfile}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{HandleValueProfile()}{HandleValueProfile()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Handle\+Value\+Profile (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a820d41fac36e0d082c01574d5cb73dd1}\label{classfuzzer_1_1TracePC_a820d41fac36e0d082c01574d5cb73dd1} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!PrintCoverage@{PrintCoverage}}
+\index{PrintCoverage@{PrintCoverage}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{PrintCoverage()}{PrintCoverage()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Print\+Coverage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a85d6cd5dd4f0eaac1e99153bf02dc4f4}\label{classfuzzer_1_1TracePC_a85d6cd5dd4f0eaac1e99153bf02dc4f4} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!PrintFeatureSet@{PrintFeatureSet}}
+\index{PrintFeatureSet@{PrintFeatureSet}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{PrintFeatureSet()}{PrintFeatureSet()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Print\+Feature\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_ab89ecada02c3f23046007a167f012df0}\label{classfuzzer_1_1TracePC_ab89ecada02c3f23046007a167f012df0} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!PrintModuleInfo@{PrintModuleInfo}}
+\index{PrintModuleInfo@{PrintModuleInfo}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{PrintModuleInfo()}{PrintModuleInfo()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Print\+Module\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a931f7014f06e06d35313b5565eb2a3a1}\label{classfuzzer_1_1TracePC_a931f7014f06e06d35313b5565eb2a3a1} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!PrintNewPCs@{PrintNewPCs}}
+\index{PrintNewPCs@{PrintNewPCs}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{PrintNewPCs()}{PrintNewPCs()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Print\+New\+PCs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_ab843236d692511688e9d754f926de962}\label{classfuzzer_1_1TracePC_ab843236d692511688e9d754f926de962} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!ResetMaps@{ResetMaps}}
+\index{ResetMaps@{ResetMaps}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{ResetMaps()}{ResetMaps()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Reset\+Maps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a391035f3a6eb4f505cb4045d57400b3c}\label{classfuzzer_1_1TracePC_a391035f3a6eb4f505cb4045d57400b3c} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!SetPrintNewPCs@{SetPrintNewPCs}}
+\index{SetPrintNewPCs@{SetPrintNewPCs}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{SetPrintNewPCs()}{SetPrintNewPCs()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Set\+Print\+New\+PCs (\begin{DoxyParamCaption}\item[{bool}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a4c7ecc16a4d3e4c86ea1d3b1427ebaca}\label{classfuzzer_1_1TracePC_a4c7ecc16a4d3e4c86ea1d3b1427ebaca} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!SetUseCounters@{SetUseCounters}}
+\index{SetUseCounters@{SetUseCounters}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{SetUseCounters()}{SetUseCounters()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Set\+Use\+Counters (\begin{DoxyParamCaption}\item[{bool}]{UC }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_aa49d07c1499054b4c71aa8dd4dec3707}\label{classfuzzer_1_1TracePC_aa49d07c1499054b4c71aa8dd4dec3707} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!SetUseValueProfile@{SetUseValueProfile}}
+\index{SetUseValueProfile@{SetUseValueProfile}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{SetUseValueProfile()}{SetUseValueProfile()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Set\+Use\+Value\+Profile (\begin{DoxyParamCaption}\item[{bool}]{VP }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a873c3c3f919210f5f33914a5b294c5df}\label{classfuzzer_1_1TracePC_a873c3c3f919210f5f33914a5b294c5df} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!UpdateFeatureSet@{UpdateFeatureSet}}
+\index{UpdateFeatureSet@{UpdateFeatureSet}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{UpdateFeatureSet()}{UpdateFeatureSet()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Trace\+PC\+::\+Update\+Feature\+Set (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Current\+Element\+Idx,  }\item[{size\+\_\+t}]{Current\+Element\+Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1TracePC_a0b16b7fef77ffd1f2db211cbf79120cc}\label{classfuzzer_1_1TracePC_a0b16b7fef77ffd1f2db211cbf79120cc} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!UpdateValueProfileMap@{UpdateValueProfileMap}}
+\index{UpdateValueProfileMap@{UpdateValueProfileMap}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{UpdateValueProfileMap()}{UpdateValueProfileMap()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Trace\+PC\+::\+Update\+Value\+Profile\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{Value\+Bit\+Map}} \texorpdfstring{$\ast$}{*}}]{Max\+Value\+Profile\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a29a541c6620ce8b571bc0657205134e6}\label{classfuzzer_1_1TracePC_a29a541c6620ce8b571bc0657205134e6} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!UsingTracePcGuard@{UsingTracePcGuard}}
+\index{UsingTracePcGuard@{UsingTracePcGuard}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{UsingTracePcGuard()}{UsingTracePcGuard()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Trace\+PC\+::\+Using\+Trace\+Pc\+Guard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classfuzzer_1_1TracePC_a8ec97bc9273ad4a6f83d615a3febdf14}\label{classfuzzer_1_1TracePC_a8ec97bc9273ad4a6f83d615a3febdf14} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!kFeatureSetSize@{kFeatureSetSize}}
+\index{kFeatureSetSize@{kFeatureSetSize}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{kFeatureSetSize}{kFeatureSetSize}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Trace\+PC\+::k\+Feature\+Set\+Size = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}{Value\+Bit\+Map\+::k\+Number\+Of\+Items}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}\label{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!kTORCSize@{kTORCSize}}
+\index{kTORCSize@{kTORCSize}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{kTORCSize}{kTORCSize}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Trace\+PC\+::k\+TORCSize = 1 $<$$<$ 5\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classfuzzer_1_1TracePC_af492c551bf45803f6f5b4155e063f782}\label{classfuzzer_1_1TracePC_af492c551bf45803f6f5b4155e063f782} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!TORC4@{TORC4}}
+\index{TORC4@{TORC4}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{TORC4}{TORC4}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{Table\+Of\+Recent\+Compares}}$<$uint32\+\_\+t, \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{k\+TORCSize}}$>$ fuzzer\+::\+Trace\+PC\+::\+TORC4}
+
+\Hypertarget{classfuzzer_1_1TracePC_a135e60be2738df19fa33a53f3ccdddb9}\label{classfuzzer_1_1TracePC_a135e60be2738df19fa33a53f3ccdddb9} 
+\index{fuzzer::TracePC@{fuzzer::TracePC}!TORC8@{TORC8}}
+\index{TORC8@{TORC8}!fuzzer::TracePC@{fuzzer::TracePC}}
+\doxysubsubsection{\texorpdfstring{TORC8}{TORC8}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfuzzer_1_1TableOfRecentCompares}{Table\+Of\+Recent\+Compares}}$<$uint64\+\_\+t, \mbox{\hyperlink{classfuzzer_1_1TracePC_a10f3cf32bf233da2c828113704ac430c}{k\+TORCSize}}$>$ fuzzer\+::\+Trace\+PC\+::\+TORC8}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerTracePC_8h}{Fuzzer\+Trace\+PC.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerTracePC_8cpp}{Fuzzer\+Trace\+PC.\+cpp}}\end{DoxyCompactItemize}

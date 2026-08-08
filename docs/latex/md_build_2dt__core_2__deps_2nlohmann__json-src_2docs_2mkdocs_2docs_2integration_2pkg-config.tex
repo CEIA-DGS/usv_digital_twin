@@ -1,0 +1,21 @@
+\chapter{Pkg-\/config}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2pkg-config}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2pkg-config}\index{Pkg-\/config@{Pkg-\/config}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2pkg-config_autotoc_md1754}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2pkg-config_autotoc_md1754}%
+ If you are using bare Makefiles, you can use {\ttfamily pkg-\/config} to generate the include flags that point to where the library is installed\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pkg-\/config\ nlohmann\_json\ -\/-\/cflags}
+
+\end{DoxyCode}
+
+
+Users of the \href{package_managers.md\#meson}{\texttt{ Meson build system}} will also be able to use a system-\/wide library, which will be found by {\ttfamily pkg-\/config}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{json\ =\ dependency('nlohmann\_json',\ required:\ true)}
+
+\end{DoxyCode}
+ 

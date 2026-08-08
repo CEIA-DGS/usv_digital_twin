@@ -1,0 +1,70 @@
+\doxysection{Fuzzer\+IO.\+h}
+\hypertarget{FuzzerIO_8h_source}{}\label{FuzzerIO_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerIO.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerIO.h}}
+\mbox{\hyperlink{FuzzerIO_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerIO.h\ -\/\ Internal\ header\ for\ IO\ utils\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ IO\ interface.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_IO\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_IO\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerDefs_8h}{FuzzerDefs.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{namespacefuzzer_abb0a4d30f608e64c47fb571fccbb67e6}{GetEpoch}}(\textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \mbox{\hyperlink{namespacefuzzer_ad0d32f18af1b62563991edc4642a6fa0}{FileToVector}}(\textcolor{keyword}{const}\ std::string\ \&Path,\ \textcolor{keywordtype}{size\_t}\ MaxSize\ =\ 0,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ExitOnError\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ std::string\ \mbox{\hyperlink{namespacefuzzer_abbe2e847d9d56992b217384ca3a562a4}{FileToString}}(\textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_a3bff4894165422911c5705825520a5a6}{CopyFileToErr}}(\textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_a55062839741b460271791a94c5ccedab}{WriteToFile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}}\ \&U,\ \textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_aa656896c760e996b44c0a0299c2ee250}{ReadDirToVectorOfUnits}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Path,\ std::vector<Unit>\ *V,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{long}\ *Epoch,\ \textcolor{keywordtype}{size\_t}\ MaxSize,\ \textcolor{keywordtype}{bool}\ ExitOnError);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Returns\ "{}Dir/FileName"{}\ or\ equivalent\ for\ the\ current\ OS.}}
+\DoxyCodeLine{00034\ std::string\ \mbox{\hyperlink{namespacefuzzer_a874eb385b20be8a4df019f6ea8c5662b}{DirPlusFile}}(\textcolor{keyword}{const}\ std::string\ \&DirPath,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&FileName);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Returns\ the\ name\ of\ the\ dir,\ similar\ to\ the\ 'dirname'\ utility.}}
+\DoxyCodeLine{00038\ std::string\ \mbox{\hyperlink{namespacefuzzer_a87962324e0c49b845ee587cc0f8c6ae0}{DirName}}(\textcolor{keyword}{const}\ std::string\ \&FileName);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_a8cc9e1345d122734e53d428065deb7f8}{DupAndCloseStderr}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_ab6e0b39da1b114b0d35392252fb25475}{CloseStdout}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_afab785891fdb74f8fd33bca421bde935}{Printf}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Fmt,\ ...);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Platform\ specific\ functions:}}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacefuzzer_afe4776820e058619302c5fa5aef55ef6}{IsFile}}(\textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_a9d580ac8512c7e2987ca2193ee678dd2}{ListFilesInDirRecursive}}(\textcolor{keyword}{const}\ std::string\ \&Dir,\ \textcolor{keywordtype}{long}\ *Epoch,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ *V,\ \textcolor{keywordtype}{bool}\ TopDir);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{namespacefuzzer_aee6faff60741a0a94bccdce92887eec1}{GetSeparator}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ FILE*\ \mbox{\hyperlink{namespacefuzzer_a2c26f1902f731439911aad4989b50623}{OpenFile}}(\textcolor{keywordtype}{int}\ Fd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *Mode);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacefuzzer_a23c38948800b7ce49b93c9f6ce4edc30}{CloseFile}}(\textcolor{keywordtype}{int}\ Fd);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacefuzzer_a2c2a29a16f7af0839d45f7e85499f456}{DuplicateFile}}(\textcolor{keywordtype}{int}\ Fd);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacefuzzer_a6b7af8407fcc60013fa2cd588e4abf77}{RemoveFile}}(\textcolor{keyword}{const}\ std::string\ \&Path);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_IO\_H}}
+
+\end{DoxyCode}

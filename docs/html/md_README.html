@@ -73,20 +73,20 @@ $(function() {
   <div class="headertitle"><div class="title">Digital Twin - CEIA-DGS</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md50"></a> O <b>Digital Twin</b> é um módulo de simulação, predição e visualização em tempo real desenvolvido para Veículos de Superfície Não Tripulados (USVs).</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md1891"></a> O <b>Digital Twin</b> é um módulo de simulação, predição e visualização em tempo real desenvolvido para Veículos de Superfície Não Tripulados (USVs).</p>
 <p>Este sistema é capaz de processar cartas náuticas oficiais (S-57), gerar malhas de navegação (NavMesh) em tempo de execução, calcular dinamicamente o risco de colisão e exibir diagnósticos operacionais em uma interface gráfica dedicada.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md52"></a>
+<h1><a class="anchor" id="autotoc_md1893"></a>
 Arquitetura do Sistema</h1>
 <p>O projeto foi dividido em quatro pacotes para garantir a separação de responsabilidades (SoC) e a independência do motor matemático em relação ao middleware de comunicação:</p>
 <ul>
 <li>**<code>dt_core</code>**: Motor central em C++ puro (independente do ROS). Responsável por todo o processamento geométrico (GDAL/Boost), R-Trees, estruturas de dados matemáticas (Types) e os algoritmos de predição de risco de colisão.</li>
-<li>**<code>dt_msgs</code>**: Definição das mensagens customizadas (IDL) para tráfego de dados de navegação e alertas no barramento do ROS 2.</li>
+<li>**<code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code>**: Definição das mensagens customizadas (IDL) para tráfego de dados de navegação e alertas no barramento do ROS 2.</li>
 <li>**<code><a class="el" href="namespacedt__ros.html">dt_ros</a></code>**: Nó adaptador (Padrão Adapter). Atua como uma ponte, inscrevendo-se nos tópicos de sensores do USV e traduzindo os dados brutos para injetá-los no <code>dt_core</code>.</li>
 <li>**<code>dt_viz</code>**: Interface Gráfica de Diagnóstico desenvolvida em Qt5. Renderiza a NavMesh, a telemetria do USV, os alvos dinâmicos e os alertas visuais de colisão, rodando em uma thread assíncrona.</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md54"></a>
+<h1><a class="anchor" id="autotoc_md1895"></a>
 📂 Estrutura de Diretórios</h1>
 <div class="fragment"><div class="line">usv_digital_twin/</div>
 <div class="line">└── src/</div>
@@ -122,7 +122,7 @@ Arquitetura do Sistema</h1>
 <div class="line">        ├── include/</div>
 <div class="line">        │   └── dt_viz/</div>
 <div class="line">        └── src/</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md55"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1896"></a>
 ⚙️ Pré-Requisitos e Dependências</h1>
 <p>O sistema foi homologado para Ubuntu 22.04 rodando ROS 2 Humble.</p>
 <p>Certifique-se de instalar as dependências de sistema (compiladores, bibliotecas geográficas e interface gráfica) antes de realizar o build:</p>
@@ -139,17 +139,17 @@ Arquitetura do Sistema</h1>
 <div class="line">  qtbase5-dev \</div>
 <div class="line">  qtbase5-dev-tools</div>
 </div><!-- fragment --><p>Aviso para usuários de WSL (Windows Subsystem for Linux): Para evitar erros de permissão ou bugs no gerador de mensagens do ROS (rosidl), certifique-se de que o seu workspace esteja localizado no sistema de arquivos nativo do Linux (ex: ~/usv_digital_twin_ws) e não na partição montada do Windows (/mnt/c/...).</p>
-<h1><a class="anchor" id="autotoc_md56"></a>
+<h1><a class="anchor" id="autotoc_md1897"></a>
 📚 Clone do Repositório</h1>
 <p>Para ter acesso ao código fonte, basta clonar o repositório usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação. </p><div class="fragment"><div class="line"> bash</div>
 <div class="line">git clone https://github.com/CEIA-DGS/usv_digital_twin.git</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md57"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1898"></a>
 🚀 Compilação (Build)</h1>
 <p>Para a compilação ser executada adequadamente, organize o workspace da seguinte forma: </p><div class="fragment"><div class="line"> text</div>
 <div class="line">$nome_do_workspace$/</div>
 <div class="line">└── src/</div>
 <div class="line">    └── usv_digital_twin/       # clone do repositório</div>
-</div><!-- fragment --><p>Devido à hierarquia de dependências (dt_viz depende de <a class="el" href="namespacedt__ros.html">dt_ros</a>, que depende de dt_msgs e dt_core), utilize o colcon na raiz do seu workspace para compilar na ordem correta:</p>
+</div><!-- fragment --><p>Devido à hierarquia de dependências (dt_viz depende de <a class="el" href="namespacedt__ros.html">dt_ros</a>, que depende de <a class="el" href="namespacedt__msgs.html">dt_msgs</a> e dt_core), utilize o colcon na raiz do seu workspace para compilar na ordem correta:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">cd ~/$nome_do_workspace$</div>
 <div class="line">rosdep install --from-paths src --ignore-src -r -y</div>
@@ -157,16 +157,16 @@ Arquitetura do Sistema</h1>
 </div><!-- fragment --><p>Caso faça alterações no código, para re-compilar as alterações rode:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">colcon build --cmake-clean-cache</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md1899"></a>
 🖥️ Execução do código compilado</h1>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">source ~/$nome_do_workspace$/install/setup.bash</div>
 <div class="line">ros2 run dt_viz dt_visualizer_node</div>
 </div><!-- fragment --><hr  />
- <h1><a class="anchor" id="autotoc_md60"></a>
+ <h1><a class="anchor" id="autotoc_md1901"></a>
 📡 API ROS2 (Tópicos e Mensagens)</h1>
 <p>Para integrar módulos de navegação e controle ao Gêmeo Digital, utilize a seguinte especificação de tópicos:</p>
-<h2><a class="anchor" id="autotoc_md61"></a>
+<h2><a class="anchor" id="autotoc_md1902"></a>
 Subscribers (Tópicos Lidos pelo Sistema)</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -180,7 +180,7 @@ Subscribers (Tópicos Lidos pelo Sistema)</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><code>/planned_route</code>   </td><td class="markdownTableBodyLeft"><code>nav_msgs/Path</code>   </td><td class="markdownTableBodyLeft">Recebe a rota (waypoints) planejada pelo módulo de navegação.   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md62"></a>
+<h2><a class="anchor" id="autotoc_md1903"></a>
 Publishers (Tópicos Emitidos pelo Sistema)</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

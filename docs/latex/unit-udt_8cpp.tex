@@ -1,0 +1,275 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/udt.cpp File Reference}
+\hypertarget{unit-udt_8cpp}{}\label{unit-udt_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/udt.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/udt.cpp}}
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+Include dependency graph for unit-\/udt.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-udt_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structudt_1_1age}{udt\+::age}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1name}{udt\+::name}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1address}{udt\+::address}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1person}{udt\+::person}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1contact}{udt\+::contact}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1contact__book}{udt\+::contact\+\_\+book}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1legacy__type}{udt\+::legacy\+\_\+type}}
+\item 
+struct \mbox{\hyperlink{structnlohmann_1_1adl__serializer_3_01std_1_1shared__ptr_3_01T_01_4_01_4}{nlohmann\+::adl\+\_\+serializer$<$ std\+::shared\+\_\+ptr$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structnlohmann_1_1adl__serializer_3_01udt_1_1legacy__type_01_4}{nlohmann\+::adl\+\_\+serializer$<$ udt\+::legacy\+\_\+type $>$}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1small__pod}{udt\+::small\+\_\+pod}}
+\item 
+struct \mbox{\hyperlink{structudt_1_1non__pod}{udt\+::non\+\_\+pod}}
+\item 
+struct \mbox{\hyperlink{structanother__adl__serializer}{another\+\_\+adl\+\_\+serializer$<$ T, typename $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceudt}{udt}}
+\item 
+namespace \mbox{\hyperlink{namespacenlohmann}{nlohmann}}
+\begin{DoxyCompactList}\small\item\em namespace for Niels Lohmann \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} = \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$ \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structanother__adl__serializer}{another\+\_\+adl\+\_\+serializer}} $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3}{udt\+::country}} \{ \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3a8a7d7ba288ca0f0ea1ecf975b026e8e1}{udt\+::china}}
+, \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3ae165d4f2174b66a7d1a95cb204d296eb}{udt\+::france}}
+, \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3a1c625cc86f824660a320d185916e3c55}{udt\+::russia}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a75ff15460bcf4a694b095b5a8748fb15}{SECTION}} ("{}conversion to \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} via free-\/functions"{})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a87594a30b45e53cce0df50ace89d0d76}{SECTION}} ("{}conversion from \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} via free-\/functions"{})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a4a52a25ebecf054b90e96cbed8d851a8}{CHECK}} (\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}==\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a6ad10212c9925df43044b93f05ce09bb}{CHECK}} (\mbox{\hyperlink{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}{np}}==\mbox{\hyperlink{unit-udt_8cpp_abb854e10780bebd9b4f4b1a75330f638}{np2}})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a62bbf3898244d61ac25c0c9c311a462e}{CHECK}} (j.\+dump()==cj.\+dump())
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_aa845824f59ba8b9b0c96c00c4010f060}{CHECK}} (me==j.\+get$<$ \mbox{\hyperlink{structudt_1_1person}{udt\+::person}} $>$())
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a3b5e8dca54dfb152700eec6daa20385d}{TEST\+\_\+\+CASE}} ("{}different \mbox{\hyperlink{classbasic__json}{basic\+\_\+json}} types conversions"{})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_aa254bf830bf96a4759f5cbeb3cfe05b7}{TEST\+\_\+\+CASE}} ("{}Issue \#924"{})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_a34699577f094f50af27580836e81d7b3}{TEST\+\_\+\+CASE}} ("{}Issue \#1237"{})
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_ad564885c379b9ec9a30eae906563bca6}{TEST\+\_\+\+CASE}} ("{}compatible \mbox{\hyperlink{classarray}{array}} type, without iterator type alias"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structudt_1_1name}{udt\+::name}} \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}} \{"{}theo"{}\}
+\item 
+const \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3}{udt\+::country}} \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}} \{\mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3ae165d4f2174b66a7d1a95cb204d296eb}{udt\+::country\+::france}}\}
+\item 
+const \mbox{\hyperlink{structudt_1_1person}{udt\+::person}} \mbox{\hyperlink{unit-udt_8cpp_ad673fde79fe3e6f5b4b97b3906ecf261}{sfinae\+\_\+addict}} \{a, \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}}\}
+\item 
+const \mbox{\hyperlink{structudt_1_1person}{udt\+::person}} \mbox{\hyperlink{unit-udt_8cpp_a02fe905c344e73c5ef238883f58e9d69}{senior\+\_\+programmer}} \{\{42\}, \{"{}王芳"{}\}, \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3a8a7d7ba288ca0f0ea1ecf975b026e8e1}{udt\+::country\+::china}}\}
+\item 
+const \mbox{\hyperlink{structudt_1_1address}{udt\+::address}} \mbox{\hyperlink{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}{addr}} \{"{}Paris"{}\}
+\item 
+const \mbox{\hyperlink{structudt_1_1contact}{udt\+::contact}} \mbox{\hyperlink{unit-udt_8cpp_a5a83f11ea49f532cc4e0c55ca65750c9}{cpp\+\_\+programmer}} \{\mbox{\hyperlink{unit-udt_8cpp_ad673fde79fe3e6f5b4b97b3906ecf261}{sfinae\+\_\+addict}}, \mbox{\hyperlink{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}{addr}}\}
+\item 
+const \mbox{\hyperlink{structudt_1_1contact__book}{udt\+::contact\+\_\+book}} \mbox{\hyperlink{unit-udt_8cpp_a5837d7b91ca390938cc602ddea082fd3}{book}} \{\{"{}C++"{}\}, \{cpp\+\_\+programmer, \{\mbox{\hyperlink{unit-udt_8cpp_a02fe905c344e73c5ef238883f58e9d69}{senior\+\_\+programmer}}, \mbox{\hyperlink{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}{addr}}\}\}\}
+\item 
+auto \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}} = \mbox{\hyperlink{structudt_1_1small__pod}{udt\+::small\+\_\+pod}}\{42, \textquotesingle{}/\textquotesingle{}, 42\}
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} const \mbox{\hyperlink{unit-udt_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}} = \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}
+\item 
+auto \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}} = j.\+get$<$\mbox{\hyperlink{structudt_1_1small__pod}{udt\+::small\+\_\+pod}}$>$()
+\item 
+auto \mbox{\hyperlink{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}{np}} = \mbox{\hyperlink{structudt_1_1non__pod}{udt\+::non\+\_\+pod}}\{\{"{}non-\/pod"{}\}\}
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} const \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}} = \mbox{\hyperlink{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}{np}}
+\item 
+auto \mbox{\hyperlink{unit-udt_8cpp_abb854e10780bebd9b4f4b1a75330f638}{np2}} = j2.\+get$<$\mbox{\hyperlink{structudt_1_1non__pod}{udt\+::non\+\_\+pod}}$>$()
+\item 
+\mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} const \mbox{\hyperlink{unit-udt_8cpp_a437811ad7ab821bebd23da8fb17742cd}{cj}} = me
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}\label{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!custom\_json@{custom\_json}}
+\index{custom\_json@{custom\_json}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{custom\_json}{custom\_json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} =  \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}}$<$\mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{std\+::map}}, std\+::vector, std\+::string, bool, std\+::int64\+\_\+t, std\+::uint64\+\_\+t, double, std\+::allocator, \mbox{\hyperlink{structanother__adl__serializer}{another\+\_\+adl\+\_\+serializer}}$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-udt_8cpp_a62bbf3898244d61ac25c0c9c311a462e}\label{unit-udt_8cpp_a62bbf3898244d61ac25c0c9c311a462e} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{j.}]{dump() = {\ttfamily =cj.dump()} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_aa845824f59ba8b9b0c96c00c4010f060}\label{unit-udt_8cpp_aa845824f59ba8b9b0c96c00c4010f060} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{me}]{ = {\ttfamily =j.get$<$~\mbox{\hyperlink{structudt_1_1person}{udt\+::person}}~$>$()} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a6ad10212c9925df43044b93f05ce09bb}\label{unit-udt_8cpp_a6ad10212c9925df43044b93f05ce09bb} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}{np}}}]{ = {\ttfamily =\mbox{\hyperlink{unit-udt_8cpp_abb854e10780bebd9b4f4b1a75330f638}{np2}}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a4a52a25ebecf054b90e96cbed8d851a8}\label{unit-udt_8cpp_a4a52a25ebecf054b90e96cbed8d851a8} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}}]{ = {\ttfamily =\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a87594a30b45e53cce0df50ace89d0d76}\label{unit-udt_8cpp_a87594a30b45e53cce0df50ace89d0d76} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}conversion from \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} via free-\/functions"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a75ff15460bcf4a694b095b5a8748fb15}\label{unit-udt_8cpp_a75ff15460bcf4a694b095b5a8748fb15} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}conversion to \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} via free-\/functions"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_ad564885c379b9ec9a30eae906563bca6}\label{unit-udt_8cpp_ad564885c379b9ec9a30eae906563bca6} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}compatible \mbox{\hyperlink{classarray}{array}}}]{type,  }\item[{without iterator type alias"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a3b5e8dca54dfb152700eec6daa20385d}\label{unit-udt_8cpp_a3b5e8dca54dfb152700eec6daa20385d} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}different \mbox{\hyperlink{classbasic__json}{basic\+\_\+json}} types conversions"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_a34699577f094f50af27580836e81d7b3}\label{unit-udt_8cpp_a34699577f094f50af27580836e81d7b3} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Issue \#1237"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-udt_8cpp_aa254bf830bf96a4759f5cbeb3cfe05b7}\label{unit-udt_8cpp_aa254bf830bf96a4759f5cbeb3cfe05b7} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}Issue \#924"{}        }]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}\label{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!addr@{addr}}
+\index{addr@{addr}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{addr}{addr}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1address}{udt\+::address}} addr \{"{}Paris"{}\}}
+
+\Hypertarget{unit-udt_8cpp_a5837d7b91ca390938cc602ddea082fd3}\label{unit-udt_8cpp_a5837d7b91ca390938cc602ddea082fd3} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!book@{book}}
+\index{book@{book}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{book}{book}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1contact__book}{udt\+::contact\+\_\+book}} book \{\{"{}C++"{}\}, \{cpp\+\_\+programmer, \{\mbox{\hyperlink{unit-udt_8cpp_a02fe905c344e73c5ef238883f58e9d69}{senior\+\_\+programmer}}, \mbox{\hyperlink{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}{addr}}\}\}\}}
+
+\Hypertarget{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}\label{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!c@{c}}
+\index{c@{c}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3}{udt\+::country}} c \{\mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3ae165d4f2174b66a7d1a95cb204d296eb}{udt\+::country\+::france}}\}}
+
+\Hypertarget{unit-udt_8cpp_a437811ad7ab821bebd23da8fb17742cd}\label{unit-udt_8cpp_a437811ad7ab821bebd23da8fb17742cd} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!cj@{cj}}
+\index{cj@{cj}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{cj}{cj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} const cj = me}
+
+\Hypertarget{unit-udt_8cpp_a5a83f11ea49f532cc4e0c55ca65750c9}\label{unit-udt_8cpp_a5a83f11ea49f532cc4e0c55ca65750c9} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!cpp\_programmer@{cpp\_programmer}}
+\index{cpp\_programmer@{cpp\_programmer}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{cpp\_programmer}{cpp\_programmer}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1contact}{udt\+::contact}} cpp\+\_\+programmer \{\mbox{\hyperlink{unit-udt_8cpp_ad673fde79fe3e6f5b4b97b3906ecf261}{sfinae\+\_\+addict}}, \mbox{\hyperlink{unit-udt_8cpp_afe620afed6a929693ec4820e2be35079}{addr}}\}}
+
+\Hypertarget{unit-udt_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}\label{unit-udt_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!j@{j}}
+\index{j@{j}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{j}{j}}
+{\footnotesize\ttfamily \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} const j = \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}}
+
+\Hypertarget{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}\label{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!j2@{j2}}
+\index{j2@{j2}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{j2}{j2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unit-udt_8cpp_afcd4932c624b093563ea0b3878b0b51f}{custom\+\_\+json}} const j2 = \mbox{\hyperlink{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}{np}}}
+
+\Hypertarget{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}\label{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!n@{n}}
+\index{n@{n}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1name}{udt\+::name}} n \{"{}theo"{}\}}
+
+\Hypertarget{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2}\label{unit-udt_8cpp_ad7f3dc2f2245e2a1ded58d1cf9c792e2} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!np@{np}}
+\index{np@{np}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{np}{np}}
+{\footnotesize\ttfamily auto np = \mbox{\hyperlink{structudt_1_1non__pod}{udt\+::non\+\_\+pod}}\{\{"{}non-\/pod"{}\}\}}
+
+\Hypertarget{unit-udt_8cpp_abb854e10780bebd9b4f4b1a75330f638}\label{unit-udt_8cpp_abb854e10780bebd9b4f4b1a75330f638} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!np2@{np2}}
+\index{np2@{np2}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{np2}{np2}}
+{\footnotesize\ttfamily auto np2 = j2.\+get$<$\mbox{\hyperlink{structudt_1_1non__pod}{udt\+::non\+\_\+pod}}$>$()}
+
+\Hypertarget{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}\label{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!p@{p}}
+\index{p@{p}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily auto p = \mbox{\hyperlink{structudt_1_1small__pod}{udt\+::small\+\_\+pod}}\{42, \textquotesingle{}/\textquotesingle{}, 42\}}
+
+\Hypertarget{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}\label{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!p2@{p2}}
+\index{p2@{p2}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{p2}{p2}}
+{\footnotesize\ttfamily auto p2 = j.\+get$<$\mbox{\hyperlink{structudt_1_1small__pod}{udt\+::small\+\_\+pod}}$>$()}
+
+\Hypertarget{unit-udt_8cpp_a02fe905c344e73c5ef238883f58e9d69}\label{unit-udt_8cpp_a02fe905c344e73c5ef238883f58e9d69} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!senior\_programmer@{senior\_programmer}}
+\index{senior\_programmer@{senior\_programmer}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{senior\_programmer}{senior\_programmer}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1person}{udt\+::person}} senior\+\_\+programmer \{\{42\}, \{"{}王芳"{}\}, \mbox{\hyperlink{namespaceudt_ad6b1c4693247dc2f73a545ffe859f3b3a8a7d7ba288ca0f0ea1ecf975b026e8e1}{udt\+::country\+::china}}\}}
+
+\Hypertarget{unit-udt_8cpp_ad673fde79fe3e6f5b4b97b3906ecf261}\label{unit-udt_8cpp_ad673fde79fe3e6f5b4b97b3906ecf261} 
+\index{unit-\/udt.cpp@{unit-\/udt.cpp}!sfinae\_addict@{sfinae\_addict}}
+\index{sfinae\_addict@{sfinae\_addict}!unit-\/udt.cpp@{unit-\/udt.cpp}}
+\doxysubsubsection{\texorpdfstring{sfinae\_addict}{sfinae\_addict}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structudt_1_1person}{udt\+::person}} sfinae\+\_\+addict \{a, \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}}\}}
+

@@ -1,0 +1,143 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+Driver.cpp File Reference}
+\hypertarget{FuzzerDriver_8cpp}{}\label{FuzzerDriver_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDriver.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDriver.cpp}}
+{\ttfamily \#include "{}Fuzzer\+Corpus.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Interface.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Internal.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Mutate.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Random.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Trace\+PC.\+h"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include "{}Fuzzer\+Flags.\+def"{}}\newline
+Include dependency graph for Fuzzer\+Driver.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerDriver_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfuzzer_1_1FlagDescription}{fuzzer\+::\+Flag\+Description}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561}{FUZZER\+\_\+\+DEPRECATED\+\_\+\+FLAG}}(Name)
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6}{FUZZER\+\_\+\+FLAG\+\_\+\+INT}}(Name,  Default,  Description)~int Name;
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f}{FUZZER\+\_\+\+FLAG\+\_\+\+UNSIGNED}}(Name,  Default,  Description)~unsigned int Name;
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60}{FUZZER\+\_\+\+FLAG\+\_\+\+STRING}}(Name,  Description)~const char \texorpdfstring{$\ast$}{*}Name;
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561}{FUZZER\+\_\+\+DEPRECATED\+\_\+\+FLAG}}(Name)~  \{\#Name, "{}Deprecated; don\textquotesingle{}t use"{}, 0, nullptr, nullptr, nullptr\},
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6}{FUZZER\+\_\+\+FLAG\+\_\+\+INT}}(Name,  Default,  Description)~  \{\#Name, Description, Default, \&Flags.\+Name, nullptr, nullptr\},
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f}{FUZZER\+\_\+\+FLAG\+\_\+\+UNSIGNED}}(Name,  Default,  Description)
+\item 
+\#define \mbox{\hyperlink{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60}{FUZZER\+\_\+\+FLAG\+\_\+\+STRING}}(Name,  Description)~  \{\#Name, Description, 0, nullptr, \&Flags.\+Name, nullptr\},
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FuzzerDriver_8cpp_aa221de19083e2c9b2d86ea31c03ae088}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((used)) void \+\_\+\+\_\+libfuzzer\+\_\+is\+\_\+present()
+\item 
+std\+::string \mbox{\hyperlink{namespacefuzzer_ad4db88d01756df9a0b8443fb890a94d5}{fuzzer\+::\+Clone\+Args\+WithoutX}} (const std\+::vector$<$ std\+::string $>$ \&Args, const char \texorpdfstring{$\ast$}{*}X1, const char \texorpdfstring{$\ast$}{*}X2)
+\item 
+int \mbox{\hyperlink{namespacefuzzer_a1fe190c22f9575ec572ce81d57c7e483}{fuzzer\+::\+Run\+One\+Test}} (\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}} \texorpdfstring{$\ast$}{*}F, const char \texorpdfstring{$\ast$}{*}Input\+File\+Path, size\+\_\+t Max\+Len)
+\item 
+int \mbox{\hyperlink{namespacefuzzer_ad1a84d03ed48306c3319143e4412ef59}{fuzzer\+::\+Minimize\+Crash\+Input}} (const std\+::vector$<$ std\+::string $>$ \&Args)
+\item 
+int \mbox{\hyperlink{namespacefuzzer_a1553a49adb4d4d19b4f4dd52ff54cb68}{fuzzer\+::\+Minimize\+Crash\+Input\+Internal\+Step}} (\mbox{\hyperlink{classfuzzer_1_1Fuzzer}{Fuzzer}} \texorpdfstring{$\ast$}{*}F, \mbox{\hyperlink{classfuzzer_1_1InputCorpus}{Input\+Corpus}} \texorpdfstring{$\ast$}{*}Corpus)
+\item 
+int \mbox{\hyperlink{namespacefuzzer_a78f142089de84c6cbf7b5cab5f766af7}{fuzzer\+::\+Fuzzer\+Driver}} (int \texorpdfstring{$\ast$}{*}argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}}, \mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{User\+Callback}} Callback)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\} \mbox{\hyperlink{namespacefuzzer_a4aff8f0e72fa15aeb16501d19744f0d7}{fuzzer::Flags}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561}\label{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_DEPRECATED\_FLAG@{FUZZER\_DEPRECATED\_FLAG}}
+\index{FUZZER\_DEPRECATED\_FLAG@{FUZZER\_DEPRECATED\_FLAG}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_DEPRECATED\_FLAG}{FUZZER\_DEPRECATED\_FLAG}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+DEPRECATED\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{Name }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561}\label{FuzzerDriver_8cpp_af2714ae3e80622147f2bcc772eea0561} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_DEPRECATED\_FLAG@{FUZZER\_DEPRECATED\_FLAG}}
+\index{FUZZER\_DEPRECATED\_FLAG@{FUZZER\_DEPRECATED\_FLAG}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_DEPRECATED\_FLAG}{FUZZER\_DEPRECATED\_FLAG}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+DEPRECATED\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{Name }\end{DoxyParamCaption})~  \{\#Name, "{}Deprecated; don\textquotesingle{}t use"{}, 0, nullptr, nullptr, nullptr\},}
+
+\Hypertarget{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6}\label{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_INT@{FUZZER\_FLAG\_INT}}
+\index{FUZZER\_FLAG\_INT@{FUZZER\_FLAG\_INT}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_INT}{FUZZER\_FLAG\_INT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Default,  }\item[{}]{Description }\end{DoxyParamCaption})~int Name;}
+
+\Hypertarget{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6}\label{FuzzerDriver_8cpp_a80893b71a7f7746d1b113bd981ce8ec6} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_INT@{FUZZER\_FLAG\_INT}}
+\index{FUZZER\_FLAG\_INT@{FUZZER\_FLAG\_INT}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_INT}{FUZZER\_FLAG\_INT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+INT(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Default,  }\item[{}]{Description }\end{DoxyParamCaption})~  \{\#Name, Description, Default, \&Flags.\+Name, nullptr, nullptr\},}
+
+\Hypertarget{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60}\label{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_STRING@{FUZZER\_FLAG\_STRING}}
+\index{FUZZER\_FLAG\_STRING@{FUZZER\_FLAG\_STRING}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_STRING}{FUZZER\_FLAG\_STRING}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+STRING(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Description }\end{DoxyParamCaption})~const char \texorpdfstring{$\ast$}{*}Name;}
+
+\Hypertarget{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60}\label{FuzzerDriver_8cpp_a7884cea665e59e29f3d5bac3929bbb60} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_STRING@{FUZZER\_FLAG\_STRING}}
+\index{FUZZER\_FLAG\_STRING@{FUZZER\_FLAG\_STRING}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_STRING}{FUZZER\_FLAG\_STRING}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+STRING(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Description }\end{DoxyParamCaption})~  \{\#Name, Description, 0, nullptr, \&Flags.\+Name, nullptr\},}
+
+\Hypertarget{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f}\label{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_UNSIGNED@{FUZZER\_FLAG\_UNSIGNED}}
+\index{FUZZER\_FLAG\_UNSIGNED@{FUZZER\_FLAG\_UNSIGNED}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_UNSIGNED}{FUZZER\_FLAG\_UNSIGNED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+UNSIGNED(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Default,  }\item[{}]{Description }\end{DoxyParamCaption})~unsigned int Name;}
+
+\Hypertarget{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f}\label{FuzzerDriver_8cpp_ad4f57a9570374f25097dbc559822622f} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!FUZZER\_FLAG\_UNSIGNED@{FUZZER\_FLAG\_UNSIGNED}}
+\index{FUZZER\_FLAG\_UNSIGNED@{FUZZER\_FLAG\_UNSIGNED}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{FUZZER\_FLAG\_UNSIGNED}{FUZZER\_FLAG\_UNSIGNED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define FUZZER\+\_\+\+FLAG\+\_\+\+UNSIGNED(\begin{DoxyParamCaption}\item[{}]{Name,  }\item[{}]{Default,  }\item[{}]{Description }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \{\#Name,\ \ \ Description,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(Default),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \&Flags.Name\},}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerDriver_8cpp_aa221de19083e2c9b2d86ea31c03ae088}\label{FuzzerDriver_8cpp_aa221de19083e2c9b2d86ea31c03ae088} 
+\index{FuzzerDriver.cpp@{FuzzerDriver.cpp}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!FuzzerDriver.cpp@{FuzzerDriver.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(used)}]{ }\end{DoxyParamCaption})}
+

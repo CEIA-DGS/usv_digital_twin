@@ -1,0 +1,64 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/string\+\_\+concat.hpp File Reference}
+\hypertarget{string__concat_8hpp}{}\label{string__concat_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/string\_concat.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/string\_concat.hpp}}
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/cpp\+\_\+future.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/detected.\+hpp$>$}\newline
+Include dependency graph for string\+\_\+concat.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string__concat_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{string__concat_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_acf4c26a378982200b0f5e74a896366da}{detail\+::string\+\_\+can\+\_\+append}} = decltype(std\+::declval$<$ String\+Type \& $>$().append(std\+::declval$<$ Arg \&\& $>$()))
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_afa4e2beed41963eb3fc4a270821633f3}{detail\+::detect\+\_\+string\+\_\+can\+\_\+append}} = \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_acf4c26a378982200b0f5e74a896366da}{string\+\_\+can\+\_\+append}}, String\+Type, Arg $>$
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_a19c834c5cfd6433e7d65371d1bc99972}{detail\+::string\+\_\+can\+\_\+append\+\_\+op}} = decltype(std\+::declval$<$ String\+Type \& $>$()+=std\+::declval$<$ Arg \&\& $>$())
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_a4c5c0042966002d3d0a653b504cf95da}{detail\+::detect\+\_\+string\+\_\+can\+\_\+append\+\_\+op}} = \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_a19c834c5cfd6433e7d65371d1bc99972}{string\+\_\+can\+\_\+append\+\_\+op}}, String\+Type, Arg $>$
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_a9e6d98622b8133a6c4b873556cb55a9a}{detail\+::string\+\_\+can\+\_\+append\+\_\+iter}} = decltype(std\+::declval$<$ String\+Type \& $>$().append(std\+::declval$<$ const Arg \& $>$().begin(), std\+::declval$<$ const Arg \& $>$().end()))
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_a2a2fa7cb837caf838593444fe0d910b7}{detail\+::detect\+\_\+string\+\_\+can\+\_\+append\+\_\+iter}} = \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_a9e6d98622b8133a6c4b873556cb55a9a}{string\+\_\+can\+\_\+append\+\_\+iter}}, String\+Type, Arg $>$
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_aed2aa53ac9a71b89c3d6931de1d8fab6}{detail\+::string\+\_\+can\+\_\+append\+\_\+data}} = decltype(std\+::declval$<$ String\+Type \& $>$().append(std\+::declval$<$ const Arg \& $>$().data(), std\+::declval$<$ const Arg \& $>$().size()))
+\item 
+{\footnotesize template$<$typename String\+Type , typename Arg $>$ }\\using \mbox{\hyperlink{namespacedetail_a6299248749609c15beeb2804d3dd8c76}{detail\+::detect\+\_\+string\+\_\+can\+\_\+append\+\_\+data}} = \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{is\+\_\+detected}}$<$ \mbox{\hyperlink{namespacedetail_aed2aa53ac9a71b89c3d6931de1d8fab6}{string\+\_\+can\+\_\+append\+\_\+data}}, String\+Type, Arg $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{namespacedetail_ac185140ed8c8fcc07a302a890b714b0d}{detail\+::concat\+\_\+length}} ()
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{namespacedetail_a5d26947197a0f2d23110a4f40bd90d85}{detail\+::concat\+\_\+length}} (const char \texorpdfstring{$\ast$}{*}cstr, const Args \&... rest)
+\item 
+{\footnotesize template$<$typename String\+Type , typename... Args$>$ }\\\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{namespacedetail_a3cd92967d2de985b74ce05092fc21680}{detail\+::concat\+\_\+length}} (const String\+Type \&str, const Args \&... rest)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{namespacedetail_aa5f189c556ba621b4bbb57fe03cd4800}{detail\+::concat\+\_\+length}} (const char, const Args \&... rest)
+\item 
+{\footnotesize template$<$typename Out\+String\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_a89f967b745cf8df11ba9d59f93d97753}{detail\+::concat\+\_\+into}} (Out\+String\+Type \&)
+\item 
+{\footnotesize template$<$typename Out\+String\+Type , typename Arg , typename... Args, \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ !\mbox{\hyperlink{namespacedetail_afa4e2beed41963eb3fc4a270821633f3}{detect\+\_\+string\+\_\+can\+\_\+append}}$<$ Out\+String\+Type, Arg $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&\mbox{\hyperlink{namespacedetail_a4c5c0042966002d3d0a653b504cf95da}{detect\+\_\+string\+\_\+can\+\_\+append\+\_\+op}}$<$ Out\+String\+Type, Arg $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_aa16fc2d4a149a0e3ac68ceb98b153815}{detail\+::concat\+\_\+into}} (Out\+String\+Type \&out, Arg \&\&arg, Args \&\&... rest)
+\item 
+{\footnotesize template$<$typename Out\+String\+Type , typename Arg , typename... Args, \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ !\mbox{\hyperlink{namespacedetail_afa4e2beed41963eb3fc4a270821633f3}{detect\+\_\+string\+\_\+can\+\_\+append}}$<$ Out\+String\+Type, Arg $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{namespacedetail_a4c5c0042966002d3d0a653b504cf95da}{detect\+\_\+string\+\_\+can\+\_\+append\+\_\+op}}$<$ Out\+String\+Type, Arg $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&\mbox{\hyperlink{namespacedetail_a2a2fa7cb837caf838593444fe0d910b7}{detect\+\_\+string\+\_\+can\+\_\+append\+\_\+iter}}$<$ Out\+String\+Type, Arg $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a78434fad7c03e66afdd06a6df628315a}{detail\+::concat\+\_\+into}} (Out\+String\+Type \&out, const Arg \&arg, Args \&\&... rest)
+\item 
+{\footnotesize template$<$typename Out\+String\+Type  = std\+::string, typename... Args$>$ }\\Out\+String\+Type \mbox{\hyperlink{namespacedetail_a266fb3d4bf633ad6c506434cc91164da}{detail\+::concat}} (Args \&\&... args)
+\end{DoxyCompactItemize}

@@ -1,0 +1,52 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}back}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$back@{$<$small$>$nlohmann::basic\_json::$<$/small$>$back}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md109}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md109}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{reference\ back();}
+\DoxyCodeLine{}
+\DoxyCodeLine{const\_reference\ back()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+Returns a reference to the last element in the container. For a JSON container {\ttfamily c}, the expression {\ttfamily c.\+back()} is equivalent to
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ tmp\ =\ \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}}.end();}
+\DoxyCodeLine{-\/-\/tmp;}
+\DoxyCodeLine{\textcolor{keywordflow}{return}\ *tmp;}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md110}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md110}
+In case of a structured type (array or object), a reference to the last element is returned. In case of number, string, boolean, or binary values, a reference to the value is returned.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md111}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md111}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md112}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md112}
+If the JSON value is {\ttfamily \#!json null}, exception \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator214}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+214}}} is thrown.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md113}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md113}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md114}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md114}
+!!! info "{}\+Precondition"{} \begin{DoxyVerb}The array or object must not be empty. Calling `back` on an empty array or object yields undefined behavior.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md115}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md115}
+??? example \begin{DoxyVerb}The following code shows an example for `back()`.
+
+```cpp
+--8<-- "examples/back.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/back.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md116}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md116}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2front}{front}{0} to access the first element
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md117}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back_autotoc_md117}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Adjusted code to return reference to binary values in version 3.\+8.\+0. 
+\end{DoxyItemize}

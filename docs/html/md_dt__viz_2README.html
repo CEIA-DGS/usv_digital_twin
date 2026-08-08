@@ -73,7 +73,7 @@ $(function() {
   <div class="headertitle"><div class="title">DT Viz - Interface Gráfica</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> Pacote responsável pela interface gráfica do módulo Digital Twin do projeto CEIA-DGS.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md1837"></a> Pacote responsável pela interface gráfica do módulo Digital Twin do projeto CEIA-DGS.</p>
 <p>A aplicação foi desenvolvida em <b>C++</b>, utilizando <b>Qt 5</b> e <b>ROS 2 Humble</b>, com o objetivo de apresentar uma visualização bidimensional em vista superior dos principais elementos relacionados à navegação do USV.</p>
 <p>A interface permite visualizar:</p>
 <ul>
@@ -86,7 +86,7 @@ $(function() {
 <li>Alertas visuais de risco de colisão.</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md1839"></a>
 Objetivo</h1>
 <p>O pacote <code>dt_viz</code> tem como objetivo fornecer uma ferramenta de diagnóstico visual para os dados produzidos pelos demais módulos do sistema.</p>
 <p>Nesta etapa, a interface recebe:</p>
@@ -97,7 +97,7 @@ Objetivo</h1>
 </ul>
 <p>Quando um alerta de colisão é recebido, a interface identifica o alvo pelo MMSI e altera sua aparência visual.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md1841"></a>
 Tecnologias utilizadas</h1>
 <ul>
 <li>Ubuntu 22.04;</li>
@@ -106,12 +106,12 @@ Tecnologias utilizadas</h1>
 <li>Qt 5 Widgets;</li>
 <li><code>rclcpp</code>;</li>
 <li><code>nav_msgs</code>;</li>
-<li><code>dt_msgs</code>;</li>
+<li><code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code>;</li>
 <li><code>ament_cmake</code>;</li>
 <li><code>colcon</code>.</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md1843"></a>
 Estrutura do pacote</h1>
 <div class="fragment"><div class="line">dt_viz/</div>
 <div class="line">├── CMakeLists.txt</div>
@@ -126,9 +126,9 @@ Estrutura do pacote</h1>
 <div class="line">    ├── main_window.cpp</div>
 <div class="line">    └── viz_node.cpp</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md1845"></a>
 Descrição dos arquivos</h1>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md1846"></a>
 &lt;tt&gt;include/dt_viz/main_window.hpp&lt;/tt&gt;</h2>
 <p>Declara a classe principal da interface gráfica.</p>
 <p>Esse arquivo contém:</p>
@@ -150,7 +150,7 @@ Descrição dos arquivos</h1>
 <div class="line"><span class="keywordtype">void</span> updateCollisionAlert(</div>
 <div class="line">  std::uint32_t mmsi,</div>
 <div class="line">  <span class="keywordtype">bool</span> collision_imminent);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md1847"></a>
 &lt;tt&gt;src/main_window.cpp&lt;/tt&gt;</h2>
 <p>Implementa a camada visual da aplicação.</p>
 <p>É responsável por:</p>
@@ -167,13 +167,13 @@ Descrição dos arquivos</h1>
 <li>Atualizar os rótulos;</li>
 <li>Destacar uma embarcação com risco de colisão.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="autotoc_md1848"></a>
 &lt;tt&gt;include/dt_viz/viz_node.hpp&lt;/tt&gt;</h2>
 <p>Declara o nó ROS 2 que conecta os tópicos do sistema à interface gráfica.</p>
 <p>O nó recebe:</p>
 <div class="fragment"><div class="line">/planned_route</div>
 <div class="line">/collision_alert</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md1849"></a>
 &lt;tt&gt;src/viz_node.cpp&lt;/tt&gt;</h2>
 <p>Implementa os subscribers ROS 2.</p>
 <p>O callback da rota recebe uma mensagem do tipo:</p>
@@ -182,7 +182,7 @@ Descrição dos arquivos</h1>
 <p>O callback de colisão recebe:</p>
 <div class="fragment"><div class="line">dt_msgs/msg/CollisionAlert</div>
 </div><!-- fragment --><p>O MMSI e o estado do alerta são encaminhados à janela principal.</p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md1850"></a>
 &lt;tt&gt;src/main.cpp&lt;/tt&gt;</h2>
 <p>Inicializa:</p>
 <ul>
@@ -196,19 +196,19 @@ Descrição dos arquivos</h1>
 <div class="fragment"><div class="line">rclcpp::spin_some(node);</div>
 </div><!-- fragment --><p>Esse processamento é chamado por um <code>QTimer</code>, mantendo as atualizações da interface na thread principal do Qt.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md1852"></a>
 Dependências</h1>
 <p>O pacote depende de:</p>
 <div class="fragment"><div class="line">rclcpp</div>
 <div class="line">nav_msgs</div>
 <div class="line">dt_msgs</div>
 <div class="line">Qt 5 Widgets</div>
-</div><!-- fragment --><p>O pacote <code>dt_msgs</code> deve estar disponível na mesma workspace e precisa gerar a mensagem:</p>
+</div><!-- fragment --><p>O pacote <code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code> deve estar disponível na mesma workspace e precisa gerar a mensagem:</p>
 <div class="fragment"><div class="line">dt_msgs/msg/CollisionAlert</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md1854"></a>
 Tópicos utilizados</h1>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md1855"></a>
 Derrota planejada</h2>
 <p>Nome:</p>
 <div class="fragment"><div class="line">/planned_route</div>
@@ -227,7 +227,7 @@ Derrota planejada</h2>
 <div class="line">MainWindow</div>
 <div class="line">        ↓</div>
 <div class="line">Linha da derrota e waypoints</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md1856"></a>
 Alerta de colisão</h2>
 <p>Nome:</p>
 <div class="fragment"><div class="line">/collision_alert</div>
@@ -246,7 +246,7 @@ Alerta de colisão</h2>
 <div class="line">        ↓</div>
 <div class="line">Alteração visual do alvo</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md1858"></a>
 Funcionamento da derrota planejada</h1>
 <p>Ao receber uma mensagem em <code>/planned_route</code>, a interface:</p>
 <ol type="1">
@@ -263,7 +263,7 @@ Funcionamento da derrota planejada</h1>
 <div class="fragment"><div class="line">QGraphicsEllipseItem</div>
 </div><!-- fragment --><p>para os marcadores dos waypoints.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md23"></a>
+<h1><a class="anchor" id="autotoc_md1860"></a>
 Funcionamento do alerta de colisão</h1>
 <p>Ao receber um alerta, a interface utiliza o campo MMSI para localizar a embarcação correta.</p>
 <p>Quando:</p>
@@ -280,7 +280,7 @@ Funcionamento do alerta de colisão</h1>
 <div class="fragment"><div class="line">collision_imminent: false</div>
 </div><!-- fragment --><p>a aparência normal do alvo é restaurada.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md25"></a>
+<h1><a class="anchor" id="autotoc_md1862"></a>
 Requisitos</h1>
 <p>O ambiente recomendado é:</p>
 <div class="fragment"><div class="line">Ubuntu 22.04</div>
@@ -297,7 +297,7 @@ Requisitos</h1>
 <div class="line">  qtbase5-dev \</div>
 <div class="line">  qtbase5-dev-tools</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md1864"></a>
 Organização na workspace</h1>
 <p>A estrutura esperada é:</p>
 <div class="fragment"><div class="line">usv_digital_twin_ws/</div>
@@ -305,9 +305,9 @@ Organização na workspace</h1>
 <div class="line">    └── usv_digital_twin/</div>
 <div class="line">        ├── dt_msgs/</div>
 <div class="line">        └── dt_viz/</div>
-</div><!-- fragment --><p>O pacote <code>dt_msgs</code> deve estar presente porque <code>dt_viz</code> utiliza a mensagem <code>CollisionAlert</code>.</p>
+</div><!-- fragment --><p>O pacote <code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code> deve estar presente porque <code>dt_viz</code> utiliza a mensagem <code>CollisionAlert</code>.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md1866"></a>
 Instalação das dependências</h1>
 <p>Na raiz da workspace:</p>
 <div class="fragment"><div class="line">cd ~/usv_digital_twin_ws</div>
@@ -320,9 +320,9 @@ Instalação das dependências</h1>
 <div class="line">  -r \</div>
 <div class="line">  -y</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h1><a class="anchor" id="autotoc_md1868"></a>
 Compilação</h1>
-<p>Como o <code>dt_viz</code> depende de <code>dt_msgs</code>, compile os pacotes respeitando a ordem de dependências:</p>
+<p>Como o <code>dt_viz</code> depende de <code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code>, compile os pacotes respeitando a ordem de dependências:</p>
 <div class="fragment"><div class="line">cd ~/usv_digital_twin_ws</div>
 <div class="line"> </div>
 <div class="line">source /opt/ros/humble/setup.bash</div>
@@ -341,13 +341,13 @@ Compilação</h1>
 <div class="line">  --symlink-install</div>
 <div class="line">source install/setup.bash</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md33"></a>
+<h1><a class="anchor" id="autotoc_md1870"></a>
 Execução</h1>
 <p>Execute a interface:</p>
 <div class="fragment"><div class="line">ros2 run dt_viz dt_visualizer_node</div>
 </div><!-- fragment --><p>A janela deverá ser aberta com a visualização gráfica.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md1872"></a>
 Teste da derrota planejada</h1>
 <p>Em outro terminal, carregue o ambiente:</p>
 <div class="fragment"><div class="line">source /opt/ros/humble/setup.bash</div>
@@ -393,7 +393,7 @@ Teste da derrota planejada</h1>
 <div class="line">}&quot;</div>
 </div><!-- fragment --><p>A interface deverá exibir a linha da derrota e os waypoints.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md37"></a>
+<h1><a class="anchor" id="autotoc_md1874"></a>
 Teste do alerta de colisão</h1>
 <p>Nesta versão, os alvos simulados utilizam MMSIs fictícios:</p>
 <div class="fragment"><div class="line">710000001</div>
@@ -420,7 +420,7 @@ Teste do alerta de colisão</h1>
 <div class="line">  closest_approach_distance: -1.0</div>
 <div class="line">}&quot;</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md1876"></a>
 Inspeção dos tópicos</h1>
 <p>Liste os tópicos disponíveis:</p>
 <div class="fragment"><div class="line">ros2 topic list</div>
@@ -436,7 +436,7 @@ Inspeção dos tópicos</h1>
 <div class="fragment"><div class="line">ros2 topic echo /planned_route</div>
 </div><!-- fragment --><div class="fragment"><div class="line">ros2 topic echo /collision_alert</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md41"></a>
+<h1><a class="anchor" id="autotoc_md1878"></a>
 Imagem da interface</h1>
 <p>Adicione uma captura de tela em:</p>
 <div class="fragment"><div class="line">docs/interface-dt-viz.png</div>
@@ -445,7 +445,7 @@ Imagem da interface</h1>
 </div><!-- fragment --><p>Resultado esperado:</p>
 <p><img src="docs/interface-dt-viz.png" alt="Interface gráfica do DT Viz" class="inline"/></p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md43"></a>
+<h1><a class="anchor" id="autotoc_md1880"></a>
 Estado atual</h1>
 <p>O pacote está preparado para:</p>
 <ul>
@@ -457,7 +457,7 @@ Estado atual</h1>
 </ul>
 <p>As posições das embarcações ainda podem ser simuladas na interface, dependendo do estágio de integração com os outros módulos.</p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md45"></a>
+<h1><a class="anchor" id="autotoc_md1882"></a>
 Próximas etapas</h1>
 <ul>
 <li>Receber <code>dt_msgs/msg/AisReport</code>;</li>
@@ -471,7 +471,7 @@ Próximas etapas</h1>
 <li>Adicionar testes automatizados para os callbacks.</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md47"></a>
+<h1><a class="anchor" id="autotoc_md1884"></a>
 Pontos de alinhamento</h1>
 <p>Antes da integração definitiva com os demais módulos, devem ser confirmados:</p>
 <ul>
@@ -501,7 +501,7 @@ Pontos de alinhamento</h1>
 <div class="line">Identificador:</div>
 <div class="line">  MMSI</div>
 </div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md49"></a>
+<h1><a class="anchor" id="autotoc_md1886"></a>
 Critérios de conclusão</h1>
 <p>A implementação pode ser considerada concluída quando:</p>
 <ul>

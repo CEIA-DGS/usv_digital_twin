@@ -1,0 +1,40 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}object}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$object@{$<$small$>$nlohmann::basic\_json::$<$/small$>$object}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md600}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md600}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{classobject}{object}}(initializer\_list\_t\ init\ =\ \{\});}
+
+\end{DoxyCode}
+
+
+Creates a JSON object value from a given initializer list. The initializer lists elements must be pairs, and their first elements must be strings. If the initializer list is empty, the empty object {\ttfamily \#!json \{\}} is created.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md601}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md601}
+{\ttfamily init} (in) \+: initializer list with JSON values to create an object from (optional)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md602}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md602}
+JSON object value\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md603}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md603}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md604}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md604}
+Throws \href{../../home/exceptions.md\#jsonexceptiontype_error301}{\texttt{ {\ttfamily type\+\_\+error.\+301}}} if {\ttfamily init} is not a list of pairs whose first elements are strings. In this case, no object can be created. When such a value is passed to {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(initializer\+\_\+list\+\_\+t, bool, value\+\_\+t)}}, an array would have been created from the passed initializer list {\ttfamily init}. See example below.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md605}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md605}
+Linear in the size of {\ttfamily init}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md606}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md606}
+This function is only added for symmetry reasons. In contrast to the related function {\ttfamily \doxylink{classarray}{array(initializer\+\_\+list\+\_\+t)}}, there are no cases which can only be expressed by this function. That is, any initializer list {\ttfamily init} can also be passed to the initializer list constructor {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(initializer\+\_\+list\+\_\+t, bool, value\+\_\+t)}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md607}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md607}
+??? example \begin{DoxyVerb}The following code shows an example for the `object` function.
+
+```cpp
+--8<-- "examples/object.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/object.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md608}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md608}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{\`{}basic\+\_\+json(initializer\+\_\+list\+\_\+t)\`{}}{0} -\/ create a JSON value from an initializer list
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array}{\`{}array\`{}}{0} -\/ create a JSON array value from an initializer list
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md609}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object_autotoc_md609}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

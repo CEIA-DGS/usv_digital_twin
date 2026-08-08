@@ -1,0 +1,181 @@
+\chapter{BJData}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata}\index{BJData@{BJData}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1322}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1322}%
+ The \href{https://neurojson.org}{\texttt{ BJData format}} was derived from and improved upon \href{https://ubjson.org}{\texttt{ Universal Binary JSON(\+UBJSON)}} specification (Draft 12). Specifically, it introduces an optimized array container for efficient storage of N-\/dimensional packed arrays ({\bfseries{ND-\/arrays}}); it also adds 4 new type markers -\/ {\ttfamily \mbox{[}u\mbox{]} -\/ uint16}, {\ttfamily \mbox{[}m\mbox{]} -\/ uint32}, {\ttfamily \mbox{[}M\mbox{]} -\/ uint64} and {\ttfamily \mbox{[}h\mbox{]} -\/ float16} -\/ to unambiguously map common binary numeric types; furthermore, it uses little-\/endian (LE) to store all numerics instead of big-\/endian (BE) as in UBJSON to avoid unnecessary conversions on commonly available platforms.
+
+Compared to other binary JSON-\/like formats such as Message\+Pack and CBOR, both BJData and UBJSON demonstrate a rare combination of being both binary and {\bfseries{quasi-\/human-\/readable}}. This is because all semantic elements in BJData and UBJSON, including the data-\/type markers and name/string types are directly human-\/readable. \doxylink{structData}{Data} stored in the BJData/\+UBJSON format are not only compact in size, fast to read/write, but also can be directly searched or read using simple processing.
+
+!!! abstract "{}\+References"{} \begin{DoxyVerb}- [BJData Specification](https://neurojson.org/bjdata/draft2)
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1323}{}\doxysection{\texorpdfstring{Serialization}{Serialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1323}
+The library uses the following mapping from JSON values types to BJData types according to the BJData specification\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ value/range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BJData type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ value/range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BJData type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-4}
+\endhead
+null   &{\ttfamily null}   &null   &{\ttfamily Z}    \\\cline{1-4}
+boolean   &{\ttfamily true}   &true   &{\ttfamily T}    \\\cline{1-4}
+boolean   &{\ttfamily false}   &false   &{\ttfamily F}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/9223372036854775808..-\/2147483649   &int64   &{\ttfamily L}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/2147483648..-\/32769   &int32   &{\ttfamily l}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/32768..-\/129   &int16   &{\ttfamily I}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/128..127   &int8   &{\ttfamily i}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &128..255   &uint8   &{\ttfamily U}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &256..32767   &int16   &{\ttfamily I}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &32768..65535   &uint16   &{\ttfamily u}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &65536..2147483647   &int32   &{\ttfamily l}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &2147483648..4294967295   &uint32   &{\ttfamily m}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &4294967296..9223372036854775807   &int64   &{\ttfamily L}    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &9223372036854775808..18446744073709551615   &uint64   &{\ttfamily M}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &0..127   &int8   &{\ttfamily i}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &128..255   &uint8   &{\ttfamily U}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &256..32767   &int16   &{\ttfamily I}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &32768..65535   &uint16   &{\ttfamily u}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &65536..2147483647   &int32   &{\ttfamily l}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &2147483648..4294967295   &uint32   &{\ttfamily m}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &4294967296..9223372036854775807   &int64   &{\ttfamily L}    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &9223372036854775808..18446744073709551615   &uint64   &{\ttfamily M}    \\\cline{1-4}
+\doxylink{classnumber__float}{number\+\_\+float}   &{\itshape any value}   &float64   &{\ttfamily D}    \\\cline{1-4}
+string   &{\itshape with shortest length indicator}   &string   &{\ttfamily S}    \\\cline{1-4}
+array   &{\itshape see notes on optimized format/\+ND-\/array}   &array   &{\ttfamily \mbox{[}}    \\\cline{1-4}
+object   &{\itshape see notes on optimized format}   &map   &{\ttfamily \{}   \\\cline{1-4}
+\end{longtabu}
+
+
+!!! success "{}\+Complete mapping"{} \begin{DoxyVerb}The mapping is **complete** in the sense that any JSON value type can be converted to a BJData value.
+
+Any BJData output created by `to_bjdata` can be successfully parsed by `from_bjdata`.
+\end{DoxyVerb}
+ !!! warning "{}\+Size constraints"{} \begin{DoxyVerb}The following values can **not** be converted to a BJData value:
+
+  - strings with more than 18446744073709551615 bytes, i.e., $2^{64}-1$ bytes (theoretical)
+\end{DoxyVerb}
+ !!! info "{}\+Unused BJData markers"{} \begin{DoxyVerb}The following markers are not used in the conversion:
+
+- `Z`: no-op values are not created.
+- `C`: single-byte strings are serialized with `S` markers.
+\end{DoxyVerb}
+ !!! info "{}\+Na\+N/infinity handling"{} \begin{DoxyVerb}If NaN or Infinity are stored inside a JSON number, they are serialized properly. This behavior differs from the
+`dump()` function which serializes NaN or Infinity to `#!json null`.
+\end{DoxyVerb}
+ !!! info "{}\+Endianness"{} \begin{DoxyVerb}A breaking difference between BJData and UBJSON is the endianness of numerical values. In BJData, all numerical data
+types (integers `UiuImlML` and floating-point values `hdD`) are stored in the little-endian (LE) byte order as
+opposed to big-endian as used by UBJSON. Adopting LE to store numeric records avoids unnecessary byte swapping on
+most modern computers where LE is used as the default byte order.
+\end{DoxyVerb}
+ !!! info "{}\+Optimized formats"{} \begin{DoxyVerb}Optimized formats for containers are supported via two parameters of
+[`to_bjdata`](../../api/basic_json/to_bjdata.md):
+
+- Parameter `use_size` adds size information to the beginning of a container and removes the closing marker.
+- Parameter `use_type` further checks whether all elements of a container have the same type and adds the type
+  marker to the beginning of the container. The `use_type` parameter must only be used together with
+  `use_size = true`.
+
+Note that `use_size = true` alone may result in larger representations - the benefit of this parameter is that the
+receiving side is immediately informed of the number of elements in the container.
+\end{DoxyVerb}
+ !!! info "{}\+ND-\/array optimized format"{} \begin{DoxyVerb}BJData extends UBJSON's optimized array **size** marker to support ND-arrays of uniform numerical data types
+(referred to as *packed arrays*). For example, the 2-D `uint8` integer array `[[1,2],[3,4],[5,6]]`, stored as nested
+optimized array in UBJSON `[ [$U#i2 1 2 [$U#i2 3 4 [$U#i2 5 6 ]`, can be further compressed in BJData to
+`[$U#[$i#i2 2 3 1 2 3 4 5 6` or `[$U#[i2 i3] 1 2 3 4 5 6`.
+
+To maintain type and size information, ND-arrays are converted to JSON objects following the **annotated array
+format** (defined in the [JData specification (Draft 3)][JDataAAFmt]), when parsed using
+[`from_bjdata`](../../api/basic_json/from_bjdata.md). For example, the above 2-D `uint8` array can be parsed and
+accessed as
+
+```json
+{
+    "_ArrayType_": "uint8",
+    "_ArraySize_": [2,3],
+    "_ArrayData_": [1,2,3,4,5,6]
+}
+```
+
+Likewise, when a JSON object in the above form is serialzed using
+[`to_bjdata`](../../api/basic_json/to_bjdata.md), it is automatically converted into a compact BJData ND-array. The
+only exception is, that when the 1-dimensional vector stored in `"_ArraySize_"` contains a single integer or two
+integers with one being 1, a regular 1-D optimized array is generated.
+
+The current version of this library does not yet support automatic detection of and conversion from a nested JSON
+array input to a BJData ND-array.
+
+[JDataAAFmt]: https://github.com/NeuroJSON/jdata/blob/master/JData_specification.md#annotated-storage-of-n-d-arrays)
+\end{DoxyVerb}
+ !!! info "{}\+Restrictions in optimized data types for arrays and objects"{} \begin{DoxyVerb}Due to diminished space saving, hampered readability, and increased security risks, in BJData, the allowed data
+types following the `$` marker in an optimized array and object container are restricted to
+**non-zero-fixed-length** data types. Therefore, the valid optimized type markers can only be one of `UiuImlMLhdDC`.
+This also means other variable (`[{SH`) or zero-length types (`TFN`) can not be used in an optimized array or object
+in BJData.
+\end{DoxyVerb}
+ !!! info "{}\+Binary values"{} \begin{DoxyVerb}If the JSON data contains the binary type, the value stored is a list of integers, as suggested by the BJData
+documentation. In particular, this means that the serialization and the deserialization of JSON containing binary
+values into BJData and back will result in a different JSON object.
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/to_bjdata.cpp"
+```
+
+Output:
+
+```c
+--8<-- "examples/to_bjdata.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1324}{}\doxysection{\texorpdfstring{Deserialization}{Deserialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bjdata_autotoc_md1324}
+The library maps BJData types to JSON value types as follows\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BJData type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BJData type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-3}
+\endhead
+no-\/op   &{\itshape no value, next value is read}   &{\ttfamily N}    \\\cline{1-3}
+null   &{\ttfamily null}   &{\ttfamily Z}    \\\cline{1-3}
+false   &{\ttfamily false}   &{\ttfamily F}    \\\cline{1-3}
+true   &{\ttfamily true}   &{\ttfamily T}    \\\cline{1-3}
+float16   &\doxylink{classnumber__float}{number\+\_\+float}   &{\ttfamily h}    \\\cline{1-3}
+float32   &\doxylink{classnumber__float}{number\+\_\+float}   &{\ttfamily d}    \\\cline{1-3}
+float64   &\doxylink{classnumber__float}{number\+\_\+float}   &{\ttfamily D}    \\\cline{1-3}
+uint8   &\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &{\ttfamily U}    \\\cline{1-3}
+int8   &\doxylink{classnumber__integer}{number\+\_\+integer}   &{\ttfamily i}    \\\cline{1-3}
+uint16   &\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &{\ttfamily u}    \\\cline{1-3}
+int16   &\doxylink{classnumber__integer}{number\+\_\+integer}   &{\ttfamily I}    \\\cline{1-3}
+uint32   &\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &{\ttfamily m}    \\\cline{1-3}
+int32   &\doxylink{classnumber__integer}{number\+\_\+integer}   &{\ttfamily l}    \\\cline{1-3}
+uint64   &\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &{\ttfamily M}    \\\cline{1-3}
+int64   &\doxylink{classnumber__integer}{number\+\_\+integer}   &{\ttfamily L}    \\\cline{1-3}
+string   &string   &{\ttfamily S}    \\\cline{1-3}
+char   &string   &{\ttfamily C}    \\\cline{1-3}
+array   &array (optimized values are supported)   &{\ttfamily \mbox{[}}    \\\cline{1-3}
+ND-\/array   &object (in JData annotated array format)   &{\ttfamily \mbox{[}\$.\#\mbox{[}.}    \\\cline{1-3}
+object   &object (optimized values are supported)   &{\ttfamily \{}   \\\cline{1-3}
+\end{longtabu}
+
+
+!!! success "{}\+Complete mapping"{} \begin{DoxyVerb}The mapping is **complete** in the sense that any BJData value can be converted to a JSON value.
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/from_bjdata.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_bjdata.output"
+```
+\end{DoxyVerb}
+ 

@@ -1,0 +1,17 @@
+<map id="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/waypoint_array__description.c" name="install/dt_msgs/include/dt_msgs/dt_msgs/msg/detail/waypoint_array__description.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="419,5,643,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,108,219,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="419,61,210,108,209,102,418,56"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="243,115,317,141"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="460,63,330,110,324,113,322,108,328,106,458,58"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="342,115,413,141"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="489,62,409,111,406,106,486,58"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="437,108,624,148"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="533,60,533,94,528,94,528,60"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="648,108,805,148"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="587,58,676,100,674,105,585,62"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="829,108,1040,148"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="643,57,841,102,840,108,642,62"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="1065,108,1279,148"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="643,47,1051,105,1050,110,643,52"/>
+</map>

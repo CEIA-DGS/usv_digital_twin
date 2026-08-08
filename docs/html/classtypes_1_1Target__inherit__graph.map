@@ -1,5 +1,6 @@
 <map id="types::Target" name="types::Target">
 <area shape="rect" id="Node000001" title="Represents a tracked dynamic object, such as an AIS vessel." alt="" coords="5,79,112,104"/>
 <area shape="rect" id="Node000002" href="$classtypes_1_1Entity.html" title="Base class for any physical object in the Digital Twin environment." alt="" coords="7,5,111,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,44,61,79,56,79,56,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,44,54,78,49,79,47,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="70,45,68,79,63,78,65,44"/>
 </map>

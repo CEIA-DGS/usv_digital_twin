@@ -1,5 +1,6 @@
 <map id="VizNode" name="VizNode">
 <area shape="rect" id="Node000001" title="Nó ROS 2 responsável por receber dados para a interface." alt="" coords="19,79,95,104"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,108,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,44,59,79,54,79,54,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="51,44,52,78,47,79,45,45"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="68,45,66,79,61,78,63,44"/>
 </map>

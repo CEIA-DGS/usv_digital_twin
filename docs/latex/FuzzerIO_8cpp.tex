@@ -1,0 +1,46 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+IO.cpp File Reference}
+\hypertarget{FuzzerIO_8cpp}{}\label{FuzzerIO_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerIO.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerIO.cpp}}
+{\ttfamily \#include "{}Fuzzer\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Defs.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Ext\+Functions.\+h"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstdarg$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+Include dependency graph for Fuzzer\+IO.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerIO_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \mbox{\hyperlink{namespacefuzzer_abb0a4d30f608e64c47fb571fccbb67e6}{fuzzer\+::\+Get\+Epoch}} (const std\+::string \&Path)
+\item 
+\mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \mbox{\hyperlink{namespacefuzzer_ad0d32f18af1b62563991edc4642a6fa0}{fuzzer\+::\+File\+To\+Vector}} (const std\+::string \&Path, size\+\_\+t Max\+Size, bool Exit\+On\+Error)
+\item 
+std\+::string \mbox{\hyperlink{namespacefuzzer_abbe2e847d9d56992b217384ca3a562a4}{fuzzer\+::\+File\+To\+String}} (const std\+::string \&Path)
+\item 
+void \mbox{\hyperlink{namespacefuzzer_a3bff4894165422911c5705825520a5a6}{fuzzer\+::\+Copy\+File\+To\+Err}} (const std\+::string \&Path)
+\item 
+void \mbox{\hyperlink{namespacefuzzer_a55062839741b460271791a94c5ccedab}{fuzzer\+::\+Write\+To\+File}} (const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&U, const std\+::string \&Path)
+\item 
+void \mbox{\hyperlink{namespacefuzzer_aa656896c760e996b44c0a0299c2ee250}{fuzzer\+::\+Read\+Dir\+To\+Vector\+Of\+Units}} (const char \texorpdfstring{$\ast$}{*}Path, std\+::vector$<$ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} $>$ \texorpdfstring{$\ast$}{*}V, long \texorpdfstring{$\ast$}{*}Epoch, size\+\_\+t Max\+Size, bool Exit\+On\+Error)
+\item 
+std\+::string \mbox{\hyperlink{namespacefuzzer_a874eb385b20be8a4df019f6ea8c5662b}{fuzzer\+::\+Dir\+Plus\+File}} (const std\+::string \&Dir\+Path, const std\+::string \&File\+Name)
+\item 
+void \mbox{\hyperlink{namespacefuzzer_a8cc9e1345d122734e53d428065deb7f8}{fuzzer\+::\+Dup\+And\+Close\+Stderr}} ()
+\item 
+void \mbox{\hyperlink{namespacefuzzer_ab6e0b39da1b114b0d35392252fb25475}{fuzzer\+::\+Close\+Stdout}} ()
+\item 
+void \mbox{\hyperlink{namespacefuzzer_afab785891fdb74f8fd33bca421bde935}{fuzzer\+::\+Printf}} (const char \texorpdfstring{$\ast$}{*}Fmt,...)
+\end{DoxyCompactItemize}

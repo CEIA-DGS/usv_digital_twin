@@ -1,0 +1,21 @@
+\doxysection{Gerenciador\+Config.\+h}
+\hypertarget{GerenciadorConfig_8h_source}{}\label{GerenciadorConfig_8h_source}\index{install/dt\_core/include/map/GerenciadorConfig.h@{install/dt\_core/include/map/GerenciadorConfig.h}}
+\mbox{\hyperlink{GerenciadorConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structConfiguracaoMapa}{ConfiguracaoMapa}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structConfiguracaoMapa_a9f03a59b8a5241f7d5c39b7145ae5705}{margemSeguranca}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structConfiguracaoMapa_ae1d2f901af19e8809c7f2d376cf68f9e}{toleranciaSimplificacao}};\ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{structConfiguracaoMapa_ac16d35bccf6da0d5d4a66c6df25b73df}{classesNavegaveis}};\ }
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{structConfiguracaoMapa_aad72c1402c8825b5a834072d60d2d4f0}{classesColisao}};\ \ \ \ }
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGerenciadorConfig}{GerenciadorConfig}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structConfiguracaoMapa}{ConfiguracaoMapa}}\ \mbox{\hyperlink{classGerenciadorConfig_aaa751c6b2ec22bf252c6ca7a200f85d0}{carregarConfiguracao}}(\textcolor{keyword}{const}\ std::string\&\ caminhoArquivo);}
+\DoxyCodeLine{00026\ \};}
+
+\end{DoxyCode}

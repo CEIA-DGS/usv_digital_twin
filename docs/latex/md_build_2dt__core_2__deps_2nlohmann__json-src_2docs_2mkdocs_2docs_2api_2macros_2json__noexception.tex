@@ -1,0 +1,38 @@
+\chapter{JSON\+\_\+\+NOEXCEPTION}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception}\index{JSON\_NOEXCEPTION@{JSON\_NOEXCEPTION}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1186}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1186}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_NOEXCEPTION}}
+
+\end{DoxyCode}
+
+
+Exceptions can be switched off by defining the symbol {\ttfamily JSON\+\_\+\+NOEXCEPTION}. When defining {\ttfamily JSON\+\_\+\+NOEXCEPTION}, {\ttfamily \#!cpp try} is replaced by {\ttfamily \#!cpp if (true)}, {\ttfamily \#!cpp catch} is replaced by {\ttfamily \#!cpp if (false)}, and {\ttfamily \#!cpp throw} is replaced by {\ttfamily \#!cpp std\+::abort()}.
+
+The same effect is achieved by setting the compiler flag {\ttfamily -\/fno-\/exceptions}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1187}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1187}
+By default, the macro is not defined.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#undef\ JSON\_NOEXCEPTION}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1188}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1188}
+The explanatory \href{https://en.cppreference.com/w/cpp/error/exception/what}{\texttt{ {\ttfamily what()}}} string of exceptions is not available for MSVC if exceptions are disabled, see \href{https://github.com/nlohmann/json/discussions/2824}{\texttt{ \#2824}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1189}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1189}
+??? example \begin{DoxyVerb}The code below switches off exceptions in the library.
+
+```cpp
+#define JSON_NOEXCEPTION 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1190}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1190}
+
+\begin{DoxyItemize}
+\item \href{../../home/exceptions.md\#switch-off-exceptions}{\texttt{ Switch off exceptions}} for more information how to switch off exceptions
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1191}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception_autotoc_md1191}
+Added in version 2.\+1.\+0. 

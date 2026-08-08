@@ -1,0 +1,129 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/testsuites.cpp File Reference}
+\hypertarget{unit-testsuites_8cpp}{}\label{unit-testsuites_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/testsuites.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/testsuites.cpp}}
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}make\+\_\+test\+\_\+data\+\_\+available.\+hpp"{}}\newline
+Include dependency graph for unit-\/testsuites.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-testsuites_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_a7ce52e38b6ee2b397ee56a4d6d640483}{TEST\+\_\+\+CASE}} ("{}compliance tests from json.\+org"{})
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_adfdf277400afe50035cb7fca6b1da632}{TEST\+\_\+\+CASE}} ("{}compliance tests from nativejson-\/benchmark"{})
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_a36ca4603484e3ce0415489f55e7e4ec6}{TEST\+\_\+\+CASE}} ("{}test suite from \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}-\/test-\/suite"{})
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_a3b906a3939776c23eec4a58f7ccbf30c}{TEST\+\_\+\+CASE}} ("{}json.\+org examples"{})
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_a56ca03667bcb4e7cb118cb2eb8de0afe}{TEST\+\_\+\+CASE}} ("{}RFC 8259 examples"{})
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_a925a07add72cb91b23496dcd84df4dc4}{CHECK\+\_\+\+NOTHROW}} (\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(json\+\_\+contents))
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_af1b61fd050422c060f5d30ef2c97f6c6}{CHECK}} (json\+::parse("{}\textbackslash{}"{}Hello world!\textbackslash{}"{}"{})==\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}("{}Hello world!"{}))
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_af4a354a765d10f99cc4a774e211dfecc}{CHECK}} (json\+::parse("{}42"{})==\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(42))
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_ae96f8e7e7b3ad0597043a637d5364a25}{CHECK}} (json\+::parse("{}true"{})==\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(true))
+\item 
+\mbox{\hyperlink{unit-testsuites_8cpp_aea428621ae2a4c2eff36cbe655bbde8a}{TEST\+\_\+\+CASE}} ("{}nst\textquotesingle{}s JSONTest\+Suite"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-testsuites_8cpp_af4a354a765d10f99cc4a774e211dfecc}\label{unit-testsuites_8cpp_af4a354a765d10f99cc4a774e211dfecc} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{json\+::parse("{}42"{})}]{ = {\ttfamily =\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(42)} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_af1b61fd050422c060f5d30ef2c97f6c6}\label{unit-testsuites_8cpp_af1b61fd050422c060f5d30ef2c97f6c6} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{json\+::parse("{}\textbackslash{}"{}Hello world!\textbackslash{}"{}"{})}]{ = {\ttfamily =\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}("{}Hello~world!"{})} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_ae96f8e7e7b3ad0597043a637d5364a25}\label{unit-testsuites_8cpp_ae96f8e7e7b3ad0597043a637d5364a25} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{json\+::parse("{}true"{})}]{ = {\ttfamily =\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(true)} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_a925a07add72cb91b23496dcd84df4dc4}\label{unit-testsuites_8cpp_a925a07add72cb91b23496dcd84df4dc4} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!CHECK\_NOTHROW@{CHECK\_NOTHROW}}
+\index{CHECK\_NOTHROW@{CHECK\_NOTHROW}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK\_NOTHROW()}{CHECK\_NOTHROW()}}
+{\footnotesize\ttfamily CHECK\+\_\+\+NOTHROW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(json\+\_\+contents)}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}*\ json\_contents\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}precision"{}:\ "{}zip"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Latitude"{}:\ \ 37.7668,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Longitude"{}:\ -\/122.3959,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Address"{}:\ \ \ "{}"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}City"{}:\ \ \ \ \ \ "{}SAN\ FRANCISCO"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}State"{}:\ \ \ \ \ "{}CA"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Zip"{}:\ \ \ \ \ \ \ "{}94107"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Country"{}:\ \ \ "{}US"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}precision"{}:\ "{}zip"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Latitude"{}:\ \ 37.371991,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Longitude"{}:\ -\/122.026020,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Address"{}:\ \ \ "{}"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}City"{}:\ \ \ \ \ \ "{}SUNNYVALE"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}State"{}:\ \ \ \ \ "{}CA"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Zip"{}:\ \ \ \ \ \ \ "{}94085"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Country"{}:\ \ \ "{}US"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ ])"{}}}
+
+\end{DoxyCode}
+\Hypertarget{unit-testsuites_8cpp_a7ce52e38b6ee2b397ee56a4d6d640483}\label{unit-testsuites_8cpp_a7ce52e38b6ee2b397ee56a4d6d640483} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}compliance tests from json.\+org"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_adfdf277400afe50035cb7fca6b1da632}\label{unit-testsuites_8cpp_adfdf277400afe50035cb7fca6b1da632} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}compliance tests from nativejson-\/benchmark"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_a3b906a3939776c23eec4a58f7ccbf30c}\label{unit-testsuites_8cpp_a3b906a3939776c23eec4a58f7ccbf30c} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}json.\+org examples"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_aea428621ae2a4c2eff36cbe655bbde8a}\label{unit-testsuites_8cpp_aea428621ae2a4c2eff36cbe655bbde8a} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}nst\textquotesingle{}s JSONTest\+Suite"{}        }]{ }\end{DoxyParamCaption})}
+
+TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nst\+\_\+json\+\_\+testsuite/test\+\_\+parsing/n\+\_\+structure\+\_\+100000\+\_\+opening\+\_\+arrays.\+json"{},
+
+TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nst\+\_\+json\+\_\+testsuite/test\+\_\+parsing/n\+\_\+structure\+\_\+open\+\_\+array\+\_\+object.\+json"{},\Hypertarget{unit-testsuites_8cpp_a56ca03667bcb4e7cb118cb2eb8de0afe}\label{unit-testsuites_8cpp_a56ca03667bcb4e7cb118cb2eb8de0afe} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}RFC 8259 examples"{}        }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-testsuites_8cpp_a36ca4603484e3ce0415489f55e7e4ec6}\label{unit-testsuites_8cpp_a36ca4603484e3ce0415489f55e7e4ec6} 
+\index{unit-\/testsuites.cpp@{unit-\/testsuites.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/testsuites.cpp@{unit-\/testsuites.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}test suite from \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}-\/test-\/suite"{}        }]{ }\end{DoxyParamCaption})}
+

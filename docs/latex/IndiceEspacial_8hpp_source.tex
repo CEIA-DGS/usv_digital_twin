@@ -1,0 +1,64 @@
+\doxysection{Indice\+Espacial.\+hpp}
+\hypertarget{IndiceEspacial_8hpp_source}{}\label{IndiceEspacial_8hpp_source}\index{install/dt\_core/include/map/IndiceEspacial.hpp@{install/dt\_core/include/map/IndiceEspacial.hpp}}
+\mbox{\hyperlink{IndiceEspacial_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <boost/geometry.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <boost/geometry/geometries/point\_xy.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <boost/geometry/geometries/box.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <boost/geometry/geometries/segment.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <boost/geometry/geometries/polygon.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <boost/geometry/index/rtree.hpp>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}dt\_core/types.hpp"{}}\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }bg\ =\ boost::geometry;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }bgi\ =\ boost::geometry::index;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Definições\ de\ primitivas\ geométricas\ utilizando\ o\ motor\ Boost.Geometry}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ bg::model::d2::point\_xy<double>\ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{BgPonto}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ bg::model::segment<BgPonto>\ \mbox{\hyperlink{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}{BgSegmento}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ bg::model::box<BgPonto>\ \mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{BgCaixaReal}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ bg::model::polygon<BgPonto>\ \mbox{\hyperlink{IndiceEspacial_8hpp_a7999d9d214d2e2f31d29e90717228994}{BgPoligono}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Pares\ indexados\ para\ inserção\ eficiente\ nas\ estruturas\ R-\/Tree\ do\ Boost}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ std::pair<BgCaixaReal,\ BgSegmento>\ \mbox{\hyperlink{IndiceEspacial_8hpp_a11d3bd7fd6f9bbb4773ba200e4d1d57d}{ValorRTreeSegmento}};}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ std::pair<BgCaixaReal,\ size\_t>\ \mbox{\hyperlink{IndiceEspacial_8hpp_ad18ef447527dc90eaa9e9ba1f8a29049}{ValorRTreePoligono}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classIndiceEspacial}{IndiceEspacial}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ bgi::rtree<ValorRTreeSegmento,\ bgi::quadratic<16>>\ rtree\_margem\_;\ }
+\DoxyCodeLine{00037\ \ \ \ \ bgi::rtree<ValorRTreePoligono,\ bgi::quadratic<16>>\ rtree\_malha\_;\ \ }
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<BgPoligono>\ triangulos\_malha\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<types::Target>\ alvos\_globais\_cache\_;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classIndiceEspacial_ab48610952d27e77dc16712414cd8efa0}{IndiceEspacial}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classIndiceEspacial_a9337e90901e52cde2f3d2357420c17e3}{\string~IndiceEspacial}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIndiceEspacial_a4652707126f6df639064e1f1efb1bc8b}{carregarShapefiles}}(\textcolor{keyword}{const}\ std::string\&\ shpMargem,\ \textcolor{keyword}{const}\ std::string\&\ shpMalha);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classIndiceEspacial_aa0a017816611b2e545a9b36c92fa55f2}{get\_closest\_static\_obstacle\_distance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ position)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIndiceEspacial_a01d4ac92416d6772bdeb0c86f276c410}{is\_inside\_restricted\_zone}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ position)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIndiceEspacial_abd613030f2ec9db50d552ab89bd840cc}{update\_global\_targets}}(\textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00086\ \ \ \ \ std::vector<types::Target>\ \mbox{\hyperlink{classIndiceEspacial_aaf515a7d3e3fe4d252837e5925b74e08}{get\_active\_local\_targets}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ center,\ \textcolor{keywordtype}{float}\ radius)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Métodos\ Base\ e\ Debug}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classIndiceEspacial_a8f65698a6b26934abd55b69c8311d115}{calcularDistanciaMargem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ posicao)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classIndiceEspacial_a1c0565627db390471ad2f019b18f19e8}{isNavegavel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ posicao)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classIndiceEspacial_a625ca2b3e0440d1e1a93038b79fd770e}{exportarDebugRTree}}(\textcolor{keyword}{const}\ std::vector<types::Point>\&\ pontos\_teste,\ \textcolor{keyword}{const}\ std::string\&\ pastaSaida,\ \textcolor{keywordtype}{int}\ epsg\_utm)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00113\ \};}
+
+\end{DoxyCode}

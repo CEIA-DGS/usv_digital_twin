@@ -1,0 +1,71 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}value\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$value\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$value\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md934}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md934}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632}{value\_t}}\ :\ std::uint8\_t\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a37a6259cc0c1dae299a7866489dff0bd}{null}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classobject}{object}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classarray}{array}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classstring}{string}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a84e2c64f38f78ba3ea5c905ab5a2da27}{boolean}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnumber__integer}{number\_integer}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnumber__unsigned}{number\_unsigned}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnumber__float}{number\_float}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a94708897ec9db8647dfe695714c98e46}{discarded}}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This enumeration collects the different JSON types. It is internally used to distinguish the stored values, and the functions \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__null}{\`{}is\+\_\+null\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__object}{\`{}is\+\_\+object\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__array}{\`{}is\+\_\+array\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__string}{\`{}is\+\_\+string\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__boolean}{\`{}is\+\_\+boolean\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{\`{}is\+\_\+number\`{}}{0} (with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__integer}{\`{}is\+\_\+number\+\_\+integer\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__unsigned}{\`{}is\+\_\+number\+\_\+unsigned\`{}}{0}, and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__float}{\`{}is\+\_\+number\+\_\+float\`{}}{0}), \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__discarded}{\`{}is\+\_\+discarded\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__binary}{\`{}is\+\_\+binary\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive}{\`{}is\+\_\+primitive\`{}}{0}, and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__structured}{\`{}is\+\_\+structured\`{}}{0} rely on it.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md935}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md935}
+!!! note "{}\+Ordering"{} \begin{DoxyVerb}The order of types is as follows:
+
+1. `null`
+2. `boolean`
+3. `number_integer`, `number_unsigned`, `number_float`
+4. `object`
+5. `array`
+6. `string`
+7. `binary`
+
+`discarded` is unordered.
+\end{DoxyVerb}
+ !!! note "{}\+Types of numbers"{} \begin{DoxyVerb}There are three enumerators for numbers (`number_integer`, `number_unsigned`, and `number_float`) to distinguish
+between different types of numbers:
+
+  - [`number_unsigned_t`](number_unsigned_t.md) for unsigned integers
+  - [`number_integer_t`](number_integer_t.md) for signed integers
+  - [`number_float_t`](number_float_t.md) for floating-point numbers or to approximate integers which do not fit
+    into the limits of their respective type
+\end{DoxyVerb}
+ !!! warning "{}\+Comparison operators"{} \begin{DoxyVerb}`operator<` and `operator<=>` (since C++20) are overloaded and compare according to the ordering described above.
+Until C++20 all other relational and equality operators yield results according to the integer value of each
+enumerator. Since C++20 some compilers consider the _rewritten candidates_ generated from `operator<=>` during
+overload resolution, while others do not. For predictable and portable behavior use:
+
+  - `operator<` or `operator<=>` when wanting to compare according to the order described above
+  - `operator==` or `operator!=` when wanting to compare according to each enumerators integer value
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md936}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md936}
+??? example \begin{DoxyVerb}The following code how `type()` queries the `value_t` for all JSON types.
+
+```cpp
+--8<-- "examples/type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/type.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md937}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t_autotoc_md937}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Added unsigned integer type in version 2.\+0.\+0.
+\item Added binary type in version 3.\+8.\+0. 
+\end{DoxyItemize}

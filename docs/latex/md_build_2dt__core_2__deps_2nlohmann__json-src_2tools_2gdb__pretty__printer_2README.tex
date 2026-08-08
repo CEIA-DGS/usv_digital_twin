@@ -1,0 +1,73 @@
+\chapter{GDB Pretty Printer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README}\index{GDB Pretty Printer@{GDB Pretty Printer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1818}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1818}%
+ File \href{nlohmann-json.py}{\texttt{ nlohmann-\/json.\+py}} contains a pretty printer for GDB for JSON values of this library. It was originally published as \href{https://gist.github.com/ssbssa/60da5339c6e6036b2afce17de06050ea\#file-nlohmann-json-py}{\texttt{ Gist}} by \href{https://github.com/ssbssa}{\texttt{ Hannes Domani}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1819}{}\doxysection{\texorpdfstring{How to use}{How to use}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1819}
+
+\begin{DoxyItemize}
+\item Add line
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source\ /path/to/nlohmann-\/json.py}
+
+\end{DoxyCode}
+
+
+to {\ttfamily \texorpdfstring{$\sim$}{\string~}/.gdbinit}. Note you must replace {\ttfamily /path/to} with whatever path you stored file {\ttfamily \doxylink{nlohmann-json_8py}{nlohmann-\/json.\+py}}.
+\item In GDB, debug as usual. When you want to pretty-\/print a JSON value {\ttfamily var}, type
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{p\ -\/pretty\ on\ -\/array\ on\ -\/-\/\ var}
+
+\end{DoxyCode}
+
+
+The result should look like
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$1\ =\ std::map\ with\ 5\ elements\ =\ \{}
+\DoxyCodeLine{\ \ \ \ ["{}Baptiste"{}]\ =\ std::map\ with\ 1\ element\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}first"{}]\ =\ "{}second"{}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ["{}Emmanuel"{}]\ =\ std::vector\ of\ length\ 3,\ capacity\ 3\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 3,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ "{}25"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.5}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ["{}Jean"{}]\ =\ 0.7,}
+\DoxyCodeLine{\ \ \ \ ["{}Zorg"{}]\ =\ std::map\ with\ 8\ elements\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}array"{}]\ =\ std::vector\ of\ length\ 3,\ capacity\ 3\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 2}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}awesome\_str"{}]\ =\ "{}bleh"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}bool"{}]\ =\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}flex"{}]\ =\ 0.2,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}float"{}]\ =\ 5.22,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}int"{}]\ =\ 5,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}nested"{}]\ =\ std::map\ with\ 1\ element\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ["{}bar"{}]\ =\ "{}barz"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ["{}trap\ "{}]\ =\ "{}you\ fell"{}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ ["{}empty"{}]\ =\ nlohmann::detail::value\_t::null}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+Requires Python 3.\+9+. Last tested with GDB 12.\+1. See \href{https://github.com/nlohmann/json/issues/1952}{\texttt{ \#1952}} for more information. Please post questions there.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1820}{}\doxysection{\texorpdfstring{Copyright}{Copyright}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2gdb__pretty__printer_2README_autotoc_md1820}
+MIT License
+
+Copyright (C) 2020 \href{https://github.com/ssbssa}{\texttt{ Hannes Domani}}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "{}\+Software"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "{}\+AS IS"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

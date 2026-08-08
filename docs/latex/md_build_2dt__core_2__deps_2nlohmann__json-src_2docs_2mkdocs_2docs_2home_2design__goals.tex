@@ -1,0 +1,22 @@
+\chapter{Design goals}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2design__goals}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2design__goals}\index{Design goals@{Design goals}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2design__goals_autotoc_md1481}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2design__goals_autotoc_md1481}%
+ There are myriads of \href{https://json.org}{\texttt{ JSON}} libraries out there, and each may even have its reason to exist. Our class had these design goals\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Intuitive syntax}}. In languages such as Python, JSON feels like a first class data type. We used all the operator magic of modern C++ to achieve the same feeling in your code. Check out the examples below, and you\textquotesingle{}ll know what I mean.
+\item {\bfseries{Trivial integration}}. Our whole code consists of a single header file \href{https://github.com/nlohmann/json/blob/develop/single_include/nlohmann/json.hpp}{\texttt{ {\ttfamily json.\+hpp}}}. That\textquotesingle{}s it. No library, no subproject, no dependencies, no complex build system. The class is written in vanilla C++11. All in all, everything should require no adjustment of your compiler flags or project settings.
+\item {\bfseries{Serious testing}}. Our class is heavily \href{https://github.com/nlohmann/json/tree/develop/test/src}{\texttt{ unit-\/tested}} and covers \href{https://coveralls.io/r/nlohmann/json}{\texttt{ 100\%}} of the code, including all exceptional behavior. Furthermore, we checked with \href{http://valgrind.org}{\texttt{ Valgrind}} and the \href{https://clang.llvm.org/docs/index.html}{\texttt{ Clang Sanitizers}} that there are no memory leaks. \href{https://github.com/google/oss-fuzz/tree/master/projects/json}{\texttt{ Google OSS-\/\+Fuzz}} additionally runs fuzz tests against all parsers 24/7, effectively executing billions of tests so far. To maintain high quality, the project is following the \href{https://bestpractices.coreinfrastructure.org/projects/289}{\texttt{ Core Infrastructure Initiative (CII) best practices}}.
+\end{DoxyItemize}
+
+Other aspects were not so important to us\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Memory efficiency}}. Each JSON object has an overhead of one pointer (the maximal size of a union) and one enumeration element (1 byte). The default generalization uses the following C++ data types\+: {\ttfamily std\+::string} for strings, {\ttfamily int64\+\_\+t}, {\ttfamily uint64\+\_\+t} or {\ttfamily double} for numbers, {\ttfamily std\+::map} for objects, {\ttfamily std\+::vector} for arrays, and {\ttfamily bool} for Booleans. However, you can template the generalized class {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} to your needs.
+\item {\bfseries{Speed}}. There are certainly \href{https://github.com/miloyip/nativejson-benchmark\#parsing-time}{\texttt{ faster JSON libraries}} out there. However, if your goal is to speed up your development by adding JSON support with a single header, then this library is the way to go. If you know how to use a {\ttfamily std\+::vector} or {\ttfamily std\+::map}, you are already set.
+\end{DoxyItemize}
+
+See the \href{https://github.com/nlohmann/json/blob/master/.github/CONTRIBUTING.md\#please-dont}{\texttt{ contribution guidelines}} for more information. 

@@ -1,0 +1,172 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}parse}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse@{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md741}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md741}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ InputType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ parse(InputType\&\&\ i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ parser\_callback\_t\ \mbox{\hyperlink{unit-regression1_8cpp_a319da8caabef4a3bd5d64605961f0aa9}{cb}}\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ ignore\_comments\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ IteratorType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ parse(IteratorType\ first,\ IteratorType\ last,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ parser\_callback\_t\ \mbox{\hyperlink{unit-regression1_8cpp_a319da8caabef4a3bd5d64605961f0aa9}{cb}}\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ ignore\_comments\ =\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Deserialize from a compatible input.
+\item Deserialize from a pair of character iterators
+
+The {\ttfamily value\+\_\+type} of the iterator must be an integral type with size of 1, 2 or 4 bytes, which will be interpreted respectively as UTF-\/8, UTF-\/16 and UTF-\/32.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md742}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md742}
+{\ttfamily Input\+Type} \+: A compatible input, for instance\+: \begin{DoxyVerb}- an `std::istream` object
+- a `FILE` pointer (must not be null)
+- a C-style array of characters
+- a pointer to a null-terminated string of single byte characters
+- a `std::string`
+- an object `obj` for which `begin(obj)` and `end(obj)` produces a valid pair of iterators.
+\end{DoxyVerb}
+ {\ttfamily Iterator\+Type} \+: a compatible iterator type, for instance. \begin{DoxyVerb}- a pair of `std::string::iterator` or `std::vector<std::uint8_t>::iterator`
+- a pair of pointers such as `ptr` and `ptr + len`
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md743}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md743}
+{\ttfamily i} (in) \+: Input to parse from.
+
+{\ttfamily cb} (in) \+: a parser callback function of type \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parser__callback__t}{\`{}parser\+\_\+callback\+\_\+t\`{}}{0} which is used to control the deserialization by filtering unwanted values (optional)
+
+{\ttfamily allow\+\_\+exceptions} (in) \+: whether to throw exceptions in case of a parse error (optional, {\ttfamily \#!cpp true} by default)
+
+{\ttfamily ignore\+\_\+comments} (in) \+: whether comments should be ignored and treated like whitespace ({\ttfamily \#!cpp true}) or yield a parse error ({\ttfamily \#!cpp false}); (optional, {\ttfamily \#!cpp false} by default)
+
+{\ttfamily first} (in) \+: iterator to start of character range
+
+{\ttfamily last} (in) \+: iterator to end of character range\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md744}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md744}
+Deserialized JSON value; in case of a parse error and {\ttfamily allow\+\_\+exceptions} set to {\ttfamily \#!cpp false}, the return value will be {\ttfamily value\+\_\+t\+::discarded}. The latter can be checked with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__discarded}{\`{}is\+\_\+discarded\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md745}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md745}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md746}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md746}
+
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error101}{\texttt{ {\ttfamily parse\+\_\+error.\+101}}} in case of an unexpected token.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error102}{\texttt{ {\ttfamily parse\+\_\+error.\+102}}} if to\+\_\+unicode fails or surrogate error.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error103}{\texttt{ {\ttfamily parse\+\_\+error.\+103}}} if to\+\_\+unicode fails.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md747}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md747}
+Linear in the length of the input. The parser is a predictive LL(1) parser. The complexity can be higher if the parser callback function {\ttfamily cb} or reading from (1) the input {\ttfamily i} or (2) the iterator range \mbox{[}{\ttfamily first}, {\ttfamily last}\mbox{]} has a super-\/linear complexity.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md748}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md748}
+(1) A UTF-\/8 byte order mark is silently ignored.
+
+!!! danger "{}\+Runtime assertion"{} \begin{DoxyVerb}The precondition that a passed `#!cpp FILE` pointer must not be null is enforced with a
+[runtime assertion](../../features/assertions.md).
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md749}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md749}
+??? example "{}\+Parsing from a character array"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function reading from an array.
+
+```cpp
+--8<-- "examples/parse__array__parser_callback_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__array__parser_callback_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Parsing from a string"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function with and without callback function.
+
+```cpp
+--8<-- "examples/parse__string__parser_callback_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__string__parser_callback_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Parsing from an input stream"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function with and without callback function.
+
+```cpp
+--8<-- "examples/parse__istream__parser_callback_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__istream__parser_callback_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Parsing from a contiguous container"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function reading from a contiguous container.
+
+```cpp
+--8<-- "examples/parse__contiguouscontainer__parser_callback_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__contiguouscontainer__parser_callback_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Parsing from a non null-\/terminated string"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function reading from a string that is not null-terminated.
+
+```cpp
+--8<-- "examples/parse__pointers.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__pointers.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Parsing from an iterator pair"{} \begin{DoxyVerb}The example below demonstrates the `parse()` function reading from an iterator pair.
+
+```cpp
+--8<-- "examples/parse__iterator_pair.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__iterator_pair.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Effect of \`{}allow\+\_\+exceptions\`{} parameter"{} \begin{DoxyVerb}The example below demonstrates the effect of the `allow_exceptions` parameter in the ´parse()` function.
+
+```cpp
+--8<-- "examples/parse__allow_exceptions.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__allow_exceptions.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md750}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md750}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2accept}{accept}{0} -\/ check if the input is valid JSON
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__gtgt}{operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}}{0} -\/ deserialize from stream
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md751}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse_autotoc_md751}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Overload for contiguous containers (1) added in version 2.\+0.\+3.
+\item Ignoring comments via {\ttfamily ignore\+\_\+comments} added in version 3.\+9.\+0.
+\end{DoxyItemize}
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}Overload (2) replaces calls to `parse` with a pair of iterators as their first parameter which has been
+deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+`#!cpp parse({ptr, ptr+len}, ...);` with `#!cpp parse(ptr, ptr+len, ...);`.
+
+You should be warned by your compiler with a `-Wdeprecated-declarations` warning if you are using a deprecated
+function.
+\end{DoxyVerb}
+ 

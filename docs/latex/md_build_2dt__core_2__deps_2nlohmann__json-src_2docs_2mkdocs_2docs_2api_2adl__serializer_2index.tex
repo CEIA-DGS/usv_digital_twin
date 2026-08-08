@@ -1,0 +1,42 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}adl\+\_\+serializer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index}\index{$<$small$>$nlohmann::$<$/small$>$adl\_serializer@{$<$small$>$nlohmann::$<$/small$>$adl\_serializer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md64}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md64}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename},\ \textcolor{keyword}{typename}>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }\mbox{\hyperlink{structadl__serializer}{adl\_serializer}};}
+
+\end{DoxyCode}
+
+
+Serializer that uses ADL (\href{https://en.cppreference.com/w/cpp/language/adl}{\texttt{ Argument-\/\+Dependent Lookup}}) to choose {\ttfamily to\+\_\+json}/{\ttfamily from\+\_\+json} functions from the types\textquotesingle{} namespaces.
+
+It is implemented similar to
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ValueType>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }\mbox{\hyperlink{structadl__serializer}{adl\_serializer}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structadl__serializer_a0216149429fe899cf45cbf14e08e2166}{to\_json}}(BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ calls\ the\ "{}to\_json"{}\ method\ in\ T's\ namespace}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structadl__serializer_a5645c63fe43bd9b4ebc9917f9c99d0fd}{from\_json}}(\textcolor{keyword}{const}\ BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ same\ thing,\ but\ with\ the\ "{}from\_json"{}\ method}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md65}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md65}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+json\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ convert a JSON value to any value type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+json\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ convert any value type to a JSON value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md66}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index_autotoc_md66}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+1.\+0. 
+\end{DoxyItemize}

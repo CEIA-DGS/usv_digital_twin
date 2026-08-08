@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Digital Twin: Main Page</title>
+<title>Digital Twin: USV Digital Twin - Official Documentation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,10 +69,44 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Digital Twin Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">USV Digital Twin - Official Documentation </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
+1. Digital Twin General Flow</h1>
+<p>The <b>USV Digital Twin</b> acts as the computational brain for the Unmanned Surface Vehicle. The overall system flow starts with the ingestion of official S-57 nautical charts, followed by the generation of a spatial Navigation Mesh (NavMesh) using Constrained Delaunay Triangulation (CDT).</p>
+<p>At runtime, the system maintains a thread-safe <code>WorldStateSnapshot</code>. This snapshot unifies the static map (via R-Tree spatial indexing), the USV real-time odometry, and the predictive kinematics of dynamic targets to calculate spatial risk fields and predict collisions.</p>
+<h1><a class="anchor" id="arch_sec"></a>
+2. System Architecture (Separation of Concerns)</h1>
+<p>The project is divided into four main packages to isolate the mathematical engine from the communication middleware:</p>
+<ul>
+<li>**<code>dt_core</code>**: The pure C++ central engine (ROS-independent). Handles geometric processing (GDAL/Boost), Spatial Indexes, memory-safe Snapshot generation, and collision prediction algorithms.</li>
+<li>**<code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code>**: Custom message definitions (IDL) for data traffic on the ROS 2 bus.</li>
+<li>**<code><a class="el" href="namespacedt__ros.html">dt_ros</a></code>**: The Adapter Node. Acts as a bridge, subscribing to the USV sensors and injecting translated raw data into the <code>dt_core</code> asynchronously.</li>
+<li>**<code>dt_viz</code>**: Diagnostic Graphical User Interface (GUI) developed in Qt5.</li>
+</ul>
+<h1><a class="anchor" id="qt_gui_sec"></a>
+3. Qt GUI &amp; Threading Integration</h1>
+<p>To ensure the Qt GUI rendering does not cause <em>thread-blocking</em> issues with the ROS 2 spin loop, the architecture strictly uses the Immutable Snapshot pattern.</p>
+<p>The frontend GUI communicates by requesting <code>DigitalTwinCore::get_latest_state()</code>. This returns a frozen pointer of the environment. The Qt application consumes this data via asynchronous Timers and Signals/Slots, querying the Spatial Engine (O(LogN)) to draw heatmaps, targets, and alerts without locking the backend data ingestion.</p>
+<h1><a class="anchor" id="ros_api_sec"></a>
+4. ROS 2 API (Topics &amp; Interfaces)</h1>
+<p>The <code><a class="el" href="namespacedt__ros.html">dt_ros</a></code> adapter interfaces with the rest of the USV stack through the following topics:</p>
+<h2><a class="anchor" id="sub_sec"></a>
+Subscribers (Inputs to the Twin)</h2>
+<ul>
+<li>**<code>/sensors/gps/fix</code>** (<code>sensor_msgs/NavSatFix</code>): USV global position (Lat/Lon).</li>
+<li>**<code>/sensors/imu/data</code>** (<code>sensor_msgs/Imu</code>): USV orientation (Euler/Quaternions).</li>
+<li>**<code>/sensors/ais/report</code>** (<code>dt_msgs/AisReport</code>): List of tracked dynamic targets in range.</li>
+<li>**<code>/planned_route</code>** (<code>nav_msgs/Path</code>): The current route (waypoints) planned by the navigation stack.</li>
+</ul>
+<h2><a class="anchor" id="pub_sec"></a>
+Publishers (Outputs from the Twin)</h2>
+<ul>
+<li>**<code>/collision_alert</code>** (<code>dt_msgs/CollisionAlert</code>): Consolidated operational alerts containing Time to Closest Point of Approach (TCPA), distance metrics, and computed risk indexes for each target. </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

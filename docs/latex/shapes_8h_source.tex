@@ -1,0 +1,304 @@
+\doxysection{shapes.\+h}
+\hypertarget{shapes_8h_source}{}\label{shapes_8h_source}\index{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/shapes.h@{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/common/shapes.h}}
+\mbox{\hyperlink{shapes_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Poly2Tri\ Copyright\ (c)\ 2009-\/2018,\ Poly2Tri\ Contributors}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ https://github.com/jhasse/poly2tri}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ modification,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ documentation}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ *\ Neither\ the\ name\ of\ Poly2Tri\ nor\ the\ names\ of\ its\ contributors\ may\ be}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this\ software\ without\ specific}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ prior\ written\ permission.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dll__symbol_8h}{dll\_symbol.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacep2t}{p2t}}\ \{}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }Edge;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2T\_DLL\_SYMBOL}}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \{}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}},\ y;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{structp2t_1_1Point_a7e573e8b3c263b088a2141d4977850b7}{Point}}()}
+\DoxyCodeLine{00051\ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ x\ =\ 0.0;}
+\DoxyCodeLine{00053\ \ \ \ \ y\ =\ 0.0;}
+\DoxyCodeLine{00054\ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ std::vector<Edge*>\ \mbox{\hyperlink{structp2t_1_1Point_a116c82146cc0bf573baac56c77a9f90a}{edge\_list}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structp2t_1_1Point_ac0b05395a17be952b6ea580495c9d11b}{set\_zero}}()}
+\DoxyCodeLine{00064\ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ x\ =\ 0.0;}
+\DoxyCodeLine{00066\ \ \ \ \ y\ =\ 0.0;}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structp2t_1_1Point_aa8a3a62cc47e65e0f717679adf12fd4e}{set}}(\textcolor{keywordtype}{double}\ x\_,\ \textcolor{keywordtype}{double}\ y\_)}
+\DoxyCodeLine{00071\ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ x\ =\ x\_;}
+\DoxyCodeLine{00073\ \ \ \ \ y\ =\ y\_;}
+\DoxyCodeLine{00074\ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ operator\ -\/()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00078\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ v;}
+\DoxyCodeLine{00080\ \ \ \ \ v.\mbox{\hyperlink{structp2t_1_1Point_aa8a3a62cc47e65e0f717679adf12fd4e}{set}}(-\/x,\ -\/y);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ v;}
+\DoxyCodeLine{00082\ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ operator\ +=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ v)}
+\DoxyCodeLine{00086\ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ x\ +=\ v.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}};}
+\DoxyCodeLine{00088\ \ \ \ \ y\ +=\ v.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}};}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ operator\ -\/=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ v)}
+\DoxyCodeLine{00093\ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ x\ -\/=\ v.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}};}
+\DoxyCodeLine{00095\ \ \ \ \ y\ -\/=\ v.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}};}
+\DoxyCodeLine{00096\ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ operator\ *=(\textcolor{keywordtype}{double}\ a)}
+\DoxyCodeLine{00100\ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ x\ *=\ a;}
+\DoxyCodeLine{00102\ \ \ \ \ y\ *=\ a;}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structp2t_1_1Point_a03e8d1c1296721f56c4dee2e61d45744}{Length}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00107\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(x\ *\ x\ +\ y\ *\ y);}
+\DoxyCodeLine{00109\ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structp2t_1_1Point_ad8add2f6f3c4a220bc5741510701f9f7}{Normalize}}()}
+\DoxyCodeLine{00113\ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ len\ =\ Length();}
+\DoxyCodeLine{00115\ \ \ \ \ x\ /=\ len;}
+\DoxyCodeLine{00116\ \ \ \ \ y\ /=\ len;}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{return}\ len;}
+\DoxyCodeLine{00118\ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2T\_DLL\_SYMBOL}}\ \mbox{\hyperlink{classstd_1_1basic__ostream}{std::ostream}}\&\ \mbox{\hyperlink{namespacep2t_ae8aeaaa4ce3ee67ec2dff72429fdbeec}{operator<<}}(\mbox{\hyperlink{classstd_1_1basic__ostream}{std::ostream}}\&,\ \textcolor{keyword}{const}\ Point\&);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{//\ Represents\ a\ simple\ polygon's\ edge}}
+\DoxyCodeLine{00125\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2T\_DLL\_SYMBOL}}\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\ \{}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{structp2t_1_1Edge_a5d0fe19975fb3ef1cd40df5e20afb302}{p}},\ *q;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00130\ \ \ \mbox{\hyperlink{structp2t_1_1Edge_af5d8d51f97093c617c61a2a8618ec046}{Edge}}(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ p1,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}})\ :\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}(\&p1),\ q(\&\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}})}
+\DoxyCodeLine{00131\ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{if}\ (p1.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ >\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}.y)\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ q\ =\ \&p1;}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ =\ \&\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}};}
+\DoxyCodeLine{00135\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p1.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ ==\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}.y)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p1.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ >\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}.x)\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ q\ =\ \&p1;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ =\ \&\mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}};}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (p1.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ ==\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}.x)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Repeat\ points}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Edge::Edge:\ p1\ ==\ p2"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ q-\/>\mbox{\hyperlink{structp2t_1_1Point_a116c82146cc0bf573baac56c77a9f90a}{edge\_list}}.push\_back(\textcolor{keyword}{this});}
+\DoxyCodeLine{00146\ \ \ \}}
+\DoxyCodeLine{00147\ \};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{//\ Triangle-\/based\ data\ structures\ are\ know\ to\ have\ better\ performance\ than\ quad-\/edge\ structures}}
+\DoxyCodeLine{00150\ \textcolor{comment}{//\ See:\ J.\ Shewchuk,\ "{}Triangle:\ Engineering\ a\ 2D\ Quality\ Mesh\ Generator\ and\ Delaunay\ Triangulator"{}}}
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ \ \ \ \ \ "{}Triangulations\ in\ CGAL"{}}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{class\ }\mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2T\_DLL\_SYMBOL}}\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\ \{}
+\DoxyCodeLine{00153\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}});}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \textcolor{keywordtype}{bool}\ constrained\_edge[3];}
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{bool}\ delaunay\_edge[3];}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ GetPoint(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00164\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ PointCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00165\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ PointCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00166\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ OppositePoint(\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ GetNeighbor(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ MarkNeighbor(\mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ p1,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}},\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ t);}
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ MarkNeighbor(\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ MarkConstrainedEdge(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ MarkConstrainedEdge(\mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\&\ edge);}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ MarkConstrainedEdge(\mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ q);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{keywordtype}{int}\ Index(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00177\ \textcolor{keywordtype}{int}\ EdgeIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ p1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}});}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ NeighborAcross(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00180\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ NeighborCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00181\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ NeighborCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{bool}\ GetConstrainedEdgeCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{bool}\ GetConstrainedEdgeCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ SetConstrainedEdgeCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keywordtype}{bool}\ ce);}
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{void}\ SetConstrainedEdgeCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keywordtype}{bool}\ ce);}
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{bool}\ GetDelunayEdgeCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{bool}\ GetDelunayEdgeCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00188\ \textcolor{keywordtype}{void}\ SetDelunayEdgeCCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keywordtype}{bool}\ e);}
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ SetDelunayEdgeCW(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keywordtype}{bool}\ e);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{bool}\ Contains(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}});}
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{bool}\ Contains(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\&\ e);}
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{bool}\ Contains(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ q);}
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{void}\ Legalize(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ point);}
+\DoxyCodeLine{00195\ \textcolor{keywordtype}{void}\ Legalize(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ opoint,\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ npoint);}
+\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ Clear();}
+\DoxyCodeLine{00200\ \textcolor{keywordtype}{void}\ ClearNeighbor(\textcolor{keyword}{const}\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\ *triangle);}
+\DoxyCodeLine{00201\ \textcolor{keywordtype}{void}\ ClearNeighbors();}
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ ClearDelunayEdges();}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsInterior();}
+\DoxyCodeLine{00205\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ IsInterior(\textcolor{keywordtype}{bool}\ b);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keywordtype}{void}\ DebugPrint();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keywordtype}{bool}\ CircumcicleContains(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keywordtype}{bool}\ IsCounterClockwise()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00216\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ points\_[3];}
+\DoxyCodeLine{00218\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ neighbors\_[3];}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{bool}\ interior\_;}
+\DoxyCodeLine{00222\ \};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacep2t_ab82db1108f5abd29df4537180f6e639c}{cmp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ b)}
+\DoxyCodeLine{00225\ \{}
+\DoxyCodeLine{00226\ \ \ \textcolor{keywordflow}{if}\ (a-\/>\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ <\ b-\/>\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00228\ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (a-\/>\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ ==\ b-\/>\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ q\ is\ point\ with\ greater\ x\ value}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{if}\ (a-\/>\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ <\ b-\/>\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00232\ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \}}
+\DoxyCodeLine{00234\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00235\ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00238\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \mbox{\hyperlink{namespacep2t_a98db07c78d588aa4e68ffdaadd503d45}{operator\ +}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00239\ \{}
+\DoxyCodeLine{00240\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ +\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}},\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ +\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00241\ \}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00244\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \mbox{\hyperlink{namespacep2t_adebd7f2104fff7945192e249aaeed77f}{operator\ -\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00245\ \{}
+\DoxyCodeLine{00246\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ -\/\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}},\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00247\ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00250\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \mbox{\hyperlink{namespacep2t_a4f005ffa2a5d03029a3619fb8110c4a9}{operator\ *}}(\textcolor{keywordtype}{double}\ s,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a)}
+\DoxyCodeLine{00251\ \{}
+\DoxyCodeLine{00252\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}},\ s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00253\ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacep2t_ac84d990aed3d2218987d6846a8249fb8}{operator\ ==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00256\ \{}
+\DoxyCodeLine{00257\ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ ==\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ \&\&\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ ==\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}};}
+\DoxyCodeLine{00258\ \}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacep2t_aef209c6c873f146ba2c2ff1f2174f9f6}{operator\ !=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00261\ \{}
+\DoxyCodeLine{00262\ \ \ \textcolor{keywordflow}{return}\ !(a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ ==\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}})\ ||\ !(a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ ==\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}});}
+\DoxyCodeLine{00263\ \}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00266\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacep2t_a7f992d12c1c4fecfd9914e9f6d871f2d}{Dot}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00267\ \{}
+\DoxyCodeLine{00268\ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ *\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ +\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ *\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}};}
+\DoxyCodeLine{00269\ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00272\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e}{Cross}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ b)}
+\DoxyCodeLine{00273\ \{}
+\DoxyCodeLine{00274\ \ \ \textcolor{keywordflow}{return}\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}\ *\ b.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ -\/\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}\ *\ b.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}};}
+\DoxyCodeLine{00275\ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00279\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \mbox{\hyperlink{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e}{Cross}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a,\ \textcolor{keywordtype}{double}\ s)}
+\DoxyCodeLine{00280\ \{}
+\DoxyCodeLine{00281\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}},\ -\/s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}});}
+\DoxyCodeLine{00282\ \}}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00286\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\ \mbox{\hyperlink{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e}{Cross}}(\textcolor{keywordtype}{double}\ s,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ a)}
+\DoxyCodeLine{00287\ \{}
+\DoxyCodeLine{00288\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}(-\/s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}},\ s\ *\ a.\mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}});}
+\DoxyCodeLine{00289\ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{classp2t_1_1Triangle_ab5c51c688c77eb2ac07ce664c27c732d}{Triangle::GetPoint}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00292\ \{}
+\DoxyCodeLine{00293\ \ \ \textcolor{keywordflow}{return}\ points\_[index];}
+\DoxyCodeLine{00294\ \}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ \mbox{\hyperlink{classp2t_1_1Triangle_a223b7a85850adcdadb8f5a7a2576e640}{Triangle::GetNeighbor}}(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{00297\ \{}
+\DoxyCodeLine{00298\ \ \ \textcolor{keywordflow}{return}\ neighbors\_[index];}
+\DoxyCodeLine{00299\ \}}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Triangle::Contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})}
+\DoxyCodeLine{00302\ \{}
+\DoxyCodeLine{00303\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ ==\ points\_[0]\ ||\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ ==\ points\_[1]\ ||\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ ==\ points\_[2];}
+\DoxyCodeLine{00304\ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Triangle::Contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\&\ e)}
+\DoxyCodeLine{00307\ \{}
+\DoxyCodeLine{00308\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Contains}}(e.\mbox{\hyperlink{structp2t_1_1Edge_a5d0fe19975fb3ef1cd40df5e20afb302}{p}})\ \&\&\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Contains}}(e.\mbox{\hyperlink{structp2t_1_1Edge_ae20ac7e995e83330fcc23b3235dcdeda}{q}});}
+\DoxyCodeLine{00309\ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Triangle::Contains}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ q)}
+\DoxyCodeLine{00312\ \{}
+\DoxyCodeLine{00313\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Contains}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})\ \&\&\ \mbox{\hyperlink{classp2t_1_1Triangle_a49c49155f1c54d048f077fef3cda9df6}{Contains}}(q);}
+\DoxyCodeLine{00314\ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classp2t_1_1Triangle_aa3ec752fef9d4abe86b67eb4ef62fa6f}{Triangle::IsInterior}}()}
+\DoxyCodeLine{00317\ \{}
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordflow}{return}\ interior\_;}
+\DoxyCodeLine{00319\ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1Triangle_aa3ec752fef9d4abe86b67eb4ef62fa6f}{Triangle::IsInterior}}(\textcolor{keywordtype}{bool}\ b)}
+\DoxyCodeLine{00322\ \{}
+\DoxyCodeLine{00323\ \ \ interior\_\ =\ b;}
+\DoxyCodeLine{00324\ \}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00327\ \mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2T\_DLL\_SYMBOL}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacep2t_a0d9d559b795cab62ab85bf004d477abb}{IsDelaunay}}(\textcolor{keyword}{const}\ std::vector<p2t::Triangle*>\&);}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \}}
+
+\end{DoxyCode}

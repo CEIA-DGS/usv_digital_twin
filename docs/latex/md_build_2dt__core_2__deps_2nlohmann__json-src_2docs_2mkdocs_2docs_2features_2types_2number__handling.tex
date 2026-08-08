@@ -1,0 +1,306 @@
+\chapter{Number Handling}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling}\index{Number Handling@{Number Handling}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1460}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1460}%
+ This document describes how the library is handling numbers.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1461}{}\doxysection{\texorpdfstring{Background}{Background}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1461}
+This section briefly summarizes how the JSON specification describes how numbers should be handled.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1462}{}\doxysubsection{\texorpdfstring{JSON number syntax}{JSON number syntax}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1462}
+JSON defines the syntax of numbers as follows\+:
+
+!!! quote "{}\mbox{[}\+RFC 8259\mbox{]}(https\+://tools.\+ietf.\+org/html/rfc8259\#section-\/6), Section 6"{} \begin{DoxyVerb}The representation of numbers is similar to that used in most
+programming languages.  A number is represented in base 10 using
+decimal digits.  It contains an integer component that may be
+prefixed with an optional minus sign, which may be followed by a
+fraction part and/or an exponent part.  Leading zeros are not
+allowed.
+
+A fraction part is a decimal point followed by one or more digits.
+
+An exponent part begins with the letter E in uppercase or lowercase,
+which may be followed by a plus or minus sign.  The E and optional
+sign are followed by one or more digits.
+\end{DoxyVerb}
+ The following railroad diagram from \href{https://json.org}{\texttt{ json.\+org}} visualizes the number syntax\+:
+
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1463}{}\doxysubsection{\texorpdfstring{Number interoperability}{Number interoperability}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1463}
+On number interoperability, the following remarks are made\+:
+
+!!! quote "{}\mbox{[}\+RFC 8259\mbox{]}(https\+://tools.\+ietf.\+org/html/rfc8259\#section-\/6), Section 6"{} \begin{DoxyVerb}This specification allows implementations to set limits on the range
+and precision of numbers accepted.  Since software that implements
+IEEE 754 binary64 (double precision) numbers [IEEE754] is generally
+available and widely used, good interoperability can be achieved by
+implementations that expect no more precision or range than these
+provide, in the sense that implementations will approximate JSON
+numbers within the expected precision.  A JSON number such as 1E400
+or 3.141592653589793238462643383279 may indicate potential
+interoperability problems, since it suggests that the software that
+created it expects receiving software to have greater capabilities
+for numeric magnitude and precision than is widely available.
+
+Note that when such software is used, numbers that are integers and
+are in the range $[-2^{53}+1, 2^{53}-1]$ are interoperable in the
+sense that implementations will agree exactly on their numeric
+values.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1464}{}\doxysection{\texorpdfstring{Library implementation}{Library implementation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1464}
+This section describes how the above number specification is implemented by this library.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1465}{}\doxysubsection{\texorpdfstring{Number storage}{Number storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1465}
+In the default \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json}{\`{}json\`{}}{0} type, numbers are stored as {\ttfamily \#!c std\+::uint64\+\_\+t}, {\ttfamily \#!c std\+::int64\+\_\+t}, and {\ttfamily \#!c double}, respectively. Thereby, {\ttfamily \#!c std\+::uint64\+\_\+t} and {\ttfamily \#!c std\+::int64\+\_\+t} are used only if they can store the number without loss of precision. If this is impossible (e.\+g., if the number is too large), the number is stored as {\ttfamily \#!c double}.
+
+!!! info "{}\+Notes"{} \begin{DoxyVerb}- Numbers with a decimal digit or scientific notation are always stored as `#!c double`.
+- The number types can be changed, see [Template number types](#template-number-types). 
+- As of version 3.9.1, the conversion is realized by
+  [`std::strtoull`](https://en.cppreference.com/w/cpp/string/byte/strtoul),
+  [`std::strtoll`](https://en.cppreference.com/w/cpp/string/byte/strtol), and
+  [`std::strtod`](https://en.cppreference.com/w/cpp/string/byte/strtof), respectively.
+\end{DoxyVerb}
+ !!! example "{}\+Examples"{} \begin{DoxyVerb}- Integer `#!c -12345678912345789123456789` is smaller than `#!c INT64_MIN` and will be stored as floating-point
+  number `#!c -1.2345678912345788e+25`.
+- Integer `#!c 1E3` will be stored as floating-point number `#!c 1000.0`.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1466}{}\doxysubsection{\texorpdfstring{Number limits}{Number limits}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1466}
+
+\begin{DoxyItemize}
+\item Any 64-\/bit signed or unsigned integer can be stored without loss of precision.
+\item Numbers exceeding the limits of {\ttfamily \#!c double} (i.\+e., numbers that after conversion via \href{https://en.cppreference.com/w/cpp/string/byte/strtof}{\texttt{ {\ttfamily std\+::strtod}}} are not satisfying \href{https://en.cppreference.com/w/cpp/numeric/math/isfinite}{\texttt{ {\ttfamily std\+::isfinite}}} such as {\ttfamily \#!c 1E400}) will throw exception \href{../../home/exceptions.md\#jsonexceptionout_of_range406}{\texttt{ {\ttfamily json.\+exception.\+out\+\_\+of\+\_\+range.\+406}}} during parsing.
+\item Floating-\/point numbers are rounded to the next number representable as {\ttfamily double}. For instance {\ttfamily \#!c 3.\+141592653589793238462643383279} is stored as \href{https://float.exposed/0x400921fb54442d18}{\texttt{ {\ttfamily 0x400921fb54442d18}}}. This is the same behavior as the code {\ttfamily \#!c double x = 3.\+141592653589793238462643383279;}.
+\end{DoxyItemize}
+
+!!! success "{}\+Interoperability"{} \begin{DoxyVerb}- The library interoperable with respect to the specification, because its supported range $[-2^{63}, 2^{64}-1]$ is
+  larger than the described range $[-2^{53}+1, 2^{53}-1]$.
+- All integers outside the range $[-2^{63}, 2^{64}-1]$, as well as floating-point numbers are stored as `double`.
+  This also concurs with the specification above.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1467}{}\doxysubsection{\texorpdfstring{Zeros}{Zeros}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1467}
+The JSON number grammar allows for different ways to express zero, and this library will store zeros differently\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Literal   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Stored value and type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Serialization    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Literal   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Stored value and type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Serialization    }\\\cline{1-3}
+\endhead
+{\ttfamily 0}   &{\ttfamily \#!c std\+::uint64\+\_\+t(0)}   &{\ttfamily 0}    \\\cline{1-3}
+{\ttfamily -\/0}   &{\ttfamily \#!c std\+::int64\+\_\+t(0)}   &{\ttfamily 0}    \\\cline{1-3}
+{\ttfamily 0.\+0}   &{\ttfamily \#!c double(0.\+0)}   &{\ttfamily 0.\+0}    \\\cline{1-3}
+{\ttfamily -\/0.\+0}   &{\ttfamily \#!c double(-\/0.\+0)}   &{\ttfamily -\/0.\+0}    \\\cline{1-3}
+{\ttfamily 0E0}   &{\ttfamily \#!c double(0.\+0)}   &{\ttfamily 0.\+0}    \\\cline{1-3}
+{\ttfamily -\/0E0}   &{\ttfamily \#!c double(-\/0.\+0)}   &{\ttfamily -\/0.\+0}   \\\cline{1-3}
+\end{longtabu}
+
+
+That is, {\ttfamily -\/0} is stored as a signed integer, but the serialization does not reproduce the {\ttfamily -\/}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1468}{}\doxysubsection{\texorpdfstring{Number serialization}{Number serialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1468}
+
+\begin{DoxyItemize}
+\item Integer numbers are serialized as is; that is, no scientific notation is used.
+\item Floating-\/point numbers are serialized as specified by the {\ttfamily \#!c g} printf modifier with \href{https://en.cppreference.com/w/cpp/types/numeric_limits/max_digits10}{\texttt{ {\ttfamily std\+::numeric\+\_\+limits\texorpdfstring{$<$}{<}double\texorpdfstring{$>$}{>}::max\+\_\+digits10}}} significant digits. The rationale is to use the shortest representation while still allow round-\/tripping.
+\end{DoxyItemize}
+
+!!! hint "{}\+Notes regarding precision of floating-\/point numbers"{} \begin{DoxyVerb}As described above, floating-point numbers are rounded to the nearest double and serialized with the shortest
+representation to allow round-tripping. This can yield confusing examples:
+
+- The serialization can have fewer decimal places than the input: `#!c 2555.5599999999999` will be serialized as
+  `#!c 2555.56`. The reverse can also be true.
+- The serialization can be in scientific notation even if the input is not: `#!c 0.0000972439793401814` will be 
+  serialized as `#!c 9.72439793401814e-05`. The reverse can also be true: `#!c 12345E-5` will be serialized as
+  `#!c 0.12345`.
+- Conversions from `#!c float` to `#!c double` can also introduce rounding errors:
+    ```cpp
+    float f = 0.3;
+    json j = f;
+    std::cout << j << '\n';
+    ```
+    yields `#!c 0.30000001192092896`.
+
+All examples here can be reproduced by passing the original double value to
+
+```cpp
+std::printf("%.*g\n", std::numeric_limits<double>::max_digits10, double_value);
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1469}{}\doxysubsubsection{\texorpdfstring{Na\+N handling}{NaN handling}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1469}
+NaN (not-\/a-\/number) cannot be expressed with the number syntax described above and are in fact explicitly excluded\+:
+
+!!! quote "{}\mbox{[}\+RFC 8259\mbox{]}(https\+://tools.\+ietf.\+org/html/rfc8259\#section-\/6), Section 6"{} \begin{DoxyVerb}Numeric values that cannot be represented in the grammar below (such
+as Infinity and NaN) are not permitted.
+\end{DoxyVerb}
+ That is, there is no way to {\itshape parse} a NaN value. However, NaN values can be stored in a JSON value by assignment.
+
+This library serializes NaN values as {\ttfamily \#!js null}. This corresponds to the behavior of Java\+Script\textquotesingle{}s \href{https://www.w3schools.com/js/js_json_stringify.asp}{\texttt{ {\ttfamily JSON.\+stringify}}} function.
+
+!!! example \begin{DoxyVerb}The following example shows how a NaN value is stored in a `json` value.
+
+```cpp
+int main()
+{
+    double val = std::numeric_limits<double>::quiet_NaN();
+    std::cout << "val=" << val << std::endl;
+    json j = val;
+    std::cout << "j=" << j.dump() << std::endl;
+    val = j;
+    std::cout << "val=" << val << std::endl;
+}
+```
+
+output:
+
+```
+val=nan
+j=null
+val=nan
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1470}{}\doxysubsection{\texorpdfstring{Number comparison}{Number comparison}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1470}
+Floating-\/point inside JSON values numbers are compared with {\ttfamily \#!c json\+::number\+\_\+float\+\_\+t\+::operator==} which is {\ttfamily \#!c double\+::operator==} by default.
+
+!!! example "{}\+Alternative comparison functions"{} \begin{DoxyVerb}To compare floating-point while respecting an epsilon, an alternative
+[comparison function](https://github.com/mariokonrad/marnav/blob/master/include/marnav/math/floatingpoint.hpp#L34-#L39)
+could be used, for instance
+
+```cpp
+template<typename T, typename = typename std::enable_if<std::is_floating_point<T>::value, T>::type>
+inline bool is_same(T a, T b, T epsilon = std::numeric_limits<T>::epsilon()) noexcept
+{
+    return std::abs(a - b) <= epsilon;
+}
+```
+Or you can self-define an operator equal function like this:
+
+```cpp
+bool my_equal(const_reference lhs, const_reference rhs)
+{
+    const auto lhs_type lhs.type();
+    const auto rhs_type rhs.type();
+    if (lhs_type == rhs_type)
+    {
+        switch(lhs_type)
+        {
+            // self_defined case
+            case value_t::number_float:
+                return std::abs(lhs - rhs) <= std::numeric_limits<float>::epsilon();
+
+            // other cases remain the same with the original
+            ...
+        }
+    }
+    ...
+}
+```
+
+(see [#703](https://github.com/nlohmann/json/issues/703) for more information.)
+\end{DoxyVerb}
+ !!! note \begin{DoxyVerb}NaN values never compare equal to themselves or to other NaN values. See [#514](https://github.com/nlohmann/json/issues/514).
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1471}{}\doxysubsection{\texorpdfstring{Number conversion}{Number conversion}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1471}
+Just like the C++ language itself, the {\ttfamily get} family of functions allows conversions between unsigned and signed integers, and between integers and floating-\/point values to integers. This behavior may be surprising.
+
+!!! warning "{}\+Unconditional number conversions"{} \begin{DoxyVerb}```cpp hl_lines="3"
+double d = 42.3;                                   // non-integer double value 42.3
+json jd = d;                                       // stores double value 42.3
+std::int64_t i = jd.template get<std::int64_t>();  // now i==42; no warning or error is produced
+```
+
+Note the last line with throw a [`json.exception.type_error.302`](../../home/exceptions.md#jsonexceptiontype_error302)
+exception if `jd` is not a numerical type, for instance a string.
+\end{DoxyVerb}
+ The rationale is twofold\+:
+
+
+\begin{DoxyEnumerate}
+\item JSON does not define a number type or precision (see above).
+\item C++ also allows to silently convert between number types.
+\end{DoxyEnumerate}
+
+!!! success "{}\+Conditional number conversion"{} \begin{DoxyVerb}The code above can be solved by explicitly checking the nature of the value with members such as
+[`is_number_integer()`](../../api/basic_json/is_number_integer.md) or
+[`is_number_unsigned()`](../../api/basic_json/is_number_unsigned.md):
+
+```cpp hl_lines="2"
+// check if jd is really integer-valued
+if (jd.is_number_integer())
+{
+    // if so, do the conversion and use i
+    std::int64_t i = jd.template get<std::int64_t>();
+    // ...
+}
+else
+{
+    // otherwise, take appropriate action
+    // ...
+}
+```
+
+Note this approach also has the advantage that it can react on non-numerical JSON value types such as strings.
+
+(Example taken from [#777](https://github.com/nlohmann/json/issues/777#issuecomment-459968458).)
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1472}{}\doxysubsection{\texorpdfstring{Determine number types}{Determine number types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1472}
+As the example in Number conversion shows, there are different functions to determine the type of the stored number\+:
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{\`{}is\+\_\+number()\`{}}{0} returns {\ttfamily \#!c true} for any number type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__integer}{\`{}is\+\_\+number\+\_\+integer()\`{}}{0} returns {\ttfamily \#!c true} for signed and unsigned integers
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__unsigned}{\`{}is\+\_\+number\+\_\+unsigned()\`{}}{0} returns {\ttfamily \#!c true} for unsigned integers only
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__float}{\`{}is\+\_\+number\+\_\+float()\`{}}{0} returns {\ttfamily \#!c true} for floating-\/point numbers
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name}{\`{}type\+\_\+name()\`{}}{0} returns {\ttfamily \#!c "{}number"{}} for any number type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}{\`{}type()\`{}}{0} returns a different enumerator of \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{\`{}value\+\_\+t\`{}}{0} for all number types
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ function   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ unsigned integer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ signed integer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ floating-\/point   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ string    }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ function   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ unsigned integer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ signed integer   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ floating-\/point   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ string    }\\\cline{1-5}
+\endhead
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{\`{}is\+\_\+number()\`{}}{0}   &{\ttfamily \#!c true}   &{\ttfamily \#!c true}   &{\ttfamily \#!c true}   &{\ttfamily \#!c false}    \\\cline{1-5}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__integer}{\`{}is\+\_\+number\+\_\+integer()\`{}}{0}   &{\ttfamily \#!c true}   &{\ttfamily \#!c true}   &{\ttfamily \#!c false}   &{\ttfamily \#!c false}    \\\cline{1-5}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__unsigned}{\`{}is\+\_\+number\+\_\+unsigned()\`{}}{0}   &{\ttfamily \#!c true}   &{\ttfamily \#!c false}   &{\ttfamily \#!c false}   &{\ttfamily \#!c false}    \\\cline{1-5}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__float}{\`{}is\+\_\+number\+\_\+float()\`{}}{0}   &{\ttfamily \#!c false}   &{\ttfamily \#!c false}   &{\ttfamily \#!c true}   &{\ttfamily \#!c false}    \\\cline{1-5}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name}{\`{}type\+\_\+name()\`{}}{0}   &{\ttfamily \#!c "{}number"{}}   &{\ttfamily \#!c "{}number"{}}   &{\ttfamily \#!c "{}number"{}}   &{\ttfamily \#!c "{}string"{}}    \\\cline{1-5}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}{\`{}type()\`{}}{0}   &{\ttfamily \doxylink{classnumber__unsigned}{number\+\_\+unsigned}}   &{\ttfamily \doxylink{classnumber__integer}{number\+\_\+integer}}   &{\ttfamily \doxylink{classnumber__float}{number\+\_\+float}}   &{\ttfamily string}   \\\cline{1-5}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1473}{}\doxysubsection{\texorpdfstring{Template number types}{Template number types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2types_2number__handling_autotoc_md1473}
+The number types can be changed with template parameters.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ position   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ number type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ possible values    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ position   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ number type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ possible values    }\\\cline{1-4}
+\endhead
+5   &signed integers   &{\ttfamily \#!c std\+::int64\+\_\+t}   &{\ttfamily \#!c std\+::int32\+\_\+t}, {\ttfamily \#!c std\+::int16\+\_\+t}, etc.    \\\cline{1-4}
+6   &unsigned integers   &{\ttfamily \#!c std\+::uint64\+\_\+t}   &{\ttfamily \#!c std\+::uint32\+\_\+t}, {\ttfamily \#!c std\+::uint16\+\_\+t}, etc.    \\\cline{1-4}
+7   &floating-\/point   &{\ttfamily \#!c double}   &{\ttfamily \#!c float}, {\ttfamily \#!c long double}   \\\cline{1-4}
+\end{longtabu}
+
+
+!!! info "{}\+Constraints on number types"{} \begin{DoxyVerb}- The type for signed integers must be convertible from `#!c long long`. The type for floating-point numbers is used
+  in case of overflow.
+- The type for unsigned integers must be convertible from `#!c unsigned long long`.  The type for floating-point
+  numbers is used in case of overflow.
+- The types for signed and unsigned integers must be distinct, see
+  [#2573](https://github.com/nlohmann/json/issues/2573).
+- Only `#!c double`, `#!c float`, and `#!c long double` are supported for floating-point numbers.
+\end{DoxyVerb}
+ !!! example \begin{DoxyVerb}A `basic_json` type that uses `#!c long double` as floating-point type.
+
+```cpp hl_lines="2"
+using json_ld = nlohmann::basic_json<std::map, std::vector, std::string, bool,
+                                     std::int64_t, std::uint64_t, long double>;
+```
+
+Note values should then be parsed with `json_ld::parse` rather than `json::parse` as the latter would parse
+floating-point values to `#!c double` before then converting them to `#!c long double`.
+\end{DoxyVerb}
+ 

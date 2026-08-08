@@ -1,0 +1,54 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}get\+\_\+to}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$get\_to@{$<$small$>$nlohmann::basic\_json::$<$/small$>$get\_to}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md387}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md387}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ValueType>}
+\DoxyCodeLine{ValueType\&\ get\_to(ValueType\&\ v)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{noexcept}(JSONSerializer<ValueType>::from\_json(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::declval<const\ basic\_json\_t\&>(),\ v)));}
+
+\end{DoxyCode}
+
+
+Explicit type conversion between the JSON value and a compatible value. The value is filled into the input parameter by calling the {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method.
+
+The function is equivalent to executing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ValueType\ v;}
+\DoxyCodeLine{JSONSerializer<ValueType>::from\_json(*\textcolor{keyword}{this},\ v);}
+
+\end{DoxyCode}
+
+
+This overload is chosen if\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Value\+Type} is not {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}},
+\item {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} has a {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method of the form {\ttfamily void from\+\_\+json(const \doxylink{classbasic__json}{basic\+\_\+json}\&, Value\+Type\&)}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md388}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md388}
+{\ttfamily Value\+Type} \+: the value type to return\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md389}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md389}
+the input parameter, allowing chaining calls\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md390}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md390}
+Depends on what {\ttfamily json\+\_\+serializer\texorpdfstring{$<$}{<}Value\+Type\texorpdfstring{$>$}{>}} {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} method throws\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md391}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md391}
+??? example \begin{DoxyVerb}The example below shows several conversions from JSON values to other types. There a few things to note: (1)
+Floating-point numbers can be converted to integers, (2) A JSON array can be converted to a standard
+`#!cpp std::vector<short>`, (3) A JSON object can be converted to C++ associative containers such as
+`#cpp std::unordered_map<std::string, json>`.
+
+```cpp
+--8<-- "examples/get_to.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/get_to.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md392}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to_autotoc_md392}
+
+\begin{DoxyItemize}
+\item Since version 3.\+3.\+0. 
+\end{DoxyItemize}

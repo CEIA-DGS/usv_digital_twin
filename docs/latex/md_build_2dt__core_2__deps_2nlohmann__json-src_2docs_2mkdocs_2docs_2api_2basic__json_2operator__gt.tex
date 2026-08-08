@@ -1,0 +1,66 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator\texorpdfstring{$>$}{>}}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator$>$@{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator$>$}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md666}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md666}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ until\ C++20}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedoctest_acef5990b03a973c74ff2dd6cfc112913}{operator>}}(const\_reference\ lhs,\ const\_reference\ rhs)\ \textcolor{keyword}{noexcept};\ \ \ \textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ScalarType>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedoctest_acef5990b03a973c74ff2dd6cfc112913}{operator>}}(const\_reference\ lhs,\ \textcolor{keyword}{const}\ ScalarType\ rhs)\ \textcolor{keyword}{noexcept};\ \ \textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ScalarType>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedoctest_acef5990b03a973c74ff2dd6cfc112913}{operator>}}(ScalarType\ lhs,\ \textcolor{keyword}{const}\ const\_reference\ rhs)\ \textcolor{keyword}{noexcept};\ \ \textcolor{comment}{//\ (2)}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Compares whether one JSON value {\ttfamily lhs} is greater than another JSON value {\ttfamily rhs} according to the following rules\+:
+\begin{DoxyItemize}
+\item The comparison always yields {\ttfamily \#!cpp false} if (1) either operand is discarded, or (2) either operand is {\ttfamily NaN} and the other operand is either {\ttfamily NaN} or any other number.
+\item Otherwise, returns the result of {\ttfamily \#!cpp !(lhs \texorpdfstring{$<$}{<}= rhs)} (see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__le}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0}).
+\end{DoxyItemize}
+\item Compares wether a JSON value is greater than a scalar or a scalar is greater than a JSON value by converting the scalar to a JSON value and comparing both JSON values according to 1.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md667}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md667}
+{\ttfamily Scalar\+Type} \+: a scalar type according to {\ttfamily std\+::is\+\_\+scalar\texorpdfstring{$<$}{<}Scalar\+Type\texorpdfstring{$>$}{>}::value}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md668}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md668}
+{\ttfamily lhs} (in) \+: first value to consider
+
+{\ttfamily rhs} (in) \+: second value to consider\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md669}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md669}
+whether {\ttfamily lhs} is greater than {\ttfamily rhs}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md670}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md670}
+No-\/throw guarantee\+: this function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md671}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md671}
+Linear.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md672}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md672}
+!!! note "{}\+Comparing \`{}\+Na\+N\`{}"{} \begin{DoxyVerb}`NaN` values are unordered within the domain of numbers.
+The following comparisons all yield `#!cpp false`:
+  1. Comparing a `NaN` with itself.
+  2. Comparing a `NaN` with another `NaN`.
+  3. Comparing a `NaN` and any other number.
+\end{DoxyVerb}
+ !!! note "{}\+Operator overload resolution"{} \begin{DoxyVerb}Since C++20 overload resolution will consider the _rewritten candidate_ generated from
+[`operator<=>`](operator_spaceship.md).
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md673}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md673}
+??? example \begin{DoxyVerb}The example demonstrates comparing several JSON types.
+
+```cpp
+--8<-- "examples/operator__greater.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator__greater.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md674}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md674}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} comparison\+: 3-\/way
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md675}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt_autotoc_md675}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0. Conditionally removed since C++20 in version 3.\+11.\+0.
+\item Added in version 1.\+0.\+0. Conditionally removed since C++20 in version 3.\+11.\+0. 
+\end{DoxyEnumerate}

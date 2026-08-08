@@ -1,0 +1,152 @@
+\doxysection{waypoint\+\_\+array\+\_\+\+\_\+struct.\+hpp}
+\hypertarget{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2waypoint__array____struct_8hpp_source}{}\label{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2waypoint__array____struct_8hpp_source}\index{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/waypoint\_array\_\_struct.hpp@{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/waypoint\_array\_\_struct.hpp}}
+\mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2waypoint__array____struct_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ generated\ from\ rosidl\_generator\_cpp/resource/idl\_\_struct.hpp.em}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ with\ input\ from\ dt\_msgs:msg/WaypointArray.idl}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ generated\ code\ does\ not\ contain\ a\ copyright\ notice}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ IWYU\ pragma:\ private,\ include\ "{}dt\_msgs/msg/waypoint\_array.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/bounded\_vector.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/message\_initialization.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Include\ directives\ for\ member\ types}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Member\ 'header'}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}std\_msgs/msg/detail/header\_\_struct.hpp"{}}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Member\ 'waypoints'}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}sensor\_msgs/msg/detail/nav\_sat\_fix\_\_struct.hpp"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ \_WIN32}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_WaypointArray\ \_\_attribute\_\_((deprecated))}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_WaypointArray\ \_\_declspec(deprecated)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{namespace\ }msg}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ message\ struct}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ContainerAllocator>}
+\DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{WaypointArray\_}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{Type}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{WaypointArray\_<ContainerAllocator>}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a6088afd970600573eb9e881b340d8d61}{WaypointArray\_}}(rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00047\ \ \ :\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a3c1cf2b8e8542907e111fea7ddb3ee8a}{header}}(\_init)}
+\DoxyCodeLine{00048\ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ (void)\_init;}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___abf19d9a1c414ff464aa6b386900a1e63}{WaypointArray\_}}(\textcolor{keyword}{const}\ ContainerAllocator\ \&\ \_alloc,\ rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00053\ \ \ :\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a3c1cf2b8e8542907e111fea7ddb3ee8a}{header}}(\_alloc,\ \_init)}
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ (void)\_init;}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ field\ types\ and\ members}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a99c846b96713873abef6a0c49d8c6bda}{\_header\_type}}\ =}
+\DoxyCodeLine{00060\ \ \ \ \ std\_msgs::msg::Header\_<ContainerAllocator>;}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a99c846b96713873abef6a0c49d8c6bda}{\_header\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a3c1cf2b8e8542907e111fea7ddb3ee8a}{header}};}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a51df871c23de81fa39adab7bc3e32542}{\_waypoints\_type}}\ =}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<sensor\_msgs::msg::NavSatFix\_<ContainerAllocator>,\ \textcolor{keyword}{typename}\ std::allocator\_traits<ContainerAllocator>::template\ rebind\_alloc<sensor\_msgs::msg::NavSatFix\_<ContainerAllocator>>>;}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a51df871c23de81fa39adab7bc3e32542}{\_waypoints\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___aecdfedac03fccfc5e2abde0d2f7c4889}{waypoints}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ setters\ for\ named\ parameter\ idiom}}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a5bc57bf2c571f965565559b0b7063e0e}{set\_\_header}}(}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ std\_msgs::msg::Header\_<ContainerAllocator>\ \&\ \_arg)}
+\DoxyCodeLine{00069\ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ this-\/>header\ =\ \_arg;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a182fde5f8024add3488cf92b6e7cd23f}{set\_\_waypoints}}(}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<sensor\_msgs::msg::NavSatFix\_<ContainerAllocator>,\ \textcolor{keyword}{typename}\ std::allocator\_traits<ContainerAllocator>::template\ rebind\_alloc<sensor\_msgs::msg::NavSatFix\_<ContainerAllocator>>>\ \&\ \_arg)}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ this-\/>waypoints\ =\ \_arg;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ constant\ declarations}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//\ pointer\ types}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{RawPtr}}\ =}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{dt\_msgs::msg::WaypointArray\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{ConstRawPtr}}\ =}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{dt\_msgs::msg::WaypointArray\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___ac1a1619bb72b0eb041f61a4cb3e8773a}{SharedPtr}}\ =}
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>>;}
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a48576c3f81a7e30ae18603a416982061}{ConstSharedPtr}}\ =}
+\DoxyCodeLine{00090\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{dt\_msgs::msg::WaypointArray\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a4e2eb03bca0b2780cd6750c5729a84bf}{UniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00095\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>,\ Deleter>;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a5958ee8aa04657b5705be5a3a10204c2}{UniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a4e2eb03bca0b2780cd6750c5729a84bf}{UniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{dt\_msgs::msg::WaypointArray\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a81e923d6cfa478cb74d04e0567f198e2}{ConstUniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00102\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>\ \textcolor{keyword}{const},\ Deleter>;}
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___ab8a7030006f833b1273059992f36a798}{ConstUniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a81e923d6cfa478cb74d04e0567f198e2}{ConstUniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a8047efedf0ebf01266cffac3a2ff5d93}{WeakPtr}}\ =}
+\DoxyCodeLine{00106\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>>;}
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___aab36dd2e35c919a07cd847a071ac7c32}{ConstWeakPtr}}\ =}
+\DoxyCodeLine{00108\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{comment}{//\ pointer\ types\ similar\ to\ ROS\ 1,\ use\ SharedPtr\ /\ ConstSharedPtr\ instead}}
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ NOTE:\ Can't\ use\ 'using'\ here\ because\ GNU\ C++\ can't\ parse\ attributes\ properly}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2waypoint__array____struct_8hpp_a47a82e7fa397383d0e93bf940285c77b}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_WaypointArray}}}
+\DoxyCodeLine{00113\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>>}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___ad7072b66c9cf90ba3be0806b9c08f783}{Ptr}};}
+\DoxyCodeLine{00115\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2waypoint__array____struct_8hpp_a47a82e7fa397383d0e93bf940285c77b}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_WaypointArray}}}
+\DoxyCodeLine{00116\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::WaypointArray\_<ContainerAllocator>\ \textcolor{keyword}{const}>}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a996990c3dabc79b4fa33fba18c0ae9ed}{ConstPtr}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{comment}{//\ comparison\ operators}}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___ae91e138a0ab4fb8f2084d45fc8bb9640}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{WaypointArray\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>header\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a3c1cf2b8e8542907e111fea7ddb3ee8a}{header}})\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>waypoints\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___aecdfedac03fccfc5e2abde0d2f7c4889}{waypoints}})\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00129\ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___a8edd509fa111dd77321d34a36318fb2a}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{WaypointArray\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00131\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray___ae91e138a0ab4fb8f2084d45fc8bb9640}{operator==}}(other);}
+\DoxyCodeLine{00133\ \ \ \}}
+\DoxyCodeLine{00134\ \};\ \ \textcolor{comment}{//\ struct\ WaypointArray\_}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ alias\ to\ use\ template\ instance\ with\ default\ allocator}}
+\DoxyCodeLine{00137\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray}{WaypointArray}}\ =}
+\DoxyCodeLine{00138\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1WaypointArray__}{dt\_msgs::msg::WaypointArray\_<std::allocator<void>}}>;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ constant\ definitions}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \}\ \ \textcolor{comment}{//\ namespace\ msg}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \}\ \ \textcolor{comment}{//\ namespace\ dt\_msgs}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_WAYPOINT\_ARRAY\_\_STRUCT\_HPP\_}}
+
+\end{DoxyCode}

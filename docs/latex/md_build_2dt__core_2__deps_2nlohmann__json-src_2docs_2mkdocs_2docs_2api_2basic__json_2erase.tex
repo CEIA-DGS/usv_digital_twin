@@ -1,0 +1,180 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}erase}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$erase@{$<$small$>$nlohmann::basic\_json::$<$/small$>$erase}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md259}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md259}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{iterator\ erase(iterator\ pos);}
+\DoxyCodeLine{const\_iterator\ erase(const\_iterator\ pos);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{iterator\ erase(iterator\ first,\ iterator\ last);}
+\DoxyCodeLine{const\_iterator\ erase(const\_iterator\ first,\ const\_iterator\ last);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{size\_type\ erase(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (4)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{size\_type\ erase(KeyType\&\&\ key);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (5)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ erase(\textcolor{keyword}{const}\ size\_type\ idx);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Removes an element from a JSON value specified by iterator {\ttfamily pos}. The iterator {\ttfamily pos} must be valid and dereferenceable. Thus, the {\ttfamily end()} iterator (which is valid, but is not dereferenceable) cannot be used as a value for {\ttfamily pos}.
+
+If called on a primitive type other than {\ttfamily \#!json null}, the resulting JSON value will be {\ttfamily \#!json null}.
+\item Remove an element range specified by {\ttfamily \mbox{[}first; last)} from a JSON value. The iterator {\ttfamily first} does not need to be dereferenceable if {\ttfamily first == last}\+: erasing an empty range is a no-\/op.
+
+If called on a primitive type other than {\ttfamily \#!json null}, the resulting JSON value will be {\ttfamily \#!json null}.
+\item Removes an element from a JSON object by key.
+\item See 3. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\item Removes an element from a JSON array by index.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md260}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md260}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md261}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md261}
+{\ttfamily pos} (in) \+: iterator to the element to remove
+
+{\ttfamily first} (in) \+: iterator to the beginning of the range to remove
+
+{\ttfamily last} (in) \+: iterator past the end of the range to remove
+
+{\ttfamily key} (in) \+: object key of the elements to remove
+
+{\ttfamily idx} (in) \+: array index of the element to remove\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md262}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md262}
+
+\begin{DoxyEnumerate}
+\item Iterator following the last removed element. If the iterator {\ttfamily pos} refers to the last element, the {\ttfamily end()} iterator is returned.
+\item Iterator following the last removed element. If the iterator {\ttfamily last} refers to the last element, the {\ttfamily end()} iterator is returned.
+\item Number of elements removed. If {\ttfamily Object\+Type} is the default {\ttfamily std\+::map} type, the return value will always be {\ttfamily 0} ({\ttfamily key} was not found) or {\ttfamily 1} ({\ttfamily key} was found).
+\item See 3.
+\item (none)
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md263}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md263}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md264}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md264}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error307}{\texttt{ {\ttfamily type\+\_\+error.\+307}}} if called on a {\ttfamily null} value; example\+: {\ttfamily "{}cannot use erase() with null"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator205}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+205}}} if called on a primitive type with invalid iterator (i.\+e., any iterator which is not {\ttfamily begin()}); example\+: {\ttfamily "{}iterator out of       range"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error307}{\texttt{ {\ttfamily type\+\_\+error.\+307}}} if called on a {\ttfamily null} value; example\+: {\ttfamily "{}cannot use erase() with null"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator203}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+203}}} if called on iterators which does not belong to the current JSON value; example\+: {\ttfamily "{}iterators do not fit current value"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator204}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+204}}} if called on a primitive type with invalid iterators (i.\+e., if {\ttfamily first != begin()} and {\ttfamily last != end()}); example\+: {\ttfamily "{}iterators out       of range"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error307}{\texttt{ {\ttfamily type\+\_\+error.\+307}}} when called on a type other than JSON object; example\+: {\ttfamily "{}cannot use erase() with null"{}}
+\end{DoxyItemize}
+\item See 3.
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error307}{\texttt{ {\ttfamily type\+\_\+error.\+307}}} when called on a type other than JSON object; example\+: {\ttfamily "{}cannot use erase() with null"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionout_of_range401}{\texttt{ {\ttfamily out\+\_\+of\+\_\+range.\+401}}} when {\ttfamily idx \texorpdfstring{$>$}{>}= size()}; example\+: {\ttfamily "{}array index 17 is out of range"{}}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md265}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md265}
+
+\begin{DoxyEnumerate}
+\item The complexity depends on the type\+:
+\begin{DoxyItemize}
+\item objects\+: amortized constant
+\item arrays\+: linear in distance between {\ttfamily pos} and the end of the container
+\item strings and binary\+: linear in the length of the member
+\item other types\+: constant
+\end{DoxyItemize}
+\item The complexity depends on the type\+:
+\begin{DoxyItemize}
+\item objects\+: {\ttfamily log(size()) + std\+::distance(first, last)}
+\item arrays\+: linear in the distance between {\ttfamily first} and {\ttfamily last}, plus linear in the distance between {\ttfamily last} and end of the container
+\item strings and binary\+: linear in the length of the member
+\item other types\+: constant
+\end{DoxyItemize}
+\item {\ttfamily log(size()) + count(key)}
+\item {\ttfamily log(size()) + count(key)}
+\item Linear in distance between {\ttfamily idx} and the end of the container.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md266}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md266}
+
+\begin{DoxyEnumerate}
+\item Invalidates iterators and references at or after the point of the {\ttfamily erase}, including the {\ttfamily end()} iterator.
+\item (none)
+\item References and iterators to the erased elements are invalidated. Other references and iterators are not affected.
+\item See 3.
+\item (none)
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md267}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md267}
+??? example "{}\+Example\+: (1) remove element given an iterator"{} \begin{DoxyVerb}The example shows the effect of `erase()` for different JSON types using an iterator.
+
+```cpp
+--8<-- "examples/erase__IteratorType.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/erase__IteratorType.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) remove elements given an iterator range"{} \begin{DoxyVerb}The example shows the effect of `erase()` for different JSON types using an iterator range.
+
+```cpp
+--8<-- "examples/erase__IteratorType_IteratorType.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/erase__IteratorType_IteratorType.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) remove element from a JSON object given a key"{} \begin{DoxyVerb}The example shows the effect of `erase()` for different JSON types using an object key.
+
+```cpp
+--8<-- "examples/erase__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/erase__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (4) remove element from a JSON object given a key using string\+\_\+view"{} \begin{DoxyVerb}The example shows the effect of `erase()` for different JSON types using an object key.
+
+```cpp
+--8<-- "examples/erase__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/erase__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (5) remove element from a JSON array given an index"{} \begin{DoxyVerb}The example shows the effect of `erase()` using an array index.
+
+```cpp
+--8<-- "examples/erase__size_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/erase__size_type.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md268}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase_autotoc_md268}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0. Added support for binary types in version 3.\+8.\+0.
+\item Added in version 1.\+0.\+0. Added support for binary types in version 3.\+8.\+0.
+\item Added in version 1.\+0.\+0.
+\item Added in version 3.\+11.\+0.
+\item Added in version 1.\+0.\+0. 
+\end{DoxyEnumerate}

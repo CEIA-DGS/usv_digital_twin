@@ -1,0 +1,43 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}json\+\_\+sax}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index}\index{$<$small$>$nlohmann::$<$/small$>$json\_sax@{$<$small$>$nlohmann::$<$/small$>$json\_sax}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1081}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1081}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }\mbox{\hyperlink{structjson__sax}{json\_sax}};}
+
+\end{DoxyCode}
+
+
+This class describes the SAX interface used by \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}{sax\+\_\+parse}{0}. Each function is called in different situations while the input is parsed. The boolean return value informs the parser whether to continue processing the input.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1082}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1082}
+{\ttfamily Basic\+Json\+Type} \+: a specialization of \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}{\`{}basic\+\_\+json\`{}}{0}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1083}{}\doxysection{\texorpdfstring{Member types}{Member types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1083}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+integer\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ {\ttfamily Basic\+Json\+Type}\textquotesingle{}s type for numbers (integer)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+unsigned\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ {\ttfamily Basic\+Json\+Type}\textquotesingle{}s type for numbers (unsigned)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+float\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ {\ttfamily Basic\+Json\+Type}\textquotesingle{}s type for numbers (floating-\/point)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}string\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ {\ttfamily Basic\+Json\+Type}\textquotesingle{}s type for strings
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}binary\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ {\ttfamily Basic\+Json\+Type}\textquotesingle{}s type for binary arrays
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1084}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1084}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2binary}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}binary\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a binary value was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2boolean}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}boolean\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a boolean value was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2end__array}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}end\+\_\+array\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ the end of an array was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2end__object}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}end\+\_\+object\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ the end of an object was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2key}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}key\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ an object key was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2null}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}null\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a null value was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2number__float}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+float\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a floating-\/point number was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2number__integer}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+integer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ an integer number was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2number__unsigned}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+unsigned\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ an unsigned integer number was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2parse__error}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parse\+\_\+error\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a parse error occurred
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2start__array}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}start\+\_\+array\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ the beginning of an array was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2start__object}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}start\+\_\+object\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ the beginning of an object was read
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2string}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}string\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape virtual}) -\/ a string value was read
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1085}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index_autotoc_md1085}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+2.\+0.
+\item Support for binary values ({\ttfamily binary\+\_\+t}, {\ttfamily binary}) added in version 3.\+8.\+0. 
+\end{DoxyItemize}
