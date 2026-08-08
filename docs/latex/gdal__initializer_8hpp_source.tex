@@ -1,0 +1,40 @@
+\doxysection{gdal\+\_\+initializer.\+hpp}
+\hypertarget{gdal__initializer_8hpp_source}{}\label{gdal__initializer_8hpp_source}\index{dt\_core/include/map/gdal\_initializer.hpp@{dt\_core/include/map/gdal\_initializer.hpp}}
+\mbox{\hyperlink{gdal__initializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}cpl\_conv.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGdalInitializer}{GdalInitializer}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ Prevents\ accidental\ instantiation\ of\ the\ class}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{classGdalInitializer_ad5c5e45248a78d5bc094dbe6798fb2e0}{GdalInitializer}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGdalInitializer_a50ab83ae39b5cae4cf848ff481028f88}{initialize}}()\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::once\_flag\ init\_flag;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::call\_once(init\_flag,\ []()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Checks\ if\ the\ OS\ or\ framework\ has\ already\ natively\ configured\ the\ paths}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::getenv(\textcolor{stringliteral}{"{}GDAL\_DATA"{}})\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Looks\ for\ the\ folder\ that\ the\ CMake\ script\ copies\ next\ to\ the\ executable}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::filesystem::path\ portable\_path\ =\ std::filesystem::current\_path()\ /\ \textcolor{stringliteral}{"{}gdal\_data"{}}\ /\ \textcolor{stringliteral}{"{}gdal"{}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::filesystem::exists(portable\_path))\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPLSetConfigOption(\textcolor{stringliteral}{"{}GDAL\_DATA"{}},\ portable\_path.string().c\_str());}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CPLSetConfigOption(\textcolor{stringliteral}{"{}S57\_CSV"{}},\ portable\_path.string().c\_str());}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Registers\ all\ spatial\ drivers\ and\ formats\ (S-\/57,\ Shapefile,\ etc.)}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ GDALAllRegister();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \};}
+
+\end{DoxyCode}

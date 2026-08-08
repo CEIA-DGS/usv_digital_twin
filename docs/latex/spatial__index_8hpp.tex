@@ -1,0 +1,87 @@
+\doxysection{dt\+\_\+core/include/map/spatial\+\_\+index.hpp File Reference}
+\hypertarget{spatial__index_8hpp}{}\label{spatial__index_8hpp}\index{dt\_core/include/map/spatial\_index.hpp@{dt\_core/include/map/spatial\_index.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$boost/geometry.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/point\+\_\+xy.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/box.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/segment.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/polygon.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/index/rtree.\+hpp$>$}\newline
+{\ttfamily \#include "{}dt\+\_\+core/types.\+hpp"{}}\newline
+Include dependency graph for spatial\+\_\+index.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{spatial__index_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{spatial__index_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSpatialIndex}{Spatial\+Index}}
+\begin{DoxyCompactList}\small\item\em High-\/performance spatial indexing and querying engine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bg\+::model\+::d2\+::point\+\_\+xy$<$ double $>$ \mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}}
+\item 
+typedef bg\+::model\+::segment$<$ \mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}} $>$ \mbox{\hyperlink{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae}{Bg\+Segment}}
+\item 
+typedef bg\+::model\+::box$<$ \mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}} $>$ \mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}
+\item 
+typedef bg\+::model\+::polygon$<$ \mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}} $>$ \mbox{\hyperlink{spatial__index_8hpp_a9dec0caa78d4f810d9e007bff822b41c}{Bg\+Polygon}}
+\item 
+typedef std\+::pair$<$ \mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}, \mbox{\hyperlink{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae}{Bg\+Segment}} $>$ \mbox{\hyperlink{spatial__index_8hpp_a18952cceb4b90fd88c4e96bcbfcfe718}{RTree\+Segment\+Value}}
+\item 
+typedef std\+::pair$<$ \mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}, size\+\_\+t $>$ \mbox{\hyperlink{spatial__index_8hpp_aa3c0a999e29c314700a88c13dc9356e2}{RTree\+Polygon\+Value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}\label{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!BgBox@{BgBox}}
+\index{BgBox@{BgBox}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{BgBox}{BgBox}}
+{\footnotesize\ttfamily typedef bg\+::model\+::box$<$\mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}}$>$ \mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}}
+
+\Hypertarget{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}\label{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!BgPoint@{BgPoint}}
+\index{BgPoint@{BgPoint}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{BgPoint}{BgPoint}}
+{\footnotesize\ttfamily typedef bg\+::model\+::d2\+::point\+\_\+xy$<$double$>$ \mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}}}
+
+\Hypertarget{spatial__index_8hpp_a9dec0caa78d4f810d9e007bff822b41c}\label{spatial__index_8hpp_a9dec0caa78d4f810d9e007bff822b41c} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!BgPolygon@{BgPolygon}}
+\index{BgPolygon@{BgPolygon}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{BgPolygon}{BgPolygon}}
+{\footnotesize\ttfamily typedef bg\+::model\+::polygon$<$\mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}}$>$ \mbox{\hyperlink{spatial__index_8hpp_a9dec0caa78d4f810d9e007bff822b41c}{Bg\+Polygon}}}
+
+\Hypertarget{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae}\label{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!BgSegment@{BgSegment}}
+\index{BgSegment@{BgSegment}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{BgSegment}{BgSegment}}
+{\footnotesize\ttfamily typedef bg\+::model\+::segment$<$\mbox{\hyperlink{spatial__index_8hpp_ac8c3d39e8e0404109ba5f811cd80bac6}{Bg\+Point}}$>$ \mbox{\hyperlink{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae}{Bg\+Segment}}}
+
+\Hypertarget{spatial__index_8hpp_aa3c0a999e29c314700a88c13dc9356e2}\label{spatial__index_8hpp_aa3c0a999e29c314700a88c13dc9356e2} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!RTreePolygonValue@{RTreePolygonValue}}
+\index{RTreePolygonValue@{RTreePolygonValue}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{RTreePolygonValue}{RTreePolygonValue}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}, size\+\_\+t$>$ \mbox{\hyperlink{spatial__index_8hpp_aa3c0a999e29c314700a88c13dc9356e2}{RTree\+Polygon\+Value}}}
+
+\Hypertarget{spatial__index_8hpp_a18952cceb4b90fd88c4e96bcbfcfe718}\label{spatial__index_8hpp_a18952cceb4b90fd88c4e96bcbfcfe718} 
+\index{spatial\_index.hpp@{spatial\_index.hpp}!RTreeSegmentValue@{RTreeSegmentValue}}
+\index{RTreeSegmentValue@{RTreeSegmentValue}!spatial\_index.hpp@{spatial\_index.hpp}}
+\doxysubsubsection{\texorpdfstring{RTreeSegmentValue}{RTreeSegmentValue}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\mbox{\hyperlink{spatial__index_8hpp_a5de7548922cbb76ecdd57e573237de67}{Bg\+Box}}, \mbox{\hyperlink{spatial__index_8hpp_a02f3ec2c3e8d11745d550350eb59e3ae}{Bg\+Segment}}$>$ \mbox{\hyperlink{spatial__index_8hpp_a18952cceb4b90fd88c4e96bcbfcfe718}{RTree\+Segment\+Value}}}
+

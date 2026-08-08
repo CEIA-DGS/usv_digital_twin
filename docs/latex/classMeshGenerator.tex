@@ -1,0 +1,66 @@
+\doxysection{Mesh\+Generator Class Reference}
+\hypertarget{classMeshGenerator}{}\label{classMeshGenerator}\index{MeshGenerator@{MeshGenerator}}
+
+
+Geometric engine for processing and generating the navigation mesh.  
+
+
+
+
+{\ttfamily \#include $<$mesh\+\_\+generator.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMeshGenerator_a4fbdcc34b9ec61f6cd2805867de6c5e7}{Mesh\+Generator}} ()=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structNavigationMesh}{Navigation\+Mesh}} \mbox{\hyperlink{classMeshGenerator_acbe7e9713e0aaa132b831ed5f8b2dffe}{generate}} (const \mbox{\hyperlink{structProcessedGeometries}{Processed\+Geometries}} \&geometries, double margin\+\_\+meters, double simplification\+\_\+tolerance)
+\begin{DoxyCompactList}\small\item\em Complete pipeline for generating the mesh from processed S-\/57 data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Geometric engine for processing and generating the navigation mesh. 
+
+Acts as a static utility class. Executes boolean operations, spatial filtering, and Constrained Delaunay Triangulation (CDT). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMeshGenerator_a4fbdcc34b9ec61f6cd2805867de6c5e7}\label{classMeshGenerator_a4fbdcc34b9ec61f6cd2805867de6c5e7} 
+\index{MeshGenerator@{MeshGenerator}!MeshGenerator@{MeshGenerator}}
+\index{MeshGenerator@{MeshGenerator}!MeshGenerator@{MeshGenerator}}
+\doxysubsubsection{\texorpdfstring{MeshGenerator()}{MeshGenerator()}}
+{\footnotesize\ttfamily Mesh\+Generator\+::\+Mesh\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMeshGenerator_acbe7e9713e0aaa132b831ed5f8b2dffe}\label{classMeshGenerator_acbe7e9713e0aaa132b831ed5f8b2dffe} 
+\index{MeshGenerator@{MeshGenerator}!generate@{generate}}
+\index{generate@{generate}!MeshGenerator@{MeshGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNavigationMesh}{Navigation\+Mesh}} Mesh\+Generator\+::generate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structProcessedGeometries}{Processed\+Geometries}} \&}]{geometries,  }\item[{double}]{margin\+\_\+meters,  }\item[{double}]{simplification\+\_\+tolerance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Complete pipeline for generating the mesh from processed S-\/57 data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em geometries} & Structure containing the base water and land polygons. \\
+\hline
+{\em margin\+\_\+meters} & Distance of the safety margin to be expanded (Buffer). \\
+\hline
+{\em simplification\+\_\+tolerance} & Maximum allowed error (in meters) for vertex reduction (Douglas-\/\+Peucker). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structNavigationMesh}{Navigation\+Mesh} containing the generated triangles and auxiliary polygons. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{mesh__generator_8hpp}{mesh\+\_\+generator.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{mesh__generator_8cpp}{mesh\+\_\+generator.\+cpp}}\end{DoxyCompactItemize}

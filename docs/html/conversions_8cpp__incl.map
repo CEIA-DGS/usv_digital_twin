@@ -1,0 +1,33 @@
+<map id="dt_ros/src/conversions.cpp" name="dt_ros/src/conversions.cpp">
+<area shape="rect" id="Node000001" title="Implementation of ROS to Core conversion utilities." alt="" coords="459,5,654,31"/>
+<area shape="rect" id="Node000002" href="$conversions_8hpp.html" title="Conversion utilities between ROS 2 messages and Digital Twin Core types." alt="" coords="268,79,440,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="525,33,400,77,399,72,523,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,159,68,185"/>
+<area shape="poly" id="edge14_Node000001_Node000004" title=" " alt="" coords="476,33,371,53,256,81,156,118,73,156,71,151,153,113,255,76,369,47,475,28"/>
+<area shape="rect" id="Node000013" href="$geo__utils_8hpp.html" title="Geographical coordinate utilities for the Digital Twin ROS adapter." alt="" coords="464,79,649,104"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="559,31,559,65,554,65,554,31"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="674,79,879,104"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="593,28,729,72,728,77,591,33"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="904,79,1103,104"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="629,28,918,74,917,79,628,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="461,240,524,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="268,105,207,116,154,134,136,146,125,159,124,173,133,190,154,206,186,218,272,236,367,245,447,248,447,254,366,250,271,241,184,223,152,210,129,194,119,174,120,157,132,142,152,129,206,111,267,99"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,107,196,127,88,155,79,157,77,152,87,149,195,122,291,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="144,159,351,185"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="340,106,276,153,273,149,337,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="375,152,549,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="371,102,426,142,423,146,368,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="573,159,769,185"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="401,101,612,153,611,159,400,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="793,152,960,192"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="441,101,595,121,780,149,779,154,594,126,440,106"/>
+<area shape="rect" id="Node000009" href="$types_8hpp.html" title="Core data structures and domain models for the Digital Twin." alt="" coords="985,159,1123,185"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="440,100,453,101,599,114,713,121,827,130,973,149,997,154,996,159,972,155,827,135,713,126,599,119,452,107,440,105"/>
+<area shape="poly" id="edge12_Node000009_Node000003" title=" " alt="" coords="1009,187,973,195,728,230,538,250,538,245,728,224,972,189,1008,182"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="934,240,1001,265"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="1043,187,992,232,989,229,1039,183"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="1025,240,1083,265"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="1057,185,1057,226,1051,226,1051,185"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1108,240,1195,265"/>
+<area shape="poly" id="edge11_Node000009_Node000012" title=" " alt="" coords="1070,183,1128,229,1125,233,1067,187"/>
+</map>

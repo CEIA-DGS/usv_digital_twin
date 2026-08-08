@@ -1,0 +1,21 @@
+<map id="dt_core/include/dt_core/twin_interface.hpp" name="dt_core/include/dt_core/twin_interface.hpp">
+<area shape="rect" id="Node000001" title="Interfaces for the Digital Twin Core and state representation." alt="" coords="292,5,475,45"/>
+<area shape="rect" id="Node000002" href="$twin__interface_8cpp.html" title="Internal implementation of the Digital Twin Core and Snapshots." alt="" coords="5,101,223,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="312,52,151,103,149,98,311,47"/>
+<area shape="rect" id="Node000003" href="$dt__node_8hpp.html" title="Header file for the DigitalTwinNode class." alt="" coords="247,93,405,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="365,58,341,95,336,92,361,56"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="353,189,501,214"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="404,57,419,93,428,146,430,188,425,189,423,146,414,94,399,59"/>
+<area shape="rect" id="Node000006" href="$main__window_8hpp.html" title=" " alt="" coords="510,93,665,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="442,48,544,91,542,96,440,53"/>
+<area shape="rect" id="Node000004" href="$dt__node_8cpp.html" title="Implementation of the DigitalTwinNode class." alt="" coords="161,189,329,214"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="300,145,258,190,254,186,296,142"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="361,140,415,186,412,190,357,144"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="541,142,450,191,447,186,539,137"/>
+<area shape="rect" id="Node000007" href="$viz__node_8hpp.html" title=" " alt="" coords="526,181,681,221"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="596,146,602,181,597,182,591,147"/>
+<area shape="rect" id="Node000009" href="$main__window_8cpp.html" title=" " alt="" coords="705,189,909,214"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="649,136,779,186,777,191,647,141"/>
+<area shape="rect" id="Node000008" href="$viz__node_8cpp.html" title=" " alt="" coords="517,269,690,295"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="606,235,606,269,601,269,601,235"/>
+</map>

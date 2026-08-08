@@ -1,0 +1,136 @@
+\doxysection{prediction Namespace Reference}
+\hypertarget{namespaceprediction}{}\label{namespaceprediction}\index{prediction@{prediction}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespaceprediction_a6f553532d1561227723d175ee82a9024}{predict\+\_\+trajectory}} (const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&entity, const double time\+\_\+horizon, const double time\+\_\+step)
+\begin{DoxyCompactList}\small\item\em Predicts the trajectory of a specific entity over a given time horizon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespaceprediction_ab34897d30f84471f027155b24a71e6e2}{predict\+\_\+trajectory\+\_\+by\+\_\+id}} (const int32\+\_\+t id, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets, const double time\+\_\+horizon, const double time\+\_\+step)
+\begin{DoxyCompactList}\small\item\em Predicts the trajectory of a specific target over a given time horizon. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespaceprediction_aa6d2c8cb7d00be94c9f378f23d4e0ff1}{make\+\_\+trajectory\+\_\+between}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&origin, const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&destination, const double step)
+\begin{DoxyCompactList}\small\item\em Discretizes a trajectory between two points in space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}} \mbox{\hyperlink{namespaceprediction_abdc309965bf85f3d70f68d84185f6c89}{check\+\_\+collisions\+\_\+on\+\_\+trajectory}} (const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&candidate\+\_\+trajectory, const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&usv\+\_\+state, double speed\+\_\+profile, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets, const double start\+\_\+time=0.\+0)
+\begin{DoxyCompactList}\small\item\em Evaluates potential collisions along a candidate trajectory against known targets. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceprediction_acb4b412a146972117fbad44cc27092c9}{get\+\_\+dynamic\+\_\+risk\+\_\+field}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position, const double timestamp, const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&usv\+\_\+state, const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Calculates a dynamic risk field value for a given position based on target kinematics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceprediction_abdc309965bf85f3d70f68d84185f6c89}\label{namespaceprediction_abdc309965bf85f3d70f68d84185f6c89} 
+\index{prediction@{prediction}!check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}}
+\index{check\_collisions\_on\_trajectory@{check\_collisions\_on\_trajectory}!prediction@{prediction}}
+\doxysubsubsection{\texorpdfstring{check\_collisions\_on\_trajectory()}{check\_collisions\_on\_trajectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}} prediction\+::check\+\_\+collisions\+\_\+on\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&}]{candidate\+\_\+trajectory,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{double}]{speed\+\_\+profile,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{const double}]{start\+\_\+time = {\ttfamily 0.0} }\end{DoxyParamCaption})}
+
+
+
+Evaluates potential collisions along a candidate trajectory against known targets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em candidate\+\_\+trajectory} & The planned route to evaluate. \\
+\hline
+{\em usv\+\_\+state} & Current kinematics and pose of the Ego Vehicle. \\
+\hline
+{\em speed\+\_\+profile} & Assumed speed profile along the route. \\
+\hline
+{\em targets} & Surrounding dynamic targets. \\
+\hline
+{\em start\+\_\+time} & Evaluation start offset. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Detailed report containing CPA (Closest Point of Approach) metrics. 
+\end{DoxyReturn}
+\Hypertarget{namespaceprediction_acb4b412a146972117fbad44cc27092c9}\label{namespaceprediction_acb4b412a146972117fbad44cc27092c9} 
+\index{prediction@{prediction}!get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}}
+\index{get\_dynamic\_risk\_field@{get\_dynamic\_risk\_field}!prediction@{prediction}}
+\doxysubsubsection{\texorpdfstring{get\_dynamic\_risk\_field()}{get\_dynamic\_risk\_field()}}
+{\footnotesize\ttfamily double prediction\+::get\+\_\+dynamic\+\_\+risk\+\_\+field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position,  }\item[{const double}]{timestamp,  }\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{usv\+\_\+state,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Calculates a dynamic risk field value for a given position based on target kinematics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Point in space to evaluate. \\
+\hline
+{\em timestamp} & Time offset for the risk evaluation. \\
+\hline
+{\em usv\+\_\+state} & Ego vehicle state. \\
+\hline
+{\em targets} & Dynamic environmental targets. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Risk factor (higher indicates greater collision probability). 
+\end{DoxyReturn}
+\Hypertarget{namespaceprediction_aa6d2c8cb7d00be94c9f378f23d4e0ff1}\label{namespaceprediction_aa6d2c8cb7d00be94c9f378f23d4e0ff1} 
+\index{prediction@{prediction}!make\_trajectory\_between@{make\_trajectory\_between}}
+\index{make\_trajectory\_between@{make\_trajectory\_between}!prediction@{prediction}}
+\doxysubsubsection{\texorpdfstring{make\_trajectory\_between()}{make\_trajectory\_between()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} prediction\+::make\+\_\+trajectory\+\_\+between (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{origin,  }\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{destination,  }\item[{const double}]{step }\end{DoxyParamCaption})}
+
+
+
+Discretizes a trajectory between two points in space. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em origin} & Starting point. \\
+\hline
+{\em destination} & Ending point. \\
+\hline
+{\em step} & Distance between discrete inner trajectory points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trajectory between origin and destination. 
+\end{DoxyReturn}
+\Hypertarget{namespaceprediction_a6f553532d1561227723d175ee82a9024}\label{namespaceprediction_a6f553532d1561227723d175ee82a9024} 
+\index{prediction@{prediction}!predict\_trajectory@{predict\_trajectory}}
+\index{predict\_trajectory@{predict\_trajectory}!prediction@{prediction}}
+\doxysubsubsection{\texorpdfstring{predict\_trajectory()}{predict\_trajectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} prediction\+::predict\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}} \&}]{entity,  }\item[{const double}]{time\+\_\+horizon,  }\item[{const double}]{time\+\_\+step }\end{DoxyParamCaption})}
+
+
+
+Predicts the trajectory of a specific entity over a given time horizon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Current entity to predict trajectory. \\
+\hline
+{\em time\+\_\+horizon} & Total prediction time in seconds. \\
+\hline
+{\em time\+\_\+step} & Time increment between prediction steps. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Predicted trajectory for the specified entity. 
+\end{DoxyReturn}
+\Hypertarget{namespaceprediction_ab34897d30f84471f027155b24a71e6e2}\label{namespaceprediction_ab34897d30f84471f027155b24a71e6e2} 
+\index{prediction@{prediction}!predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}}
+\index{predict\_trajectory\_by\_id@{predict\_trajectory\_by\_id}!prediction@{prediction}}
+\doxysubsubsection{\texorpdfstring{predict\_trajectory\_by\_id()}{predict\_trajectory\_by\_id()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} prediction\+::predict\+\_\+trajectory\+\_\+by\+\_\+id (\begin{DoxyParamCaption}\item[{const int32\+\_\+t}]{id,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets,  }\item[{const double}]{time\+\_\+horizon,  }\item[{const double}]{time\+\_\+step }\end{DoxyParamCaption})}
+
+
+
+Predicts the trajectory of a specific target over a given time horizon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the target to predict. \\
+\hline
+{\em targets} & Current list of context targets. \\
+\hline
+{\em time\+\_\+horizon} & Total prediction time in seconds. \\
+\hline
+{\em time\+\_\+step} & Time increment between prediction steps. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Predicted trajectory for the specified target. 
+\end{DoxyReturn}

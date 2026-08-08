@@ -1,0 +1,161 @@
+\doxysection{types\+::Collision\+Report Class Reference}
+\hypertarget{classtypes_1_1CollisionReport}{}\label{classtypes_1_1CollisionReport}\index{types::CollisionReport@{types::CollisionReport}}
+
+
+Contains Closest \doxylink{classtypes_1_1Point}{Point} of Approach (CPA) calculations for collision risk analysis.  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+Inheritance diagram for types\+::Collision\+Report\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classtypes_1_1CollisionReport__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for types\+::Collision\+Report\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{classtypes_1_1CollisionReport__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1CollisionReport_a28b5611054c3701c93edf0f3a85ae8c6}{Collision\+Report}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&usv\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&obstacle\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), double dcpa=-\/1.\+0, double tcpa=-\/1.\+0, double risk=-\/1.\+0, const std\+::string \&msg="{}"{}, bool safe=true)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a2d881adb6df569bb3f334f046334cc81}{set\+\_\+usv\+\_\+cpa}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&cpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a2dc6ec506e461226d6ab3da4e959ce36}{set\+\_\+obstacle\+\_\+cpa}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&cpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_ae9a2ec4861cb7dd9ae5d0886fcc70b19}{set\+\_\+dcpa}} (double dcpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a331dfd5a52e04869114fca6b53256020}{set\+\_\+tcpa}} (double tcpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a3d40c4dd40921ac37f9a0189959c497b}{set\+\_\+risk}} (double risk)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_abc3271b14c644eb009b14d7d760d5d94}{set\+\_\+safety}} (bool safe)
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1CollisionReport_a7025373eed07eb52bd13cd1d89384eb9}{get\+\_\+usv\+\_\+cpa}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1CollisionReport_a2b749f20d8df6113c0618bb8525210a7}{get\+\_\+obstacle\+\_\+cpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_a86a8456d6636d38454292010c25df263}{get\+\_\+dcpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_af292156617a8917f0d97c2d311864850}{get\+\_\+tcpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_a53ab2b75b4b2fb77e6f0a9859e0ad8bd}{get\+\_\+risk}} () const
+\item 
+bool \mbox{\hyperlink{classtypes_1_1CollisionReport_a5adcda57fd32351613bcfe8e1186990f}{is\+\_\+safe}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtypes_1_1Report}{types\+::\+Report}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1Report_aefaee9676a1e67195d61bbac91ecd324}{Report}} (const std\+::string \&msg="{}"{})
+\item 
+void \mbox{\hyperlink{classtypes_1_1Report_ae8b2513951a8f3d2b3f8ad18c5de716d}{set\+\_\+msg}} (const std\+::string \&msg)
+\item 
+const std\+::string \& \mbox{\hyperlink{classtypes_1_1Report_a49819df5a20b515d1d27418fa9852ffb}{get\+\_\+msg}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains Closest \doxylink{classtypes_1_1Point}{Point} of Approach (CPA) calculations for collision risk analysis. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtypes_1_1CollisionReport_a28b5611054c3701c93edf0f3a85ae8c6}\label{classtypes_1_1CollisionReport_a28b5611054c3701c93edf0f3a85ae8c6} 
+\index{types::CollisionReport@{types::CollisionReport}!CollisionReport@{CollisionReport}}
+\index{CollisionReport@{CollisionReport}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{CollisionReport()}{CollisionReport()}}
+{\footnotesize\ttfamily types\+::\+Collision\+Report\+::\+Collision\+Report (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{usv\+\_\+cpa = {\ttfamily \mbox{\hyperlink{classtypes_1_1Pose}{Pose}}()},  }\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{obstacle\+\_\+cpa = {\ttfamily \mbox{\hyperlink{classtypes_1_1Pose}{Pose}}()},  }\item[{double}]{dcpa = {\ttfamily -\/1.0},  }\item[{double}]{tcpa = {\ttfamily -\/1.0},  }\item[{double}]{risk = {\ttfamily -\/1.0},  }\item[{const std\+::string \&}]{msg = {\ttfamily "{}"{}},  }\item[{bool}]{safe = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtypes_1_1CollisionReport_a86a8456d6636d38454292010c25df263}\label{classtypes_1_1CollisionReport_a86a8456d6636d38454292010c25df263} 
+\index{types::CollisionReport@{types::CollisionReport}!get\_dcpa@{get\_dcpa}}
+\index{get\_dcpa@{get\_dcpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_dcpa()}{get\_dcpa()}}
+{\footnotesize\ttfamily double types\+::\+Collision\+Report\+::get\+\_\+dcpa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a2b749f20d8df6113c0618bb8525210a7}\label{classtypes_1_1CollisionReport_a2b749f20d8df6113c0618bb8525210a7} 
+\index{types::CollisionReport@{types::CollisionReport}!get\_obstacle\_cpa@{get\_obstacle\_cpa}}
+\index{get\_obstacle\_cpa@{get\_obstacle\_cpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_obstacle\_cpa()}{get\_obstacle\_cpa()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Collision\+Report\+::get\+\_\+obstacle\+\_\+cpa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a53ab2b75b4b2fb77e6f0a9859e0ad8bd}\label{classtypes_1_1CollisionReport_a53ab2b75b4b2fb77e6f0a9859e0ad8bd} 
+\index{types::CollisionReport@{types::CollisionReport}!get\_risk@{get\_risk}}
+\index{get\_risk@{get\_risk}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_risk()}{get\_risk()}}
+{\footnotesize\ttfamily double types\+::\+Collision\+Report\+::get\+\_\+risk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_af292156617a8917f0d97c2d311864850}\label{classtypes_1_1CollisionReport_af292156617a8917f0d97c2d311864850} 
+\index{types::CollisionReport@{types::CollisionReport}!get\_tcpa@{get\_tcpa}}
+\index{get\_tcpa@{get\_tcpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_tcpa()}{get\_tcpa()}}
+{\footnotesize\ttfamily double types\+::\+Collision\+Report\+::get\+\_\+tcpa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a7025373eed07eb52bd13cd1d89384eb9}\label{classtypes_1_1CollisionReport_a7025373eed07eb52bd13cd1d89384eb9} 
+\index{types::CollisionReport@{types::CollisionReport}!get\_usv\_cpa@{get\_usv\_cpa}}
+\index{get\_usv\_cpa@{get\_usv\_cpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_usv\_cpa()}{get\_usv\_cpa()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& types\+::\+Collision\+Report\+::get\+\_\+usv\+\_\+cpa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a5adcda57fd32351613bcfe8e1186990f}\label{classtypes_1_1CollisionReport_a5adcda57fd32351613bcfe8e1186990f} 
+\index{types::CollisionReport@{types::CollisionReport}!is\_safe@{is\_safe}}
+\index{is\_safe@{is\_safe}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{is\_safe()}{is\_safe()}}
+{\footnotesize\ttfamily bool types\+::\+Collision\+Report\+::is\+\_\+safe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_ae9a2ec4861cb7dd9ae5d0886fcc70b19}\label{classtypes_1_1CollisionReport_ae9a2ec4861cb7dd9ae5d0886fcc70b19} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_dcpa@{set\_dcpa}}
+\index{set\_dcpa@{set\_dcpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_dcpa()}{set\_dcpa()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+dcpa (\begin{DoxyParamCaption}\item[{double}]{dcpa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a2dc6ec506e461226d6ab3da4e959ce36}\label{classtypes_1_1CollisionReport_a2dc6ec506e461226d6ab3da4e959ce36} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_obstacle\_cpa@{set\_obstacle\_cpa}}
+\index{set\_obstacle\_cpa@{set\_obstacle\_cpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_obstacle\_cpa()}{set\_obstacle\_cpa()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+obstacle\+\_\+cpa (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{cpa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a3d40c4dd40921ac37f9a0189959c497b}\label{classtypes_1_1CollisionReport_a3d40c4dd40921ac37f9a0189959c497b} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_risk@{set\_risk}}
+\index{set\_risk@{set\_risk}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_risk()}{set\_risk()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+risk (\begin{DoxyParamCaption}\item[{double}]{risk }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_abc3271b14c644eb009b14d7d760d5d94}\label{classtypes_1_1CollisionReport_abc3271b14c644eb009b14d7d760d5d94} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_safety@{set\_safety}}
+\index{set\_safety@{set\_safety}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_safety()}{set\_safety()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+safety (\begin{DoxyParamCaption}\item[{bool}]{safe }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a331dfd5a52e04869114fca6b53256020}\label{classtypes_1_1CollisionReport_a331dfd5a52e04869114fca6b53256020} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_tcpa@{set\_tcpa}}
+\index{set\_tcpa@{set\_tcpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_tcpa()}{set\_tcpa()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+tcpa (\begin{DoxyParamCaption}\item[{double}]{tcpa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1CollisionReport_a2d881adb6df569bb3f334f046334cc81}\label{classtypes_1_1CollisionReport_a2d881adb6df569bb3f334f046334cc81} 
+\index{types::CollisionReport@{types::CollisionReport}!set\_usv\_cpa@{set\_usv\_cpa}}
+\index{set\_usv\_cpa@{set\_usv\_cpa}!types::CollisionReport@{types::CollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_usv\_cpa()}{set\_usv\_cpa()}}
+{\footnotesize\ttfamily void types\+::\+Collision\+Report\+::set\+\_\+usv\+\_\+cpa (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{cpa }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

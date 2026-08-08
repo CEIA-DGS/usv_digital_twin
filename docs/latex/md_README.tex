@@ -1,0 +1,162 @@
+\chapter{Digital Twin -\/ CEIA-\/\+DGS}
+\hypertarget{md_README}{}\label{md_README}\index{Digital Twin -\/ CEIA-\/DGS@{Digital Twin -\/ CEIA-\/DGS}}
+\label{md_README_autotoc_md50}%
+\Hypertarget{md_README_autotoc_md50}%
+ O {\bfseries{Digital Twin}} é um módulo de simulação, predição e visualização em tempo real desenvolvido para Veículos de Superfície Não Tripulados (USVs).
+
+Este sistema é capaz de processar cartas náuticas oficiais (S-\/57), gerar malhas de navegação (Nav\+Mesh) em tempo de execução, calcular dinamicamente o risco de colisão e exibir diagnósticos operacionais em uma interface gráfica dedicada.
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md52}{}\doxysection{\texorpdfstring{Arquitetura do Sistema}{Arquitetura do Sistema}}\label{md_README_autotoc_md52}
+O projeto foi dividido em quatro pacotes para garantir a separação de responsabilidades (SoC) e a independência do motor matemático em relação ao middleware de comunicação\+:
+
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+core}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Motor central em C++ puro (independente do ROS). Responsável por todo o processamento geométrico (GDAL/\+Boost), R-\/\+Trees, estruturas de dados matemáticas (Types) e os algoritmos de predição de risco de colisão.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+msgs}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Definição das mensagens customizadas (IDL) para tráfego de dados de navegação e alertas no barramento do ROS 2.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__ros}{dt\+\_\+ros}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Nó adaptador (Padrão Adapter). Atua como uma ponte, inscrevendo-\/se nos tópicos de sensores do USV e traduzindo os dados brutos para injetá-\/los no {\ttfamily dt\+\_\+core}.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+viz}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Interface Gráfica de Diagnóstico desenvolvida em Qt5. Renderiza a Nav\+Mesh, a telemetria do USV, os alvos dinâmicos e os alertas visuais de colisão, rodando em uma thread assíncrona.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md54}{}\doxysection{\texorpdfstring{📂 Estrutura de Diretórios}{📂 Estrutura de Diretórios}}\label{md_README_autotoc_md54}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{usv\_digital\_twin/}
+\DoxyCodeLine{└──\ src/}
+\DoxyCodeLine{\ \ \ \ ├──\ dt\_core/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Módulo\ central\ em\ C++\ (Lógica,\ Mapeamento\ e\ Predição\ independentes\ do\ ROS)}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ package.xml}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ config.json}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ include/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ │\ \ \ ├──\ dt\_core/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ │\ \ \ ├──\ map/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ │\ \ \ └──\ prediction/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ └──\ src/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ \ \ \ \ ├──\ twin\_interface.cpp}
+\DoxyCodeLine{\ \ \ \ │\ \ \ \ \ \ \ ├──\ map/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ \ \ \ \ └──\ prediction/}
+\DoxyCodeLine{\ \ \ \ │}
+\DoxyCodeLine{\ \ \ \ ├──\ dt\_msgs/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Definição\ das\ mensagens\ customizadas\ para\ o\ barramento\ ROS\ 2}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ package.xml}
+\DoxyCodeLine{\ \ \ \ │\ \ \ └──\ msg/}
+\DoxyCodeLine{\ \ \ \ │}
+\DoxyCodeLine{\ \ \ \ ├──\ dt\_ros/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Nó\ Adaptador\ (Recebe\ tópicos\ ROS\ e\ injeta\ no\ Core)}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ package.xml}
+\DoxyCodeLine{\ \ \ \ │\ \ \ ├──\ include/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ │\ \ \ └──\ dt\_ros/}
+\DoxyCodeLine{\ \ \ \ │\ \ \ └──\ src/}
+\DoxyCodeLine{\ \ \ \ │}
+\DoxyCodeLine{\ \ \ \ └──\ dt\_viz/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Interface\ Gráfica\ de\ Diagnóstico\ (Qt5)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ├──\ CMakeLists.txt}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ├──\ package.xml}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ├──\ README.md}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ├──\ include/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ │\ \ \ └──\ dt\_viz/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ └──\ src/}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md55}{}\doxysection{\texorpdfstring{⚙️ Pré-\/\+Requisitos e Dependências}{⚙️ Pré-Requisitos e Dependências}}\label{md_README_autotoc_md55}
+O sistema foi homologado para Ubuntu 22.\+04 rodando ROS 2 Humble.
+
+Certifique-\/se de instalar as dependências de sistema (compiladores, bibliotecas geográficas e interface gráfica) antes de realizar o build\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{sudo\ apt\ update}
+\DoxyCodeLine{sudo\ apt\ install\ -\/y\ \(\backslash\)}
+\DoxyCodeLine{\ \ build-\/essential\ \(\backslash\)}
+\DoxyCodeLine{\ \ cmake\ \(\backslash\)}
+\DoxyCodeLine{\ \ python3-\/colcon-\/common-\/extensions\ \(\backslash\)}
+\DoxyCodeLine{\ \ libgdal-\/dev\ \(\backslash\)}
+\DoxyCodeLine{\ \ libglfw3-\/dev\ \(\backslash\)}
+\DoxyCodeLine{\ \ libgl1-\/mesa-\/dev\ \(\backslash\)}
+\DoxyCodeLine{\ \ libboost-\/all-\/dev\ \(\backslash\)}
+\DoxyCodeLine{\ \ qtbase5-\/dev\ \(\backslash\)}
+\DoxyCodeLine{\ \ qtbase5-\/dev-\/tools}
+
+\end{DoxyCode}
+
+
+Aviso para usuários de WSL (Windows Subsystem for Linux)\+: Para evitar erros de permissão ou bugs no gerador de mensagens do ROS (rosidl), certifique-\/se de que o seu workspace esteja localizado no sistema de arquivos nativo do Linux (ex\+: \texorpdfstring{$\sim$}{\string~}/usv\+\_\+digital\+\_\+twin\+\_\+ws) e não na partição montada do Windows (/mnt/c/...).\hypertarget{md_README_autotoc_md56}{}\doxysection{\texorpdfstring{📚 Clone do Repositório}{📚 Clone do Repositório}}\label{md_README_autotoc_md56}
+Para ter acesso ao código fonte, basta clonar o repositório usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{git\ clone\ https://github.com/CEIA-\/DGS/usv\_digital\_twin.git}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md57}{}\doxysection{\texorpdfstring{🚀 Compilação (\+Build)}{🚀 Compilação (Build)}}\label{md_README_autotoc_md57}
+Para a compilação ser executada adequadamente, organize o workspace da seguinte forma\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ text}
+\DoxyCodeLine{\$nome\_do\_workspace\$/}
+\DoxyCodeLine{└──\ src/}
+\DoxyCodeLine{\ \ \ \ └──\ usv\_digital\_twin/\ \ \ \ \ \ \ \#\ clone\ do\ repositório}
+
+\end{DoxyCode}
+
+
+Devido à hierarquia de dependências (dt\+\_\+viz depende de \doxylink{namespacedt__ros}{dt\+\_\+ros}, que depende de dt\+\_\+msgs e dt\+\_\+core), utilize o colcon na raiz do seu workspace para compilar na ordem correta\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{cd\ \string~/\$nome\_do\_workspace\$}
+\DoxyCodeLine{rosdep\ install\ -\/-\/from-\/paths\ src\ -\/-\/ignore-\/src\ -\/r\ -\/y}
+\DoxyCodeLine{colcon\ build\ -\/-\/symlink-\/install}
+
+\end{DoxyCode}
+
+
+Caso faça alterações no código, para re-\/compilar as alterações rode\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{colcon\ build\ -\/-\/cmake-\/clean-\/cache}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md58}{}\doxysection{\texorpdfstring{🖥️ Execução do código compilado}{🖥️ Execução do código compilado}}\label{md_README_autotoc_md58}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ bash}
+\DoxyCodeLine{source\ \string~/\$nome\_do\_workspace\$/install/setup.bash}
+\DoxyCodeLine{ros2\ run\ dt\_viz\ dt\_visualizer\_node}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md60}{}\doxysection{\texorpdfstring{📡 API ROS2 (\+Tópicos e Mensagens)}{📡 API ROS2 (Tópicos e Mensagens)}}\label{md_README_autotoc_md60}
+Para integrar módulos de navegação e controle ao Gêmeo Digital, utilize a seguinte especificação de tópicos\+:\hypertarget{md_README_autotoc_md61}{}\doxysubsection{\texorpdfstring{Subscribers (\+Tópicos Lidos pelo Sistema)}{Subscribers (Tópicos Lidos pelo Sistema)}}\label{md_README_autotoc_md61}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tópico   }&\cellcolor{\tableheadbgcolor}\textbf{ Tipo de Mensagem   }&\cellcolor{\tableheadbgcolor}\textbf{ Finalidade    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tópico   }&\cellcolor{\tableheadbgcolor}\textbf{ Tipo de Mensagem   }&\cellcolor{\tableheadbgcolor}\textbf{ Finalidade    }\\\cline{1-3}
+\endhead
+{\ttfamily /sensors/gps/fix}   &{\ttfamily sensor\+\_\+msgs/\+Nav\+Sat\+Fix}   &Atualiza a posição (Lat/\+Lon) global do USV.    \\\cline{1-3}
+{\ttfamily /sensors/imu/data}   &{\ttfamily sensor\+\_\+msgs/\+Imu}   &Atualiza a orientação (Quaternions convertidos para Euler).    \\\cline{1-3}
+{\ttfamily /sensors/ais/report}   &{\ttfamily dt\+\_\+msgs/\+Ais\+Report}   &Recebe a lista de alvos dinâmicos no raio de alcance.    \\\cline{1-3}
+{\ttfamily /planned\+\_\+route}   &{\ttfamily nav\+\_\+msgs/\+Path}   &Recebe a rota (waypoints) planejada pelo módulo de navegação.   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_README_autotoc_md62}{}\doxysubsection{\texorpdfstring{Publishers (\+Tópicos Emitidos pelo Sistema)}{Publishers (Tópicos Emitidos pelo Sistema)}}\label{md_README_autotoc_md62}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tópico   }&\cellcolor{\tableheadbgcolor}\textbf{ Tipo de Mensagem   }&\cellcolor{\tableheadbgcolor}\textbf{ Finalidade    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Tópico   }&\cellcolor{\tableheadbgcolor}\textbf{ Tipo de Mensagem   }&\cellcolor{\tableheadbgcolor}\textbf{ Finalidade    }\\\cline{1-3}
+\endhead
+{\ttfamily /collision\+\_\+alert}   &{\ttfamily dt\+\_\+msgs/\+Collision\+Alert}   &Emite alertas consolidados com tempo, distância (CPA) e índice de risco calculados para cada alvo.   \\\cline{1-3}
+\end{longtabu}

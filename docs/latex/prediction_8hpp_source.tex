@@ -1,0 +1,21 @@
+\doxysection{prediction.\+hpp}
+\hypertarget{prediction_8hpp_source}{}\label{prediction_8hpp_source}\index{dt\_core/include/prediction/prediction.hpp@{dt\_core/include/prediction/prediction.hpp}}
+\mbox{\hyperlink{prediction_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{dt\_core/types.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceprediction}{prediction}}\{}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{namespaceprediction_a6f553532d1561227723d175ee82a9024}{predict\_trajectory}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Entity}{types::Entity}}\&\ entity,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ time\_horizon,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ time\_step);}
+\DoxyCodeLine{00018\ \ \ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{namespaceprediction_ab34897d30f84471f027155b24a71e6e2}{predict\_trajectory\_by\_id}}(\textcolor{keyword}{const}\ int32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ time\_horizon,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ time\_step);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{namespaceprediction_aa6d2c8cb7d00be94c9f378f23d4e0ff1}{make\_trajectory\_between}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ destination,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ step);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types::TargetCollisionReport}}\ \mbox{\hyperlink{namespaceprediction_abdc309965bf85f3d70f68d84185f6c89}{check\_collisions\_on\_trajectory}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\&\ candidate\_trajectory,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Entity}{types::Entity}}\&\ usv\_state,\ \textcolor{keywordtype}{double}\ speed\_profile,\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ start\_time\ =\ 0.0);}
+\DoxyCodeLine{00048\ \ \ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceprediction_acb4b412a146972117fbad44cc27092c9}{get\_dynamic\_risk\_field}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ position,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ timestamp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Entity}{types::Entity}}\&\ usv\_state,\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets);}
+\DoxyCodeLine{00058\ \}\ \textcolor{comment}{//\ namespace\ prediction}}
+
+\end{DoxyCode}

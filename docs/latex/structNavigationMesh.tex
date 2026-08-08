@@ -1,0 +1,75 @@
+\doxysection{Navigation\+Mesh Struct Reference}
+\hypertarget{structNavigationMesh}{}\label{structNavigationMesh}\index{NavigationMesh@{NavigationMesh}}
+
+
+Data structure containing the processed triangular mesh and auxiliary geometries.  
+
+
+
+
+{\ttfamily \#include $<$mesh\+\_\+generator.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structNavigationMesh_a99a82a975b928d653e1db4700e362859}{free\+\_\+memory}} ()
+\begin{DoxyCompactList}\small\item\em Deallocates the memory occupied by the cached OGR geometries. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structTriangle}{Triangle}} $>$ \mbox{\hyperlink{structNavigationMesh_a0857771e31764b9d724b686ef6bcdd4d}{triangles}}
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43}{original\+\_\+land}} = nullptr
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5}{safety\+\_\+margin}} = nullptr
+\item 
+OGRGeometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNavigationMesh_a3a92106fef963b386ee8328f253aa660}{safe\+\_\+navigable\+\_\+perimeter}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Data structure containing the processed triangular mesh and auxiliary geometries. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structNavigationMesh_a99a82a975b928d653e1db4700e362859}\label{structNavigationMesh_a99a82a975b928d653e1db4700e362859} 
+\index{NavigationMesh@{NavigationMesh}!free\_memory@{free\_memory}}
+\index{free\_memory@{free\_memory}!NavigationMesh@{NavigationMesh}}
+\doxysubsubsection{\texorpdfstring{free\_memory()}{free\_memory()}}
+{\footnotesize\ttfamily void Navigation\+Mesh\+::free\+\_\+memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Deallocates the memory occupied by the cached OGR geometries. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43}\label{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43} 
+\index{NavigationMesh@{NavigationMesh}!original\_land@{original\_land}}
+\index{original\_land@{original\_land}!NavigationMesh@{NavigationMesh}}
+\doxysubsubsection{\texorpdfstring{original\_land}{original\_land}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Navigation\+Mesh\+::original\+\_\+land = nullptr}
+
+\Hypertarget{structNavigationMesh_a3a92106fef963b386ee8328f253aa660}\label{structNavigationMesh_a3a92106fef963b386ee8328f253aa660} 
+\index{NavigationMesh@{NavigationMesh}!safe\_navigable\_perimeter@{safe\_navigable\_perimeter}}
+\index{safe\_navigable\_perimeter@{safe\_navigable\_perimeter}!NavigationMesh@{NavigationMesh}}
+\doxysubsubsection{\texorpdfstring{safe\_navigable\_perimeter}{safe\_navigable\_perimeter}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Navigation\+Mesh\+::safe\+\_\+navigable\+\_\+perimeter = nullptr}
+
+\Hypertarget{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5}\label{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5} 
+\index{NavigationMesh@{NavigationMesh}!safety\_margin@{safety\_margin}}
+\index{safety\_margin@{safety\_margin}!NavigationMesh@{NavigationMesh}}
+\doxysubsubsection{\texorpdfstring{safety\_margin}{safety\_margin}}
+{\footnotesize\ttfamily OGRGeometry\texorpdfstring{$\ast$}{*} Navigation\+Mesh\+::safety\+\_\+margin = nullptr}
+
+\Hypertarget{structNavigationMesh_a0857771e31764b9d724b686ef6bcdd4d}\label{structNavigationMesh_a0857771e31764b9d724b686ef6bcdd4d} 
+\index{NavigationMesh@{NavigationMesh}!triangles@{triangles}}
+\index{triangles@{triangles}!NavigationMesh@{NavigationMesh}}
+\doxysubsubsection{\texorpdfstring{triangles}{triangles}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structTriangle}{Triangle}}$>$ Navigation\+Mesh\+::triangles}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{mesh__generator_8hpp}{mesh\+\_\+generator.\+hpp}}\end{DoxyCompactItemize}

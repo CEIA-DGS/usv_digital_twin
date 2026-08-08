@@ -1,0 +1,67 @@
+\doxysection{dt\+\_\+ros\+::Digital\+Twin\+Node Class Reference}
+\hypertarget{classdt__ros_1_1DigitalTwinNode}{}\label{classdt__ros_1_1DigitalTwinNode}\index{dt\_ros::DigitalTwinNode@{dt\_ros::DigitalTwinNode}}
+
+
+ROS 2 Node responsible for bridging ROS data to the Digital Twin Core.  
+
+
+
+
+{\ttfamily \#include $<$dt\+\_\+node.\+hpp$>$}
+
+
+
+Inheritance diagram for dt\+\_\+ros\+::Digital\+Twin\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classdt__ros_1_1DigitalTwinNode__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dt\+\_\+ros\+::Digital\+Twin\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classdt__ros_1_1DigitalTwinNode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdt__ros_1_1DigitalTwinNode_a451e8ffbd36dc7ebdf241af9f4bd0dad}{Digital\+Twin\+Node}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$ dt\+\_\+core, const rclcpp\+::\+Node\+Options \&options=rclcpp\+::\+Node\+Options())
+\begin{DoxyCompactList}\small\item\em Construct a new Digital Twin Node object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ROS 2 Node responsible for bridging ROS data to the Digital Twin Core. 
+
+This node subscribes to telemetry, navigation, and environmental data (GPS, IMU, AIS, Waypoints), converts the ROS messages into domain-\/specific types, and updates the core digital twin state. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdt__ros_1_1DigitalTwinNode_a451e8ffbd36dc7ebdf241af9f4bd0dad}\label{classdt__ros_1_1DigitalTwinNode_a451e8ffbd36dc7ebdf241af9f4bd0dad} 
+\index{dt\_ros::DigitalTwinNode@{dt\_ros::DigitalTwinNode}!DigitalTwinNode@{DigitalTwinNode}}
+\index{DigitalTwinNode@{DigitalTwinNode}!dt\_ros::DigitalTwinNode@{dt\_ros::DigitalTwinNode}}
+\doxysubsubsection{\texorpdfstring{DigitalTwinNode()}{DigitalTwinNode()}}
+{\footnotesize\ttfamily dt\+\_\+ros\+::\+Digital\+Twin\+Node\+::\+Digital\+Twin\+Node (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$}]{dt\+\_\+core,  }\item[{const rclcpp\+::\+Node\+Options \&}]{options = {\ttfamily rclcpp\+:\+:NodeOptions()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Construct a new Digital Twin Node object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt\+\_\+core} & Shared pointer to the Digital Twin Core interface. \\
+\hline
+{\em options} & ROS 2 Node options (defaults to empty options). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+ros/include/dt\+\_\+ros/\mbox{\hyperlink{dt__node_8hpp}{dt\+\_\+node.\+hpp}}\item 
+dt\+\_\+ros/src/\mbox{\hyperlink{dt__node_8cpp}{dt\+\_\+node.\+cpp}}\end{DoxyCompactItemize}

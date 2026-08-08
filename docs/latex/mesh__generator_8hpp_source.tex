@@ -1,0 +1,41 @@
+\doxysection{mesh\+\_\+generator.\+hpp}
+\hypertarget{mesh__generator_8hpp_source}{}\label{mesh__generator_8hpp_source}\index{dt\_core/include/map/mesh\_generator.hpp@{dt\_core/include/map/mesh\_generator.hpp}}
+\mbox{\hyperlink{mesh__generator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{s57__processor_8hpp}{s57\_processor.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPoint2D}{Point2D}}\ \{\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structPoint2D_a42fcad8b63853b1136e6207ace6d555e}{x}},\ \mbox{\hyperlink{structPoint2D_a55747be726950fdcba27c1ad032bfdf1}{y}};\ \};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTriangle}{Triangle}}\ \{\ \mbox{\hyperlink{structPoint2D}{Point2D}}\ \mbox{\hyperlink{structTriangle_afd28c2871ec629c679272b5de08b59a0}{p1}},\ \mbox{\hyperlink{structTriangle_a5c3de9d7400ecaf62e63a5dc0bbad09b}{p2}},\ \mbox{\hyperlink{structTriangle_a5861e3464d3366e22423e5d0be5c5e38}{p3}};\ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNavigationMesh}{NavigationMesh}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<Triangle>\ \mbox{\hyperlink{structNavigationMesh_a0857771e31764b9d724b686ef6bcdd4d}{triangles}};}
+\DoxyCodeLine{00017\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43}{original\_land}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00018\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5}{safety\_margin}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00019\ \ \ \ \ OGRGeometry*\ \mbox{\hyperlink{structNavigationMesh_a3a92106fef963b386ee8328f253aa660}{safe\_navigable\_perimeter}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structNavigationMesh_a99a82a975b928d653e1db4700e362859}{free\_memory}}()\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43}{original\_land}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structNavigationMesh_adb7e1c4acf9c1694e73dd066d980bf43}{original\_land}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5}{safety\_margin}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structNavigationMesh_a1ec88c997b9c9d094d62b2514c4d98f5}{safety\_margin}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structNavigationMesh_a3a92106fef963b386ee8328f253aa660}{safe\_navigable\_perimeter}})\ OGRGeometryFactory::destroyGeometry(\mbox{\hyperlink{structNavigationMesh_a3a92106fef963b386ee8328f253aa660}{safe\_navigable\_perimeter}});}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMeshGenerator}{MeshGenerator}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{comment}{//\ Prevents\ accidental\ instantiation\ of\ the\ class}}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{classMeshGenerator_a4fbdcc34b9ec61f6cd2805867de6c5e7}{MeshGenerator}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structNavigationMesh}{NavigationMesh}}\ \mbox{\hyperlink{classMeshGenerator_acbe7e9713e0aaa132b831ed5f8b2dffe}{generate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structProcessedGeometries}{ProcessedGeometries}}\&\ geometries,\ \textcolor{keywordtype}{double}\ margin\_meters,\ \textcolor{keywordtype}{double}\ simplification\_tolerance);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{static}\ OGRGeometry*\ union\_geometries(\textcolor{keyword}{const}\ std::vector<OGRGeometry*>\&\ geometry\_list);}
+\DoxyCodeLine{00058\ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ triangulate\_polygon(OGRPolygon*\ polygon,\ std::vector<Triangle>\&\ target\_list,\ \textcolor{keywordtype}{int}\&\ fail\_counter);}
+\DoxyCodeLine{00066\ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ OGRGeometry*\ filter\_by\_area(OGRGeometry*\ geom,\ \textcolor{keywordtype}{double}\ min\_area);}
+\DoxyCodeLine{00074\ \};}
+
+\end{DoxyCode}

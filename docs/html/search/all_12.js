@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['tópicos_0',['Inspeção dos tópicos',['../md_dt__viz_2README.html#autotoc_md39',1,'']]],
+  ['tópicos_20e_20mensagens_1',['📡 API ROS2 (Tópicos e Mensagens)',['../md_README.html#autotoc_md60',1,'']]],
+  ['tópicos_20emitidos_20pelo_20sistema_2',['Publishers (Tópicos Emitidos pelo Sistema)',['../md_README.html#autotoc_md62',1,'']]],
+  ['tópicos_20lidos_20pelo_20sistema_3',['Subscribers (Tópicos Lidos pelo Sistema)',['../md_README.html#autotoc_md61',1,'']]],
+  ['tópicos_20utilizados_4',['Tópicos utilizados',['../md_dt__viz_2README.html#autotoc_md17',1,'']]],
+  ['target_5',['target',['../classtypes_1_1Target.html',1,'types::Target'],['../classtypes_1_1Target.html#a27846d3f14a9a8cc82cacecd1549a859',1,'types::Target::Target()']]],
+  ['targetcollisionreport_6',['targetcollisionreport',['../classtypes_1_1TargetCollisionReport.html',1,'types::TargetCollisionReport'],['../classtypes_1_1TargetCollisionReport.html#a6619f687c2f8e8d693959d6f52c683d0',1,'types::TargetCollisionReport::TargetCollisionReport()']]],
+  ['tecnologias_20utilizadas_7',['Tecnologias utilizadas',['../md_dt__viz_2README.html#autotoc_md4',1,'']]],
+  ['teste_20da_20derrota_20planejada_8',['Teste da derrota planejada',['../md_dt__viz_2README.html#autotoc_md35',1,'']]],
+  ['teste_20do_20alerta_20de_20colisão_9',['Teste do alerta de colisão',['../md_dt__viz_2README.html#autotoc_md37',1,'']]],
+  ['trajectory_10',['trajectory',['../classtypes_1_1Trajectory.html#af55ccd5cfcaa6d7d788f330f1735cc75',1,'types::Trajectory::Trajectory()'],['../classtypes_1_1Trajectory.html',1,'types::Trajectory'],['../classtypes_1_1Trajectory.html#a29e468e7de1c4c29af89a6a4bc7286a0',1,'types::Trajectory::Trajectory()']]],
+  ['triangle_11',['Triangle',['../structTriangle.html',1,'']]],
+  ['triangles_12',['triangles',['../structNavigationMesh.html#a0857771e31764b9d724b686ef6bcdd4d',1,'NavigationMesh']]],
+  ['tt_20include_20dt_5fviz_20main_5fwindow_20hpp_20tt_13',['&lt;tt&gt;include/dt_viz/main_window.hpp&lt;/tt&gt;',['../md_dt__viz_2README.html#autotoc_md9',1,'']]],
+  ['tt_20include_20dt_5fviz_20viz_5fnode_20hpp_20tt_14',['&lt;tt&gt;include/dt_viz/viz_node.hpp&lt;/tt&gt;',['../md_dt__viz_2README.html#autotoc_md11',1,'']]],
+  ['tt_20src_20main_20cpp_20tt_15',['&lt;tt&gt;src/main.cpp&lt;/tt&gt;',['../md_dt__viz_2README.html#autotoc_md13',1,'']]],
+  ['tt_20src_20main_5fwindow_20cpp_20tt_16',['&lt;tt&gt;src/main_window.cpp&lt;/tt&gt;',['../md_dt__viz_2README.html#autotoc_md10',1,'']]],
+  ['tt_20src_20viz_5fnode_20cpp_20tt_17',['&lt;tt&gt;src/viz_node.cpp&lt;/tt&gt;',['../md_dt__viz_2README.html#autotoc_md12',1,'']]],
+  ['twin_20ceia_20dgs_18',['Digital Twin - CEIA-DGS',['../md_README.html',1,'']]],
+  ['twin_5finterface_2ecpp_19',['twin_interface.cpp',['../twin__interface_8cpp.html',1,'']]],
+  ['twin_5finterface_2ehpp_20',['twin_interface.hpp',['../twin__interface_8hpp.html',1,'']]],
+  ['types_21',['types',['../namespacetypes.html',1,'']]],
+  ['types_2ehpp_22',['types.hpp',['../types_8hpp.html',1,'']]]
+];

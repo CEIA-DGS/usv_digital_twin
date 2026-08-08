@@ -1,0 +1,110 @@
+\doxysection{types\+::Target\+Collision\+Report Class Reference}
+\hypertarget{classtypes_1_1TargetCollisionReport}{}\label{classtypes_1_1TargetCollisionReport}\index{types::TargetCollisionReport@{types::TargetCollisionReport}}
+
+
+Specific collision report associated with a tracked target.  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+
+
+Inheritance diagram for types\+::Target\+Collision\+Report\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classtypes_1_1TargetCollisionReport__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for types\+::Target\+Collision\+Report\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{classtypes_1_1TargetCollisionReport__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1TargetCollisionReport_a6619f687c2f8e8d693959d6f52c683d0}{Target\+Collision\+Report}} (int32\+\_\+t id=0, const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&usv\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&obstacle\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), double dcpa=-\/1.\+0, double tcpa=-\/1.\+0, double risk=-\/1.\+0, const std\+::string \&msg="{}"{})
+\item 
+void \mbox{\hyperlink{classtypes_1_1TargetCollisionReport_a0027636d5794638d4674f3f3df30551c}{set\+\_\+id}} (int32\+\_\+t id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classtypes_1_1TargetCollisionReport_a0d789386d4d9c29306f3c1da3dcc2355}{get\+\_\+id}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtypes_1_1CollisionReport}{types\+::\+Collision\+Report}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1CollisionReport_a28b5611054c3701c93edf0f3a85ae8c6}{Collision\+Report}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&usv\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&obstacle\+\_\+cpa=\mbox{\hyperlink{classtypes_1_1Pose}{Pose}}(), double dcpa=-\/1.\+0, double tcpa=-\/1.\+0, double risk=-\/1.\+0, const std\+::string \&msg="{}"{}, bool safe=true)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a2d881adb6df569bb3f334f046334cc81}{set\+\_\+usv\+\_\+cpa}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&cpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a2dc6ec506e461226d6ab3da4e959ce36}{set\+\_\+obstacle\+\_\+cpa}} (const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&cpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_ae9a2ec4861cb7dd9ae5d0886fcc70b19}{set\+\_\+dcpa}} (double dcpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a331dfd5a52e04869114fca6b53256020}{set\+\_\+tcpa}} (double tcpa)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_a3d40c4dd40921ac37f9a0189959c497b}{set\+\_\+risk}} (double risk)
+\item 
+void \mbox{\hyperlink{classtypes_1_1CollisionReport_abc3271b14c644eb009b14d7d760d5d94}{set\+\_\+safety}} (bool safe)
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1CollisionReport_a7025373eed07eb52bd13cd1d89384eb9}{get\+\_\+usv\+\_\+cpa}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \& \mbox{\hyperlink{classtypes_1_1CollisionReport_a2b749f20d8df6113c0618bb8525210a7}{get\+\_\+obstacle\+\_\+cpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_a86a8456d6636d38454292010c25df263}{get\+\_\+dcpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_af292156617a8917f0d97c2d311864850}{get\+\_\+tcpa}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1CollisionReport_a53ab2b75b4b2fb77e6f0a9859e0ad8bd}{get\+\_\+risk}} () const
+\item 
+bool \mbox{\hyperlink{classtypes_1_1CollisionReport_a5adcda57fd32351613bcfe8e1186990f}{is\+\_\+safe}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classtypes_1_1Report}{types\+::\+Report}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1Report_aefaee9676a1e67195d61bbac91ecd324}{Report}} (const std\+::string \&msg="{}"{})
+\item 
+void \mbox{\hyperlink{classtypes_1_1Report_ae8b2513951a8f3d2b3f8ad18c5de716d}{set\+\_\+msg}} (const std\+::string \&msg)
+\item 
+const std\+::string \& \mbox{\hyperlink{classtypes_1_1Report_a49819df5a20b515d1d27418fa9852ffb}{get\+\_\+msg}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Specific collision report associated with a tracked target. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtypes_1_1TargetCollisionReport_a6619f687c2f8e8d693959d6f52c683d0}\label{classtypes_1_1TargetCollisionReport_a6619f687c2f8e8d693959d6f52c683d0} 
+\index{types::TargetCollisionReport@{types::TargetCollisionReport}!TargetCollisionReport@{TargetCollisionReport}}
+\index{TargetCollisionReport@{TargetCollisionReport}!types::TargetCollisionReport@{types::TargetCollisionReport}}
+\doxysubsubsection{\texorpdfstring{TargetCollisionReport()}{TargetCollisionReport()}}
+{\footnotesize\ttfamily types\+::\+Target\+Collision\+Report\+::\+Target\+Collision\+Report (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{id = {\ttfamily 0},  }\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{usv\+\_\+cpa = {\ttfamily \mbox{\hyperlink{classtypes_1_1Pose}{Pose}}()},  }\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{Pose}} \&}]{obstacle\+\_\+cpa = {\ttfamily \mbox{\hyperlink{classtypes_1_1Pose}{Pose}}()},  }\item[{double}]{dcpa = {\ttfamily -\/1.0},  }\item[{double}]{tcpa = {\ttfamily -\/1.0},  }\item[{double}]{risk = {\ttfamily -\/1.0},  }\item[{const std\+::string \&}]{msg = {\ttfamily "{}"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtypes_1_1TargetCollisionReport_a0d789386d4d9c29306f3c1da3dcc2355}\label{classtypes_1_1TargetCollisionReport_a0d789386d4d9c29306f3c1da3dcc2355} 
+\index{types::TargetCollisionReport@{types::TargetCollisionReport}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!types::TargetCollisionReport@{types::TargetCollisionReport}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily uint32\+\_\+t types\+::\+Target\+Collision\+Report\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1TargetCollisionReport_a0027636d5794638d4674f3f3df30551c}\label{classtypes_1_1TargetCollisionReport_a0027636d5794638d4674f3f3df30551c} 
+\index{types::TargetCollisionReport@{types::TargetCollisionReport}!set\_id@{set\_id}}
+\index{set\_id@{set\_id}!types::TargetCollisionReport@{types::TargetCollisionReport}}
+\doxysubsubsection{\texorpdfstring{set\_id()}{set\_id()}}
+{\footnotesize\ttfamily void types\+::\+Target\+Collision\+Report\+::set\+\_\+id (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

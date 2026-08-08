@@ -1,0 +1,21 @@
+\doxysection{config\+\_\+manager.\+hpp}
+\hypertarget{config__manager_8hpp_source}{}\label{config__manager_8hpp_source}\index{dt\_core/include/map/config\_manager.hpp@{dt\_core/include/map/config\_manager.hpp}}
+\mbox{\hyperlink{config__manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMapConfiguration}{MapConfiguration}}\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structMapConfiguration_a53546a4333dadea636638a56c7158b66}{safety\_margin}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structMapConfiguration_ae44aa52d96561b57d39cb845bfa27660}{simplification\_tolerance}};\ \ \ }
+\DoxyCodeLine{00011\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{structMapConfiguration_a76020bfd137fc8012128b9bfe0059332}{navigable\_classes}};\ }
+\DoxyCodeLine{00012\ \ \ \ \ std::vector<std::string>\ \mbox{\hyperlink{structMapConfiguration_a5c22a2e6e082646000290f9faa02d28c}{collision\_classes}};\ \ \ \ }
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConfigManager}{ConfigManager}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structMapConfiguration}{MapConfiguration}}\ \mbox{\hyperlink{classConfigManager_ac184c79217f6903499acbf1cfdb1475a}{load\_configuration}}(\textcolor{keyword}{const}\ std::string\&\ file\_path);}
+\DoxyCodeLine{00026\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,31 @@
+\doxysection{s57\+\_\+processor.\+hpp}
+\hypertarget{s57__processor_8hpp_source}{}\label{s57__processor_8hpp_source}\index{dt\_core/include/map/s57\_processor.hpp@{dt\_core/include/map/s57\_processor.hpp}}
+\mbox{\hyperlink{s57__processor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ogrsf\_frmts.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ogr\_spatialref.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{config__manager_8hpp}{config\_manager.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structProcessedGeometries}{ProcessedGeometries}}\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ std::vector<OGRGeometry*>\ \mbox{\hyperlink{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4}{navigable\_area}};}
+\DoxyCodeLine{00015\ \ \ \ \ std::vector<OGRGeometry*>\ \mbox{\hyperlink{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40}{obstacles}};}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structProcessedGeometries_a91f981ae2daa245abb01fe902ae0ac34}{dynamic\_utm\_epsg}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structProcessedGeometries_a2d44b729a9de95deef0db58025a795e8}{free\_memory}}()\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ geom\ :\ \mbox{\hyperlink{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4}{navigable\_area}})\ OGRGeometryFactory::destroyGeometry(geom);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ geom\ :\ \mbox{\hyperlink{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40}{obstacles}})\ OGRGeometryFactory::destroyGeometry(geom);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4}{navigable\_area}}.clear();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40}{obstacles}}.clear();}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classS57Processor}{S57Processor}}\ \{}
+\DoxyCodeLine{00033\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structProcessedGeometries}{ProcessedGeometries}}\ \mbox{\hyperlink{classS57Processor_aa8a51e0013eb4543f165bbfc651ee067}{process\_chart}}(\textcolor{keyword}{const}\ std::string\&\ s57\_path,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structMapConfiguration}{MapConfiguration}}\&\ config);}
+\DoxyCodeLine{00041\ \};}
+
+\end{DoxyCode}

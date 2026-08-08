@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,108,56"/>
+<area shape="rect" id="Node000001" href="$classVizNode.html" title="Nó ROS 2 responsável por receber dados para a interface." alt="" coords="206,5,282,31"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="121,32,205,20,206,26,122,37"/>
+<area shape="rect" id="Node000002" href="$classdt__ros_1_1DigitalTwinNode.html" title="ROS 2 Node responsible for bridging ROS data to the Digital Twin Core." alt="" coords="156,55,332,80"/>
+<area shape="poly" id="edge4_Node000000_Node000002" title=" " alt="" coords="122,49,156,53,155,59,122,54"/>
+</map>

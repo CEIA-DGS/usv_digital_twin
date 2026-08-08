@@ -1,0 +1,140 @@
+\doxysection{types\+::Pose Class Reference}
+\hypertarget{classtypes_1_1Pose}{}\label{classtypes_1_1Pose}\index{types::Pose@{types::Pose}}
+
+
+Combines position and orientation to fully describe an object\textquotesingle{}s spatial state.  
+
+
+
+
+{\ttfamily \#include $<$types.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtypes_1_1Pose_ac2e3abfdbeebc8cfa068453d7e63bd15}{Pose}} (const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \&initial\+\_\+position, const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \&initial\+\_\+orientation)
+\item 
+\mbox{\hyperlink{classtypes_1_1Pose_aff6f27ae211fffcd4b007558fea12c6f}{Pose}} (double initial\+\_\+x=0.\+0, double initial\+\_\+y=0.\+0, double initial\+\_\+z=0.\+0, double initial\+\_\+roll=0.\+0, double initial\+\_\+pitch=0.\+0, double initial\+\_\+yaw=0.\+0)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Pose_a739b2b6db5e577c068884d65206b98df}{set\+\_\+position}} (const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \&position)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Pose_a6ab20badec8a524dc7bbd6f053762e98}{set\+\_\+position}} (double x, double y, double z)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Pose_aac15cbb8317bf6cc22aa3f5736da843d}{set\+\_\+orientation}} (const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \&orientation)
+\item 
+void \mbox{\hyperlink{classtypes_1_1Pose_a80901e2e4469b72cc46dc631fb2be5b4}{set\+\_\+orientation}} (double roll, double pitch, double yaw)
+\item 
+const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \& \mbox{\hyperlink{classtypes_1_1Pose_a7e5d7c96b8bb14f2c9804eacdb1498d6}{get\+\_\+position}} () const
+\item 
+const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \& \mbox{\hyperlink{classtypes_1_1Pose_ab2c6fe12856855eab62a1f986b44a340}{get\+\_\+orientation}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_a961d560161ef085cf4432862f0c9409e}{get\+\_\+x}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_a29a37447b417b6cc8133549d2ffdb44e}{get\+\_\+y}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_a0a5d9205ab1723afa0a1101a2855e9bd}{get\+\_\+z}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_ac308cdaa0f7ebe1c830af08f46ad193f}{get\+\_\+roll}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_ada6a5975aa31e5c58a62faf9d7c494b0}{get\+\_\+pitch}} () const
+\item 
+double \mbox{\hyperlink{classtypes_1_1Pose_aaa8baa910f66313141769b89fac34e4d}{get\+\_\+yaw}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Combines position and orientation to fully describe an object\textquotesingle{}s spatial state. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classtypes_1_1Pose_ac2e3abfdbeebc8cfa068453d7e63bd15}\label{classtypes_1_1Pose_ac2e3abfdbeebc8cfa068453d7e63bd15} 
+\index{types::Pose@{types::Pose}!Pose@{Pose}}
+\index{Pose@{Pose}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{Pose()}{Pose()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily types\+::\+Pose\+::\+Pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \&}]{initial\+\_\+position,  }\item[{const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \&}]{initial\+\_\+orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_aff6f27ae211fffcd4b007558fea12c6f}\label{classtypes_1_1Pose_aff6f27ae211fffcd4b007558fea12c6f} 
+\index{types::Pose@{types::Pose}!Pose@{Pose}}
+\index{Pose@{Pose}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{Pose()}{Pose()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily types\+::\+Pose\+::\+Pose (\begin{DoxyParamCaption}\item[{double}]{initial\+\_\+x = {\ttfamily 0.0},  }\item[{double}]{initial\+\_\+y = {\ttfamily 0.0},  }\item[{double}]{initial\+\_\+z = {\ttfamily 0.0},  }\item[{double}]{initial\+\_\+roll = {\ttfamily 0.0},  }\item[{double}]{initial\+\_\+pitch = {\ttfamily 0.0},  }\item[{double}]{initial\+\_\+yaw = {\ttfamily 0.0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtypes_1_1Pose_ab2c6fe12856855eab62a1f986b44a340}\label{classtypes_1_1Pose_ab2c6fe12856855eab62a1f986b44a340} 
+\index{types::Pose@{types::Pose}!get\_orientation@{get\_orientation}}
+\index{get\_orientation@{get\_orientation}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_orientation()}{get\_orientation()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \& types\+::\+Pose\+::get\+\_\+orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_ada6a5975aa31e5c58a62faf9d7c494b0}\label{classtypes_1_1Pose_ada6a5975aa31e5c58a62faf9d7c494b0} 
+\index{types::Pose@{types::Pose}!get\_pitch@{get\_pitch}}
+\index{get\_pitch@{get\_pitch}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_pitch()}{get\_pitch()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+pitch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a7e5d7c96b8bb14f2c9804eacdb1498d6}\label{classtypes_1_1Pose_a7e5d7c96b8bb14f2c9804eacdb1498d6} 
+\index{types::Pose@{types::Pose}!get\_position@{get\_position}}
+\index{get\_position@{get\_position}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_position()}{get\_position()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \& types\+::\+Pose\+::get\+\_\+position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_ac308cdaa0f7ebe1c830af08f46ad193f}\label{classtypes_1_1Pose_ac308cdaa0f7ebe1c830af08f46ad193f} 
+\index{types::Pose@{types::Pose}!get\_roll@{get\_roll}}
+\index{get\_roll@{get\_roll}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_roll()}{get\_roll()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+roll (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a961d560161ef085cf4432862f0c9409e}\label{classtypes_1_1Pose_a961d560161ef085cf4432862f0c9409e} 
+\index{types::Pose@{types::Pose}!get\_x@{get\_x}}
+\index{get\_x@{get\_x}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_x()}{get\_x()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a29a37447b417b6cc8133549d2ffdb44e}\label{classtypes_1_1Pose_a29a37447b417b6cc8133549d2ffdb44e} 
+\index{types::Pose@{types::Pose}!get\_y@{get\_y}}
+\index{get\_y@{get\_y}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_y()}{get\_y()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_aaa8baa910f66313141769b89fac34e4d}\label{classtypes_1_1Pose_aaa8baa910f66313141769b89fac34e4d} 
+\index{types::Pose@{types::Pose}!get\_yaw@{get\_yaw}}
+\index{get\_yaw@{get\_yaw}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_yaw()}{get\_yaw()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+yaw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a0a5d9205ab1723afa0a1101a2855e9bd}\label{classtypes_1_1Pose_a0a5d9205ab1723afa0a1101a2855e9bd} 
+\index{types::Pose@{types::Pose}!get\_z@{get\_z}}
+\index{get\_z@{get\_z}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{get\_z()}{get\_z()}}
+{\footnotesize\ttfamily double types\+::\+Pose\+::get\+\_\+z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_aac15cbb8317bf6cc22aa3f5736da843d}\label{classtypes_1_1Pose_aac15cbb8317bf6cc22aa3f5736da843d} 
+\index{types::Pose@{types::Pose}!set\_orientation@{set\_orientation}}
+\index{set\_orientation@{set\_orientation}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{set\_orientation()}{set\_orientation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Pose\+::set\+\_\+orientation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Orientation}{Orientation}} \&}]{orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a80901e2e4469b72cc46dc631fb2be5b4}\label{classtypes_1_1Pose_a80901e2e4469b72cc46dc631fb2be5b4} 
+\index{types::Pose@{types::Pose}!set\_orientation@{set\_orientation}}
+\index{set\_orientation@{set\_orientation}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{set\_orientation()}{set\_orientation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void types\+::\+Pose\+::set\+\_\+orientation (\begin{DoxyParamCaption}\item[{double}]{roll,  }\item[{double}]{pitch,  }\item[{double}]{yaw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a739b2b6db5e577c068884d65206b98df}\label{classtypes_1_1Pose_a739b2b6db5e577c068884d65206b98df} 
+\index{types::Pose@{types::Pose}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void types\+::\+Pose\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{Point}} \&}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classtypes_1_1Pose_a6ab20badec8a524dc7bbd6f053762e98}\label{classtypes_1_1Pose_a6ab20badec8a524dc7bbd6f053762e98} 
+\index{types::Pose@{types::Pose}!set\_position@{set\_position}}
+\index{set\_position@{set\_position}!types::Pose@{types::Pose}}
+\doxysubsubsection{\texorpdfstring{set\_position()}{set\_position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void types\+::\+Pose\+::set\+\_\+position (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{types_8hpp}{types.\+hpp}}\end{DoxyCompactItemize}

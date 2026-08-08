@@ -1,0 +1,7 @@
+<map id="dt_core/include/prediction/prediction.hpp" name="dt_core/include/prediction/prediction.hpp">
+<area shape="rect" id="Node000001" title="Prediction methods for planning support." alt="" coords="98,5,289,45"/>
+<area shape="rect" id="Node000002" href="$prediction_8cpp.html" title=" " alt="" coords="5,93,168,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,56,112,95,109,91,157,52"/>
+<area shape="rect" id="Node000003" href="$twin__interface_8cpp.html" title="Internal implementation of the Digital Twin Core and Snapshots." alt="" coords="193,101,410,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="229,52,288,98,285,102,226,56"/>
+</map>

@@ -1,0 +1,67 @@
+\doxysection{Processed\+Geometries Struct Reference}
+\hypertarget{structProcessedGeometries}{}\label{structProcessedGeometries}\index{ProcessedGeometries@{ProcessedGeometries}}
+
+
+Container for storing processed geometries extracted from S-\/57 charts. Encapsulates the memory management logic for OGRGeometry structures.  
+
+
+
+
+{\ttfamily \#include $<$s57\+\_\+processor.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structProcessedGeometries_a2d44b729a9de95deef0db58025a795e8}{free\+\_\+memory}} ()
+\begin{DoxyCompactList}\small\item\em Performs forced deallocation of each OGR geometry and clears the vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ OGRGeometry \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4}{navigable\+\_\+area}}
+\item 
+std\+::vector$<$ OGRGeometry \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40}{obstacles}}
+\item 
+int \mbox{\hyperlink{structProcessedGeometries_a91f981ae2daa245abb01fe902ae0ac34}{dynamic\+\_\+utm\+\_\+epsg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Container for storing processed geometries extracted from S-\/57 charts. Encapsulates the memory management logic for OGRGeometry structures. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structProcessedGeometries_a2d44b729a9de95deef0db58025a795e8}\label{structProcessedGeometries_a2d44b729a9de95deef0db58025a795e8} 
+\index{ProcessedGeometries@{ProcessedGeometries}!free\_memory@{free\_memory}}
+\index{free\_memory@{free\_memory}!ProcessedGeometries@{ProcessedGeometries}}
+\doxysubsubsection{\texorpdfstring{free\_memory()}{free\_memory()}}
+{\footnotesize\ttfamily void Processed\+Geometries\+::free\+\_\+memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Performs forced deallocation of each OGR geometry and clears the vectors. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structProcessedGeometries_a91f981ae2daa245abb01fe902ae0ac34}\label{structProcessedGeometries_a91f981ae2daa245abb01fe902ae0ac34} 
+\index{ProcessedGeometries@{ProcessedGeometries}!dynamic\_utm\_epsg@{dynamic\_utm\_epsg}}
+\index{dynamic\_utm\_epsg@{dynamic\_utm\_epsg}!ProcessedGeometries@{ProcessedGeometries}}
+\doxysubsubsection{\texorpdfstring{dynamic\_utm\_epsg}{dynamic\_utm\_epsg}}
+{\footnotesize\ttfamily int Processed\+Geometries\+::dynamic\+\_\+utm\+\_\+epsg}
+
+\Hypertarget{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4}\label{structProcessedGeometries_a18da999a3027ab8c494ce148540b93e4} 
+\index{ProcessedGeometries@{ProcessedGeometries}!navigable\_area@{navigable\_area}}
+\index{navigable\_area@{navigable\_area}!ProcessedGeometries@{ProcessedGeometries}}
+\doxysubsubsection{\texorpdfstring{navigable\_area}{navigable\_area}}
+{\footnotesize\ttfamily std\+::vector$<$OGRGeometry\texorpdfstring{$\ast$}{*}$>$ Processed\+Geometries\+::navigable\+\_\+area}
+
+\Hypertarget{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40}\label{structProcessedGeometries_a82bb2304ad8d812b5e978be3a323aa40} 
+\index{ProcessedGeometries@{ProcessedGeometries}!obstacles@{obstacles}}
+\index{obstacles@{obstacles}!ProcessedGeometries@{ProcessedGeometries}}
+\doxysubsubsection{\texorpdfstring{obstacles}{obstacles}}
+{\footnotesize\ttfamily std\+::vector$<$OGRGeometry\texorpdfstring{$\ast$}{*}$>$ Processed\+Geometries\+::obstacles}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{s57__processor_8hpp}{s57\+\_\+processor.\+hpp}}\end{DoxyCompactItemize}

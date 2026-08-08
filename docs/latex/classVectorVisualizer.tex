@@ -1,0 +1,45 @@
+\doxysection{Vector\+Visualizer Class Reference}
+\hypertarget{classVectorVisualizer}{}\label{classVectorVisualizer}\index{VectorVisualizer@{VectorVisualizer}}
+
+
+Responsible for the graphical rendering of the Nav\+Mesh and processed spatial layers. Utilizes the Open\+GL/\+GLFW context for interactive visualization of vector data.  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+visualizer.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classVectorVisualizer_ab0bcc2a7c58051c199c72f644dac3707}{display}} (const std\+::string \&shapefiles\+\_\+folder, const std\+::string \&chart\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Starts the rendering loop and displays the geographic layers contained in the target directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Responsible for the graphical rendering of the Nav\+Mesh and processed spatial layers. Utilizes the Open\+GL/\+GLFW context for interactive visualization of vector data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVectorVisualizer_ab0bcc2a7c58051c199c72f644dac3707}\label{classVectorVisualizer_ab0bcc2a7c58051c199c72f644dac3707} 
+\index{VectorVisualizer@{VectorVisualizer}!display@{display}}
+\index{display@{display}!VectorVisualizer@{VectorVisualizer}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Vector\+Visualizer\+::display (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{shapefiles\+\_\+folder,  }\item[{const std\+::string \&}]{chart\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Starts the rendering loop and displays the geographic layers contained in the target directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shapefiles\+\_\+folder} & Path to the directory containing the processed .shp files. \\
+\hline
+{\em chart\+\_\+name} & Chart identifier, used for labeling the display window. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{vector__visualizer_8hpp}{vector\+\_\+visualizer.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{vector__visualizer_8cpp}{vector\+\_\+visualizer.\+cpp}}\end{DoxyCompactItemize}

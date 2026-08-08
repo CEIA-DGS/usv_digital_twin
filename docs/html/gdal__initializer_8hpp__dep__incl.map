@@ -1,0 +1,9 @@
+<map id="dt_core/include/map/gdal_initializer.hpp" name="dt_core/include/map/gdal_initializer.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="193,5,347,45"/>
+<area shape="rect" id="Node000002" href="$s57__processor_8cpp.html" title=" " alt="" coords="5,93,159,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,53,124,96,122,91,215,49"/>
+<area shape="rect" id="Node000003" href="$spatial__index_8cpp.html" title=" " alt="" coords="183,93,357,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="273,59,273,93,267,93,267,59"/>
+<area shape="rect" id="Node000004" href="$vector__exporter_8cpp.html" title=" " alt="" coords="382,93,553,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="327,48,425,91,423,96,325,53"/>
+</map>

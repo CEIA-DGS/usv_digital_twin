@@ -1,0 +1,5 @@
+<map id="dt::WorldStateSnapshot" name="dt::WorldStateSnapshot">
+<area shape="rect" id="Node000001" title="Represents an immutable snapshot of the world state at a specific instant." alt="" coords="34,5,209,31"/>
+<area shape="rect" id="Node000002" href="$classdt_1_1ConcreteWorldStateSnapshot.html" title=" " alt="" coords="5,79,237,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,44,124,79,119,79,119,44"/>
+</map>

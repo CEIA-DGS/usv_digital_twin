@@ -1,0 +1,122 @@
+\doxysection{dt\+::Digital\+Twin\+Core Class Reference}
+\hypertarget{classdt_1_1DigitalTwinCore}{}\label{classdt_1_1DigitalTwinCore}\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+
+
+Primary interface and state manager for the Digital Twin.  
+
+
+
+
+{\ttfamily \#include $<$twin\+\_\+interface.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a948b919c2b6c49291acc50f7535fd85b}{\texorpdfstring{$\sim$}{\string~}\+Digital\+Twin\+Core}} ()=default
+\item 
+void \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a33946105a99857efaadfda4a9a5a00fb}{update\+\_\+static\+\_\+map}} (const \mbox{\hyperlink{classtypes_1_1MapData}{types\+::\+Map\+Data}} \&map)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates the static map data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a4af73c241e244d7f0af5e5e7a621523d}{update\+\_\+vehicle\+\_\+pose}} (const \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&pose)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates the ego vehicle pose. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdt_1_1DigitalTwinCore_aa610ed8c1128f5398e428e5322a07c6e}{update\+\_\+dynamic\+\_\+targets}} (const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates the tracked dynamic targets. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdt_1_1DigitalTwinCore_aea125f9e8b5ce128ac65416ac31de502}{update\+\_\+planned\+\_\+trajectory}} (const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&traj)
+\begin{DoxyCompactList}\small\item\em Asynchronously updates the currently planned trajectory. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classdt_1_1WorldStateSnapshot}{World\+State\+Snapshot}} $>$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_ae6cd7a28a93e2af12bfca549c08263fc}{get\+\_\+latest\+\_\+state}} () const
+\begin{DoxyCompactList}\small\item\em Synchronously fetches the most recent thread-\/safe state snapshot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Primary interface and state manager for the Digital Twin. 
+
+Implements a Double-\/\+Buffering / Lock-\/\+Free paradigm for consumers. Asynchronous data writers update the internal state, while high-\/frequency readers pull the latest immutable snapshot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdt_1_1DigitalTwinCore_a948b919c2b6c49291acc50f7535fd85b}\label{classdt_1_1DigitalTwinCore_a948b919c2b6c49291acc50f7535fd85b} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!````~DigitalTwinCore@{\texorpdfstring{$\sim$}{\string~}DigitalTwinCore}}
+\index{````~DigitalTwinCore@{\texorpdfstring{$\sim$}{\string~}DigitalTwinCore}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DigitalTwinCore()}{\string~DigitalTwinCore()}}
+{\footnotesize\ttfamily virtual dt\+::\+Digital\+Twin\+Core\+::\texorpdfstring{$\sim$}{\string~}\+Digital\+Twin\+Core (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdt_1_1DigitalTwinCore_ae6cd7a28a93e2af12bfca549c08263fc}\label{classdt_1_1DigitalTwinCore_ae6cd7a28a93e2af12bfca549c08263fc} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!get\_latest\_state@{get\_latest\_state}}
+\index{get\_latest\_state@{get\_latest\_state}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{get\_latest\_state()}{get\_latest\_state()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classdt_1_1WorldStateSnapshot}{World\+State\+Snapshot}} $>$ dt\+::\+Digital\+Twin\+Core\+::get\+\_\+latest\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Synchronously fetches the most recent thread-\/safe state snapshot. 
+
+\begin{DoxyReturn}{Returns}
+A shared pointer to an immutable \doxylink{classdt_1_1WorldStateSnapshot}{World\+State\+Snapshot}. 
+\end{DoxyReturn}
+\Hypertarget{classdt_1_1DigitalTwinCore_aa610ed8c1128f5398e428e5322a07c6e}\label{classdt_1_1DigitalTwinCore_aa610ed8c1128f5398e428e5322a07c6e} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!update\_dynamic\_targets@{update\_dynamic\_targets}}
+\index{update\_dynamic\_targets@{update\_dynamic\_targets}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{update\_dynamic\_targets()}{update\_dynamic\_targets()}}
+{\footnotesize\ttfamily void dt\+::\+Digital\+Twin\+Core\+::update\+\_\+dynamic\+\_\+targets (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Asynchronously updates the tracked dynamic targets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em targets} & The latest target list (e.\+g., from AIS/\+Radar). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdt_1_1DigitalTwinCore_aea125f9e8b5ce128ac65416ac31de502}\label{classdt_1_1DigitalTwinCore_aea125f9e8b5ce128ac65416ac31de502} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!update\_planned\_trajectory@{update\_planned\_trajectory}}
+\index{update\_planned\_trajectory@{update\_planned\_trajectory}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{update\_planned\_trajectory()}{update\_planned\_trajectory()}}
+{\footnotesize\ttfamily void dt\+::\+Digital\+Twin\+Core\+::update\+\_\+planned\+\_\+trajectory (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \&}]{traj }\end{DoxyParamCaption})}
+
+
+
+Asynchronously updates the currently planned trajectory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em traj} & The planned route. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdt_1_1DigitalTwinCore_a33946105a99857efaadfda4a9a5a00fb}\label{classdt_1_1DigitalTwinCore_a33946105a99857efaadfda4a9a5a00fb} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!update\_static\_map@{update\_static\_map}}
+\index{update\_static\_map@{update\_static\_map}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{update\_static\_map()}{update\_static\_map()}}
+{\footnotesize\ttfamily void dt\+::\+Digital\+Twin\+Core\+::update\+\_\+static\+\_\+map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1MapData}{types\+::\+Map\+Data}} \&}]{map }\end{DoxyParamCaption})}
+
+
+
+Asynchronously updates the static map data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & The new map configuration. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdt_1_1DigitalTwinCore_a4af73c241e244d7f0af5e5e7a621523d}\label{classdt_1_1DigitalTwinCore_a4af73c241e244d7f0af5e5e7a621523d} 
+\index{dt::DigitalTwinCore@{dt::DigitalTwinCore}!update\_vehicle\_pose@{update\_vehicle\_pose}}
+\index{update\_vehicle\_pose@{update\_vehicle\_pose}!dt::DigitalTwinCore@{dt::DigitalTwinCore}}
+\doxysubsubsection{\texorpdfstring{update\_vehicle\_pose()}{update\_vehicle\_pose()}}
+{\footnotesize\ttfamily void dt\+::\+Digital\+Twin\+Core\+::update\+\_\+vehicle\+\_\+pose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&}]{pose }\end{DoxyParamCaption})}
+
+
+
+Asynchronously updates the ego vehicle pose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pose} & The latest pose estimation. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/dt\+\_\+core/\mbox{\hyperlink{twin__interface_8hpp}{twin\+\_\+interface.\+hpp}}\item 
+dt\+\_\+core/src/\mbox{\hyperlink{twin__interface_8cpp}{twin\+\_\+interface.\+cpp}}\end{DoxyCompactItemize}

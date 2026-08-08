@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['código_20compilado_0',['🖥️ Execução do código compilado',['../md_README.html#autotoc_md58',1,'']]],
+  ['calculate_5fmargin_5fdistance_1',['calculate_margin_distance',['../classSpatialIndex.html#a02df29a04e7e29229c1f4a8af75737cd',1,'SpatialIndex']]],
+  ['ceia_20dgs_2',['Digital Twin - CEIA-DGS',['../md_README.html',1,'']]],
+  ['check_5fcollisions_5fon_5ftrajectory_3',['check_collisions_on_trajectory',['../namespaceprediction.html#abdc309965bf85f3d70f68d84185f6c89',1,'prediction::check_collisions_on_trajectory()'],['../classdt_1_1ConcreteWorldStateSnapshot.html#a50bc70aa3a53c7688b8af0b1c59e3c37',1,'dt::ConcreteWorldStateSnapshot::check_collisions_on_trajectory()'],['../classdt_1_1WorldStateSnapshot.html#a2b41d894c612cf6d22c4b003b824eb8f',1,'dt::WorldStateSnapshot::check_collisions_on_trajectory()']]],
+  ['clear_4',['clear',['../classtypes_1_1Trajectory.html#a15f03096ff92a527f0b1f6c638e0e939',1,'types::Trajectory']]],
+  ['clone_20do_20repositório_5',['📚 Clone do Repositório',['../md_README.html#autotoc_md56',1,'']]],
+  ['colisão_6',['colisão',['../md_dt__viz_2README.html#autotoc_md19',1,'Alerta de colisão'],['../md_dt__viz_2README.html#autotoc_md23',1,'Funcionamento do alerta de colisão'],['../md_dt__viz_2README.html#autotoc_md37',1,'Teste do alerta de colisão']]],
+  ['collision_5fclasses_7',['collision_classes',['../structMapConfiguration.html#a5c22a2e6e082646000290f9faa02d28c',1,'MapConfiguration']]],
+  ['collisionreport_8',['collisionreport',['../classtypes_1_1CollisionReport.html',1,'types::CollisionReport'],['../classtypes_1_1CollisionReport.html#a28b5611054c3701c93edf0f3a85ae8c6',1,'types::CollisionReport::CollisionReport()']]],
+  ['color_9',['Color',['../structColor.html',1,'']]],
+  ['compilação_10',['Compilação',['../md_dt__viz_2README.html#autotoc_md31',1,'']]],
+  ['compilação_20build_11',['🚀 Compilação (Build)',['../md_README.html#autotoc_md57',1,'']]],
+  ['compilado_12',['🖥️ Execução do código compilado',['../md_README.html#autotoc_md58',1,'']]],
+  ['conclusão_13',['Critérios de conclusão',['../md_dt__viz_2README.html#autotoc_md49',1,'']]],
+  ['concreteworldstatesnapshot_14',['concreteworldstatesnapshot',['../classdt_1_1ConcreteWorldStateSnapshot.html#aa1281cd810e2a2c8f7a33353465a9f07',1,'dt::ConcreteWorldStateSnapshot::ConcreteWorldStateSnapshot()'],['../classdt_1_1ConcreteWorldStateSnapshot.html',1,'dt::ConcreteWorldStateSnapshot']]],
+  ['config_5fmanager_2ecpp_15',['config_manager.cpp',['../config__manager_8cpp.html',1,'']]],
+  ['config_5fmanager_2ehpp_16',['config_manager.hpp',['../config__manager_8hpp.html',1,'']]],
+  ['configmanager_17',['ConfigManager',['../classConfigManager.html',1,'']]],
+  ['conversions_2ecpp_18',['conversions.cpp',['../conversions_8cpp.html',1,'']]],
+  ['conversions_2ehpp_19',['conversions.hpp',['../conversions_8hpp.html',1,'']]],
+  ['covariance_20',['covariance',['../classtypes_1_1Covariance.html#a1a67d15f9140162dd655a33f71600725',1,'types::Covariance::Covariance()'],['../classtypes_1_1Covariance.html',1,'types::Covariance']]],
+  ['cpp_20tt_21',['cpp tt',['../md_dt__viz_2README.html#autotoc_md13',1,'&lt;tt&gt;src/main.cpp&lt;/tt&gt;'],['../md_dt__viz_2README.html#autotoc_md10',1,'&lt;tt&gt;src/main_window.cpp&lt;/tt&gt;'],['../md_dt__viz_2README.html#autotoc_md12',1,'&lt;tt&gt;src/viz_node.cpp&lt;/tt&gt;']]],
+  ['critérios_20de_20conclusão_22',['Critérios de conclusão',['../md_dt__viz_2README.html#autotoc_md49',1,'']]]
+];

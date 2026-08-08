@@ -1,0 +1,37 @@
+\doxysection{conversions.\+hpp}
+\hypertarget{conversions_8hpp_source}{}\label{conversions_8hpp_source}\index{dt\_ros/include/dt\_ros/conversions.hpp@{dt\_ros/include/dt\_ros/conversions.hpp}}
+\mbox{\hyperlink{conversions_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}dt\_msgs/msg/ais\_report.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}dt\_msgs/msg/waypoint\_array.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}sensor\_msgs/msg/imu.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}sensor\_msgs/msg/nav\_sat\_fix.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{dt\_core/types.hpp}}"{}}\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt__ros}{dt\_ros}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }conversions\ \{}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_a05cbd7e19b9a2c7c946544a8b3315c60}{KNOTS\_TO\_MS}}\ =\ 0.514444;}
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_a6d0952b6bfdf3d345eeb30c5db157ae9}{DEG\_TO\_RAD}}\ =\ M\_PI\ /\ 180.0;}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_a26d2082b4cd4f71e0cbb19f58c81f1d0}{UNITY\_YAW\_OFFSET}}\ =\ M\_PI\ /\ 2.0;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<types::Target>\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_ace70c402bcd9eb3005ebaa2bee0e084f}{ais\_to\_core\_targets}}(\textcolor{keyword}{const}\ dt\_msgs::msg::AisReport\&\ msg);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_a1cea50dc4a95939e365d6c5761cd8770}{apply\_gps\_to\_pose}}(\textcolor{keyword}{const}\ sensor\_msgs::msg::NavSatFix\&\ msg,\ \mbox{\hyperlink{classtypes_1_1Pose}{types::Pose}}\&\ pose);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_ad2f2c9ac548f9b3501c70de5e9c515e2}{apply\_imu\_to\_pose}}(\textcolor{keyword}{const}\ sensor\_msgs::msg::Imu\&\ msg,\ \mbox{\hyperlink{classtypes_1_1Pose}{types::Pose}}\&\ pose);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{namespacedt__ros_1_1conversions_aef460e7d1c1ad35702bcb2824c257c95}{waypoints\_to\_trajectory}}(\textcolor{keyword}{const}\ dt\_msgs::msg::WaypointArray\&\ msg);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \}\ \textcolor{comment}{//\ namespace\ conversions}}
+\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ dt\_ros}}
+
+\end{DoxyCode}

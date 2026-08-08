@@ -1,0 +1,63 @@
+\doxysection{Vector\+Exporter Class Reference}
+\hypertarget{classVectorExporter}{}\label{classVectorExporter}\index{VectorExporter@{VectorExporter}}
+
+
+Utility responsible for exporting generated Nav\+Mesh structures to vector files (Shapefiles).  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+exporter.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVectorExporter_a501f347e37342759b88bdce1d4d134cb}{Vector\+Exporter}} ()=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classVectorExporter_ac3415835ef94506bd648435649919dcb}{export\+\_\+shapefile}} (const \mbox{\hyperlink{structNavigationMesh}{Navigation\+Mesh}} \&nav\+\_\+mesh, const std\+::string \&output\+\_\+dir, int epsg\+\_\+utm)
+\begin{DoxyCompactList}\small\item\em Exports the geometries (original land, safety margin, and triangle mesh) to .shp files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility responsible for exporting generated Nav\+Mesh structures to vector files (Shapefiles). 
+
+Acts as a pure static class, encapsulating disk I/O operations and geometric conversion using the GDAL/\+OGR library. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classVectorExporter_a501f347e37342759b88bdce1d4d134cb}\label{classVectorExporter_a501f347e37342759b88bdce1d4d134cb} 
+\index{VectorExporter@{VectorExporter}!VectorExporter@{VectorExporter}}
+\index{VectorExporter@{VectorExporter}!VectorExporter@{VectorExporter}}
+\doxysubsubsection{\texorpdfstring{VectorExporter()}{VectorExporter()}}
+{\footnotesize\ttfamily Vector\+Exporter\+::\+Vector\+Exporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classVectorExporter_ac3415835ef94506bd648435649919dcb}\label{classVectorExporter_ac3415835ef94506bd648435649919dcb} 
+\index{VectorExporter@{VectorExporter}!export\_shapefile@{export\_shapefile}}
+\index{export\_shapefile@{export\_shapefile}!VectorExporter@{VectorExporter}}
+\doxysubsubsection{\texorpdfstring{export\_shapefile()}{export\_shapefile()}}
+{\footnotesize\ttfamily void Vector\+Exporter\+::export\+\_\+shapefile (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNavigationMesh}{Navigation\+Mesh}} \&}]{nav\+\_\+mesh,  }\item[{const std\+::string \&}]{output\+\_\+dir,  }\item[{int}]{epsg\+\_\+utm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Exports the geometries (original land, safety margin, and triangle mesh) to .shp files. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nav\+\_\+mesh} & Constant reference to the structure containing the processed navigation mesh data. \\
+\hline
+{\em output\+\_\+dir} & Absolute or relative path of the directory where Shapefiles will be written. \\
+\hline
+{\em epsg\+\_\+utm} & EPSG code of the UTM projection to ensure correct georeferencing of the generated files. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{vector__exporter_8hpp}{vector\+\_\+exporter.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{vector__exporter_8cpp}{vector\+\_\+exporter.\+cpp}}\end{DoxyCompactItemize}

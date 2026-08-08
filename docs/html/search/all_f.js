@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['p1_0',['p1',['../structTriangle.html#afd28c2871ec629c679272b5de08b59a0',1,'Triangle']]],
+  ['p2_1',['p2',['../structTriangle.html#a5c3de9d7400ecaf62e63a5dc0bbad09b',1,'Triangle']]],
+  ['p3_2',['p3',['../structTriangle.html#a5861e3464d3366e22423e5d0be5c5e38',1,'Triangle']]],
+  ['pacote_3',['Estrutura do pacote',['../md_dt__viz_2README.html#autotoc_md6',1,'']]],
+  ['pan_5fx_4',['pan_x',['../structAppState.html#a2ce29997e1e4fa6a26beecf8d33bd660',1,'AppState']]],
+  ['pan_5fy_5',['pan_y',['../structAppState.html#aa9f67b2b9ab1d931d2221d2693037030',1,'AppState']]],
+  ['pelo_20sistema_6',['pelo sistema',['../md_README.html#autotoc_md62',1,'Publishers (Tópicos Emitidos pelo Sistema)'],['../md_README.html#autotoc_md61',1,'Subscribers (Tópicos Lidos pelo Sistema)']]],
+  ['planejada_7',['planejada',['../md_dt__viz_2README.html#autotoc_md18',1,'Derrota planejada'],['../md_dt__viz_2README.html#autotoc_md21',1,'Funcionamento da derrota planejada'],['../md_dt__viz_2README.html#autotoc_md35',1,'Teste da derrota planejada']]],
+  ['point_8',['point',['../classtypes_1_1Point.html',1,'types::Point'],['../classtypes_1_1Point.html#a2e0f55b3857a3317093f33b4957d201a',1,'types::Point::Point()']]],
+  ['point2d_9',['Point2D',['../structPoint2D.html',1,'']]],
+  ['polygon2d_10',['Polygon2D',['../structPolygon2D.html',1,'']]],
+  ['polygons_11',['polygons',['../structRenderLayer.html#a65e6bb05f2f67dd8fdbc196fb9cce27b',1,'RenderLayer']]],
+  ['pontos_20de_20alinhamento_12',['Pontos de alinhamento',['../md_dt__viz_2README.html#autotoc_md47',1,'']]],
+  ['pose_13',['pose',['../classtypes_1_1Pose.html#ac2e3abfdbeebc8cfa068453d7e63bd15',1,'types::Pose::Pose()'],['../classtypes_1_1Pose.html',1,'types::Pose'],['../classtypes_1_1Pose.html#aff6f27ae211fffcd4b007558fea12c6f',1,'types::Pose::Pose()']]],
+  ['pré_20requisitos_20e_20dependências_14',['⚙️ Pré-Requisitos e Dependências',['../md_README.html#autotoc_md55',1,'']]],
+  ['próximas_20etapas_15',['Próximas etapas',['../md_dt__viz_2README.html#autotoc_md45',1,'']]],
+  ['predict_5ftrajectory_16',['predict_trajectory',['../namespaceprediction.html#a6f553532d1561227723d175ee82a9024',1,'prediction']]],
+  ['predict_5ftrajectory_5fby_5fid_17',['predict_trajectory_by_id',['../namespaceprediction.html#ab34897d30f84471f027155b24a71e6e2',1,'prediction::predict_trajectory_by_id()'],['../classdt_1_1ConcreteWorldStateSnapshot.html#a1265241dbc3999f6be2cc9bca4a9ea24',1,'dt::ConcreteWorldStateSnapshot::predict_trajectory_by_id()'],['../classdt_1_1WorldStateSnapshot.html#a8f29a5559f71ce1dd9f3aefe82cb5f55',1,'dt::WorldStateSnapshot::predict_trajectory_by_id()']]],
+  ['prediction_18',['prediction',['../namespaceprediction.html',1,'']]],
+  ['prediction_2ecpp_19',['prediction.cpp',['../prediction_8cpp.html',1,'']]],
+  ['prediction_2ehpp_20',['prediction.hpp',['../prediction_8hpp.html',1,'']]],
+  ['process_5fchart_21',['process_chart',['../classS57Processor.html#aa8a51e0013eb4543f165bbfc651ee067',1,'S57Processor']]],
+  ['processedgeometries_22',['ProcessedGeometries',['../structProcessedGeometries.html',1,'']]],
+  ['publishers_20tópicos_20emitidos_20pelo_20sistema_23',['Publishers (Tópicos Emitidos pelo Sistema)',['../md_README.html#autotoc_md62',1,'']]]
+];

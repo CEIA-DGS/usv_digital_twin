@@ -1,0 +1,41 @@
+<map id="dt_core/include/dt_core/types.hpp" name="dt_core/include/dt_core/types.hpp">
+<area shape="rect" id="Node000001" title="Core data structures and domain models for the Digital Twin." alt="" coords="561,5,699,45"/>
+<area shape="rect" id="Node000002" href="$twin__interface_8hpp.html" title="Interfaces for the Digital Twin Core and state representation." alt="" coords="889,93,1072,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="713,44,904,91,903,96,712,49"/>
+<area shape="rect" id="Node000003" href="$twin__interface_8cpp.html" title="Internal implementation of the Digital Twin Core and Snapshots." alt="" coords="204,189,421,214"/>
+<area shape="poly" id="edge18_Node000001_Node000003" title=" " alt="" coords="548,46,484,66,422,96,391,118,363,144,323,190,319,186,359,141,388,114,419,91,482,61,546,41"/>
+<area shape="rect" id="Node000004" href="$dt__node_8hpp.html" title="Header file for the DigitalTwinNode class." alt="" coords="902,181,1059,221"/>
+<area shape="poly" id="edge23_Node000001_Node000004" title=" " alt="" coords="714,47,768,66,823,91,852,110,878,131,952,179,949,183,875,135,848,114,821,96,766,71,712,52"/>
+<area shape="rect" id="Node000011" href="$spatial__index_8hpp.html" title=" " alt="" coords="203,93,358,133"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="548,49,358,96,357,91,547,44"/>
+<area shape="rect" id="Node000013" href="$prediction_8hpp.html" title="Prediction methods for planning support." alt="" coords="433,93,624,133"/>
+<area shape="poly" id="edge15_Node000001_Node000013" title=" " alt="" coords="599,56,553,95,549,91,595,52"/>
+<area shape="rect" id="Node000015" href="$conversions_8hpp.html" title="Conversion utilities between ROS 2 messages and Digital Twin Core types." alt="" coords="653,93,810,133"/>
+<area shape="poly" id="edge19_Node000001_Node000015" title=" " alt="" coords="665,52,711,91,707,95,661,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="876,130,434,184,385,191,384,186,434,179,875,124"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="983,147,983,181,978,181,978,147"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title=" " alt="" coords="973,277,1121,302"/>
+<area shape="poly" id="edge11_Node000002_Node000006" title=" " alt="" coords="1035,139,1057,157,1074,180,1080,207,1076,234,1057,277,1052,275,1071,232,1075,207,1069,182,1053,161,1031,143"/>
+<area shape="rect" id="Node000007" href="$main__window_8hpp.html" title=" " alt="" coords="1141,181,1295,221"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1047,136,1167,179,1165,184,1045,141"/>
+<area shape="rect" id="Node000005" href="$dt__node_8cpp.html" title="Implementation of the DigitalTwinNode class." alt="" coords="781,277,949,302"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="945,232,882,279,879,274,942,228"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="1006,231,1040,275,1036,278,1002,234"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="1170,230,1071,279,1069,274,1167,225"/>
+<area shape="rect" id="Node000008" href="$viz__node_8hpp.html" title=" " alt="" coords="1146,269,1301,309"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1223,235,1225,269,1219,269,1217,235"/>
+<area shape="rect" id="Node000010" href="$main__window_8cpp.html" title=" " alt="" coords="1325,277,1529,302"/>
+<area shape="poly" id="edge10_Node000007_Node000010" title=" " alt="" coords="1278,224,1400,274,1398,279,1276,229"/>
+<area shape="rect" id="Node000009" href="$viz__node_8cpp.html" title=" " alt="" coords="1137,357,1310,383"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="1226,323,1226,357,1221,357,1221,323"/>
+<area shape="poly" id="edge14_Node000011_Node000003" title=" " alt="" coords="295,145,311,187,306,189,290,147"/>
+<area shape="rect" id="Node000012" href="$spatial__index_8cpp.html" title=" " alt="" coords="5,181,180,221"/>
+<area shape="poly" id="edge13_Node000011_Node000012" title=" " alt="" coords="228,141,135,184,133,179,226,137"/>
+<area shape="poly" id="edge17_Node000013_Node000003" title=" " alt="" coords="470,141,342,191,340,186,468,136"/>
+<area shape="rect" id="Node000014" href="$prediction_8cpp.html" title=" " alt="" coords="446,181,609,221"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="531,147,530,181,525,181,525,147"/>
+<area shape="poly" id="edge20_Node000015_Node000004" title=" " alt="" coords="800,135,927,179,925,184,798,140"/>
+<area shape="poly" id="edge22_Node000015_Node000005" title=" " alt="" coords="792,138,819,156,841,180,855,205,862,232,867,276,862,277,857,233,850,207,837,183,815,160,789,142"/>
+<area shape="rect" id="Node000016" href="$conversions_8cpp.html" title="Implementation of ROS to Core conversion utilities." alt="" coords="633,189,827,214"/>
+<area shape="poly" id="edge21_Node000015_Node000016" title=" " alt="" coords="733,147,733,188,728,188,728,147"/>
+</map>

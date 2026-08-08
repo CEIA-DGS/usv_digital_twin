@@ -1,0 +1,124 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{classMainWindow}{}\label{classMainWindow}\index{MainWindow@{MainWindow}}
+
+
+Janela principal da ferramenta de visualização.  
+
+
+
+
+{\ttfamily \#include $<$main\+\_\+window.\+hpp$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classMainWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{classMainWindow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMainWindow_a50409fb68ef23c7dc9f7ea4a5a663436}{Main\+Window}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$ dt\+\_\+core, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+void \mbox{\hyperlink{classMainWindow_a184717c126f6325643731a76dc202b58}{update\+Planned\+Route}} (const std\+::vector$<$ \mbox{\hyperlink{structRoutePoint}{Route\+Point}} $>$ \&route)
+\begin{DoxyCompactList}\small\item\em Atualiza a derrota planejada exibida na tela. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainWindow_a190ff56109c4f48d710a9e7b2af9c891}{update\+Collision\+Alert}} (std\+::uint32\+\_\+t mmsi, bool collision\+\_\+imminent)
+\begin{DoxyCompactList}\small\item\em Altera a representação visual de um alvo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainWindow_aad75236c74a5c340c3e18749a9b5eb4f}{resize\+Event}} (QResize\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Ajusta a escala quando a janela é redimensionada. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMainWindow_ade305265b2120df2489a5ebeb07ebbe1}{event\+Filter}} (QObject \texorpdfstring{$\ast$}{*}watched, QEvent \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Intercepta eventos antes de serem processados (usado para o Zoom). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Janela principal da ferramenta de visualização. 
+
+A classe desenha a zona livre, o USV, as embarcações monitoradas, a trajetória percorrida e a derrota planejada.
+
+Também altera visualmente os alvos que apresentarem risco de colisão. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMainWindow_a50409fb68ef23c7dc9f7ea4a5a663436}\label{classMainWindow_a50409fb68ef23c7dc9f7ea4a5a663436} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$}]{dt\+\_\+core,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMainWindow_ade305265b2120df2489a5ebeb07ebbe1}\label{classMainWindow_ade305265b2120df2489a5ebeb07ebbe1} 
+\index{MainWindow@{MainWindow}!eventFilter@{eventFilter}}
+\index{eventFilter@{eventFilter}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{eventFilter()}{eventFilter()}}
+{\footnotesize\ttfamily bool Main\+Window\+::event\+Filter (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{watched,  }\item[{QEvent \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Intercepta eventos antes de serem processados (usado para o Zoom). 
+
+\Hypertarget{classMainWindow_aad75236c74a5c340c3e18749a9b5eb4f}\label{classMainWindow_aad75236c74a5c340c3e18749a9b5eb4f} 
+\index{MainWindow@{MainWindow}!resizeEvent@{resizeEvent}}
+\index{resizeEvent@{resizeEvent}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resizeEvent()}{resizeEvent()}}
+{\footnotesize\ttfamily void Main\+Window\+::resize\+Event (\begin{DoxyParamCaption}\item[{QResize\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Ajusta a escala quando a janela é redimensionada. 
+
+\Hypertarget{classMainWindow_a190ff56109c4f48d710a9e7b2af9c891}\label{classMainWindow_a190ff56109c4f48d710a9e7b2af9c891} 
+\index{MainWindow@{MainWindow}!updateCollisionAlert@{updateCollisionAlert}}
+\index{updateCollisionAlert@{updateCollisionAlert}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateCollisionAlert()}{updateCollisionAlert()}}
+{\footnotesize\ttfamily void Main\+Window\+::update\+Collision\+Alert (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{mmsi,  }\item[{bool}]{collision\+\_\+imminent }\end{DoxyParamCaption})}
+
+
+
+Altera a representação visual de um alvo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmsi} & Identificador AIS da embarcação. \\
+\hline
+{\em collision\+\_\+imminent} & Indica a existência de risco. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMainWindow_a184717c126f6325643731a76dc202b58}\label{classMainWindow_a184717c126f6325643731a76dc202b58} 
+\index{MainWindow@{MainWindow}!updatePlannedRoute@{updatePlannedRoute}}
+\index{updatePlannedRoute@{updatePlannedRoute}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updatePlannedRoute()}{updatePlannedRoute()}}
+{\footnotesize\ttfamily void Main\+Window\+::update\+Planned\+Route (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structRoutePoint}{Route\+Point}} $>$ \&}]{route }\end{DoxyParamCaption})}
+
+
+
+Atualiza a derrota planejada exibida na tela. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & Lista ordenada de waypoints ativos. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+viz/include/dt\+\_\+viz/\mbox{\hyperlink{main__window_8hpp}{main\+\_\+window.\+hpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window_8cpp}{main\+\_\+window.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\doxysection{twin\+\_\+interface.\+hpp}
+\hypertarget{twin__interface_8hpp_source}{}\label{twin__interface_8hpp_source}\index{dt\_core/include/dt\_core/twin\_interface.hpp@{dt\_core/include/dt\_core/twin\_interface.hpp}}
+\mbox{\hyperlink{twin__interface_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8hpp}{dt\_core/types.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt}{dt}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdt_1_1WorldStateSnapshot}{WorldStateSnapshot}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_addf79275564817086f9250a211a7308f}{\string~WorldStateSnapshot}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Environment\ Representation\ -\/-\/-\/}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a3c055fed2a6d07f40925f39d3316f203}{get\_closest\_static\_obstacle\_distance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ pos)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2956db66b6ccc87d7c4a888b057189d0}{is\_inside\_restricted\_zone}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ pos)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<types::Target>\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a3ec1e51ac78316a70b8877519df64eb9}{get\_active\_local\_targets}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ center,\ \textcolor{keywordtype}{float}\ radius)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Planning\ Support\ -\/-\/-\/}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a8f29a5559f71ce1dd9f3aefe82cb5f55}{predict\_trajectory\_by\_id}}(int32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets,\ \textcolor{keywordtype}{double}\ time\_horizon,\ \textcolor{keywordtype}{double}\ time\_step)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types::TargetCollisionReport}}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2b41d894c612cf6d22c4b003b824eb8f}{check\_collisions\_on\_trajectory}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\&\ candidate\_trajectory,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Entity}{types::Entity}}\&\ usv\_state,\ \textcolor{keywordtype}{double}\ speed\_profile,\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets,\ \textcolor{keywordtype}{double}\ start\_time\ =\ 0.0)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_ac1b1645139a39e35750839b62cf00796}{get\_dynamic\_risk\_field}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ position,\ \textcolor{keywordtype}{double}\ timestamp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Entity}{types::Entity}}\&\ usv\_state,\ \textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a338dc5ad1826ffb2e626dc81aae38d12}{make\_trajectory\_between}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Point}{types::Point}}\&\ destination,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ step)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ Raw\ State\ Access\ (For\ GUI\ /\ Visualization)\ -\/-\/-\/}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtypes_1_1Pose}{types::Pose}}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_ae08119d8de6f40e163ff0971e8a5fa6d}{get\_vehicle\_pose}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<types::Target>\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a86fe6777dac6b0ac3fe00ae0fe28e454}{get\_all\_targets}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\ \mbox{\hyperlink{classdt_1_1WorldStateSnapshot_a2fb80747d2f62d845280274c8cf1f32e}{get\_planned\_trajectory}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00120\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdt_1_1DigitalTwinCore}{DigitalTwinCore}}\ \{}
+\DoxyCodeLine{00121\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a948b919c2b6c49291acc50f7535fd85b}{\string~DigitalTwinCore}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a33946105a99857efaadfda4a9a5a00fb}{update\_static\_map}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1MapData}{types::MapData}}\&\ map);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_a4af73c241e244d7f0af5e5e7a621523d}{update\_vehicle\_pose}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Pose}{types::Pose}}\&\ pose);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_aa610ed8c1128f5398e428e5322a07c6e}{update\_dynamic\_targets}}(\textcolor{keyword}{const}\ std::vector<types::Target>\&\ targets);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_aea125f9e8b5ce128ac65416ac31de502}{update\_planned\_trajectory}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classtypes_1_1Trajectory}{types::Trajectory}}\&\ traj);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00152\ \ \ \ \ std::shared\_ptr<const\ WorldStateSnapshot>\ \mbox{\hyperlink{classdt_1_1DigitalTwinCore_ae6cd7a28a93e2af12bfca549c08263fc}{get\_latest\_state}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00153\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \}\ \textcolor{comment}{//\ namespace\ dt}}
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\doxysection{dt\+\_\+ros\+::utils Namespace Reference}
+\hypertarget{namespacedt__ros_1_1utils}{}\label{namespacedt__ros_1_1utils}\index{dt\_ros::utils@{dt\_ros::utils}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdt__ros_1_1utils_1_1UTMCoord}{UTMCoord}}
+\begin{DoxyCompactList}\small\item\em Represents a 2D planar coordinate in the Universal Transverse Mercator (UTM) system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structdt__ros_1_1utils_1_1UTMCoord}{UTMCoord}} \mbox{\hyperlink{namespacedt__ros_1_1utils_a8dad9eadf683d3988963fdcfe22e678c}{lat\+\_\+lon\+\_\+to\+\_\+utm}} (double lat, double lon)
+\begin{DoxyCompactList}\small\item\em Converts WGS84 latitude and longitude to UTM planar coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedt__ros_1_1utils_a8dad9eadf683d3988963fdcfe22e678c}\label{namespacedt__ros_1_1utils_a8dad9eadf683d3988963fdcfe22e678c} 
+\index{dt\_ros::utils@{dt\_ros::utils}!lat\_lon\_to\_utm@{lat\_lon\_to\_utm}}
+\index{lat\_lon\_to\_utm@{lat\_lon\_to\_utm}!dt\_ros::utils@{dt\_ros::utils}}
+\doxysubsubsection{\texorpdfstring{lat\_lon\_to\_utm()}{lat\_lon\_to\_utm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdt__ros_1_1utils_1_1UTMCoord}{UTMCoord}} dt\+\_\+ros\+::utils\+::lat\+\_\+lon\+\_\+to\+\_\+utm (\begin{DoxyParamCaption}\item[{double}]{lat,  }\item[{double}]{lon }\end{DoxyParamCaption})}
+
+
+
+Converts WGS84 latitude and longitude to UTM planar coordinates. 
+
+Uses the standard WGS84 ellipsoid parameters to project a geographical coordinate into the corresponding UTM zone.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat} & Latitude in decimal degrees. \\
+\hline
+{\em lon} & Longitude in decimal degrees. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structdt__ros_1_1utils_1_1UTMCoord}{UTMCoord} The computed UTM easting (x) and northing (y) coordinates in meters. 
+\end{DoxyReturn}

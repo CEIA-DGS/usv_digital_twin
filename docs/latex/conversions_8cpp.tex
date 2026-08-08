@@ -1,0 +1,43 @@
+\doxysection{dt\+\_\+ros/src/conversions.cpp File Reference}
+\hypertarget{conversions_8cpp}{}\label{conversions_8cpp}\index{dt\_ros/src/conversions.cpp@{dt\_ros/src/conversions.cpp}}
+
+
+Implementation of ROS to Core conversion utilities.  
+
+
+{\ttfamily \#include "{}dt\+\_\+ros/conversions.\+hpp"{}}\newline
+{\ttfamily \#include "{}dt\+\_\+ros/utils/geo\+\_\+utils.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Quaternion.\+h$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Matrix3x3.\+h$>$}\newline
+Include dependency graph for conversions.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{conversions_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedt__ros}{dt\+\_\+ros}}
+\item 
+namespace \mbox{\hyperlink{namespacedt__ros_1_1conversions}{dt\+\_\+ros\+::conversions}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacedt__ros_1_1conversions_a1cea50dc4a95939e365d6c5761cd8770}{dt\+\_\+ros\+::conversions\+::apply\+\_\+gps\+\_\+to\+\_\+pose}} (const sensor\+\_\+msgs\+::msg\+::\+Nav\+Sat\+Fix \&msg, \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&pose)
+\begin{DoxyCompactList}\small\item\em Updates a domain Pose object using geographical GPS data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacedt__ros_1_1conversions_ad2f2c9ac548f9b3501c70de5e9c515e2}{dt\+\_\+ros\+::conversions\+::apply\+\_\+imu\+\_\+to\+\_\+pose}} (const sensor\+\_\+msgs\+::msg\+::\+Imu \&msg, \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}} \&pose)
+\begin{DoxyCompactList}\small\item\em Updates a domain Pose object using IMU orientation data. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{namespacedt__ros_1_1conversions_ace70c402bcd9eb3005ebaa2bee0e084f}{dt\+\_\+ros\+::conversions\+::ais\+\_\+to\+\_\+core\+\_\+targets}} (const dt\+\_\+msgs\+::msg\+::\+Ais\+Report \&msg)
+\begin{DoxyCompactList}\small\item\em Converts an array of ROS AIS targets into Core domain targets. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}} \mbox{\hyperlink{namespacedt__ros_1_1conversions_aef460e7d1c1ad35702bcb2824c257c95}{dt\+\_\+ros\+::conversions\+::waypoints\+\_\+to\+\_\+trajectory}} (const dt\+\_\+msgs\+::msg\+::\+Waypoint\+Array \&msg)
+\begin{DoxyCompactList}\small\item\em Converts a ROS waypoint mission array into a Core Trajectory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of ROS to Core conversion utilities. 
+

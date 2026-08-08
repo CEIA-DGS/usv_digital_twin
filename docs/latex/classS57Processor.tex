@@ -1,0 +1,48 @@
+\doxysection{S57\+Processor Class Reference}
+\hypertarget{classS57Processor}{}\label{classS57Processor}\index{S57Processor@{S57Processor}}
+
+
+Specialized processor for ingesting, extracting, and treating S-\/57 geospatial data.  
+
+
+
+
+{\ttfamily \#include $<$s57\+\_\+processor.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structProcessedGeometries}{Processed\+Geometries}} \mbox{\hyperlink{classS57Processor_aa8a51e0013eb4543f165bbfc651ee067}{process\+\_\+chart}} (const std\+::string \&s57\+\_\+path, const \mbox{\hyperlink{structMapConfiguration}{Map\+Configuration}} \&config)
+\begin{DoxyCompactList}\small\item\em Opens an S-\/57 nautical chart, filters layers via configuration, and reprojects coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Specialized processor for ingesting, extracting, and treating S-\/57 geospatial data. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classS57Processor_aa8a51e0013eb4543f165bbfc651ee067}\label{classS57Processor_aa8a51e0013eb4543f165bbfc651ee067} 
+\index{S57Processor@{S57Processor}!process\_chart@{process\_chart}}
+\index{process\_chart@{process\_chart}!S57Processor@{S57Processor}}
+\doxysubsubsection{\texorpdfstring{process\_chart()}{process\_chart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structProcessedGeometries}{Processed\+Geometries}} S57\+Processor\+::process\+\_\+chart (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s57\+\_\+path,  }\item[{const \mbox{\hyperlink{structMapConfiguration}{Map\+Configuration}} \&}]{config }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Opens an S-\/57 nautical chart, filters layers via configuration, and reprojects coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s57\+\_\+path} & Physical path of the chart (.000). \\
+\hline
+{\em config} & Configuration containing the layer classes to be extracted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structProcessedGeometries}{Processed\+Geometries} object containing the reprojected data ready for use. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{s57__processor_8hpp}{s57\+\_\+processor.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{s57__processor_8cpp}{s57\+\_\+processor.\+cpp}}\end{DoxyCompactItemize}

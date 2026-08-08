@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classtypes_1_1Entity.html" title="Base class for any physical object in the Digital Twin environment." alt="" coords="5,5,109,31"/>
+<area shape="rect" id="Node000001" href="$classtypes_1_1Target.html" title="Represents a tracked dynamic object, such as an AIS vessel." alt="" coords="157,5,264,31"/>
+<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="123,15,157,15,157,21,123,21"/>
+</map>

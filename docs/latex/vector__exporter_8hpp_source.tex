@@ -1,0 +1,23 @@
+\doxysection{vector\+\_\+exporter.\+hpp}
+\hypertarget{vector__exporter_8hpp_source}{}\label{vector__exporter_8hpp_source}\index{dt\_core/include/map/vector\_exporter.hpp@{dt\_core/include/map/vector\_exporter.hpp}}
+\mbox{\hyperlink{vector__exporter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mesh__generator_8hpp}{mesh\_generator.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}gdal\_priv.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}ogrsf\_frmts.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classVectorExporter}{VectorExporter}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Prevents\ accidental\ instantiation\ of\ the\ class}}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{classVectorExporter_a501f347e37342759b88bdce1d4d134cb}{VectorExporter}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classVectorExporter_ac3415835ef94506bd648435649919dcb}{export\_shapefile}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structNavigationMesh}{NavigationMesh}}\&\ nav\_mesh,\ \textcolor{keyword}{const}\ std::string\&\ output\_dir,\ \textcolor{keywordtype}{int}\ epsg\_utm);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ insert\_geometry(OGRLayer*\ layer,\ OGRGeometry*\ geom);}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}
