@@ -1,0 +1,48 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}is\+\_\+number}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$is\_number@{$<$small$>$nlohmann::basic\_json::$<$/small$>$is\_number}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md477}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md477}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_number()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+This function returns {\ttfamily \#!cpp true} if and only if the JSON value is a number. This includes both integer (signed and unsigned) and floating-\/point values.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md478}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md478}
+{\ttfamily \#!cpp true} if type is number (regardless whether integer, unsigned integer or floating-\/type), {\ttfamily \#!cpp false} otherwise.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md479}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md479}
+No-\/throw guarantee\+: this member function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md480}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md480}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md481}{}\doxysection{\texorpdfstring{Possible implementation}{Possible implementation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md481}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_number()\ const\ noexcept}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ is\_number\_integer()\ ||\ is\_number\_float();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md482}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md482}
+??? example \begin{DoxyVerb}The following code exemplifies `is_number()` for all JSON types.
+
+```cpp
+--8<-- "examples/is_number.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/is_number.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md483}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md483}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__integer}{is\+\_\+number\+\_\+integer()}{0} check if value is an integer or unsigned integer number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__unsigned}{is\+\_\+number\+\_\+unsigned()}{0} check if value is an unsigned integer number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__float}{is\+\_\+number\+\_\+float()}{0} check if value is a floating-\/point number
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md484}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number_autotoc_md484}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Extended to also return {\ttfamily \#!cpp true} for unsigned integers in 2.\+0.\+0. 
+\end{DoxyItemize}

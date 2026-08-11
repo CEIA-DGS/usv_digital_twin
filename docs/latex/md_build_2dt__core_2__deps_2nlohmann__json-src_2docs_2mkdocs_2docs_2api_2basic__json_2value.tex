@@ -1,0 +1,139 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}value}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$value@{$<$small$>$nlohmann::basic\_json::$<$/small$>$value}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md924}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md924}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{ValueType\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ValueType\&\&\ default\_value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType,\ \textcolor{keyword}{class}\ KeyType>}
+\DoxyCodeLine{ValueType\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}(KeyType\&\&\ key,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ValueType\&\&\ default\_value)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ ValueType>}
+\DoxyCodeLine{ValueType\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ ValueType\&\ default\_value)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Returns either a copy of an object\textquotesingle{}s element at the specified key {\ttfamily key} or a given default value if no element with key {\ttfamily key} exists.
+
+The function is basically equivalent to executing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{return}\ at(key);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{catch}(out\_of\_range)\ \{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\item See 1. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\item Returns either a copy of an object\textquotesingle{}s element at the specified JSON pointer {\ttfamily ptr} or a given default value if no value at {\ttfamily ptr} exists.
+
+The function is basically equivalent to executing 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{return}\ at(ptr);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{catch}(out\_of\_range)\ \{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{return}\ default\_value;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+!!! note "{}\+Differences to \`{}at\`{} and \`{}operator\mbox{[}$\,$\mbox{]}\`{}"{} \begin{DoxyVerb}- Unlike [`at`](at.md), this function does not throw if the given `key`/`ptr` was not found.
+- Unlike [`operator[]`](operator[].md), this function does not implicitly add an element to the position defined by
+ `key`/`ptr` key. This function is furthermore also applicable to const objects.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md925}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md925}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17). {\ttfamily Value\+Type} \+: type compatible to JSON values, for instance {\ttfamily \#!cpp int} for JSON integer numbers, {\ttfamily \#!cpp bool} for JSON booleans, or {\ttfamily \#!cpp std\+::vector} types for JSON arrays. Note the type of the expected value at {\ttfamily key}/{\ttfamily ptr} and the default value {\ttfamily default\+\_\+value} must be compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md926}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md926}
+{\ttfamily key} (in) \+: key of the element to access
+
+{\ttfamily default\+\_\+value} (in) \+: the value to return if {\ttfamily key}/{\ttfamily ptr} found no value
+
+{\ttfamily ptr} (in) \+: a JSON pointer to the element to access\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md927}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md927}
+
+\begin{DoxyEnumerate}
+\item copy of the element at key {\ttfamily key} or {\ttfamily default\+\_\+value} if {\ttfamily key} is not found
+\item copy of the element at key {\ttfamily key} or {\ttfamily default\+\_\+value} if {\ttfamily key} is not found
+\item copy of the element at JSON Pointer {\ttfamily ptr} or {\ttfamily default\+\_\+value} if no value for {\ttfamily ptr} is found
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md928}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md928}
+Strong guarantee\+: if an exception is thrown, there are no changes to any JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md929}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md929}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error302}{\texttt{ {\ttfamily type\+\_\+error.\+302}}} if {\ttfamily default\+\_\+value} does not match the type of the value at {\ttfamily key}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error306}{\texttt{ {\ttfamily type\+\_\+error.\+306}}} if the JSON value is not an object; in that case, using {\ttfamily value()} with a key makes no sense.
+\end{DoxyItemize}
+\item See 1.
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error302}{\texttt{ {\ttfamily type\+\_\+error.\+302}}} if {\ttfamily default\+\_\+value} does not match the type of the value at {\ttfamily ptr}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error306}{\texttt{ {\ttfamily type\+\_\+error.\+306}}} if the JSON value is not an object; in that case, using {\ttfamily value()} with a key makes no sense.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md930}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md930}
+
+\begin{DoxyEnumerate}
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\item Logarithmic in the size of the container.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md931}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md931}
+??? example "{}\+Example\+: (1) access specified object element with default value"{} \begin{DoxyVerb}The example below shows how object elements can be queried with a default value.
+
+```cpp
+--8<-- "examples/value__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/value__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) access specified object element using string\+\_\+view with default value"{} \begin{DoxyVerb}The example below shows how object elements can be queried with a default value.
+
+```cpp
+--8<-- "examples/value__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/value__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) access specified object element via JSON Pointer with default value"{} \begin{DoxyVerb}The example below shows how object elements can be queried with a default value.
+
+```cpp
+--8<-- "examples/value__json_ptr.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/value__json_ptr.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md932}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md932}
+
+\begin{DoxyItemize}
+\item see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\`{}at\`{}}{0} for access by reference with range checking
+\item see \`{}operator\mbox{[}\mbox{]}\`{} for unchecked access by reference
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md933}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value_autotoc_md933}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0. Changed parameter {\ttfamily default\+\_\+value} type from {\ttfamily const Value\+Type\&} to {\ttfamily Value\+Type\&\&} in version 3.\+11.\+0.
+\item Added in version 3.\+11.\+0. Made {\ttfamily Value\+Type} the first template parameter in version 3.\+11.\+2.
+\item Added in version 2.\+0.\+2. 
+\end{DoxyEnumerate}

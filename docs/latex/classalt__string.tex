@@ -1,0 +1,278 @@
+\doxysection{alt\+\_\+string Class Reference}
+\hypertarget{classalt__string}{}\label{classalt__string}\index{alt\_string@{alt\_string}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd}{value\+\_\+type}} = std\+::string\+::value\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classalt__string_a41eceead1a7a06ff0fcf5930ac266fc4}{alt\+\_\+string}} (const char \texorpdfstring{$\ast$}{*}str)
+\item 
+\mbox{\hyperlink{classalt__string_abcb8c124ad2bbd06764ecbeea7d80247}{alt\+\_\+string}} (const char \texorpdfstring{$\ast$}{*}str, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} count)
+\item 
+\mbox{\hyperlink{classalt__string_abd430ff0a21bc4075f2cda036b578bb4}{alt\+\_\+string}} (size\+\_\+t count, char chr)
+\item 
+\mbox{\hyperlink{classalt__string_aa23d5271c6b03ae02f7125a0c5691d3f}{alt\+\_\+string}} ()=default
+\item 
+{\footnotesize template$<$typename... TParams$>$ }\\\mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \& \mbox{\hyperlink{classalt__string_ae59baed3df101e1e9613f933c68036cb}{append}} (TParams \&\&...params)
+\item 
+void \mbox{\hyperlink{classalt__string_afc649986756fefc7eeda3471063eb004}{push\+\_\+back}} (char \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}})
+\item 
+{\footnotesize template$<$typename op\+\_\+type $>$ }\\bool \mbox{\hyperlink{classalt__string_a4f0509e034164c6c878b806cd96b5df5}{operator==}} (const op\+\_\+type \&op) const
+\item 
+bool \mbox{\hyperlink{classalt__string_a7c7d0a87c1557b08a3d8808bdacd6331}{operator==}} (const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&op) const
+\item 
+{\footnotesize template$<$typename op\+\_\+type $>$ }\\bool \mbox{\hyperlink{classalt__string_a234008a263f7951e9a09568567cfd308}{operator!=}} (const op\+\_\+type \&op) const
+\item 
+bool \mbox{\hyperlink{classalt__string_a1d4fa980b6ca39a498f2b8b2124be62d}{operator!=}} (const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&op) const
+\item 
+\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{classalt__string_a630035ebc2a4a619322a19955962500a}{size}} () const noexcept
+\item 
+void \mbox{\hyperlink{classalt__string_ac53da0b6970f4b34c361ef3a503e412a}{resize}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})
+\item 
+void \mbox{\hyperlink{classalt__string_a5569bb8e2bc355e008e4d1ce56679232}{resize}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}}, char \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}})
+\item 
+{\footnotesize template$<$typename op\+\_\+type $>$ }\\bool \mbox{\hyperlink{classalt__string_a85ce42c5df2aba9b731b069711600762}{operator$<$}} (const op\+\_\+type \&op) const noexcept
+\item 
+bool \mbox{\hyperlink{classalt__string_aee9597f036a515e27d7c399bbefeb2bd}{operator$<$}} (const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&op) const noexcept
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classalt__string_aa970bf1ef6244896394e20ef05f0b749}{c\+\_\+str}} () const
+\item 
+char \& \mbox{\hyperlink{classalt__string_a721e7f4a34d74c2ff2c484404e376a47}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} index)
+\item 
+const char \& \mbox{\hyperlink{classalt__string_af7ec96e55ddd61db8625a9677885e0b8}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} index) const
+\item 
+char \& \mbox{\hyperlink{classalt__string_a30109a6651dcc4cee055eb1ab6ad7c9d}{back}} ()
+\item 
+const char \& \mbox{\hyperlink{classalt__string_aa917e0ae2c94d24592bb0403e19daf37}{back}} () const
+\item 
+void \mbox{\hyperlink{classalt__string_a4d3e177884d7160241c5a972c27a4c9c}{clear}} ()
+\item 
+const \mbox{\hyperlink{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd}{value\+\_\+type}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classalt__string_ab5304246b62001477abdfc312a7de6e9}{data}} () const
+\item 
+bool \mbox{\hyperlink{classalt__string_a57a0c30d730fabf68f4f1d4f2c4c997d}{empty}} () const
+\item 
+\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{classalt__string_ad71560ed8b8aae26578bdb66181c2f9f}{find}} (const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&str, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} pos=0) const
+\item 
+\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{classalt__string_aa911fbfdfc7b00b600e24ba778fe27d2}{find\+\_\+first\+\_\+of}} (char \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}}, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} pos=0) const
+\item 
+\mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \mbox{\hyperlink{classalt__string_ad6bc9c7b820d82553220d3dd8de5c53c}{substr}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} pos=0, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} count=\mbox{\hyperlink{classalt__string_a83fd80bdc35a5699d76b93363200fe06}{npos}}) const
+\item 
+\mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \& \mbox{\hyperlink{classalt__string_a86f1a568fb15e087ccde8cbf40b03a01}{replace}} (\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} pos, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} count, const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&str)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{classalt__string_a83fd80bdc35a5699d76b93363200fe06}{npos}} = static\+\_\+cast$<$\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}$>$(-\/1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classalt__string_afdae37f7cefe1c875b319d331c86af7b}{operator$<$}} (const char \texorpdfstring{$\ast$}{*}, const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&) noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd}\label{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd} 
+\index{alt\_string@{alt\_string}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd}{alt\+\_\+string\+::value\+\_\+type}} =  std\+::string\+::value\+\_\+type}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classalt__string_a41eceead1a7a06ff0fcf5930ac266fc4}\label{classalt__string_a41eceead1a7a06ff0fcf5930ac266fc4} 
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{alt\_string()}{alt\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily alt\+\_\+string\+::alt\+\_\+string (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_abcb8c124ad2bbd06764ecbeea7d80247}\label{classalt__string_abcb8c124ad2bbd06764ecbeea7d80247} 
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{alt\_string()}{alt\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily alt\+\_\+string\+::alt\+\_\+string (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_abd430ff0a21bc4075f2cda036b578bb4}\label{classalt__string_abd430ff0a21bc4075f2cda036b578bb4} 
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{alt\_string()}{alt\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily alt\+\_\+string\+::alt\+\_\+string (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{char}]{chr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_aa23d5271c6b03ae02f7125a0c5691d3f}\label{classalt__string_aa23d5271c6b03ae02f7125a0c5691d3f} 
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\index{alt\_string@{alt\_string}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{alt\_string()}{alt\_string()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily alt\+\_\+string\+::alt\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classalt__string_ae59baed3df101e1e9613f933c68036cb}\label{classalt__string_ae59baed3df101e1e9613f933c68036cb} 
+\index{alt\_string@{alt\_string}!append@{append}}
+\index{append@{append}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily template$<$typename... TParams$>$ \\
+\mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \& alt\+\_\+string\+::append (\begin{DoxyParamCaption}\item[{TParams \&\&...}]{params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a30109a6651dcc4cee055eb1ab6ad7c9d}\label{classalt__string_a30109a6651dcc4cee055eb1ab6ad7c9d} 
+\index{alt\_string@{alt\_string}!back@{back}}
+\index{back@{back}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily char \& alt\+\_\+string\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_aa917e0ae2c94d24592bb0403e19daf37}\label{classalt__string_aa917e0ae2c94d24592bb0403e19daf37} 
+\index{alt\_string@{alt\_string}!back@{back}}
+\index{back@{back}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{back()}{back()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const char \& alt\+\_\+string\+::back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_aa970bf1ef6244896394e20ef05f0b749}\label{classalt__string_aa970bf1ef6244896394e20ef05f0b749} 
+\index{alt\_string@{alt\_string}!c\_str@{c\_str}}
+\index{c\_str@{c\_str}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{c\_str()}{c\_str()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} alt\+\_\+string\+::c\+\_\+str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a4d3e177884d7160241c5a972c27a4c9c}\label{classalt__string_a4d3e177884d7160241c5a972c27a4c9c} 
+\index{alt\_string@{alt\_string}!clear@{clear}}
+\index{clear@{clear}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void alt\+\_\+string\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_ab5304246b62001477abdfc312a7de6e9}\label{classalt__string_ab5304246b62001477abdfc312a7de6e9} 
+\index{alt\_string@{alt\_string}!data@{data}}
+\index{data@{data}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classalt__string_a5688a47e0ff39723a00fdad7dc2a49cd}{value\+\_\+type}} \texorpdfstring{$\ast$}{*} alt\+\_\+string\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a57a0c30d730fabf68f4f1d4f2c4c997d}\label{classalt__string_a57a0c30d730fabf68f4f1d4f2c4c997d} 
+\index{alt\_string@{alt\_string}!empty@{empty}}
+\index{empty@{empty}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool alt\+\_\+string\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_ad71560ed8b8aae26578bdb66181c2f9f}\label{classalt__string_ad71560ed8b8aae26578bdb66181c2f9f} 
+\index{alt\_string@{alt\_string}!find@{find}}
+\index{find@{find}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} alt\+\_\+string\+::find (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{str,  }\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{pos = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_aa911fbfdfc7b00b600e24ba778fe27d2}\label{classalt__string_aa911fbfdfc7b00b600e24ba778fe27d2} 
+\index{alt\_string@{alt\_string}!find\_first\_of@{find\_first\_of}}
+\index{find\_first\_of@{find\_first\_of}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{find\_first\_of()}{find\_first\_of()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} alt\+\_\+string\+::find\+\_\+first\+\_\+of (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{pos = {\ttfamily 0} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a1d4fa980b6ca39a498f2b8b2124be62d}\label{classalt__string_a1d4fa980b6ca39a498f2b8b2124be62d} 
+\index{alt\_string@{alt\_string}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool alt\+\_\+string\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a234008a263f7951e9a09568567cfd308}\label{classalt__string_a234008a263f7951e9a09568567cfd308} 
+\index{alt\_string@{alt\_string}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename op\+\_\+type $>$ \\
+bool alt\+\_\+string\+::operator!= (\begin{DoxyParamCaption}\item[{const op\+\_\+type \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_aee9597f036a515e27d7c399bbefeb2bd}\label{classalt__string_aee9597f036a515e27d7c399bbefeb2bd} 
+\index{alt\_string@{alt\_string}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool alt\+\_\+string\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classalt__string_a85ce42c5df2aba9b731b069711600762}\label{classalt__string_a85ce42c5df2aba9b731b069711600762} 
+\index{alt\_string@{alt\_string}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename op\+\_\+type $>$ \\
+bool alt\+\_\+string\+::operator$<$ (\begin{DoxyParamCaption}\item[{const op\+\_\+type \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classalt__string_a7c7d0a87c1557b08a3d8808bdacd6331}\label{classalt__string_a7c7d0a87c1557b08a3d8808bdacd6331} 
+\index{alt\_string@{alt\_string}!operator==@{operator==}}
+\index{operator==@{operator==}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool alt\+\_\+string\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a4f0509e034164c6c878b806cd96b5df5}\label{classalt__string_a4f0509e034164c6c878b806cd96b5df5} 
+\index{alt\_string@{alt\_string}!operator==@{operator==}}
+\index{operator==@{operator==}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename op\+\_\+type $>$ \\
+bool alt\+\_\+string\+::operator== (\begin{DoxyParamCaption}\item[{const op\+\_\+type \&}]{op }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a721e7f4a34d74c2ff2c484404e376a47}\label{classalt__string_a721e7f4a34d74c2ff2c484404e376a47} 
+\index{alt\_string@{alt\_string}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily char \& alt\+\_\+string\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_af7ec96e55ddd61db8625a9677885e0b8}\label{classalt__string_af7ec96e55ddd61db8625a9677885e0b8} 
+\index{alt\_string@{alt\_string}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const char \& alt\+\_\+string\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_afc649986756fefc7eeda3471063eb004}\label{classalt__string_afc649986756fefc7eeda3471063eb004} 
+\index{alt\_string@{alt\_string}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}}
+{\footnotesize\ttfamily void alt\+\_\+string\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a86f1a568fb15e087ccde8cbf40b03a01}\label{classalt__string_a86f1a568fb15e087ccde8cbf40b03a01} 
+\index{alt\_string@{alt\_string}!replace@{replace}}
+\index{replace@{replace}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \& alt\+\_\+string\+::replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{pos,  }\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{count,  }\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_ac53da0b6970f4b34c361ef3a503e412a}\label{classalt__string_ac53da0b6970f4b34c361ef3a503e412a} 
+\index{alt\_string@{alt\_string}!resize@{resize}}
+\index{resize@{resize}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void alt\+\_\+string\+::resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a5569bb8e2bc355e008e4d1ce56679232}\label{classalt__string_a5569bb8e2bc355e008e4d1ce56679232} 
+\index{alt\_string@{alt\_string}!resize@{resize}}
+\index{resize@{resize}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void alt\+\_\+string\+::resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{n,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classalt__string_a630035ebc2a4a619322a19955962500a}\label{classalt__string_a630035ebc2a4a619322a19955962500a} 
+\index{alt\_string@{alt\_string}!size@{size}}
+\index{size@{size}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} alt\+\_\+string\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{classalt__string_ad6bc9c7b820d82553220d3dd8de5c53c}\label{classalt__string_ad6bc9c7b820d82553220d3dd8de5c53c} 
+\index{alt\_string@{alt\_string}!substr@{substr}}
+\index{substr@{substr}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{substr()}{substr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} alt\+\_\+string\+::substr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{pos = {\ttfamily 0},  }\item[{\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}]{count = {\ttfamily \mbox{\hyperlink{classalt__string_a83fd80bdc35a5699d76b93363200fe06}{npos}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classalt__string_afdae37f7cefe1c875b319d331c86af7b}\label{classalt__string_afdae37f7cefe1c875b319d331c86af7b} 
+\index{alt\_string@{alt\_string}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{op1,  }\item[{const \mbox{\hyperlink{classalt__string}{alt\+\_\+string}} \&}]{op2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classalt__string_a83fd80bdc35a5699d76b93363200fe06}\label{classalt__string_a83fd80bdc35a5699d76b93363200fe06} 
+\index{alt\_string@{alt\_string}!npos@{npos}}
+\index{npos@{npos}!alt\_string@{alt\_string}}
+\doxysubsubsection{\texorpdfstring{npos}{npos}}
+{\footnotesize\ttfamily constexpr auto alt\+\_\+string\+::npos = static\+\_\+cast$<$\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}$>$(-\/1)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/\mbox{\hyperlink{unit-alt-string_8cpp}{unit-\/alt-\/string.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,40 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}error\+\_\+handler\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$error\_handler\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$error\_handler\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md269}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md269}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacedetail_abe7cfa1fd8fa706ff4392bff9d1a8298}{error\_handler\_t}}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_abe7cfa1fd8fa706ff4392bff9d1a8298a2133fd717402a7966ee88d06f9e0b792}{strict}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_abe7cfa1fd8fa706ff4392bff9d1a8298a9dde360102c103867bd2f45872f1129c}{replace}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a567bc1d268f135496de3d5b946b691f3}{ignore}}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This enumeration is used in the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2dump}{\`{}dump\`{}}{0} function to choose how to treat decoding errors while serializing a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} value. Three values are differentiated\+:
+
+strict \+: throw a {\ttfamily type\+\_\+error} exception in case of invalid UTF-\/8
+
+replace \+: replace invalid UTF-\/8 sequences with U+\+FFFD ({\ucr} REPLACEMENT CHARACTER)
+
+ignore \+: ignore invalid UTF-\/8 sequences; all bytes are copied to the output unchanged\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md270}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md270}
+??? example \begin{DoxyVerb}The example below shows how the different values of the `error_handler_t` influence the behavior of
+[`dump`](dump.md) when reading serializing an invalid UTF-8 sequence.
+
+```cpp
+--8<-- "examples/error_handler_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/error_handler_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md271}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t_autotoc_md271}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+4.\+0. 
+\end{DoxyItemize}

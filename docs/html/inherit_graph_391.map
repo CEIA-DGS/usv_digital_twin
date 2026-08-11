@@ -1,0 +1,29 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,391,168,416"/>
+<area shape="rect" id="Node000001" href="$structdetail_1_1has__key__compare.html" title=" " alt="" coords="223,5,445,31"/>
+<area shape="poly" id="edge119_Node000000_Node000001" title=" " alt="" coords="86,377,94,309,113,218,130,170,151,123,179,79,214,41,234,29,237,33,218,45,184,82,156,125,135,172,118,219,99,310,92,377"/>
+<area shape="rect" id="Node000002" href="$structdetail_1_1is__basic__json__context.html" title=" " alt="" coords="223,55,445,95"/>
+<area shape="poly" id="edge120_Node000000_Node000002" title=" " alt="" coords="89,376,101,320,123,247,140,208,160,171,185,136,214,105,232,93,235,98,218,109,189,139,165,174,145,211,128,249,106,321,94,377"/>
+<area shape="rect" id="Node000003" href="$structdetail_1_1negation.html" title=" " alt="" coords="253,120,415,145"/>
+<area shape="poly" id="edge121_Node000000_Node000003" title=" " alt="" coords="91,377,105,329,129,268,165,206,188,178,214,155,232,144,252,137,254,142,235,149,218,159,192,182,169,209,134,270,110,330,96,378"/>
+<area shape="rect" id="Node000004" href="$structnlohmann_1_1detail_1_1negation.html" title=" " alt="" coords="216,169,452,195"/>
+<area shape="poly" id="edge122_Node000000_Node000004" title=" " alt="" coords="95,376,111,337,137,290,171,243,214,204,236,192,239,197,218,208,175,247,141,293,116,340,100,378"/>
+<area shape="rect" id="Node000005" href="$structrosidl__generator__traits_1_1has__bounded__size_3_01dt__msgs_1_1msg_1_1AisReport_01_4.html" title=" " alt="" coords="241,219,427,273"/>
+<area shape="poly" id="edge123_Node000000_Node000005" title=" " alt="" coords="106,378,152,330,182,305,215,282,239,270,242,275,217,287,185,309,156,334,109,382"/>
+<area shape="rect" id="Node000006" href="$structrosidl__generator__traits_1_1has__bounded__size_3_01dt__msgs_1_1msg_1_1AisTarget_01_4.html" title=" " alt="" coords="243,297,425,352"/>
+<area shape="poly" id="edge124_Node000000_Node000006" title=" " alt="" coords="140,384,246,350,248,355,141,389"/>
+<area shape="rect" id="Node000007" href="$structrosidl__generator__traits_1_1has__bounded__size_3_01dt__msgs_1_1msg_1_1CollisionAlert_01_4.html" title=" " alt="" coords="229,376,439,431"/>
+<area shape="poly" id="edge125_Node000000_Node000007" title=" " alt="" coords="182,401,228,401,228,406,182,406"/>
+<area shape="rect" id="Node000008" href="$structrosidl__generator__traits_1_1has__bounded__size_3_01dt__msgs_1_1msg_1_1WaypointArray_01_4.html" title=" " alt="" coords="225,455,443,509"/>
+<area shape="poly" id="edge126_Node000000_Node000008" title=" " alt="" coords="141,418,248,452,246,457,140,423"/>
+<area shape="rect" id="Node000009" href="$structrosidl__generator__traits_1_1has__fixed__size_3_01dt__msgs_1_1msg_1_1AisReport_01_4.html" title=" " alt="" coords="237,533,431,588"/>
+<area shape="poly" id="edge127_Node000000_Node000009" title=" " alt="" coords="109,424,156,472,186,497,217,518,242,531,239,536,215,523,182,501,152,475,106,428"/>
+<area shape="rect" id="Node000010" href="$structrosidl__generator__traits_1_1has__fixed__size_3_01dt__msgs_1_1msg_1_1AisTarget_01_4.html" title=" " alt="" coords="237,612,431,667"/>
+<area shape="poly" id="edge128_Node000000_Node000010" title=" " alt="" coords="101,428,118,465,144,511,177,557,218,597,238,610,235,615,214,601,173,561,139,514,113,468,96,430"/>
+<area shape="rect" id="Node000011" href="$structrosidl__generator__traits_1_1has__fixed__size_3_01dt__msgs_1_1msg_1_1CollisionAlert_01_4.html" title=" " alt="" coords="237,691,431,745"/>
+<area shape="poly" id="edge129_Node000000_Node000011" title=" " alt="" coords="96,429,109,481,133,547,168,616,191,648,218,676,238,690,235,694,214,680,187,651,164,619,128,549,104,482,90,430"/>
+<area shape="rect" id="Node000012" href="$structrosidl__generator__traits_1_1has__fixed__size_3_01dt__msgs_1_1msg_1_1WaypointArray_01_4.html" title=" " alt="" coords="237,769,431,824"/>
+<area shape="poly" id="edge130_Node000000_Node000012" title=" " alt="" coords="93,429,102,494,122,582,138,628,159,674,186,717,218,755,238,770,235,774,214,759,181,720,155,677,134,630,117,583,96,495,87,430"/>
+<area shape="rect" id="Node000013" href="$classstd_1_1tuple__size_3_1_1nlohmann_1_1detail_1_1iteration__proxy__value_3_01IteratorType_01_4_01_4.html" title=" " alt="" coords="234,848,434,903"/>
+<area shape="poly" id="edge131_Node000000_Node000013" title=" " alt="" coords="91,430,95,508,113,616,129,674,151,732,180,786,218,833,235,847,232,852,214,837,176,789,146,734,124,676,107,617,90,509,85,430"/>
+</map>

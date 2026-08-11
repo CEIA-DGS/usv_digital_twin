@@ -1,0 +1,48 @@
+\doxysection{rosidl\+\_\+generator\+\_\+c\+\_\+\+\_\+visibility\+\_\+control.\+h}
+\hypertarget{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2rosidl__generator__c____visibility__control_8h_source}{}\label{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2rosidl__generator__c____visibility__control_8h_source}\index{build/dt\_msgs/rosidl\_generator\_c/dt\_msgs/msg/rosidl\_generator\_c\_\_visibility\_control.h@{build/dt\_msgs/rosidl\_generator\_c/dt\_msgs/msg/rosidl\_generator\_c\_\_visibility\_control.h}}
+\mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__c_2dt__msgs_2msg_2rosidl__generator__c____visibility__control_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ generated\ from\ rosidl\_generator\_c/resource/rosidl\_generator\_c\_\_visibility\_control.h.in}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ generated\ code\ does\ not\ contain\ a\ copyright\ notice}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ DT\_MSGS\_\_MSG\_\_ROSIDL\_GENERATOR\_C\_\_VISIBILITY\_CONTROL\_H\_}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ DT\_MSGS\_\_MSG\_\_ROSIDL\_GENERATOR\_C\_\_VISIBILITY\_CONTROL\_H\_}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ This\ logic\ was\ borrowed\ (then\ namespaced)\ from\ the\ examples\ on\ the\ gcc\ wiki:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ \ https://gcc.gnu.org/wiki/Visibility}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#if\ defined\ \_WIN32\ ||\ defined\ \_\_CYGWIN\_\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \#ifdef\ \_\_GNUC\_\_}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_EXPORT\_dt\_msgs\ \_\_attribute\_\_\ ((dllexport))}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_IMPORT\_dt\_msgs\ \_\_attribute\_\_\ ((dllimport))}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_EXPORT\_dt\_msgs\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_IMPORT\_dt\_msgs\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \#ifdef\ ROSIDL\_GENERATOR\_C\_BUILDING\_DLL\_dt\_msgs}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_PUBLIC\_dt\_msgs\ ROSIDL\_GENERATOR\_C\_EXPORT\_dt\_msgs}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_PUBLIC\_dt\_msgs\ ROSIDL\_GENERATOR\_C\_IMPORT\_dt\_msgs}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \#define\ ROSIDL\_GENERATOR\_C\_EXPORT\_dt\_msgs\ \_\_attribute\_\_\ ((visibility("{}default"{})))}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \#define\ ROSIDL\_GENERATOR\_C\_IMPORT\_dt\_msgs}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \#if\ \_\_GNUC\_\_\ >=\ 4}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_PUBLIC\_dt\_msgs\ \_\_attribute\_\_\ ((visibility("{}default"{})))}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#define\ ROSIDL\_GENERATOR\_C\_PUBLIC\_dt\_msgs}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00039\ \}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DT\_MSGS\_\_MSG\_\_ROSIDL\_GENERATOR\_C\_\_VISIBILITY\_CONTROL\_H\_}}
+
+\end{DoxyCode}

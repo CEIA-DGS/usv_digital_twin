@@ -1,0 +1,152 @@
+\doxysection{ais\+\_\+report\+\_\+\+\_\+struct.\+hpp}
+\hypertarget{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2ais__report____struct_8hpp_source}{}\label{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2ais__report____struct_8hpp_source}\index{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/ais\_report\_\_struct.hpp@{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/ais\_report\_\_struct.hpp}}
+\mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2ais__report____struct_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ generated\ from\ rosidl\_generator\_cpp/resource/idl\_\_struct.hpp.em}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ with\ input\ from\ dt\_msgs:msg/AisReport.idl}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ generated\ code\ does\ not\ contain\ a\ copyright\ notice}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ IWYU\ pragma:\ private,\ include\ "{}dt\_msgs/msg/ais\_report.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_AIS\_REPORT\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_AIS\_REPORT\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/bounded\_vector.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/message\_initialization.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Include\ directives\ for\ member\ types}}
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Member\ 'header'}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}std\_msgs/msg/detail/header\_\_struct.hpp"{}}}
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Member\ 'targets'}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}dt\_msgs/msg/detail/ais\_target\_\_struct.hpp"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ \_WIN32}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_AisReport\ \_\_attribute\_\_((deprecated))}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_AisReport\ \_\_declspec(deprecated)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}}
+\DoxyCodeLine{00035\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{namespace\ }msg}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ message\ struct}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ContainerAllocator>}
+\DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{AisReport\_}}}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{Type}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{AisReport\_<ContainerAllocator>}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a359e9d9c2fbc2c6708f712adaf629c8d}{AisReport\_}}(rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00047\ \ \ :\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a3b35aea2caf35046303e1b8b37e1bb60}{header}}(\_init)}
+\DoxyCodeLine{00048\ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ (void)\_init;}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a9ffedfa8b49d1fd053561c5b36521db3}{AisReport\_}}(\textcolor{keyword}{const}\ ContainerAllocator\ \&\ \_alloc,\ rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00053\ \ \ :\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a3b35aea2caf35046303e1b8b37e1bb60}{header}}(\_alloc,\ \_init)}
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ (void)\_init;}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{comment}{//\ field\ types\ and\ members}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___aad5712eab479b76998f2ab6a46cea369}{\_header\_type}}\ =}
+\DoxyCodeLine{00060\ \ \ \ \ std\_msgs::msg::Header\_<ContainerAllocator>;}
+\DoxyCodeLine{00061\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___aad5712eab479b76998f2ab6a46cea369}{\_header\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a3b35aea2caf35046303e1b8b37e1bb60}{header}};}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a6240c7f1a6a656061439652e423ae19d}{\_targets\_type}}\ =}
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<dt\_msgs::msg::AisTarget\_<ContainerAllocator>,\ \textcolor{keyword}{typename}\ std::allocator\_traits<ContainerAllocator>::template\ rebind\_alloc<dt\_msgs::msg::AisTarget\_<ContainerAllocator>>>;}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a6240c7f1a6a656061439652e423ae19d}{\_targets\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___ac1581e3fe1655ef3197b480963074aaa}{targets}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ setters\ for\ named\ parameter\ idiom}}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a0d90a54719ea2a4bff12bd11ce8c55f9}{set\_\_header}}(}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ std\_msgs::msg::Header\_<ContainerAllocator>\ \&\ \_arg)}
+\DoxyCodeLine{00069\ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ this-\/>header\ =\ \_arg;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a8e80a9b076bf5ce197f774d8209dd4cc}{set\_\_targets}}(}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisTarget__}{dt\_msgs::msg::AisTarget\_<ContainerAllocator>}},\ \textcolor{keyword}{typename}\ std::allocator\_traits<ContainerAllocator>::template\ rebind\_alloc<\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisTarget__}{dt\_msgs::msg::AisTarget\_<ContainerAllocator>}}>>\ \&\ \_arg)}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ this-\/>targets\ =\ \_arg;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{comment}{//\ constant\ declarations}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \textcolor{comment}{//\ pointer\ types}}
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{RawPtr}}\ =}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{dt\_msgs::msg::AisReport\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{ConstRawPtr}}\ =}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{dt\_msgs::msg::AisReport\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a6fbddb6362e41db82a17eed94b2b796c}{SharedPtr}}\ =}
+\DoxyCodeLine{00088\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>>;}
+\DoxyCodeLine{00089\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___aa7561c3505a695a88f6aa9937ace1cc5}{ConstSharedPtr}}\ =}
+\DoxyCodeLine{00090\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{dt\_msgs::msg::AisReport\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a17f39c2d4903f25f1fb485a0292bc62b}{UniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00095\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>,\ Deleter>;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a4cfec17d315a73d2dc3fb13adc5d4729}{UniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a17f39c2d4903f25f1fb485a0292bc62b}{UniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{dt\_msgs::msg::AisReport\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00101\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a6eb9443f8fe263db6fd5879a6541d697}{ConstUniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00102\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>\ \textcolor{keyword}{const},\ Deleter>;}
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a39a27bab3b4d78e764bbe6d11ed58e19}{ConstUniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a6eb9443f8fe263db6fd5879a6541d697}{ConstUniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a45031ae1a0758314c42ac379c54f5054}{WeakPtr}}\ =}
+\DoxyCodeLine{00106\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>>;}
+\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a13197728cf969801eed45949c4cbb9c1}{ConstWeakPtr}}\ =}
+\DoxyCodeLine{00108\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{comment}{//\ pointer\ types\ similar\ to\ ROS\ 1,\ use\ SharedPtr\ /\ ConstSharedPtr\ instead}}
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ NOTE:\ Can't\ use\ 'using'\ here\ because\ GNU\ C++\ can't\ parse\ attributes\ properly}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2ais__report____struct_8hpp_a33c21e4510927f05acad29f82dbfde61}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_AisReport}}}
+\DoxyCodeLine{00113\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>>}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___af66f8c8956062ba0ffbdad648790fa62}{Ptr}};}
+\DoxyCodeLine{00115\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2ais__report____struct_8hpp_a33c21e4510927f05acad29f82dbfde61}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_AisReport}}}
+\DoxyCodeLine{00116\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::AisReport\_<ContainerAllocator>\ \textcolor{keyword}{const}>}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___ac8b5687b7ba415a2b0f0acad94190d78}{ConstPtr}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{comment}{//\ comparison\ operators}}
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___abcc9767c038b0418ddd4036196fe0b82}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{AisReport\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>header\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___a3b35aea2caf35046303e1b8b37e1bb60}{header}})\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>targets\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___ac1581e3fe1655ef3197b480963074aaa}{targets}})\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00129\ \ \ \}}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___ad75d4b7e4df27e90ba78fbde22ba2b9f}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{AisReport\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00131\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport___abcc9767c038b0418ddd4036196fe0b82}{operator==}}(other);}
+\DoxyCodeLine{00133\ \ \ \}}
+\DoxyCodeLine{00134\ \};\ \ \textcolor{comment}{//\ struct\ AisReport\_}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \textcolor{comment}{//\ alias\ to\ use\ template\ instance\ with\ default\ allocator}}
+\DoxyCodeLine{00137\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport}{AisReport}}\ =}
+\DoxyCodeLine{00138\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1AisReport__}{dt\_msgs::msg::AisReport\_<std::allocator<void>}}>;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ constant\ definitions}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \}\ \ \textcolor{comment}{//\ namespace\ msg}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \}\ \ \textcolor{comment}{//\ namespace\ dt\_msgs}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_AIS\_REPORT\_\_STRUCT\_HPP\_}}
+
+\end{DoxyCode}

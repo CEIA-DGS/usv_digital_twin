@@ -1,0 +1,28 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::byte\+\_\+container\+\_\+with\+\_\+subtype\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}clear\+\_\+subtype}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype}\index{$<$small$>$nlohmann::byte\_container\_with\_subtype::$<$/small$>$clear\_subtype@{$<$small$>$nlohmann::byte\_container\_with\_subtype::$<$/small$>$clear\_subtype}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md946}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md946}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ clear\_subtype()\ noexcept;}
+
+\end{DoxyCode}
+
+
+Clears the binary subtype and flags the value as not having a subtype, which has implications for serialization; for instance Message\+Pack will prefer the bin family over the ext family.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md947}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md947}
+No-\/throw guarantee\+: this function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md948}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md948}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md949}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md949}
+??? example \begin{DoxyVerb}The example below demonstrates how `clear_subtype` can remove subtypes.
+
+```cpp
+--8<-- "examples/byte_container_with_subtype__clear_subtype.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/byte_container_with_subtype__clear_subtype.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md950}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype_autotoc_md950}
+Since version 3.\+8.\+0. 

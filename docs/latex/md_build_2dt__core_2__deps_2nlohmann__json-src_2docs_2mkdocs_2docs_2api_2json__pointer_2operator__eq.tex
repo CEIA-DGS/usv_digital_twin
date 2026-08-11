@@ -1,0 +1,94 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::json\+\_\+pointer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator==}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq}\index{$<$small$>$nlohmann::json\_pointer::$<$/small$>$operator==@{$<$small$>$nlohmann::json\_pointer::$<$/small$>$operator==}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1001}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1001}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ until\ C++20}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RefStringTypeLhs,\ \textcolor{keyword}{typename}\ RefStringTypeRhs>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{json__pointer_8hpp_a613a4889154f7ab2ee4efbe0fe147cf2}{operator==}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer<RefStringTypeLhs>}}\&\ lhs,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer<RefStringTypeRhs>}}\&\ rhs)\ \textcolor{keyword}{noexcept};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RefStringTypeLhs,\ \textcolor{keyword}{typename}\ StringType>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{json__pointer_8hpp_a613a4889154f7ab2ee4efbe0fe147cf2}{operator==}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer<RefStringTypeLhs>}}\&\ lhs,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ StringType\&\ rhs);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RefStringTypeRhs,\ \textcolor{keyword}{typename}\ StringType>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{json__pointer_8hpp_a613a4889154f7ab2ee4efbe0fe147cf2}{operator==}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ StringType\&\ lhs,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer<RefStringTypeRhs>}}\&\ rhs);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ since\ C++20}}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classjson__pointer}{json\_pointer}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ RefStringTypeRhs>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classjson__pointer_a613a4889154f7ab2ee4efbe0fe147cf2}{operator==}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer<RefStringTypeRhs>}}\&\ rhs)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};\ \ \textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classjson__pointer_a613a4889154f7ab2ee4efbe0fe147cf2}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer_a21dae78c5120aa3044d4c0fa1d970291}{string\_t}}\&\ rhs)\ \textcolor{keyword}{const};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Compares two JSON pointers for equality by comparing their reference tokens.
+\item Compares a JSON pointer and a string or a string and a JSON pointer for equality by converting the string to a JSON pointer and comparing the JSON pointers according to 1.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1002}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1002}
+{\ttfamily Ref\+String\+Type\+Lhs}, {\ttfamily Ref\+String\+Type\+Rhs} \+: the string type of the left-\/hand side or right-\/hand side JSON pointer, respectively
+
+{\ttfamily String\+Type} \+: the string type derived from the {\ttfamily \doxylink{classjson__pointer}{json\+\_\+pointer}} operand (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2string__t}{\`{}json\+\_\+pointer\+::string\+\_\+t\`{}}{0})\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1003}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1003}
+{\ttfamily lhs} (in) \+: first value to consider
+
+{\ttfamily rhs} (in) \+: second value to consider\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1004}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1004}
+whether the values {\ttfamily lhs}/{\ttfamily \texorpdfstring{$\ast$}{*}this} and {\ttfamily rhs} are equal\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1005}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1005}
+
+\begin{DoxyEnumerate}
+\item No-\/throw guarantee\+: this function never throws exceptions.
+\item Strong exception safety\+: if an exception occurs, the original value stays intact.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1006}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1006}
+
+\begin{DoxyEnumerate}
+\item (none)
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error107}{\texttt{ parse\+\_\+error.\+107}} if the given JSON pointer {\ttfamily s} is nonempty and does not begin with a slash ({\ttfamily /}); see example below.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error108}{\texttt{ parse\+\_\+error.\+108}} if a tilde ({\ttfamily \texorpdfstring{$\sim$}{\string~}}) in the given JSON pointer {\ttfamily s} is not followed by {\ttfamily 0} (representing {\ttfamily \texorpdfstring{$\sim$}{\string~}}) or {\ttfamily 1} (representing {\ttfamily /}); see example below.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1007}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1007}
+Constant if {\ttfamily lhs} and {\ttfamily rhs} differ in the number of reference tokens, otherwise linear in the number of reference tokens.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1008}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1008}
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}Overload 2 is deprecated and will be removed in a future major version release.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1009}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1009}
+??? example "{}\+Example\+: (1) Comparing JSON pointers"{} \begin{DoxyVerb}The example demonstrates comparing JSON pointers.
+
+```cpp
+--8<-- "examples/json_pointer__operator__equal.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/json_pointer__operator__equal.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) Comparing JSON pointers and strings"{} \begin{DoxyVerb}The example demonstrates comparing JSON pointers and strings, and when doing so may raise an exception.
+
+```cpp
+--8<-- "examples/json_pointer__operator__equal_stringtype.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/json_pointer__operator__equal_stringtype.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1010}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq_autotoc_md1010}
+
+\begin{DoxyEnumerate}
+\item Added in version 2.\+1.\+0. Added C++20 member functions in version 3.\+11.\+2.
+\item Added for backward compatibility and deprecated in version 3.\+11.\+2. 
+\end{DoxyEnumerate}

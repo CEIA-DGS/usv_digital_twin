@@ -1,0 +1,98 @@
+\doxysection{p2t\+::CDT Class Reference}
+\hypertarget{classp2t_1_1CDT}{}\label{classp2t_1_1CDT}\index{p2t::CDT@{p2t::CDT}}
+
+
+{\ttfamily \#include $<$cdt.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classp2t_1_1CDT_a0526444c3a02a5e24dbe2b802b056fa7}{CDT}} (const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}})
+\item 
+\mbox{\hyperlink{classp2t_1_1CDT_af1b16e2c9ad6d145f953ddbe721c7cb4}{\texorpdfstring{$\sim$}{\string~}\+CDT}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1CDT_abb12a22cd88a923de2c686dd787adcd1}{Add\+Hole}} (const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}})
+\item 
+void \mbox{\hyperlink{classp2t_1_1CDT_acf36ab360e46f084c7df31acc7d845c1}{Add\+Point}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}point)
+\item 
+void \mbox{\hyperlink{classp2t_1_1CDT_a6ba702d81df16da88e3ae80705d7d276}{Triangulate}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classp2t_1_1CDT_ac7f372972e6b94d678323d1a3378b443}{Get\+Triangles}} ()
+\item 
+std\+::list$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classp2t_1_1CDT_a4491cea3f797ec485f34dd3c7d62050f}{Get\+Map}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classp2t_1_1CDT_a0526444c3a02a5e24dbe2b802b056fa7}\label{classp2t_1_1CDT_a0526444c3a02a5e24dbe2b802b056fa7} 
+\index{p2t::CDT@{p2t::CDT}!CDT@{CDT}}
+\index{CDT@{CDT}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{CDT()}{CDT()}}
+{\footnotesize\ttfamily p2t\+::\+CDT\+::\+CDT (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{polyline }\end{DoxyParamCaption})}
+
+Constructor -\/ add polyline with non repeating points
+
+
+\begin{DoxyParams}{Parameters}
+{\em polyline} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classp2t_1_1CDT_af1b16e2c9ad6d145f953ddbe721c7cb4}\label{classp2t_1_1CDT_af1b16e2c9ad6d145f953ddbe721c7cb4} 
+\index{p2t::CDT@{p2t::CDT}!````~CDT@{\texorpdfstring{$\sim$}{\string~}CDT}}
+\index{````~CDT@{\texorpdfstring{$\sim$}{\string~}CDT}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}CDT()}{\string~CDT()}}
+{\footnotesize\ttfamily p2t\+::\+CDT\+::\texorpdfstring{$\sim$}{\string~}\+CDT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor -\/ clean up memory 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classp2t_1_1CDT_abb12a22cd88a923de2c686dd787adcd1}\label{classp2t_1_1CDT_abb12a22cd88a923de2c686dd787adcd1} 
+\index{p2t::CDT@{p2t::CDT}!AddHole@{AddHole}}
+\index{AddHole@{AddHole}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{AddHole()}{AddHole()}}
+{\footnotesize\ttfamily void p2t\+::\+CDT\+::\+Add\+Hole (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{polyline }\end{DoxyParamCaption})}
+
+Add a hole
+
+
+\begin{DoxyParams}{Parameters}
+{\em polyline} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classp2t_1_1CDT_acf36ab360e46f084c7df31acc7d845c1}\label{classp2t_1_1CDT_acf36ab360e46f084c7df31acc7d845c1} 
+\index{p2t::CDT@{p2t::CDT}!AddPoint@{AddPoint}}
+\index{AddPoint@{AddPoint}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{AddPoint()}{AddPoint()}}
+{\footnotesize\ttfamily void p2t\+::\+CDT\+::\+Add\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{point }\end{DoxyParamCaption})}
+
+Add a steiner point
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classp2t_1_1CDT_a4491cea3f797ec485f34dd3c7d62050f}\label{classp2t_1_1CDT_a4491cea3f797ec485f34dd3c7d62050f} 
+\index{p2t::CDT@{p2t::CDT}!GetMap@{GetMap}}
+\index{GetMap@{GetMap}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{GetMap()}{GetMap()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{p2t\+::\+Triangle}} \texorpdfstring{$\ast$}{*} $>$ p2t\+::\+CDT\+::\+Get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get triangle map \Hypertarget{classp2t_1_1CDT_ac7f372972e6b94d678323d1a3378b443}\label{classp2t_1_1CDT_ac7f372972e6b94d678323d1a3378b443} 
+\index{p2t::CDT@{p2t::CDT}!GetTriangles@{GetTriangles}}
+\index{GetTriangles@{GetTriangles}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{GetTriangles()}{GetTriangles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{p2t\+::\+Triangle}} \texorpdfstring{$\ast$}{*} $>$ p2t\+::\+CDT\+::\+Get\+Triangles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get \doxylink{classp2t_1_1CDT}{CDT} triangles \Hypertarget{classp2t_1_1CDT_a6ba702d81df16da88e3ae80705d7d276}\label{classp2t_1_1CDT_a6ba702d81df16da88e3ae80705d7d276} 
+\index{p2t::CDT@{p2t::CDT}!Triangulate@{Triangulate}}
+\index{Triangulate@{Triangulate}!p2t::CDT@{p2t::CDT}}
+\doxysubsubsection{\texorpdfstring{Triangulate()}{Triangulate()}}
+{\footnotesize\ttfamily void p2t\+::\+CDT\+::\+Triangulate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Triangulate -\/ do this AFTER you\textquotesingle{}ve added the polyline, holes, and Steiner points 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/sweep/\mbox{\hyperlink{cdt_8h}{cdt.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/sweep/\mbox{\hyperlink{cdt_8cc}{cdt.\+cc}}\end{DoxyCompactItemize}

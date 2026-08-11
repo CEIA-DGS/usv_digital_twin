@@ -1,0 +1,109 @@
+\chapter{CMake}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake}\index{CMake@{CMake}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1708}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1708}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1709}{}\doxysection{\texorpdfstring{Integration}{Integration}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1709}
+You can use the {\ttfamily nlohmann\+\_\+json\+::nlohmann\+\_\+json} interface target in CMake. This target populates the appropriate usage requirements for \href{https://cmake.org/cmake/help/latest/prop_tgt/INTERFACE_INCLUDE_DIRECTORIES.html}{\texttt{ {\ttfamily INTERFACE\+\_\+\+INCLUDE\+\_\+\+DIRECTORIES}}} to point to the appropriate include directories and \href{https://cmake.org/cmake/help/latest/prop_tgt/INTERFACE_COMPILE_FEATURES.html}{\texttt{ {\ttfamily INTERFACE\+\_\+\+COMPILE\+\_\+\+FEATURES}}} for the necessary C++11 flags.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1710}{}\doxysubsection{\texorpdfstring{External}{External}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1710}
+To use this library from a CMake project, you can locate it directly with \href{https://cmake.org/cmake/help/latest/command/find_package.html}{\texttt{ {\ttfamily find\+\_\+package()}}} and use the namespaced imported target from the generated package configuration\+:
+
+!!! example \begin{DoxyVerb}```cmake title="CMakeLists.txt"
+cmake_minimum_required(VERSION 3.1)
+project(ExampleProject LANGUAGES CXX)
+
+find_package(nlohmann_json 3.11.3 REQUIRED)
+
+add_executable(example example.cpp)
+target_link_libraries(example PRIVATE nlohmann_json::nlohmann_json)
+```
+\end{DoxyVerb}
+ The package configuration file, {\ttfamily nlohmann\+\_\+json\+Config.\+cmake}, can be used either from an install tree or directly out of the build tree.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1711}{}\doxysubsection{\texorpdfstring{Embedded}{Embedded}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1711}
+To embed the library directly into an existing CMake project, place the entire source tree in a subdirectory and call {\ttfamily add\+\_\+subdirectory()} in your {\ttfamily CMake\+Lists.\+txt} file.
+
+!!! example \begin{DoxyVerb}```cmake title="CMakeLists.txt"
+cmake_minimum_required(VERSION 3.1)
+project(ExampleProject LANGUAGES CXX)
+
+# If you only include this third party in PRIVATE source files, you do not need to install it
+# when your main project gets installed.
+set(JSON_Install OFF CACHE INTERNAL "")
+
+add_subdirectory(nlohmann_json)
+
+add_executable(example example.cpp)
+target_link_libraries(example PRIVATE nlohmann_json::nlohmann_json)
+```
+\end{DoxyVerb}
+ !!! note \begin{DoxyVerb}Do not use `#!cmake include(nlohmann_json/CMakeLists.txt)`, since that carries with it unintended consequences that
+will break the build. It is generally discouraged (although not necessarily well documented as such) to use
+`#!cmake include(...)` for pulling in other CMake projects anyways.
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1712}{}\doxysubsection{\texorpdfstring{Supporting Both}{Supporting Both}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1712}
+To allow your project to support either an externally supplied or an embedded JSON library, you can use a pattern akin to the following.
+
+!!! example \begin{DoxyVerb}```cmake title="CMakeLists.txt"
+project(ExampleProject LANGUAGES CXX)
+
+option(EXAMPLE_USE_EXTERNAL_JSON "Use an external JSON library" OFF)
+
+add_subdirectory(thirdparty)
+
+add_executable(example example.cpp)
+
+# Note that the namespaced target will always be available regardless of the import method
+target_link_libraries(example PRIVATE nlohmann_json::nlohmann_json)
+```
+
+```cmake title="thirdparty/CMakeLists.txt"
+if(EXAMPLE_USE_EXTERNAL_JSON)
+    find_package(nlohmann_json 3.11.3 REQUIRED)
+else()
+    set(JSON_BuildTests OFF CACHE INTERNAL "")
+    add_subdirectory(nlohmann_json)
+endif()
+```
+
+`thirdparty/nlohmann_json` is then a complete copy of this source tree.
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1713}{}\doxysubsection{\texorpdfstring{Fetch\+Content}{FetchContent}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1713}
+Since CMake v3.\+11, \href{https://cmake.org/cmake/help/v3.11/module/FetchContent.html}{\texttt{ Fetch\+Content}} can be used to automatically download a release as a dependency at configure type.
+
+!!! example \begin{DoxyVerb}```cmake title="CMakeLists.txt"
+cmake_minimum_required(VERSION 3.11)
+project(ExampleProject LANGUAGES CXX)
+
+include(FetchContent)
+
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
+add_executable(example example.cpp)
+target_link_libraries(example PRIVATE nlohmann_json::nlohmann_json)
+```
+\end{DoxyVerb}
+ !!! Note \begin{DoxyVerb}It is recommended to use the URL approach described above which is supported as of version 3.10.0. It is also
+possible to pass the Git repository like
+
+```cmake
+FetchContent_Declare(json
+    GIT_REPOSITORY https://github.com/nlohmann/json
+    GIT_TAG v3.11.3
+)
+```
+
+However, the repository <https://github.com/nlohmann/json> download size is quite large. You might want to depend on
+a smaller repository. For instance, you might want to replace the URL in the example by
+<https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent>.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1714}{}\doxysection{\texorpdfstring{CMake Options}{CMake Options}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1714}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1715}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Build\+Tests$<$/tt$>$}{<tt>JSON\_BuildTests</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1715}
+Build the unit tests when \href{https://cmake.org/cmake/help/latest/command/enable_testing.html}{\texttt{ {\ttfamily BUILD\+\_\+\+TESTING}}} is enabled. This option is {\ttfamily ON} by default if the library\textquotesingle{}s CMake project is the top project. That is, when integrating the library as described above, the test suite is not built unless explicitly switched on with this option.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1716}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+CI$<$/tt$>$}{<tt>JSON\_CI</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1716}
+Enable CI build targets. The exact targets are used during the several CI steps and are subject to change without notice. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1717}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Diagnostics$<$/tt$>$}{<tt>JSON\_Diagnostics</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1717}
+Enable \href{../home/exceptions.md\#extended-diagnostic-messages}{\texttt{ extended diagnostic messages}} by defining macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}{\`{}\+JSON\+\_\+\+DIAGNOSTICS\`{}}{0}. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1718}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Disable\+Enum\+Serialization$<$/tt$>$}{<tt>JSON\_DisableEnumSerialization</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1718}
+Disable default {\ttfamily enum} serialization by defining the macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__disable__enum__serialization}{\`{}\+JSON\+\_\+\+DISABLE\+\_\+\+ENUM\+\_\+\+SERIALIZATION\`{}}{0}. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1719}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Fast\+Tests$<$/tt$>$}{<tt>JSON\_FastTests</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1719}
+Skip expensive/slow test suites. This option is {\ttfamily OFF} by default. Depends on {\ttfamily JSON\+\_\+\+Build\+Tests}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1720}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Global\+UDLs$<$/tt$>$}{<tt>JSON\_GlobalUDLs</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1720}
+Place user-\/defined string literals in the global namespace by defining the macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls}{\`{}\+JSON\+\_\+\+USE\+\_\+\+GLOBAL\+\_\+\+UDLS\`{}}{0}. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1721}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Implicit\+Conversions$<$/tt$>$}{<tt>JSON\_ImplicitConversions</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1721}
+Enable implicit conversions by defining macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__implicit__conversions}{\`{}\+JSON\+\_\+\+USE\+\_\+\+IMPLICIT\+\_\+\+CONVERSIONS\`{}}{0}. This option is {\ttfamily ON} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1722}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Install$<$/tt$>$}{<tt>JSON\_Install</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1722}
+Install CMake targets during install step. This option is {\ttfamily ON} by default if the library\textquotesingle{}s CMake project is the top project.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1723}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Multiple\+Headers$<$/tt$>$}{<tt>JSON\_MultipleHeaders</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1723}
+Use non-\/amalgamated version of the library. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1724}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+System\+Include$<$/tt$>$}{<tt>JSON\_SystemInclude</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1724}
+Treat the library headers like system headers (i.\+e., adding {\ttfamily SYSTEM} to the \href{https://cmake.org/cmake/help/latest/command/target_include_directories.html}{\texttt{ {\ttfamily target\+\_\+include\+\_\+directories}}} call) to checks for this library by tools like Clang-\/\+Tidy. This option is {\ttfamily OFF} by default.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1725}{}\doxysubsection{\texorpdfstring{$<$tt$>$\+JSON\+\_\+\+Valgrind$<$/tt$>$}{<tt>JSON\_Valgrind</tt>}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2cmake_autotoc_md1725}
+Execute test suite with \href{https://valgrind.org}{\texttt{ Valgrind}}. This option is {\ttfamily OFF} by default. Depends on {\ttfamily JSON\+\_\+\+Build\+Tests}. 

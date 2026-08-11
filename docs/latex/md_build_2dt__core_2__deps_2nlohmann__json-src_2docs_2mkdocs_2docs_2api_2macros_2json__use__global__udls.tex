@@ -1,0 +1,92 @@
+\chapter{JSON\+\_\+\+USE\+\_\+\+GLOBAL\+\_\+\+UDLS}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls}\index{JSON\_USE\_GLOBAL\_UDLS@{JSON\_USE\_GLOBAL\_UDLS}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1207}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1207}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_USE\_GLOBAL\_UDLS\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+When defined to {\ttfamily 1}, the user-\/defined string literals (UDLs) are placed into the global namespace instead of {\ttfamily nlohmann\+::literals\+::json\+\_\+literals}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1208}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1208}
+The default value is {\ttfamily 1}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_USE\_GLOBAL\_UDLS\ 1}}
+
+\end{DoxyCode}
+
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1209}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1209}
+!!! info "{}\+Future behavior change"{} \begin{DoxyVerb}The user-defined string literals will be removed from the global namespace in the next major release of the library.
+
+To prepare existing code, define `JSON_USE_GLOBAL_UDLS` to `0` and bring the string literals into scope where
+needed. Refer to any of the [string literals](#see-also) for details.
+\end{DoxyVerb}
+ !!! hint "{}\+CMake option"{} \begin{DoxyVerb}The placement of user-defined string literals can also be controlled with the CMake option
+[`JSON_GlobalUDLs`](../../integration/cmake.md#json_globaludls) (`ON` by default) which defines
+`JSON_USE_GLOBAL_UDLS` accordingly.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1210}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1210}
+??? example "{}\+Example 1\+: Default behavior"{} \begin{DoxyVerb}The code below shows the default behavior using the `_json` UDL.
+
+```cpp
+#include <nlohmann/json.hpp>
+
+#include <iostream>
+
+int main()
+{
+    auto j = "42"_json;
+
+    std::cout << j << std::endl;
+}
+```
+
+Output:
+
+```json
+42
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example 2\+: Namespaced UDLs"{} \begin{DoxyVerb}The code below shows how UDLs need to be brought into scope before using `_json` when `JSON_USE_GLOBAL_UDLS` is
+defined to `0`.
+
+```cpp
+#define JSON_USE_GLOBAL_UDLS 0
+#include <nlohmann/json.hpp>
+
+#include <iostream>
+
+int main()
+{
+    // auto j = "42"_json; // This line would fail to compile,
+                           // because the UDLs are not in the global namespace
+
+    // Bring the UDLs into scope
+    using namespace nlohmann::json_literals;
+
+    auto j = "42"_json;
+
+    std::cout << j << std::endl;
+}
+```
+
+Output:
+
+```json
+42
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1211}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1211}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json}{\`{}operator"{}"{}\+\_\+json\`{}}{0}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json__pointer}{\`{}operator"{}"{}\+\_\+json\+\_\+pointer\`{}}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1212}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls_autotoc_md1212}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

@@ -1,0 +1,19 @@
+<map id="build/dt_msgs/rosidl_generator_cpp/dt_msgs/msg/detail/ais_report__traits.hpp" name="build/dt_msgs/rosidl_generator_cpp/dt_msgs/msg/detail/ais_report__traits.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="315,5,497,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,130,76,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="316,64,207,91,89,125,82,128,80,123,88,120,206,86,315,59"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,130,175,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="316,77,188,125,182,128,180,123,186,120,315,72"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="199,130,258,155"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="348,77,262,125,260,121,345,73"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="283,130,375,155"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="382,77,348,120,344,117,378,74"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="399,123,570,163"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="435,74,463,110,459,113,431,77"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="594,123,741,163"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="494,72,607,115,605,120,492,77"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="765,123,922,163"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="498,60,752,118,751,123,497,65"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="947,123,1113,163"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="497,52,933,120,932,125,496,57"/>
+</map>

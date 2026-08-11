@@ -1,0 +1,50 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}binary}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$binary@{$<$small$>$nlohmann::basic\_json::$<$/small$>$binary}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md133}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md133}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ binary\_t::container\_type\&\ init);}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(\textcolor{keyword}{typename}\ binary\_t::container\_type\&\&\ init);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ binary\_t::container\_type\&\ init,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint8\_t\ subtype);}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(\textcolor{keyword}{typename}\ binary\_t::container\_type\&\&\ init,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint8\_t\ subtype);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Creates a JSON binary array value from a given binary container.
+\item Creates a JSON binary array value from a given binary container with subtype.
+\end{DoxyEnumerate}
+
+Binary values are part of various binary formats, such as CBOR, Message\+Pack, and BSON. This constructor is used to create a value for serialization to those formats.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md134}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md134}
+{\ttfamily init} (in) \+: container containing bytes to use as binary type
+
+{\ttfamily subtype} (in) \+: subtype to use in CBOR, Message\+Pack, and BSON\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md135}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md135}
+JSON binary array value\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md136}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md136}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md137}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md137}
+Linear in the size of {\ttfamily init}; constant for {\ttfamily typename binary\+\_\+t\+::container\+\_\+type\&\& init} versions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md138}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md138}
+Note, this function exists because of the difficulty in correctly specifying the correct template overload in the standard value ctor, as both JSON arrays and JSON binary arrays are backed with some form of a {\ttfamily std\+::vector}. Because JSON binary arrays are a non-\/standard extension it was decided that it would be best to prevent automatic initialization of a binary array type, for backwards compatibility and so it does not happen on accident.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md139}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md139}
+??? example \begin{DoxyVerb}The following code shows how to create a binary value.
+
+```cpp
+--8<-- "examples/binary.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/binary.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md140}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary_autotoc_md140}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+8.\+0. 
+\end{DoxyItemize}

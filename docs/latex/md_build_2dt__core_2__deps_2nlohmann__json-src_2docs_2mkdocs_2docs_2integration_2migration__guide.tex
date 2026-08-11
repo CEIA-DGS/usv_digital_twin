@@ -1,0 +1,179 @@
+\chapter{Migration Guide}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide}\index{Migration Guide@{Migration Guide}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1727}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1727}%
+ This page collects some guidelines on how to future-\/proof your code for future versions of this library.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1728}{}\doxysection{\texorpdfstring{Replace deprecated functions}{Replace deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1728}
+The following functions have been deprecated and will be removed in the next major version (i.\+e., 4.\+0.\+0). All deprecations are annotated with \href{https://nemequ.github.io/hedley/api-reference.html\#HEDLEY_DEPRECATED_FOR}{\texttt{ {\ttfamily HEDLEY\+\_\+\+DEPRECATED\+\_\+\+FOR}}} to report which function to use instead.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1729}{}\doxysubsubsection{\texorpdfstring{Parsing}{Parsing}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1729}
+
+\begin{DoxyItemize}
+\item Function {\ttfamily friend \doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(\doxylink{classbasic__json}{basic\+\_\+json}\&, \doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}\&)} is deprecated since 3.\+0.\+0. Please use \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__gtgt}{\`{}friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)\`{}}{0} instead.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}```cpp
+nlohmann::json j;
+std::stringstream ss("[1,2,3]");
+j << ss;
+```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}```cpp
+nlohmann::json j;
+std::stringstream ss("[1,2,3]");
+ss >> j;
+```
+\end{DoxyVerb}
+
+\item Passing iterator pairs or pointer/length pairs to parsing functions (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{\`{}parse\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2accept}{\`{}accept\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}{\`{}sax\+\_\+parse\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}{\`{}from\+\_\+cbor\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__msgpack}{\`{}from\+\_\+msgpack\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__ubjson}{\`{}from\+\_\+ubjson\`{}}{0}, and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson}{\`{}from\+\_\+bson\`{}}{0} via initializer lists is deprecated since 3.\+8.\+0. Instead, pass two iterators; for instance, call {\ttfamily from\+\_\+cbor(ptr, ptr+len)} instead of {\ttfamily from\+\_\+cbor(\{ptr, len\})}.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  const char* s = "[1,2,3]";
+  bool ok = nlohmann::json::accept({s, s + std::strlen(s)});
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  const char* s = "[1,2,3]";
+  bool ok = nlohmann::json::accept(s, s + std::strlen(s));
+  ```
+\end{DoxyVerb}
+ 
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1730}{}\doxysubsubsection{\texorpdfstring{JSON Pointers}{JSON Pointers}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1730}
+
+\begin{DoxyItemize}
+\item Comparing JSON Pointers with strings via \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq}{\`{}operator==\`{}}{0} and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__ne}{\`{}operator!=\`{}}{0} is deprecated since 3.\+11.\+2. To compare a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} {\ttfamily p} with a string {\ttfamily s}, convert {\ttfamily s} to a {\ttfamily \doxylink{classjson__pointer}{json\+\_\+pointer}} first and use \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__eq}{\`{}json\+\_\+pointer\+::operator==\`{}}{0} or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__ne}{\`{}json\+\_\+pointer\+::operator!=\`{}}{0}.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}```cpp
+nlohmann::json::json_pointer lhs("/foo/bar/1");
+assert(lhs == "/foo/bar/1");
+```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}```cpp
+nlohmann::json::json_pointer lhs("/foo/bar/1");
+assert(lhs == nlohmann::json::json_pointer("/foo/bar/1"));
+```
+\end{DoxyVerb}
+
+\item The implicit conversion from JSON Pointers to string (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2operator__string__t}{\`{}json\+\_\+pointer\+::operator string\+\_\+t\`{}}{0}) is deprecated since 3.\+11.\+0. Use \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string}{\`{}json\+\_\+pointer\+::to\+\_\+string\`{}}{0} instead.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json::json_pointer ptr("/foo/bar/1");
+  std::string s = ptr;
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json::json_pointer ptr("/foo/bar/1");
+  std::string s = ptr.to_string();
+  ```
+\end{DoxyVerb}
+
+\item Passing a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} specialization as template parameter {\ttfamily Ref\+String\+Type} to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} is deprecated since 3.\+11.\+0. The string type can now be directly provided.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  using my_json = nlohmann::basic_json<std::map, std::vector, my_string_type>;
+  nlohmann::json_pointer<my_json> ptr("/foo/bar/1");
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json_pointer<my_string_type> ptr("/foo/bar/1");
+  ```
+\end{DoxyVerb}
+ Thereby, {\ttfamily \doxylink{classnlohmann_1_1basic__json_aa8f1f93b32da01b42413643be32b2c27}{nlohmann\+::my\+\_\+json\+::json\+\_\+pointer}} is an alias for {\ttfamily \doxylink{classnlohmann_1_1json__pointer}{nlohmann\+::json\+\_\+pointer}\texorpdfstring{$<$}{<}my\+\_\+string\+\_\+type\texorpdfstring{$>$}{>}} and is always an alias to the {\ttfamily \doxylink{classjson__pointer}{json\+\_\+pointer}} with the appropriate string type for all specializations of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1731}{}\doxysubsubsection{\texorpdfstring{Miscellaneous functions}{Miscellaneous functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1731}
+
+\begin{DoxyItemize}
+\item The function {\ttfamily iterator\+\_\+wrapper} is deprecated since 3.\+1.\+0. Please use the member function \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items}{\`{}items\`{}}{0} instead.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  for (auto &x : nlohmann::json::iterator_wrapper(j))
+  {
+      std::cout << x.key() << ":" << x.value() << std::endl;
+  }
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  for (auto &x : j.items())
+  {
+      std::cout << x.key() << ":" << x.value() << std::endl;
+  }
+  ```
+\end{DoxyVerb}
+
+\item Function {\ttfamily friend \doxylink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const \doxylink{classbasic__json}{basic\+\_\+json}\&, \doxylink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}\&)} is deprecated since 3.\+0.\+0. Please use \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__ltlt}{\`{}friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)\`{}}{0} instead.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  j >> std::cout;
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  std::cout << j;
+  ```
+\end{DoxyVerb}
+
+\item The legacy comparison behavior for discarded values is deprecated since 3.\+11.\+0. It is already disabled by default and can still be enabled by defining \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a}{\`{}\+JSON\+\_\+\+USE\+\_\+\+LEGACY\+\_\+\+DISCARDED\+\_\+\+VALUE\+\_\+\+COMPARISON\`{}}{0} to {\ttfamily 1}.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  #define JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON 1
+  #include <nlohmann/json.hpp>
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  #include <nlohmann/json.hpp>
+  ```
+\end{DoxyVerb}
+ 
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1732}{}\doxysection{\texorpdfstring{Replace implicit conversions}{Replace implicit conversions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1732}
+Implicit conversions via \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ValueType}{\`{}operator Value\+Type\`{}}{0} will be switched off by default in the next major release of the library.
+
+You can prepare existing code by already defining \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__implicit__conversions}{\`{}\+JSON\+\_\+\+USE\+\_\+\+IMPLICIT\+\_\+\+CONVERSIONS\`{}}{0} to {\ttfamily 0} and replace any implicit conversions with calls to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}{\`{}get\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to}{\`{}get\+\_\+to\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref}{\`{}get\+\_\+ref\`{}}{0}, or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ptr}{\`{}get\+\_\+ptr\`{}}{0}.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json j = "Hello, world!";
+  std::string s = j;
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json j = "Hello, world!";
+  auto s = j.template get<std::string>();
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof (alternative)"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json j = "Hello, world!";
+  std::string s;
+  j.get_to(s);
+  ```
+\end{DoxyVerb}
+ You can prepare existing code by already defining \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__implicit__conversions}{\`{}\+JSON\+\_\+\+USE\+\_\+\+IMPLICIT\+\_\+\+CONVERSIONS\`{}}{0} to {\ttfamily 0} and replace any implicit conversions with calls to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}{\`{}get\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1733}{}\doxysection{\texorpdfstring{Import namespace $<$tt$>$literals$<$/tt$>$ for UDLs}{Import namespace <tt>literals</tt> for UDLs}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1733}
+The user-\/defined string literals \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json}{\`{}operator"{}"{}\+\_\+json\`{}}{0} and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json__pointer}{\`{}operator"{}"{}\+\_\+json\+\_\+pointer\`{}}{0} will be removed from the global namespace in the next major release of the library.
+
+=== "{}\+Deprecated"{} \begin{DoxyVerb}  ```cpp
+  nlohmann::json j = "[1,2,3]"_json;
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  using namespace nlohmann::literals;
+  nlohmann::json j = "[1,2,3]"_json;
+  ```
+\end{DoxyVerb}
+ To prepare existing code, define \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__global__udls}{\`{}\+JSON\+\_\+\+USE\+\_\+\+GLOBAL\+\_\+\+UDLS\`{}}{0} to {\ttfamily 0} and bring the string literals into scope where needed.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1734}{}\doxysection{\texorpdfstring{Do not hard-\/code the complete library namespace}{Do not hard-code the complete library namespace}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1734}
+The \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2namespace}{\`{}nlohmann\`{} namespace}{0} contains a sub-\/namespace to avoid problems when different versions or configurations of the library are used in the same project. Always use {\ttfamily nlohmann} as namespace or, when the exact version and configuration is relevant, use macro \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2nlohmann__json__namespace}{\`{}\+NLOHMANN\+\_\+\+JSON\+\_\+\+NAMESPACE\`{}}{0} to denote the namespace.
+
+=== "{}\+Dangerous"{} \begin{DoxyVerb}  ```cpp
+  void to_json(nlohmann::json_abi_v3_11_2::json& j, const person& p)
+  {
+      j["age"] = p.age;
+  }
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof"{} \begin{DoxyVerb}  ```cpp
+  void to_json(nlohmann::json& j, const person& p)
+  {
+      j["age"] = p.age;
+  }
+  ```
+\end{DoxyVerb}
+ === "{}\+Future-\/proof (alternative)"{} \begin{DoxyVerb}  ```cpp
+  void to_json(NLOHMANN_JSON_NAMESPACE::json& j, const person& p)
+  {
+      j["age"] = p.age;
+  }
+  ```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1735}{}\doxysection{\texorpdfstring{Do not use the $<$tt$>$details$<$/tt$>$ namespace}{Do not use the <tt>details</tt> namespace}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2migration__guide_autotoc_md1735}
+The {\ttfamily details} namespace is not part of the public API of the library and can change in any version without announcement. Do not rely on any function or type in the {\ttfamily details} namespace. 

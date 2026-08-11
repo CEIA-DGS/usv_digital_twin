@@ -1,0 +1,183 @@
+\doxysection{collision\+\_\+alert\+\_\+\+\_\+struct.\+hpp}
+\hypertarget{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2collision__alert____struct_8hpp_source}{}\label{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2collision__alert____struct_8hpp_source}\index{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/collision\_alert\_\_struct.hpp@{build/dt\_msgs/rosidl\_generator\_cpp/dt\_msgs/msg/detail/collision\_alert\_\_struct.hpp}}
+\mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2collision__alert____struct_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ generated\ from\ rosidl\_generator\_cpp/resource/idl\_\_struct.hpp.em}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ with\ input\ from\ dt\_msgs:msg/CollisionAlert.idl}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ generated\ code\ does\ not\ contain\ a\ copyright\ notice}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ IWYU\ pragma:\ private,\ include\ "{}dt\_msgs/msg/collision\_alert.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_COLLISION\_ALERT\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_COLLISION\_ALERT\_\_STRUCT\_HPP\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/bounded\_vector.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}rosidl\_runtime\_cpp/message\_initialization.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_WIN32}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_CollisionAlert\ \_\_attribute\_\_((deprecated))}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#\ define\ DEPRECATED\_\_dt\_msgs\_\_msg\_\_CollisionAlert\ \_\_declspec(deprecated)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedt__msgs}{dt\_msgs}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{namespace\ }msg}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ message\ struct}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ ContainerAllocator>}
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{CollisionAlert\_}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{Type}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{CollisionAlert\_<ContainerAllocator>}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ab22a41d3a4fc712b380c65c5632d7545}{CollisionAlert\_}}(rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00041\ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (rosidl\_runtime\_cpp::MessageInitialization::ALL\ ==\ \_init\ ||}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ rosidl\_runtime\_cpp::MessageInitialization::ZERO\ ==\ \_init)}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a0429f82ddccdca787388fc973ea264d4}{mmsi}}\ =\ 0ul;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ae5941ea2b59c89b42dec5243cf00fa89}{collision\_imminent}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ab43a55ebd6527abe718d109588c08870}{time\_to\_collision}}\ =\ 0.0;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a2fe2b297fa641c14ab5f3e2fc008e23b}{closest\_approach\_distance}}\ =\ 0.0;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ad7a03d20f9335d9e1982fce29283b6f6}{CollisionAlert\_}}(\textcolor{keyword}{const}\ ContainerAllocator\ \&\ \_alloc,\ rosidl\_runtime\_cpp::MessageInitialization\ \_init\ =\ rosidl\_runtime\_cpp::MessageInitialization::ALL)}
+\DoxyCodeLine{00053\ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ (void)\_alloc;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (rosidl\_runtime\_cpp::MessageInitialization::ALL\ ==\ \_init\ ||}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ rosidl\_runtime\_cpp::MessageInitialization::ZERO\ ==\ \_init)}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a0429f82ddccdca787388fc973ea264d4}{mmsi}}\ =\ 0ul;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ae5941ea2b59c89b42dec5243cf00fa89}{collision\_imminent}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ab43a55ebd6527abe718d109588c08870}{time\_to\_collision}}\ =\ 0.0;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a2fe2b297fa641c14ab5f3e2fc008e23b}{closest\_approach\_distance}}\ =\ 0.0;}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{comment}{//\ field\ types\ and\ members}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a1b62c8b02c267d9a3a6340a6a7b1d0e7}{\_mmsi\_type}}\ =}
+\DoxyCodeLine{00067\ \ \ \ \ uint32\_t;}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a1b62c8b02c267d9a3a6340a6a7b1d0e7}{\_mmsi\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a0429f82ddccdca787388fc973ea264d4}{mmsi}};}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a89476ff0bda84d786d197559e045a7fb}{\_collision\_imminent\_type}}\ =}
+\DoxyCodeLine{00070\ \ \ \ \ bool;}
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a89476ff0bda84d786d197559e045a7fb}{\_collision\_imminent\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ae5941ea2b59c89b42dec5243cf00fa89}{collision\_imminent}};}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a9ad9078ba4066e550a9357e06e0eccde}{\_time\_to\_collision\_type}}\ =}
+\DoxyCodeLine{00073\ \ \ \ \ double;}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a9ad9078ba4066e550a9357e06e0eccde}{\_time\_to\_collision\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ab43a55ebd6527abe718d109588c08870}{time\_to\_collision}};}
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a6e0edfa747b894ab417dd3a26c3a7ef8}{\_closest\_approach\_distance\_type}}\ =}
+\DoxyCodeLine{00076\ \ \ \ \ double;}
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a6e0edfa747b894ab417dd3a26c3a7ef8}{\_closest\_approach\_distance\_type}}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a2fe2b297fa641c14ab5f3e2fc008e23b}{closest\_approach\_distance}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ setters\ for\ named\ parameter\ idiom}}
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ae34cb598e6ca51cf7861e911ae3c2ce1}{set\_\_mmsi}}(}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ \&\ \_arg)}
+\DoxyCodeLine{00082\ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ this-\/>mmsi\ =\ \_arg;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a2e629809ef121d8875c15c41165de21f}{set\_\_collision\_imminent}}(}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \&\ \_arg)}
+\DoxyCodeLine{00088\ \ \ \{}
+\DoxyCodeLine{00089\ \ \ \ \ this-\/>collision\_imminent\ =\ \_arg;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a065e9c6a67e203f3245272222d7e0f53}{set\_\_time\_to\_collision}}(}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\ \_arg)}
+\DoxyCodeLine{00094\ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ this-\/>time\_to\_collision\ =\ \_arg;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00097\ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{Type}}\ \&\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a787e89a2bea6a1db453d4a0e9316e8cc}{set\_\_closest\_approach\_distance}}(}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \&\ \_arg)}
+\DoxyCodeLine{00100\ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ this-\/>closest\_approach\_distance\ =\ \_arg;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \textcolor{comment}{//\ constant\ declarations}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \textcolor{comment}{//\ pointer\ types}}
+\DoxyCodeLine{00108\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{RawPtr}}\ =}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{ConstRawPtr}}\ =}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>}}\ *;}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a92856f5b601d3cc18c43deccddec90af}{SharedPtr}}\ =}
+\DoxyCodeLine{00113\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>>;}
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a60e37496d0b3b19433ca6f7007d57d0c}{ConstSharedPtr}}\ =}
+\DoxyCodeLine{00115\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00119\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___af35b263791f6940c85dd8d0ca626e735}{UniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00120\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>,\ Deleter>;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___aa2127157e9504623651b97cb40bae97e}{UniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___af35b263791f6940c85dd8d0ca626e735}{UniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Deleter\ =\ std::default\_delete<}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>}}>>}
+\DoxyCodeLine{00126\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a9cd96a94be9d42f2393c3a4ce456e7a4}{ConstUniquePtrWithDeleter}}\ =}
+\DoxyCodeLine{00127\ \ \ \ \ std::unique\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>\ \textcolor{keyword}{const},\ Deleter>;}
+\DoxyCodeLine{00128\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a815e597a30bcd0e501af1e4d2b7b707b}{ConstUniquePtr}}\ =\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a9cd96a94be9d42f2393c3a4ce456e7a4}{ConstUniquePtrWithDeleter<>}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a4449a0112557d77f1b4a6e2b4a36b176}{WeakPtr}}\ =}
+\DoxyCodeLine{00131\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>>;}
+\DoxyCodeLine{00132\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ad3ef03b2afcdc6894b1228f64dc11574}{ConstWeakPtr}}\ =}
+\DoxyCodeLine{00133\ \ \ \ \ std::weak\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>\ \textcolor{keyword}{const}>;}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \textcolor{comment}{//\ pointer\ types\ similar\ to\ ROS\ 1,\ use\ SharedPtr\ /\ ConstSharedPtr\ instead}}
+\DoxyCodeLine{00136\ \ \ \textcolor{comment}{//\ NOTE:\ Can't\ use\ 'using'\ here\ because\ GNU\ C++\ can't\ parse\ attributes\ properly}}
+\DoxyCodeLine{00137\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2collision__alert____struct_8hpp_a3adffd60a8d23442d3a86fdc241760c6}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_CollisionAlert}}}
+\DoxyCodeLine{00138\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>>}
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a12f4d462feb78fad9966886d03dd8b7a}{Ptr}};}
+\DoxyCodeLine{00140\ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{build_2dt__msgs_2rosidl__generator__cpp_2dt__msgs_2msg_2detail_2collision__alert____struct_8hpp_a3adffd60a8d23442d3a86fdc241760c6}{DEPRECATED\_\_dt\_msgs\_\_msg\_\_CollisionAlert}}}
+\DoxyCodeLine{00141\ \ \ \ \ std::shared\_ptr<dt\_msgs::msg::CollisionAlert\_<ContainerAllocator>\ \textcolor{keyword}{const}>}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a474751fc767c0c9c0f8e401225c447d6}{ConstPtr}};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{comment}{//\ comparison\ operators}}
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a6d7672f6ce9fa6e0096a6d1d13eedd63}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{CollisionAlert\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00146\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>mmsi\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a0429f82ddccdca787388fc973ea264d4}{mmsi}})\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>collision\_imminent\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ae5941ea2b59c89b42dec5243cf00fa89}{collision\_imminent}})\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>time\_to\_collision\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___ab43a55ebd6527abe718d109588c08870}{time\_to\_collision}})\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{if}\ (this-\/>closest\_approach\_distance\ !=\ other.\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a2fe2b297fa641c14ab5f3e2fc008e23b}{closest\_approach\_distance}})\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00160\ \ \ \}}
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a10733b2b58cde08799f958aacb81898b}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{CollisionAlert\_}}\ \&\ other)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00162\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{return}\ !this-\/>\mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert___a6d7672f6ce9fa6e0096a6d1d13eedd63}{operator==}}(other);}
+\DoxyCodeLine{00164\ \ \ \}}
+\DoxyCodeLine{00165\ \};\ \ \textcolor{comment}{//\ struct\ CollisionAlert\_}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ alias\ to\ use\ template\ instance\ with\ default\ allocator}}
+\DoxyCodeLine{00168\ \textcolor{keyword}{using\ }\mbox{\hyperlink{classdt__msgs_1_1msg_1_1__collision__alert_1_1CollisionAlert}{CollisionAlert}}\ =}
+\DoxyCodeLine{00169\ \ \ \mbox{\hyperlink{structdt__msgs_1_1msg_1_1CollisionAlert__}{dt\_msgs::msg::CollisionAlert\_<std::allocator<void>}}>;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ constant\ definitions}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \}\ \ \textcolor{comment}{//\ namespace\ msg}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \}\ \ \textcolor{comment}{//\ namespace\ dt\_msgs}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ DT\_MSGS\_\_MSG\_\_DETAIL\_\_COLLISION\_ALERT\_\_STRUCT\_HPP\_}}
+
+\end{DoxyCode}

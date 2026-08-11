@@ -1,0 +1,687 @@
+\chapter{Exceptions}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions}\index{Exceptions@{Exceptions}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1482}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1482}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1483}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1483}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1484}{}\doxysubsection{\texorpdfstring{Base type}{Base type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1484}
+All exceptions inherit from class {\ttfamily \doxylink{classnlohmann_1_1basic__json_a14824c27188d2fee4861806cd5f23d22}{json\+::exception}} (which in turn inherits from {\ttfamily std\+::exception}). It is used as the base class for all exceptions thrown by the {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} class. This class can hence be used as "{}wildcard"{} to catch exceptions.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::exception\ <|-\/-\/\ json::exception}
+\DoxyCodeLine{json::exception\ <|-\/-\/\ json::parse\_error}
+\DoxyCodeLine{json::exception\ <|-\/-\/\ json::invalid\_iterator}
+\DoxyCodeLine{json::exception\ <|-\/-\/\ json::type\_error}
+\DoxyCodeLine{json::exception\ <|-\/-\/\ json::out\_of\_range}
+\DoxyCodeLine{json::exception\ <|-\/-\/\ json::other\_error}
+\DoxyCodeLine{}
+\DoxyCodeLine{interface\ std::exception\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ json::exception\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ int\ id}
+\DoxyCodeLine{\ \ \ \ +\ const\ char*\ what()\ const}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ json::parse\_error\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ std::size\_t\ byte}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1485}{}\doxysubsection{\texorpdfstring{Switch off exceptions}{Switch off exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1485}
+Exceptions are used widely within the library. They can, however, be switched off with either using the compiler flag {\ttfamily -\/fno-\/exceptions} or by defining the symbol \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception}{\`{}\+JSON\+\_\+\+NOEXCEPTION\`{}}{0}. In this case, exceptions are replaced by {\ttfamily abort()} calls. You can further control this behavior by defining {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER} (overriding {\ttfamily \#!cpp throw}), {\ttfamily JSON\+\_\+\+TRY\+\_\+\+USER} (overriding {\ttfamily \#!cpp try}), and {\ttfamily JSON\+\_\+\+CATCH\+\_\+\+USER} (overriding {\ttfamily \#!cpp catch}).
+
+Note that \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user}{\`{}\+JSON\+\_\+\+THROW\+\_\+\+USER\`{}}{0} should leave the current scope (e.\+g., by throwing or aborting), as continuing after it may yield undefined behavior.
+
+??? example \begin{DoxyVerb}The code below switches off exceptions and creates a log entry with a detailed error message in case of errors.
+
+```cpp
+#include <iostream>
+
+#define JSON_TRY_USER if(true)
+#define JSON_CATCH_USER(exception) if(false)
+#define JSON_THROW_USER(exception)                           \
+    {std::clog << "Error in " << __FILE__ << ":" << __LINE__ \
+               << " (function " << __FUNCTION__ << ") - "    \
+               << (exception).what() << std::endl;           \
+     std::abort();}
+
+#include <nlohmann/json.hpp>
+```
+\end{DoxyVerb}
+ Note the explanatory \href{https://en.cppreference.com/w/cpp/error/exception/what}{\texttt{ {\ttfamily what()}}} string of exceptions is not available for MSVC if exceptions are disabled, see \href{https://github.com/nlohmann/json/discussions/2824}{\texttt{ \#2824}}.
+
+See \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user}{documentation of \`{}\+JSON\+\_\+\+TRY\+\_\+\+USER\`{}, \`{}\+JSON\+\_\+\+CATCH\+\_\+\+USER\`{} and \`{}\+JSON\+\_\+\+THROW\+\_\+\+USER\`{}}{0} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1486}{}\doxysubsection{\texorpdfstring{Extended diagnostic messages}{Extended diagnostic messages}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1486}
+Exceptions in the library are thrown in the local context of the JSON value they are detected. This makes detailed diagnostics messages, and hence debugging, difficult.
+
+??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/diagnostics_standard.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/diagnostics_standard.output"
+```
+
+This exception can be hard to debug if storing the value `#!c "12"` and accessing it is further apart.
+\end{DoxyVerb}
+ To create better diagnostics messages, each JSON value needs a pointer to its parent value such that a global context (i.\+e., a path from the root value to the value that lead to the exception) can be created. That global context is provided as \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__pointer}{JSON Pointer}{0}.
+
+As this global context comes at the price of storing one additional pointer per JSON value and runtime overhead to maintain the parent relation, extended diagnostics are disabled by default. They can, however, be enabled by defining the preprocessor symbol \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}{\`{}\+JSON\+\_\+\+DIAGNOSTICS\`{}}{0} to {\ttfamily 1} before including {\ttfamily json.\+hpp}.
+
+??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/diagnostics_extended.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/diagnostics_extended.output"
+```
+
+Now the exception message contains a JSON Pointer `/address/housenumber` that indicates which value has the wrong type.
+\end{DoxyVerb}
+ See \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__diagnostics}{documentation of \`{}\+JSON\+\_\+\+DIAGNOSTICS\`{}}{0} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1487}{}\doxysection{\texorpdfstring{Parse errors}{Parse errors}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1487}
+This exception is thrown by the library when a parse error occurs. Parse errors can occur during the deserialization of JSON text, CBOR, Message\+Pack, as well as when using JSON Patch.
+
+Exceptions have ids 1xx.
+
+!!! info "{}\+Byte index"{} \begin{DoxyVerb}Member `byte` holds the byte index of the last read character in the input
+file.
+
+For an input with n bytes, 1 is the index of the first character and n+1
+is the index of the terminating null byte or the end of file. This also
+holds true when reading a byte vector (CBOR or MessagePack).
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}The following code shows how a `parse_error` exception can be caught.
+
+```cpp
+--8<-- "examples/parse_error.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/parse_error.output"
+```
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1488}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+101}{json.exception.parse\_error.101}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1488}
+This error indicates a syntax error while deserializing a JSON text. The error message describes that an unexpected token (character) was encountered, and the member {\ttfamily byte} indicates the error position.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}Input ended prematurely:
+
+```
+[json.exception.parse_error.101] parse error at 2: unexpected end of input; expected string literal
+```
+
+No input:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 1: attempting to parse an empty input; check that your input string or stream contains the expected JSON
+```
+
+Control character was not escaped:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid string: control character U+0009 (HT) must be escaped to \u0009 or \\; last read: '"<U+0009>'"
+```
+
+String was not closed:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing value - invalid string: missing closing quote; last read: '"'
+```
+
+Invalid number format:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 3: syntax error while parsing value - invalid number; expected '+', '-', or digit after exponent; last read: '1E'
+```
+
+`\u` was not be followed by four hex digits:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 6: syntax error while parsing value - invalid string: '\u' must be followed by 4 hex digits; last read: '"\u01"'
+```
+
+Invalid UTF-8 surrogate pair:
+
+```
+[json.exception.parse_error.101] parse error at line 1, column 13: syntax error while parsing value - invalid string: surrogate U+DC00..U+DFFF must follow U+D800..U+DBFF; last read: '"\uD7FF\uDC00'"
+```
+
+Invalid UTF-8 byte:
+
+```
+[json.exception.parse_error.101] parse error at line 3, column 24: syntax error while parsing value - invalid string: ill-formed UTF-8 byte; last read: '"vous \352t'
+```
+\end{DoxyVerb}
+ !!! tip \begin{DoxyVerb}- Make sure the input is correctly read. Try to write the input to standard output to check if, for instance, the input file was successfully opened.
+- Paste the input to a JSON validator like <http://jsonlint.com> or a tool like [jq](https://stedolan.github.io/jq/).
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1489}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+102}{json.exception.parse\_error.102}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1489}
+JSON uses the {\ttfamily \textbackslash{}uxxxx} format to describe Unicode characters. Code points above 0x\+FFFF are split into two {\ttfamily \textbackslash{}uxxxx} entries ("{}surrogate pairs"{}). This error indicates that the surrogate pair is incomplete or contains an invalid code point.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+parse error at 14: missing or wrong low surrogate
+```
+\end{DoxyVerb}
+ !!! note \begin{DoxyVerb}This exception is not used any more. Instead [json.exception.parse_error.101](#jsonexceptionparse_error101) with a more detailed description is used.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1490}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+103}{json.exception.parse\_error.103}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1490}
+Unicode supports code points up to 0x10\+FFFF. Code points above 0x10\+FFFF are invalid.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+parse error: code points above 0x10FFFF are invalid
+```
+\end{DoxyVerb}
+ !!! note \begin{DoxyVerb}This exception is not used any more. Instead [json.exception.parse_error.101](#jsonexceptionparse_error101) with a more detailed description is used.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1491}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+104}{json.exception.parse\_error.104}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1491}
+\href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902}} requires a JSON Patch document to be a JSON document that represents an array of objects.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.104] parse error: JSON patch must be an array of objects
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1492}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+105}{json.exception.parse\_error.105}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1492}
+An operation of a JSON Patch document must contain exactly one "{}op"{} member, whose value indicates the operation to perform. Its value must be one of "{}add"{}, "{}remove"{}, "{}replace"{}, "{}move"{}, "{}copy"{}, or "{}test"{}; other values are errors.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.105] parse error: operation 'add' must have member 'value'
+```
+```
+[json.exception.parse_error.105] parse error: operation 'copy' must have string member 'from'
+```
+```
+[json.exception.parse_error.105] parse error: operation value 'foo' is invalid
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1493}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+106}{json.exception.parse\_error.106}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1493}
+An array index in a JSON Pointer (\href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) may be {\ttfamily 0} or any number without a leading {\ttfamily 0}.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.106] parse error: array index '01' must not begin with '0'
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1494}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+107}{json.exception.parse\_error.107}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1494}
+A JSON Pointer must be a Unicode string containing a sequence of zero or more reference tokens, each prefixed by a {\ttfamily /} character.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.107] parse error at byte 1: JSON pointer must be empty or begin with '/' - was: 'foo'
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1495}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+108}{json.exception.parse\_error.108}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1495}
+In a JSON Pointer, only {\ttfamily \texorpdfstring{$\sim$}{\string~}0} and {\ttfamily \texorpdfstring{$\sim$}{\string~}1} are valid escape sequences.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.108] parse error: escape character '~' must be followed with '0' or '1'
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1496}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+109}{json.exception.parse\_error.109}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1496}
+A JSON Pointer array index must be a number.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.parse_error.109] parse error: array index 'one' is not a number
+```
+```
+[json.exception.parse_error.109] parse error: array index '+1' is not a number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1497}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+110}{json.exception.parse\_error.110}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1497}
+When parsing CBOR or Message\+Pack, the byte vector ends before the complete value has been read.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.110] parse error at byte 5: syntax error while parsing CBOR string: unexpected end of input
+```
+```
+[json.exception.parse_error.110] parse error at byte 2: syntax error while parsing UBJSON value: expected end of input; last byte: 0x5A
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1498}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+112}{json.exception.parse\_error.112}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1498}
+An unexpected byte was read in a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2index}{binary format}{0} or length information is invalid (\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}{BSON}{0}).
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.parse_error.112] parse error at byte 1: syntax error while parsing CBOR value: invalid byte: 0x1C
+```
+```
+[json.exception.parse_error.112] parse error at byte 1: syntax error while parsing MessagePack value: invalid byte: 0xC1
+```
+```
+[json.exception.parse_error.112] parse error at byte 4: syntax error while parsing BJData size: expected '#' after type information; last byte: 0x02
+```
+```
+[json.exception.parse_error.112] parse error at byte 4: syntax error while parsing UBJSON size: expected '#' after type information; last byte: 0x02
+```
+```
+[json.exception.parse_error.112] parse error at byte 10: syntax error while parsing BSON string: string length must be at least 1, is -2147483648
+```
+```
+[json.exception.parse_error.112] parse error at byte 15: syntax error while parsing BSON binary: byte array length cannot be negative, is -1
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1499}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+113}{json.exception.parse\_error.113}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1499}
+While parsing a map key, a value that is not a string has been read.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.parse_error.113] parse error at byte 2: syntax error while parsing CBOR string: expected length specification (0x60-0x7B) or indefinite string type (0x7F); last byte: 0xFF
+```
+```
+[json.exception.parse_error.113] parse error at byte 2: syntax error while parsing MessagePack string: expected length specification (0xA0-0xBF, 0xD9-0xDB); last byte: 0xFF
+```
+```
+[json.exception.parse_error.113] parse error at byte 2: syntax error while parsing UBJSON char: byte after 'C' must be in range 0x00..0x7F; last byte: 0x82
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1500}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+114}{json.exception.parse\_error.114}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1500}
+The parsing of the corresponding BSON record type is not implemented (yet).
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.114] parse error at byte 5: Unsupported BSON record type 0xFF
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1501}{}\doxysubsection{\texorpdfstring{json.\+exception.\+parse\+\_\+error.\+115}{json.exception.parse\_error.115}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1501}
+A UBJSON high-\/precision number could not be parsed.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.parse_error.115] parse error at byte 5: syntax error while parsing UBJSON high-precision number: invalid number text: 1A
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1502}{}\doxysection{\texorpdfstring{Iterator errors}{Iterator errors}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1502}
+This exception is thrown if iterators passed to a library function do not match the expected semantics.
+
+Exceptions have ids 2xx.
+
+??? example \begin{DoxyVerb}The following code shows how an `invalid_iterator` exception can be caught.
+
+```cpp
+--8<-- "examples/invalid_iterator.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/invalid_iterator.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1503}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+201}{json.exception.invalid\_iterator.201}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1503}
+The iterators passed to constructor {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(\+Input\+IT first, Input\+IT last)}} are not compatible, meaning they do not belong to the same container. Therefore, the range ({\ttfamily first}, {\ttfamily last}) is invalid.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.201] iterators are not compatible
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1504}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+202}{json.exception.invalid\_iterator.202}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1504}
+In the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{erase}{0} or insert function, the passed iterator {\ttfamily pos} does not belong to the JSON value for which the function was called. It hence does not define a valid position for the deletion/insertion.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.202] iterator does not fit current value
+```
+```
+[json.exception.invalid_iterator.202] iterators first and last must point to objects
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1505}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+203}{json.exception.invalid\_iterator.203}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1505}
+Either iterator passed to function \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{\`{}erase(Iterator\+Type first, Iterator\+Type last\`{})}{0} does not belong to the JSON value from which values shall be erased. It hence does not define a valid range to delete values from.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.203] iterators do not fit current value
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1506}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+204}{json.exception.invalid\_iterator.204}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1506}
+When an iterator range for a primitive type (number, boolean, or string) is passed to a constructor or an \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{erase}{0} function, this range has to be exactly ({\ttfamily begin(),} {\ttfamily end()),} because this is the only way the single stored value is expressed. All other ranges are invalid.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.204] iterators out of range
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1507}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+205}{json.exception.invalid\_iterator.205}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1507}
+When an iterator for a primitive type (number, boolean, or string) is passed to an \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{erase}{0} function, the iterator has to be the {\ttfamily begin()} iterator, because it is the only way to address the stored value. All other iterators are invalid.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.205] iterator out of range
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1508}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+206}{json.exception.invalid\_iterator.206}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1508}
+The iterators passed to constructor {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(\+Input\+IT first, Input\+IT last)}} belong to a JSON null value and hence to not define a valid range.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.206] cannot construct with iterators from null
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1509}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+207}{json.exception.invalid\_iterator.207}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1509}
+The {\ttfamily key()} member function can only be used on iterators belonging to a JSON object, because other types do not have a concept of a key.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.207] cannot use key() for non-object iterators
+```
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1510}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+208}{json.exception.invalid\_iterator.208}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1510}
+The {\ttfamily operator\mbox{[}\mbox{]}} to specify a concrete offset cannot be used on iterators belonging to a JSON object, because JSON objects are unordered.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.208] cannot use operator[] for object iterators
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1511}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+209}{json.exception.invalid\_iterator.209}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1511}
+The offset operators ({\ttfamily +}, {\ttfamily -\/}, {\ttfamily +=}, {\ttfamily -\/=}) cannot be used on iterators belonging to a JSON object, because JSON objects are unordered.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.209] cannot use offsets with object iterators
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1512}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+210}{json.exception.invalid\_iterator.210}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1512}
+The iterator range passed to the insert function are not compatible, meaning they do not belong to the same container. Therefore, the range ({\ttfamily first}, {\ttfamily last}) is invalid.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.210] iterators do not fit
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1513}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+211}{json.exception.invalid\_iterator.211}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1513}
+The iterator range passed to the insert function must not be a subrange of the container to insert to.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.211] passed iterators may not belong to container
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1514}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+212}{json.exception.invalid\_iterator.212}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1514}
+When two iterators are compared, they must belong to the same container.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.212] cannot compare iterators of different containers
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1515}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+213}{json.exception.invalid\_iterator.213}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1515}
+The order of object iterators cannot be compared, because JSON objects are unordered.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.213] cannot compare order of object iterators
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1516}{}\doxysubsection{\texorpdfstring{json.\+exception.\+invalid\+\_\+iterator.\+214}{json.exception.invalid\_iterator.214}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1516}
+Cannot get value for iterator\+: Either the iterator belongs to a null value or it is an iterator to a primitive type (number, boolean, or string), but the iterator is different to {\ttfamily begin()}.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.invalid_iterator.214] cannot get value
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1517}{}\doxysection{\texorpdfstring{Type errors}{Type errors}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1517}
+This exception is thrown in case of a type error; that is, a library function is executed on a JSON value whose type does not match the expected semantics.
+
+Exceptions have ids 3xx.
+
+??? example \begin{DoxyVerb}The following code shows how a `type_error` exception can be caught.
+
+```cpp
+--8<-- "examples/type_error.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/type_error.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1518}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+301}{json.exception.type\_error.301}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1518}
+To create an object from an initializer list, the initializer list must consist only of a list of pairs whose first element is a string. When this constraint is violated, an array is created instead.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.301] cannot create object from initializer list
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1519}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+302}{json.exception.type\_error.302}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1519}
+During implicit or explicit value conversion, the JSON type must be compatible to the target type. For instance, a JSON string can only be converted into string types, but not into numbers or boolean types.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.302] type must be object, but is null
+```
+```
+[json.exception.type_error.302] type must be string, but is object
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1520}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+303}{json.exception.type\_error.303}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1520}
+To retrieve a reference to a value stored in a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} object with {\ttfamily get\+\_\+ref}, the type of the reference must match the value type. For instance, for a JSON array, the {\ttfamily Reference\+Type} must be {\ttfamily array\+\_\+t \&}.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.303] incompatible ReferenceType for get_ref, actual type is object
+```
+```
+[json.exception.type_error.303] incompatible ReferenceType for get_ref, actual type is number"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1521}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+304}{json.exception.type\_error.304}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1521}
+The {\ttfamily at()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.304] cannot use at() with string
+```
+```
+[json.exception.type_error.304] cannot use at() with number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1522}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+305}{json.exception.type\_error.305}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1522}
+The {\ttfamily operator\mbox{[}\mbox{]}} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.305] cannot use operator[] with a string argument with array
+```
+```
+[json.exception.type_error.305] cannot use operator[] with a numeric argument with object
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1523}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+306}{json.exception.type\_error.306}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1523}
+The {\ttfamily value()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.306] cannot use value() with number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1524}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+307}{json.exception.type\_error.307}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1524}
+The \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{\`{}erase()\`{}}{0} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.307] cannot use erase() with string
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1525}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+308}{json.exception.type\_error.308}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1525}
+The {\ttfamily push\+\_\+back()} and {\ttfamily operator+=} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.308] cannot use push_back() with string
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1526}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+309}{json.exception.type\_error.309}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1526}
+The {\ttfamily insert()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.309] cannot use insert() with array
+```
+```
+[json.exception.type_error.309] cannot use insert() with number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1527}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+310}{json.exception.type\_error.310}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1527}
+The {\ttfamily swap()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.310] cannot use swap() with number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1528}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+311}{json.exception.type\_error.311}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1528}
+The {\ttfamily emplace()} and {\ttfamily emplace\+\_\+back()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}```
+[json.exception.type_error.311] cannot use emplace() with number
+```
+```
+[json.exception.type_error.311] cannot use emplace_back() with number
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1529}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+312}{json.exception.type\_error.312}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1529}
+The {\ttfamily update()} member functions can only be executed for certain JSON types.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.312] cannot use update() with array
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1530}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+313}{json.exception.type\_error.313}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1530}
+The {\ttfamily unflatten} function converts an object whose keys are JSON Pointers back into an arbitrary nested JSON value. The JSON Pointers must not overlap, because then the resulting value would not be well-\/defined.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+[json.exception.type_error.313] invalid value to unflatten
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1531}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+314}{json.exception.type\_error.314}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1531}
+The {\ttfamily unflatten} function only works for an object whose keys are JSON Pointers.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}Calling `unflatten()` on an array `#!json [1,2,3]`:
+
+```
+[json.exception.type_error.314] only objects can be unflattened
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1532}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+315}{json.exception.type\_error.315}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1532}
+The {\ttfamily unflatten()} function only works for an object whose keys are JSON Pointers and whose values are primitive.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}Calling `unflatten()` on an object `#!json {"/1", [1,2,3]}`:
+
+```
+[json.exception.type_error.315] values in object must be primitive
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1533}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+316}{json.exception.type\_error.316}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1533}
+The {\ttfamily dump()} function only works with UTF-\/8 encoded strings; that is, if you assign a {\ttfamily std\+::string} to a JSON value, make sure it is UTF-\/8 encoded.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}Calling `dump()` on a JSON value containing an ISO 8859-1 encoded string:
+```
+[json.exception.type_error.316] invalid UTF-8 byte at index 15: 0x6F
+```
+\end{DoxyVerb}
+ !!! tip \begin{DoxyVerb}- Store the source file with UTF-8 encoding.
+- Pass an error handler as last parameter to the `dump()` function to avoid this exception:
+    - `json::error_handler_t::replace` will replace invalid bytes sequences with `U+FFFD` 
+    - `json::error_handler_t::ignore` will silently ignore invalid byte sequences
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1534}{}\doxysubsection{\texorpdfstring{json.\+exception.\+type\+\_\+error.\+317}{json.exception.type\_error.317}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1534}
+The dynamic type of the object cannot be represented in the requested serialization format (e.\+g. a raw {\ttfamily true} or {\ttfamily null} JSON object cannot be serialized to BSON)
+
+!!! failure "{}\+Example messages"{} \begin{DoxyVerb}Serializing `#!json null` to BSON:
+```
+[json.exception.type_error.317] to serialize to BSON, top-level type must be object, but is null
+```
+Serializing `#!json [1,2,3]` to BSON:
+```
+[json.exception.type_error.317] to serialize to BSON, top-level type must be object, but is array
+```
+\end{DoxyVerb}
+ !!! tip \begin{DoxyVerb}Encapsulate the JSON value in an object. That is, instead of serializing `#!json true`, serialize `#!json {"value": true}`
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1535}{}\doxysection{\texorpdfstring{Out of range}{Out of range}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1535}
+This exception is thrown in case a library function is called on an input parameter that exceeds the expected range, for instance in case of array indices or nonexisting object keys.
+
+Exceptions have ids 4xx.
+
+??? example \begin{DoxyVerb}The following code shows how an `out_of_range` exception can be caught.
+
+```cpp
+--8<-- "examples/out_of_range.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/out_of_range.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1536}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+401}{json.exception.out\_of\_range.401}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1536}
+The provided array index {\ttfamily i} is larger than {\ttfamily size-\/1}.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+array index 3 is out of range
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1537}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+402}{json.exception.out\_of\_range.402}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1537}
+The special array index {\ttfamily -\/} in a JSON Pointer never describes a valid element of the array, but the index past the end. That is, it can only be used to add elements at this position, but not to read it.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+array index '-' (3) is out of range
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1538}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+403}{json.exception.out\_of\_range.403}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1538}
+The provided key was not found in the JSON object.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+key 'foo' not found
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1539}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+404}{json.exception.out\_of\_range.404}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1539}
+A reference token in a JSON Pointer could not be resolved.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+unresolved reference token 'foo'
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1540}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+405}{json.exception.out\_of\_range.405}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1540}
+The JSON Patch operations \textquotesingle{}remove\textquotesingle{} and \textquotesingle{}add\textquotesingle{} can not be applied to the root element of the JSON value.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+JSON pointer has no parent
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1541}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+406}{json.exception.out\_of\_range.406}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1541}
+A parsed number could not be stored as without changing it to NaN or INF.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+number overflow parsing '10E1000'
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1542}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+407}{json.exception.out\_of\_range.407}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1542}
+UBJSON and BSON only support integer numbers up to 9223372036854775807.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+number overflow serializing '9223372036854775808'
+```
+\end{DoxyVerb}
+ !!! note \begin{DoxyVerb}Since version 3.9.0, integer numbers beyond int64 are serialized as high-precision UBJSON numbers, and this exception does not further occur. 
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1543}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+408}{json.exception.out\_of\_range.408}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1543}
+The size (following {\ttfamily \#}) of an UBJSON array or object exceeds the maximal capacity.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+excessive array size: 8658170730974374167
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1544}{}\doxysubsection{\texorpdfstring{json.\+exception.\+out\+\_\+of\+\_\+range.\+409}{json.exception.out\_of\_range.409}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1544}
+Key identifiers to be serialized to BSON cannot contain code point U+0000, since the key is stored as zero-\/terminated c-\/string.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}```
+BSON key cannot contain code point U+0000 (at byte 2)
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1545}{}\doxysection{\texorpdfstring{Further exceptions}{Further exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1545}
+This exception is thrown in case of errors that cannot be classified with the other exception types.
+
+Exceptions have ids 5xx.
+
+??? example \begin{DoxyVerb}The following code shows how an `other_error` exception can be caught.
+
+```cpp
+--8<-- "examples/other_error.cpp"
+```
+
+Output:
+
+```
+--8<-- "examples/other_error.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1546}{}\doxysubsection{\texorpdfstring{json.\+exception.\+other\+\_\+error.\+501}{json.exception.other\_error.501}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions_autotoc_md1546}
+A JSON Patch operation \textquotesingle{}test\textquotesingle{} failed. The unsuccessful operation is also printed.
+
+!!! failure "{}\+Example message"{} \begin{DoxyVerb}Executing `#!json {"op":"test", "path":"/baz", "value":"bar"}` on `#!json {"baz": "qux"}`:
+
+```
+[json.exception.other_error.501] unsuccessful: {"op":"test","path":"/baz","value":"bar"}
+```
+\end{DoxyVerb}
+ 

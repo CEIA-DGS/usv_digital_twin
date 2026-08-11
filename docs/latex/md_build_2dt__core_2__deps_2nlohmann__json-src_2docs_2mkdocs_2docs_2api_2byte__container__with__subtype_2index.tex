@@ -1,0 +1,34 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}byte\+\_\+container\+\_\+with\+\_\+subtype}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index}\index{$<$small$>$nlohmann::$<$/small$>$byte\_container\_with\_subtype@{$<$small$>$nlohmann::$<$/small$>$byte\_container\_with\_subtype}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md957}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md957}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BinaryType>}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classbyte__container__with__subtype}{byte\_container\_with\_subtype}}\ :\ \textcolor{keyword}{public}\ BinaryType;}
+
+\end{DoxyCode}
+
+
+This type extends the template parameter {\ttfamily Binary\+Type} provided to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}{\`{}basic\+\_\+json\`{}}{0} with a subtype used by BSON and Message\+Pack. This type exists so that the user does not have to specify a type themselves with a specific naming scheme in order to override the binary type.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md958}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md958}
+{\ttfamily Binary\+Type} \+: container to store bytes ({\ttfamily \#!cpp std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}} by default)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md959}{}\doxysection{\texorpdfstring{Member types}{Member types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md959}
+
+\begin{DoxyItemize}
+\item {\bfseries{container\+\_\+type}} -\/ the type of the underlying container ({\ttfamily Binary\+Type})
+\item {\bfseries{subtype\+\_\+type}} -\/ the type of the subtype ({\ttfamily \#!cpp std\+::uint64\+\_\+t})
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md960}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md960}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__b022cd7316b9b822b043bfeda9e8f7b1}{(constructor)}{0}
+\item {\bfseries{operator==}} -\/ comparison\+: equal
+\item {\bfseries{operator!=}} -\/ comparison\+: not equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}set\+\_\+subtype\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ sets the binary subtype
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}subtype\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return the binary subtype
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2has__subtype}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}has\+\_\+subtype\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether the value has a subtype
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2clear__subtype}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}clear\+\_\+subtype\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ clears the binary subtype
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md961}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2index_autotoc_md961}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+8.\+0.
+\item Changed type of subtypes to {\ttfamily \#!cpp std\+::uint64\+\_\+t} in 3.\+10.\+0. 
+\end{DoxyItemize}

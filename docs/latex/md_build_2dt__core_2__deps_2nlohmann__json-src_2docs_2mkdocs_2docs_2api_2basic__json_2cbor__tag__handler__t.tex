@@ -1,0 +1,41 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}cbor\+\_\+tag\+\_\+handler\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$cbor\_tag\_handler\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$cbor\_tag\_handler\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md162}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md162}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592}{cbor\_tag\_handler\_t}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592acb5e100e5a9a3e7f6d1fd97512215282}{error}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a567bc1d268f135496de3d5b946b691f3}{ignore}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a8cd892b7b97ef9489ae4479d3f4ef0fc}{store}}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This enumeration is used in the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}{\`{}from\+\_\+cbor\`{}}{0} function to choose how to treat tags\+:
+
+error \+: throw a {\ttfamily parse\+\_\+error} exception in case of a tag
+
+ignore \+: ignore tags
+
+store \+: store tagged values as binary container with subtype (for bytes 0xd8..0xdb)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md163}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md163}
+??? example \begin{DoxyVerb}The example below shows how the different values of the `cbor_tag_handler_t` influence the behavior of
+[`from_cbor`](from_cbor.md) when reading a tagged byte string.
+
+```cpp
+--8<-- "examples/cbor_tag_handler_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/cbor_tag_handler_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md164}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t_autotoc_md164}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+9.\+0. Added value {\ttfamily store} in 3.\+10.\+0. 
+\end{DoxyItemize}

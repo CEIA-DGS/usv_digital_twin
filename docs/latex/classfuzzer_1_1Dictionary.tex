@@ -1,0 +1,105 @@
+\doxysection{fuzzer\+::Dictionary Class Reference}
+\hypertarget{classfuzzer_1_1Dictionary}{}\label{classfuzzer_1_1Dictionary}\index{fuzzer::Dictionary@{fuzzer::Dictionary}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Dictionary.\+h$>$}
+
+
+
+Collaboration diagram for fuzzer\+::Dictionary\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{classfuzzer_1_1Dictionary__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1Dictionary_a7a967b81935c414244bc95a2210e9a9a}{Contains\+Word}} (const \mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} \&W) const
+\item 
+const \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72}{begin}} () const
+\item 
+const \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classfuzzer_1_1Dictionary_ab0021075e53a9bc5378a4ace26b1d149}{end}} () const
+\item 
+\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \& \mbox{\hyperlink{classfuzzer_1_1Dictionary_ac579eb968d020fc26d166b4080c0fe27}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Dictionary_a3677ae3fd0761b6b0d8c1c54e6450419}{push\+\_\+back}} (\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} DE)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Dictionary_ac38844813c2053ae89d3eac63f4fd8b7}{clear}} ()
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1Dictionary_a1ecbd766274c5b9f725953c00fa9b443}{empty}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Dictionary_a67f72362929be6e769d674e5adf04482}{size}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96}{k\+Max\+Dict\+Size}} = 1 $<$$<$ 14
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72}\label{classfuzzer_1_1Dictionary_a08d8925f29e516fa22a070e47cd3ce72} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!begin@{begin}}
+\index{begin@{begin}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \texorpdfstring{$\ast$}{*} fuzzer\+::\+Dictionary\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_ac38844813c2053ae89d3eac63f4fd8b7}\label{classfuzzer_1_1Dictionary_ac38844813c2053ae89d3eac63f4fd8b7} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!clear@{clear}}
+\index{clear@{clear}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Dictionary\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_a7a967b81935c414244bc95a2210e9a9a}\label{classfuzzer_1_1Dictionary_a7a967b81935c414244bc95a2210e9a9a} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!ContainsWord@{ContainsWord}}
+\index{ContainsWord@{ContainsWord}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{ContainsWord()}{ContainsWord()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Dictionary\+::\+Contains\+Word (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacefuzzer_ac60cccc992cd873288df2fba27c61181}{Word}} \&}]{W }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_a1ecbd766274c5b9f725953c00fa9b443}\label{classfuzzer_1_1Dictionary_a1ecbd766274c5b9f725953c00fa9b443} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!empty@{empty}}
+\index{empty@{empty}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Dictionary\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_ab0021075e53a9bc5378a4ace26b1d149}\label{classfuzzer_1_1Dictionary_ab0021075e53a9bc5378a4ace26b1d149} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!end@{end}}
+\index{end@{end}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \texorpdfstring{$\ast$}{*} fuzzer\+::\+Dictionary\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_ac579eb968d020fc26d166b4080c0fe27}\label{classfuzzer_1_1Dictionary_ac579eb968d020fc26d166b4080c0fe27} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}} \& fuzzer\+::\+Dictionary\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_a3677ae3fd0761b6b0d8c1c54e6450419}\label{classfuzzer_1_1Dictionary_a3677ae3fd0761b6b0d8c1c54e6450419} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{push\_back()}{push\_back()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Dictionary\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1DictionaryEntry}{Dictionary\+Entry}}}]{DE }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Dictionary_a67f72362929be6e769d674e5adf04482}\label{classfuzzer_1_1Dictionary_a67f72362929be6e769d674e5adf04482} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!size@{size}}
+\index{size@{size}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Dictionary\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96}\label{classfuzzer_1_1Dictionary_a0dbfb306ab4c01901ef0dd6a6d9ddc96} 
+\index{fuzzer::Dictionary@{fuzzer::Dictionary}!kMaxDictSize@{kMaxDictSize}}
+\index{kMaxDictSize@{kMaxDictSize}!fuzzer::Dictionary@{fuzzer::Dictionary}}
+\doxysubsubsection{\texorpdfstring{kMaxDictSize}{kMaxDictSize}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Dictionary\+::k\+Max\+Dict\+Size = 1 $<$$<$ 14\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerDictionary_8h}{Fuzzer\+Dictionary.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerMutate_8cpp}{Fuzzer\+Mutate.\+cpp}}\end{DoxyCompactItemize}

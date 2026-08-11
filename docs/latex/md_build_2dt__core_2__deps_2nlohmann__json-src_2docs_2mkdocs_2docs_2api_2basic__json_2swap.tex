@@ -1,0 +1,131 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}swap}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$swap@{$<$small$>$nlohmann::basic\_json::$<$/small$>$swap}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md839}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md839}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(reference\ other)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(reference\ left,\ reference\ right)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(array\_t\&\ other);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (4)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(object\_t\&\ other);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (5)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(string\_t\&\ other);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (6)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(binary\_t\&\ other);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (7)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(\textcolor{keyword}{typename}\ binary\_t::container\_type\&\ other);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Exchanges the contents of the JSON value with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated.
+\item Exchanges the contents of the JSON value from {\ttfamily left} with those of {\ttfamily right}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated. Implemented as a friend function callable via ADL.
+\item Exchanges the contents of a JSON array with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated.
+\item Exchanges the contents of a JSON object with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated.
+\item Exchanges the contents of a JSON string with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated.
+\item Exchanges the contents of a binary value with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated.
+\item Exchanges the contents of a binary value with those of {\ttfamily other}. Does not invoke any move, copy, or swap operations on individual elements. All iterators and references remain valid. The past-\/the-\/end iterator is invalidated. Unlike version (6), no binary subtype is involved.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md840}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md840}
+{\ttfamily other} (in, out) \+: value to exchange the contents with
+
+{\ttfamily left} (in, out) \+: value to exchange the contents with
+
+{\ttfamily right} (in, out) \+: value to exchange the contents with\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md841}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md841}
+
+\begin{DoxyEnumerate}
+\item No-\/throw guarantee\+: this function never throws exceptions.
+\item No-\/throw guarantee\+: this function never throws exceptions.
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error310}{\texttt{ {\ttfamily type\+\_\+error.\+310}}} if called on JSON values other than arrays; example\+: {\ttfamily "{}cannot use swap() with boolean"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error310}{\texttt{ {\ttfamily type\+\_\+error.\+310}}} if called on JSON values other than objects; example\+: {\ttfamily "{}cannot use swap() with boolean"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error310}{\texttt{ {\ttfamily type\+\_\+error.\+310}}} if called on JSON values other than strings; example\+: {\ttfamily "{}cannot use swap() with boolean"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error310}{\texttt{ {\ttfamily type\+\_\+error.\+310}}} if called on JSON values other than binaries; example\+: {\ttfamily "{}cannot use swap() with boolean"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error310}{\texttt{ {\ttfamily type\+\_\+error.\+310}}} if called on JSON values other than binaries; example\+: {\ttfamily "{}cannot use swap() with boolean"{}}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md842}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md842}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md843}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md843}
+??? example "{}\+Example\+: Swap JSON value (1, 2)"{} \begin{DoxyVerb}The example below shows how JSON values can be swapped with `swap()`.
+
+```cpp
+--8<-- "examples/swap__reference.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/swap__reference.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: Swap array (3)"{} \begin{DoxyVerb}The example below shows how arrays can be swapped with `swap()`.
+
+```cpp
+--8<-- "examples/swap__array_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/swap__array_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: Swap object (4)"{} \begin{DoxyVerb}The example below shows how objects can be swapped with `swap()`.
+
+```cpp
+--8<-- "examples/swap__object_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/swap__object_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: Swap string (5)"{} \begin{DoxyVerb}The example below shows how strings can be swapped with `swap()`.
+
+```cpp
+--8<-- "examples/swap__string_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/swap__string_t.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: Swap string (6)"{} \begin{DoxyVerb}The example below shows how binary values can be swapped with `swap()`.
+
+```cpp
+--8<-- "examples/swap__binary_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/swap__binary_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md844}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md844}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap}{std\+::swap\texorpdfstring{$<$}{<}basic\+\_\+json\texorpdfstring{$>$}{>}}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md845}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap_autotoc_md845}
+
+\begin{DoxyEnumerate}
+\item Since version 1.\+0.\+0.
+\item Since version 1.\+0.\+0.
+\item Since version 1.\+0.\+0.
+\item Since version 1.\+0.\+0.
+\item Since version 1.\+0.\+0.
+\item Since version 3.\+8.\+0.
+\item Since version 3.\+8.\+0. 
+\end{DoxyEnumerate}

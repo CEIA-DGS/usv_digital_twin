@@ -1,0 +1,60 @@
+\doxysection{nlohmann\+::fifo\+\_\+map\+\_\+compare\texorpdfstring{$<$}{<} Key \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classnlohmann_1_1fifo__map__compare}{}\label{classnlohmann_1_1fifo__map__compare}\index{nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}}
+
+
+{\ttfamily \#include $<$fifo\+\_\+map.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map__compare_aab17e1040a1d3860c96aac6faf5c705c}{fifo\+\_\+map\+\_\+compare}} (std\+::unordered\+\_\+map$<$ Key, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}k)
+\begin{DoxyCompactList}\small\item\em constructor given a pointer to a key storage \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare_a148fc9007e182fe0646e919dc53c466a}{operator()}} (const Key \&lhs, const Key \&rhs) const
+\item 
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare_a1eeddfac59afab194e1b9ec45e9d8ea3}{add\+\_\+key}} (const Key \&key)
+\item 
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare_a28b87a4c0ad0928c94c0bf407fe8e54c}{remove\+\_\+key}} (const Key \&key)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map__compare_aab17e1040a1d3860c96aac6faf5c705c}\label{classnlohmann_1_1fifo__map__compare_aab17e1040a1d3860c96aac6faf5c705c} 
+\index{nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}!fifo\_map\_compare@{fifo\_map\_compare}}
+\index{fifo\_map\_compare@{fifo\_map\_compare}!nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{fifo\_map\_compare()}{fifo\_map\_compare()}}
+{\footnotesize\ttfamily template$<$class Key $>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map__compare}{nlohmann\+::fifo\+\_\+map\+\_\+compare}}$<$ Key $>$\+::fifo\+\_\+map\+\_\+compare (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+map$<$ Key, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} $>$ \texorpdfstring{$\ast$}{*}}]{k }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor given a pointer to a key storage 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map__compare_a1eeddfac59afab194e1b9ec45e9d8ea3}\label{classnlohmann_1_1fifo__map__compare_a1eeddfac59afab194e1b9ec45e9d8ea3} 
+\index{nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}!add\_key@{add\_key}}
+\index{add\_key@{add\_key}!nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{add\_key()}{add\_key()}}
+{\footnotesize\ttfamily template$<$class Key $>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare}{nlohmann\+::fifo\+\_\+map\+\_\+compare}}$<$ Key $>$\+::add\+\_\+key (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map__compare_a148fc9007e182fe0646e919dc53c466a}\label{classnlohmann_1_1fifo__map__compare_a148fc9007e182fe0646e919dc53c466a} 
+\index{nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$class Key $>$ \\
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare}{nlohmann\+::fifo\+\_\+map\+\_\+compare}}$<$ Key $>$\+::operator() (\begin{DoxyParamCaption}\item[{const Key \&}]{lhs,  }\item[{const Key \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+This function compares two keys with respect to the order in which they were added to the container. For this, the mapping keys is used. \Hypertarget{classnlohmann_1_1fifo__map__compare_a28b87a4c0ad0928c94c0bf407fe8e54c}\label{classnlohmann_1_1fifo__map__compare_a28b87a4c0ad0928c94c0bf407fe8e54c} 
+\index{nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}!remove\_key@{remove\_key}}
+\index{remove\_key@{remove\_key}!nlohmann::fifo\_map\_compare$<$ Key $>$@{nlohmann::fifo\_map\_compare$<$ Key $>$}}
+\doxysubsubsection{\texorpdfstring{remove\_key()}{remove\_key()}}
+{\footnotesize\ttfamily template$<$class Key $>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map__compare}{nlohmann\+::fifo\+\_\+map\+\_\+compare}}$<$ Key $>$\+::remove\+\_\+key (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/fifo\+\_\+map/\mbox{\hyperlink{fifo__map_8hpp}{fifo\+\_\+map.\+hpp}}\end{DoxyCompactItemize}

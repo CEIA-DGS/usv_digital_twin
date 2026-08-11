@@ -1,0 +1,121 @@
+\doxysection{fuzzer\+::Value\+Bit\+Map Struct Reference}
+\hypertarget{structfuzzer_1_1ValueBitMap}{}\label{structfuzzer_1_1ValueBitMap}\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Value\+Bit\+Map.\+h$>$}
+
+
+
+Collaboration diagram for fuzzer\+::Value\+Bit\+Map\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{structfuzzer_1_1ValueBitMap__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf}{Reset}} ()
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a716c1fc151b968063db3e37955ef530d}{Add\+Value}} (uintptr\+\_\+t Value)
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a708bc9b0f81853bcccb51bba0b07048e}{Get}} (uintptr\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})
+\item 
+size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a9a08a418bc1f5db612aea10ca6d8a587}{Get\+Num\+Bits\+Since\+Last\+Merge}} () const
+\item 
+\mbox{\hyperlink{FuzzerDefs_8h_acdbef8108a762fe633c274db701603ab}{ATTRIBUTE\+\_\+\+TARGET\+\_\+\+POPCNT}} bool \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af95bf22fe5b5b440c5bfd78e6f59dd60}{Merge\+From}} (\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{Value\+Bit\+Map}} \&Other)
+\item 
+{\footnotesize template$<$class Callback $>$ }\\void \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a152e13d2af4b78d639e4225f2dd2f040}{For\+Each}} (Callback CB)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{k\+Map\+Size\+In\+Bits}} = 65371
+\item 
+static const size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}{k\+Map\+Size\+In\+Bits\+Aligned}} = 65536
+\item 
+static const size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{k\+Bits\+In\+Word}} = (sizeof(uintptr\+\_\+t) \texorpdfstring{$\ast$}{*} 8)
+\item 
+static const size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}{k\+Map\+Size\+In\+Words}} = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}{k\+Map\+Size\+In\+Bits\+Aligned}} / \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{k\+Bits\+In\+Word}}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}{k\+Number\+Of\+Items}} = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{k\+Map\+Size\+In\+Bits}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structfuzzer_1_1ValueBitMap_a716c1fc151b968063db3e37955ef530d}\label{structfuzzer_1_1ValueBitMap_a716c1fc151b968063db3e37955ef530d} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!AddValue@{AddValue}}
+\index{AddValue@{AddValue}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{AddValue()}{AddValue()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Value\+Bit\+Map\+::\+Add\+Value (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_a152e13d2af4b78d639e4225f2dd2f040}\label{structfuzzer_1_1ValueBitMap_a152e13d2af4b78d639e4225f2dd2f040} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!ForEach@{ForEach}}
+\index{ForEach@{ForEach}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{ForEach()}{ForEach()}}
+{\footnotesize\ttfamily template$<$class Callback $>$ \\
+void fuzzer\+::\+Value\+Bit\+Map\+::\+For\+Each (\begin{DoxyParamCaption}\item[{Callback}]{CB }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_a708bc9b0f81853bcccb51bba0b07048e}\label{structfuzzer_1_1ValueBitMap_a708bc9b0f81853bcccb51bba0b07048e} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!Get@{Get}}
+\index{Get@{Get}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Value\+Bit\+Map\+::\+Get (\begin{DoxyParamCaption}\item[{uintptr\+\_\+t}]{Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_a9a08a418bc1f5db612aea10ca6d8a587}\label{structfuzzer_1_1ValueBitMap_a9a08a418bc1f5db612aea10ca6d8a587} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!GetNumBitsSinceLastMerge@{GetNumBitsSinceLastMerge}}
+\index{GetNumBitsSinceLastMerge@{GetNumBitsSinceLastMerge}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{GetNumBitsSinceLastMerge()}{GetNumBitsSinceLastMerge()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::\+Get\+Num\+Bits\+Since\+Last\+Merge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_af95bf22fe5b5b440c5bfd78e6f59dd60}\label{structfuzzer_1_1ValueBitMap_af95bf22fe5b5b440c5bfd78e6f59dd60} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!MergeFrom@{MergeFrom}}
+\index{MergeFrom@{MergeFrom}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{MergeFrom()}{MergeFrom()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{FuzzerDefs_8h_acdbef8108a762fe633c274db701603ab}{ATTRIBUTE\+\_\+\+TARGET\+\_\+\+POPCNT}} bool fuzzer\+::\+Value\+Bit\+Map\+::\+Merge\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{Value\+Bit\+Map}} \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf}\label{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!Reset@{Reset}}
+\index{Reset@{Reset}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Value\+Bit\+Map\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}\label{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!kBitsInWord@{kBitsInWord}}
+\index{kBitsInWord@{kBitsInWord}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{kBitsInWord}{kBitsInWord}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::k\+Bits\+In\+Word = (sizeof(uintptr\+\_\+t) \texorpdfstring{$\ast$}{*} 8)\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}\label{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!kMapSizeInBits@{kMapSizeInBits}}
+\index{kMapSizeInBits@{kMapSizeInBits}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{kMapSizeInBits}{kMapSizeInBits}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::k\+Map\+Size\+In\+Bits = 65371\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}\label{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!kMapSizeInBitsAligned@{kMapSizeInBitsAligned}}
+\index{kMapSizeInBitsAligned@{kMapSizeInBitsAligned}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{kMapSizeInBitsAligned}{kMapSizeInBitsAligned}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::k\+Map\+Size\+In\+Bits\+Aligned = 65536\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}\label{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!kMapSizeInWords@{kMapSizeInWords}}
+\index{kMapSizeInWords@{kMapSizeInWords}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{kMapSizeInWords}{kMapSizeInWords}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::k\+Map\+Size\+In\+Words = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}{k\+Map\+Size\+In\+Bits\+Aligned}} / \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{k\+Bits\+In\+Word}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}\label{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673} 
+\index{fuzzer::ValueBitMap@{fuzzer::ValueBitMap}!kNumberOfItems@{kNumberOfItems}}
+\index{kNumberOfItems@{kNumberOfItems}!fuzzer::ValueBitMap@{fuzzer::ValueBitMap}}
+\doxysubsubsection{\texorpdfstring{kNumberOfItems}{kNumberOfItems}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Value\+Bit\+Map\+::k\+Number\+Of\+Items = \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{k\+Map\+Size\+In\+Bits}}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerValueBitMap_8h}{Fuzzer\+Value\+Bit\+Map.\+h}}\end{DoxyCompactItemize}

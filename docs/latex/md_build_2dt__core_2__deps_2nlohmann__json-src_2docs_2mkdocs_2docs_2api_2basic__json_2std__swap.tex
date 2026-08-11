@@ -1,0 +1,48 @@
+\chapter{std\+::swap\texorpdfstring{$<$}{<}basic\+\_\+json\texorpdfstring{$>$}{>}}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap}\index{std::swap$<$basic\_json>@{std::swap$<$basic\_json>}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md824}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md824}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacestd}{std}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann::basic\_json}}\&\ j1,\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann::basic\_json}}\&\ \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Exchanges the values of two JSON objects.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md825}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md825}
+{\ttfamily j1} (in, out) \+: value to be replaced by {\ttfamily j2}
+
+{\ttfamily j2} (in, out) \+: value to be replaced by {\ttfamily j1}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md826}{}\doxysection{\texorpdfstring{Possible implementation}{Possible implementation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md826}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{swap}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann::basic\_json}}\&\ j1,\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{nlohmann::basic\_json}}\&\ \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ j1.\mbox{\hyperlink{classnlohmann_1_1basic__json_a94295a06e0e7b3867fe83afbee4cb202}{swap}}(\mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md827}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md827}
+??? example \begin{DoxyVerb}The following code shows how two values are swapped with `std::swap`.
+
+```cpp
+--8<-- "examples/std_swap.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/std_swap.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md828}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md828}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap}{swap}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md829}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap_autotoc_md829}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Extended for arbitrary \doxylink{classbasic__json}{basic\+\_\+json} types in version 3.\+10.\+5. 
+\end{DoxyItemize}

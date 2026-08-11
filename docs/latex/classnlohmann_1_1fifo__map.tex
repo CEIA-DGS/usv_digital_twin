@@ -1,0 +1,833 @@
+\doxysection{nlohmann\+::fifo\+\_\+map\texorpdfstring{$<$}{<} Key, T, Compare, Allocator \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classnlohmann_1_1fifo__map}{}\label{classnlohmann_1_1fifo__map}\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+
+
+{\ttfamily \#include $<$fifo\+\_\+map.\+hpp$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_aca51bfef174050fba6473aa36ad96d0d}{key\+\_\+type}} = Key
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_ac44ae82c95d516829a3dfe52368df731}{mapped\+\_\+type}} = T
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} = std\+::pair$<$ const Key, T $>$
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} = \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a7a3730b031225cbb156fe9dd999d2e7f}{difference\+\_\+type}} = std\+::ptrdiff\+\_\+t
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_af5f3bee5d10baf81ffafc9b8410c1933}{key\+\_\+compare}} = Compare
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_abbb337500db2fcfba21a89fcc9fbcba8}{allocator\+\_\+type}} = Allocator
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a87781a9060446787741fd5f15d712e5b}{reference}} = \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a7464dcbe85ed4537136f3530aaef4d3d}{const\+\_\+reference}} = const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a8f8fd4cd8960ec5227a902a359829e65}{pointer}} = typename std\+::allocator\+\_\+traits$<$ Allocator $>$\+::pointer
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa5e4a64d013e9e132beaab121823047b}{const\+\_\+pointer}} = typename std\+::allocator\+\_\+traits$<$ Allocator $>$\+::const\+\_\+pointer
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab8868e3792117620089f6ade39e092a0}{internal\+\_\+map\+\_\+type}} = std\+::map$<$ Key, T, Compare, Allocator $>$
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} = typename internal\+\_\+map\+\_\+type\+::iterator
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} = typename internal\+\_\+map\+\_\+type\+::const\+\_\+iterator
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}{reverse\+\_\+iterator}} = typename internal\+\_\+map\+\_\+type\+::reverse\+\_\+iterator
+\item 
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} = typename internal\+\_\+map\+\_\+type\+::const\+\_\+reverse\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a8e3008839518611dd0e4bc958cc1c298}{fifo\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a5307d6c1a728169eb1833c5324b4f027}{fifo\+\_\+map}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&f)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Input\+Iterator $>$ }\\\mbox{\hyperlink{classnlohmann_1_1fifo__map_a22f6a6b3310a253888495818bde0a632}{fifo\+\_\+map}} (Input\+Iterator first, Input\+Iterator last)
+\begin{DoxyCompactList}\small\item\em constructor for a range of elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aaa74f2daf22f3d275305a0ec47f7d955}{fifo\+\_\+map}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} $>$ init)
+\begin{DoxyCompactList}\small\item\em constructor for a list of elements \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map_afa6ff3b71b882a92ea3f9d190b2cfe41}{at}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em access specified element with bounds checking \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map_a4af1bb54059fa8324e0fcafbc01af4dd}{at}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em access specified element with bounds checking \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map_a6444989ff7bbadae905864bb273cced3}{operator\mbox{[}$\,$\mbox{]}}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em access specified element \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map_a133ba42b1c988e88f315763057538942}{operator\mbox{[}$\,$\mbox{]}}} (Key \&\&key)
+\begin{DoxyCompactList}\small\item\em access specified element \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a8ef3718b1b2c13b7f7d4352109450030}{begin}} () noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a6800e5847cbc2ebd467f99898d0f456b}{end}} () noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a3e1e71204cff559affaca67352722942}{begin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a2c8a298241090856c45ad8eca607af0b}{end}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a7ec35bbb4a50420e72a1625dbdb91dda}{cbegin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a4cc9e81db20978f5476679a2164117dd}{cend}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns an iterator to the end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}{reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_ada5312d58d54bf4551f61f0bf293418d}{rbegin}} () noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}{reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a4eeb140aecc1e5530ed21eb2d961f8c7}{rend}} () noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_ae320b60e32a784fa8c173a9537eae40b}{rbegin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a2fbe02890aeaea614c284a7fba138f72}{rend}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the end \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a56e78316445e53e3645d2d5cf0f3df4a}{crbegin}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the beginning \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a671c0849bc46f5255e059abda4fe3d9f}{crend}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns a reverse iterator to the end \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_a66c3efb7800225b954e2115b4ad86859}{empty}} () const noexcept
+\begin{DoxyCompactList}\small\item\em checks whether the container is empty \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a1815eeca37314ce007fdb44695dc45e1}{size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns the number of elements \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a6537bd5a382817fb5b79d8262ec7513a}{max\+\_\+size}} () const noexcept
+\begin{DoxyCompactList}\small\item\em returns the maximum possible number of elements \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map_add18cf1a5d19f707f185cec27d3094a1}{clear}} () noexcept
+\begin{DoxyCompactList}\small\item\em clears the contents \end{DoxyCompactList}\item 
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a939e5300d694b8ac9841a0444b5f5466}{insert}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&value)
+\begin{DoxyCompactList}\small\item\em insert value \end{DoxyCompactList}\item 
+{\footnotesize template$<$class P $>$ }\\std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_abf5f38103ba0bdc37931743f44e6ea3a}{insert}} (P \&\&value)
+\begin{DoxyCompactList}\small\item\em insert value \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a9c77dd46fd5c921687e501ff25c0e41a}{insert}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} hint, const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&value)
+\begin{DoxyCompactList}\small\item\em insert value with hint \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a420afb330229088b91c4b9e5fc7d78e9}{insert}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} hint, \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&\&value)
+\begin{DoxyCompactList}\small\item\em insert value with hint \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Input\+It $>$ }\\void \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa3073a34ba23f99ab7e143373130c8b5}{insert}} (Input\+It first, Input\+It last)
+\begin{DoxyCompactList}\small\item\em insert value range \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab4df1497b924971d1a90bdf4a403b61a}{insert}} (std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} $>$ ilist)
+\begin{DoxyCompactList}\small\item\em insert value list \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Args$>$ }\\std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a733b60da65661a81258d6932b94cbb2e}{emplace}} (Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em constructs element in-\/place \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... Args$>$ }\\\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a955c9579b501d118aff1c0b28570be58}{emplace\+\_\+hint}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} hint, Args \&\&... args)
+\begin{DoxyCompactList}\small\item\em constructs element in-\/place with hint \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a6bffbddc2d64e7f6d3a163ea4a5fad62}{erase}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} pos)
+\begin{DoxyCompactList}\small\item\em remove element at position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a101ba3fe00458a7720311946c728df9b}{erase}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} first, \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} last)
+\begin{DoxyCompactList}\small\item\em remove elements in range \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a2bad6b413e84cfde21b8b50d138cef35}{erase}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map_aca51bfef174050fba6473aa36ad96d0d}{key\+\_\+type}} \&key)
+\begin{DoxyCompactList}\small\item\em remove elements with key \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map_a16cfa1685d79157b91bb968440f3ed84}{swap}} (\mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&other)
+\begin{DoxyCompactList}\small\item\em swaps the contents \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_aee53920c97e28416e032b8abca54a587}{count}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em returns the number of elements matching specific key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_ae46ce86c2f399fc2f1529e3ccf785568}{find}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em finds element with specific key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a975d86476a70f816cff78dc616da25e3}{find}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em finds element with specific key \end{DoxyCompactList}\item 
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a854a4829aacfe54d783e8c43dff12ad0}{equal\+\_\+range}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em returns range of elements matching a specific key \end{DoxyCompactList}\item 
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}, \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a20f06494a2c07e58341706d65084b09e}{equal\+\_\+range}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em returns range of elements matching a specific key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a9b7b062adb8ac5e1e04f52b9bde6aaa5}{lower\+\_\+bound}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em returns an iterator to the first element not less than the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa35d27c0d20d24ad9a72633c315eafb5}{lower\+\_\+bound}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em returns an iterator to the first element not less than the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a955be25a242b89ec424e5996ab377455}{upper\+\_\+bound}} (const Key \&key)
+\begin{DoxyCompactList}\small\item\em returns an iterator to the first element greater than the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a44254b03431082fedc69dc6b10fbb2dd}{upper\+\_\+bound}} (const Key \&key) const
+\begin{DoxyCompactList}\small\item\em returns an iterator to the first element greater than the given key \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_af5f3bee5d10baf81ffafc9b8410c1933}{key\+\_\+compare}} \mbox{\hyperlink{classnlohmann_1_1fifo__map_a8835cf75e45740f2aecd8a2a62fcfcb9}{key\+\_\+comp}} () const
+\begin{DoxyCompactList}\small\item\em returns the function that compares keys \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_a65f0d5d5e77d60af6c3e12d4c686969b}{operator==}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_ad01dfeaf670a81f36b67f29ac52fa5c3}{operator!=}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_a635e173a1318ec840026eeca3e526519}{operator$<$}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_a53d8d37ba6984bc1dd54dde477d653ed}{operator$<$=}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_aebdd8c7a5341d15b90d448b7d759446c}{operator$>$}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\item 
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map_a942b0da74354a694bae1e146066897e8}{operator$>$=}} (const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&lhs, const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map_abbb337500db2fcfba21a89fcc9fbcba8}\label{classnlohmann_1_1fifo__map_abbb337500db2fcfba21a89fcc9fbcba8} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!allocator\_type@{allocator\_type}}
+\index{allocator\_type@{allocator\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{allocator\_type}{allocator\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::allocator\+\_\+type =  Allocator}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}\label{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::const\+\_\+iterator =  typename internal\+\_\+map\+\_\+type\+::const\+\_\+iterator}
+
+\Hypertarget{classnlohmann_1_1fifo__map_aa5e4a64d013e9e132beaab121823047b}\label{classnlohmann_1_1fifo__map_aa5e4a64d013e9e132beaab121823047b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!const\_pointer@{const\_pointer}}
+\index{const\_pointer@{const\_pointer}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{const\_pointer}{const\_pointer}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::const\+\_\+pointer =  typename std\+::allocator\+\_\+traits$<$Allocator$>$\+::const\+\_\+pointer}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a7464dcbe85ed4537136f3530aaef4d3d}\label{classnlohmann_1_1fifo__map_a7464dcbe85ed4537136f3530aaef4d3d} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!const\_reference@{const\_reference}}
+\index{const\_reference@{const\_reference}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reference}{const\_reference}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::const\+\_\+reference =  const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}}\&}
+
+\Hypertarget{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}\label{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!const\_reverse\_iterator@{const\_reverse\_iterator}}
+\index{const\_reverse\_iterator@{const\_reverse\_iterator}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{const\_reverse\_iterator}{const\_reverse\_iterator}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::const\+\_\+reverse\+\_\+iterator =  typename internal\+\_\+map\+\_\+type\+::const\+\_\+reverse\+\_\+iterator}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a7a3730b031225cbb156fe9dd999d2e7f}\label{classnlohmann_1_1fifo__map_a7a3730b031225cbb156fe9dd999d2e7f} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::difference\+\_\+type =  std\+::ptrdiff\+\_\+t}
+
+\Hypertarget{classnlohmann_1_1fifo__map_ab8868e3792117620089f6ade39e092a0}\label{classnlohmann_1_1fifo__map_ab8868e3792117620089f6ade39e092a0} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!internal\_map\_type@{internal\_map\_type}}
+\index{internal\_map\_type@{internal\_map\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{internal\_map\_type}{internal\_map\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::internal\+\_\+map\+\_\+type =  std\+::map$<$Key, T, Compare, Allocator$>$}
+
+\Hypertarget{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}\label{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!iterator@{iterator}}
+\index{iterator@{iterator}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{iterator}{iterator}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::iterator =  typename internal\+\_\+map\+\_\+type\+::iterator}
+
+\Hypertarget{classnlohmann_1_1fifo__map_af5f3bee5d10baf81ffafc9b8410c1933}\label{classnlohmann_1_1fifo__map_af5f3bee5d10baf81ffafc9b8410c1933} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!key\_compare@{key\_compare}}
+\index{key\_compare@{key\_compare}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{key\_compare}{key\_compare}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::key\+\_\+compare =  Compare}
+
+\Hypertarget{classnlohmann_1_1fifo__map_aca51bfef174050fba6473aa36ad96d0d}\label{classnlohmann_1_1fifo__map_aca51bfef174050fba6473aa36ad96d0d} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!key\_type@{key\_type}}
+\index{key\_type@{key\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{key\_type}{key\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::key\+\_\+type =  Key}
+
+\Hypertarget{classnlohmann_1_1fifo__map_ac44ae82c95d516829a3dfe52368df731}\label{classnlohmann_1_1fifo__map_ac44ae82c95d516829a3dfe52368df731} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!mapped\_type@{mapped\_type}}
+\index{mapped\_type@{mapped\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{mapped\_type}{mapped\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::mapped\+\_\+type =  T}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a8f8fd4cd8960ec5227a902a359829e65}\label{classnlohmann_1_1fifo__map_a8f8fd4cd8960ec5227a902a359829e65} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!pointer@{pointer}}
+\index{pointer@{pointer}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{pointer}{pointer}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::pointer =  typename std\+::allocator\+\_\+traits$<$Allocator$>$\+::pointer}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a87781a9060446787741fd5f15d712e5b}\label{classnlohmann_1_1fifo__map_a87781a9060446787741fd5f15d712e5b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!reference@{reference}}
+\index{reference@{reference}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::reference =  \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}}\&}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}\label{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!reverse\_iterator@{reverse\_iterator}}
+\index{reverse\_iterator@{reverse\_iterator}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{reverse\_iterator}{reverse\_iterator}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::reverse\+\_\+iterator =  typename internal\+\_\+map\+\_\+type\+::reverse\+\_\+iterator}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}\label{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!size\_type@{size\_type}}
+\index{size\_type@{size\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{size\_type}{size\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::size\+\_\+type =  \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}\label{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+using \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::value\+\_\+type =  std\+::pair$<$const Key, T$>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map_a8e3008839518611dd0e4bc958cc1c298}\label{classnlohmann_1_1fifo__map_a8e3008839518611dd0e4bc958cc1c298} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!fifo\_map@{fifo\_map}}
+\index{fifo\_map@{fifo\_map}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{fifo\_map()}{fifo\_map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::fifo\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+default constructor 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a5307d6c1a728169eb1833c5324b4f027}\label{classnlohmann_1_1fifo__map_a5307d6c1a728169eb1833c5324b4f027} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!fifo\_map@{fifo\_map}}
+\index{fifo\_map@{fifo\_map}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{fifo\_map()}{fifo\_map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::fifo\+\_\+map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+copy constructor 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a22f6a6b3310a253888495818bde0a632}\label{classnlohmann_1_1fifo__map_a22f6a6b3310a253888495818bde0a632} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!fifo\_map@{fifo\_map}}
+\index{fifo\_map@{fifo\_map}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{fifo\_map()}{fifo\_map()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+template$<$class Input\+Iterator $>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::fifo\+\_\+map (\begin{DoxyParamCaption}\item[{Input\+Iterator}]{first,  }\item[{Input\+Iterator}]{last }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for a range of elements 
+
+\Hypertarget{classnlohmann_1_1fifo__map_aaa74f2daf22f3d275305a0ec47f7d955}\label{classnlohmann_1_1fifo__map_aaa74f2daf22f3d275305a0ec47f7d955} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!fifo\_map@{fifo\_map}}
+\index{fifo\_map@{fifo\_map}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{fifo\_map()}{fifo\_map()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::fifo\+\_\+map (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} $>$}]{init }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for a list of elements 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map_afa6ff3b71b882a92ea3f9d190b2cfe41}\label{classnlohmann_1_1fifo__map_afa6ff3b71b882a92ea3f9d190b2cfe41} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!at@{at}}
+\index{at@{at}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::at (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+access specified element with bounds checking 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a4af1bb54059fa8324e0fcafbc01af4dd}\label{classnlohmann_1_1fifo__map_a4af1bb54059fa8324e0fcafbc01af4dd} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!at@{at}}
+\index{at@{at}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+const T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::at (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+access specified element with bounds checking 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a3e1e71204cff559affaca67352722942}\label{classnlohmann_1_1fifo__map_a3e1e71204cff559affaca67352722942} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!begin@{begin}}
+\index{begin@{begin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a8ef3718b1b2c13b7f7d4352109450030}\label{classnlohmann_1_1fifo__map_a8ef3718b1b2c13b7f7d4352109450030} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!begin@{begin}}
+\index{begin@{begin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a7ec35bbb4a50420e72a1625dbdb91dda}\label{classnlohmann_1_1fifo__map_a7ec35bbb4a50420e72a1625dbdb91dda} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a4cc9e81db20978f5476679a2164117dd}\label{classnlohmann_1_1fifo__map_a4cc9e81db20978f5476679a2164117dd} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!cend@{cend}}
+\index{cend@{cend}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_add18cf1a5d19f707f185cec27d3094a1}\label{classnlohmann_1_1fifo__map_add18cf1a5d19f707f185cec27d3094a1} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!clear@{clear}}
+\index{clear@{clear}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+clears the contents 
+
+\Hypertarget{classnlohmann_1_1fifo__map_aee53920c97e28416e032b8abca54a587}\label{classnlohmann_1_1fifo__map_aee53920c97e28416e032b8abca54a587} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!count@{count}}
+\index{count@{count}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::count (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the number of elements matching specific key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a56e78316445e53e3645d2d5cf0f3df4a}\label{classnlohmann_1_1fifo__map_a56e78316445e53e3645d2d5cf0f3df4a} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!crbegin@{crbegin}}
+\index{crbegin@{crbegin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{crbegin()}{crbegin()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::crbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a671c0849bc46f5255e059abda4fe3d9f}\label{classnlohmann_1_1fifo__map_a671c0849bc46f5255e059abda4fe3d9f} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!crend@{crend}}
+\index{crend@{crend}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{crend()}{crend()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::crend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a733b60da65661a81258d6932b94cbb2e}\label{classnlohmann_1_1fifo__map_a733b60da65661a81258d6932b94cbb2e} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!emplace@{emplace}}
+\index{emplace@{emplace}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{emplace()}{emplace()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+template$<$class... Args$>$ \\
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::emplace (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructs element in-\/place 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a955c9579b501d118aff1c0b28570be58}\label{classnlohmann_1_1fifo__map_a955c9579b501d118aff1c0b28570be58} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!emplace\_hint@{emplace\_hint}}
+\index{emplace\_hint@{emplace\_hint}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{emplace\_hint()}{emplace\_hint()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+template$<$class... Args$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::emplace\+\_\+hint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{hint,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructs element in-\/place with hint 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a66c3efb7800225b954e2115b4ad86859}\label{classnlohmann_1_1fifo__map_a66c3efb7800225b954e2115b4ad86859} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!empty@{empty}}
+\index{empty@{empty}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+checks whether the container is empty 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a2c8a298241090856c45ad8eca607af0b}\label{classnlohmann_1_1fifo__map_a2c8a298241090856c45ad8eca607af0b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!end@{end}}
+\index{end@{end}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a6800e5847cbc2ebd467f99898d0f456b}\label{classnlohmann_1_1fifo__map_a6800e5847cbc2ebd467f99898d0f456b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!end@{end}}
+\index{end@{end}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns an iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a854a4829aacfe54d783e8c43dff12ad0}\label{classnlohmann_1_1fifo__map_a854a4829aacfe54d783e8c43dff12ad0} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!equal\_range@{equal\_range}}
+\index{equal\_range@{equal\_range}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{equal\_range()}{equal\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::equal\+\_\+range (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns range of elements matching a specific key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a20f06494a2c07e58341706d65084b09e}\label{classnlohmann_1_1fifo__map_a20f06494a2c07e58341706d65084b09e} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!equal\_range@{equal\_range}}
+\index{equal\_range@{equal\_range}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{equal\_range()}{equal\_range()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}, \mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::equal\+\_\+range (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns range of elements matching a specific key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a2bad6b413e84cfde21b8b50d138cef35}\label{classnlohmann_1_1fifo__map_a2bad6b413e84cfde21b8b50d138cef35} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!erase@{erase}}
+\index{erase@{erase}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::erase (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map_aca51bfef174050fba6473aa36ad96d0d}{key\+\_\+type}} \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove elements with key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a101ba3fe00458a7720311946c728df9b}\label{classnlohmann_1_1fifo__map_a101ba3fe00458a7720311946c728df9b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!erase@{erase}}
+\index{erase@{erase}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::erase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{first,  }\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{last }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove elements in range 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a6bffbddc2d64e7f6d3a163ea4a5fad62}\label{classnlohmann_1_1fifo__map_a6bffbddc2d64e7f6d3a163ea4a5fad62} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!erase@{erase}}
+\index{erase@{erase}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::erase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove element at position 
+
+\Hypertarget{classnlohmann_1_1fifo__map_ae46ce86c2f399fc2f1529e3ccf785568}\label{classnlohmann_1_1fifo__map_ae46ce86c2f399fc2f1529e3ccf785568} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!find@{find}}
+\index{find@{find}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::find (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+finds element with specific key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a975d86476a70f816cff78dc616da25e3}\label{classnlohmann_1_1fifo__map_a975d86476a70f816cff78dc616da25e3} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!find@{find}}
+\index{find@{find}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::find (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+finds element with specific key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a939e5300d694b8ac9841a0444b5f5466}\label{classnlohmann_1_1fifo__map_a939e5300d694b8ac9841a0444b5f5466} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a9c77dd46fd5c921687e501ff25c0e41a}\label{classnlohmann_1_1fifo__map_a9c77dd46fd5c921687e501ff25c0e41a} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{hint,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value with hint 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a420afb330229088b91c4b9e5fc7d78e9}\label{classnlohmann_1_1fifo__map_a420afb330229088b91c4b9e5fc7d78e9} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}}}]{hint,  }\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value with hint 
+
+\Hypertarget{classnlohmann_1_1fifo__map_aa3073a34ba23f99ab7e143373130c8b5}\label{classnlohmann_1_1fifo__map_aa3073a34ba23f99ab7e143373130c8b5} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+template$<$class Input\+It $>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{Input\+It}]{first,  }\item[{Input\+It}]{last }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value range 
+
+\Hypertarget{classnlohmann_1_1fifo__map_abf5f38103ba0bdc37931743f44e6ea3a}\label{classnlohmann_1_1fifo__map_abf5f38103ba0bdc37931743f44e6ea3a} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+template$<$class P $>$ \\
+std\+::pair$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}}, bool $>$ \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{P \&\&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value 
+
+\Hypertarget{classnlohmann_1_1fifo__map_ab4df1497b924971d1a90bdf4a403b61a}\label{classnlohmann_1_1fifo__map_ab4df1497b924971d1a90bdf4a403b61a} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!insert@{insert}}
+\index{insert@{insert}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::insert (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ \mbox{\hyperlink{classnlohmann_1_1fifo__map_ab2ebeb59ad68e058bdf311c8fc949c84}{value\+\_\+type}} $>$}]{ilist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+insert value list 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a8835cf75e45740f2aecd8a2a62fcfcb9}\label{classnlohmann_1_1fifo__map_a8835cf75e45740f2aecd8a2a62fcfcb9} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!key\_comp@{key\_comp}}
+\index{key\_comp@{key\_comp}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{key\_comp()}{key\_comp()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_af5f3bee5d10baf81ffafc9b8410c1933}{key\+\_\+compare}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::key\+\_\+comp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the function that compares keys 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a9b7b062adb8ac5e1e04f52b9bde6aaa5}\label{classnlohmann_1_1fifo__map_a9b7b062adb8ac5e1e04f52b9bde6aaa5} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!lower\_bound@{lower\_bound}}
+\index{lower\_bound@{lower\_bound}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{lower\_bound()}{lower\_bound()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::lower\+\_\+bound (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns an iterator to the first element not less than the given key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_aa35d27c0d20d24ad9a72633c315eafb5}\label{classnlohmann_1_1fifo__map_aa35d27c0d20d24ad9a72633c315eafb5} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!lower\_bound@{lower\_bound}}
+\index{lower\_bound@{lower\_bound}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{lower\_bound()}{lower\_bound()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::lower\+\_\+bound (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns an iterator to the first element not less than the given key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a6537bd5a382817fb5b79d8262ec7513a}\label{classnlohmann_1_1fifo__map_a6537bd5a382817fb5b79d8262ec7513a} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{max\_size()}{max\_size()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::max\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns the maximum possible number of elements 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a6444989ff7bbadae905864bb273cced3}\label{classnlohmann_1_1fifo__map_a6444989ff7bbadae905864bb273cced3} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+access specified element 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a133ba42b1c988e88f315763057538942}\label{classnlohmann_1_1fifo__map_a133ba42b1c988e88f315763057538942} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+T \& \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{Key \&\&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+access specified element 
+
+\Hypertarget{classnlohmann_1_1fifo__map_ae320b60e32a784fa8c173a9537eae40b}\label{classnlohmann_1_1fifo__map_ae320b60e32a784fa8c173a9537eae40b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_ada5312d58d54bf4551f61f0bf293418d}\label{classnlohmann_1_1fifo__map_ada5312d58d54bf4551f61f0bf293418d} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}{reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the beginning 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a2fbe02890aeaea614c284a7fba138f72}\label{classnlohmann_1_1fifo__map_a2fbe02890aeaea614c284a7fba138f72} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!rend@{rend}}
+\index{rend@{rend}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_afc054c7446284e9b3233563afacf4d66}{const\+\_\+reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a4eeb140aecc1e5530ed21eb2d961f8c7}\label{classnlohmann_1_1fifo__map_a4eeb140aecc1e5530ed21eb2d961f8c7} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!rend@{rend}}
+\index{rend@{rend}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a1a0e829220a2ac951ebd74e7f22fc8f3}{reverse\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns a reverse iterator to the end 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a1815eeca37314ce007fdb44695dc45e1}\label{classnlohmann_1_1fifo__map_a1815eeca37314ce007fdb44695dc45e1} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!size@{size}}
+\index{size@{size}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a36b5e771124e1f1cd4e66bd873f4d497}{size\+\_\+type}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+returns the number of elements 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a16cfa1685d79157b91bb968440f3ed84}\label{classnlohmann_1_1fifo__map_a16cfa1685d79157b91bb968440f3ed84} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!swap@{swap}}
+\index{swap@{swap}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+void \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+swaps the contents 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a955be25a242b89ec424e5996ab377455}\label{classnlohmann_1_1fifo__map_a955be25a242b89ec424e5996ab377455} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!upper\_bound@{upper\_bound}}
+\index{upper\_bound@{upper\_bound}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{upper\_bound()}{upper\_bound()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_aa020174251d6af26c0c05cb505dcbb1f}{iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::upper\+\_\+bound (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns an iterator to the first element greater than the given key 
+
+\Hypertarget{classnlohmann_1_1fifo__map_a44254b03431082fedc69dc6b10fbb2dd}\label{classnlohmann_1_1fifo__map_a44254b03431082fedc69dc6b10fbb2dd} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!upper\_bound@{upper\_bound}}
+\index{upper\_bound@{upper\_bound}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{upper\_bound()}{upper\_bound()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+\mbox{\hyperlink{classnlohmann_1_1fifo__map_a26dc0c1217c0069c49636b93e83f086b}{const\+\_\+iterator}} \mbox{\hyperlink{classnlohmann_1_1fifo__map}{nlohmann\+::fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$\+::upper\+\_\+bound (\begin{DoxyParamCaption}\item[{const Key \&}]{key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns an iterator to the first element greater than the given key 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classnlohmann_1_1fifo__map_ad01dfeaf670a81f36b67f29ac52fa5c3}\label{classnlohmann_1_1fifo__map_ad01dfeaf670a81f36b67f29ac52fa5c3} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a635e173a1318ec840026eeca3e526519}\label{classnlohmann_1_1fifo__map_a635e173a1318ec840026eeca3e526519} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a53d8d37ba6984bc1dd54dde477d653ed}\label{classnlohmann_1_1fifo__map_a53d8d37ba6984bc1dd54dde477d653ed} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a65f0d5d5e77d60af6c3e12d4c686969b}\label{classnlohmann_1_1fifo__map_a65f0d5d5e77d60af6c3e12d4c686969b} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_aebdd8c7a5341d15b90d448b7d759446c}\label{classnlohmann_1_1fifo__map_aebdd8c7a5341d15b90d448b7d759446c} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnlohmann_1_1fifo__map_a942b0da74354a694bae1e146066897e8}\label{classnlohmann_1_1fifo__map_a942b0da74354a694bae1e146066897e8} 
+\index{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$@{nlohmann::fifo\_map$<$ Key, T, Compare, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily template$<$class Key , class T , class Compare  = fifo\+\_\+map\+\_\+compare$<$\+Key$>$, class Allocator  = std\+::allocator$<$std\+::pair$<$const Key, T$>$$>$$>$ \\
+bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{lhs,  }\item[{const \mbox{\hyperlink{classnlohmann_1_1fifo__map}{fifo\+\_\+map}}$<$ Key, T, Compare, Allocator $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/fifo\+\_\+map/\mbox{\hyperlink{fifo__map_8hpp}{fifo\+\_\+map.\+hpp}}\end{DoxyCompactItemize}

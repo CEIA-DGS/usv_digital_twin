@@ -1,0 +1,29 @@
+\chapter{JSON\+\_\+\+HAS\+\_\+\+THREE\+\_\+\+WAY\+\_\+\+COMPARISON}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison}\index{JSON\_HAS\_THREE\_WAY\_COMPARISON@{JSON\_HAS\_THREE\_WAY\_COMPARISON}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1178}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1178}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_THREE\_WAY\_COMPARISON\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro indicates whether the compiler and standard library support 3-\/way comparison. Possible values are {\ttfamily 1} when supported or {\ttfamily 0} when unsupported.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1179}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1179}
+The default value is detected based on the preprocessor macros {\ttfamily \#!cpp \+\_\+\+\_\+cpp\+\_\+impl\+\_\+three\+\_\+way\+\_\+comparison} and {\ttfamily \#!cpp \+\_\+\+\_\+cpp\+\_\+lib\+\_\+three\+\_\+way\+\_\+comparison}.
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1180}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1180}
+??? example \begin{DoxyVerb}The code below forces the library to use 3-way comparison:
+
+```cpp
+#define JSON_HAS_THREE_WAY_COMPARISON 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1181}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__three__way__comparison_autotoc_md1181}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

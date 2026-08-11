@@ -1,0 +1,249 @@
+\doxysection{p2t Namespace Reference}
+\hypertarget{namespacep2t}{}\label{namespacep2t}\index{p2t@{p2t}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classp2t_1_1AdvancingFront}{Advancing\+Front}}
+\item 
+class \mbox{\hyperlink{classp2t_1_1CDT}{CDT}}
+\item 
+struct \mbox{\hyperlink{structp2t_1_1Edge}{Edge}}
+\item 
+struct \mbox{\hyperlink{structp2t_1_1Node}{Node}}
+\item 
+struct \mbox{\hyperlink{structp2t_1_1Point}{Point}}
+\item 
+class \mbox{\hyperlink{classp2t_1_1Sweep}{Sweep}}
+\item 
+class \mbox{\hyperlink{classp2t_1_1SweepContext}{Sweep\+Context}}
+\item 
+class \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}} \{ \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b}{CW}}
+, \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a}{CCW}}
+, \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387}{COLLINEAR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}} \& \mbox{\hyperlink{namespacep2t_ae8aeaaa4ce3ee67ec2dff72429fdbeec}{operator$<$$<$}} (\mbox{\hyperlink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}} \&out, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+bool \mbox{\hyperlink{namespacep2t_a0d9d559b795cab62ab85bf004d477abb}{Is\+Delaunay}} (const std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{p2t\+::\+Triangle}} \texorpdfstring{$\ast$}{*} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Is this set a valid delaunay triangulation? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacep2t_ab82db1108f5abd29df4537180f6e639c}{cmp}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}b)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{namespacep2t_a98db07c78d588aa4e68ffdaadd503d45}{operator+}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\begin{DoxyCompactList}\small\item\em Add two points\+\_\+ component-\/wise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{namespacep2t_adebd7f2104fff7945192e249aaeed77f}{operator-\/}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\begin{DoxyCompactList}\small\item\em Subtract two points\+\_\+ component-\/wise. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{namespacep2t_a4f005ffa2a5d03029a3619fb8110c4a9}{operator\texorpdfstring{$\ast$}{*}}} (double s, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a)
+\begin{DoxyCompactList}\small\item\em Multiply point by scalar. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacep2t_ac84d990aed3d2218987d6846a8249fb8}{operator==}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\item 
+bool \mbox{\hyperlink{namespacep2t_aef209c6c873f146ba2c2ff1f2174f9f6}{operator!=}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\item 
+double \mbox{\hyperlink{namespacep2t_a7f992d12c1c4fecfd9914e9f6d871f2d}{Dot}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\begin{DoxyCompactList}\small\item\em Peform the dot product on two vectors. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e}{Cross}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&b)
+\begin{DoxyCompactList}\small\item\em Perform the cross product on two vectors. In 2D this produces a scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{namespacep2t_aea08cc5eefe8a698251b03beabff716a}{Cross}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a, double s)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{namespacep2t_ae4e351c78d87c5a772f1dd6be7540803}{Cross}} (double s, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&a)
+\item 
+\mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}} \mbox{\hyperlink{namespacep2t_a9fa090c7f13c6b2665d3bdcd48b3478b}{Orient2d}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pa, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pb, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pc)
+\item 
+bool \mbox{\hyperlink{namespacep2t_a1330a3bcb418a415c43ea27af996231d}{In\+Scan\+Area}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pa, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pb, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pc, const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&pd)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{namespacep2t_a8f5d342ebd2614a9169a41fa6952b5f9}{PI\+\_\+3div4}} = 3 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 4
+\item 
+const double \mbox{\hyperlink{namespacep2t_abd7f6949620798fa69359d45d8c46f98}{PI\+\_\+div2}} = 1.\+57079632679489661923
+\item 
+const double \mbox{\hyperlink{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}{EPSILON}} = 1e-\/12
+\item 
+const double \mbox{\hyperlink{namespacep2t_aed2c5457dd827e0781c4dbfa6adfb583}{k\+Alpha}} = 0.\+3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Mason Green \href{mailto:mason.green@gmail.com}{\texttt{ mason.\+green@gmail.\+com}}
+\end{DoxyAuthor}
+Sweep-\/line, Constrained Delauney Triangulation (\doxylink{classp2t_1_1CDT}{CDT}) See\+: Domiter, V. and Zalik, B.(2008)\textquotesingle{}Sweep-\/line algorithm for constrained Delaunay triangulation\textquotesingle{}, International Journal of Geographical Information Science
+
+"{}\+Flip\+Scan"{} Constrained \doxylink{structp2t_1_1Edge}{Edge} Algorithm invented by Thomas Åhlén, \href{mailto:thahlen@gmail.com}{\texttt{ thahlen@gmail.\+com}} 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}\label{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb} 
+\index{p2t@{p2t}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Orientation}{Orientation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{p2t\+::\+Orientation}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CW@{CW}!p2t@{p2t}}\index{p2t@{p2t}!CW@{CW}}}\Hypertarget{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b}\label{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba005d0f4a800b4d758e8a40eb756c8d3b} 
+CW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCW@{CCW}!p2t@{p2t}}\index{p2t@{p2t}!CCW@{CCW}}}\Hypertarget{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a}\label{namespacep2t_a3ffe1d5b88773615026d5e590e3662eba953e6ad6ac330aa719772fafeffa971a} 
+CCW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COLLINEAR@{COLLINEAR}!p2t@{p2t}}\index{p2t@{p2t}!COLLINEAR@{COLLINEAR}}}\Hypertarget{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387}\label{namespacep2t_a3ffe1d5b88773615026d5e590e3662ebad6bd308f4c1c9cd1a39bd4ae8e7d5387} 
+COLLINEAR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacep2t_ab82db1108f5abd29df4537180f6e639c}\label{namespacep2t_ab82db1108f5abd29df4537180f6e639c} 
+\index{p2t@{p2t}!cmp@{cmp}}
+\index{cmp@{cmp}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{cmp()}{cmp()}}
+{\footnotesize\ttfamily bool p2t\+::cmp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e}\label{namespacep2t_afc804f5616661c8a9ddb798cdeb4564e} 
+\index{p2t@{p2t}!Cross@{Cross}}
+\index{Cross@{Cross}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily double p2t\+::\+Cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Perform the cross product on two vectors. In 2D this produces a scalar. 
+
+\Hypertarget{namespacep2t_aea08cc5eefe8a698251b03beabff716a}\label{namespacep2t_aea08cc5eefe8a698251b03beabff716a} 
+\index{p2t@{p2t}!Cross@{Cross}}
+\index{Cross@{Cross}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::\+Cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{double}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Perform the cross product on a point and a scalar. In 2D this produces a point. \Hypertarget{namespacep2t_ae4e351c78d87c5a772f1dd6be7540803}\label{namespacep2t_ae4e351c78d87c5a772f1dd6be7540803} 
+\index{p2t@{p2t}!Cross@{Cross}}
+\index{Cross@{Cross}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Cross()}{Cross()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::\+Cross (\begin{DoxyParamCaption}\item[{double}]{s,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Perform the cross product on a scalar and a point. In 2D this produces a point. \Hypertarget{namespacep2t_a7f992d12c1c4fecfd9914e9f6d871f2d}\label{namespacep2t_a7f992d12c1c4fecfd9914e9f6d871f2d} 
+\index{p2t@{p2t}!Dot@{Dot}}
+\index{Dot@{Dot}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Dot()}{Dot()}}
+{\footnotesize\ttfamily double p2t\+::\+Dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Peform the dot product on two vectors. 
+
+\Hypertarget{namespacep2t_a1330a3bcb418a415c43ea27af996231d}\label{namespacep2t_a1330a3bcb418a415c43ea27af996231d} 
+\index{p2t@{p2t}!InScanArea@{InScanArea}}
+\index{InScanArea@{InScanArea}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{InScanArea()}{InScanArea()}}
+{\footnotesize\ttfamily bool p2t\+::\+In\+Scan\+Area (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pa,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pb,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pc,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pd }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacep2t_a0d9d559b795cab62ab85bf004d477abb}\label{namespacep2t_a0d9d559b795cab62ab85bf004d477abb} 
+\index{p2t@{p2t}!IsDelaunay@{IsDelaunay}}
+\index{IsDelaunay@{IsDelaunay}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{IsDelaunay()}{IsDelaunay()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2\+T\+\_\+\+DLL\+\_\+\+SYMBOL}} bool p2t\+::\+Is\+Delaunay (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{p2t\+::\+Triangle}} \texorpdfstring{$\ast$}{*} $>$ \&}]{triangles }\end{DoxyParamCaption})}
+
+
+
+Is this set a valid delaunay triangulation? 
+
+\Hypertarget{namespacep2t_aef209c6c873f146ba2c2ff1f2174f9f6}\label{namespacep2t_aef209c6c873f146ba2c2ff1f2174f9f6} 
+\index{p2t@{p2t}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool p2t\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacep2t_a4f005ffa2a5d03029a3619fb8110c4a9}\label{namespacep2t_a4f005ffa2a5d03029a3619fb8110c4a9} 
+\index{p2t@{p2t}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{s,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply point by scalar. 
+
+\Hypertarget{namespacep2t_a98db07c78d588aa4e68ffdaadd503d45}\label{namespacep2t_a98db07c78d588aa4e68ffdaadd503d45} 
+\index{p2t@{p2t}!operator+@{operator+}}
+\index{operator+@{operator+}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add two points\+\_\+ component-\/wise. 
+
+\Hypertarget{namespacep2t_adebd7f2104fff7945192e249aaeed77f}\label{namespacep2t_adebd7f2104fff7945192e249aaeed77f} 
+\index{p2t@{p2t}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtract two points\+\_\+ component-\/wise. 
+
+\Hypertarget{namespacep2t_ae8aeaaa4ce3ee67ec2dff72429fdbeec}\label{namespacep2t_ae8aeaaa4ce3ee67ec2dff72429fdbeec} 
+\index{p2t@{p2t}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dll__symbol_8h_af965e0e2cdba5c878e5f423a2163f2ac}{P2\+T\+\_\+\+DLL\+\_\+\+SYMBOL}} \mbox{\hyperlink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}} \& p2t\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}} \&}]{out,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{namespacep2t_ac84d990aed3d2218987d6846a8249fb8}\label{namespacep2t_ac84d990aed3d2218987d6846a8249fb8} 
+\index{p2t@{p2t}!operator==@{operator==}}
+\index{operator==@{operator==}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool p2t\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{a,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespacep2t_a9fa090c7f13c6b2665d3bdcd48b3478b}\label{namespacep2t_a9fa090c7f13c6b2665d3bdcd48b3478b} 
+\index{p2t@{p2t}!Orient2d@{Orient2d}}
+\index{Orient2d@{Orient2d}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{Orient2d()}{Orient2d()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacep2t_a3ffe1d5b88773615026d5e590e3662eb}{Orientation}} p2t\+::\+Orient2d (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pa,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pb,  }\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{pc }\end{DoxyParamCaption})}
+
+Forumla to calculate signed area~\newline
+ Positive if CCW~\newline
+ Negative if CW~\newline
+ 0 if collinear~\newline
+ 
+\begin{DoxyPre}
+A[P1,P2,P3]  =  (x1*y2 -\/ y1*x2) + (x2*y3 -\/ y2*x3) + (x3*y1 -\/ y3*x1)
+             =  (x1-\/x3)*(y2-\/y3) -\/ (y1-\/y3)*(x2-\/x3)
+\end{DoxyPre}
+ 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24}\label{namespacep2t_ac5421d160ad8cd832c3cf6483d378e24} 
+\index{p2t@{p2t}!EPSILON@{EPSILON}}
+\index{EPSILON@{EPSILON}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{EPSILON}{EPSILON}}
+{\footnotesize\ttfamily const double p2t\+::\+EPSILON = 1e-\/12}
+
+\Hypertarget{namespacep2t_aed2c5457dd827e0781c4dbfa6adfb583}\label{namespacep2t_aed2c5457dd827e0781c4dbfa6adfb583} 
+\index{p2t@{p2t}!kAlpha@{kAlpha}}
+\index{kAlpha@{kAlpha}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{kAlpha}{kAlpha}}
+{\footnotesize\ttfamily const double p2t\+::k\+Alpha = 0.\+3}
+
+\Hypertarget{namespacep2t_a8f5d342ebd2614a9169a41fa6952b5f9}\label{namespacep2t_a8f5d342ebd2614a9169a41fa6952b5f9} 
+\index{p2t@{p2t}!PI\_3div4@{PI\_3div4}}
+\index{PI\_3div4@{PI\_3div4}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{PI\_3div4}{PI\_3div4}}
+{\footnotesize\ttfamily const double p2t\+::\+PI\+\_\+3div4 = 3 \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} / 4}
+
+\Hypertarget{namespacep2t_abd7f6949620798fa69359d45d8c46f98}\label{namespacep2t_abd7f6949620798fa69359d45d8c46f98} 
+\index{p2t@{p2t}!PI\_div2@{PI\_div2}}
+\index{PI\_div2@{PI\_div2}!p2t@{p2t}}
+\doxysubsubsection{\texorpdfstring{PI\_div2}{PI\_div2}}
+{\footnotesize\ttfamily const double p2t\+::\+PI\+\_\+div2 = 1.\+57079632679489661923}
+

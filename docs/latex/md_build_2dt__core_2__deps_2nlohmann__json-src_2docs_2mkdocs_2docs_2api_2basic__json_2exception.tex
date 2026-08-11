@@ -1,0 +1,73 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}exception}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$exception@{$<$small$>$nlohmann::basic\_json::$<$/small$>$exception}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md272}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md272}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }exception\ :\ \textcolor{keyword}{public}\ std::exception;}
+
+\end{DoxyCode}
+
+
+This class is an extension of \href{https://en.cppreference.com/w/cpp/error/exception}{\texttt{ {\ttfamily std\+::exception}}} objects with a member {\ttfamily id} for exception ids. It is used as the base class for all exceptions thrown by the {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} class. This class can hence be used as "{}wildcard"{} to catch exceptions, see example below.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::exception\ <|-\/-\/\ basic\_json::exception}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::parse\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::invalid\_iterator}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::type\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::out\_of\_range}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::other\_error}
+\DoxyCodeLine{}
+\DoxyCodeLine{interface\ std::exception\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::exception\ \#FFFF00\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ int\ id}
+\DoxyCodeLine{\ \ \ \ +\ const\ char*\ what()\ const}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::parse\_error\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ std::size\_t\ byte}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Subclasses\+:
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error}{\`{}parse\+\_\+error\`{}}{0} for exceptions indicating a parse error
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2invalid__iterator}{\`{}invalid\+\_\+iterator\`{}}{0} for exceptions indicating errors with iterators
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error}{\`{}type\+\_\+error\`{}}{0} for exceptions indicating executing a member function with a wrong type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2out__of__range}{\`{}out\+\_\+of\+\_\+range\`{}}{0} for exceptions indicating access out of the defined range
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2other__error}{\`{}other\+\_\+error\`{}}{0} for exceptions indicating other library errors
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md273}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md273}
+
+\begin{DoxyItemize}
+\item {\bfseries{what}} -\/ returns explanatory string
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md274}{}\doxysection{\texorpdfstring{Member variables}{Member variables}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md274}
+
+\begin{DoxyItemize}
+\item {\bfseries{id}} -\/ the id of the exception
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md275}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md275}
+To have nothrow-\/copy-\/constructible exceptions, we internally use {\ttfamily std\+::runtime\+\_\+error} which can cope with arbitrary-\/length error messages. Intermediate strings are built with static functions and then passed to the actual constructor.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md276}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md276}
+??? example \begin{DoxyVerb}The following code shows how arbitrary library exceptions can be caught.
+
+```cpp
+--8<-- "examples/exception.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/exception.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md277}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md277}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions}{List of exceptions}{0}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md278}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception_autotoc_md278}
+
+\begin{DoxyItemize}
+\item Since version 3.\+0.\+0. 
+\end{DoxyItemize}

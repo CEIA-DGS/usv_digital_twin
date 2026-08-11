@@ -1,0 +1,50 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}number\+\_\+unsigned\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$number\_unsigned\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$number\_unsigned\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md592}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md592}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }number\_unsigned\_t\ =\ NumberUnsignedType;}
+
+\end{DoxyCode}
+
+
+The type used to store JSON numbers (unsigned).
+
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} describes numbers as follows\+: \begin{quote}
+The representation of numbers is similar to that used in most programming languages. A number is represented in base 10 using decimal digits. It contains an integer component that may be prefixed with an optional minus sign, which may be followed by a fraction part and/or an exponent part. Leading zeros are not allowed. (...) Numeric values that cannot be represented in the grammar below (such as Infinity and NaN) are not permitted. \end{quote}
+This description includes both integer and floating-\/point numbers. However, C++ allows more precise storage if it is known whether the number is a signed integer, an unsigned integer or a floating-\/point number. Therefore, three different types, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\`{}number\+\_\+integer\+\_\+t\`{}}{0}, {\ttfamily number\+\_\+unsigned\+\_\+t} and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\`{}number\+\_\+float\+\_\+t\`{}}{0} are used.
+
+To store unsigned integer numbers in C++, a type is defined by the template parameter {\ttfamily Number\+Unsigned\+Type} which chooses the type to use.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md593}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md593}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md594}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md594}
+With the default values for {\ttfamily Number\+Unsigned\+Type} ({\ttfamily std\+::uint64\+\_\+t}), the default value for {\ttfamily number\+\_\+unsigned\+\_\+t} is {\ttfamily \#!cpp std\+::uint64\+\_\+t}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md595}{}\doxysubsubsection{\texorpdfstring{Default behavior}{Default behavior}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md595}
+
+\begin{DoxyItemize}
+\item The restrictions about leading zeros is not enforced in C++. Instead, leading zeros in integer literals lead to an interpretation as octal number. Internally, the value will be stored as decimal number. For instance, the C++ integer literal {\ttfamily 010} will be serialized to {\ttfamily 8}. During deserialization, leading zeros yield an error.
+\item Not-\/a-\/number (NaN) values will be serialized to {\ttfamily null}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md596}{}\doxysubsubsection{\texorpdfstring{Limits}{Limits}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md596}
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} specifies\+: \begin{quote}
+An implementation may set limits on the range and precision of numbers. \end{quote}
+When the default type is used, the maximal integer number that can be stored is {\ttfamily 18446744073709551615} (UINT64\+\_\+\+MAX) and the minimal integer number that can be stored is {\ttfamily 0}. Integer numbers that are out of range will yield over/underflow when used in a constructor. During deserialization, too large or small integer numbers will be automatically be stored as \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\`{}number\+\_\+integer\+\_\+t\`{}}{0} or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\`{}number\+\_\+float\+\_\+t\`{}}{0}.
+
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} further states\+: \begin{quote}
+Note that when such software is used, numbers that are integers and are in the range $[-2^{53}+1, 2^{53}-1]$ are interoperable in the sense that implementations will agree exactly on their numeric values. \end{quote}
+As this range is a subrange (when considered in conjunction with the {\ttfamily number\+\_\+integer\+\_\+t} type) of the exactly supported range \mbox{[}0, UINT64\+\_\+\+MAX\mbox{]}, this class\textquotesingle{}s integer type is interoperable.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md597}{}\doxysubsubsection{\texorpdfstring{Storage}{Storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md597}
+Integer number values are stored directly inside a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md598}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md598}
+??? example \begin{DoxyVerb}The following code shows that `number_unsigned_t` is by default, a typedef to `#!cpp std::uint64_t`.
+
+```cpp
+--8<-- "examples/number_unsigned_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/number_unsigned_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md599}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t_autotoc_md599}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+0. 
+\end{DoxyItemize}

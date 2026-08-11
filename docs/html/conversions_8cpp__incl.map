@@ -1,0 +1,26 @@
+<map id="dt_ros/src/conversions.cpp" name="dt_ros/src/conversions.cpp">
+<area shape="rect" id="Node000001" title="Implementation of ROS to Core conversion utilities." alt="" coords="494,5,689,31"/>
+<area shape="rect" id="Node000002" href="$conversions_8hpp.html" title="Conversion utilities between ROS 2 messages and Digital Twin Core types." alt="" coords="303,79,475,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="560,33,435,77,433,72,558,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,159,68,185"/>
+<area shape="poly" id="edge10_Node000001_Node000004" title=" " alt="" coords="520,33,412,53,292,81,185,114,80,154,75,156,73,151,78,150,183,109,291,76,411,48,519,28"/>
+<area shape="rect" id="Node000010" href="$geo__utils_8hpp.html" title="Geographical coordinate utilities for the Digital Twin ROS adapter." alt="" coords="499,79,684,104"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="594,31,594,65,589,65,589,31"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="709,79,914,104"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="627,28,764,72,762,77,626,33"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="939,79,1137,104"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="664,28,953,74,952,79,663,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="92,159,155,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="339,107,258,127,168,155,162,157,161,152,166,149,257,122,338,101"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="303,107,195,126,80,155,74,157,72,152,79,149,194,120,302,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,159,385,185"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="375,106,310,153,307,149,371,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="410,152,583,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="406,102,461,142,458,146,403,106"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="608,159,804,185"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="435,101,647,153,646,159,434,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="828,152,995,192"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="475,101,630,121,815,149,814,154,629,126,475,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="1019,159,1158,185"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="475,100,488,101,634,114,748,121,862,130,1008,149,1032,154,1031,159,1007,155,862,135,748,126,634,119,487,107,474,105"/>
+</map>

@@ -1,0 +1,98 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/input/binary\+\_\+reader.hpp File Reference}
+\hypertarget{binary__reader_8hpp}{}\label{binary__reader_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/binary\_reader.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/input/binary\_reader.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/exceptions.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/input\+\_\+adapters.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/json\+\_\+sax.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/lexer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/is\+\_\+sax.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/type\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/string\+\_\+concat.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/value\+\_\+t.\+hpp$>$}\newline
+Include dependency graph for binary\+\_\+reader.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{binary__reader_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{binary__reader_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classdetail_1_1binary__reader}{detail\+::binary\+\_\+reader$<$ Basic\+Json\+Type, Input\+Adapter\+Type, SAX $>$}}
+\begin{DoxyCompactList}\small\item\em deserialization of CBOR, Message\+Pack, and UBJSON values \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{binary__reader_8hpp_acf48f92e1e7b4be17e32305ee7a54a5d}{JSON\+\_\+\+BINARY\+\_\+\+READER\+\_\+\+MAKE\+\_\+\+BJD\+\_\+\+OPTIMIZED\+\_\+\+TYPE\+\_\+\+MARKERS\+\_\+}}~    make\+\_\+array$<$char\+\_\+int\+\_\+type$>$(\textquotesingle{}\mbox{\hyperlink{CallerCalleeTest_8cpp_a7b142dbbe5c082b9b2faa34e0cffd804}{F}}\textquotesingle{}, \textquotesingle{}H\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\textquotesingle{}, \textquotesingle{}S\textquotesingle{}, \textquotesingle{}T\textquotesingle{}, \textquotesingle{}Z\textquotesingle{}, \textquotesingle{}\mbox{[}\textquotesingle{}, \textquotesingle{}\{\textquotesingle{})
+\item 
+\#define \mbox{\hyperlink{binary__reader_8hpp_a940e58c0554a36eb89b8c12804431700}{JSON\+\_\+\+BINARY\+\_\+\+READER\+\_\+\+MAKE\+\_\+\+BJD\+\_\+\+TYPES\+\_\+\+MAP\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592}{detail\+::cbor\+\_\+tag\+\_\+handler\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592acb5e100e5a9a3e7f6d1fd97512215282}{detail\+::error}}
+, \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a567bc1d268f135496de3d5b946b691f3}{detail\+::ignore}}
+, \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a8cd892b7b97ef9489ae4479d3f4ef0fc}{detail\+::store}}
+, \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592acb5e100e5a9a3e7f6d1fd97512215282}{detail\+::error}}
+, \newline
+\mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a567bc1d268f135496de3d5b946b691f3}{detail\+::ignore}}
+, \mbox{\hyperlink{namespacedetail_a7c070b2bf3d61e3d8b8013f6fb18d592a8cd892b7b97ef9489ae4479d3f4ef0fc}{detail\+::store}}
+ \}
+\begin{DoxyCompactList}\small\item\em how to treat CBOR tags \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{binary__reader_8hpp_acf48f92e1e7b4be17e32305ee7a54a5d}\label{binary__reader_8hpp_acf48f92e1e7b4be17e32305ee7a54a5d} 
+\index{binary\_reader.hpp@{binary\_reader.hpp}!JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_@{JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_}}
+\index{JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_@{JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_}!binary\_reader.hpp@{binary\_reader.hpp}}
+\doxysubsubsection{\texorpdfstring{JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_}{JSON\_BINARY\_READER\_MAKE\_BJD\_OPTIMIZED\_TYPE\_MARKERS\_}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+BINARY\+\_\+\+READER\+\_\+\+MAKE\+\_\+\+BJD\+\_\+\+OPTIMIZED\+\_\+\+TYPE\+\_\+\+MARKERS\+\_\+~    make\+\_\+array$<$char\+\_\+int\+\_\+type$>$(\textquotesingle{}\mbox{\hyperlink{CallerCalleeTest_8cpp_a7b142dbbe5c082b9b2faa34e0cffd804}{F}}\textquotesingle{}, \textquotesingle{}H\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\textquotesingle{}, \textquotesingle{}S\textquotesingle{}, \textquotesingle{}T\textquotesingle{}, \textquotesingle{}Z\textquotesingle{}, \textquotesingle{}\mbox{[}\textquotesingle{}, \textquotesingle{}\{\textquotesingle{})}
+
+\Hypertarget{binary__reader_8hpp_a940e58c0554a36eb89b8c12804431700}\label{binary__reader_8hpp_a940e58c0554a36eb89b8c12804431700} 
+\index{binary\_reader.hpp@{binary\_reader.hpp}!JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_@{JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_}}
+\index{JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_@{JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_}!binary\_reader.hpp@{binary\_reader.hpp}}
+\doxysubsubsection{\texorpdfstring{JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_}{JSON\_BINARY\_READER\_MAKE\_BJD\_TYPES\_MAP\_}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+BINARY\+\_\+\+READER\+\_\+\+MAKE\+\_\+\+BJD\+\_\+\+TYPES\+\_\+\+MAP\+\_\+}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ make\_array<bjd\_type>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'C'},\ \textcolor{stringliteral}{"{}char"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'D'},\ \textcolor{stringliteral}{"{}double"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'I'},\ \textcolor{stringliteral}{"{}int16"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'L'},\ \textcolor{stringliteral}{"{}int64"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'M'},\ \textcolor{stringliteral}{"{}uint64"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'U'},\ \textcolor{stringliteral}{"{}uint8"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'d'},\ \textcolor{stringliteral}{"{}single"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'i'},\ \textcolor{stringliteral}{"{}int8"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'l'},\ \textcolor{stringliteral}{"{}int32"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'m'},\ \textcolor{stringliteral}{"{}uint32"{}}\},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ bjd\_type\{\textcolor{charliteral}{'u'},\ \textcolor{stringliteral}{"{}uint16"{}}\})}
+
+\end{DoxyCode}

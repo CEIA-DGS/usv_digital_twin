@@ -1,0 +1,217 @@
+\doxysection{Spatial\+Index Class Reference}
+\hypertarget{classSpatialIndex}{}\label{classSpatialIndex}\index{SpatialIndex@{SpatialIndex}}
+
+
+High-\/performance spatial indexing and querying engine.  
+
+
+
+
+{\ttfamily \#include $<$spatial\+\_\+index.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpatialIndex_a0f3a81b719da40c431a1da8c9f4884a7}{Spatial\+Index}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classSpatialIndex}{Spatial\+Index} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSpatialIndex_a09e2e46f02ee3d34454b2de3379593d6}{\texorpdfstring{$\sim$}{\string~}\+Spatial\+Index}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor for the \doxylink{classSpatialIndex}{Spatial\+Index} class. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSpatialIndex_a7c222edb1453c1fc6745210f52e60459}{load\+\_\+shapefiles}} (const std\+::string \&margin\+\_\+shp, const std\+::string \&mesh\+\_\+shp)
+\begin{DoxyCompactList}\small\item\em Loads, processes, and builds spatial R-\/\+Trees from Shapefiles on disk. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classSpatialIndex_a5da6d2de858f22f4660c0fe1781f8f2e}{get\+\_\+closest\+\_\+static\+\_\+obstacle\+\_\+distance}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position) const
+\begin{DoxyCompactList}\small\item\em Calculates the Euclidean distance to the nearest static obstacle. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSpatialIndex_ac7d4f138dd7748b939a6ffb3db9fa832}{is\+\_\+inside\+\_\+restricted\+\_\+zone}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position) const
+\begin{DoxyCompactList}\small\item\em Checks if a given position is inside a restricted zone (outside the Nav\+Mesh). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpatialIndex_a844e07fd29a7da547931efeaa171c8fa}{update\+\_\+global\+\_\+targets}} (const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&targets)
+\begin{DoxyCompactList}\small\item\em Updates the internal cache of global targets monitored by the system. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \mbox{\hyperlink{classSpatialIndex_a8471581dbf156854745ae685440f1f45}{get\+\_\+active\+\_\+local\+\_\+targets}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&center, float radius) const
+\begin{DoxyCompactList}\small\item\em Filters and returns active targets within a local range radius relative to a center. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classSpatialIndex_a02df29a04e7e29229c1f4a8af75737cd}{calculate\+\_\+margin\+\_\+distance}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position) const
+\begin{DoxyCompactList}\small\item\em Auxiliary method that calculates the exact distance in meters to the safety margin. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSpatialIndex_a1cae204f3206da3e59144ca0f12f19e4}{is\+\_\+navigable}} (const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&position) const
+\begin{DoxyCompactList}\small\item\em Evaluates whether a specific point strictly belongs to the navigable polygon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSpatialIndex_a68fb3f71e7f41b1b655ef5c8d69fc11f}{export\+\_\+rtree\+\_\+debug}} (const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} $>$ \&test\+\_\+points, const std\+::string \&output\+\_\+folder, int epsg\+\_\+utm) const
+\begin{DoxyCompactList}\small\item\em Generates spatial debugging files to validate R-\/\+Tree queries via QGIS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/performance spatial indexing and querying engine. 
+
+Uses R-\/\+Tree spatial trees (via Boost.\+Geometry) to perform real-\/time proximity searches (OLogN), restricted zone verification (Nav\+Mesh), and dynamic target management within the robot\textquotesingle{}s ecosystem. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSpatialIndex_a0f3a81b719da40c431a1da8c9f4884a7}\label{classSpatialIndex_a0f3a81b719da40c431a1da8c9f4884a7} 
+\index{SpatialIndex@{SpatialIndex}!SpatialIndex@{SpatialIndex}}
+\index{SpatialIndex@{SpatialIndex}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{SpatialIndex()}{SpatialIndex()}}
+{\footnotesize\ttfamily Spatial\+Index\+::\+Spatial\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default constructor for the \doxylink{classSpatialIndex}{Spatial\+Index} class. 
+
+\Hypertarget{classSpatialIndex_a09e2e46f02ee3d34454b2de3379593d6}\label{classSpatialIndex_a09e2e46f02ee3d34454b2de3379593d6} 
+\index{SpatialIndex@{SpatialIndex}!````~SpatialIndex@{\texorpdfstring{$\sim$}{\string~}SpatialIndex}}
+\index{````~SpatialIndex@{\texorpdfstring{$\sim$}{\string~}SpatialIndex}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SpatialIndex()}{\string~SpatialIndex()}}
+{\footnotesize\ttfamily Spatial\+Index\+::\texorpdfstring{$\sim$}{\string~}\+Spatial\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Default destructor for the \doxylink{classSpatialIndex}{Spatial\+Index} class. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSpatialIndex_a02df29a04e7e29229c1f4a8af75737cd}\label{classSpatialIndex_a02df29a04e7e29229c1f4a8af75737cd} 
+\index{SpatialIndex@{SpatialIndex}!calculate\_margin\_distance@{calculate\_margin\_distance}}
+\index{calculate\_margin\_distance@{calculate\_margin\_distance}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{calculate\_margin\_distance()}{calculate\_margin\_distance()}}
+{\footnotesize\ttfamily double Spatial\+Index\+::calculate\+\_\+margin\+\_\+distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position }\end{DoxyParamCaption}) const}
+
+
+
+Auxiliary method that calculates the exact distance in meters to the safety margin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Reference position in {\ttfamily \doxylink{classtypes_1_1Point}{types\+::\+Point}} format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Shortest geometric distance calculated via R-\/\+Tree. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_a68fb3f71e7f41b1b655ef5c8d69fc11f}\label{classSpatialIndex_a68fb3f71e7f41b1b655ef5c8d69fc11f} 
+\index{SpatialIndex@{SpatialIndex}!export\_rtree\_debug@{export\_rtree\_debug}}
+\index{export\_rtree\_debug@{export\_rtree\_debug}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{export\_rtree\_debug()}{export\_rtree\_debug()}}
+{\footnotesize\ttfamily void Spatial\+Index\+::export\+\_\+rtree\+\_\+debug (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} $>$ \&}]{test\+\_\+points,  }\item[{const std\+::string \&}]{output\+\_\+folder,  }\item[{int}]{epsg\+\_\+utm }\end{DoxyParamCaption}) const}
+
+
+
+Generates spatial debugging files to validate R-\/\+Tree queries via QGIS. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em test\+\_\+points} & Vector of sample points for proximity testing. \\
+\hline
+{\em output\+\_\+folder} & Save directory for the generated vector files. \\
+\hline
+{\em epsg\+\_\+utm} & EPSG code of the applied UTM cartographic projection. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSpatialIndex_a8471581dbf156854745ae685440f1f45}\label{classSpatialIndex_a8471581dbf156854745ae685440f1f45} 
+\index{SpatialIndex@{SpatialIndex}!get\_active\_local\_targets@{get\_active\_local\_targets}}
+\index{get\_active\_local\_targets@{get\_active\_local\_targets}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{get\_active\_local\_targets()}{get\_active\_local\_targets()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ Spatial\+Index\+::get\+\_\+active\+\_\+local\+\_\+targets (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{center,  }\item[{float}]{radius }\end{DoxyParamCaption}) const}
+
+
+
+Filters and returns active targets within a local range radius relative to a center. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & Central reference point. \\
+\hline
+{\em radius} & Maximum search radius in meters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector containing only the targets located within the area of interest. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_a5da6d2de858f22f4660c0fe1781f8f2e}\label{classSpatialIndex_a5da6d2de858f22f4660c0fe1781f8f2e} 
+\index{SpatialIndex@{SpatialIndex}!get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}}
+\index{get\_closest\_static\_obstacle\_distance@{get\_closest\_static\_obstacle\_distance}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{get\_closest\_static\_obstacle\_distance()}{get\_closest\_static\_obstacle\_distance()}}
+{\footnotesize\ttfamily float Spatial\+Index\+::get\+\_\+closest\+\_\+static\+\_\+obstacle\+\_\+distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position }\end{DoxyParamCaption}) const}
+
+
+
+Calculates the Euclidean distance to the nearest static obstacle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Current position of the vehicle (containing X and Y coordinates). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance in meters to the nearest mapped margin or obstacle. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_ac7d4f138dd7748b939a6ffb3db9fa832}\label{classSpatialIndex_ac7d4f138dd7748b939a6ffb3db9fa832} 
+\index{SpatialIndex@{SpatialIndex}!is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}}
+\index{is\_inside\_restricted\_zone@{is\_inside\_restricted\_zone}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{is\_inside\_restricted\_zone()}{is\_inside\_restricted\_zone()}}
+{\footnotesize\ttfamily bool Spatial\+Index\+::is\+\_\+inside\+\_\+restricted\+\_\+zone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a given position is inside a restricted zone (outside the Nav\+Mesh). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Current position of the vehicle to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the point is in a restricted/dangerous zone, false if it is in a safe navigable area. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_a1cae204f3206da3e59144ca0f12f19e4}\label{classSpatialIndex_a1cae204f3206da3e59144ca0f12f19e4} 
+\index{SpatialIndex@{SpatialIndex}!is\_navigable@{is\_navigable}}
+\index{is\_navigable@{is\_navigable}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{is\_navigable()}{is\_navigable()}}
+{\footnotesize\ttfamily bool Spatial\+Index\+::is\+\_\+navigable (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}} \&}]{position }\end{DoxyParamCaption}) const}
+
+
+
+Evaluates whether a specific point strictly belongs to the navigable polygon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Test coordinates. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the point is contained within the navigable mesh, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_a7c222edb1453c1fc6745210f52e60459}\label{classSpatialIndex_a7c222edb1453c1fc6745210f52e60459} 
+\index{SpatialIndex@{SpatialIndex}!load\_shapefiles@{load\_shapefiles}}
+\index{load\_shapefiles@{load\_shapefiles}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{load\_shapefiles()}{load\_shapefiles()}}
+{\footnotesize\ttfamily bool Spatial\+Index\+::load\+\_\+shapefiles (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{margin\+\_\+shp,  }\item[{const std\+::string \&}]{mesh\+\_\+shp }\end{DoxyParamCaption})}
+
+
+
+Loads, processes, and builds spatial R-\/\+Trees from Shapefiles on disk. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em margin\+\_\+shp} & Path to the {\ttfamily .shp} file regarding the safety margin. \\
+\hline
+{\em mesh\+\_\+shp} & Path to the {\ttfamily .shp} file regarding the navigation mesh. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if loading and indexing were successful, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classSpatialIndex_a844e07fd29a7da547931efeaa171c8fa}\label{classSpatialIndex_a844e07fd29a7da547931efeaa171c8fa} 
+\index{SpatialIndex@{SpatialIndex}!update\_global\_targets@{update\_global\_targets}}
+\index{update\_global\_targets@{update\_global\_targets}!SpatialIndex@{SpatialIndex}}
+\doxysubsubsection{\texorpdfstring{update\_global\_targets()}{update\_global\_targets()}}
+{\footnotesize\ttfamily void Spatial\+Index\+::update\+\_\+global\+\_\+targets (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}} $>$ \&}]{targets }\end{DoxyParamCaption})}
+
+
+
+Updates the internal cache of global targets monitored by the system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em targets} & Vector containing the new targets processed by the perception layer. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{spatial__index_8hpp}{spatial\+\_\+index.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{spatial__index_8cpp}{spatial\+\_\+index.\+cpp}}\end{DoxyCompactItemize}

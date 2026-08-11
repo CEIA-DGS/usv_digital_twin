@@ -1,0 +1,53 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}to\+\_\+cbor}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$to\_cbor@{$<$small$>$nlohmann::basic\_json::$<$/small$>$to\_cbor}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md860}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md860}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ std::vector<std::uint8\_t>\ to\_cbor(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ to\_cbor(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \mbox{\hyperlink{classdetail_1_1output__adapter}{detail::output\_adapter<std::uint8\_t>}}\ o);}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ to\_cbor(\textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \mbox{\hyperlink{classdetail_1_1output__adapter}{detail::output\_adapter<char>}}\ o);}
+
+\end{DoxyCode}
+
+
+Serializes a given JSON value {\ttfamily j} to a byte vector using the CBOR (Concise Binary Object Representation) serialization format. CBOR is a binary serialization format which aims to be more compact than JSON itself, yet more efficient to parse.
+
+
+\begin{DoxyEnumerate}
+\item Returns a byte vector containing the CBOR serialization.
+\item Writes the CBOR serialization to an output adapter.
+\end{DoxyEnumerate}
+
+The exact mapping and its limitations is described on a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2cbor}{dedicated page}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md861}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md861}
+{\ttfamily j} (in) \+: JSON value to serialize
+
+{\ttfamily o} (in) \+: output adapter to write serialization to\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md862}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md862}
+
+\begin{DoxyEnumerate}
+\item CBOR serialization as byte vector
+\item (none)
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md863}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md863}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md864}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md864}
+Linear in the size of the JSON value {\ttfamily j}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md865}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md865}
+??? example \begin{DoxyVerb}The example shows the serialization of a JSON value to a byte vector in CBOR format.
+
+```cpp
+--8<-- "examples/to_cbor.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/to_cbor.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md866}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor_autotoc_md866}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+0.\+9.
+\item Compact representation of floating-\/point numbers added in version 3.\+8.\+0. 
+\end{DoxyItemize}

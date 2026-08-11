@@ -1,0 +1,19 @@
+\chapter{Header only}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2index}\index{Header only@{Header only}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2index_autotoc_md1726}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2index_autotoc_md1726}%
+ \href{https://github.com/nlohmann/json/blob/develop/single_include/nlohmann/json.hpp}{\texttt{ {\ttfamily json.\+hpp}}} is the single required file in {\ttfamily single\+\_\+include/nlohmann} or \href{https://github.com/nlohmann/json/releases}{\texttt{ released here}}. You need to add
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ for\ convenience}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ =\ \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann::json}};}
+
+\end{DoxyCode}
+
+
+to the files you want to process JSON and set the necessary switches to enable C++11 (e.\+g., {\ttfamily -\/std=c++11} for GCC and Clang).
+
+You can further use file \href{https://github.com/nlohmann/json/blob/develop/single_include/nlohmann/json_fwd.hpp}{\texttt{ {\ttfamily single\+\_\+include/nlohmann/json\+\_\+fwd.\+hpp}}} for forward declarations. 

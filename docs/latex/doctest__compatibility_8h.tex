@@ -1,0 +1,89 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/doctest/doctest\+\_\+compatibility.h File Reference}
+\hypertarget{doctest__compatibility_8h}{}\label{doctest__compatibility_8h}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/doctest/doctest\_compatibility.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/doctest/doctest\_compatibility.h}}
+{\ttfamily \#include "{}doctest.\+h"{}}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+Include dependency graph for doctest\+\_\+compatibility.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{doctest__compatibility_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a6b3df234bdd004a2098a416f8d5fd76c}{DOCTEST\+\_\+\+CONFIG\+\_\+\+VOID\+\_\+\+CAST\+\_\+\+EXPRESSIONS}}
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a8f3293f622cc7fbd71ddfeb73fb37340}{DOCTEST\+\_\+\+THREAD\+\_\+\+LOCAL}}
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a0cd84d289552018d72489c085df0a9ca}{CAPTURE}}(x)~\mbox{\hyperlink{doctest_8h_a5a8ade28d558f5fcb66f8493d0596e6c}{DOCTEST\+\_\+\+CAPTURE}}(x);
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a9982c2dc93e94348913cd6b7b0618973}{SECTION}}(x)~\mbox{\hyperlink{doctest_8h_a5acad2b6cef499ee884b8027ef41fbf6}{DOCTEST\+\_\+\+SUBCASE}}(x)
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_ad96a5455819c1d0607847db70c4ace43}{INFO\+\_\+\+WITH\+\_\+\+TEMP\+\_\+\+IMPL}}(x,  var\+\_\+name)~const auto var\+\_\+name = x; \mbox{\hyperlink{doctest_8h_aedf01192151e10a6620567952711ff69}{INFO}}(var\+\_\+name)
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_ad440b4fc11f8bd65d74fa08e048ff235}{INFO\+\_\+\+WITH\+\_\+\+TEMP}}(x)~\mbox{\hyperlink{doctest__compatibility_8h_ad96a5455819c1d0607847db70c4ace43}{INFO\+\_\+\+WITH\+\_\+\+TEMP\+\_\+\+IMPL}}(x, \mbox{\hyperlink{doctest_8h_ac2799231daab4b10ca221f997ef94981}{DOCTEST\+\_\+\+ANONYMOUS}}(DOCTEST\+\_\+\+STD\+\_\+\+STRING\+\_\+))
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a9caf1af92b4b1ba8f0c91a51902b1175}{CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR\+\_\+\+IMPL}}(expr,  str,  var\+\_\+name)
+\item 
+\#define \mbox{\hyperlink{doctest__compatibility_8h_a929037564ecf2171428b1521a159bfe0}{CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR}}(expr,  str)~    \mbox{\hyperlink{doctest__compatibility_8h_a9caf1af92b4b1ba8f0c91a51902b1175}{CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR\+\_\+\+IMPL}}(expr, str, \mbox{\hyperlink{doctest_8h_ac2799231daab4b10ca221f997ef94981}{DOCTEST\+\_\+\+ANONYMOUS}}(DOCTEST\+\_\+\+STD\+\_\+\+STRING\+\_\+))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{doctest__compatibility_8h_a0cd84d289552018d72489c085df0a9ca}\label{doctest__compatibility_8h_a0cd84d289552018d72489c085df0a9ca} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!CAPTURE@{CAPTURE}}
+\index{CAPTURE@{CAPTURE}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{CAPTURE}{CAPTURE}}
+{\footnotesize\ttfamily \#define CAPTURE(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{doctest_8h_a5a8ade28d558f5fcb66f8493d0596e6c}{DOCTEST\+\_\+\+CAPTURE}}(x);}
+
+\Hypertarget{doctest__compatibility_8h_a929037564ecf2171428b1521a159bfe0}\label{doctest__compatibility_8h_a929037564ecf2171428b1521a159bfe0} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!CHECK\_THROWS\_WITH\_STD\_STR@{CHECK\_THROWS\_WITH\_STD\_STR}}
+\index{CHECK\_THROWS\_WITH\_STD\_STR@{CHECK\_THROWS\_WITH\_STD\_STR}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_THROWS\_WITH\_STD\_STR}{CHECK\_THROWS\_WITH\_STD\_STR}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{str }\end{DoxyParamCaption})~    \mbox{\hyperlink{doctest__compatibility_8h_a9caf1af92b4b1ba8f0c91a51902b1175}{CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR\+\_\+\+IMPL}}(expr, str, \mbox{\hyperlink{doctest_8h_ac2799231daab4b10ca221f997ef94981}{DOCTEST\+\_\+\+ANONYMOUS}}(DOCTEST\+\_\+\+STD\+\_\+\+STRING\+\_\+))}
+
+\Hypertarget{doctest__compatibility_8h_a9caf1af92b4b1ba8f0c91a51902b1175}\label{doctest__compatibility_8h_a9caf1af92b4b1ba8f0c91a51902b1175} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!CHECK\_THROWS\_WITH\_STD\_STR\_IMPL@{CHECK\_THROWS\_WITH\_STD\_STR\_IMPL}}
+\index{CHECK\_THROWS\_WITH\_STD\_STR\_IMPL@{CHECK\_THROWS\_WITH\_STD\_STR\_IMPL}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{CHECK\_THROWS\_WITH\_STD\_STR\_IMPL}{CHECK\_THROWS\_WITH\_STD\_STR\_IMPL}}
+{\footnotesize\ttfamily \#define CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+STD\+\_\+\+STR\+\_\+\+IMPL(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{str,  }\item[{}]{var\+\_\+name }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ var\_name\ =\ str;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ CHECK\_THROWS\_WITH(expr,\ var\_name.c\_str());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+\Hypertarget{doctest__compatibility_8h_a6b3df234bdd004a2098a416f8d5fd76c}\label{doctest__compatibility_8h_a6b3df234bdd004a2098a416f8d5fd76c} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS@{DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS}}
+\index{DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS@{DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS}{DOCTEST\_CONFIG\_VOID\_CAST\_EXPRESSIONS}}
+{\footnotesize\ttfamily \#define DOCTEST\+\_\+\+CONFIG\+\_\+\+VOID\+\_\+\+CAST\+\_\+\+EXPRESSIONS}
+
+\Hypertarget{doctest__compatibility_8h_a8f3293f622cc7fbd71ddfeb73fb37340}\label{doctest__compatibility_8h_a8f3293f622cc7fbd71ddfeb73fb37340} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!DOCTEST\_THREAD\_LOCAL@{DOCTEST\_THREAD\_LOCAL}}
+\index{DOCTEST\_THREAD\_LOCAL@{DOCTEST\_THREAD\_LOCAL}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{DOCTEST\_THREAD\_LOCAL}{DOCTEST\_THREAD\_LOCAL}}
+{\footnotesize\ttfamily \#define DOCTEST\+\_\+\+THREAD\+\_\+\+LOCAL}
+
+\Hypertarget{doctest__compatibility_8h_ad440b4fc11f8bd65d74fa08e048ff235}\label{doctest__compatibility_8h_ad440b4fc11f8bd65d74fa08e048ff235} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!INFO\_WITH\_TEMP@{INFO\_WITH\_TEMP}}
+\index{INFO\_WITH\_TEMP@{INFO\_WITH\_TEMP}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{INFO\_WITH\_TEMP}{INFO\_WITH\_TEMP}}
+{\footnotesize\ttfamily \#define INFO\+\_\+\+WITH\+\_\+\+TEMP(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{doctest__compatibility_8h_ad96a5455819c1d0607847db70c4ace43}{INFO\+\_\+\+WITH\+\_\+\+TEMP\+\_\+\+IMPL}}(x, \mbox{\hyperlink{doctest_8h_ac2799231daab4b10ca221f997ef94981}{DOCTEST\+\_\+\+ANONYMOUS}}(DOCTEST\+\_\+\+STD\+\_\+\+STRING\+\_\+))}
+
+\Hypertarget{doctest__compatibility_8h_ad96a5455819c1d0607847db70c4ace43}\label{doctest__compatibility_8h_ad96a5455819c1d0607847db70c4ace43} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!INFO\_WITH\_TEMP\_IMPL@{INFO\_WITH\_TEMP\_IMPL}}
+\index{INFO\_WITH\_TEMP\_IMPL@{INFO\_WITH\_TEMP\_IMPL}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{INFO\_WITH\_TEMP\_IMPL}{INFO\_WITH\_TEMP\_IMPL}}
+{\footnotesize\ttfamily \#define INFO\+\_\+\+WITH\+\_\+\+TEMP\+\_\+\+IMPL(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{var\+\_\+name }\end{DoxyParamCaption})~const auto var\+\_\+name = x; \mbox{\hyperlink{doctest_8h_aedf01192151e10a6620567952711ff69}{INFO}}(var\+\_\+name)}
+
+\Hypertarget{doctest__compatibility_8h_a9982c2dc93e94348913cd6b7b0618973}\label{doctest__compatibility_8h_a9982c2dc93e94348913cd6b7b0618973} 
+\index{doctest\_compatibility.h@{doctest\_compatibility.h}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!doctest\_compatibility.h@{doctest\_compatibility.h}}
+\doxysubsubsection{\texorpdfstring{SECTION}{SECTION}}
+{\footnotesize\ttfamily \#define SECTION(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{doctest_8h_a5acad2b6cef499ee884b8027ef41fbf6}{DOCTEST\+\_\+\+SUBCASE}}(x)}
+

@@ -1,0 +1,41 @@
+\chapter{JSON Patch and Diff}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch}\index{JSON Patch and Diff@{JSON Patch and Diff}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1375}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1375}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1376}{}\doxysection{\texorpdfstring{Patches}{Patches}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1376}
+JSON Patch (\href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902}}) defines a JSON document structure for expressing a sequence of operations to apply to a JSON document. With the {\ttfamily patch} function, a JSON Patch is applied to the current JSON value by executing all operations from the patch.
+
+??? example \begin{DoxyVerb}The following code shows how a JSON patch is applied to a value.
+
+```cpp
+--8<-- "examples/patch.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/patch.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1377}{}\doxysection{\texorpdfstring{Diff}{Diff}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2json__patch_autotoc_md1377}
+The library can also calculate a JSON patch (i.\+e., a {\bfseries{diff}}) given two JSON values.
+
+!!! success "{}\+Invariant"{} \begin{DoxyVerb}For two JSON values *source* and *target*, the following code yields always true:
+
+```cüü
+source.patch(diff(source, target)) == target;
+```
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}The following code shows how a JSON patch is created as a diff for two JSON values.
+
+```cpp
+--8<-- "examples/diff.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/diff.output"
+```
+\end{DoxyVerb}
+ 

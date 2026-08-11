@@ -1,0 +1,324 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}basic\+\_\+json}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}\index{$<$small$>$nlohmann::$<$/small$>$basic\_json@{$<$small$>$nlohmann::$<$/small$>$basic\_json}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md393}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md393}%
+ 
+\footnotesize Defined in header {\ttfamily \texorpdfstring{$<$}{<}nlohmann/json.\+hpp\texorpdfstring{$>$}{>}}
+\normalsize 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}\ V,\ \textcolor{keyword}{typename}...\ Args>\ \textcolor{keyword}{class\ }ObjectType\ =\ std::map,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ U,\ \textcolor{keyword}{typename}...\ Args>\ \textcolor{keyword}{class\ }ArrayType\ =\ std::vector,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }StringType\ =\ std::string,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }BooleanType\ =\ bool,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }NumberIntegerType\ =\ std::int64\_t,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }NumberUnsignedType\ =\ std::uint64\_t,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }NumberFloatType\ =\ double,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ U>\ \textcolor{keyword}{class\ }AllocatorType\ =\ std::allocator,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ SFINAE\ =\ \textcolor{keywordtype}{void}>\ \textcolor{keyword}{class\ }JSONSerializer\ =\ \mbox{\hyperlink{structadl__serializer}{adl\_serializer}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }BinaryType\ =\ std::vector<std::uint8\_t>,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }CustomBaseClass\ =\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{>}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classbasic__json}{basic\_json}};}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md394}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md394}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Template parameter   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Derived type    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Template parameter   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Derived type    }\\\cline{1-3}
+\endhead
+{\ttfamily Object\+Type}   &type for JSON objects   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Array\+Type}   &type for JSON arrays   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{\`{}array\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily String\+Type}   &type for JSON strings and object keys   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Boolean\+Type}   &type for JSON booleans   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}{\`{}boolean\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Number\+Integer\+Type}   &type for JSON integer numbers   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\`{}number\+\_\+integer\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Number\+Unsigned\+Type}   &type for JSON unsigned integer numbers   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{\`{}number\+\_\+unsigned\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Number\+Float\+Type}   &type for JSON floating-\/point numbers   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\`{}number\+\_\+float\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Allocator\+Type}   &type of the allocator to use   &\\\cline{1-3}
+{\ttfamily JSONSerializer}   &the serializer to resolve internal calls to {\ttfamily to\+\_\+json()} and {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}}   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer}{\`{}json\+\_\+serializer\`{}}{0}    \\\cline{1-3}
+{\ttfamily Binary\+Type}   &type for binary arrays   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{\`{}binary\+\_\+t\`{}}{0}    \\\cline{1-3}
+{\ttfamily Custom\+Base\+Class}   &extension point for user code   &\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__base__class__t}{\`{}json\+\_\+base\+\_\+class\+\_\+t\`{}}{0}   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md395}{}\doxysection{\texorpdfstring{Specializations}{Specializations}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md395}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}json\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ default specialization
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__json}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}ordered\+\_\+json\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ specialization that maintains the insertion order of object keys
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md396}{}\doxysection{\texorpdfstring{Iterator invalidation}{Iterator invalidation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md396}
+Todo\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md397}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md397}
+The class satisfies the following concept requirements\+:\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md398}{}\doxysubsection{\texorpdfstring{Basic}{Basic}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md398}
+
+\begin{DoxyItemize}
+\item \href{https://en.cppreference.com/w/cpp/named_req/DefaultConstructible}{\texttt{ Default\+Constructible}}\+: JSON values can be default constructed. The result will be a JSON null value.
+\item \href{https://en.cppreference.com/w/cpp/named_req/MoveConstructible}{\texttt{ Move\+Constructible}}\+: A JSON value can be constructed from an rvalue argument.
+\item \href{https://en.cppreference.com/w/cpp/named_req/CopyConstructible}{\texttt{ Copy\+Constructible}}\+: A JSON value can be copy-\/constructed from an lvalue expression.
+\item \href{https://en.cppreference.com/w/cpp/named_req/MoveAssignable}{\texttt{ Move\+Assignable}}\+: A JSON value can be assigned from an rvalue argument.
+\item \href{https://en.cppreference.com/w/cpp/named_req/CopyAssignable}{\texttt{ Copy\+Assignable}}\+: A JSON value can be copy-\/assigned from an lvalue expression.
+\item \href{https://en.cppreference.com/w/cpp/named_req/Destructible}{\texttt{ Destructible}}\+: JSON values can be destructed.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md399}{}\doxysubsection{\texorpdfstring{Layout}{Layout}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md399}
+
+\begin{DoxyItemize}
+\item \href{https://en.cppreference.com/w/cpp/named_req/StandardLayoutType}{\texttt{ Standard\+Layout\+Type}}\+: JSON values have \href{https://en.cppreference.com/w/cpp/language/data_members\#Standard_layout}{\texttt{ standard layout}}\+: All non-\/static data members are private and standard layout types, the class has no virtual functions or (virtual) base classes.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md400}{}\doxysubsection{\texorpdfstring{Library-\/wide}{Library-wide}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md400}
+
+\begin{DoxyItemize}
+\item \href{https://en.cppreference.com/w/cpp/named_req/EqualityComparable}{\texttt{ Equality\+Comparable}}\+: JSON values can be compared with {\ttfamily ==}, see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__eq}{\`{}operator==\`{}}{0}.
+\item \href{https://en.cppreference.com/w/cpp/named_req/LessThanComparable}{\texttt{ Less\+Than\+Comparable}}\+: JSON values can be compared with {\ttfamily \texorpdfstring{$<$}{<}}, see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__le}{\`{}operator\texorpdfstring{$<$}{<}\`{}}{0}.
+\item \href{https://en.cppreference.com/w/cpp/named_req/Swappable}{\texttt{ Swappable}}\+: Any JSON lvalue or rvalue of can be swapped with any lvalue or rvalue of other compatible types, using unqualified function {\ttfamily swap}.
+\item \href{https://en.cppreference.com/w/cpp/named_req/NullablePointer}{\texttt{ Nullable\+Pointer}}\+: JSON values can be compared against {\ttfamily \doxylink{namespacestd_a147badd87f1e15108e8dbee257b60b84}{std\+::nullptr\+\_\+t}} objects which are used to model the {\ttfamily null} value.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md401}{}\doxysubsection{\texorpdfstring{Container}{Container}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md401}
+
+\begin{DoxyItemize}
+\item \href{https://en.cppreference.com/w/cpp/named_req/Container}{\texttt{ Container}}\+: JSON values can be used like STL containers and provide iterator access.
+\item \href{https://en.cppreference.com/w/cpp/named_req/ReversibleContainer}{\texttt{ Reversible\+Container}}\+: JSON values can be used like STL containers and provide reverse iterator access.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md402}{}\doxysection{\texorpdfstring{Member types}{Member types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md402}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}adl\+\_\+serializer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ the default serializer
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ the JSON type enumeration
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}json\+\_\+pointer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ JSON Pointer implementation
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}json\+\_\+serializer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type of the serializer to for conversions from/to JSON
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2error__handler__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}error\+\_\+handler\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type to choose behavior on decoding errors
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbor__tag__handler__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cbor\+\_\+tag\+\_\+handler\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type to choose how to handle CBOR tags
+\item {\bfseries{initializer\+\_\+list\+\_\+t}} -\/ type for initializer lists of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} values
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2input__format__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}input\+\_\+format\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type to choose the format to parse
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}json\+\_\+sax\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for SAX events
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md403}{}\doxysubsection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md403}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2exception}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}exception\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ general exception of the {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} class
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parse\+\_\+error\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exception indicating a parse error
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2invalid__iterator}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}invalid\+\_\+iterator\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exception indicating errors with iterators
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}type\+\_\+error\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exception indicating executing a member function with a wrong type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2out__of__range}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}out\+\_\+of\+\_\+range\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exception indicating access out of the defined range
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2other__error}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}other\+\_\+error\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exception indicating other library errors
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md404}{}\doxysubsection{\texorpdfstring{Container types}{Container types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md404}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Definition    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Definition    }\\\cline{1-2}
+\endhead
+{\ttfamily value\+\_\+type}   &{\ttfamily \#!cpp \doxylink{classbasic__json}{basic\+\_\+json}}    \\\cline{1-2}
+{\ttfamily reference}   &{\ttfamily \#!cpp value\+\_\+type\&}    \\\cline{1-2}
+{\ttfamily const\+\_\+reference}   &{\ttfamily \#!cpp const value\+\_\+type\&}    \\\cline{1-2}
+{\ttfamily difference\+\_\+type}   &{\ttfamily \#!cpp std\+::ptrdiff\+\_\+t}    \\\cline{1-2}
+{\ttfamily size\+\_\+type}   &{\ttfamily \#!cpp \doxylink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}}    \\\cline{1-2}
+{\ttfamily allocator\+\_\+type}   &{\ttfamily \#!cpp Allocator\+Type\texorpdfstring{$<$}{<}\doxylink{classbasic__json}{basic\+\_\+json}\texorpdfstring{$>$}{>}}    \\\cline{1-2}
+{\ttfamily pointer}   &{\ttfamily \#!cpp std\+::allocator\+\_\+traits\texorpdfstring{$<$}{<}allocator\+\_\+type\texorpdfstring{$>$}{>}::pointer}    \\\cline{1-2}
+{\ttfamily const\+\_\+pointer}   &{\ttfamily \#!cpp std\+::allocator\+\_\+traits\texorpdfstring{$<$}{<}allocator\+\_\+type\texorpdfstring{$>$}{>}::const\+\_\+pointer}    \\\cline{1-2}
+{\ttfamily iterator}   &\href{https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator}{\texttt{ Legacy\+Bidirectional\+Iterator}}    \\\cline{1-2}
+{\ttfamily const\+\_\+iterator}   &constant \href{https://en.cppreference.com/w/cpp/named_req/BidirectionalIterator}{\texttt{ Legacy\+Bidirectional\+Iterator}}    \\\cline{1-2}
+{\ttfamily reverse\+\_\+iterator}   &reverse iterator, derived from {\ttfamily iterator}    \\\cline{1-2}
+{\ttfamily const\+\_\+reverse\+\_\+iterator}   &reverse iterator, derived from {\ttfamily const\+\_\+iterator}    \\\cline{1-2}
+{\ttfamily iteration\+\_\+proxy}   &helper type for \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items}{\`{}items\`{}}{0} function   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md405}{}\doxysubsection{\texorpdfstring{JSON value data types}{JSON value data types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md405}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}array\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for arrays
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}binary\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for binary arrays
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}boolean\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for booleans
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}default\+\_\+object\+\_\+comparator\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ default comparator for objects
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+float\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for numbers (floating-\/point)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+integer\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for numbers (integer)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}number\+\_\+unsigned\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for numbers (unsigned)
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}object\+\_\+comparator\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparator for objects
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}object\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for objects
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}string\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ type for strings
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md406}{}\doxysubsection{\texorpdfstring{Parser callback}{Parser callback}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md406}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parse\+\_\+event\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ parser event types
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parser__callback__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parser\+\_\+callback\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ per-\/element parser callback type
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md407}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md407}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2basic__json}{(constructor)}{0}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2_0ibasic__json}{(destructor)}{0}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0a}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ copy assignment
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}array\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ explicitly create an array
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}binary\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ explicitly create a binary array
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}object\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ explicitly create an object
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md408}{}\doxysubsection{\texorpdfstring{Object inspection}{Object inspection}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md408}
+Functions to inspect the type of a JSON value.
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}type\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return the type of the JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__value__t}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator value\+\_\+t\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return the type of the JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__name}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}type\+\_\+name\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return the type as string
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+primitive\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether type is primitive
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__structured}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+structured\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether type is structured
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__null}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+null\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is null
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__boolean}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+boolean\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is a boolean
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+number\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is a number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__integer}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+number\+\_\+integer\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is an integer number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__unsigned}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+number\+\_\+unsigned\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is an unsigned integer number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number__float}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+number\+\_\+float\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is a floating-\/point number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__object}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+object\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is an object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__array}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+array\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is an array
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__string}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+string\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is a string
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__binary}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+binary\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is a binary array
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__discarded}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}is\+\_\+discarded\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return whether value is discarded
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md409}{}\doxysubsection{\texorpdfstring{Value access}{Value access}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md409}
+Direct access to the stored value of a JSON value.
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__to}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\+\_\+to\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a value and write it to a destination
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ptr}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\+\_\+ptr\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a pointer value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\+\_\+ref\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a reference value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ValueType}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator Value\+Type\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__binary}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\+\_\+binary\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ get a binary value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md410}{}\doxysubsection{\texorpdfstring{Element access}{Element access}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md410}
+Access to the JSON value
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2at}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}at\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ access specified element with bounds checking
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_0f_0e}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\mbox{[}\mbox{]}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ access specified element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}value\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ access specified object element with default value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2front}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}front\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ access the first element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ access the last element
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md411}{}\doxysubsection{\texorpdfstring{Lookup}{Lookup}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md411}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2find}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}find\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ find an element in a JSON object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2count}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}count\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns the number of occurrences of a key in a JSON object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}contains\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ check the existence of an element in a JSON object
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md412}{}\doxysubsection{\texorpdfstring{Iterators}{Iterators}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md412}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2begin}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}begin\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns an iterator to the first element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cbegin}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cbegin\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns a const iterator to the first element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2end}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}end\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns an iterator to one past the last element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2cend}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cend\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns a const iterator to one past the last element
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2rbegin}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}rbegin\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns an iterator to the reverse-\/beginning
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2rend}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}rend\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns an iterator to the reverse-\/end
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2crbegin}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}crbegin\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns a const iterator to the reverse-\/beginning
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2crend}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}crend\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns a const iterator to the reverse-\/end
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2items}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}items\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ wrapper to access iterator member functions in range-\/based for
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md413}{}\doxysubsection{\texorpdfstring{Capacity}{Capacity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md413}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2empty}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}empty\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ checks whether the container is empty
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2size}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}size\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns the number of elements
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2max__size}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}max\+\_\+size\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns the maximum possible number of elements
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md414}{}\doxysubsection{\texorpdfstring{Modifiers}{Modifiers}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md414}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2clear}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}clear\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ clears the contents
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2push__back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}push\+\_\+back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ add a value to an array/object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator_09_0a}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator+=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ add a value to an array/object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace__back}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}emplace\+\_\+back\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ add a value to an array
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}emplace\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ add a value to an object if key does not exist
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2erase}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}erase\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ remove elements
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}insert\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ inserts elements
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2update}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}update\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ updates a JSON object from another object, overwriting existing keys
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2swap}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}swap\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exchanges the values
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md415}{}\doxysubsection{\texorpdfstring{Lexicographical comparison operators}{Lexicographical comparison operators}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md415}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__eq}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator==\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ne}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator!=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: not equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__lt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: less than
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: greater than
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__le}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: less than or equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ge}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$>$}{>}=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: greater than or equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: 3-\/way
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md416}{}\doxysubsection{\texorpdfstring{Serialization / Dumping}{Serialization / Dumping}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md416}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2dump}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}dump\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ serialization
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md417}{}\doxysubsection{\texorpdfstring{Deserialization / Parsing}{Deserialization / Parsing}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md417}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}parse\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ deserialize from a compatible input
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2accept}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}accept\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ check if the input is valid JSON
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}sax\+\_\+parse\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ generate SAX events
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md418}{}\doxysubsection{\texorpdfstring{JSON Pointer functions}{JSON Pointer functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md418}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2flatten}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}flatten\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return flattened JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2unflatten}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}unflatten\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ unflatten a previously flattened JSON value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md419}{}\doxysubsection{\texorpdfstring{JSON Patch functions}{JSON Patch functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md419}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}patch\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ applies a JSON patch
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2patch__inplace}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}patch\+\_\+inplace\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ applies a JSON patch in place
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2diff}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}diff\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ creates a diff as a JSON patch
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md420}{}\doxysubsection{\texorpdfstring{JSON Merge Patch functions}{JSON Merge Patch functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md420}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2merge__patch}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}merge\+\_\+patch\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ applies a JSON Merge Patch
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md421}{}\doxysection{\texorpdfstring{Static functions}{Static functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md421}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2meta}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}meta\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns version information on the library
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__allocator}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}get\+\_\+allocator\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ returns the allocator associated with the container
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md422}{}\doxysubsection{\texorpdfstring{Binary formats}{Binary formats}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md422}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bjdata}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+bjdata\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a JSON value from an input in BJData format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+bson\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a JSON value from an input in BSON format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+cbor\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a JSON value from an input in CBOR format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__msgpack}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+msgpack\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a JSON value from an input in Message\+Pack format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__ubjson}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}from\+\_\+ubjson\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a JSON value from an input in UBJSON format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bjdata}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+bjdata\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a BJData serialization of a given JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bson}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+bson\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a BSON serialization of a given JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__cbor}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+cbor\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a CBOR serialization of a given JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__msgpack}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+msgpack\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a Message\+Pack serialization of a given JSON value
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__ubjson}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+ubjson\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} ({\itshape static}) -\/ create a UBJSON serialization of a given JSON value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md423}{}\doxysection{\texorpdfstring{Non-\/member functions}{Non-member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md423}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__ltlt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ serialize to stream
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__gtgt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&)\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ deserialize from stream
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__string}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}to\+\_\+string\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ user-\/defined {\ttfamily to\+\_\+string} function for JSON values
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md424}{}\doxysection{\texorpdfstring{Literals}{Literals}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md424}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator"{}"{}\+\_\+json\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ user-\/defined string literal for JSON values
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md425}{}\doxysection{\texorpdfstring{Helper classes}{Helper classes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md425}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__hash}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}std\+::hash\texorpdfstring{$<$}{<}basic\+\_\+json\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ return a hash value for a JSON object
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2std__swap}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}std\+::swap\texorpdfstring{$<$}{<}basic\+\_\+json\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ exchanges the values of two JSON objects
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md426}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md426}
+??? example \begin{DoxyVerb}The example shows how the library is used.
+
+```cpp
+--8<-- "examples/README.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/README.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md427}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md427}
+
+\begin{DoxyItemize}
+\item \href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259\+: The Java\+Script Object Notation (JSON) Data Interchange Format}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md428}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index_autotoc_md428}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

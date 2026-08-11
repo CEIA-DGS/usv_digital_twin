@@ -1,0 +1,5 @@
+<map id="p2t::Edge" name="p2t::Edge">
+<area shape="rect" id="Node000001" title=" " alt="" coords="6,108,89,133"/>
+<area shape="rect" id="Node000002" href="$structp2t_1_1Point.html" title=" " alt="" coords="5,5,89,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,45,50,108,45,108,45,45"/>
+</map>

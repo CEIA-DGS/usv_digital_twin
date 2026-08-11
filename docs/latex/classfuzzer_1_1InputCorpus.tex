@@ -1,0 +1,187 @@
+\doxysection{fuzzer\+::Input\+Corpus Class Reference}
+\hypertarget{classfuzzer_1_1InputCorpus}{}\label{classfuzzer_1_1InputCorpus}\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Corpus.\+h$>$}
+
+
+
+Collaboration diagram for fuzzer\+::Input\+Corpus\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{classfuzzer_1_1InputCorpus__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfuzzer_1_1InputCorpus_a3445171570dea7e6550d6402bfb86287}{Input\+Corpus}} (const std\+::string \&Output\+Corpus)
+\item 
+\mbox{\hyperlink{classfuzzer_1_1InputCorpus_a4c093bf55f3573141e8bd5686803db8d}{\texorpdfstring{$\sim$}{\string~}\+Input\+Corpus}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_ac1fec5aeae69ce462d167a7b9e2d85e4}{size}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a9a602fd6b54d45aed0ff4d99b10676d0}{Size\+In\+Bytes}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_aeced0e36172d275d60e6b3aab7e176e6}{Num\+Active\+Units}} () const
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a47f292603c1bc491e0f8c9f9131fb5c7}{empty}} () const
+\item 
+const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \& \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a5d6155dd3a1e20f2d3a27420ca97e3c2}{operator\mbox{[}$\,$\mbox{]}}} (size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}) const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1InputCorpus_ac90b42d22754fcd60b9cb67f92ee4995}{Add\+To\+Corpus}} (const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&U, size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a9c696dfbff62d817a51d74cb0cae17fa}{Num\+Features}}, bool May\+Delete\+File=false)
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a3c108aa07e1cd4ea35bb96af686dab44}{Has\+Unit}} (const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&U)
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1InputCorpus_ab458ad8235e8482b320097c41fba4e81}{Has\+Unit}} (const std\+::string \&H)
+\item 
+\mbox{\hyperlink{structfuzzer_1_1InputInfo}{Input\+Info}} \& \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a57f2871e2fe6f0465cc94ca2f5041fe0}{Choose\+Unit\+To\+Mutate}} (\mbox{\hyperlink{classfuzzer_1_1Random}{Random}} \&Rand)
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_ae38fd42e90a48c5c94f5575bd68b3f5e}{Choose\+Unit\+Idx\+To\+Mutate}} (\mbox{\hyperlink{classfuzzer_1_1Random}{Random}} \&Rand)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a2238a0709b1f57877bb506887fc64b0a}{Print\+Stats}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a744f87fa757688d048cbe30dee1cb6ea}{Print\+Feature\+Set}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a64cde7656bbad1bd092306d725f27bdb}{Delete\+Input}} (size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a3e23a793c1810f5c6a727847a11a4ffd}{Add\+Feature}} (size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}, uint32\+\_\+t New\+Size, bool Shrink)
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a9c696dfbff62d817a51d74cb0cae17fa}{Num\+Features}} () const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a43c4d54619a6dfac825769593cd076ab}{Reset\+Feature\+Set}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1InputCorpus_a048f6e049364635d9c3014e794b129ad}{k\+Feature\+Set\+Size}} = 1 $<$$<$ 16
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfuzzer_1_1InputCorpus_a3445171570dea7e6550d6402bfb86287}\label{classfuzzer_1_1InputCorpus_a3445171570dea7e6550d6402bfb86287} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!InputCorpus@{InputCorpus}}
+\index{InputCorpus@{InputCorpus}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{InputCorpus()}{InputCorpus()}}
+{\footnotesize\ttfamily fuzzer\+::\+Input\+Corpus\+::\+Input\+Corpus (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Output\+Corpus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a4c093bf55f3573141e8bd5686803db8d}\label{classfuzzer_1_1InputCorpus_a4c093bf55f3573141e8bd5686803db8d} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!````~InputCorpus@{\texorpdfstring{$\sim$}{\string~}InputCorpus}}
+\index{````~InputCorpus@{\texorpdfstring{$\sim$}{\string~}InputCorpus}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}InputCorpus()}{\string~InputCorpus()}}
+{\footnotesize\ttfamily fuzzer\+::\+Input\+Corpus\+::\texorpdfstring{$\sim$}{\string~}\+Input\+Corpus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1InputCorpus_a3e23a793c1810f5c6a727847a11a4ffd}\label{classfuzzer_1_1InputCorpus_a3e23a793c1810f5c6a727847a11a4ffd} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!AddFeature@{AddFeature}}
+\index{AddFeature@{AddFeature}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{AddFeature()}{AddFeature()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Input\+Corpus\+::\+Add\+Feature (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Idx,  }\item[{uint32\+\_\+t}]{New\+Size,  }\item[{bool}]{Shrink }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_ac90b42d22754fcd60b9cb67f92ee4995}\label{classfuzzer_1_1InputCorpus_ac90b42d22754fcd60b9cb67f92ee4995} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!AddToCorpus@{AddToCorpus}}
+\index{AddToCorpus@{AddToCorpus}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{AddToCorpus()}{AddToCorpus()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Input\+Corpus\+::\+Add\+To\+Corpus (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&}]{U,  }\item[{size\+\_\+t}]{Num\+Features,  }\item[{bool}]{May\+Delete\+File = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_ae38fd42e90a48c5c94f5575bd68b3f5e}\label{classfuzzer_1_1InputCorpus_ae38fd42e90a48c5c94f5575bd68b3f5e} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!ChooseUnitIdxToMutate@{ChooseUnitIdxToMutate}}
+\index{ChooseUnitIdxToMutate@{ChooseUnitIdxToMutate}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{ChooseUnitIdxToMutate()}{ChooseUnitIdxToMutate()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Input\+Corpus\+::\+Choose\+Unit\+Idx\+To\+Mutate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1Random}{Random}} \&}]{Rand }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a57f2871e2fe6f0465cc94ca2f5041fe0}\label{classfuzzer_1_1InputCorpus_a57f2871e2fe6f0465cc94ca2f5041fe0} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!ChooseUnitToMutate@{ChooseUnitToMutate}}
+\index{ChooseUnitToMutate@{ChooseUnitToMutate}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{ChooseUnitToMutate()}{ChooseUnitToMutate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfuzzer_1_1InputInfo}{Input\+Info}} \& fuzzer\+::\+Input\+Corpus\+::\+Choose\+Unit\+To\+Mutate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classfuzzer_1_1Random}{Random}} \&}]{Rand }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a64cde7656bbad1bd092306d725f27bdb}\label{classfuzzer_1_1InputCorpus_a64cde7656bbad1bd092306d725f27bdb} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!DeleteInput@{DeleteInput}}
+\index{DeleteInput@{DeleteInput}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{DeleteInput()}{DeleteInput()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Input\+Corpus\+::\+Delete\+Input (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a47f292603c1bc491e0f8c9f9131fb5c7}\label{classfuzzer_1_1InputCorpus_a47f292603c1bc491e0f8c9f9131fb5c7} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!empty@{empty}}
+\index{empty@{empty}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Input\+Corpus\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_ab458ad8235e8482b320097c41fba4e81}\label{classfuzzer_1_1InputCorpus_ab458ad8235e8482b320097c41fba4e81} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!HasUnit@{HasUnit}}
+\index{HasUnit@{HasUnit}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{HasUnit()}{HasUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Input\+Corpus\+::\+Has\+Unit (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a3c108aa07e1cd4ea35bb96af686dab44}\label{classfuzzer_1_1InputCorpus_a3c108aa07e1cd4ea35bb96af686dab44} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!HasUnit@{HasUnit}}
+\index{HasUnit@{HasUnit}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{HasUnit()}{HasUnit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Input\+Corpus\+::\+Has\+Unit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&}]{U }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_aeced0e36172d275d60e6b3aab7e176e6}\label{classfuzzer_1_1InputCorpus_aeced0e36172d275d60e6b3aab7e176e6} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!NumActiveUnits@{NumActiveUnits}}
+\index{NumActiveUnits@{NumActiveUnits}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{NumActiveUnits()}{NumActiveUnits()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Input\+Corpus\+::\+Num\+Active\+Units (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a9c696dfbff62d817a51d74cb0cae17fa}\label{classfuzzer_1_1InputCorpus_a9c696dfbff62d817a51d74cb0cae17fa} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!NumFeatures@{NumFeatures}}
+\index{NumFeatures@{NumFeatures}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{NumFeatures()}{NumFeatures()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Input\+Corpus\+::\+Num\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a5d6155dd3a1e20f2d3a27420ca97e3c2}\label{classfuzzer_1_1InputCorpus_a5d6155dd3a1e20f2d3a27420ca97e3c2} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \& fuzzer\+::\+Input\+Corpus\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a744f87fa757688d048cbe30dee1cb6ea}\label{classfuzzer_1_1InputCorpus_a744f87fa757688d048cbe30dee1cb6ea} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!PrintFeatureSet@{PrintFeatureSet}}
+\index{PrintFeatureSet@{PrintFeatureSet}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{PrintFeatureSet()}{PrintFeatureSet()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Input\+Corpus\+::\+Print\+Feature\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a2238a0709b1f57877bb506887fc64b0a}\label{classfuzzer_1_1InputCorpus_a2238a0709b1f57877bb506887fc64b0a} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!PrintStats@{PrintStats}}
+\index{PrintStats@{PrintStats}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{PrintStats()}{PrintStats()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Input\+Corpus\+::\+Print\+Stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a43c4d54619a6dfac825769593cd076ab}\label{classfuzzer_1_1InputCorpus_a43c4d54619a6dfac825769593cd076ab} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!ResetFeatureSet@{ResetFeatureSet}}
+\index{ResetFeatureSet@{ResetFeatureSet}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{ResetFeatureSet()}{ResetFeatureSet()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Input\+Corpus\+::\+Reset\+Feature\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_ac1fec5aeae69ce462d167a7b9e2d85e4}\label{classfuzzer_1_1InputCorpus_ac1fec5aeae69ce462d167a7b9e2d85e4} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!size@{size}}
+\index{size@{size}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Input\+Corpus\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1InputCorpus_a9a602fd6b54d45aed0ff4d99b10676d0}\label{classfuzzer_1_1InputCorpus_a9a602fd6b54d45aed0ff4d99b10676d0} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!SizeInBytes@{SizeInBytes}}
+\index{SizeInBytes@{SizeInBytes}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{SizeInBytes()}{SizeInBytes()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Input\+Corpus\+::\+Size\+In\+Bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classfuzzer_1_1InputCorpus_a048f6e049364635d9c3014e794b129ad}\label{classfuzzer_1_1InputCorpus_a048f6e049364635d9c3014e794b129ad} 
+\index{fuzzer::InputCorpus@{fuzzer::InputCorpus}!kFeatureSetSize@{kFeatureSetSize}}
+\index{kFeatureSetSize@{kFeatureSetSize}!fuzzer::InputCorpus@{fuzzer::InputCorpus}}
+\doxysubsubsection{\texorpdfstring{kFeatureSetSize}{kFeatureSetSize}}
+{\footnotesize\ttfamily const size\+\_\+t fuzzer\+::\+Input\+Corpus\+::k\+Feature\+Set\+Size = 1 $<$$<$ 16\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerCorpus_8h}{Fuzzer\+Corpus.\+h}}\end{DoxyCompactItemize}

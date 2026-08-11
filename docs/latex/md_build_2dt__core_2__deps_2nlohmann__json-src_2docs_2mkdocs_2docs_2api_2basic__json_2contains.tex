@@ -1,0 +1,99 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}contains}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$contains@{$<$small$>$nlohmann::basic\_json::$<$/small$>$contains}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md177}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md177}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ \textcolor{keyword}{typename}\ object\_t::key\_type\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ KeyType>}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ contains(KeyType\&\&\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ contains(\textcolor{keyword}{const}\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}\&\ ptr)\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Check whether an element exists in a JSON object with a key equivalent to {\ttfamily key}. If the element is not found or the JSON value is not an object, {\ttfamily \#!cpp false} is returned.
+\item See 1. This overload is only available if {\ttfamily Key\+Type} is comparable with {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+type} and {\ttfamily \#!cpp typename object\+\_\+comparator\+\_\+t\+::is\+\_\+transparent} denotes a type.
+\item Check whether the given JSON pointer {\ttfamily ptr} can be resolved in the current JSON value.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md178}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md178}
+{\ttfamily Key\+Type} \+: A type for an object key other than \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2index}{\`{}json\+\_\+pointer\`{}}{0} that is comparable with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0} using \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}. This can also be a string view (C++17).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md179}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md179}
+{\ttfamily key} (in) \+: key value to check its existence.
+
+{\ttfamily ptr} (in) \+: JSON pointer to check its existence.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md180}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md180}
+
+\begin{DoxyEnumerate}
+\item {\ttfamily \#!cpp true} if an element with specified {\ttfamily key} exists. If no such element with such key is found or the JSON value is not an object, {\ttfamily \#!cpp false} is returned.
+\item See 1.
+\item {\ttfamily \#!cpp true} if the JSON pointer can be resolved to a stored value, {\ttfamily \#!cpp false} otherwise.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md181}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md181}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md182}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md182}
+
+\begin{DoxyEnumerate}
+\item The function does not throw exceptions.
+\item The function does not throw exceptions.
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error106}{\texttt{ {\ttfamily parse\+\_\+error.\+106}}} if an array index begins with {\ttfamily 0}.
+\item Throws \href{../../home/exceptions.md\#jsonexceptionparse_error109}{\texttt{ {\ttfamily parse\+\_\+error.\+109}}} if an array index was not a number.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md183}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md183}
+Logarithmic in the size of the JSON object.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md184}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md184}
+
+\begin{DoxyItemize}
+\item This method always returns {\ttfamily \#!cpp false} when executed on a JSON type that is not an object.
+\item This method can be executed on any JSON value type.
+\end{DoxyItemize}
+
+!!! info "{}\+Postconditions"{} \begin{DoxyVerb}If `#!cpp j.contains(x)` returns `#!c true` for a key or JSON pointer `x`, then it is safe to call `j[x]`.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md185}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md185}
+??? example "{}\+Example\+: (1) check with key"{} \begin{DoxyVerb}The example shows how `contains()` is used.
+
+```cpp
+--8<-- "examples/contains__object_t_key_type.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/contains__object_t_key_type.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) check with key using string\+\_\+view"{} \begin{DoxyVerb}The example shows how `contains()` is used.
+
+```cpp
+--8<-- "examples/contains__keytype.c++17.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/contains__keytype.c++17.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (3) check with JSON pointer"{} \begin{DoxyVerb}The example shows how `contains()` is used.
+
+```cpp
+--8<-- "examples/contains__json_pointer.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/contains__json_pointer.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md186}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2contains_autotoc_md186}
+
+\begin{DoxyEnumerate}
+\item Added in version 3.\+11.\+0.
+\item Added in version 3.\+6.\+0. Extended template {\ttfamily Key\+Type} to support comparable types in version 3.\+11.\+0.
+\item Added in version 3.\+7.\+0. 
+\end{DoxyEnumerate}

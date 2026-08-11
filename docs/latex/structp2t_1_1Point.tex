@@ -1,0 +1,175 @@
+\doxysection{p2t\+::Point Struct Reference}
+\hypertarget{structp2t_1_1Point}{}\label{structp2t_1_1Point}\index{p2t::Point@{p2t::Point}}
+
+
+{\ttfamily \#include $<$shapes.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structp2t_1_1Point_a7e573e8b3c263b088a2141d4977850b7}{Point}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor does nothing (for performance). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point_a60c0ed4b0d109b9172a50555220ebdc3}{Point}} (double \mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}, double \mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}})
+\begin{DoxyCompactList}\small\item\em Construct using coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structp2t_1_1Point_ac0b05395a17be952b6ea580495c9d11b}{set\+\_\+zero}} ()
+\begin{DoxyCompactList}\small\item\em Set this point to all zeros. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structp2t_1_1Point_aa8a3a62cc47e65e0f717679adf12fd4e}{set}} (double x\+\_\+, double y\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set this point to some specified coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \mbox{\hyperlink{structp2t_1_1Point_a0d5817d4ea8de01e587e4c1d54925046}{operator-\/}} () const
+\begin{DoxyCompactList}\small\item\em Negate this point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structp2t_1_1Point_a114de25986403a4096c16332d388372d}{operator+=}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&v)
+\begin{DoxyCompactList}\small\item\em Add a point to this point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structp2t_1_1Point_a7d22374466d39be1624a895648d1f980}{operator-\/=}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&v)
+\begin{DoxyCompactList}\small\item\em Subtract a point from this point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structp2t_1_1Point_a833e141215999f1b467fbf2915240ed7}{operator\texorpdfstring{$\ast$}{*}=}} (double a)
+\begin{DoxyCompactList}\small\item\em Multiply this point by a scalar. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structp2t_1_1Point_a03e8d1c1296721f56c4dee2e61d45744}{Length}} () const
+\begin{DoxyCompactList}\small\item\em Get the length of this point (the norm). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structp2t_1_1Point_ad8add2f6f3c4a220bc5741510701f9f7}{Normalize}} ()
+\begin{DoxyCompactList}\small\item\em Convert this point into a unit point. Returns the Length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}{x}}
+\item 
+double \mbox{\hyperlink{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}{y}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{structp2t_1_1Point_a116c82146cc0bf573baac56c77a9f90a}{edge\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em The edges this point constitutes an upper ending point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structp2t_1_1Point_a7e573e8b3c263b088a2141d4977850b7}\label{structp2t_1_1Point_a7e573e8b3c263b088a2141d4977850b7} 
+\index{p2t::Point@{p2t::Point}!Point@{Point}}
+\index{Point@{Point}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily p2t\+::\+Point\+::\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor does nothing (for performance). 
+
+\Hypertarget{structp2t_1_1Point_a60c0ed4b0d109b9172a50555220ebdc3}\label{structp2t_1_1Point_a60c0ed4b0d109b9172a50555220ebdc3} 
+\index{p2t::Point@{p2t::Point}!Point@{Point}}
+\index{Point@{Point}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{Point()}{Point()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily p2t\+::\+Point\+::\+Point (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Construct using coordinates. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structp2t_1_1Point_a03e8d1c1296721f56c4dee2e61d45744}\label{structp2t_1_1Point_a03e8d1c1296721f56c4dee2e61d45744} 
+\index{p2t::Point@{p2t::Point}!Length@{Length}}
+\index{Length@{Length}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily double p2t\+::\+Point\+::\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the length of this point (the norm). 
+
+\Hypertarget{structp2t_1_1Point_ad8add2f6f3c4a220bc5741510701f9f7}\label{structp2t_1_1Point_ad8add2f6f3c4a220bc5741510701f9f7} 
+\index{p2t::Point@{p2t::Point}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily double p2t\+::\+Point\+::\+Normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert this point into a unit point. Returns the Length. 
+
+\Hypertarget{structp2t_1_1Point_a833e141215999f1b467fbf2915240ed7}\label{structp2t_1_1Point_a833e141215999f1b467fbf2915240ed7} 
+\index{p2t::Point@{p2t::Point}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily void p2t\+::\+Point\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Multiply this point by a scalar. 
+
+\Hypertarget{structp2t_1_1Point_a114de25986403a4096c16332d388372d}\label{structp2t_1_1Point_a114de25986403a4096c16332d388372d} 
+\index{p2t::Point@{p2t::Point}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily void p2t\+::\+Point\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a point to this point. 
+
+\Hypertarget{structp2t_1_1Point_a0d5817d4ea8de01e587e4c1d54925046}\label{structp2t_1_1Point_a0d5817d4ea8de01e587e4c1d54925046} 
+\index{p2t::Point@{p2t::Point}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} p2t\+::\+Point\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Negate this point. 
+
+\Hypertarget{structp2t_1_1Point_a7d22374466d39be1624a895648d1f980}\label{structp2t_1_1Point_a7d22374466d39be1624a895648d1f980} 
+\index{p2t::Point@{p2t::Point}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily void p2t\+::\+Point\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Subtract a point from this point. 
+
+\Hypertarget{structp2t_1_1Point_aa8a3a62cc47e65e0f717679adf12fd4e}\label{structp2t_1_1Point_aa8a3a62cc47e65e0f717679adf12fd4e} 
+\index{p2t::Point@{p2t::Point}!set@{set}}
+\index{set@{set}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void p2t\+::\+Point\+::set (\begin{DoxyParamCaption}\item[{double}]{x\+\_\+,  }\item[{double}]{y\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set this point to some specified coordinates. 
+
+\Hypertarget{structp2t_1_1Point_ac0b05395a17be952b6ea580495c9d11b}\label{structp2t_1_1Point_ac0b05395a17be952b6ea580495c9d11b} 
+\index{p2t::Point@{p2t::Point}!set\_zero@{set\_zero}}
+\index{set\_zero@{set\_zero}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{set\_zero()}{set\_zero()}}
+{\footnotesize\ttfamily void p2t\+::\+Point\+::set\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set this point to all zeros. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structp2t_1_1Point_a116c82146cc0bf573baac56c77a9f90a}\label{structp2t_1_1Point_a116c82146cc0bf573baac56c77a9f90a} 
+\index{p2t::Point@{p2t::Point}!edge\_list@{edge\_list}}
+\index{edge\_list@{edge\_list}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{edge\_list}{edge\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\texorpdfstring{$\ast$}{*}$>$ p2t\+::\+Point\+::edge\+\_\+list}
+
+
+
+The edges this point constitutes an upper ending point. 
+
+\Hypertarget{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87}\label{structp2t_1_1Point_a49ca18e331005473fabe8352ae30aa87} 
+\index{p2t::Point@{p2t::Point}!x@{x}}
+\index{x@{x}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily double p2t\+::\+Point\+::x}
+
+\Hypertarget{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313}\label{structp2t_1_1Point_ac145d2fc2a314ba5d1f5f93b32888313} 
+\index{p2t::Point@{p2t::Point}!y@{y}}
+\index{y@{y}!p2t::Point@{p2t::Point}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily double p2t\+::\+Point\+::y}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/common/\mbox{\hyperlink{shapes_8h}{shapes.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/common/\mbox{\hyperlink{shapes_8cc}{shapes.\+cc}}\end{DoxyCompactItemize}

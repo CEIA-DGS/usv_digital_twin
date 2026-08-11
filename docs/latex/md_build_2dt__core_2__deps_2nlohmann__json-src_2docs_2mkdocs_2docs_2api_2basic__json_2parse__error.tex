@@ -1,0 +1,74 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}parse\+\_\+error}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse\_error@{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse\_error}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md752}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md752}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }parse\_error\ :\ \textcolor{keyword}{public}\ exception;}
+
+\end{DoxyCode}
+
+
+This exception is thrown by the library when a parse error occurs. Parse errors can occur during the deserialization of JSON text, BSON, CBOR, Message\+Pack, UBJSON, as well as when using JSON Patch.
+
+Member {\ttfamily byte} holds the byte index of the last read character in the input file (see note below).
+
+Exceptions have ids 1xx (see \href{../../home/exceptions.md\#parse-errors}{\texttt{ list of parse errors}}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::exception\ <|-\/-\/\ basic\_json::exception}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::parse\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::invalid\_iterator}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::type\_error}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::out\_of\_range}
+\DoxyCodeLine{basic\_json::exception\ <|-\/-\/\ basic\_json::other\_error}
+\DoxyCodeLine{}
+\DoxyCodeLine{interface\ std::exception\ \{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::exception\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ int\ id}
+\DoxyCodeLine{\ \ \ \ +\ const\ char*\ what()\ const}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ basic\_json::parse\_error\ \#FFFF00\ \{}
+\DoxyCodeLine{\ \ \ \ +\ const\ std::size\_t\ byte}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md753}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md753}
+
+\begin{DoxyItemize}
+\item {\bfseries{what}} -\/ returns explanatory string
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md754}{}\doxysection{\texorpdfstring{Member variables}{Member variables}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md754}
+
+\begin{DoxyItemize}
+\item {\bfseries{id}} -\/ the id of the exception
+\item {\bfseries{byte}} -\/ byte index of the parse error
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md755}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md755}
+For an input with \$n\$ bytes, 1 is the index of the first character and \$n+1\$ is the index of the terminating null byte or the end of file. This also holds true when reading a byte vector for binary formats.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md756}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md756}
+??? example \begin{DoxyVerb}The following code shows how a `parse_error` exception can be caught.
+
+```cpp
+--8<-- "examples/parse_error.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse_error.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md757}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md757}
+
+\begin{DoxyItemize}
+\item \href{../../home/exceptions.md\#parse-errors}{\texttt{ List of parse errors}}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2invalid__iterator}{\`{}invalid\+\_\+iterator\`{}}{0} for exceptions indicating errors with iterators
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2type__error}{\`{}type\+\_\+error\`{}}{0} for exceptions indicating executing a member function with a wrong type
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2out__of__range}{\`{}out\+\_\+of\+\_\+range\`{}}{0} for exceptions indicating access out of the defined range
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2other__error}{\`{}other\+\_\+error\`{}}{0} for exceptions indicating other library errors
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md758}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__error_autotoc_md758}
+
+\begin{DoxyItemize}
+\item Since version 3.\+0.\+0. 
+\end{DoxyItemize}

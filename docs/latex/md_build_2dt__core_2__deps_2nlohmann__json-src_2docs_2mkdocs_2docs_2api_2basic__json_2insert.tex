@@ -1,0 +1,161 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}insert}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$insert@{$<$small$>$nlohmann::basic\_json::$<$/small$>$insert}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md432}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md432}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{iterator\ insert(const\_iterator\ pos,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ val);}
+\DoxyCodeLine{iterator\ insert(const\_iterator\ pos,\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{iterator\ insert(const\_iterator\ pos,\ size\_type\ cnt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{iterator\ insert(const\_iterator\ pos,\ const\_iterator\ first,\ const\_iterator\ last);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (4)}}
+\DoxyCodeLine{iterator\ insert(const\_iterator\ pos,\ initializer\_list\_t\ ilist);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (5)}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ insert(const\_iterator\ first,\ const\_iterator\ last);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item Inserts element {\ttfamily val} into array before iterator {\ttfamily pos}.
+\item Inserts {\ttfamily cnt} copies of {\ttfamily val} into array before iterator {\ttfamily pos}.
+\item Inserts elements from range {\ttfamily \mbox{[}first, last)} into array before iterator {\ttfamily pos}.
+\item Inserts elements from initializer list {\ttfamily ilist} into array before iterator {\ttfamily pos}.
+\item Inserts elements from range {\ttfamily \mbox{[}first, last)} into object.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md433}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md433}
+{\ttfamily pos} (in) \+: iterator before which the content will be inserted; may be the {\ttfamily end()} iterator
+
+{\ttfamily val} (in) \+: value to insert
+
+{\ttfamily cnt} (in) \+: number of copies of {\ttfamily val} to insert
+
+{\ttfamily first} (in) \+: begin of the range of elements to insert
+
+{\ttfamily last} (in) \+: end of the range of elements to insert
+
+{\ttfamily ilist} (in) \+: initializer list to insert the values from\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md434}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md434}
+
+\begin{DoxyEnumerate}
+\item iterator pointing to the inserted {\ttfamily val}.
+\item iterator pointing to the first element inserted, or {\ttfamily pos} if {\ttfamily \#!cpp cnt==0}
+\item iterator pointing to the first element inserted, or {\ttfamily pos} if {\ttfamily \#!cpp first==last}
+\item iterator pointing to the first element inserted, or {\ttfamily pos} if {\ttfamily ilist} is empty
+\item (none)
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md435}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md435}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md436}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md436}
+
+\begin{DoxyEnumerate}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error309}{\texttt{ {\ttfamily type\+\_\+error.\+309}}} if called on JSON values other than arrays; example\+: {\ttfamily "{}cannot use insert() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error309}{\texttt{ {\ttfamily type\+\_\+error.\+309}}} if called on JSON values other than arrays; example\+: {\ttfamily "{}cannot use insert() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error309}{\texttt{ {\ttfamily type\+\_\+error.\+309}}} if called on JSON values other than arrays; example\+: {\ttfamily "{}cannot use insert() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator210}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+210}}} if {\ttfamily first} and {\ttfamily last} do not belong to the same JSON value; example\+: {\ttfamily "{}iterators do not fit"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator211}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+211}}} if {\ttfamily first} or {\ttfamily last} are iterators into container for which insert is called; example\+: {\ttfamily "{}passed iterators may not belong to container"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error309}{\texttt{ {\ttfamily type\+\_\+error.\+309}}} if called on JSON values other than arrays; example\+: {\ttfamily "{}cannot use insert() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\end{DoxyItemize}
+\item The function can throw the following exceptions\+:
+\begin{DoxyItemize}
+\item Throws \href{../../home/exceptions.md\#jsonexceptiontype_error309}{\texttt{ {\ttfamily type\+\_\+error.\+309}}} if called on JSON values other than objects; example\+: {\ttfamily "{}cannot use insert() with string"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator202}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+202}}} if called on an iterator which does not belong to the current JSON value; example\+: {\ttfamily "{}iterator does not fit current value"{}}
+\item Throws \href{../../home/exceptions.md\#jsonexceptioninvalid_iterator210}{\texttt{ {\ttfamily invalid\+\_\+iterator.\+210}}} if {\ttfamily first} and {\ttfamily last} do not belong to the same JSON value; example\+: {\ttfamily "{}iterators do not fit"{}}
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md437}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md437}
+
+\begin{DoxyEnumerate}
+\item Constant plus linear in the distance between {\ttfamily pos} and end of the container.
+\item Linear in {\ttfamily cnt} plus linear in the distance between {\ttfamily pos} and end of the container.
+\item Linear in {\ttfamily \#!cpp std\+::distance(first, last)} plus linear in the distance between {\ttfamily pos} and end of the container.
+\item Linear in {\ttfamily ilist.\+size()} plus linear in the distance between {\ttfamily pos} and end of the container.
+\item Logarithmic\+: {\ttfamily O(N\texorpdfstring{$\ast$}{*}log(size() + N))}, where {\ttfamily N} is the number of elements to insert.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md438}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md438}
+??? example "{}\+Example (1)\+: insert element into array"{} \begin{DoxyVerb}The example shows how `insert()` is used.
+
+```cpp
+--8<-- "examples/insert.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/insert.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example (2)\+: insert copies of element into array"{} \begin{DoxyVerb}The example shows how `insert()` is used.
+
+```cpp
+--8<-- "examples/insert__count.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/insert__count.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example (3)\+: insert range of elements into array"{} \begin{DoxyVerb}The example shows how `insert()` is used.
+
+```cpp
+--8<-- "examples/insert__range.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/insert__range.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example (4)\+: insert elements from initializer list into array"{} \begin{DoxyVerb}The example shows how `insert()` is used.
+
+```cpp
+--8<-- "examples/insert__ilist.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/insert__ilist.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example (5)\+: insert range of elements into object"{} \begin{DoxyVerb}The example shows how `insert()` is used.
+
+```cpp
+--8<-- "examples/insert__range_object.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/insert__range_object.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md439}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2insert_autotoc_md439}
+
+\begin{DoxyEnumerate}
+\item Added in version 1.\+0.\+0.
+\item Added in version 1.\+0.\+0.
+\item Added in version 1.\+0.\+0.
+\item Added in version 1.\+0.\+0.
+\item Added in version 3.\+0.\+0. 
+\end{DoxyEnumerate}

@@ -1,0 +1,27 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,271,120,296"/>
+<area shape="rect" id="Node000001" href="$classdetail_1_1exception.html" title="general exception of the basic_json class" alt="" coords="205,129,335,155"/>
+<area shape="poly" id="edge64_Node000000_Node000001" title=" " alt="" coords="92,261,248,153,251,157,95,265"/>
+<area shape="rect" id="Node000007" href="$classnlohmann_1_1detail_1_1exception.html" title="general exception of the basic_json class" alt="" coords="168,356,372,381"/>
+<area shape="poly" id="edge70_Node000000_Node000007" title=" " alt="" coords="108,299,239,353,237,358,106,304"/>
+<area shape="rect" id="Node000002" href="$classdetail_1_1invalid__iterator.html" title="exception indicating errors with iterators" alt="" coords="429,5,595,31"/>
+<area shape="poly" id="edge65_Node000001_Node000002" title=" " alt="" coords="296,118,351,78,419,40,450,28,452,33,421,44,353,83,299,123"/>
+<area shape="rect" id="Node000003" href="$classdetail_1_1other__error.html" title="exception indicating other library errors" alt="" coords="443,55,581,80"/>
+<area shape="poly" id="edge66_Node000001_Node000003" title=" " alt="" coords="318,122,419,89,459,77,461,83,421,94,320,127"/>
+<area shape="rect" id="Node000004" href="$classdetail_1_1out__of__range.html" title="exception indicating access out of the defined range" alt="" coords="436,104,588,129"/>
+<area shape="poly" id="edge67_Node000001_Node000004" title=" " alt="" coords="349,131,435,122,436,127,349,136"/>
+<area shape="rect" id="Node000005" href="$classdetail_1_1parse__error.html" title="exception indicating a parse error" alt="" coords="441,153,583,179"/>
+<area shape="poly" id="edge68_Node000001_Node000005" title=" " alt="" coords="349,147,442,156,441,162,349,152"/>
+<area shape="rect" id="Node000006" href="$classdetail_1_1type__error.html" title="exception indicating executing a member function with a wrong type" alt="" coords="445,203,579,228"/>
+<area shape="poly" id="edge69_Node000001_Node000006" title=" " alt="" coords="323,157,421,187,464,200,463,205,419,193,322,162"/>
+<area shape="rect" id="Node000008" href="$classnlohmann_1_1detail_1_1invalid__iterator.html" title="exception indicating errors with iterators" alt="" coords="420,253,604,293"/>
+<area shape="poly" id="edge71_Node000007_Node000008" title=" " alt="" coords="311,348,419,302,451,290,453,295,421,307,313,353"/>
+<area shape="rect" id="Node000009" href="$classnlohmann_1_1detail_1_1other__error.html" title="exception indicating other library errors" alt="" coords="425,317,599,357"/>
+<area shape="poly" id="edge72_Node000007_Node000009" title=" " alt="" coords="380,352,424,346,425,351,380,357"/>
+<area shape="rect" id="Node000010" href="$classnlohmann_1_1detail_1_1out__of__range.html" title="exception indicating access out of the defined range" alt="" coords="431,381,593,421"/>
+<area shape="poly" id="edge73_Node000007_Node000010" title=" " alt="" coords="380,380,432,387,431,393,379,386"/>
+<area shape="rect" id="Node000011" href="$classnlohmann_1_1detail_1_1parse__error.html" title="exception indicating a parse error" alt="" coords="424,445,600,485"/>
+<area shape="poly" id="edge74_Node000007_Node000011" title=" " alt="" coords="313,385,421,430,453,442,451,447,419,435,311,389"/>
+<area shape="rect" id="Node000012" href="$classnlohmann_1_1detail_1_1type__error.html" title="exception indicating executing a member function with a wrong type" alt="" coords="427,509,597,549"/>
+<area shape="poly" id="edge75_Node000007_Node000012" title=" " alt="" coords="294,389,349,441,384,470,421,494,446,506,443,511,419,499,381,474,345,445,290,393"/>
+</map>

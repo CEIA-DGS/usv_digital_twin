@@ -1,0 +1,34 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::json\+\_\+pointer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}push\+\_\+back}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back}\index{$<$small$>$nlohmann::json\_pointer::$<$/small$>$push\_back@{$<$small$>$nlohmann::json\_pointer::$<$/small$>$push\_back}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1049}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1049}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(\textcolor{keyword}{const}\ string\_t\&\ token);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ push\_back(string\_t\&\&\ token);}
+
+\end{DoxyCode}
+
+
+Append an unescaped token at the end of the reference pointer.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1050}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1050}
+{\ttfamily token} (in) \+: token to add\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1051}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1051}
+Amortized constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1052}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1052}
+??? example \begin{DoxyVerb}The example shows the result of `push_back` for different JSON Pointers.
+
+```cpp
+--8<-- "examples/json_pointer__push_back.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/json_pointer__push_back.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1053}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2push__back_autotoc_md1053}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+6.\+0.
+\item Changed type of {\ttfamily token} to {\ttfamily string\+\_\+t} in version 3.\+11.\+0. 
+\end{DoxyItemize}

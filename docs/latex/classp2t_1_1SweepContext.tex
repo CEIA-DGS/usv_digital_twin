@@ -1,0 +1,261 @@
+\doxysection{p2t\+::Sweep\+Context Class Reference}
+\hypertarget{classp2t_1_1SweepContext}{}\label{classp2t_1_1SweepContext}\index{p2t::SweepContext@{p2t::SweepContext}}
+
+
+{\ttfamily \#include $<$sweep\+\_\+context.\+h$>$}
+
+
+
+Collaboration diagram for p2t\+::Sweep\+Context\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{classp2t_1_1SweepContext__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structp2t_1_1SweepContext_1_1Basin}{Basin}}
+\item 
+struct \mbox{\hyperlink{structp2t_1_1SweepContext_1_1EdgeEvent}{Edge\+Event}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classp2t_1_1SweepContext_a2b500da0d77926f92fdcf41e45164ef4}{Sweep\+Context}} (std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classp2t_1_1SweepContext_a4275f1eb166fe4c69d18670898c65f98}{\texorpdfstring{$\sim$}{\string~}\+Sweep\+Context}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_abd31ac7cc3ba9d418e08d5583ae7d32e}{set\+\_\+head}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}p1)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_a6200a1306eb5ddb4f41fc44ad7da568d}{head}} () const
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_ac685ab377d5f1b184b4bb94e151a2af9}{set\+\_\+tail}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}p1)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_a638a5e0fa56ceed1a701480dfbe971c0}{tail}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classp2t_1_1SweepContext_a8b15732d7078f336d0017475c422c15a}{point\+\_\+count}} () const
+\item 
+\mbox{\hyperlink{structp2t_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_adc2f7b94eb174c30b01e323a1f362f27}{Locate\+Node}} (const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&point)
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a0ea069bc88f6f7cd4b0022d988017d8d}{Remove\+Node}} (\mbox{\hyperlink{structp2t_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}node)
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a408d4af1279a75474556fe554c2fdf95}{Create\+Advancing\+Front}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_aa1c59ec4b2bc6d6f3b248c452d6993c1}{Map\+Triangle\+To\+Nodes}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&t)
+\begin{DoxyCompactList}\small\item\em Try to map a node to all sides of this triangle that don\textquotesingle{}t have a neighbor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a9ae8715f961ca7e61cc5a986f6afbe12}{Add\+To\+Map}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}triangle)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_a4e3b5347e7d84b6b10be3f0022bad773}{Get\+Point}} (size\+\_\+t index)
+\item 
+\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_ae4034d91a876f26e5abaa68988e62f29}{Get\+Points}} ()
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a7fb0c50ea27a52a1f912809404657f89}{Remove\+From\+Map}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}triangle)
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a6402e488c031415f2129cc132a68a5a2}{Add\+Hole}} (const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&\mbox{\hyperlink{main_8cc_a6813bb33bf23118cd4bf1b4e4f569833}{polyline}})
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a1197bffb2102eef7615a143ee5ce0437}{Add\+Point}} (\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}point)
+\item 
+\mbox{\hyperlink{classp2t_1_1AdvancingFront}{Advancing\+Front}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classp2t_1_1SweepContext_a96c74c5c56fc875ab90edb5c4bec0ee2}{front}} () const
+\item 
+void \mbox{\hyperlink{classp2t_1_1SweepContext_a37a0e33f03be651567ae13cd65c25161}{Mesh\+Clean}} (\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&triangle)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classp2t_1_1SweepContext_aa1edb4e619dc44110d3aa0c71840fe21}{Get\+Triangles}} ()
+\item 
+std\+::list$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{classp2t_1_1SweepContext_ab954404d08be7fb3b6c4cfb643befcfb}{Get\+Map}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Edge}{Edge}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classp2t_1_1SweepContext_ab5da3232dd8284254ecdedbec3047ea0}{edge\+\_\+list}}
+\item 
+\mbox{\hyperlink{structp2t_1_1SweepContext_1_1Basin}{Basin}} \mbox{\hyperlink{classp2t_1_1SweepContext_a79c599f974533a926b6a9ec73870e7d4}{basin}}
+\item 
+\mbox{\hyperlink{structp2t_1_1SweepContext_1_1EdgeEvent}{Edge\+Event}} \mbox{\hyperlink{classp2t_1_1SweepContext_a86a138afe29697cfcd33158ec59c663e}{edge\+\_\+event}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classp2t_1_1SweepContext_a908f328c298fc585c89c0ab14546aeba}{Sweep}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classp2t_1_1SweepContext_a2b500da0d77926f92fdcf41e45164ef4}\label{classp2t_1_1SweepContext_a2b500da0d77926f92fdcf41e45164ef4} 
+\index{p2t::SweepContext@{p2t::SweepContext}!SweepContext@{SweepContext}}
+\index{SweepContext@{SweepContext}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{SweepContext()}{SweepContext()}}
+{\footnotesize\ttfamily p2t\+::\+Sweep\+Context\+::\+Sweep\+Context (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$}]{polyline }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+\Hypertarget{classp2t_1_1SweepContext_a4275f1eb166fe4c69d18670898c65f98}\label{classp2t_1_1SweepContext_a4275f1eb166fe4c69d18670898c65f98} 
+\index{p2t::SweepContext@{p2t::SweepContext}!````~SweepContext@{\texorpdfstring{$\sim$}{\string~}SweepContext}}
+\index{````~SweepContext@{\texorpdfstring{$\sim$}{\string~}SweepContext}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SweepContext()}{\string~SweepContext()}}
+{\footnotesize\ttfamily p2t\+::\+Sweep\+Context\+::\texorpdfstring{$\sim$}{\string~}\+Sweep\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classp2t_1_1SweepContext_a6402e488c031415f2129cc132a68a5a2}\label{classp2t_1_1SweepContext_a6402e488c031415f2129cc132a68a5a2} 
+\index{p2t::SweepContext@{p2t::SweepContext}!AddHole@{AddHole}}
+\index{AddHole@{AddHole}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{AddHole()}{AddHole()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Add\+Hole (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} $>$ \&}]{polyline }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a1197bffb2102eef7615a143ee5ce0437}\label{classp2t_1_1SweepContext_a1197bffb2102eef7615a143ee5ce0437} 
+\index{p2t::SweepContext@{p2t::SweepContext}!AddPoint@{AddPoint}}
+\index{AddPoint@{AddPoint}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{AddPoint()}{AddPoint()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Add\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a9ae8715f961ca7e61cc5a986f6afbe12}\label{classp2t_1_1SweepContext_a9ae8715f961ca7e61cc5a986f6afbe12} 
+\index{p2t::SweepContext@{p2t::SweepContext}!AddToMap@{AddToMap}}
+\index{AddToMap@{AddToMap}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{AddToMap()}{AddToMap()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Add\+To\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}}]{triangle }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a408d4af1279a75474556fe554c2fdf95}\label{classp2t_1_1SweepContext_a408d4af1279a75474556fe554c2fdf95} 
+\index{p2t::SweepContext@{p2t::SweepContext}!CreateAdvancingFront@{CreateAdvancingFront}}
+\index{CreateAdvancingFront@{CreateAdvancingFront}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{CreateAdvancingFront()}{CreateAdvancingFront()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Create\+Advancing\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a96c74c5c56fc875ab90edb5c4bec0ee2}\label{classp2t_1_1SweepContext_a96c74c5c56fc875ab90edb5c4bec0ee2} 
+\index{p2t::SweepContext@{p2t::SweepContext}!front@{front}}
+\index{front@{front}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classp2t_1_1AdvancingFront}{Advancing\+Front}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1SweepContext_ab954404d08be7fb3b6c4cfb643befcfb}\label{classp2t_1_1SweepContext_ab954404d08be7fb3b6c4cfb643befcfb} 
+\index{p2t::SweepContext@{p2t::SweepContext}!GetMap@{GetMap}}
+\index{GetMap@{GetMap}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{GetMap()}{GetMap()}}
+{\footnotesize\ttfamily std\+::list$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \& p2t\+::\+Sweep\+Context\+::\+Get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a4e3b5347e7d84b6b10be3f0022bad773}\label{classp2t_1_1SweepContext_a4e3b5347e7d84b6b10be3f0022bad773} 
+\index{p2t::SweepContext@{p2t::SweepContext}!GetPoint@{GetPoint}}
+\index{GetPoint@{GetPoint}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{GetPoint()}{GetPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::\+Get\+Point (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_ae4034d91a876f26e5abaa68988e62f29}\label{classp2t_1_1SweepContext_ae4034d91a876f26e5abaa68988e62f29} 
+\index{p2t::SweepContext@{p2t::SweepContext}!GetPoints@{GetPoints}}
+\index{GetPoints@{GetPoints}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{GetPoints()}{GetPoints()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::\+Get\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_aa1edb4e619dc44110d3aa0c71840fe21}\label{classp2t_1_1SweepContext_aa1edb4e619dc44110d3aa0c71840fe21} 
+\index{p2t::SweepContext@{p2t::SweepContext}!GetTriangles@{GetTriangles}}
+\index{GetTriangles@{GetTriangles}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{GetTriangles()}{GetTriangles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*} $>$ \& p2t\+::\+Sweep\+Context\+::\+Get\+Triangles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a6200a1306eb5ddb4f41fc44ad7da568d}\label{classp2t_1_1SweepContext_a6200a1306eb5ddb4f41fc44ad7da568d} 
+\index{p2t::SweepContext@{p2t::SweepContext}!head@{head}}
+\index{head@{head}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{head()}{head()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1SweepContext_adc2f7b94eb174c30b01e323a1f362f27}\label{classp2t_1_1SweepContext_adc2f7b94eb174c30b01e323a1f362f27} 
+\index{p2t::SweepContext@{p2t::SweepContext}!LocateNode@{LocateNode}}
+\index{LocateNode@{LocateNode}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{LocateNode()}{LocateNode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::\+Locate\+Node (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structp2t_1_1Point}{Point}} \&}]{point }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_aa1c59ec4b2bc6d6f3b248c452d6993c1}\label{classp2t_1_1SweepContext_aa1c59ec4b2bc6d6f3b248c452d6993c1} 
+\index{p2t::SweepContext@{p2t::SweepContext}!MapTriangleToNodes@{MapTriangleToNodes}}
+\index{MapTriangleToNodes@{MapTriangleToNodes}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{MapTriangleToNodes()}{MapTriangleToNodes()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Map\+Triangle\+To\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&}]{t }\end{DoxyParamCaption})}
+
+
+
+Try to map a node to all sides of this triangle that don\textquotesingle{}t have a neighbor. 
+
+\Hypertarget{classp2t_1_1SweepContext_a37a0e33f03be651567ae13cd65c25161}\label{classp2t_1_1SweepContext_a37a0e33f03be651567ae13cd65c25161} 
+\index{p2t::SweepContext@{p2t::SweepContext}!MeshClean@{MeshClean}}
+\index{MeshClean@{MeshClean}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{MeshClean()}{MeshClean()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Mesh\+Clean (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \&}]{triangle }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a8b15732d7078f336d0017475c422c15a}\label{classp2t_1_1SweepContext_a8b15732d7078f336d0017475c422c15a} 
+\index{p2t::SweepContext@{p2t::SweepContext}!point\_count@{point\_count}}
+\index{point\_count@{point\_count}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{point\_count()}{point\_count()}}
+{\footnotesize\ttfamily size\+\_\+t p2t\+::\+Sweep\+Context\+::point\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1SweepContext_a7fb0c50ea27a52a1f912809404657f89}\label{classp2t_1_1SweepContext_a7fb0c50ea27a52a1f912809404657f89} 
+\index{p2t::SweepContext@{p2t::SweepContext}!RemoveFromMap@{RemoveFromMap}}
+\index{RemoveFromMap@{RemoveFromMap}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{RemoveFromMap()}{RemoveFromMap()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Remove\+From\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}} \texorpdfstring{$\ast$}{*}}]{triangle }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_a0ea069bc88f6f7cd4b0022d988017d8d}\label{classp2t_1_1SweepContext_a0ea069bc88f6f7cd4b0022d988017d8d} 
+\index{p2t::SweepContext@{p2t::SweepContext}!RemoveNode@{RemoveNode}}
+\index{RemoveNode@{RemoveNode}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{RemoveNode()}{RemoveNode()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::\+Remove\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}}]{node }\end{DoxyParamCaption})}
+
+\Hypertarget{classp2t_1_1SweepContext_abd31ac7cc3ba9d418e08d5583ae7d32e}\label{classp2t_1_1SweepContext_abd31ac7cc3ba9d418e08d5583ae7d32e} 
+\index{p2t::SweepContext@{p2t::SweepContext}!set\_head@{set\_head}}
+\index{set\_head@{set\_head}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{set\_head()}{set\_head()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::set\+\_\+head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1SweepContext_ac685ab377d5f1b184b4bb94e151a2af9}\label{classp2t_1_1SweepContext_ac685ab377d5f1b184b4bb94e151a2af9} 
+\index{p2t::SweepContext@{p2t::SweepContext}!set\_tail@{set\_tail}}
+\index{set\_tail@{set\_tail}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{set\_tail()}{set\_tail()}}
+{\footnotesize\ttfamily void p2t\+::\+Sweep\+Context\+::set\+\_\+tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*}}]{p1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classp2t_1_1SweepContext_a638a5e0fa56ceed1a701480dfbe971c0}\label{classp2t_1_1SweepContext_a638a5e0fa56ceed1a701480dfbe971c0} 
+\index{p2t::SweepContext@{p2t::SweepContext}!tail@{tail}}
+\index{tail@{tail}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{tail()}{tail()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1Point}{Point}} \texorpdfstring{$\ast$}{*} p2t\+::\+Sweep\+Context\+::tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classp2t_1_1SweepContext_a908f328c298fc585c89c0ab14546aeba}\label{classp2t_1_1SweepContext_a908f328c298fc585c89c0ab14546aeba} 
+\index{p2t::SweepContext@{p2t::SweepContext}!Sweep@{Sweep}}
+\index{Sweep@{Sweep}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{Sweep}{Sweep}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classp2t_1_1Sweep}{Sweep}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classp2t_1_1SweepContext_a79c599f974533a926b6a9ec73870e7d4}\label{classp2t_1_1SweepContext_a79c599f974533a926b6a9ec73870e7d4} 
+\index{p2t::SweepContext@{p2t::SweepContext}!basin@{basin}}
+\index{basin@{basin}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{basin}{basin}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1SweepContext_1_1Basin}{Basin}} p2t\+::\+Sweep\+Context\+::basin}
+
+\Hypertarget{classp2t_1_1SweepContext_a86a138afe29697cfcd33158ec59c663e}\label{classp2t_1_1SweepContext_a86a138afe29697cfcd33158ec59c663e} 
+\index{p2t::SweepContext@{p2t::SweepContext}!edge\_event@{edge\_event}}
+\index{edge\_event@{edge\_event}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{edge\_event}{edge\_event}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structp2t_1_1SweepContext_1_1EdgeEvent}{Edge\+Event}} p2t\+::\+Sweep\+Context\+::edge\+\_\+event}
+
+\Hypertarget{classp2t_1_1SweepContext_ab5da3232dd8284254ecdedbec3047ea0}\label{classp2t_1_1SweepContext_ab5da3232dd8284254ecdedbec3047ea0} 
+\index{p2t::SweepContext@{p2t::SweepContext}!edge\_list@{edge\_list}}
+\index{edge\_list@{edge\_list}!p2t::SweepContext@{p2t::SweepContext}}
+\doxysubsubsection{\texorpdfstring{edge\_list}{edge\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{structp2t_1_1Edge}{Edge}}\texorpdfstring{$\ast$}{*}$>$ p2t\+::\+Sweep\+Context\+::edge\+\_\+list}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/sweep/\mbox{\hyperlink{sweep__context_8h}{sweep\+\_\+context.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/poly2tri-\/src/poly2tri/sweep/\mbox{\hyperlink{sweep__context_8cc}{sweep\+\_\+context.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,100 @@
+\chapter{Object Order}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order}\index{Object Order@{Object Order}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1414}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1414}%
+ The \href{https://tools.ietf.org/html/rfc8259.html}{\texttt{ JSON standard}} defines objects as "{}an unordered collection of zero or more name/value pairs"{}. As such, an implementation does not need to preserve any specific order of object keys.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1415}{}\doxysection{\texorpdfstring{Default behavior\+: sort keys}{Default behavior: sort keys}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1415}
+The default type {\ttfamily \doxylink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} uses a {\ttfamily std\+::map} to store JSON objects, and thus stores object keys {\bfseries{sorted alphabetically}}.
+
+??? example \begin{DoxyVerb}```cpp
+#include <iostream>
+#include "json.hpp"
+
+using json = nlohmann::json;
+
+int main()
+{
+    json j;
+    j["one"] = 1;
+    j["two"] = 2;
+    j["three"] = 3;
+
+    std::cout << j.dump(2) << '\n';
+}
+```
+
+Output:
+
+```json
+{
+  "one": 1,
+  "three": 3,
+  "two": 2
+}
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1416}{}\doxysection{\texorpdfstring{Alternative behavior\+: preserve insertion order}{Alternative behavior: preserve insertion order}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1416}
+If you do want to preserve the {\bfseries{insertion order}}, you can try the type \href{https://github.com/nlohmann/json/issues/2179}{\texttt{ {\ttfamily nlohmann\+::ordered\+\_\+json}}}.
+
+??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/ordered_json.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/ordered_json.output"
+```
+\end{DoxyVerb}
+ Alternatively, you can use a more sophisticated ordered map like \href{https://github.com/Tessil/ordered-map}{\texttt{ {\ttfamily tsl\+::ordered\+\_\+map}}} (\href{https://github.com/nlohmann/json/issues/546\#issuecomment-304447518}{\texttt{ integration}}) or \href{https://github.com/nlohmann/fifo_map}{\texttt{ {\ttfamily nlohmann\+::fifo\+\_\+map}}} (\href{https://github.com/nlohmann/json/issues/485\#issuecomment-333652309}{\texttt{ integration}}).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1417}{}\doxysubsection{\texorpdfstring{Notes on parsing}{Notes on parsing}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2object__order_autotoc_md1417}
+Note that you also need to call the right \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{\`{}parse\`{}}{0} function when reading from a file. Assume file {\ttfamily input.\+json} contains the JSON object above\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}one"{}:\ 1,}
+\DoxyCodeLine{\ \ "{}two"{}:\ 2,}
+\DoxyCodeLine{\ \ "{}three"{}:\ 3}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+!!! success "{}\+Right way"{} \begin{DoxyVerb}The following code correctly calls the `parse` function from `nlohmann::ordered_json`:
+
+```cpp
+std::ifstream i("input.json");
+auto j = nlohmann::ordered_json::parse(i);
+std::cout << j.dump(2) << std::endl;
+```
+
+The output will be:
+
+```json
+{
+  "one": 1,
+  "two": 2,
+  "three": 3
+}
+```
+\end{DoxyVerb}
+ ??? failure "{}\+Wrong way"{} \begin{DoxyVerb}The following code incorrectly calls the `parse` function from `nlohmann::json` which does not preserve the
+insertion order, but sorts object keys. Assigning the result to `nlohmann::ordered_json` compiles, but does not
+restore the order from the input file.
+
+```cpp
+std::ifstream i("input.json");
+nlohmann::ordered_json j = nlohmann::json::parse(i);
+std::cout << j.dump(2) << std::endl;
+```
+
+The output will be:
+
+```json
+{
+  "one": 1,
+  "three": 3
+  "two": 2,
+}
+```
+\end{DoxyVerb}
+ 

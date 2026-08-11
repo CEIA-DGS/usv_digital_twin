@@ -1,0 +1,61 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/deserialization.cpp File Reference}
+\hypertarget{unit-deserialization_8cpp}{}\label{unit-deserialization_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/deserialization.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/deserialization.cpp}}
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+Include dependency graph for unit-\/deserialization.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-deserialization_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-deserialization_8cpp_abb1ae50a9c690f2135d74a455ee8cf36}{TEST\+\_\+\+CASE}} ("{}deserialization"{})
+\item 
+\mbox{\hyperlink{unit-deserialization_8cpp_a02d4c5b2f53f945993212c26179fafb1}{TEST\+\_\+\+CASE\+\_\+\+TEMPLATE}} ("{}deserialization of different character types (ASCII)"{}, T, char, unsigned char, signed char, wchar\+\_\+t, char16\+\_\+t, char32\+\_\+t, std\+::uint8\+\_\+t, std\+::int8\+\_\+t, std\+::int16\+\_\+t, std\+::uint16\+\_\+t, std\+::int32\+\_\+t, std\+::uint32\+\_\+t)
+\item 
+\mbox{\hyperlink{unit-deserialization_8cpp_a088ceff766dedc2e5c95cffecde8ce70}{TEST\+\_\+\+CASE\+\_\+\+TEMPLATE}} ("{}deserialization of different character types (UTF-\/8)"{}, T, char, unsigned char, std\+::uint8\+\_\+t)
+\item 
+\mbox{\hyperlink{unit-deserialization_8cpp_a559c7c849588f98cf07946a7093a94e2}{TEST\+\_\+\+CASE\+\_\+\+TEMPLATE}} ("{}deserialization of different character types (UTF-\/16)"{}, T, char16\+\_\+t, std\+::uint16\+\_\+t)
+\item 
+\mbox{\hyperlink{unit-deserialization_8cpp_a6a6cd6a3f72e013fd3c68dd3fcd1c01b}{TEST\+\_\+\+CASE\+\_\+\+TEMPLATE}} ("{}deserialization of different character types (UTF-\/32)"{}, T, char32\+\_\+t, std\+::uint32\+\_\+t)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-deserialization_8cpp_abb1ae50a9c690f2135d74a455ee8cf36}\label{unit-deserialization_8cpp_abb1ae50a9c690f2135d74a455ee8cf36} 
+\index{unit-\/deserialization.cpp@{unit-\/deserialization.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/deserialization.cpp@{unit-\/deserialization.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}deserialization"{}         }]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-deserialization_8cpp_a02d4c5b2f53f945993212c26179fafb1}\label{unit-deserialization_8cpp_a02d4c5b2f53f945993212c26179fafb1} 
+\index{unit-\/deserialization.cpp@{unit-\/deserialization.cpp}!TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}}
+\index{TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}!unit-\/deserialization.cpp@{unit-\/deserialization.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE\_TEMPLATE()}{TEST\_CASE\_TEMPLATE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE\+\_\+\+TEMPLATE (\begin{DoxyParamCaption}\item[{"{}deserialization of different character types (ASCII)"{}}]{,  }\item[{T}]{,  }\item[{char}]{,  }\item[{unsigned char}]{,  }\item[{signed char}]{,  }\item[{wchar\+\_\+t}]{,  }\item[{char16\+\_\+t}]{,  }\item[{char32\+\_\+t}]{,  }\item[{std\+::uint8\+\_\+t}]{,  }\item[{std\+::int8\+\_\+t}]{,  }\item[{std\+::int16\+\_\+t}]{,  }\item[{std\+::uint16\+\_\+t}]{,  }\item[{std\+::int32\+\_\+t}]{,  }\item[{std\+::uint32\+\_\+t}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-deserialization_8cpp_a559c7c849588f98cf07946a7093a94e2}\label{unit-deserialization_8cpp_a559c7c849588f98cf07946a7093a94e2} 
+\index{unit-\/deserialization.cpp@{unit-\/deserialization.cpp}!TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}}
+\index{TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}!unit-\/deserialization.cpp@{unit-\/deserialization.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE\_TEMPLATE()}{TEST\_CASE\_TEMPLATE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE\+\_\+\+TEMPLATE (\begin{DoxyParamCaption}\item[{"{}deserialization of different character types (UTF-\/16)"{}}]{,  }\item[{T}]{,  }\item[{char16\+\_\+t}]{,  }\item[{std\+::uint16\+\_\+t}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-deserialization_8cpp_a6a6cd6a3f72e013fd3c68dd3fcd1c01b}\label{unit-deserialization_8cpp_a6a6cd6a3f72e013fd3c68dd3fcd1c01b} 
+\index{unit-\/deserialization.cpp@{unit-\/deserialization.cpp}!TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}}
+\index{TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}!unit-\/deserialization.cpp@{unit-\/deserialization.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE\_TEMPLATE()}{TEST\_CASE\_TEMPLATE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE\+\_\+\+TEMPLATE (\begin{DoxyParamCaption}\item[{"{}deserialization of different character types (UTF-\/32)"{}}]{,  }\item[{T}]{,  }\item[{char32\+\_\+t}]{,  }\item[{std\+::uint32\+\_\+t}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-deserialization_8cpp_a088ceff766dedc2e5c95cffecde8ce70}\label{unit-deserialization_8cpp_a088ceff766dedc2e5c95cffecde8ce70} 
+\index{unit-\/deserialization.cpp@{unit-\/deserialization.cpp}!TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}}
+\index{TEST\_CASE\_TEMPLATE@{TEST\_CASE\_TEMPLATE}!unit-\/deserialization.cpp@{unit-\/deserialization.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE\_TEMPLATE()}{TEST\_CASE\_TEMPLATE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE\+\_\+\+TEMPLATE (\begin{DoxyParamCaption}\item[{"{}deserialization of different character types (UTF-\/8)"{}}]{,  }\item[{T}]{,  }\item[{char}]{,  }\item[{unsigned char}]{,  }\item[{std\+::uint8\+\_\+t}]{ }\end{DoxyParamCaption})}
+

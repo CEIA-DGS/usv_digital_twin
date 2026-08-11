@@ -1,0 +1,156 @@
+\doxysection{generate\+\_\+natvis Namespace Reference}
+\hypertarget{namespacegenerate__natvis}{}\label{namespacegenerate__natvis}\index{generate\_natvis@{generate\_natvis}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_afe0fc5e28a6cfcb25d265ae50dd094c0}{semver}} (v)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a403e4d41df61655934ba7c7907c16721}{parser}} = argparse.\+Argument\+Parser()
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_ad7af93048ad57378a86c7dfe548fbbcf}{required}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a1c1a0129d3a0b9b999282bc92495a3b1}{True}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a9cecd88609d8e9af8497edf804bf9d25}{type}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a216fa017831db3114808a15af50297e3}{semver}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a162c97051c82df7fd44af40bf88fde0d}{help}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a0d9f2c2e57c5a1b0f21a603c5b8a4374}{args}} = parser.\+parse\+\_\+args()
+\item 
+list \mbox{\hyperlink{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}{namespaces}} = \mbox{[}\textquotesingle{}nlohmann\textquotesingle{}\mbox{]}
+\item 
+str \mbox{\hyperlink{namespacegenerate__natvis_a5ff358cb02ddbe9e9c75b2e2692a6b2b}{abi\+\_\+prefix}} = \textquotesingle{}json\+\_\+abi\textquotesingle{}
+\item 
+list \mbox{\hyperlink{namespacegenerate__natvis_a6d7e40dfab295a85dfb0120a0d3b20a8}{abi\+\_\+tags}} = \mbox{[}\textquotesingle{}\+\_\+diag\textquotesingle{}, \textquotesingle{}\+\_\+ldvcmp\textquotesingle{}\mbox{]}
+\item 
+str \mbox{\hyperlink{namespacegenerate__natvis_a863c6bcca7b418e0483506c7a3ba74ae}{version}} = \textquotesingle{}\+\_\+v\textquotesingle{} + args.\+version.\+replace(\textquotesingle{}.\textquotesingle{}, \textquotesingle{}\+\_\+\textquotesingle{})
+\item 
+list \mbox{\hyperlink{namespacegenerate__natvis_a5f61d78e30f8665bf5e65469e05c1392}{inline\+\_\+namespaces}} = \mbox{[}$\,$\mbox{]}
+\item 
+str \mbox{\hyperlink{namespacegenerate__natvis_a4c911bf73434899591a5d3ac58d857b5}{ns}} = \mbox{\hyperlink{namespacegenerate__natvis_a5ff358cb02ddbe9e9c75b2e2692a6b2b}{abi\+\_\+prefix}} + \textquotesingle{}\textquotesingle{}.join(tags)
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a3e5437f64a3dc8af885a9b4dbd2415c5}{env}}
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a01a7981524efc650e578691e1b5a8660}{template}} = env.\+get\+\_\+template(\textquotesingle{}nlohmann\+\_\+json.\+natvis.\+j2\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacegenerate__natvis_a546a8fd5ca8d9c179eea4764b5cf34bd}{natvis}} = template.\+render(\mbox{\hyperlink{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}{namespaces}}=\mbox{\hyperlink{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}{namespaces}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacegenerate__natvis_afe0fc5e28a6cfcb25d265ae50dd094c0}\label{namespacegenerate__natvis_afe0fc5e28a6cfcb25d265ae50dd094c0} 
+\index{generate\_natvis@{generate\_natvis}!semver@{semver}}
+\index{semver@{semver}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{semver()}{semver()}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+semver (\begin{DoxyParamCaption}\item[{}]{v }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacegenerate__natvis_a5ff358cb02ddbe9e9c75b2e2692a6b2b}\label{namespacegenerate__natvis_a5ff358cb02ddbe9e9c75b2e2692a6b2b} 
+\index{generate\_natvis@{generate\_natvis}!abi\_prefix@{abi\_prefix}}
+\index{abi\_prefix@{abi\_prefix}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{abi\_prefix}{abi\_prefix}}
+{\footnotesize\ttfamily str generate\+\_\+natvis.\+abi\+\_\+prefix = \textquotesingle{}json\+\_\+abi\textquotesingle{}}
+
+\Hypertarget{namespacegenerate__natvis_a6d7e40dfab295a85dfb0120a0d3b20a8}\label{namespacegenerate__natvis_a6d7e40dfab295a85dfb0120a0d3b20a8} 
+\index{generate\_natvis@{generate\_natvis}!abi\_tags@{abi\_tags}}
+\index{abi\_tags@{abi\_tags}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{abi\_tags}{abi\_tags}}
+{\footnotesize\ttfamily list generate\+\_\+natvis.\+abi\+\_\+tags = \mbox{[}\textquotesingle{}\+\_\+diag\textquotesingle{}, \textquotesingle{}\+\_\+ldvcmp\textquotesingle{}\mbox{]}}
+
+\Hypertarget{namespacegenerate__natvis_a0d9f2c2e57c5a1b0f21a603c5b8a4374}\label{namespacegenerate__natvis_a0d9f2c2e57c5a1b0f21a603c5b8a4374} 
+\index{generate\_natvis@{generate\_natvis}!args@{args}}
+\index{args@{args}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+args = parser.\+parse\+\_\+args()}
+
+\Hypertarget{namespacegenerate__natvis_a3e5437f64a3dc8af885a9b4dbd2415c5}\label{namespacegenerate__natvis_a3e5437f64a3dc8af885a9b4dbd2415c5} 
+\index{generate\_natvis@{generate\_natvis}!env@{env}}
+\index{env@{env}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{env}{env}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+env}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ jinja2.Environment(loader=jinja2.FileSystemLoader(searchpath=sys.path[0]),\ autoescape=\textcolor{keyword}{True},\ trim\_blocks=\textcolor{keyword}{True},}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lstrip\_blocks=\textcolor{keyword}{True},\ keep\_trailing\_newline=\textcolor{keyword}{True})}
+
+\end{DoxyCode}
+\Hypertarget{namespacegenerate__natvis_a162c97051c82df7fd44af40bf88fde0d}\label{namespacegenerate__natvis_a162c97051c82df7fd44af40bf88fde0d} 
+\index{generate\_natvis@{generate\_natvis}!help@{help}}
+\index{help@{help}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{help}{help}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+help}
+
+\Hypertarget{namespacegenerate__natvis_a5f61d78e30f8665bf5e65469e05c1392}\label{namespacegenerate__natvis_a5f61d78e30f8665bf5e65469e05c1392} 
+\index{generate\_natvis@{generate\_natvis}!inline\_namespaces@{inline\_namespaces}}
+\index{inline\_namespaces@{inline\_namespaces}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{inline\_namespaces}{inline\_namespaces}}
+{\footnotesize\ttfamily list generate\+\_\+natvis.\+inline\+\_\+namespaces = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}\label{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a} 
+\index{generate\_natvis@{generate\_natvis}!namespaces@{namespaces}}
+\index{namespaces@{namespaces}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{namespaces}{namespaces}}
+{\footnotesize\ttfamily list generate\+\_\+natvis.\+namespaces = \mbox{[}\textquotesingle{}nlohmann\textquotesingle{}\mbox{]}}
+
+\Hypertarget{namespacegenerate__natvis_a546a8fd5ca8d9c179eea4764b5cf34bd}\label{namespacegenerate__natvis_a546a8fd5ca8d9c179eea4764b5cf34bd} 
+\index{generate\_natvis@{generate\_natvis}!natvis@{natvis}}
+\index{natvis@{natvis}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{natvis}{natvis}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+natvis = template.\+render(\mbox{\hyperlink{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}{namespaces}}=\mbox{\hyperlink{namespacegenerate__natvis_a318c121948cf674648f3f31f05173f9a}{namespaces}})}
+
+\Hypertarget{namespacegenerate__natvis_a4c911bf73434899591a5d3ac58d857b5}\label{namespacegenerate__natvis_a4c911bf73434899591a5d3ac58d857b5} 
+\index{generate\_natvis@{generate\_natvis}!ns@{ns}}
+\index{ns@{ns}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{ns}{ns}}
+{\footnotesize\ttfamily str generate\+\_\+natvis.\+ns = \mbox{\hyperlink{namespacegenerate__natvis_a5ff358cb02ddbe9e9c75b2e2692a6b2b}{abi\+\_\+prefix}} + \textquotesingle{}\textquotesingle{}.join(tags)}
+
+\Hypertarget{namespacegenerate__natvis_a403e4d41df61655934ba7c7907c16721}\label{namespacegenerate__natvis_a403e4d41df61655934ba7c7907c16721} 
+\index{generate\_natvis@{generate\_natvis}!parser@{parser}}
+\index{parser@{parser}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{parser}{parser}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+parser = argparse.\+Argument\+Parser()}
+
+\Hypertarget{namespacegenerate__natvis_ad7af93048ad57378a86c7dfe548fbbcf}\label{namespacegenerate__natvis_ad7af93048ad57378a86c7dfe548fbbcf} 
+\index{generate\_natvis@{generate\_natvis}!required@{required}}
+\index{required@{required}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{required}{required}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+required}
+
+\Hypertarget{namespacegenerate__natvis_a216fa017831db3114808a15af50297e3}\label{namespacegenerate__natvis_a216fa017831db3114808a15af50297e3} 
+\index{generate\_natvis@{generate\_natvis}!semver@{semver}}
+\index{semver@{semver}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{semver}{semver}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+semver}
+
+\Hypertarget{namespacegenerate__natvis_a01a7981524efc650e578691e1b5a8660}\label{namespacegenerate__natvis_a01a7981524efc650e578691e1b5a8660} 
+\index{generate\_natvis@{generate\_natvis}!template@{template}}
+\index{template@{template}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{template}{template}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+template = env.\+get\+\_\+template(\textquotesingle{}nlohmann\+\_\+json.\+natvis.\+j2\textquotesingle{})}
+
+\Hypertarget{namespacegenerate__natvis_a1c1a0129d3a0b9b999282bc92495a3b1}\label{namespacegenerate__natvis_a1c1a0129d3a0b9b999282bc92495a3b1} 
+\index{generate\_natvis@{generate\_natvis}!True@{True}}
+\index{True@{True}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{True}{True}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+True}
+
+\Hypertarget{namespacegenerate__natvis_a9cecd88609d8e9af8497edf804bf9d25}\label{namespacegenerate__natvis_a9cecd88609d8e9af8497edf804bf9d25} 
+\index{generate\_natvis@{generate\_natvis}!type@{type}}
+\index{type@{type}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily generate\+\_\+natvis.\+type}
+
+\Hypertarget{namespacegenerate__natvis_a863c6bcca7b418e0483506c7a3ba74ae}\label{namespacegenerate__natvis_a863c6bcca7b418e0483506c7a3ba74ae} 
+\index{generate\_natvis@{generate\_natvis}!version@{version}}
+\index{version@{version}!generate\_natvis@{generate\_natvis}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily str generate\+\_\+natvis.\+version = \textquotesingle{}\+\_\+v\textquotesingle{} + args.\+version.\+replace(\textquotesingle{}.\textquotesingle{}, \textquotesingle{}\+\_\+\textquotesingle{})}
+

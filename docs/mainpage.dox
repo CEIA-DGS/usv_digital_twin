@@ -1,0 +1,42 @@
+/**
+ * @mainpage USV Digital Twin - Official Documentation
+ *
+ * @section intro_sec 1. Digital Twin General Flow
+ * The **USV Digital Twin** acts as the computational brain for the Unmanned Surface Vehicle. 
+ * The overall system flow starts with the ingestion of official S-57 nautical charts, followed by the generation 
+ * of a spatial Navigation Mesh (NavMesh) using Constrained Delaunay Triangulation (CDT). 
+ * 
+ * At runtime, the system maintains a thread-safe `WorldStateSnapshot`. This snapshot unifies the static map 
+ * (via R-Tree spatial indexing), the USV real-time odometry, and the predictive kinematics of dynamic targets 
+ * to calculate spatial risk fields and predict collisions.
+ *
+ * @section arch_sec 2. System Architecture (Separation of Concerns)
+ * The project is divided into four main packages to isolate the mathematical engine from the communication middleware:
+ * 
+ * - **`dt_core`**: The pure C++ central engine (ROS-independent). Handles geometric processing (GDAL/Boost), 
+ *   Spatial Indexes, memory-safe Snapshot generation, and collision prediction algorithms.
+ * - **`dt_msgs`**: Custom message definitions (IDL) for data traffic on the ROS 2 bus.
+ * - **`dt_ros`**: The Adapter Node. Acts as a bridge, subscribing to the USV sensors and injecting translated 
+ *   raw data into the `dt_core` asynchronously.
+ * - **`dt_viz`**: Diagnostic Graphical User Interface (GUI) developed in Qt5.
+ *
+ * @section qt_gui_sec 3. Qt GUI & Threading Integration
+ * To ensure the Qt GUI rendering does not cause *thread-blocking* issues with the ROS 2 spin loop, the architecture 
+ * strictly uses the Immutable Snapshot pattern.
+ * 
+ * The frontend GUI communicates by requesting `DigitalTwinCore::get_latest_state()`. This returns a frozen pointer 
+ * of the environment. The Qt application consumes this data via asynchronous Timers and Signals/Slots, querying the 
+ * Spatial Engine (O(LogN)) to draw heatmaps, targets, and alerts without locking the backend data ingestion.
+ *
+ * @section ros_api_sec 4. ROS 2 API (Topics & Interfaces)
+ * The `dt_ros` adapter interfaces with the rest of the USV stack through the following topics:
+ *
+ * @subsection sub_sec Subscribers (Inputs to the Twin)
+ * - **`/sensors/gps/fix`** (`sensor_msgs/NavSatFix`): USV global position (Lat/Lon).
+ * - **`/sensors/imu/data`** (`sensor_msgs/Imu`): USV orientation (Euler/Quaternions).
+ * - **`/sensors/ais/report`** (`dt_msgs/AisReport`): List of tracked dynamic targets in range.
+ * - **`/planned_route`** (`nav_msgs/Path`): The current route (waypoints) planned by the navigation stack.
+ *
+ * @subsection pub_sec Publishers (Outputs from the Twin)
+ * - **`/collision_alert`** (`dt_msgs/CollisionAlert`): Consolidated operational alerts containing Time to Closest Point of Approach (TCPA), distance metrics, and computed risk indexes for each target.
+ */

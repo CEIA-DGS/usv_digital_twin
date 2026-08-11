@@ -1,0 +1,34 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}parse\+\_\+event\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse\_event\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$parse\_event\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md759}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md759}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312ef}{parse\_event\_t}}\ :\ std::uint8\_t\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efae73f17027cb0acbb537f29d0a6944b26}{object\_start}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efaf63e2a2468a37aa4f394fcc3bcb8249c}{object\_end}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efaa4388a3d92419edbb1c6efd4d52461f3}{array\_start}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa49642fb732aa2e112188fba1f9d3ef7f}{array\_end}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+The parser callback distinguishes the following events\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily object\+\_\+start}\+: the parser read {\ttfamily \{} and started to process a JSON object
+\item {\ttfamily key}\+: the parser read a key of a value in an object
+\item {\ttfamily object\+\_\+end}\+: the parser read {\ttfamily \}} and finished processing a JSON object
+\item {\ttfamily array\+\_\+start}\+: the parser read {\ttfamily \mbox{[}} and started to process a JSON array
+\item {\ttfamily array\+\_\+end}\+: the parser read {\ttfamily \mbox{]}} and finished processing a JSON array
+\item {\ttfamily value}\+: the parser finished reading a JSON value
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md760}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md760}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md761}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse__event__t_autotoc_md761}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

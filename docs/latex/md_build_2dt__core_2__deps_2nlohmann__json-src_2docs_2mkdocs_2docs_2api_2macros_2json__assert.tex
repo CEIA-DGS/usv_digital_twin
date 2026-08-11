@@ -1,0 +1,78 @@
+\chapter{JSON\+\_\+\+ASSERT}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert}\index{JSON\_ASSERT@{JSON\_ASSERT}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1143}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1143}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_ASSERT(x)\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro controls which code is executed for \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions}{runtime assertions}{0} of the library.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1144}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1144}
+{\ttfamily x} (in) \+: expression of scalar type\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1145}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1145}
+The default value is \href{https://en.cppreference.com/w/cpp/error/assert}{\texttt{ {\ttfamily \#!cpp assert(x)}}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_ASSERT(x)\ assert(x)}}
+
+\end{DoxyCode}
+
+
+Therefore, assertions can be switched off by defining {\ttfamily NDEBUG}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1146}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1146}
+
+\begin{DoxyItemize}
+\item The library uses numerous assertions to guarantee invariants and to abort in case of otherwise undefined behavior (e.\+g., when calling operator\mbox{[}\mbox{]} with a missing object key on a {\ttfamily const} object). See page \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2assertions}{runtime assertions}{0} for more information.
+\item Defining the macro to code that does not call {\ttfamily std\+::abort} may leave the library in an undefined state.
+\item The macro is undefined outside the library.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1147}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1147}
+??? example "{}\+Example 1\+: default behavior"{} \begin{DoxyVerb}The following code will trigger an assertion at runtime:
+
+```cpp
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+    const json j = {{"key", "value"}};
+    auto v = j["missing"];
+}
+```
+
+Output:
+
+```
+Assertion failed: (m_value.object->find(key) != m_value.object->end()), function operator[], file json.hpp, line 2144.
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example 2\+: user-\/defined behavior"{} \begin{DoxyVerb}The assertion reporting can be changed by defining `JSON_ASSERT(x)` differently.
+
+```cpp
+#include <cstdio>
+#include <cstdlib>
+#define JSON_ASSERT(x) if(!(x)){fprintf(stderr, "assertion error in %s\n", __FUNCTION__); std::abort();}
+
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+int main()
+{
+    const json j = {{"key", "value"}};
+    auto v = j["missing"];
+}
+```
+
+Output:
+
+```
+assertion error in operator[]
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1148}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__assert_autotoc_md1148}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+9.\+0. 
+\end{DoxyItemize}

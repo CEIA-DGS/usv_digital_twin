@@ -1,0 +1,67 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::adl\+\_\+serializer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}from\+\_\+json}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json}\index{$<$small$>$nlohmann::adl\_serializer::$<$/small$>$from\_json@{$<$small$>$nlohmann::adl\_serializer::$<$/small$>$from\_json}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md58}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md58}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType,\ \textcolor{keyword}{typename}\ TargetType\ =\ ValueType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\_json}}(BasicJsonType\ \&\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ TargetType\&\ val)\ \textcolor{keyword}{noexcept}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{noexcept}(::nlohmann::from\_json(std::forward<BasicJsonType>(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}),\ val)))}
+\DoxyCodeLine{-\/>\ \textcolor{keyword}{decltype}(::nlohmann::from\_json(std::forward<BasicJsonType>(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}),\ val),\ void())}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{template<typename\ BasicJsonType,\ typename\ TargetType\ =\ ValueType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\_json}}(BasicJsonType\ \&\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}})\ \textcolor{keyword}{noexcept}(}
+\DoxyCodeLine{\textcolor{keyword}{noexcept}(::nlohmann::from\_json(std::forward<BasicJsonType>(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}),\ \mbox{\hyperlink{structdetail_1_1identity__tag}{detail::identity\_tag<TargetType>}}\ \{\})))}
+\DoxyCodeLine{-\/>\ \textcolor{keyword}{decltype}(::nlohmann::from\_json(std::forward<BasicJsonType>(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}),\ \mbox{\hyperlink{structdetail_1_1identity__tag}{detail::identity\_tag<TargetType>}}\ \{\}))}
+
+\end{DoxyCode}
+
+
+This function is usually called by the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get}{\`{}get()\`{}}{0} function of the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2index}{basic\+\_\+json}{0} class (either explicitly or via the conversion operators).
+
+
+\begin{DoxyEnumerate}
+\item This function is chosen for default-\/constructible value types.
+\item This function is chosen for value types which are not default-\/constructible.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md59}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md59}
+{\ttfamily j} (in) \+: JSON value to read from
+
+{\ttfamily val} (out) \+: value to write to\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md60}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md60}
+Copy of the JSON value, converted to {\ttfamily Value\+Type}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md61}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md61}
+??? example "{}\+Example\+: (1) Default-\/constructible type"{} \begin{DoxyVerb}The example below shows how a `from_json` function can be implemented for a user-defined type. This function is
+called by the `adl_serializer` when `template get<ns::person>()` is called.
+
+```cpp
+--8<-- "examples/from_json__default_constructible.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_json__default_constructible.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) Non-\/default-\/constructible type"{} \begin{DoxyVerb}The example below shows how a `from_json` is implemented as part of a specialization of the `adl_serializer` to
+realize the conversion of a non-default-constructible type.
+
+```cpp
+--8<-- "examples/from_json__non_default_constructible.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_json__non_default_constructible.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md62}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md62}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2to__json}{to\+\_\+json}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md63}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2from__json_autotoc_md63}
+
+\begin{DoxyItemize}
+\item Added in version 2.\+1.\+0. 
+\end{DoxyItemize}

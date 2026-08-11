@@ -1,0 +1,8 @@
+<map id="p2t::Node" name="p2t::Node">
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,95,149,121"/>
+<area shape="poly" id="edge3_Node000001_Node000001" title=" " alt="" coords="163,98,172,102,175,108,167,117,149,119,149,114,165,112,170,108,168,106,161,103"/>
+<area shape="rect" id="Node000002" href="$structp2t_1_1Point.html" title=" " alt="" coords="5,5,89,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,40,100,93,96,96,60,43"/>
+<area shape="rect" id="Node000003" href="$classp2t_1_1Triangle.html" title=" " alt="" coords="113,5,216,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,43,116,96,112,93,147,40"/>
+</map>

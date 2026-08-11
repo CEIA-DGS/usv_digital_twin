@@ -1,0 +1,72 @@
+\chapter{JSON\+\_\+\+CATCH\+\_\+\+USER, JSON\+\_\+\+THROW\+\_\+\+USER, JSON\+\_\+\+TRY\+\_\+\+USER}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user}\index{JSON\_CATCH\_USER, JSON\_THROW\_USER, JSON\_TRY\_USER@{JSON\_CATCH\_USER, JSON\_THROW\_USER, JSON\_TRY\_USER}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1201}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1201}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_CATCH\_USER(exception)\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_THROW\_USER(exception)\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\textcolor{comment}{//\ (3)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_TRY\_USER\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+Controls how exceptions are handled by the library.
+
+
+\begin{DoxyEnumerate}
+\item This macro overrides \href{https://en.cppreference.com/w/cpp/language/try_catch}{\texttt{ {\ttfamily \#!cpp catch}}} calls inside the library. The argument is the type of the exception to catch. As of version 3.\+8.\+0, the library only catches {\ttfamily std\+::out\+\_\+of\+\_\+range} exceptions internally to rethrow them as \href{../../home/exceptions.md\#out-of-range}{\texttt{ {\ttfamily json\+::out\+\_\+of\+\_\+range}}} exceptions. The macro is always followed by a scope.
+\item This macro overrides {\ttfamily \#!cpp throw} calls inside the library. The argument is the exception to be thrown. Note that {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER} should leave the current scope (e.\+g., by throwing or aborting), as continuing after it may yield undefined behavior.
+\item This macro overrides {\ttfamily \#!cpp try} calls inside the library. It has no arguments and is always followed by a scope.
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1202}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1202}
+{\ttfamily exception} (in) \+: an exception type\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1203}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1203}
+By default, the macros map to their respective C++ keywords\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_CATCH\_USER(exception)\ catch(exception)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_THROW\_USER(exception)\ throw\ exception}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_TRY\_USER\ \ \ \ \ \ \ \ \ \ \ \ \ \ try}}
+
+\end{DoxyCode}
+
+
+When exceptions are switched off, the {\ttfamily \#!cpp try} block is executed unconditionally, and throwing exceptions is replaced by calling \href{https://en.cppreference.com/w/cpp/utility/program/abort}{\texttt{ {\ttfamily std\+::abort}}} to make reaching the {\ttfamily \#!cpp throw} branch abort the process.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_THROW\_USER(exception)\ std::abort()}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_TRY\_USER\ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (true)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_CATCH\_USER(exception)\ if\ (false)}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1204}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1204}
+??? example \begin{DoxyVerb}The code below switches off exceptions and creates a log entry with a detailed error message in case of errors.
+
+```cpp
+#include <iostream>
+
+#define JSON_TRY_USER if(true)
+#define JSON_CATCH_USER(exception) if(false)
+#define JSON_THROW_USER(exception)                           \
+    {std::clog << "Error in " << __FILE__ << ":" << __LINE__ \
+               << " (function " << __FUNCTION__ << ") - "    \
+               << (exception).what() << std::endl;           \
+     std::abort();}
+
+#include <nlohmann/json.hpp>
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1205}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1205}
+
+\begin{DoxyItemize}
+\item \href{../../home/exceptions.md\#switch-off-exceptions}{\texttt{ Switch off exceptions}} for more information how to switch off exceptions
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__noexception}{JSON\+\_\+\+NOEXCEPTION}{0} -\/ switch off exceptions
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1206}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__throw__user_autotoc_md1206}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+1.\+0. 
+\end{DoxyItemize}

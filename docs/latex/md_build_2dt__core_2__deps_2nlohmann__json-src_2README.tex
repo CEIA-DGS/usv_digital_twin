@@ -1,0 +1,1920 @@
+\chapter{README}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README}\index{README@{README}}
+\href{https://github.com/nlohmann/json/releases}{\texttt{ }}
+
+\href{https://ci.appveyor.com/project/nlohmann/json}{\texttt{ }} \href{https://github.com/nlohmann/json/actions?query=workflow\%3AUbuntu}{\texttt{ }} \href{https://github.com/nlohmann/json/actions?query=workflow\%3AmacOS}{\texttt{ }} \href{https://github.com/nlohmann/json/actions?query=workflow\%3AWindows}{\texttt{ }} \href{https://coveralls.io/github/nlohmann/json?branch=develop}{\texttt{ }} \href{https://scan.coverity.com/projects/nlohmann-json}{\texttt{ }} \href{https://www.codacy.com/gh/nlohmann/json/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nlohmann/json&amp;utm_campaign=Badge_Grade}{\texttt{ }} \href{https://cirrus-ci.com/github/nlohmann/json}{\texttt{ }} \href{https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:json}{\texttt{ }} \href{https://wandbox.org/permlink/1mp10JbaANo6FUc7}{\texttt{ }} \href{https://json.nlohmann.me}{\texttt{ }} \href{https://raw.githubusercontent.com/nlohmann/json/master/LICENSE.MIT}{\texttt{ }} \href{https://github.com/nlohmann/json/releases}{\texttt{ }} \href{https://vcpkg.link/ports/nlohmann-json}{\texttt{ }} \href{https://repology.org/project/nlohmann-json/versions}{\texttt{ }} \href{https://github.com/nlohmann/json/releases}{\texttt{ }} \href{https://github.com/nlohmann/json/issues}{\texttt{ }} \href{https://isitmaintained.com/project/nlohmann/json}{\texttt{ }} \href{https://bestpractices.coreinfrastructure.org/projects/289}{\texttt{ }} \href{https://github.com/sponsors/nlohmann}{\texttt{ }} \href{https://api.reuse.software/info/github.com/nlohmann/json}{\texttt{ }} \href{https://discord.gg/6mrGXKvX7y}{\texttt{ }}
+
+
+\begin{DoxyItemize}
+\item Design goals
+\item Sponsors
+\item Support (\href{https://json.nlohmann.me}{\texttt{ documentation}}, \href{https://json.nlohmann.me/home/faq/}{\texttt{ FAQ}}, \href{https://github.com/nlohmann/json/discussions}{\texttt{ discussions}}, \href{https://json.nlohmann.me/api/basic_json/}{\texttt{ API}}, \href{https://github.com/nlohmann/json/issues}{\texttt{ bug issues}})
+\item Examples
+\begin{DoxyItemize}
+\item Read JSON from a file
+\item Creating \`{}json\`{} objects from JSON literals
+\item JSON as first-\/class data type
+\item Serialization / Deserialization
+\item STL-\/like access
+\item Conversion from STL containers
+\item JSON Pointer and JSON Patch
+\item JSON Merge Patch
+\item Implicit conversions
+\item Conversions to/from arbitrary types
+\item Specializing enum conversion
+\item Binary formats (BSON, CBOR, Message\+Pack, UBJSON, and BJData)
+\end{DoxyItemize}
+\item Supported compilers
+\item Integration
+\begin{DoxyItemize}
+\item CMake
+\item Package Managers
+\item Pkg-\/config
+\end{DoxyItemize}
+\item License
+\item Contact
+\item Thanks
+\item Used third-\/party tools
+\item Projects using JSON for Modern C++
+\item Notes
+\item Execute unit tests
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1757}{}\doxysubsection{\texorpdfstring{Design goals}{Design goals}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1757}
+There are myriads of \href{https://json.org}{\texttt{ JSON}} libraries out there, and each may even have its reason to exist. Our class had these design goals\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Intuitive syntax}}. In languages such as Python, JSON feels like a first class data type. We used all the operator magic of modern C++ to achieve the same feeling in your code. Check out the examples below and you\textquotesingle{}ll know what I mean.
+\item {\bfseries{Trivial integration}}. Our whole code consists of a single header file \href{https://github.com/nlohmann/json/blob/develop/single_include/nlohmann/json.hpp}{\texttt{ {\ttfamily json.\+hpp}}}. That\textquotesingle{}s it. No library, no subproject, no dependencies, no complex build system. The class is written in vanilla C++11. All in all, everything should require no adjustment of your compiler flags or project settings.
+\item {\bfseries{Serious testing}}. Our code is heavily \href{https://github.com/nlohmann/json/tree/develop/tests/src}{\texttt{ unit-\/tested}} and covers \href{https://coveralls.io/r/nlohmann/json}{\texttt{ 100\%}} of the code, including all exceptional behavior. Furthermore, we checked with \href{https://valgrind.org}{\texttt{ Valgrind}} and the \href{https://clang.llvm.org/docs/index.html}{\texttt{ Clang Sanitizers}} that there are no memory leaks. \href{https://github.com/google/oss-fuzz/tree/master/projects/json}{\texttt{ Google OSS-\/\+Fuzz}} additionally runs fuzz tests against all parsers 24/7, effectively executing billions of tests so far. To maintain high quality, the project is following the \href{https://bestpractices.coreinfrastructure.org/projects/289}{\texttt{ Core Infrastructure Initiative (CII) best practices}}.
+\end{DoxyItemize}
+
+Other aspects were not so important to us\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Memory efficiency}}. Each JSON object has an overhead of one pointer (the maximal size of a union) and one enumeration element (1 byte). The default generalization uses the following C++ data types\+: {\ttfamily std\+::string} for strings, {\ttfamily int64\+\_\+t}, {\ttfamily uint64\+\_\+t} or {\ttfamily double} for numbers, {\ttfamily std\+::map} for objects, {\ttfamily std\+::vector} for arrays, and {\ttfamily bool} for Booleans. However, you can template the generalized class {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} to your needs.
+\item {\bfseries{Speed}}. There are certainly \href{https://github.com/miloyip/nativejson-benchmark\#parsing-time}{\texttt{ faster JSON libraries}} out there. However, if your goal is to speed up your development by adding JSON support with a single header, then this library is the way to go. If you know how to use a {\ttfamily std\+::vector} or {\ttfamily std\+::map}, you are already set.
+\end{DoxyItemize}
+
+See the \href{https://github.com/nlohmann/json/blob/master/.github/CONTRIBUTING.md\#please-dont}{\texttt{ contribution guidelines}} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1758}{}\doxysubsection{\texorpdfstring{Sponsors}{Sponsors}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1758}
+You can sponsor this library at \href{https://github.com/sponsors/nlohmann}{\texttt{ Git\+Hub Sponsors}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1759}{}\doxysubsubsection{\texorpdfstring{\+:office\+: Corporate Sponsor}{:office: Corporate Sponsor}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1759}
+\href{https://github.com/codacy/About}{\texttt{ }}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1760}{}\doxysubsubsection{\texorpdfstring{\+:label\+: Named Sponsors}{:label: Named Sponsors}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1760}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/reFX-Mike}{\texttt{ Michael Hartmann}}
+\item \href{https://github.com/sthagen}{\texttt{ Stefan Hagen}}
+\item \href{https://github.com/homer6}{\texttt{ Steve Sperandeo}}
+\item \href{https://github.com/eljefedelrodeodeljefe}{\texttt{ Robert Jefe Lindstädt}}
+\item \href{https://github.com/ciroque}{\texttt{ Steve Wagner}}
+\item \href{https://github.com/LionNatsu}{\texttt{ Lion Yang}}
+\end{DoxyItemize}
+
+Thanks everyone!\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1761}{}\doxysubsection{\texorpdfstring{Support}{Support}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1761}
+\+:question\+: If you have a {\bfseries{question}}, please check if it is already answered in the \href{https://json.nlohmann.me/home/faq/}{\texttt{ {\bfseries{FAQ}}}} or the \href{https://github.com/nlohmann/json/discussions/categories/q-a}{\texttt{ {\bfseries{Q\&A}}}} section. If not, please \href{https://github.com/nlohmann/json/discussions/new}{\texttt{ {\bfseries{ask a new question}}}} there.
+
+\+:books\+: If you want to {\bfseries{learn more}} about how to use the library, check out the rest of the \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+README\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, have a look at \href{https://github.com/nlohmann/json/tree/develop/docs/examples}{\texttt{ {\bfseries{code examples}}}}, or browse through the \href{https://json.nlohmann.me}{\texttt{ {\bfseries{help pages}}}}.
+
+\+:construction\+: If you want to understand the {\bfseries{API}} better, check out the \href{https://json.nlohmann.me/api/basic_json/}{\texttt{ {\bfseries{API Reference}}}}.
+
+\+:bug\+: If you found a {\bfseries{bug}}, please check the \href{https://json.nlohmann.me/home/faq/}{\texttt{ {\bfseries{FAQ}}}} if it is a known issue or the result of a design decision. Please also have a look at the \href{https://github.com/nlohmann/json/issues}{\texttt{ {\bfseries{issue list}}}} before you \href{https://github.com/nlohmann/json/issues/new/choose}{\texttt{ {\bfseries{create a new issue}}}}. Please provide as much information as possible to help us understand and reproduce your issue.
+
+There is also a \href{https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/JSON_for_Modern_C\%2B\%2B}{\texttt{ {\bfseries{docset}}}} for the documentation browsers \href{https://kapeli.com/dash}{\texttt{ Dash}}, \href{https://velocity.silverlakesoftware.com}{\texttt{ Velocity}}, and \href{https://zealdocs.org}{\texttt{ Zeal}} that contains the full \href{https://json.nlohmann.me}{\texttt{ documentation}} as offline resource.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1762}{}\doxysubsection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1762}
+Here are some examples to give you an idea how to use the class.
+
+Beside the examples below, you may want to\+:
+
+→ Check the \href{https://json.nlohmann.me/}{\texttt{ documentation}}\textbackslash{} → Browse the \href{https://github.com/nlohmann/json/tree/develop/docs/examples}{\texttt{ standalone example files}}
+
+Every API function (documented in the \href{https://json.nlohmann.me/api/basic_json/}{\texttt{ API Documentation}}) has a corresponding standalone example file. For example, the \href{https://json.nlohmann.me/api/basic_json/emplace/}{\texttt{ {\ttfamily emplace()}}} function has a matching \href{https://github.com/nlohmann/json/blob/develop/docs/examples/emplace.cpp}{\texttt{ emplace.\+cpp}} example file.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1763}{}\doxysubsubsection{\texorpdfstring{Read JSON from a file}{Read JSON from a file}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1763}
+The {\ttfamily json} class provides an API for manipulating a JSON value. To create a {\ttfamily json} object by reading a JSON file\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ =\ \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann::json}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::ifstream\ f(\textcolor{stringliteral}{"{}example.json"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ data\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(f);}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1764}{}\doxysubsubsection{\texorpdfstring{Creating $<$tt$>$json$<$/tt$>$ objects from JSON literals}{Creating <tt>json</tt> objects from JSON literals}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1764}
+Assume you want to create hard-\/code this literal JSON value in a file, as a {\ttfamily json} object\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}pi"{}:\ 3.141,}
+\DoxyCodeLine{\ \ "{}happy"{}:\ true}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+There are various options\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Using\ (raw)\ string\ literals\ and\ json::parse}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ ex1\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}pi"{}:\ 3.141,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}happy"{}:\ true}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{});}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ Using\ user-\/defined\ (raw)\ string\ literals}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }nlohmann::literals;}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ ex2\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}pi"{}:\ 3.141,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}happy"{}:\ true}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ Using\ initializer\ lists}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ ex3\ =\ \{}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}happy"{}},\ \textcolor{keyword}{true}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}pi"{}},\ 3.141\},}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1765}{}\doxysubsubsection{\texorpdfstring{JSON as first-\/class data type}{JSON as first-class data type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1765}
+Here are some examples to give you an idea how to use the class.
+
+Assume you want to create the JSON object
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}pi"{}:\ 3.141,}
+\DoxyCodeLine{\ \ "{}happy"{}:\ true,}
+\DoxyCodeLine{\ \ "{}name"{}:\ "{}Niels"{},}
+\DoxyCodeLine{\ \ "{}nothing"{}:\ null,}
+\DoxyCodeLine{\ \ "{}answer"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}everything"{}:\ 42}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}list"{}:\ [1,\ 0,\ 2],}
+\DoxyCodeLine{\ \ "{}object"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}currency"{}:\ "{}USD"{},}
+\DoxyCodeLine{\ \ \ \ "{}value"{}:\ 42.99}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+With this library, you could write\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ an\ empty\ structure\ (null)}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ a\ number\ that\ is\ stored\ as\ double\ (note\ the\ implicit\ conversion\ of\ j\ to\ an\ object)}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}pi"{}}]\ =\ 3.141;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ a\ Boolean\ that\ is\ stored\ as\ bool}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}happy"{}}]\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ a\ string\ that\ is\ stored\ as\ std::string}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}name"{}}]\ =\ \textcolor{stringliteral}{"{}Niels"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ another\ null\ object\ by\ passing\ nullptr}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}nothing"{}}]\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ an\ object\ inside\ the\ object}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}answer"{}}][\textcolor{stringliteral}{"{}everything"{}}]\ =\ 42;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ an\ array\ that\ is\ stored\ as\ std::vector\ (using\ an\ initializer\ list)}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}list"{}}]\ =\ \{\ 1,\ 0,\ 2\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ add\ another\ object\ (using\ an\ initializer\ list\ of\ pairs)}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}object"{}}]\ =\ \{\ \{\textcolor{stringliteral}{"{}currency"{}},\ \textcolor{stringliteral}{"{}USD"{}}\},\ \{\textcolor{stringliteral}{"{}value"{}},\ 42.99\}\ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ instead,\ you\ could\ also\ write\ (which\ looks\ very\ similar\ to\ the\ JSON\ above)}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}}\ =\ \{}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}pi"{}},\ 3.141\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}happy"{}},\ \textcolor{keyword}{true}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}name"{}},\ \textcolor{stringliteral}{"{}Niels"{}}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}nothing"{}},\ \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}answer"{}},\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}everything"{}},\ 42\}}
+\DoxyCodeLine{\ \ \}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}list"{}},\ \{1,\ 0,\ 2\}\},}
+\DoxyCodeLine{\ \ \{\textcolor{stringliteral}{"{}object"{}},\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}currency"{}},\ \textcolor{stringliteral}{"{}USD"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}},\ 42.99\}}
+\DoxyCodeLine{\ \ \}\}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Note that in all these cases, you never need to "{}tell"{} the compiler which JSON value type you want to use. If you want to be explicit or express some edge cases, the functions \href{https://json.nlohmann.me/api/basic_json/array/}{\texttt{ {\ttfamily json\+::array()}}} and \href{https://json.nlohmann.me/api/basic_json/object/}{\texttt{ {\ttfamily json\+::object()}}} will help\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ way\ to\ express\ the\ empty\ array\ []}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ empty\_array\_explicit\ =\ json::array();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ ways\ to\ express\ the\ empty\ object\ \{\}}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ empty\_object\_implicit\ =\ \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}}(\{\});}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ empty\_object\_explicit\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a9a4df356e05415438fadf8a15e583903}{json::object}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ way\ to\ express\ an\ \_array\_\ of\ key/value\ pairs\ [["{}currency"{},\ "{}USD"{}],\ ["{}value"{},\ 42.99]]}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ array\_not\_object\ =\ json::array(\{\ \{\textcolor{stringliteral}{"{}currency"{}},\ \textcolor{stringliteral}{"{}USD"{}}\},\ \{\textcolor{stringliteral}{"{}value"{}},\ 42.99\}\ \});}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1766}{}\doxysubsubsection{\texorpdfstring{Serialization / Deserialization}{Serialization / Deserialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1766}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1767}{}\doxyparagraph{\texorpdfstring{To/from strings}{To/from strings}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1767}
+You can create a JSON value (deserialization) by appending {\ttfamily \+\_\+json} to a string literal\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ object\ from\ string\ literal}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \textcolor{stringliteral}{"{}\{\ \(\backslash\)"{}happy\(\backslash\)"{}:\ true,\ \(\backslash\)"{}pi\(\backslash\)"{}:\ 3.141\ \}"{}}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ or\ even\ nicer\ with\ a\ raw\ string\ literal}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}}\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}happy"{}:\ true,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}pi"{}:\ 3.141}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+
+\end{DoxyCode}
+
+
+Note that without appending the {\ttfamily \+\_\+json} suffix, the passed string literal is not parsed, but just used as JSON string value. That is, {\ttfamily json j = "{}\{ \textbackslash{}"{}happy\textbackslash{}"{}\+: true, \textbackslash{}"{}pi\textbackslash{}"{}\+: 3.\+141 \}"{}} would just store the string {\ttfamily "{}\{ "{}happy"{}\+: true, "{}pi"{}\+: 3.\+141 \}"{}} rather than parsing the actual object.
+
+The string literal should be brought into scope with {\ttfamily using namespace nlohmann\+::literals;} (see \href{https://json.nlohmann.me/api/operator_literal_json/}{\texttt{ {\ttfamily json\+::parse()}}}).
+
+The above example can also be expressed explicitly using \href{https://json.nlohmann.me/api/basic_json/parse/}{\texttt{ {\ttfamily json\+::parse()}}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ parse\ explicitly}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ j3\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(R\textcolor{stringliteral}{"{}(\{"{}happy"{}:\ true,\ "{}pi"{}:\ 3.141\})"{});}}
+
+\end{DoxyCode}
+
+
+You can also get a string representation of a JSON value (serialize)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ explicit\ conversion\ to\ string}}
+\DoxyCodeLine{std::string\ s\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();\ \ \ \ \textcolor{comment}{//\ \{"{}happy"{}:true,"{}pi"{}:3.141\}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialization\ with\ pretty\ printing}}
+\DoxyCodeLine{\textcolor{comment}{//\ pass\ in\ the\ amount\ of\ spaces\ to\ indent}}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}(4)\ <<\ std::endl;}
+\DoxyCodeLine{\textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ \ "{}happy"{}:\ true,}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ \ "{}pi"{}:\ 3.141}}
+\DoxyCodeLine{\textcolor{comment}{//\ \}}}
+
+\end{DoxyCode}
+
+
+Note the difference between serialization and assignment\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ store\ a\ string\ in\ a\ JSON\ value}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_string\ =\ \textcolor{stringliteral}{"{}this\ is\ a\ string"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ retrieve\ the\ string\ value}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ cpp\_string\ =\ j\_string.template\ get<std::string>();}
+\DoxyCodeLine{\textcolor{comment}{//\ retrieve\ the\ string\ value\ (alternative\ when\ a\ variable\ already\ exists)}}
+\DoxyCodeLine{std::string\ cpp\_string2;}
+\DoxyCodeLine{j\_string.\mbox{\hyperlink{classnlohmann_1_1basic__json_a3c3fef72afb412c0739d062d27af1c9a}{get\_to}}(cpp\_string2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ retrieve\ the\ serialized\ value\ (explicit\ JSON\ serialization)}}
+\DoxyCodeLine{std::string\ serialized\_string\ =\ j\_string.\mbox{\hyperlink{classnlohmann_1_1basic__json_a476756fb08e7f2416aad116d137977f4}{dump}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ output\ of\ original\ string}}
+\DoxyCodeLine{std::cout\ <<\ cpp\_string\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ cpp\_string2\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ j\_string.template\ get<std::string>()\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\textcolor{comment}{//\ output\ of\ serialized\ value}}
+\DoxyCodeLine{std::cout\ <<\ j\_string\ <<\ \textcolor{stringliteral}{"{}\ ==\ "{}}\ <<\ serialized\_string\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\href{https://json.nlohmann.me/api/basic_json/dump/}{\texttt{ {\ttfamily .dump()}}} returns the originally stored string value.
+
+Note the library only supports UTF-\/8. When you store strings with different encodings in the library, calling \href{https://json.nlohmann.me/api/basic_json/dump/}{\texttt{ {\ttfamily dump()}}} may throw an exception unless {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::replace} or {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::ignore} are used as error handlers.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1768}{}\doxyparagraph{\texorpdfstring{To/from streams (e.\+g. files, string streams)}{To/from streams (e.g. files, string streams)}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1768}
+You can also use streams to serialize and deserialize\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ deserialize\ from\ standard\ input}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{std::cin\ >>\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialize\ to\ standard\ output}}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ setw\ manipulator\ was\ overloaded\ to\ set\ the\ indentation\ for\ pretty\ printing}}
+\DoxyCodeLine{std::cout\ <<\ std::setw(4)\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+These operators work for any subclasses of {\ttfamily \doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}} or {\ttfamily \doxylink{namespacestd_a6d1736434ff6d516a3df38cbb7487ea5}{std\+::ostream}}. Here is the same example with files\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ read\ a\ JSON\ file}}
+\DoxyCodeLine{std::ifstream\ i(\textcolor{stringliteral}{"{}file.json"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{i\ >>\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ write\ prettified\ JSON\ to\ another\ file}}
+\DoxyCodeLine{std::ofstream\ o(\textcolor{stringliteral}{"{}pretty.json"{}});}
+\DoxyCodeLine{o\ <<\ std::setw(4)\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+Please note that setting the exception bit for {\ttfamily failbit} is inappropriate for this use case. It will result in program termination due to the {\ttfamily noexcept} specifier in use.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1769}{}\doxyparagraph{\texorpdfstring{Read from iterator range}{Read from iterator range}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1769}
+You can also parse JSON from an iterator range; that is, from any container accessible by iterators whose {\ttfamily value\+\_\+type} is an integral type of 1, 2 or 4 bytes, which will be interpreted as UTF-\/8, UTF-\/16 and UTF-\/32 respectively. For instance, a {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}}, or a {\ttfamily std\+::list\texorpdfstring{$<$}{<}std\+::uint16\+\_\+t\texorpdfstring{$>$}{>}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\ =\ \{\textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'r'},\ \textcolor{charliteral}{'u'},\ \textcolor{charliteral}{'e'}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(v.begin(),\ v.end());}
+
+\end{DoxyCode}
+
+
+You may leave the iterators for the range \mbox{[}begin, end)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\ =\ \{\textcolor{charliteral}{'t'},\ \textcolor{charliteral}{'r'},\ \textcolor{charliteral}{'u'},\ \textcolor{charliteral}{'e'}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(v);}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1770}{}\doxyparagraph{\texorpdfstring{Custom data source}{Custom data source}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1770}
+Since the parse function accepts arbitrary iterator ranges, you can provide your own data sources by implementing the {\ttfamily Legacy\+Input\+Iterator} concept.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }MyContainer\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ advance();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&\ get\_current();}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }MyIterator\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }difference\_type\ =\ std::ptrdiff\_t;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }value\_type\ =\ char;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }pointer\ =\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }reference\ =\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\&;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }iterator\_category\ =\ std::input\_iterator\_tag;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ MyIterator\&\ operator++()\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ MyContainer.advance();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{json__pointer_8hpp_aa72a84c70e970b738f1262cfd8a66b4d}{operator!=}}(\textcolor{keyword}{const}\ MyIterator\&\ rhs)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rhs.target\ !=\ target;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ reference\ \mbox{\hyperlink{namespacep2t_a4f005ffa2a5d03029a3619fb8110c4a9}{operator*}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ target.get\_current();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ MyContainer*\ target\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{MyIterator\ begin(MyContainer\&\ tgt)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ MyIterator\{\&tgt\};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{MyIterator\ end(\textcolor{keyword}{const}\ MyContainer\&)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ foo()\ \{}
+\DoxyCodeLine{\ \ \ \ MyContainer\ \mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(\mbox{\hyperlink{unit-udt_8cpp_ad05251febe96c2da9d4527834d3b92c5}{c}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1771}{}\doxyparagraph{\texorpdfstring{SAX interface}{SAX interface}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1771}
+The library uses a SAX-\/like interface with the following functions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ null\ is\ parsed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a37a6259cc0c1dae299a7866489dff0bd}{null}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ boolean\ is\ parsed;\ value\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a84e2c64f38f78ba3ea5c905ab5a2da27}{boolean}}(\textcolor{keywordtype}{bool}\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ signed\ or\ unsigned\ integer\ number\ is\ parsed;\ value\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__integer}{number\_integer}}(number\_integer\_t\ val);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__unsigned}{number\_unsigned}}(number\_unsigned\_t\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ floating-\/point\ number\ is\ parsed;\ value\ and\ original\ string\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnumber__float}{number\_float}}(number\_float\_t\ val,\ \textcolor{keyword}{const}\ string\_t\&\ s);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ string\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classstring}{string}}(string\_t\&\ val);}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ binary\ value\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}(binary\_t\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ an\ object\ or\ array\ begins\ or\ ends,\ resp.\ The\ number\ of\ elements\ is\ passed\ (or\ -\/1\ if\ not\ known)}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ start\_object(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ elements);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ end\_object();}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ start\_array(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ elements);}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ end\_array();}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ an\ object\ key\ is\ parsed;\ value\ is\ passed\ and\ can\ be\ safely\ moved\ away}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}(string\_t\&\ val);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ called\ when\ a\ parse\ error\ occurs;\ byte\ position,\ the\ last\ token,\ and\ an\ exception\ is\ passed}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ parse\_error(\mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ position,\ \textcolor{keyword}{const}\ std::string\&\ last\_token,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classdetail_1_1exception}{detail::exception}}\&\ ex);}
+
+\end{DoxyCode}
+
+
+The return value of each function determines whether parsing should proceed.
+
+To implement your own SAX handler, proceed as follows\+:
+
+
+\begin{DoxyEnumerate}
+\item Implement the SAX interface in a class. You can use class {\ttfamily nlohmann\+::json\+\_\+sax\texorpdfstring{$<$}{<}json\texorpdfstring{$>$}{>}} as base class, but you can also use any class where the functions described above are implemented and public.
+\item Create an object of your SAX interface class, e.\+g. {\ttfamily my\+\_\+sax}.
+\item Call {\ttfamily bool \doxylink{classnlohmann_1_1basic__json_a12b382c6407da5543827ce4b24bb5008}{json\+::sax\+\_\+parse}(input, \&my\+\_\+sax)}; where the first parameter can be any input like a string or an input stream and the second parameter is a pointer to your SAX interface.
+\end{DoxyEnumerate}
+
+Note the {\ttfamily sax\+\_\+parse} function only returns a {\ttfamily bool} indicating the result of the last executed SAX event. It does not return a {\ttfamily json} value -\/ it is up to you to decide what to do with the SAX events. Furthermore, no exceptions are thrown in case of a parse error -\/ it is up to you what to do with the exception object passed to your {\ttfamily parse\+\_\+error} implementation. Internally, the SAX interface is used for the DOM parser (class {\ttfamily json\+\_\+sax\+\_\+dom\+\_\+parser}) as well as the acceptor ({\ttfamily json\+\_\+sax\+\_\+acceptor}), see file \href{https://github.com/nlohmann/json/blob/develop/include/nlohmann/detail/input/json_sax.hpp}{\texttt{ {\ttfamily json\+\_\+sax.\+hpp}}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1772}{}\doxysubsubsection{\texorpdfstring{STL-\/like access}{STL-like access}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1772}
+We designed the JSON class to behave just like an STL container. In fact, it satisfies the \href{https://en.cppreference.com/w/cpp/named_req/ReversibleContainer}{\texttt{ {\bfseries{Reversible\+Container}}}} requirement.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ an\ array\ using\ push\_back}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab9e0253c92736db021840105d374c4c4}{push\_back}}(\textcolor{stringliteral}{"{}foo"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab9e0253c92736db021840105d374c4c4}{push\_back}}(1);}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab9e0253c92736db021840105d374c4c4}{push\_back}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ also\ use\ emplace\_back}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a15c0a5db4fb12d49433801bbe6436bfb}{emplace\_back}}(1.78);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ iterate\ the\ array}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classnlohmann_1_1detail_1_1iter__impl}{json::iterator}}\ it\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23b495b4c282e4afacf382f5b49af7c7}{begin}}();\ it\ !=\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a931267ec3f09eb67e4382f321b2c52bc}{end}}();\ ++it)\ \{}
+\DoxyCodeLine{\ \ std::cout\ <<\ *it\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ range-\/based\ for}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ element\ :\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}})\ \{}
+\DoxyCodeLine{\ \ std::cout\ <<\ element\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ getter/setter}}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ tmp\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[0].template\ get<std::string>();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[1]\ =\ 42;}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ foo\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ comparison}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ ==\ R\textcolor{stringliteral}{"{}(["{}foo"{},\ 1,\ true,\ 1.78])"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};\ \ }\textcolor{comment}{//\ true}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ other\ stuff}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a33c7c8638bb0b12e6d1b69d8106dd2e0}{size}}();\ \ \ \ \ \textcolor{comment}{//\ 4\ entries}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a5c99855f3e35ff35558cb46139b785f8}{empty}}();\ \ \ \ \textcolor{comment}{//\ false}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a5b7c4b35a0ad9f97474912a08965d7ad}{type}}();\ \ \ \ \ \textcolor{comment}{//\ json::value\_t::array}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a946cc8f30d8b1d6609b57387b647fe53}{clear}}();\ \ \ \ \textcolor{comment}{//\ the\ array\ is\ empty\ again}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ convenience\ type\ checkers}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_aedc7afad96292b5ab61a2e0ad3067f5f}{is\_null}}();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a911b11e855e685fa59ea1d111490b36b}{is\_boolean}}();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_abd47ac8eba63833152795280f75b5851}{is\_number}}();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a57e8411a770a6263d6d8f2116c37f3aa}{is\_object}}();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab5b70d60a636b9c5e10f6c8caac60b9e}{is\_array}}();}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_ab303d17366c26fca12242c7f8def1bb7}{is\_string}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ an\ object}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ o;}
+\DoxyCodeLine{o[\textcolor{stringliteral}{"{}foo"{}}]\ =\ 23;}
+\DoxyCodeLine{o[\textcolor{stringliteral}{"{}bar"{}}]\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{o[\textcolor{stringliteral}{"{}baz"{}}]\ =\ 3.141;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ also\ use\ emplace}}
+\DoxyCodeLine{o.\mbox{\hyperlink{classnlohmann_1_1basic__json_af244c096197a233edba4c83200ae66ac}{emplace}}(\textcolor{stringliteral}{"{}weather"{}},\ \textcolor{stringliteral}{"{}sunny"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ special\ iterator\ member\ functions\ for\ objects}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\mbox{\hyperlink{classnlohmann_1_1detail_1_1iter__impl}{json::iterator}}\ it\ =\ o.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23b495b4c282e4afacf382f5b49af7c7}{begin}}();\ it\ !=\ o.\mbox{\hyperlink{classnlohmann_1_1basic__json_a931267ec3f09eb67e4382f321b2c52bc}{end}}();\ ++it)\ \{}
+\DoxyCodeLine{\ \ std::cout\ <<\ it.key()\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ it.value()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ same\ code\ as\ range\ for}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ el\ :\ o.items())\ \{}
+\DoxyCodeLine{\ \ std::cout\ <<\ el.key()\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ el.value()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ even\ easier\ with\ structured\ bindings\ (C++17)}}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ value]\ :\ o.items())\ \{}
+\DoxyCodeLine{\ \ std::cout\ <<\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\ <<\ \textcolor{stringliteral}{"{}\ :\ "{}}\ <<\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ find\ an\ entry}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (o.\mbox{\hyperlink{classnlohmann_1_1basic__json_a02c9bc4d0f33b7dec20b2798301d6971}{contains}}(\textcolor{stringliteral}{"{}foo"{}}))\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ there\ is\ an\ entry\ with\ key\ "{}foo"{}}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ or\ via\ find\ and\ an\ iterator}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (o.\mbox{\hyperlink{classnlohmann_1_1basic__json_acdf9b3aab82dcf443dd91ca5ec06b80c}{find}}(\textcolor{stringliteral}{"{}foo"{}})\ !=\ o.\mbox{\hyperlink{classnlohmann_1_1basic__json_a931267ec3f09eb67e4382f321b2c52bc}{end}}())\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ there\ is\ an\ entry\ with\ key\ "{}foo"{}}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ or\ simpler\ using\ count()}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ foo\_present\ =\ o.\mbox{\hyperlink{classnlohmann_1_1basic__json_aba5ec6d1e37eda6b11eba491a1e5237e}{count}}(\textcolor{stringliteral}{"{}foo"{}});\ \textcolor{comment}{//\ 1}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ fob\_present\ =\ o.\mbox{\hyperlink{classnlohmann_1_1basic__json_aba5ec6d1e37eda6b11eba491a1e5237e}{count}}(\textcolor{stringliteral}{"{}fob"{}});\ \textcolor{comment}{//\ 0}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ delete\ an\ entry}}
+\DoxyCodeLine{o.\mbox{\hyperlink{classnlohmann_1_1basic__json_a494632b69bbe1d0153d3bedad0901b8e}{erase}}(\textcolor{stringliteral}{"{}foo"{}});}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1773}{}\doxysubsubsection{\texorpdfstring{Conversion from STL containers}{Conversion from STL containers}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1773}
+Any sequence container ({\ttfamily std\+::array}, {\ttfamily std\+::vector}, {\ttfamily std\+::deque}, {\ttfamily std\+::forward\+\_\+list}, {\ttfamily std\+::list}) whose values can be used to construct JSON values (e.\+g., integers, floating point numbers, Booleans, string types, or again STL containers described in this section) can be used to create a JSON array. The same holds for similar associative containers ({\ttfamily std\+::set}, {\ttfamily std\+::multiset}, {\ttfamily std\+::unordered\+\_\+set}, {\ttfamily std\+::unordered\+\_\+multiset}), but in these cases the order of the elements of the array depends on how the elements are ordered in the respective STL container.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<int>\ c\_vector\ \{1,\ 2,\ 3,\ 4\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_vec(c\_vector);}
+\DoxyCodeLine{\textcolor{comment}{//\ [1,\ 2,\ 3,\ 4]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::deque<double>\ c\_deque\ \{1.2,\ 2.3,\ 3.4,\ 5.6\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_deque(c\_deque);}
+\DoxyCodeLine{\textcolor{comment}{//\ [1.2,\ 2.3,\ 3.4,\ 5.6]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::list<bool>\ c\_list\ \{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_list(c\_list);}
+\DoxyCodeLine{\textcolor{comment}{//\ [true,\ true,\ false,\ true]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::forward\_list<int64\_t>\ c\_flist\ \{12345678909876,\ 23456789098765,\ 34567890987654,\ 45678909876543\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_flist(c\_flist);}
+\DoxyCodeLine{\textcolor{comment}{//\ [12345678909876,\ 23456789098765,\ 34567890987654,\ 45678909876543]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::array<unsigned\ long,\ 4>\ c\_array\ \{\{1,\ 2,\ 3,\ 4\}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_array(c\_array);}
+\DoxyCodeLine{\textcolor{comment}{//\ [1,\ 2,\ 3,\ 4]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::set<std::string>\ c\_set\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}two"{}},\ \textcolor{stringliteral}{"{}three"{}},\ \textcolor{stringliteral}{"{}four"{}},\ \textcolor{stringliteral}{"{}one"{}}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_set(c\_set);\ \textcolor{comment}{//\ only\ one\ entry\ for\ "{}one"{}\ is\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ ["{}four"{},\ "{}one"{},\ "{}three"{},\ "{}two"{}]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unordered\_set<std::string>\ c\_uset\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}two"{}},\ \textcolor{stringliteral}{"{}three"{}},\ \textcolor{stringliteral}{"{}four"{}},\ \textcolor{stringliteral}{"{}one"{}}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_uset(c\_uset);\ \textcolor{comment}{//\ only\ one\ entry\ for\ "{}one"{}\ is\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ maybe\ ["{}two"{},\ "{}three"{},\ "{}four"{},\ "{}one"{}]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::multiset<std::string>\ c\_mset\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}two"{}},\ \textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}four"{}}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_mset(c\_mset);\ \textcolor{comment}{//\ both\ entries\ for\ "{}one"{}\ are\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ maybe\ ["{}one"{},\ "{}two"{},\ "{}one"{},\ "{}four"{}]}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unordered\_multiset<std::string>\ c\_umset\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}two"{}},\ \textcolor{stringliteral}{"{}one"{}},\ \textcolor{stringliteral}{"{}four"{}}\};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_umset(c\_umset);\ \textcolor{comment}{//\ both\ entries\ for\ "{}one"{}\ are\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ maybe\ ["{}one"{},\ "{}two"{},\ "{}one"{},\ "{}four"{}]}}
+
+\end{DoxyCode}
+
+
+Likewise, any associative key-\/value containers ({\ttfamily std\+::map}, {\ttfamily std\+::multimap}, {\ttfamily std\+::unordered\+\_\+map}, {\ttfamily std\+::unordered\+\_\+multimap}) whose keys can construct an {\ttfamily std\+::string} and whose values can be used to construct JSON values (see examples above) can be used to create a JSON object. Note that in case of multimaps only one key is used in the JSON object and the value depends on the internal order of the STL container.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::map<std::string,\ int>\ c\_map\ \{\ \{\textcolor{stringliteral}{"{}one"{}},\ 1\},\ \{\textcolor{stringliteral}{"{}two"{}},\ 2\},\ \{\textcolor{stringliteral}{"{}three"{}},\ 3\}\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_map(c\_map);}
+\DoxyCodeLine{\textcolor{comment}{//\ \{"{}one"{}:\ 1,\ "{}three"{}:\ 3,\ "{}two"{}:\ 2\ \}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unordered\_map<const\ char*,\ double>\ c\_umap\ \{\ \{\textcolor{stringliteral}{"{}one"{}},\ 1.2\},\ \{\textcolor{stringliteral}{"{}two"{}},\ 2.3\},\ \{\textcolor{stringliteral}{"{}three"{}},\ 3.4\}\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_umap(c\_umap);}
+\DoxyCodeLine{\textcolor{comment}{//\ \{"{}one"{}:\ 1.2,\ "{}two"{}:\ 2.3,\ "{}three"{}:\ 3.4\}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::multimap<std::string,\ bool>\ c\_mmap\ \{\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{keyword}{true}\},\ \{\textcolor{stringliteral}{"{}two"{}},\ \textcolor{keyword}{true}\},\ \{\textcolor{stringliteral}{"{}three"{}},\ \textcolor{keyword}{false}\},\ \{\textcolor{stringliteral}{"{}three"{}},\ \textcolor{keyword}{true}\}\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_mmap(c\_mmap);\ \textcolor{comment}{//\ only\ one\ entry\ for\ key\ "{}three"{}\ is\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ maybe\ \{"{}one"{}:\ true,\ "{}two"{}:\ true,\ "{}three"{}:\ true\}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::unordered\_multimap<std::string,\ bool>\ c\_ummap\ \{\ \{\textcolor{stringliteral}{"{}one"{}},\ \textcolor{keyword}{true}\},\ \{\textcolor{stringliteral}{"{}two"{}},\ \textcolor{keyword}{true}\},\ \{\textcolor{stringliteral}{"{}three"{}},\ \textcolor{keyword}{false}\},\ \{\textcolor{stringliteral}{"{}three"{}},\ \textcolor{keyword}{true}\}\ \};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_ummap(c\_ummap);\ \textcolor{comment}{//\ only\ one\ entry\ for\ key\ "{}three"{}\ is\ used}}
+\DoxyCodeLine{\textcolor{comment}{//\ maybe\ \{"{}one"{}:\ true,\ "{}two"{}:\ true,\ "{}three"{}:\ true\}}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1774}{}\doxysubsubsection{\texorpdfstring{JSON Pointer and JSON Patch}{JSON Pointer and JSON Patch}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1774}
+The library supports {\bfseries{JSON Pointer}} (\href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) as alternative means to address structured values. On top of this, {\bfseries{JSON Patch}} (\href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902}}) allows describing differences between two JSON values -\/ effectively allowing patch and diff operations known from Unix.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ JSON\ value}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_original\ =\ R\textcolor{stringliteral}{"{}(\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}baz"{}:\ ["{}one"{},\ "{}two"{},\ "{}three"{}],}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}foo"{}:\ "{}bar"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\})"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ access\ members\ with\ a\ JSON\ pointer\ (RFC\ 6901)}}
+\DoxyCodeLine{j\_original[\textcolor{stringliteral}{"{}/baz/1"{}}\_json\_pointer];}
+\DoxyCodeLine{\textcolor{comment}{//\ "{}two"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ JSON\ patch\ (RFC\ 6902)}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_patch\ =\ R\textcolor{stringliteral}{"{}([}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{\ "{}op"{}:\ "{}replace"{},\ "{}path"{}:\ "{}/baz"{},\ "{}value"{}:\ "{}boo"{}\ \},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{\ "{}op"{}:\ "{}add"{},\ "{}path"{}:\ "{}/hello"{},\ "{}value"{}:\ ["{}world"{}]\ \},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \{\ "{}op"{}:\ "{}remove"{},\ "{}path"{}:\ "{}/foo"{}\}}}
+\DoxyCodeLine{\textcolor{stringliteral}{])"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ apply\ the\ patch}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_result\ =\ j\_original.\mbox{\hyperlink{classnlohmann_1_1basic__json_adcc786998f220a5b3083ee8a37c4553e}{patch}}(j\_patch);}
+\DoxyCodeLine{\textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ "{}baz"{}:\ "{}boo"{},}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ "{}hello"{}:\ ["{}world"{}]}}
+\DoxyCodeLine{\textcolor{comment}{//\ \}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ calculate\ a\ JSON\ patch\ from\ two\ JSON\ values}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json_a1c1f21327df91a4dd6c5f5a107240385}{json::diff}}(j\_result,\ j\_original);}
+\DoxyCodeLine{\textcolor{comment}{//\ [}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \{\ "{}op"{}:"{}\ replace"{},\ "{}path"{}:\ "{}/baz"{},\ "{}value"{}:\ ["{}one"{},\ "{}two"{},\ "{}three"{}]\ \},}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \{\ "{}op"{}:\ "{}remove"{},"{}path"{}:\ "{}/hello"{}\ \},}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \{\ "{}op"{}:\ "{}add"{},\ "{}path"{}:\ "{}/foo"{},\ "{}value"{}:\ "{}bar"{}\ \}}}
+\DoxyCodeLine{\textcolor{comment}{//\ ]}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1775}{}\doxysubsubsection{\texorpdfstring{JSON Merge Patch}{JSON Merge Patch}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1775}
+The library supports {\bfseries{JSON Merge Patch}} (\href{https://tools.ietf.org/html/rfc7386}{\texttt{ RFC 7386}}) as a patch format. Instead of using JSON Pointer (see above) to specify values to be manipulated, it describes the changes using a syntax that closely mimics the document being modified.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ JSON\ value}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_document\ =\ R\textcolor{stringliteral}{"{}(\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}a"{}:\ "{}b"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}c"{}:\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}d"{}:\ "{}e"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}f"{}:\ "{}g"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\})"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ a\ patch}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_patch\ =\ R\textcolor{stringliteral}{"{}(\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}a"{}:"{}z"{},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ "{}c"{}:\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}f"{}:\ null}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\})"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ apply\ the\ patch}}
+\DoxyCodeLine{j\_document.\mbox{\hyperlink{classnlohmann_1_1basic__json_a844a77cb154752d12118f10af26d54cb}{merge\_patch}}(j\_patch);}
+\DoxyCodeLine{\textcolor{comment}{//\ \{}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ "{}a"{}:\ "{}z"{},}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ "{}c"{}:\ \{}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ "{}d"{}:\ "{}e"{}}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \}}}
+\DoxyCodeLine{\textcolor{comment}{//\ \}}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1776}{}\doxysubsubsection{\texorpdfstring{Implicit conversions}{Implicit conversions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1776}
+Supported types can be implicitly converted to JSON values.
+
+It is recommended to {\bfseries{NOT USE}} implicit conversions {\bfseries{FROM}} a JSON value. You can find more details about this recommendation \href{https://www.github.com/nlohmann/json/issues/958}{\texttt{ here}}. You can switch off implicit conversions by defining {\ttfamily JSON\+\_\+\+USE\+\_\+\+IMPLICIT\+\_\+\+CONVERSIONS} to {\ttfamily 0} before including the {\ttfamily json.\+hpp} header. When using CMake, you can also achieve this by setting the option {\ttfamily JSON\+\_\+\+Implicit\+Conversions} to {\ttfamily OFF}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ strings}}
+\DoxyCodeLine{std::string\ s1\ =\ \textcolor{stringliteral}{"{}Hello,\ world!"{}};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ js\ =\ s1;}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ s2\ =\ js.template\ get<std::string>();}
+\DoxyCodeLine{\textcolor{comment}{//\ NOT\ RECOMMENDED}}
+\DoxyCodeLine{std::string\ s3\ =\ js;}
+\DoxyCodeLine{std::string\ s4;}
+\DoxyCodeLine{s4\ =\ js;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Booleans}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ b1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ jb\ =\ b1;}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ b2\ =\ jb.template\ get<bool>();}
+\DoxyCodeLine{\textcolor{comment}{//\ NOT\ RECOMMENDED}}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ b3\ =\ jb;}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ b4;}
+\DoxyCodeLine{b4\ =\ jb;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ numbers}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ i\ =\ 42;}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ jn\ =\ i;}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ f\ =\ jn.template\ get<double>();}
+\DoxyCodeLine{\textcolor{comment}{//\ NOT\ RECOMMENDED}}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ f2\ =\ jb;}
+\DoxyCodeLine{\textcolor{keywordtype}{double}\ f3;}
+\DoxyCodeLine{f3\ =\ jb;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ etc.}}
+
+\end{DoxyCode}
+
+
+Note that {\ttfamily char} types are not automatically converted to JSON strings, but to integer numbers. A conversion to a string must be specified explicitly\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{char}\ ch\ =\ \textcolor{charliteral}{'A'};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ASCII\ value\ 65}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_default\ =\ ch;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stores\ integer\ number\ 65}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_string\ =\ std::string(1,\ ch);\ \ \textcolor{comment}{//\ stores\ string\ "{}A"{}}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1777}{}\doxysubsubsection{\texorpdfstring{Arbitrary types conversions}{Arbitrary types conversions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1777}
+Every type can be serialized in JSON, not just STL containers and scalar types. Usually, you would do something along those lines\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacens}{ns}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ a\ simple\ struct\ to\ model\ a\ person}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }person\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structns_1_1person_a2ba4011bdce34ee938feef8df34d1d01}{name}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structns_1_1person_af67a5f3087b37ec4a10fe723b6925fde}{address}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structns_1_1person_aeb4e2e9774c26b52ecc3399f14e22fb1}{age}};}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structns_1_1person}{ns::person}}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ =\ \{\textcolor{stringliteral}{"{}Ned\ Flanders"{}},\ \textcolor{stringliteral}{"{}744\ Evergreen\ Terrace"{}},\ 60\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ convert\ to\ JSON:\ copy\ each\ value\ into\ the\ JSON\ object}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}name"{}}]\ =\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.name;}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}address"{}}]\ =\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.address;}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}age"{}}]\ =\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.age;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ ...}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ convert\ from\ JSON:\ copy\ each\ value\ from\ the\ JSON\ object}}
+\DoxyCodeLine{\mbox{\hyperlink{structns_1_1person}{ns::person}}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}name"{}}].template\ get<std::string>(),}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}address"{}}].template\ get<std::string>(),}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}[\textcolor{stringliteral}{"{}age"{}}].template\ get<int>()}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+It works, but that\textquotesingle{}s quite a lot of boilerplate... Fortunately, there\textquotesingle{}s a better way\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ a\ person}}
+\DoxyCodeLine{\mbox{\hyperlink{structns_1_1person}{ns::person}}\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ \{\textcolor{stringliteral}{"{}Ned\ Flanders"{}},\ \textcolor{stringliteral}{"{}744\ Evergreen\ Terrace"{}},\ 60\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ conversion:\ person\ -\/>\ json}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::cout\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ <<\ std::endl;}
+\DoxyCodeLine{\textcolor{comment}{//\ \{"{}address"{}:"{}744\ Evergreen\ Terrace"{},"{}age"{}:60,"{}name"{}:"{}Ned\ Flanders"{}\}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ conversion:\ json\ -\/>\ person}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}}\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.template\ get<ns::person>();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ that's\ it}}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}\ ==\ \mbox{\hyperlink{unit-udt_8cpp_ab129b5adf5b5823e67703b625ffc7c66}{p2}});}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1778}{}\doxyparagraph{\texorpdfstring{Basic usage}{Basic usage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1778}
+To make this work with one of your types, you only need to provide two functions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ =\ \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann::json}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacens}{ns}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keyword}{const}\ person\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\{\{\textcolor{stringliteral}{"{}name"{}},\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.name\},\ \{\textcolor{stringliteral}{"{}address"{}},\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.address\},\ \{\textcolor{stringliteral}{"{}age"{}},\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.age\}\};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacens_ad67f860ce03e82b028279f77f50cd6e7}{from\_json}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ person\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(\textcolor{stringliteral}{"{}name"{}}).\mbox{\hyperlink{classnlohmann_1_1basic__json_a3c3fef72afb412c0739d062d27af1c9a}{get\_to}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.name);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(\textcolor{stringliteral}{"{}address"{}}).\mbox{\hyperlink{classnlohmann_1_1basic__json_a3c3fef72afb412c0739d062d27af1c9a}{get\_to}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.address);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a52b18a5b7e68652c65b070900c438c6e}{at}}(\textcolor{stringliteral}{"{}age"{}}).\mbox{\hyperlink{classnlohmann_1_1basic__json_a3c3fef72afb412c0739d062d27af1c9a}{get\_to}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.age);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ns}}
+
+\end{DoxyCode}
+
+
+That\textquotesingle{}s all! When calling the {\ttfamily json} constructor with your type, your custom {\ttfamily to\+\_\+json} method will be automatically called. Likewise, when calling {\ttfamily template get\texorpdfstring{$<$}{<}your\+\_\+type\texorpdfstring{$>$}{>}()} or {\ttfamily get\+\_\+to(your\+\_\+type\&)}, the {\ttfamily from\+\_\+json} method will be called.
+
+Some important things\+:
+
+
+\begin{DoxyItemize}
+\item Those methods {\bfseries{MUST}} be in your type\textquotesingle{}s namespace (which can be the global namespace), or the library will not be able to locate them (in this example, they are in namespace {\ttfamily ns}, where {\ttfamily person} is defined).
+\item Those methods {\bfseries{MUST}} be available (e.\+g., proper headers must be included) everywhere you use these conversions. Look at \href{https://github.com/nlohmann/json/issues/1108}{\texttt{ issue 1108}} for errors that may occur otherwise.
+\item When using {\ttfamily template get\texorpdfstring{$<$}{<}your\+\_\+type\texorpdfstring{$>$}{>}()}, {\ttfamily your\+\_\+type} {\bfseries{MUST}} be \href{https://en.cppreference.com/w/cpp/named_req/DefaultConstructible}{\texttt{ Default\+Constructible}}. (There is a way to bypass this requirement described later.)
+\item In function {\ttfamily from\+\_\+json}, use function \href{https://json.nlohmann.me/api/basic_json/at/}{\texttt{ {\ttfamily at()}}} to access the object values rather than {\ttfamily operator\mbox{[}\mbox{]}}. In case a key does not exist, {\ttfamily at} throws an exception that you can handle, whereas {\ttfamily operator\mbox{[}\mbox{]}} exhibits undefined behavior.
+\item You do not need to add serializers or deserializers for STL types like {\ttfamily std\+::vector}\+: the library already implements these.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1779}{}\doxyparagraph{\texorpdfstring{Simplify your life with macros}{Simplify your life with macros}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1779}
+If you just want to serialize/deserialize some structs, the {\ttfamily to\+\_\+json}/{\ttfamily from\+\_\+json} functions can be a lot of boilerplate.
+
+There are two macros to make your life easier as long as you (1) want to use a JSON object as serialization and (2) want to use the member variable names as object keys in that object\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{macro__scope_8hpp_a5767c8967df840d48dc01b0cf810a882}{NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+NON\+\_\+\+INTRUSIVE(name, member1, member2, ...)}} is to be defined inside the namespace of the class/struct to create code for.
+\item {\ttfamily \doxylink{macro__scope_8hpp_ad22f878b4987246e5a4f4f258228e775}{NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+INTRUSIVE(name, member1, member2, ...)}} is to be defined inside the class/struct to create code for. This macro can also access private members.
+\end{DoxyItemize}
+
+In both macros, the first parameter is the name of the class/struct, and all remaining parameters name the members.
+
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1780}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1780}%
+ \doxysubparagraph*{Examples}
+
+The {\ttfamily to\+\_\+json}/{\ttfamily from\+\_\+json} functions for the {\ttfamily person} struct above can be created with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacens}{ns}}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{macro__scope_8hpp_a5767c8967df840d48dc01b0cf810a882}{NLOHMANN\_DEFINE\_TYPE\_NON\_INTRUSIVE}}(person,\ name,\ address,\ age)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Here is an example with private members, where {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+INTRUSIVE} is needed\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacens}{ns}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{class\ }address\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::string\ street;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ housenumber;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ postcode;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{macro__scope_8hpp_ad22f878b4987246e5a4f4f258228e775}{NLOHMANN\_DEFINE\_TYPE\_INTRUSIVE}}(address,\ street,\ housenumber,\ postcode)}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1781}{}\doxyparagraph{\texorpdfstring{How do I convert third-\/party types?}{How do I convert third-party types?}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1781}
+This requires a bit more advanced technique. But first, let\textquotesingle{}s see how this conversion mechanism works\+:
+
+The library uses {\bfseries{JSON Serializers}} to convert types to json. The default serializer for {\ttfamily \doxylink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} is {\ttfamily \doxylink{structnlohmann_1_1adl__serializer}{nlohmann\+::adl\+\_\+serializer}} (ADL means \href{https://en.cppreference.com/w/cpp/language/adl}{\texttt{ Argument-\/\+Dependent Lookup}}).
+
+It is implemented like this (simplified)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }\mbox{\hyperlink{structadl__serializer}{adl\_serializer}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structadl__serializer_a0216149429fe899cf45cbf14e08e2166}{to\_json}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ calls\ the\ "{}to\_json"{}\ method\ in\ T's\ namespace}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structadl__serializer_a5645c63fe43bd9b4ebc9917f9c99d0fd}{from\_json}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ same\ thing,\ but\ with\ the\ "{}from\_json"{}\ method}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+This serializer works fine when you have control over the type\textquotesingle{}s namespace. However, what about {\ttfamily boost\+::optional} or {\ttfamily std\+::filesystem\+::path} (C++17)? Hijacking the {\ttfamily boost} namespace is pretty bad, and it\textquotesingle{}s illegal to add something other than template specializations to {\ttfamily std}...
+
+To solve this, you need to add a specialization of {\ttfamily \doxylink{structadl__serializer}{adl\+\_\+serializer}} to the {\ttfamily nlohmann} namespace, here\textquotesingle{}s an example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ partial\ specialization\ (full\ specialization\ works\ too)}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenlohmann}{nlohmann}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structadl__serializer}{adl\_serializer}}<boost::optional<T>>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structnlohmann_1_1adl__serializer_afdcc8f0204ce8ac7d28a5403f6e1f0e7}{to\_json}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keyword}{const}\ boost::optional<T>\&\ opt)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (opt\ ==\ boost::none)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ *opt;\ \textcolor{comment}{//\ this\ will\ call\ adl\_serializer<T>::to\_json\ which\ will}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ find\ the\ free\ function\ to\_json\ in\ T's\ namespace!}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structnlohmann_1_1adl__serializer_a8180f52bf21fc610705bc521f22116ae}{from\_json}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ boost::optional<T>\&\ opt)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_aedc7afad96292b5ab61a2e0ad3067f5f}{is\_null}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opt\ =\ boost::none;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ opt\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.template\ get<T>();\ \textcolor{comment}{//\ same\ as\ above,\ but\ with}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ adl\_serializer<T>::from\_json}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1782}{}\doxyparagraph{\texorpdfstring{How can I use $<$tt$>$get()$<$/tt$>$ for non-\/default constructible/non-\/copyable types?}{How can I use <tt>get()</tt> for non-default constructible/non-copyable types?}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1782}
+There is a way, if your type is \href{https://en.cppreference.com/w/cpp/named_req/MoveConstructible}{\texttt{ Move\+Constructible}}. You will need to specialize the {\ttfamily \doxylink{structadl__serializer}{adl\+\_\+serializer}} as well, but with a special {\ttfamily from\+\_\+json} overload\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }move\_only\_type\ \{}
+\DoxyCodeLine{\ \ \ \ move\_only\_type()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\ \ \ \ move\_only\_type(\textcolor{keywordtype}{int}\ ii):\ i(ii)\ \{\}}
+\DoxyCodeLine{\ \ \ \ move\_only\_type(\textcolor{keyword}{const}\ move\_only\_type\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{\ \ \ \ move\_only\_type(move\_only\_type\&\&)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenlohmann}{nlohmann}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structadl__serializer}{adl\_serializer}}<move\_only\_type>\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ note:\ the\ return\ type\ is\ no\ longer\ 'void',\ and\ the\ method\ only\ takes}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ one\ argument}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ move\_only\_type\ \mbox{\hyperlink{structnlohmann_1_1adl__serializer_a8180f52bf21fc610705bc521f22116ae}{from\_json}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.template\ get<int>()\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Here's\ the\ catch!\ You\ must\ provide\ a\ to\_json\ method!\ Otherwise,\ you}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ will\ not\ be\ able\ to\ convert\ move\_only\_type\ to\ json,\ since\ you\ fully}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ specialized\ adl\_serializer\ on\ that\ type}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structnlohmann_1_1adl__serializer_afdcc8f0204ce8ac7d28a5403f6e1f0e7}{to\_json}}(\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ move\_only\_type\ t)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ t.i;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1783}{}\doxyparagraph{\texorpdfstring{Can I write my own serializer? (\+Advanced use)}{Can I write my own serializer? (Advanced use)}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1783}
+Yes. You might want to take a look at \href{https://github.com/nlohmann/json/blob/develop/tests/src/unit-udt.cpp}{\texttt{ {\ttfamily unit-\/udt.\+cpp}}} in the test suite, to see a few examples.
+
+If you write your own serializer, you\textquotesingle{}ll need to do a few things\+:
+
+
+\begin{DoxyItemize}
+\item use a different {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} alias than {\ttfamily \doxylink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} (the last template parameter of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} is the {\ttfamily JSONSerializer})
+\item use your {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} alias (or a template parameter) in all your {\ttfamily to\+\_\+json}/{\ttfamily from\+\_\+json} methods
+\item use {\ttfamily nlohmann\+::to\+\_\+json} and {\ttfamily nlohmann\+::from\+\_\+json} when you need ADL
+\end{DoxyItemize}
+
+Here is an example, without simplifications, that only accepts types with a size \texorpdfstring{$<$}{<}= 32, and uses ADL.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ You\ should\ use\ void\ as\ a\ second\ template\ argument}}
+\DoxyCodeLine{\textcolor{comment}{//\ if\ you\ don't\ need\ compile-\/time\ checks\ on\ T}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ SFINAE\ =\ \textcolor{keyword}{typename}\ std::enable\_if<sizeof(T)\ <=\ 32>::type>}
+\DoxyCodeLine{struct\ less\_than\_32\_serializer\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ T\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ we\ want\ to\ use\ ADL,\ and\ call\ the\ correct\ to\_json\ overload}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }nlohmann::to\_json;\ \textcolor{comment}{//\ this\ method\ is\ called\ by\ adl\_serializer,}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ where\ the\ magic\ happens}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ value);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\_json}}(\textcolor{keyword}{const}\ BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ same\ thing\ here}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }nlohmann::from\_json;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\_json}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ value);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+Be {\bfseries{very}} careful when reimplementing your serializer, you can stack overflow if you don\textquotesingle{}t pay attention\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{void}>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }bad\_serializer}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ \textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ this\ calls\ BasicJsonType::json\_serializer<T>::to\_json(j,\ value);}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ if\ BasicJsonType::json\_serializer\ ==\ bad\_serializer\ ...\ oops!}}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacens_a651f29af9e1ea7c702a6806105b16018}{to\_json}}(\textcolor{keyword}{const}\ BasicJsonType\&\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}},\ T\&\ value)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ this\ calls\ BasicJsonType::json\_serializer<T>::from\_json(j,\ value);}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ if\ BasicJsonType::json\_serializer\ ==\ bad\_serializer\ ...\ oops!}}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{value}}\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.template\ get<T>();\ \textcolor{comment}{//\ oops!}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1784}{}\doxysubsubsection{\texorpdfstring{Specializing enum conversion}{Specializing enum conversion}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1784}
+By default, enum values are serialized to JSON as integers. In some cases this could result in undesired behavior. If an enum is modified or re-\/ordered after data has been serialized to JSON, the later de-\/serialized JSON data may be undefined or a different enum value than was originally intended.
+
+It is possible to more precisely specify how a given enum is mapped to and from JSON as shown below\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ example\ enum\ type\ declaration}}
+\DoxyCodeLine{\textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424}{TaskState}}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\_RUNNING}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\_COMPLETED}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\_INVALID}}=-\/1,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ map\ TaskState\ values\ to\ JSON\ as\ strings}}
+\DoxyCodeLine{\mbox{\hyperlink{macro__scope_8hpp_a4c5d399dfa9252e70f876756f3f49084}{NLOHMANN\_JSON\_SERIALIZE\_ENUM}}(\ TaskState,\ \{}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a15b842ceab541ad49fd2ab03d344800c}{TS\_INVALID}},\ \textcolor{keyword}{nullptr}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}},\ \textcolor{stringliteral}{"{}stopped"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a90e94ac6a455adf59f88f084b0ac814e}{TS\_RUNNING}},\ \textcolor{stringliteral}{"{}running"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a5e2832e86a51ea57a1a942cef3c4f15d}{TS\_COMPLETED}},\ \textcolor{stringliteral}{"{}completed"{}}\},}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+The {\ttfamily \doxylink{macro__scope_8hpp_a4c5d399dfa9252e70f876756f3f49084}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM()}} macro declares a set of {\ttfamily to\+\_\+json()} / {\ttfamily \doxylink{unit-regression2_8cpp_ae14d47158b902877a3fc6840ea80dd02}{from\+\_\+json()}} functions for type {\ttfamily Task\+State} while avoiding repetition and boilerplate serialization code.
+
+{\bfseries{Usage\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ enum\ to\ JSON\ as\ string}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{namespacens_a959f2abff14bca2c3fc8ce8c18e82424a39e39a9185f43a910ba36d3c0113331e}{TS\_STOPPED}};}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ ==\ \textcolor{stringliteral}{"{}stopped"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ json\ string\ to\ enum}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j3\ =\ \textcolor{stringliteral}{"{}running"{}};}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(j3.template\ get<TaskState>()\ ==\ TS\_RUNNING);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ undefined\ json\ value\ to\ enum\ (where\ the\ first\ map\ entry\ above\ is\ the\ default)}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ jPi\ =\ 3.14;}
+\DoxyCodeLine{\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(jPi.template\ get<TaskState>()\ ==\ TS\_INVALID\ );}
+
+\end{DoxyCode}
+
+
+Just as in Arbitrary Type Conversions above,
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{macro__scope_8hpp_a4c5d399dfa9252e70f876756f3f49084}{NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM()}} MUST be declared in your enum type\textquotesingle{}s namespace (which can be the global namespace), or the library will not be able to locate it, and it will default to integer serialization.
+\item It MUST be available (e.\+g., proper headers must be included) everywhere you use the conversions.
+\end{DoxyItemize}
+
+Other Important points\+:
+\begin{DoxyItemize}
+\item When using {\ttfamily template get\texorpdfstring{$<$}{<}ENUM\+\_\+\+TYPE\texorpdfstring{$>$}{>}()}, undefined JSON values will default to the first pair specified in your map. Select this default pair carefully.
+\item If an enum or JSON value is specified more than once in your map, the first matching occurrence from the top of the map will be returned when converting to or from JSON.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1785}{}\doxysubsubsection{\texorpdfstring{Binary formats (\+BSON, CBOR, Message\+Pack, UBJSON, and BJData)}{Binary formats (BSON, CBOR, MessagePack, UBJSON, and BJData)}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1785}
+Though JSON is a ubiquitous data format, it is not a very compact format suitable for data exchange, for instance over a network. Hence, the library supports \href{https://bsonspec.org}{\texttt{ BSON}} (Binary JSON), \href{https://cbor.io}{\texttt{ CBOR}} (Concise Binary Object Representation), \href{https://msgpack.org}{\texttt{ Message\+Pack}}, \href{https://ubjson.org}{\texttt{ UBJSON}} (Universal Binary JSON Specification) and \href{https://neurojson.org/bjdata}{\texttt{ BJData}} (Binary JData) to efficiently encode JSON values to byte vectors and to decode such vectors.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ a\ JSON\ value}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ R\textcolor{stringliteral}{"{}(\{"{}compact"{}:\ true,\ "{}schema"{}:\ 0\})"{}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{}\textcolor{comment}{//\ serialize\ to\ BSON}}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\_bson\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a21302d2c392af239d66df71098d69f73}{json::to\_bson}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ 0x1B,\ 0x00,\ 0x00,\ 0x00,\ 0x08,\ 0x63,\ 0x6F,\ 0x6D,\ 0x70,\ 0x61,\ 0x63,\ 0x74,\ 0x00,\ 0x01,\ 0x10,\ 0x73,\ 0x63,\ 0x68,\ 0x65,\ 0x6D,\ 0x61,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00,\ 0x00}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ roundtrip}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_from\_bson\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a4e02793f2691aa29ab7cb69fddafbf5c}{json::from\_bson}}(v\_bson);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialize\ to\ CBOR}}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\_cbor\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a28c7743637b821189d9eb3c3dc7ab48f}{json::to\_cbor}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ 0xA2,\ 0x67,\ 0x63,\ 0x6F,\ 0x6D,\ 0x70,\ 0x61,\ 0x63,\ 0x74,\ 0xF5,\ 0x66,\ 0x73,\ 0x63,\ 0x68,\ 0x65,\ 0x6D,\ 0x61,\ 0x00}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ roundtrip}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_from\_cbor\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a44dd5635fb2da4710f6cd6e42b72773f}{json::from\_cbor}}(v\_cbor);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialize\ to\ MessagePack}}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\_msgpack\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a2443e8bb20dc6d136dcf5ea9691d46e0}{json::to\_msgpack}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ 0x82,\ 0xA7,\ 0x63,\ 0x6F,\ 0x6D,\ 0x70,\ 0x61,\ 0x63,\ 0x74,\ 0xC3,\ 0xA6,\ 0x73,\ 0x63,\ 0x68,\ 0x65,\ 0x6D,\ 0x61,\ 0x00}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ roundtrip}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_from\_msgpack\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_adbcab52fca1e25b3311ef14e71a57590}{json::from\_msgpack}}(v\_msgpack);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialize\ to\ UBJSON}}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\_ubjson\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a63697142a7bd04d8d50f6446d0e98ee4}{json::to\_ubjson}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ 0x7B,\ 0x69,\ 0x07,\ 0x63,\ 0x6F,\ 0x6D,\ 0x70,\ 0x61,\ 0x63,\ 0x74,\ 0x54,\ 0x69,\ 0x06,\ 0x73,\ 0x63,\ 0x68,\ 0x65,\ 0x6D,\ 0x61,\ 0x69,\ 0x00,\ 0x7D}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ roundtrip}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ j\_from\_ubjson\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_aa81f62db69978b90ff701f05c72e03a7}{json::from\_ubjson}}(v\_ubjson);}
+
+\end{DoxyCode}
+
+
+The library also supports binary types from BSON, CBOR (byte strings), and Message\+Pack (bin, ext, fixext). They are stored by default as {\ttfamily std\+::vector\texorpdfstring{$<$}{<}std\+::uint8\+\_\+t\texorpdfstring{$>$}{>}} to be processed outside the library.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ CBOR\ byte\ string\ with\ payload\ 0xCAFE}}
+\DoxyCodeLine{std::vector<std::uint8\_t>\ v\ =\ \{0x42,\ 0xCA,\ 0xFE\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ read\ value}}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a44dd5635fb2da4710f6cd6e42b72773f}{json::from\_cbor}}(v);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ JSON\ value\ has\ type\ binary}}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a9576224f7b3ff812a308e7c1e784ea80}{is\_binary}}();\ \textcolor{comment}{//\ true}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ get\ reference\ to\ stored\ binary\ value}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\&\ \mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}\ =\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.\mbox{\hyperlink{classnlohmann_1_1basic__json_a23c2e02101cc62e1aec1d6ddaef0e340}{get\_binary}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ the\ binary\ value\ has\ no\ subtype\ (CBOR\ has\ no\ binary\ subtypes)}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.has\_subtype();\ \textcolor{comment}{//\ false}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ access\ std::vector<std::uint8\_t>\ member\ functions}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.size();\ \textcolor{comment}{//\ 2}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}[0];\ \textcolor{comment}{//\ 0xCA}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}[1];\ \textcolor{comment}{//\ 0xFE}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ set\ subtype\ to\ 0x10}}
+\DoxyCodeLine{\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632a9d7183f16acce70658f686ae7f1a4d20}{binary}}.set\_subtype(0x10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ serialize\ to\ MessagePack}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespacedetail_a0ab3b338d0eadc6890b72cccef0ea04faaf9de350d652f0c9055ddab514bd23ea}{cbor}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a2443e8bb20dc6d136dcf5ea9691d46e0}{json::to\_msgpack}}(\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});\ \textcolor{comment}{//\ 0xD5\ (fixext2),\ 0x10,\ 0xCA,\ 0xFE}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1786}{}\doxysubsection{\texorpdfstring{Supported compilers}{Supported compilers}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1786}
+Though it\textquotesingle{}s 2023 already, the support for C++11 is still a bit sparse. Currently, the following compilers are known to work\+:
+
+
+\begin{DoxyItemize}
+\item GCC 4.\+8 -\/ 12.\+0 (and possibly later)
+\item Clang 3.\+4 -\/ 15.\+0 (and possibly later)
+\item Apple Clang 9.\+1 -\/ 13.\+1 (and possibly later)
+\item Intel C++ Compiler 17.\+0.\+2 (and possibly later)
+\item Nvidia CUDA Compiler 11.\+0.\+221 (and possibly later)
+\item Microsoft Visual C++ 2015 / Build Tools 14.\+0.\+25123.\+0 (and possibly later)
+\item Microsoft Visual C++ 2017 / Build Tools 15.\+5.\+180.\+51428 (and possibly later)
+\item Microsoft Visual C++ 2019 / Build Tools 16.\+3.\+1+1def00d3d (and possibly later)
+\item Microsoft Visual C++ 2022 / Build Tools 19.\+30.\+30709.\+0 (and possibly later)
+\end{DoxyItemize}
+
+I would be happy to learn about other compilers/versions.
+
+Please note\+:
+
+
+\begin{DoxyItemize}
+\item GCC 4.\+8 has a bug \href{https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57824}{\texttt{ 57824}})\+: multiline raw strings cannot be the arguments to macros. Don\textquotesingle{}t use multiline raw strings directly in macros with this compiler.
+\item Android defaults to using very old compilers and C++ libraries. To fix this, add the following to your {\ttfamily Application.\+mk}. This will switch to the LLVM C++ library, the Clang compiler, and enable C++11 and other features disabled by default.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{APP\_STL\ :=\ c++\_shared}
+\DoxyCodeLine{NDK\_TOOLCHAIN\_VERSION\ :=\ clang3.6}
+\DoxyCodeLine{APP\_CPPFLAGS\ +=\ -\/frtti\ -\/fexceptions}
+
+\end{DoxyCode}
+
+
+The code compiles successfully with \href{https://developer.android.com/ndk/index.html?hl=ml}{\texttt{ Android NDK}}, Revision 9 -\/ 11 (and possibly later) and \href{https://www.crystax.net/en/android/ndk}{\texttt{ CrystaX\textquotesingle{}s Android NDK}} version 10.
+\item For GCC running on Min\+GW or Android SDK, the error `\textquotesingle{}to\+\_\+string' is not a member of \textquotesingle{}std\textquotesingle{}{\ttfamily (or similarly, for}strtod{\ttfamily or}strtof{\ttfamily ) may occur. Note this is not an issue with the code, but rather with the compiler itself. On Android, see above to build with a newer environment. For Min\+GW, please refer to \mbox{[}this site\mbox{]}(\href{https://tehsausage.com/mingw-to-string}{\texttt{ https\+://tehsausage.\+com/mingw-\/to-\/string}}) and \mbox{[}this discussion\mbox{]}(\href{https://github.com/nlohmann/json/issues/136}{\texttt{ https\+://github.\+com/nlohmann/json/issues/136}}) for information on how to fix this bug. For Android NDK using}APP\+\_\+\+STL \+:= gnustl\+\_\+static\`{}, please refer to \href{https://github.com/nlohmann/json/issues/219}{\texttt{ this discussion}}.
+\item Unsupported versions of GCC and Clang are rejected by {\ttfamily \#error} directives. This can be switched off by defining {\ttfamily JSON\+\_\+\+SKIP\+\_\+\+UNSUPPORTED\+\_\+\+COMPILER\+\_\+\+CHECK}. Note that you can expect no support in this case.
+\end{DoxyItemize}
+
+The following compilers are currently used in continuous integration at \href{https://ci.appveyor.com/project/nlohmann/json}{\texttt{ App\+Veyor}}, \href{https://cirrus-ci.com/github/nlohmann/json}{\texttt{ Cirrus CI}}, and \href{https://github.com/nlohmann/json/actions}{\texttt{ Git\+Hub Actions}}\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Compiler   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operating System   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ CI Provider    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Compiler   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Operating System   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ CI Provider    }\\\cline{1-3}
+\endhead
+Apple Clang 11.\+0.\+3 (clang-\/1103.\+0.\+32.\+62); Xcode 11.\+7   &mac\+OS 11.\+7.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 12.\+0.\+0 (clang-\/1200.\+0.\+32.\+29); Xcode 12.\+4   &mac\+OS 11.\+7.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 12.\+0.\+5 (clang-\/1205.\+0.\+22.\+11); Xcode 12.\+5.\+1   &mac\+OS 11.\+7.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 13.\+0.\+0 (clang-\/1300.\+0.\+29.\+3); Xcode 13.\+0   &mac\+OS 11.\+7.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 13.\+0.\+0 (clang-\/1300.\+0.\+29.\+3); Xcode 13.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 13.\+0.\+0 (clang-\/1300.\+0.\+29.\+30); Xcode 13.\+2.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 13.\+1.\+6 (clang-\/1316.\+0.\+21.\+2.\+3); Xcode 13.\+3.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 13.\+1.\+6 (clang-\/1316.\+0.\+21.\+2.\+5); Xcode 13.\+4.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 14.\+0.\+0 (clang-\/1400.\+0.\+29.\+102); Xcode 14.\+0   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 14.\+0.\+0 (clang-\/1400.\+0.\+29.\+102); Xcode 14.\+0.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Apple Clang 14.\+0.\+0 (clang-\/1400.\+0.\+29.\+202); Xcode 14.\+1   &mac\+OS 12.\+6.\+1   &Git\+Hub Actions    \\\cline{1-3}
+Clang 3.\+5.\+2   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 3.\+6.\+2   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 3.\+7.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 3.\+8.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 3.\+9.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 4.\+0.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 5.\+0.\+2   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 6.\+0.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 7.\+0.\+1   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 8.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 9.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 10.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 10.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 11.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 11.\+0.\+0 with MSVC-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 11.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 12.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 12.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 13.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 13.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 14.\+0.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 14.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 15.\+0.\+0 with GNU-\/like command-\/line   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Clang 15.\+0.\+4   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Clang 16.\+0.\+0 (16.\+0.\+0-\/++20221031071727+500876226c60-\/1\texorpdfstring{$\sim$}{\string~}exp1\texorpdfstring{$\sim$}{\string~}20221031071831.439)   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 4.\+8.\+5 (Ubuntu 4.\+8.\+5-\/4ubuntu2)   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 4.\+9.\+4   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 5.\+5.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 6.\+5.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 7.\+5.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 8.\+1.\+0 (i686-\/posix-\/dwarf-\/rev0, Built by Min\+GW-\/\+W64 project)   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+GCC 8.\+1.\+0 (x86\+\_\+64-\/posix-\/seh-\/rev0, Built by Min\+GW-\/\+W64 project)   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+GCC 8.\+5.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 9.\+5.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 10.\+4.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 11.\+1.\+0   &Ubuntu (aarch64)   &Cirrus CI    \\\cline{1-3}
+GCC 11.\+3.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 12.\+2.\+0   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+GCC 13.\+0.\+0 20220605 (experimental)   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Intel C++ Compiler 2021.\+5.\+0.\+20211109   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+NVCC 11.\+0.\+221   &Ubuntu 20.\+04.\+3 LTS   &Git\+Hub Actions    \\\cline{1-3}
+Visual Studio 14 2015 MSVC 19.\+0.\+24241.\+7 (Build Engine version 14.\+0.\+25420.\+1)   &Windows-\/6.\+3.\+9600   &App\+Veyor    \\\cline{1-3}
+Visual Studio 15 2017 MSVC 19.\+16.\+27035.\+0 (Build Engine version 15.\+9.\+21+g9802d43bc3 for .NET Framework)   &Windows-\/10.\+0.\+14393   &App\+Veyor    \\\cline{1-3}
+Visual Studio 16 2019 MSVC 19.\+28.\+29912.\+0 (Build Engine version 16.\+9.\+0+57a23d249 for .NET Framework)   &Windows-\/10.\+0.\+17763   &Git\+Hub Actions    \\\cline{1-3}
+Visual Studio 16 2019 MSVC 19.\+28.\+29912.\+0 (Build Engine version 16.\+9.\+0+57a23d249 for .NET Framework)   &Windows-\/10.\+0.\+17763   &App\+Veyor    \\\cline{1-3}
+Visual Studio 17 2022 MSVC 19.\+30.\+30709.\+0 (Build Engine version 17.\+0.\+31804.\+368 for .NET Framework)   &Windows-\/10.\+0.\+20348   &Git\+Hub Actions   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1787}{}\doxysubsection{\texorpdfstring{Integration}{Integration}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1787}
+\href{https://github.com/nlohmann/json/blob/develop/single_include/nlohmann/json.hpp}{\texttt{ {\ttfamily json.\+hpp}}} is the single required file in {\ttfamily single\+\_\+include/nlohmann} or \href{https://github.com/nlohmann/json/releases}{\texttt{ released here}}. You need to add
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ for\ convenience}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ =\ \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann::json}};}
+
+\end{DoxyCode}
+
+
+to the files you want to process JSON and set the necessary switches to enable C++11 (e.\+g., {\ttfamily -\/std=c++11} for GCC and Clang).
+
+You can further use file \href{https://github.com/nlohmann/json/blob/develop/include/nlohmann/json_fwd.hpp}{\texttt{ {\ttfamily include/nlohmann/json\+\_\+fwd.\+hpp}}} for forward-\/declarations. The installation of json\+\_\+fwd.\+hpp (as part of cmake\textquotesingle{}s install step), can be achieved by setting {\ttfamily -\/DJSON\+\_\+\+Multiple\+Headers=ON}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1788}{}\doxysubsubsection{\texorpdfstring{CMake}{CMake}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1788}
+You can also use the {\ttfamily nlohmann\+\_\+json\+::nlohmann\+\_\+json} interface target in CMake. This target populates the appropriate usage requirements for {\ttfamily INTERFACE\+\_\+\+INCLUDE\+\_\+\+DIRECTORIES} to point to the appropriate include directories and {\ttfamily INTERFACE\+\_\+\+COMPILE\+\_\+\+FEATURES} for the necessary C++11 flags.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1789}{}\doxyparagraph{\texorpdfstring{External}{External}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1789}
+To use this library from a CMake project, you can locate it directly with {\ttfamily find\+\_\+package()} and use the namespaced imported target from the generated package configuration\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ CMakeLists.txt}
+\DoxyCodeLine{find\_package(nlohmann\_json\ 3.2.0\ REQUIRED)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{add\_library(foo\ ...)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{target\_link\_libraries(foo\ PRIVATE\ nlohmann\_json::nlohmann\_json)}
+
+\end{DoxyCode}
+
+
+The package configuration file, {\ttfamily nlohmann\+\_\+json\+Config.\+cmake}, can be used either from an install tree or directly out of the build tree.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1790}{}\doxyparagraph{\texorpdfstring{Embedded}{Embedded}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1790}
+To embed the library directly into an existing CMake project, place the entire source tree in a subdirectory and call {\ttfamily add\+\_\+subdirectory()} in your {\ttfamily CMake\+Lists.\+txt} file\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Typically\ you\ don't\ care\ so\ much\ for\ a\ third\ party\ library's\ tests\ to\ be}
+\DoxyCodeLine{\#\ run\ from\ your\ own\ project's\ code.}
+\DoxyCodeLine{set(JSON\_BuildTests\ OFF\ CACHE\ INTERNAL\ "{}"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ If\ you\ only\ include\ this\ third\ party\ in\ PRIVATE\ source\ files,\ you\ do\ not}
+\DoxyCodeLine{\#\ need\ to\ install\ it\ when\ your\ main\ project\ gets\ installed.}
+\DoxyCodeLine{\#\ set(JSON\_Install\ OFF\ CACHE\ INTERNAL\ "{}"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Don't\ use\ include(nlohmann\_json/CMakeLists.txt)\ since\ that\ carries\ with\ it}
+\DoxyCodeLine{\#\ unintended\ consequences\ that\ will\ break\ the\ build.\ \ It's\ generally}
+\DoxyCodeLine{\#\ discouraged\ (although\ not\ necessarily\ well\ documented\ as\ such)\ to\ use}
+\DoxyCodeLine{\#\ include(...)\ for\ pulling\ in\ other\ CMake\ projects\ anyways.}
+\DoxyCodeLine{add\_subdirectory(nlohmann\_json)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{add\_library(foo\ ...)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{target\_link\_libraries(foo\ PRIVATE\ nlohmann\_json::nlohmann\_json)}
+
+\end{DoxyCode}
+
+
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1791}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1791}%
+ \doxysubparagraph*{Embedded (Fetch\+Content)}
+
+Since CMake v3.\+11, \href{https://cmake.org/cmake/help/v3.11/module/FetchContent.html}{\texttt{ Fetch\+Content}} can be used to automatically download a release as a dependency at configure time.
+
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{include(FetchContent)}
+\DoxyCodeLine{}
+\DoxyCodeLine{FetchContent\_Declare(json\ URL\ https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)}
+\DoxyCodeLine{FetchContent\_MakeAvailable(json)}
+\DoxyCodeLine{}
+\DoxyCodeLine{target\_link\_libraries(foo\ PRIVATE\ nlohmann\_json::nlohmann\_json)}
+
+\end{DoxyCode}
+
+
+{\bfseries{Note}}\+: It is recommended to use the URL approach described above which is supported as of version 3.\+10.\+0. See \href{https://json.nlohmann.me/integration/cmake/\#fetchcontent}{\texttt{ https\+://json.\+nlohmann.\+me/integration/cmake/\#fetchcontent}} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1792}{}\doxyparagraph{\texorpdfstring{Supporting Both}{Supporting Both}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1792}
+To allow your project to support either an externally supplied or an embedded JSON library, you can use a pattern akin to the following\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ cmake}
+\DoxyCodeLine{\#\ Top\ level\ CMakeLists.txt}
+\DoxyCodeLine{project(FOO)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{option(FOO\_USE\_EXTERNAL\_JSON\ "{}Use\ an\ external\ JSON\ library"{}\ OFF)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{add\_subdirectory(thirdparty)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{add\_library(foo\ ...)}
+\DoxyCodeLine{...}
+\DoxyCodeLine{\#\ Note\ that\ the\ namespaced\ target\ will\ always\ be\ available\ regardless\ of\ the}
+\DoxyCodeLine{\#\ import\ method}
+\DoxyCodeLine{target\_link\_libraries(foo\ PRIVATE\ nlohmann\_json::nlohmann\_json)}
+
+\end{DoxyCode}
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ thirdparty/CMakeLists.txt}
+\DoxyCodeLine{...}
+\DoxyCodeLine{if(FOO\_USE\_EXTERNAL\_JSON)}
+\DoxyCodeLine{\ \ find\_package(nlohmann\_json\ 3.2.0\ REQUIRED)}
+\DoxyCodeLine{else()}
+\DoxyCodeLine{\ \ set(JSON\_BuildTests\ OFF\ CACHE\ INTERNAL\ "{}"{})}
+\DoxyCodeLine{\ \ add\_subdirectory(nlohmann\_json)}
+\DoxyCodeLine{endif()}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+{\ttfamily thirdparty/nlohmann\+\_\+json} is then a complete copy of this source tree.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1793}{}\doxysubsubsection{\texorpdfstring{Package Managers}{Package Managers}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1793}
+\+:beer\+: If you are using OS X and \href{https://brew.sh}{\texttt{ Homebrew}}, just type {\ttfamily brew install nlohmann-\/json} and you\textquotesingle{}re set. If you want the bleeding edge rather than the latest release, use {\ttfamily brew install nlohmann-\/json -\/-\/HEAD}. See \href{https://formulae.brew.sh/formula/nlohmann-json}{\texttt{ nlohmann-\/json}} for more information.
+
+If you are using the \href{https://mesonbuild.com}{\texttt{ Meson Build System}}, add this source tree as a \href{https://mesonbuild.com/Subprojects.html\#using-a-subproject}{\texttt{ meson subproject}}. You may also use the {\ttfamily include.\+zip} published in this project\textquotesingle{}s \href{https://github.com/nlohmann/json/releases}{\texttt{ Releases}} to reduce the size of the vendored source tree. Alternatively, you can get a wrap file by downloading it from \href{https://wrapdb.mesonbuild.com/nlohmann_json}{\texttt{ Meson Wrap\+DB}}, or simply use {\ttfamily meson wrap install nlohmann\+\_\+json}. Please see the meson project for any issues regarding the packaging.
+
+The provided {\ttfamily meson.\+build} can also be used as an alternative to CMake for installing {\ttfamily nlohmann\+\_\+json} system-\/wide in which case a pkg-\/config file is installed. To use it, simply have your build system require the {\ttfamily nlohmann\+\_\+json} pkg-\/config dependency. In Meson, it is preferred to use the \href{https://mesonbuild.com/Reference-manual.html\#dependency}{\texttt{ {\ttfamily dependency()}}} object with a subproject fallback, rather than using the subproject directly.
+
+If you are using \href{https://bazel.build/}{\texttt{ Bazel}} you can simply reference this repository using {\ttfamily http\+\_\+archive} or {\ttfamily git\+\_\+repository} and depend on {\ttfamily @nlohmann\+\_\+json//\+:json}.
+
+If you are using \href{https://www.conan.io/}{\texttt{ Conan}} to manage your dependencies, merely add \href{https://conan.io/center/nlohmann_json}{\texttt{ {\ttfamily nlohmann\+\_\+json/x.\+y.\+z}}} to your {\ttfamily conanfile}\textquotesingle{}s requires, where {\ttfamily x.\+y.\+z} is the release version you want to use. Please file issues \href{https://github.com/conan-io/conan-center-index/issues}{\texttt{ here}} if you experience problems with the packages.
+
+If you are using \href{https://www.spack.io/}{\texttt{ Spack}} to manage your dependencies, you can use the \href{https://spack.readthedocs.io/en/latest/package_list.html\#nlohmann-json}{\texttt{ {\ttfamily nlohmann-\/json} package}}. Please see the \href{https://github.com/spack/spack}{\texttt{ spack project}} for any issues regarding the packaging.
+
+If you are using \href{https://github.com/cpp-pm/hunter}{\texttt{ hunter}} on your project for external dependencies, then you can use the \href{https://hunter.readthedocs.io/en/latest/packages/pkg/nlohmann_json.html}{\texttt{ nlohmann\+\_\+json package}}. Please see the hunter project for any issues regarding the packaging.
+
+If you are using \href{https://buckaroo.pm}{\texttt{ Buckaroo}}, you can install this library\textquotesingle{}s module with {\ttfamily buckaroo add github.\+com/buckaroo-\/pm/nlohmann-\/json}. Please file issues \href{https://github.com/buckaroo-pm/nlohmann-json}{\texttt{ here}}. There is a demo repo \href{https://github.com/njlr/buckaroo-nholmann-json-example}{\texttt{ here}}.
+
+If you are using \href{https://github.com/Microsoft/vcpkg/}{\texttt{ vcpkg}} on your project for external dependencies, then you can install the \href{https://github.com/Microsoft/vcpkg/tree/master/ports/nlohmann-json}{\texttt{ nlohmann-\/json package}} with {\ttfamily vcpkg install nlohmann-\/json} and follow the then displayed descriptions. Please see the vcpkg project for any issues regarding the packaging.
+
+If you are using \href{https://cget.readthedocs.io/en/latest/}{\texttt{ cget}}, you can install the latest development version with {\ttfamily cget install nlohmann/json}. A specific version can be installed with {\ttfamily cget install nlohmann/json@v3.\+1.\+0}. Also, the multiple header version can be installed by adding the {\ttfamily -\/DJSON\+\_\+\+Multiple\+Headers=ON} flag (i.\+e., {\ttfamily cget install nlohmann/json -\/DJSON\+\_\+\+Multiple\+Headers=ON}).
+
+If you are using \href{https://cocoapods.org}{\texttt{ Cocoa\+Pods}}, you can use the library by adding pod `"{}nlohmann\+\_\+json"{}, '\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$>$}{>}3.\+1.\+2\textquotesingle{}\`{} to your podfile (see \href{https://bitbucket.org/benman/nlohmann_json-cocoapod/src/master/}{\texttt{ an example}}). Please file issues \href{https://bitbucket.org/benman/nlohmann_json-cocoapod/issues?status=new&status=open}{\texttt{ here}}.
+
+If you are using \href{https://swift.org/package-manager/}{\texttt{ Swift Package Manager}}, you can use the library by adding a package dependency to this repository. And target dependency as {\ttfamily .product(name\+: "{}nlohmann-\/json"{}, package\+: "{}json"{})}.
+
+If you are using \href{https://www.nuget.org}{\texttt{ Nu\+Get}}, you can use the package \href{https://www.nuget.org/packages/nlohmann.json/}{\texttt{ nlohmann.\+json}}. Please check \href{https://github.com/nlohmann/json/issues/1132\#issuecomment-452250255}{\texttt{ this extensive description}} on how to use the package. Please file issues \href{https://github.com/hnkb/nlohmann-json-nuget/issues}{\texttt{ here}}.
+
+If you are using \href{https://conda.io/}{\texttt{ conda}}, you can use the package \href{https://github.com/conda-forge/nlohmann_json-feedstock}{\texttt{ nlohmann\+\_\+json}} from \href{https://conda-forge.org}{\texttt{ conda-\/forge}} executing {\ttfamily conda install -\/c conda-\/forge nlohmann\+\_\+json}. Please file issues \href{https://github.com/conda-forge/nlohmann_json-feedstock/issues}{\texttt{ here}}.
+
+If you are using \href{https://www.msys2.org/}{\texttt{ MSYS2}}, you can use the \href{https://packages.msys2.org/base/mingw-w64-nlohmann-json}{\texttt{ mingw-\/w64-\/nlohmann-\/json}} package, just type {\ttfamily pacman -\/S mingw-\/w64-\/i686-\/nlohmann-\/json} or {\ttfamily pacman -\/S mingw-\/w64-\/x86\+\_\+64-\/nlohmann-\/json} for installation. Please file issues \href{https://github.com/msys2/MINGW-packages/issues/new?title=\%5Bnlohmann-json\%5D}{\texttt{ here}} if you experience problems with the packages.
+
+If you are using \href{https://ports.macports.org}{\texttt{ Mac\+Ports}}, execute {\ttfamily sudo port install nlohmann-\/json} to install the \href{https://ports.macports.org/port/nlohmann-json/}{\texttt{ nlohmann-\/json}} package.
+
+If you are using \href{https://build2.org}{\texttt{ {\ttfamily build2}}}, you can use the \href{https://cppget.org/nlohmann-json}{\texttt{ {\ttfamily nlohmann-\/json}}} package from the public repository \href{https://cppget.org}{\texttt{ https\+://cppget.\+org}} or directly from the \href{https://github.com/build2-packaging/nlohmann-json}{\texttt{ package\textquotesingle{}s sources repository}}. In your project\textquotesingle{}s {\ttfamily manifest} file, just add {\ttfamily depends\+: nlohmann-\/json} (probably with some \href{https://build2.org/build2-toolchain/doc/build2-toolchain-intro.xhtml\#guide-add-remove-deps}{\texttt{ version constraints}}). If you are not familiar with using dependencies in {\ttfamily build2}, \href{https://build2.org/build2-toolchain/doc/build2-toolchain-intro.xhtml}{\texttt{ please read this introduction}}. Please file issues \href{https://github.com/build2-packaging/nlohmann-json}{\texttt{ here}} if you experience problems with the packages.
+
+If you are using \href{https://wsjcpp.org}{\texttt{ {\ttfamily wsjcpp}}}, you can use the command {\ttfamily wsjcpp install "{}https\+://github.\+com/nlohmann/json\+:develop"{}} to get the latest version. Note you can change the branch "{}\+:develop"{} to an existing tag or another branch.
+
+If you are using \href{https://github.com/TheLartians/CPM.cmake}{\texttt{ {\ttfamily CPM.\+cmake}}}, you can check this \href{https://github.com/TheLartians/CPM.cmake/tree/master/examples/json}{\texttt{ {\ttfamily example}}}. After \href{https://github.com/TheLartians/CPM.cmake\#adding-cpm}{\texttt{ adding CPM script}} to your project, implement the following snippet to your CMake\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CPMAddPackage(}
+\DoxyCodeLine{\ \ \ \ NAME\ nlohmann\_json}
+\DoxyCodeLine{\ \ \ \ GITHUB\_REPOSITORY\ nlohmann/json}
+\DoxyCodeLine{\ \ \ \ VERSION\ 3.9.1)}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1794}{}\doxysubsubsection{\texorpdfstring{Pkg-\/config}{Pkg-config}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1794}
+If you are using bare Makefiles, you can use {\ttfamily pkg-\/config} to generate the include flags that point to where the library is installed\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pkg-\/config\ nlohmann\_json\ -\/-\/cflags}
+
+\end{DoxyCode}
+
+
+Users of the Meson build system will also be able to use a system-\/wide library, which will be found by {\ttfamily pkg-\/config}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{json\ =\ dependency('nlohmann\_json',\ required:\ true)}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1795}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1795}
+
+
+The class is licensed under the \href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}}\+:
+
+Copyright \copyright{} 2013-\/2022 \href{https://nlohmann.me}{\texttt{ Niels Lohmann}}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “\+Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “\+AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+\DoxyHorRuler{0}
+
+
+The class contains the UTF-\/8 Decoder from Bjoern Hoehrmann which is licensed under the \href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}} (see above). Copyright \copyright{} 2008-\/2009 \href{https://bjoern.hoehrmann.de/}{\texttt{ Björn Hoehrmann}} \href{mailto:bjoern@hoehrmann.de}{\texttt{ bjoern@hoehrmann.\+de}}
+
+The class contains a slightly modified version of the Grisu2 algorithm from Florian Loitsch which is licensed under the \href{https://opensource.org/licenses/MIT}{\texttt{ MIT License}} (see above). Copyright \copyright{} 2009 \href{https://florian.loitsch.com/}{\texttt{ Florian Loitsch}}
+
+The class contains a copy of \href{https://nemequ.github.io/hedley/}{\texttt{ Hedley}} from Evan Nemerson which is licensed as \href{https://creativecommons.org/publicdomain/zero/1.0/}{\texttt{ CC0-\/1.\+0}}.
+
+The class contains parts of \href{https://github.com/abseil/abseil-cpp}{\texttt{ Google Abseil}} which is licensed under the \href{https://opensource.org/licenses/Apache-2.0}{\texttt{ Apache 2.\+0 License}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1796}{}\doxysubsection{\texorpdfstring{Contact}{Contact}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1796}
+If you have questions regarding the library, I would like to invite you to \href{https://github.com/nlohmann/json/issues/new/choose}{\texttt{ open an issue at Git\+Hub}}. Please describe your request, problem, or question as detailed as possible, and also mention the version of the library you are using as well as the version of your compiler and operating system. Opening an issue at Git\+Hub allows other users and contributors to this library to collaborate. For instance, I have little experience with MSVC, and most issues in this regard have been solved by a growing community. If you have a look at the \href{https://github.com/nlohmann/json/issues?q=is\%3Aissue+is\%3Aclosed}{\texttt{ closed issues}}, you will see that we react quite timely in most cases.
+
+Only if your request would contain confidential information, please \href{mailto:mail@nlohmann.me}{\texttt{ send me an email}}. For encrypted messages, please use \href{https://keybase.io/nlohmann/pgp_keys.asc}{\texttt{ this key}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1797}{}\doxysubsection{\texorpdfstring{Security}{Security}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1797}
+\href{https://github.com/nlohmann/json/commits}{\texttt{ Commits by Niels Lohmann}} and \href{https://github.com/nlohmann/json/releases}{\texttt{ releases}} are signed with this \href{https://keybase.io/nlohmann/pgp_keys.asc?fingerprint=797167ae41c0a6d9232e48457f3cea63ae251b69}{\texttt{ PGP Key}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1798}{}\doxysubsection{\texorpdfstring{Thanks}{Thanks}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1798}
+I deeply appreciate the help of the following people.
+
+
+
+
+\begin{DoxyEnumerate}
+\item \href{https://github.com/Teemperor}{\texttt{ Teemperor}} implemented CMake support and lcov integration, realized escape and Unicode handling in the string parser, and fixed the JSON serialization.
+\item \href{https://github.com/elliotgoodrich}{\texttt{ elliotgoodrich}} fixed an issue with double deletion in the iterator classes.
+\item \href{https://github.com/kirkshoop}{\texttt{ kirkshoop}} made the iterators of the class composable to other libraries.
+\item \href{https://github.com/wanwc}{\texttt{ wancw}} fixed a bug that hindered the class to compile with Clang.
+\item Tomas Åblad found a bug in the iterator implementation.
+\item \href{https://github.com/jrandall}{\texttt{ Joshua C. Randall}} fixed a bug in the floating-\/point serialization.
+\item \href{https://github.com/aburgh}{\texttt{ Aaron Burghardt}} implemented code to parse streams incrementally. Furthermore, he greatly improved the parser class by allowing the definition of a filter function to discard undesired elements while parsing.
+\item \href{https://github.com/dkopecek}{\texttt{ Daniel Kopeček}} fixed a bug in the compilation with GCC 5.\+0.
+\item \href{https://github.com/Florianjw}{\texttt{ Florian Weber}} fixed a bug in and improved the performance of the comparison operators.
+\item \href{https://github.com/EricMCornelius}{\texttt{ Eric Cornelius}} pointed out a bug in the handling with NaN and infinity values. He also improved the performance of the string escaping.
+\item \href{https://github.com/likebeta}{\texttt{ 易思龙}} implemented a conversion from anonymous enums.
+\item \href{https://github.com/kepkin}{\texttt{ kepkin}} patiently pushed forward the support for Microsoft Visual studio.
+\item \href{https://github.com/gregmarr}{\texttt{ gregmarr}} simplified the implementation of reverse iterators and helped with numerous hints and improvements. In particular, he pushed forward the implementation of user-\/defined types.
+\item \href{https://github.com/caiovlp}{\texttt{ Caio Luppi}} fixed a bug in the Unicode handling.
+\item \href{https://github.com/dariomt}{\texttt{ dariomt}} fixed some typos in the examples.
+\item \href{https://github.com/d-frey}{\texttt{ Daniel Frey}} cleaned up some pointers and implemented exception-\/safe memory allocation.
+\item \href{https://github.com/ColinH}{\texttt{ Colin Hirsch}} took care of a small namespace issue.
+\item \href{https://github.com/whoshuu}{\texttt{ Huu Nguyen}} correct a variable name in the documentation.
+\item \href{https://github.com/silverweed}{\texttt{ Silverweed}} overloaded {\ttfamily parse()} to accept an rvalue reference.
+\item \href{https://github.com/dariomt}{\texttt{ dariomt}} fixed a subtlety in MSVC type support and implemented the {\ttfamily get\+\_\+ref()} function to get a reference to stored values.
+\item \href{https://github.com/ZahlGraf}{\texttt{ Zahl\+Graf}} added a workaround that allows compilation using Android NDK.
+\item \href{https://github.com/whackashoe}{\texttt{ whackashoe}} replaced a function that was marked as unsafe by Visual Studio.
+\item \href{https://github.com/406345}{\texttt{ 406345}} fixed two small warnings.
+\item \href{https://github.com/glenfe}{\texttt{ Glen Fernandes}} noted a potential portability problem in the {\ttfamily has\+\_\+mapped\+\_\+type} function.
+\item \href{https://github.com/nibroc}{\texttt{ Corbin Hughes}} fixed some typos in the contribution guidelines.
+\item \href{https://github.com/twelsby}{\texttt{ twelsby}} fixed the array subscript operator, an issue that failed the MSVC build, and floating-\/point parsing/dumping. He further added support for unsigned integer numbers and implemented better roundtrip support for parsed numbers.
+\item \href{https://github.com/vog}{\texttt{ Volker Diels-\/\+Grabsch}} fixed a link in the README file.
+\item \href{https://github.com/msm-}{\texttt{ msm-\/}} added support for American Fuzzy Lop.
+\item \href{https://github.com/Annihil}{\texttt{ Annihil}} fixed an example in the README file.
+\item \href{https://github.com/Themercee}{\texttt{ Themercee}} noted a wrong URL in the README file.
+\item \href{https://github.com/lv-zheng}{\texttt{ Lv Zheng}} fixed a namespace issue with {\ttfamily int64\+\_\+t} and {\ttfamily uint64\+\_\+t}.
+\item \href{https://github.com/abc100m}{\texttt{ abc100m}} analyzed the issues with GCC 4.\+8 and proposed a \href{https://github.com/nlohmann/json/pull/212}{\texttt{ partial solution}}.
+\item \href{https://github.com/zewt}{\texttt{ zewt}} added useful notes to the README file about Android.
+\item \href{https://github.com/robertmrk}{\texttt{ Róbert Márki}} added a fix to use move iterators and improved the integration via CMake.
+\item \href{https://github.com/ChrisKitching}{\texttt{ Chris Kitching}} cleaned up the CMake files.
+\item \href{https://github.com/06needhamt}{\texttt{ Tom Needham}} fixed a subtle bug with MSVC 2015 which was also proposed by \href{https://github.com/Epidal}{\texttt{ Michael K.}}.
+\item \href{https://github.com/thelostt}{\texttt{ Mário Feroldi}} fixed a small typo.
+\item \href{https://github.com/duncanwerner}{\texttt{ duncanwerner}} found a really embarrassing performance regression in the 2.\+0.\+0 release.
+\item \href{https://github.com/dtoma}{\texttt{ Damien}} fixed one of the last conversion warnings.
+\item \href{https://github.com/t-b}{\texttt{ Thomas Braun}} fixed a warning in a test case and adjusted MSVC calls in the CI.
+\item \href{https://github.com/theodelrieu}{\texttt{ Théo DELRIEU}} patiently and constructively oversaw the long way toward \href{https://github.com/nlohmann/json/issues/290}{\texttt{ iterator-\/range parsing}}. He also implemented the magic behind the serialization/deserialization of user-\/defined types and split the single header file into smaller chunks.
+\item \href{https://github.com/5tefan}{\texttt{ Stefan}} fixed a minor issue in the documentation.
+\item \href{https://github.com/vasild}{\texttt{ Vasil Dimov}} fixed the documentation regarding conversions from {\ttfamily std\+::multiset}.
+\item \href{https://github.com/ChristophJud}{\texttt{ Christoph\+Jud}} overworked the CMake files to ease project inclusion.
+\item \href{https://github.com/vpetrigo}{\texttt{ Vladimir Petrigo}} made a SFINAE hack more readable and added Visual Studio 17 to the build matrix.
+\item \href{https://github.com/seeekr}{\texttt{ Denis Andrejew}} fixed a grammar issue in the README file.
+\item \href{https://github.com/palacaze}{\texttt{ Pierre-\/\+Antoine Lacaze}} found a subtle bug in the {\ttfamily dump()} function.
+\item \href{https://github.com/TurpentineDistillery}{\texttt{ Turpentine\+Distillery}} pointed to \href{https://en.cppreference.com/w/cpp/locale/locale/classic}{\texttt{ {\ttfamily std\+::locale\+::classic()}}} to avoid too much locale joggling, found some nice performance improvements in the parser, improved the benchmarking code, and realized locale-\/independent number parsing and printing.
+\item \href{https://github.com/cgzones}{\texttt{ cgzones}} had an idea how to fix the Coverity scan.
+\item \href{https://github.com/jaredgrubb}{\texttt{ Jared Grubb}} silenced a nasty documentation warning.
+\item \href{https://github.com/qwename}{\texttt{ Yixin Zhang}} fixed an integer overflow check.
+\item \href{https://github.com/Bosswestfalen}{\texttt{ Bosswestfalen}} merged two iterator classes into a smaller one.
+\item \href{https://github.com/Daniel599}{\texttt{ Daniel599}} helped to get Travis execute the tests with Clang\textquotesingle{}s sanitizers.
+\item \href{https://github.com/vjon}{\texttt{ Jonathan Lee}} fixed an example in the README file.
+\item \href{https://github.com/gnzlbg}{\texttt{ gnzlbg}} supported the implementation of user-\/defined types.
+\item \href{https://github.com/qis}{\texttt{ Alexej Harm}} helped to get the user-\/defined types working with Visual Studio.
+\item \href{https://github.com/jaredgrubb}{\texttt{ Jared Grubb}} supported the implementation of user-\/defined types.
+\item \href{https://github.com/EnricoBilla}{\texttt{ Enrico\+Billa}} noted a typo in an example.
+\item \href{https://github.com/horenmar}{\texttt{ Martin Hořeňovský}} found a way for a 2x speedup for the compilation time of the test suite.
+\item \href{https://github.com/ukhegg}{\texttt{ ukhegg}} found proposed an improvement for the examples section.
+\item \href{https://github.com/rswanson-ihi}{\texttt{ rswanson-\/ihi}} noted a typo in the README.
+\item \href{https://github.com/stanmihai4}{\texttt{ Mihai Stan}} fixed a bug in the comparison with {\ttfamily nullptr}s.
+\item \href{https://github.com/tusharpm}{\texttt{ Tushar Maheshwari}} added \href{https://github.com/sakra/cotire}{\texttt{ cotire}} support to speed up the compilation.
+\item \href{https://github.com/TedLyngmo}{\texttt{ Ted\+Lyngmo}} noted a typo in the README, removed unnecessary bit arithmetic, and fixed some {\ttfamily -\/Weffc++} warnings.
+\item \href{https://github.com/krzysztofwos}{\texttt{ Krzysztof Woś}} made exceptions more visible.
+\item \href{https://github.com/ftillier}{\texttt{ ftillier}} fixed a compiler warning.
+\item \href{https://github.com/tinloaf}{\texttt{ tinloaf}} made sure all pushed warnings are properly popped.
+\item \href{https://github.com/Fytch}{\texttt{ Fytch}} found a bug in the documentation.
+\item \href{https://github.com/Type1J}{\texttt{ Jay Sistar}} implemented a Meson build description.
+\item \href{https://github.com/HenryRLee}{\texttt{ Henry Lee}} fixed a warning in ICC and improved the iterator implementation.
+\item \href{https://github.com/vthiery}{\texttt{ Vincent Thiery}} maintains a package for the Conan package manager.
+\item \href{https://github.com/koemeet}{\texttt{ Steffen}} fixed a potential issue with MSVC and {\ttfamily std\+::min}.
+\item \href{https://github.com/Chocobo1}{\texttt{ Mike Tzou}} fixed some typos.
+\item \href{https://github.com/amrcode}{\texttt{ amrcode}} noted a misleading documentation about comparison of floats.
+\item \href{https://github.com/olegendo}{\texttt{ Oleg Endo}} reduced the memory consumption by replacing {\ttfamily \texorpdfstring{$<$}{<}iostream\texorpdfstring{$>$}{>}} with {\ttfamily \texorpdfstring{$<$}{<}iosfwd\texorpdfstring{$>$}{>}}.
+\item \href{https://github.com/dan-42}{\texttt{ dan-\/42}} cleaned up the CMake files to simplify including/reusing of the library.
+\item \href{https://github.com/himikof}{\texttt{ Nikita Ofitserov}} allowed for moving values from initializer lists.
+\item \href{https://github.com/wincent}{\texttt{ Greg Hurrell}} fixed a typo.
+\item \href{https://github.com/DmitryKuk}{\texttt{ Dmitry Kukovinets}} fixed a typo.
+\item \href{https://github.com/kbthomp1}{\texttt{ kbthomp1}} fixed an issue related to the Intel OSX compiler.
+\item \href{https://github.com/daixtrose}{\texttt{ Markus Werle}} fixed a typo.
+\item \href{https://github.com/WebProdPP}{\texttt{ Web\+Prod\+PP}} fixed a subtle error in a precondition check.
+\item \href{https://github.com/leha-bot}{\texttt{ Alex}} noted an error in a code sample.
+\item \href{https://github.com/tdegeus}{\texttt{ Tom de Geus}} reported some warnings with ICC and helped to fix them.
+\item \href{https://github.com/pjkundert}{\texttt{ Perry Kundert}} simplified reading from input streams.
+\item \href{https://github.com/sonulohani}{\texttt{ Sonu Lohani}} fixed a small compilation error.
+\item \href{https://github.com/jseward}{\texttt{ Jamie Seward}} fixed all MSVC warnings.
+\item \href{https://github.com/eld00d}{\texttt{ Nate Vargas}} added a Doxygen tag file.
+\item \href{https://github.com/pvleuven}{\texttt{ pvleuven}} helped to fix a warning in ICC.
+\item \href{https://github.com/crea7or}{\texttt{ Pavel}} helped to fix some warnings in MSVC.
+\item \href{https://github.com/jseward}{\texttt{ Jamie Seward}} avoided unnecessary string copies in {\ttfamily find()} and {\ttfamily count()}.
+\item \href{https://github.com/Itja}{\texttt{ Mitja}} fixed some typos.
+\item \href{https://github.com/jowr}{\texttt{ Jorrit Wronski}} updated the Hunter package links.
+\item \href{https://github.com/TinyTinni}{\texttt{ Matthias Möller}} added a {\ttfamily .natvis} for the MSVC debug view.
+\item \href{https://github.com/bogemic}{\texttt{ bogemic}} fixed some C++17 deprecation warnings.
+\item \href{https://github.com/erengy}{\texttt{ Eren Okka}} fixed some MSVC warnings.
+\item \href{https://github.com/abolz}{\texttt{ abolz}} integrated the Grisu2 algorithm for proper floating-\/point formatting, allowing more roundtrip checks to succeed.
+\item \href{https://github.com/Pipeliner}{\texttt{ Vadim Evard}} fixed a Markdown issue in the README.
+\item \href{https://github.com/zerodefect}{\texttt{ zerodefect}} fixed a compiler warning.
+\item \href{https://github.com/kaidokert}{\texttt{ Kert}} allowed to template the string type in the serialization and added the possibility to override the exceptional behavior.
+\item \href{https://github.com/mark-99}{\texttt{ mark-\/99}} helped fixing an ICC error.
+\item \href{https://github.com/patrikhuber}{\texttt{ Patrik Huber}} fixed links in the README file.
+\item \href{https://github.com/johnfb}{\texttt{ johnfb}} found a bug in the implementation of CBOR\textquotesingle{}s indefinite length strings.
+\item \href{https://github.com/pfultz2}{\texttt{ Paul Fultz II}} added a note on the cget package manager.
+\item \href{https://github.com/wla80}{\texttt{ Wilson Lin}} made the integration section of the README more concise.
+\item \href{https://github.com/ralfbielig}{\texttt{ Ralf\+Bielig}} detected and fixed a memory leak in the parser callback.
+\item \href{https://github.com/agrianius}{\texttt{ agrianius}} allowed to dump JSON to an alternative string type.
+\item \href{https://github.com/ktonon}{\texttt{ Kevin Tonon}} overworked the C++11 compiler checks in CMake.
+\item \href{https://github.com/ax3l}{\texttt{ Axel Huebl}} simplified a CMake check and added support for the \href{https://spack.io}{\texttt{ Spack package manager}}.
+\item \href{https://github.com/coryan}{\texttt{ Carlos O\textquotesingle{}Ryan}} fixed a typo.
+\item \href{https://github.com/jammehcow}{\texttt{ James Upjohn}} fixed a version number in the compilers section.
+\item \href{https://github.com/chuckatkins}{\texttt{ Chuck Atkins}} adjusted the CMake files to the CMake packaging guidelines and provided documentation for the CMake integration.
+\item \href{https://github.com/dns13}{\texttt{ Jan Schöppach}} fixed a typo.
+\item \href{https://github.com/martin-mfg}{\texttt{ martin-\/mfg}} fixed a typo.
+\item \href{https://github.com/TinyTinni}{\texttt{ Matthias Möller}} removed the dependency from {\ttfamily std\+::stringstream}.
+\item \href{https://github.com/agrianius}{\texttt{ agrianius}} added code to use alternative string implementations.
+\item \href{https://github.com/Daniel599}{\texttt{ Daniel599}} allowed to use more algorithms with the {\ttfamily items()} function.
+\item \href{https://github.com/jrakow}{\texttt{ Julius Rakow}} fixed the Meson include directory and fixed the links to \href{cppreference.com}{\texttt{ cppreference.\+com}}.
+\item \href{https://github.com/sonulohani}{\texttt{ Sonu Lohani}} fixed the compilation with MSVC 2015 in debug mode.
+\item \href{https://github.com/grembo}{\texttt{ grembo}} fixed the test suite and re-\/enabled several test cases.
+\item \href{https://github.com/simnalamburt}{\texttt{ Hyeon Kim}} introduced the macro {\ttfamily JSON\+\_\+\+INTERNAL\+\_\+\+CATCH} to control the exception handling inside the library.
+\item \href{https://github.com/thyu}{\texttt{ thyu}} fixed a compiler warning.
+\item \href{https://github.com/LEgregius}{\texttt{ David Guthrie}} fixed a subtle compilation error with Clang 3.\+4.\+2.
+\item \href{https://github.com/dennisfischer}{\texttt{ Dennis Fischer}} allowed to call {\ttfamily find\+\_\+package} without installing the library.
+\item \href{https://github.com/simnalamburt}{\texttt{ Hyeon Kim}} fixed an issue with a double macro definition.
+\item \href{https://github.com/rivertam}{\texttt{ Ben Berman}} made some error messages more understandable.
+\item \href{https://github.com/zakalibit}{\texttt{ zakalibit}} fixed a compilation problem with the Intel C++ compiler.
+\item \href{https://github.com/mandreyel}{\texttt{ mandreyel}} fixed a compilation problem.
+\item \href{https://github.com/koponomarenko}{\texttt{ Kostiantyn Ponomarenko}} added version and license information to the Meson build file.
+\item \href{https://github.com/henryiii}{\texttt{ Henry Schreiner}} added support for GCC 4.\+8.
+\item \href{https://github.com/knilch0r}{\texttt{ knilch}} made sure the test suite does not stall when run in the wrong directory.
+\item \href{https://github.com/antonioborondo}{\texttt{ Antonio Borondo}} fixed an MSVC 2017 warning.
+\item \href{https://github.com/dgendreau}{\texttt{ Dan Gendreau}} implemented the {\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM} macro to quickly define an enum/\+JSON mapping.
+\item \href{https://github.com/efp}{\texttt{ efp}} added line and column information to parse errors.
+\item \href{https://github.com/julian-becker}{\texttt{ julian-\/becker}} added BSON support.
+\item \href{https://github.com/pratikpc}{\texttt{ Pratik Chowdhury}} added support for structured bindings.
+\item \href{https://github.com/davedissian}{\texttt{ David Avedissian}} added support for Clang 5.\+0.\+1 (PS4 version).
+\item \href{https://github.com/dumarjo}{\texttt{ Jonathan Dumaresq}} implemented an input adapter to read from {\ttfamily FILE\texorpdfstring{$\ast$}{*}}.
+\item \href{https://github.com/kjpus}{\texttt{ kjpus}} fixed a link in the documentation.
+\item \href{https://github.com/manu-chroma}{\texttt{ Manvendra Singh}} fixed a typo in the documentation.
+\item \href{https://github.com/ziggurat29}{\texttt{ ziggurat29}} fixed an MSVC warning.
+\item \href{https://github.com/SylvainCorlay}{\texttt{ Sylvain Corlay}} added code to avoid an issue with MSVC.
+\item \href{https://github.com/mefyl}{\texttt{ mefyl}} fixed a bug when JSON was parsed from an input stream.
+\item \href{https://github.com/mpoquet}{\texttt{ Millian Poquet}} allowed to install the library via Meson.
+\item \href{https://github.com/moodboom}{\texttt{ Michael Behrns-\/\+Miller}} found an issue with a missing namespace.
+\item \href{https://github.com/naszta}{\texttt{ Nasztanovics Ferenc}} fixed a compilation issue with libc 2.\+12.
+\item \href{https://github.com/andreas-schwab}{\texttt{ Andreas Schwab}} fixed the endian conversion.
+\item \href{https://github.com/Mark-Dunning}{\texttt{ Mark-\/\+Dunning}} fixed a warning in MSVC.
+\item \href{https://github.com/garethsb-sony}{\texttt{ Gareth Sylvester-\/\+Bradley}} added {\ttfamily operator/} for JSON Pointers.
+\item \href{https://github.com/johnmarkwayve}{\texttt{ John-\/\+Mark}} noted a missing header.
+\item \href{https://github.com/xvitaly}{\texttt{ Vitaly Zaitsev}} fixed compilation with GCC 9.\+0.
+\item \href{https://github.com/stac47}{\texttt{ Laurent Stacul}} fixed compilation with GCC 9.\+0.
+\item \href{https://github.com/iwanders}{\texttt{ Ivor Wanders}} helped to reduce the CMake requirement to version 3.\+1.
+\item \href{https://github.com/njlr}{\texttt{ njlr}} updated the Buckaroo instructions.
+\item \href{https://github.com/lieff}{\texttt{ Lion}} fixed a compilation issue with GCC 7 on Cent\+OS.
+\item \href{https://github.com/nickaein}{\texttt{ Isaac Nickaein}} improved the integer serialization performance and implemented the {\ttfamily contains()} function.
+\item \href{https://github.com/past-due}{\texttt{ past-\/due}} suppressed an unfixable warning.
+\item \href{https://github.com/elvisoric}{\texttt{ Elvis Oric}} improved Meson support.
+\item \href{https://github.com/Afforix}{\texttt{ Matěj Plch}} fixed an example in the README.
+\item \href{https://github.com/wythe}{\texttt{ Mark Beckwith}} fixed a typo.
+\item \href{https://github.com/scinart}{\texttt{ scinart}} fixed bug in the serializer.
+\item \href{https://github.com/pboettch}{\texttt{ Patrick Boettcher}} implemented {\ttfamily push\+\_\+back()} and {\ttfamily pop\+\_\+back()} for JSON Pointers.
+\item \href{https://github.com/nicoddemus}{\texttt{ Bruno Oliveira}} added support for Conda.
+\item \href{https://github.com/skypjack}{\texttt{ Michele Caini}} fixed links in the README.
+\item \href{https://github.com/hnkb}{\texttt{ Hani}} documented how to install the library with Nu\+Get.
+\item \href{https://github.com/wythe}{\texttt{ Mark Beckwith}} fixed a typo.
+\item \href{https://github.com/yann-morin-1998}{\texttt{ yann-\/morin-\/1998}} helped to reduce the CMake requirement to version 3.\+1.
+\item \href{https://github.com/podsvirov}{\texttt{ Konstantin Podsvirov}} maintains a package for the MSYS2 software distro.
+\item \href{https://github.com/remyabel}{\texttt{ remyabel}} added GNUInstall\+Dirs to the CMake files.
+\item \href{https://github.com/taylorhoward92}{\texttt{ Taylor Howard}} fixed a unit test.
+\item \href{https://github.com/Macr0Nerd}{\texttt{ Gabe Ron}} implemented the {\ttfamily to\+\_\+string} method.
+\item \href{https://github.com/heavywatal}{\texttt{ Watal M. Iwasaki}} fixed a Clang warning.
+\item \href{https://github.com/onqtam}{\texttt{ Viktor Kirilov}} switched the unit tests from \href{https://github.com/philsquared/Catch}{\texttt{ Catch}} to \href{https://github.com/onqtam/doctest}{\texttt{ doctest}}
+\item \href{https://github.com/ejcjason}{\texttt{ Juncheng E}} fixed a typo.
+\item \href{https://github.com/tete17}{\texttt{ tete17}} fixed a bug in the {\ttfamily contains} function.
+\item \href{https://github.com/Xav83}{\texttt{ Xav83}} fixed some cppcheck warnings.
+\item \href{https://github.com/0xflotus}{\texttt{ 0xflotus}} fixed some typos.
+\item \href{https://github.com/chris0x44}{\texttt{ Christian Deneke}} added a const version of {\ttfamily \doxylink{classjson__pointer_aba71e63e4032cfc46dd90aeb09e5cb0f}{json\+\_\+pointer\+::back}}.
+\item \href{https://github.com/crazyjul}{\texttt{ Julien Hamaide}} made the {\ttfamily items()} function work with custom string types.
+\item \href{https://github.com/nemequ}{\texttt{ Evan Nemerson}} updated fixed a bug in Hedley and updated this library accordingly.
+\item \href{https://github.com/flopp}{\texttt{ Florian Pigorsch}} fixed a lot of typos.
+\item \href{https://github.com/cbegue}{\texttt{ Camille Bégué}} fixed an issue in the conversion from {\ttfamily std\+::pair} and {\ttfamily \doxylink{classstd_1_1tuple}{std\+::tuple}} to {\ttfamily json}.
+\item \href{https://github.com/AnthonyVH}{\texttt{ Anthony VH}} fixed a compile error in an enum deserialization.
+\item \href{https://github.com/ua-code-dragon}{\texttt{ Yuriy Vountesmery}} noted a subtle bug in a preprocessor check.
+\item \href{https://github.com/dota17}{\texttt{ Chen}} fixed numerous issues in the library.
+\item \href{https://github.com/aokellermann}{\texttt{ Antony Kellermann}} added a CI step for GCC 10.\+1.
+\item \href{https://github.com/gistrec}{\texttt{ Alex}} fixed an MSVC warning.
+\item \href{https://github.com/rvjr}{\texttt{ Rainer}} proposed an improvement in the floating-\/point serialization in CBOR.
+\item \href{https://github.com/FrancoisChabot}{\texttt{ Francois Chabot}} made performance improvements in the input adapters.
+\item \href{https://github.com/ArthurSonzogni}{\texttt{ Arthur Sonzogni}} documented how the library can be included via {\ttfamily Fetch\+Content}.
+\item \href{https://github.com/rmisev}{\texttt{ Rimas Misevičius}} fixed an error message.
+\item \href{https://github.com/alexandermyasnikov}{\texttt{ Alexander Myasnikov}} fixed some examples and a link in the README.
+\item \href{https://github.com/uhoreg}{\texttt{ Hubert Chathi}} made CMake\textquotesingle{}s version config file architecture-\/independent.
+\item \href{https://github.com/OmnipotentEntity}{\texttt{ Omnipotent\+Entity}} implemented the binary values for CBOR, Message\+Pack, BSON, and UBJSON.
+\item \href{https://github.com/ArtemSarmini}{\texttt{ Artem\+Sarmini}} fixed a compilation issue with GCC 10 and fixed a leak.
+\item \href{https://github.com/sea-kg}{\texttt{ Evgenii Sopov}} integrated the library to the wsjcpp package manager.
+\item \href{https://github.com/linev}{\texttt{ Sergey Linev}} fixed a compiler warning.
+\item \href{https://github.com/magamig}{\texttt{ Miguel Magalhães}} fixed the year in the copyright.
+\item \href{https://github.com/garethsb-sony}{\texttt{ Gareth Sylvester-\/\+Bradley}} fixed a compilation issue with MSVC.
+\item \href{https://github.com/alex-weej}{\texttt{ Alexander “weej” Jones}} fixed an example in the README.
+\item \href{https://github.com/Coeur}{\texttt{ Antoine Cœur}} fixed some typos in the documentation.
+\item \href{https://github.com/jothepro}{\texttt{ jothepro}} updated links to the Hunter package.
+\item \href{https://github.com/kastiglione}{\texttt{ Dave Lee}} fixed link in the README.
+\item \href{https://github.com/Klaim}{\texttt{ Joël Lamotte}} added instruction for using Build2\textquotesingle{}s package manager.
+\item \href{https://github.com/pauljurczak}{\texttt{ Paul Jurczak}} fixed an example in the README.
+\item \href{https://github.com/sonulohani}{\texttt{ Sonu Lohani}} fixed a warning.
+\item \href{https://github.com/gocarlos}{\texttt{ Carlos Gomes Martinho}} updated the Conan package source.
+\item \href{https://github.com/podsvirov}{\texttt{ Konstantin Podsvirov}} fixed the MSYS2 package documentation.
+\item \href{https://github.com/Tridacnid}{\texttt{ Tridacnid}} improved the CMake tests.
+\item \href{https://github.com/MBalszun}{\texttt{ Michael}} fixed MSVC warnings.
+\item \href{https://github.com/quentin-dev}{\texttt{ Quentin Barbarat}} fixed an example in the documentation.
+\item \href{https://github.com/XyFreak}{\texttt{ Xy\+Freak}} fixed a compiler warning.
+\item \href{https://github.com/TotalCaesar659}{\texttt{ Total\+Caesar659}} fixed links in the README.
+\item \href{https://github.com/tanuj208}{\texttt{ Tanuj Garg}} improved the fuzzer coverage for UBSAN input.
+\item \href{https://github.com/AODQ}{\texttt{ AODQ}} fixed a compiler warning.
+\item \href{https://github.com/jwittbrodt}{\texttt{ jwittbrodt}} made {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+NON\+\_\+\+INTRUSIVE} inline.
+\item \href{https://github.com/pfeatherstone}{\texttt{ pfeatherstone}} improved the upper bound of arguments of the {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+NON\+\_\+\+INTRUSIVE}/{\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+INTRUSIVE} macros.
+\item \href{https://github.com/jprochazk}{\texttt{ Jan Procházka}} fixed a bug in the CBOR parser for binary and string values.
+\item \href{https://github.com/T0b1-iOS}{\texttt{ T0b1-\/i\+OS}} fixed a bug in the new hash implementation.
+\item \href{https://github.com/matthewbauer}{\texttt{ Matthew Bauer}} adjusted the CBOR writer to create tags for binary subtypes.
+\item \href{https://github.com/gatopeich}{\texttt{ gatopeich}} implemented an ordered map container for {\ttfamily \doxylink{namespacenlohmann_ad53cef358adfa7f07cea23eb1e28b9ea}{nlohmann\+::ordered\+\_\+json}}.
+\item \href{https://github.com/ericonr}{\texttt{ Érico Nogueira Rolim}} added support for pkg-\/config.
+\item \href{https://github.com/KonanM}{\texttt{ KonanM}} proposed an implementation for the {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+NON\+\_\+\+INTRUSIVE}/{\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+INTRUSIVE} macros.
+\item \href{https://github.com/gracicot}{\texttt{ Guillaume Racicot}} implemented {\ttfamily string\+\_\+view} support and allowed C++20 support.
+\item \href{https://github.com/alexreinking}{\texttt{ Alex Reinking}} improved CMake support for {\ttfamily Fetch\+Content}.
+\item \href{https://github.com/ssbssa}{\texttt{ Hannes Domani}} provided a GDB pretty printer.
+\item Lars Wirzenius reviewed the README file.
+\item \href{https://github.com/ongjunjie}{\texttt{ Jun Jie}} fixed a compiler path in the CMake scripts.
+\item \href{https://github.com/rbuch}{\texttt{ Ronak Buch}} fixed typos in the documentation.
+\item \href{https://github.com/karzhenkov}{\texttt{ Alexander Karzhenkov}} fixed a move constructor and the Travis builds.
+\item \href{https://github.com/leozz37}{\texttt{ Leonardo Lima}} added CPM.\+Cmake support.
+\item \href{https://github.com/jbzdarkid}{\texttt{ Joseph Blackman}} fixed a warning.
+\item \href{https://github.com/YarikTH}{\texttt{ Yaroslav}} updated doctest and implemented unit tests.
+\item \href{https://github.com/globberwops}{\texttt{ Martin Stump}} fixed a bug in the CMake files.
+\item \href{https://github.com/jasujm}{\texttt{ Jaakko Moisio}} fixed a bug in the input adapters.
+\item \href{https://github.com/bl-ue}{\texttt{ bl-\/ue}} fixed some Markdown issues in the README file.
+\item \href{https://github.com/wawiesel}{\texttt{ William A. Wieselquist}} fixed an example from the README.
+\item \href{https://github.com/abbaswasim}{\texttt{ abbaswasim}} fixed an example from the README.
+\item \href{https://github.com/remyjette}{\texttt{ Remy Jette}} fixed a warning.
+\item \href{https://github.com/frasermarlow}{\texttt{ Fraser}} fixed the documentation.
+\item \href{https://github.com/musicinmybrain}{\texttt{ Ben Beasley}} updated doctest.
+\item \href{https://github.com/doronbehar}{\texttt{ Doron Behar}} fixed pkg-\/config.\+pc.
+\item \href{https://github.com/raduteo}{\texttt{ raduteo}} fixed a warning.
+\item \href{https://github.com/theShmoo}{\texttt{ David Pfahler}} added the possibility to compile the library without I/O support.
+\item \href{https://github.com/mortenfyhn}{\texttt{ Morten Fyhn Amundsen}} fixed a typo.
+\item \href{https://github.com/jpl-mac}{\texttt{ jpl-\/mac}} allowed to treat the library as a system header in CMake.
+\item \href{https://github.com/jasmcaus}{\texttt{ Jason Dsouza}} fixed the indentation of the CMake file.
+\item \href{https://github.com/offa}{\texttt{ offa}} added a link to Conan Center to the documentation.
+\item \href{https://github.com/TotalCaesar659}{\texttt{ Total\+Caesar659}} updated the links in the documentation to use HTTPS.
+\item \href{https://github.com/grafail}{\texttt{ Rafail Giavrimis}} fixed the Google Benchmark default branch.
+\item \href{https://github.com/ldionne}{\texttt{ Louis Dionne}} fixed a conversion operator.
+\item \href{https://github.com/justanotheranonymoususer}{\texttt{ justanotheranonymoususer}} made the examples in the README more consistent.
+\item \href{https://github.com/Finkman}{\texttt{ Finkman}} suppressed some {\ttfamily -\/Wfloat-\/equal} warnings.
+\item \href{https://github.com/fhuberts}{\texttt{ Ferry Huberts}} fixed {\ttfamily -\/Wswitch-\/enum} warnings.
+\item \href{https://github.com/senyai}{\texttt{ Arseniy Terekhin}} made the GDB pretty-\/printer robust against unset variable names.
+\item \href{https://github.com/amirmasoudabdol}{\texttt{ Amir Masoud Abdol}} updated the Homebrew command as nlohmann/json is now in homebrew-\/core.
+\item \href{https://github.com/Hallot}{\texttt{ Hallot}} fixed some {\ttfamily -\/Wextra-\/semi-\/stmt warnings}.
+\item \href{https://github.com/gcerretani}{\texttt{ Giovanni Cerretani}} fixed {\ttfamily -\/Wunused} warnings on {\ttfamily JSON\+\_\+\+DIAGNOSTICS}.
+\item \href{https://github.com/Kapeli}{\texttt{ Bogdan Popescu}} hosts the \href{https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets/JSON_for_Modern_C\%2B\%2B}{\texttt{ docset}} for offline documentation viewers.
+\item \href{https://github.com/carlsmedstad}{\texttt{ Carl Smedstad}} fixed an assertion error when using {\ttfamily JSON\+\_\+\+DIAGNOSTICS}.
+\item \href{https://github.com/miikka75}{\texttt{ miikka75}} provided an important fix to compile C++17 code with Clang 9.
+\item \href{https://github.com/kernie}{\texttt{ Maarten Becker}} fixed a warning for shadowed variables.
+\item \href{https://github.com/axnsan12}{\texttt{ Cristi Vîjdea}} fixed typos in the {\ttfamily operator\mbox{[}\mbox{]}} documentation.
+\item \href{https://github.com/axic}{\texttt{ Alex Beregszaszi}} fixed spelling mistakes in comments.
+\item \href{https://github.com/striezel}{\texttt{ Dirk Stolle}} fixed typos in documentation.
+\item \href{https://github.com/daniel-kun}{\texttt{ Daniel Albuschat}} corrected the parameter name in the {\ttfamily parse} documentation.
+\item \href{https://github.com/Prince-Mendiratta}{\texttt{ Prince Mendiratta}} fixed a link to the FAQ.
+\item \href{https://github.com/falbrechtskirchinger}{\texttt{ Florian Albrechtskirchinger}} implemented {\ttfamily std\+::string\+\_\+view} support for object keys and made dozens of other improvements.
+\item \href{https://github.com/fangq}{\texttt{ Qianqian Fang}} implemented the Binary JData (BJData) format.
+\item \href{https://github.com/pketelsen}{\texttt{ pketelsen}} added macros {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+INTRUSIVE\+\_\+\+WITH\+\_\+\+DEFAULT} and {\ttfamily NLOHMANN\+\_\+\+DEFINE\+\_\+\+TYPE\+\_\+\+NON\+\_\+\+INTRUSIVE\+\_\+\+WITH\+\_\+\+DEFAULT}.
+\item \href{https://github.com/DarkZeros}{\texttt{ Dark\+Zeros}} adjusted to code to not clash with Arduino defines.
+\item \href{https://github.com/flagarde}{\texttt{ flagarde}} fixed the output of {\ttfamily meta()} for MSVC.
+\item \href{https://github.com/gcerretani}{\texttt{ Giovanni Cerretani}} fixed a check for {\ttfamily std\+::filesystem}.
+\item \href{https://github.com/rex4539}{\texttt{ Dimitris Apostolou}} fixed a typo.
+\item \href{https://github.com/fhuberts}{\texttt{ Ferry Huberts}} fixed a typo.
+\item \href{https://github.com/heinemml}{\texttt{ Michael Nosthoff}} fixed a typo.
+\item \href{https://github.com/jhnlee}{\texttt{ Jung\+Hoon Lee}} fixed a typo.
+\item \href{https://github.com/fdiblen}{\texttt{ Faruk D.}} fixed the CITATION.\+CFF file.
+\item \href{https://github.com/puffetto}{\texttt{ Andrea Cocito}} added a clarification on macro usage to the documentation.
+\item \href{https://github.com/kkarbowiak}{\texttt{ Krzysiek Karbowiak}} refactored the tests to use {\ttfamily CHECK\+\_\+\+THROWS\+\_\+\+WITH\+\_\+\+AS}.
+\item \href{https://github.com/prncoprs}{\texttt{ Chaoqi Zhang}} fixed a typo.
+\item \href{https://github.com/ivanovmp}{\texttt{ ivanovmp}} fixed a whitespace error.
+\item \href{https://github.com/KsaNL}{\texttt{ Ksa\+NL}} fixed a build error when including {\ttfamily \texorpdfstring{$<$}{<}windows.\+h\texorpdfstring{$>$}{>}}.
+\item \href{https://github.com/Tachi107}{\texttt{ Andrea Pappacoda}} moved {\ttfamily .pc} and {\ttfamily .cmake} files to {\ttfamily share} directory.
+\item \href{https://github.com/wolfv}{\texttt{ Wolf Vollprecht}} added the {\ttfamily patch\+\_\+inplace} function.
+\item \href{https://github.com/jez}{\texttt{ Jake Zimmerman}} highlighted common usage patterns in the README file.
+\item \href{https://github.com/NN---}{\texttt{ NN}} added the Visual Studio output directory to {\ttfamily .gitignore}.
+\item \href{https://github.com/romainreignier}{\texttt{ Romain Reignier}} improved the performance the vector output adapter.
+\item \href{https://github.com/Mike-Leo-Smith}{\texttt{ Mike}} fixed the {\ttfamily std\+::iterator\+\_\+traits}.
+\item \href{https://github.com/zxey}{\texttt{ Richard Hozák}} added macro {\ttfamily JSON\+\_\+\+NO\+\_\+\+ENUM} to disable default enum conversions.
+\item \href{https://github.com/vakokako}{\texttt{ vakokako}} fixed tests when compiling with C++20.
+\item \href{https://github.com/alexweej}{\texttt{ Alexander “weej” Jones}} fixed an example in the README.
+\item \href{https://github.com/eli-schwartz}{\texttt{ Eli Schwartz}} added more files to the {\ttfamily include.\+zip} archive.
+\item \href{https://github.com/kevinlul}{\texttt{ Kevin Lu}} fixed a compilation issue when typedefs with certain names were present.
+\item \href{https://github.com/luxe}{\texttt{ Trevor Hickey}} improved the description of an example.
+\item \href{https://github.com/jef}{\texttt{ Jef Le\+Compte}} updated the year in the README file.
+\item \href{https://github.com/ahamez}{\texttt{ Alexandre Hamez}} fixed a warning.
+\item \href{https://github.com/mbadhan}{\texttt{ Maninderpal Badhan}} fixed a typo.
+\item \href{https://github.com/kevin--}{\texttt{ kevin--}} added a note to an example in the README file.
+\item \href{https://github.com/wx257osn2}{\texttt{ I}} fixed a typo.
+\item \href{https://github.com/Lord-Kamina}{\texttt{ Gregorio Litenstein}} fixed the Clang detection.
+\item \href{https://github.com/andoma}{\texttt{ Andreas Smas}} added a Doozer badge.
+\item \href{https://github.com/wancw}{\texttt{ Wan\+CW}} fixed the string conversion with Clang.
+\item \href{https://github.com/zhaohuaxishi}{\texttt{ zhaohuaxishi}} fixed a Doxygen error.
+\item \href{https://github.com/emvivre}{\texttt{ emvivre}} removed an invalid parameter from CMake.
+\item \href{https://github.com/Dobiasd}{\texttt{ Tobias Hermann}} fixed a link in the README file.
+\item \href{https://github.com/traits}{\texttt{ Michael}} fixed a warning.
+\item \href{https://github.com/ryanjmulder}{\texttt{ Ryan Mulder}} added {\ttfamily ensure\+\_\+ascii} to the {\ttfamily dump} function.
+\item \href{https://github.com/murinicanor}{\texttt{ Muri Nicanor}} fixed the {\ttfamily sed} discovery in the Makefile.
+\item \href{https://github.com/dgavedissian}{\texttt{ David Avedissian}} implemented SFINAE-\/friendly {\ttfamily iterator\+\_\+traits}.
+\item \href{https://github.com/aqnouch}{\texttt{ AQNOUCH Mohammed}} fixed a typo in the README.
+\item \href{https://github.com/garethsb}{\texttt{ Gareth Sylvester-\/\+Bradley}} added {\ttfamily operator/=} and {\ttfamily operator/} to construct JSON pointers.
+\item \href{https://github.com/mykter}{\texttt{ Michael Macnair}} added support for afl-\/fuzz testing.
+\item \href{https://github.com/berkus}{\texttt{ Berkus Decker}} fixed a typo in the README.
+\item \href{https://github.com/effolkronium}{\texttt{ Illia Polishchuk}} improved the CMake testing.
+\item \href{https://github.com/eltociear}{\texttt{ Ikko Ashimine}} fixed a typo.
+\item \href{https://github.com/barcode}{\texttt{ Raphael Grimm}} added the possibility to define a custom base class.
+\item \href{https://github.com/tocic}{\texttt{ tocic}} fixed typos in the documentation.
+\item \href{https://github.com/Vertexwahn}{\texttt{ Vertexwahn}} added Bazel build support.
+\item \href{https://github.com/striezel}{\texttt{ Dirk Stolle}} fixed typos in the documentation.
+\item \href{https://github.com/DavidKorczynski}{\texttt{ David\+Korczynski}} added a CIFuzz CI Git\+Hub action.
+\item \href{https://github.com/Finkman}{\texttt{ Finkman}} fixed the debug pretty-\/printer.
+\item \href{https://github.com/floriansegginger}{\texttt{ Florian Segginger}} bumped the years in the README.
+\item \href{https://github.com/haadfida}{\texttt{ haadfida}} cleaned up the badges of used services.
+\item \href{https://github.com/ArsenArsen}{\texttt{ Arsen Arsenović}} fixed a build error.
+\item \href{https://github.com/theevilone45}{\texttt{ theevilone45}} fixed a typo in a CMake file.
+\item \href{https://github.com/trofi}{\texttt{ Sergei Trofimovich}} fixed the custom allocator support.
+\item \href{https://github.com/joycebrum}{\texttt{ Joyce}} fixed some security issues in the Git\+Hub workflows.
+\item \href{https://github.com/njakob}{\texttt{ Nicolas Jakob}} add vcpkg version badge.
+\item \href{https://github.com/Tomerkm}{\texttt{ Tomerkm}} added tests.
+\item \href{https://github.com/tusooa}{\texttt{ No.}} fixed the use of {\ttfamily get\texorpdfstring{$<$}{<}\texorpdfstring{$>$}{>}} calls.
+\item \href{https://github.com/tarolling}{\texttt{ taro}} fixed a typo in the {\ttfamily CODEOWNERS} file.
+\item \href{https://github.com/eltociear}{\texttt{ Ikko Eltociear Ashimine}} fixed a typo.
+\item \href{https://github.com/felixonmars}{\texttt{ Felix Yan}} fixed a typo in the README.
+\item \href{https://github.com/HO-COOH}{\texttt{ HO-\/\+COOH}} fixed a parentheses in the documentation.
+\item \href{https://github.com/iwanders}{\texttt{ Ivor Wanders}} fixed the examples to catch exception by {\ttfamily const\&}.
+\item \href{https://github.com/miny1233}{\texttt{ miny1233}} fixed a parentheses in the documentation.
+\item \href{https://github.com/tomalakgeretkal}{\texttt{ tomalakgeretkal}} fixed a compilation error.
+\item \href{https://github.com/ALF-ONE}{\texttt{ alferov}} fixed a compilation error.
+\item \href{https://github.com/craigscott-crascit}{\texttt{ Craig Scott}} fixed a deprecation warning in CMake.
+\item \href{https://github.com/ZeronSix}{\texttt{ Vyacheslav Zhdanovskiy}} added macros for serialization-\/only types.
+\item \href{https://github.com/mwestphal}{\texttt{ Mathieu Westphal}} fixed typos.
+\item \href{https://github.com/scribam}{\texttt{ scribam}} fixed the Min\+GW workflow.
+\item \href{https://github.com/aleksproger}{\texttt{ Aleksei Sapitskii}} added support for Apple\textquotesingle{}s Swift Package Manager.
+\item \href{https://github.com/bebuch}{\texttt{ Benjamin Buch}} fixed the installation path in CMake.
+\item \href{https://github.com/colbychaskell}{\texttt{ Colby Haskell}} clarified the parse error message in case a file cannot be opened.
+\end{DoxyEnumerate}
+
+Thanks a lot for helping out! Please \href{mailto:mail@nlohmann.me}{\texttt{ let me know}} if I forgot someone.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1799}{}\doxysubsection{\texorpdfstring{Used third-\/party tools}{Used third-party tools}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1799}
+The library itself consists of a single header file licensed under the MIT license. However, it is built, tested, documented, and whatnot using a lot of third-\/party tools and services. Thanks a lot!
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/edlund/amalgamate}{\texttt{ {\bfseries{amalgamate.\+py -\/ Amalgamate C source and header files}}}} to create a single header file
+\item \href{https://lcamtuf.coredump.cx/afl/}{\texttt{ {\bfseries{American fuzzy lop}}}} for fuzz testing
+\item \href{https://www.appveyor.com}{\texttt{ {\bfseries{App\+Veyor}}}} for \href{https://ci.appveyor.com/project/nlohmann/json}{\texttt{ continuous integration}} on Windows
+\item \href{http://astyle.sourceforge.net}{\texttt{ {\bfseries{Artistic Style}}}} for automatic source code indentation
+\item \href{https://clang.llvm.org}{\texttt{ {\bfseries{Clang}}}} for compilation with code sanitizers
+\item \href{https://cmake.org}{\texttt{ {\bfseries{CMake}}}} for build automation
+\item \href{https://www.codacy.com}{\texttt{ {\bfseries{Codacy}}}} for further \href{https://www.codacy.com/app/nlohmann/json}{\texttt{ code analysis}}
+\item \href{https://coveralls.io}{\texttt{ {\bfseries{Coveralls}}}} to measure \href{https://coveralls.io/github/nlohmann/json}{\texttt{ code coverage}}
+\item \href{https://scan.coverity.com}{\texttt{ {\bfseries{Coverity Scan}}}} for \href{https://scan.coverity.com/projects/nlohmann-json}{\texttt{ static analysis}}
+\item \href{http://cppcheck.sourceforge.net}{\texttt{ {\bfseries{cppcheck}}}} for static analysis
+\item \href{https://github.com/onqtam/doctest}{\texttt{ {\bfseries{doctest}}}} for the unit tests
+\item \href{https://github.com/rstacruz/git-update-ghpages}{\texttt{ {\bfseries{git-\/update-\/ghpages}}}} to upload the documentation to gh-\/pages
+\item \href{https://github.com/skywinder/github-changelog-generator}{\texttt{ {\bfseries{Git\+Hub Changelog Generator}}}} to generate the \href{https://github.com/nlohmann/json/blob/develop/ChangeLog.md}{\texttt{ Change\+Log}}
+\item \href{https://github.com/google/benchmark}{\texttt{ {\bfseries{Google Benchmark}}}} to implement the benchmarks
+\item \href{https://nemequ.github.io/hedley/}{\texttt{ {\bfseries{Hedley}}}} to avoid re-\/inventing several compiler-\/agnostic feature macros
+\item \href{http://ltp.sourceforge.net/coverage/lcov.php}{\texttt{ {\bfseries{lcov}}}} to process coverage information and create an HTML view
+\item \href{https://llvm.org/docs/LibFuzzer.html}{\texttt{ {\bfseries{lib\+Fuzzer}}}} to implement fuzz testing for OSS-\/\+Fuzz
+\item \href{https://squidfunk.github.io/mkdocs-material/}{\texttt{ {\bfseries{Material for Mk\+Docs}}}} for the style of the documentation site
+\item \href{https://www.mkdocs.org}{\texttt{ {\bfseries{Mk\+Docs}}}} for the documentation site
+\item \href{https://github.com/google/oss-fuzz}{\texttt{ {\bfseries{OSS-\/\+Fuzz}}}} for continuous fuzz testing of the library (\href{https://github.com/google/oss-fuzz/tree/master/projects/json}{\texttt{ project repository}})
+\item \href{https://probot.github.io}{\texttt{ {\bfseries{Probot}}}} for automating maintainer tasks such as closing stale issues, requesting missing information, or detecting toxic comments.
+\item \href{https://valgrind.org}{\texttt{ {\bfseries{Valgrind}}}} to check for correct memory management
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1800}{}\doxysubsection{\texorpdfstring{Projects using JSON for Modern C++}{Projects using JSON for Modern C++}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1800}
+The library is currently used in Apple mac\+OS Sierra-\/\+Monterey and i\+OS 10-\/15. I am not sure what they are using the library for, but I am happy that it runs on so many devices.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1801}{}\doxysubsection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1801}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1802}{}\doxysubsubsection{\texorpdfstring{Character encoding}{Character encoding}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1802}
+The library supports {\bfseries{Unicode input}} as follows\+:
+
+
+\begin{DoxyItemize}
+\item Only {\bfseries{UTF-\/8}} encoded input is supported which is the default encoding for JSON according to \href{https://tools.ietf.org/html/rfc8259.html\#section-8.1}{\texttt{ RFC 8259}}.
+\item {\ttfamily std\+::u16string} and {\ttfamily std\+::u32string} can be parsed, assuming UTF-\/16 and UTF-\/32 encoding, respectively. These encodings are not supported when reading from files or other input containers.
+\item Other encodings such as Latin-\/1 or ISO 8859-\/1 are {\bfseries{not}} supported and will yield parse or serialization errors.
+\item \href{https://www.unicode.org/faq/private_use.html\#nonchar1}{\texttt{ Unicode noncharacters}} will not be replaced by the library.
+\item Invalid surrogates (e.\+g., incomplete pairs such as {\ttfamily \textbackslash{}u\+DEAD}) will yield parse errors.
+\item The strings stored in the library are UTF-\/8 encoded. When using the default string type ({\ttfamily std\+::string}), note that its length/size functions return the number of stored bytes rather than the number of characters or glyphs.
+\item When you store strings with different encodings in the library, calling \href{https://json.nlohmann.me/api/basic_json/dump/}{\texttt{ {\ttfamily dump()}}} may throw an exception unless {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::replace} or {\ttfamily json\+::error\+\_\+handler\+\_\+t\+::ignore} are used as error handlers.
+\item To store wide strings (e.\+g., {\ttfamily std\+::wstring}), you need to convert them to a UTF-\/8 encoded {\ttfamily std\+::string} before, see \href{https://json.nlohmann.me/home/faq/\#wide-string-handling}{\texttt{ an example}}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1803}{}\doxysubsubsection{\texorpdfstring{Comments in JSON}{Comments in JSON}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1803}
+This library does not support comments by default. It does so for three reasons\+:
+
+
+\begin{DoxyEnumerate}
+\item Comments are not part of the \href{https://tools.ietf.org/html/rfc8259}{\texttt{ JSON specification}}. You may argue that {\ttfamily //} or {\ttfamily /\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*}/} are allowed in Java\+Script, but JSON is not Java\+Script.
+\item This was not an oversight\+: Douglas Crockford \href{https://plus.google.com/118095276221607585885/posts/RK8qyGVaGSr}{\texttt{ wrote on this}} in May 2012\+:
+\end{DoxyEnumerate}
+
+\begin{quote}
+I removed comments from JSON because I saw people were using them to hold parsing directives, a practice which would have destroyed interoperability. I know that the lack of comments makes some people sad, but it shouldn\textquotesingle{}t. \end{quote}
+\begin{quote}
+Suppose you are using JSON to keep configuration files, which you would like to annotate. Go ahead and insert all the comments you like. Then pipe it through JSMin before handing it to your JSON parser. \end{quote}
+
+\begin{DoxyEnumerate}
+\item It is dangerous for interoperability if some libraries would add comment support while others don\textquotesingle{}t. Please check \href{https://tools.ietf.org/html/draft-iab-protocol-maintenance-01}{\texttt{ The Harmful Consequences of the Robustness Principle}} on this.
+\end{DoxyEnumerate}
+
+However, you can pass set parameter {\ttfamily ignore\+\_\+comments} to true in the {\ttfamily parse} function to ignore {\ttfamily //} or {\ttfamily /\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*}/} comments. Comments will then be treated as whitespace.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1804}{}\doxysubsubsection{\texorpdfstring{Order of object keys}{Order of object keys}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1804}
+By default, the library does not preserve the {\bfseries{insertion order of object elements}}. This is standards-\/compliant, as the \href{https://tools.ietf.org/html/rfc8259.html}{\texttt{ JSON standard}} defines objects as "{}an unordered collection of zero or more name/value pairs"{}.
+
+If you do want to preserve the insertion order, you can try the type \href{https://github.com/nlohmann/json/issues/2179}{\texttt{ {\ttfamily nlohmann\+::ordered\+\_\+json}}}. Alternatively, you can use a more sophisticated ordered map like \href{https://github.com/Tessil/ordered-map}{\texttt{ {\ttfamily tsl\+::ordered\+\_\+map}}} (\href{https://github.com/nlohmann/json/issues/546\#issuecomment-304447518}{\texttt{ integration}}) or \href{https://github.com/nlohmann/fifo_map}{\texttt{ {\ttfamily nlohmann\+::fifo\+\_\+map}}} (\href{https://github.com/nlohmann/json/issues/485\#issuecomment-333652309}{\texttt{ integration}}).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1805}{}\doxysubsubsection{\texorpdfstring{Memory Release}{Memory Release}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1805}
+We checked with Valgrind and the Address Sanitizer (ASAN) that there are no memory leaks.
+
+If you find that a parsing program with this library does not release memory, please consider the following case, and it may be unrelated to this library.
+
+{\bfseries{Your program is compiled with glibc.}} There is a tunable threshold that glibc uses to decide whether to actually return memory to the system or whether to cache it for later reuse. If in your program you make lots of small allocations and those small allocations are not a contiguous block and are presumably below the threshold, then they will not get returned to the OS. Here is a related issue \href{https://github.com/nlohmann/json/issues/1924}{\texttt{ \#1924}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1806}{}\doxysubsubsection{\texorpdfstring{Further notes}{Further notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1806}
+
+\begin{DoxyItemize}
+\item The code contains numerous debug {\bfseries{assertions}} which can be switched off by defining the preprocessor macro {\ttfamily NDEBUG}, see the \href{https://en.cppreference.com/w/cpp/error/assert}{\texttt{ documentation of {\ttfamily assert}}}. In particular, note \href{https://json.nlohmann.me/api/basic_json/operator\%5B\%5D/}{\texttt{ {\ttfamily operator\mbox{[}\mbox{]}}}} implements {\bfseries{unchecked access}} for const objects\+: If the given key is not present, the behavior is undefined (think of a dereferenced null pointer) and yields an \href{https://github.com/nlohmann/json/issues/289}{\texttt{ assertion failure}} if assertions are switched on. If you are not sure whether an element in an object exists, use checked access with the \href{https://json.nlohmann.me/api/basic_json/at/}{\texttt{ {\ttfamily at()} function}}. Furthermore, you can define {\ttfamily \doxylink{macro__scope_8hpp_a69f131cff49da1989667220173fbeae6}{JSON\+\_\+\+ASSERT(x)}} to replace calls to {\ttfamily assert(x)}.
+\item As the exact number type is not defined in the \href{https://tools.ietf.org/html/rfc8259.html}{\texttt{ JSON specification}}, this library tries to choose the best fitting C++ number type automatically. As a result, the type {\ttfamily double} may be used to store numbers which may yield \href{https://github.com/nlohmann/json/issues/181}{\texttt{ {\bfseries{floating-\/point exceptions}}}} in certain rare situations if floating-\/point exceptions have been unmasked in the calling code. These exceptions are not caused by the library and need to be fixed in the calling code, such as by re-\/masking the exceptions prior to calling library functions.
+\item The code can be compiled without C++ {\bfseries{runtime type identification}} features; that is, you can use the {\ttfamily -\/fno-\/rtti} compiler flag.
+\item {\bfseries{Exceptions}} are used widely within the library. They can, however, be switched off with either using the compiler flag {\ttfamily -\/fno-\/exceptions} or by defining the symbol {\ttfamily JSON\+\_\+\+NOEXCEPTION}. In this case, exceptions are replaced by {\ttfamily abort()} calls. You can further control this behavior by defining {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER} (overriding {\ttfamily throw}), {\ttfamily JSON\+\_\+\+TRY\+\_\+\+USER} (overriding {\ttfamily try}), and {\ttfamily JSON\+\_\+\+CATCH\+\_\+\+USER} (overriding {\ttfamily catch}). Note that {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER} should leave the current scope (e.\+g., by throwing or aborting), as continuing after it may yield undefined behavior. Note the explanatory \href{https://en.cppreference.com/w/cpp/error/exception/what}{\texttt{ {\ttfamily what()}}} string of exceptions is not available for MSVC if exceptions are disabled, see \href{https://github.com/nlohmann/json/discussions/2824}{\texttt{ \#2824}}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1807}{}\doxysubsection{\texorpdfstring{Execute unit tests}{Execute unit tests}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2README_autotoc_md1807}
+To compile and run the tests, you need to execute
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ mkdir\ build}
+\DoxyCodeLine{\$\ cd\ build}
+\DoxyCodeLine{\$\ cmake\ ..\ -\/DJSON\_BuildTests=On}
+\DoxyCodeLine{\$\ cmake\ -\/-\/build\ .}
+\DoxyCodeLine{\$\ ctest\ -\/-\/output-\/on-\/failure}
+
+\end{DoxyCode}
+
+
+Note that during the {\ttfamily ctest} stage, several JSON test files are downloaded from an \href{https://github.com/nlohmann/json_test_data}{\texttt{ external repository}}. If policies forbid downloading artifacts during testing, you can download the files yourself and pass the directory with the test files via {\ttfamily -\/DJSON\+\_\+\+Test\+Data\+Directory=path} to CMake. Then, no Internet connectivity is required. See \href{https://github.com/nlohmann/json/issues/2189}{\texttt{ issue \#2189}} for more information.
+
+If the test suite is not found, several test suites will fail like this\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{===============================================================================}
+\DoxyCodeLine{json/tests/src/make\_test\_data\_available.hpp:21:}
+\DoxyCodeLine{TEST\ CASE:\ \ check\ test\ suite\ is\ downloaded}
+\DoxyCodeLine{}
+\DoxyCodeLine{json/tests/src/make\_test\_data\_available.hpp:23:\ FATAL\ ERROR:\ REQUIRE(\ utils::check\_testsuite\_downloaded()\ )\ is\ NOT\ correct!}
+\DoxyCodeLine{\ \ values:\ REQUIRE(\ false\ )}
+\DoxyCodeLine{\ \ logged:\ Test\ data\ not\ found\ in\ 'json/cmake-\/build-\/debug/json\_test\_data'.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ Please\ execute\ target\ 'download\_test\_data'\ before\ running\ this\ test\ suite.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ See\ <https://github.com/nlohmann/json\#execute-\/unit-\/tests>\ for\ more\ information.}
+\DoxyCodeLine{}
+\DoxyCodeLine{===============================================================================}
+
+\end{DoxyCode}
+
+
+In case you have downloaded the library rather than checked out the code via Git, test {\ttfamily cmake\+\_\+fetch\+\_\+content\+\_\+configure} will fail. Please execute {\ttfamily ctest -\/LE git\+\_\+required} to skip these tests. See \href{https://github.com/nlohmann/json/issues/2189}{\texttt{ issue \#2189}} for more information.
+
+Some tests change the installed files and hence make the whole process not reproducible. Please execute {\ttfamily ctest -\/LE not\+\_\+reproducible} to skip these tests. See \href{https://github.com/nlohmann/json/issues/2324}{\texttt{ issue \#2324}} for more information.
+
+Note you need to call {\ttfamily cmake -\/LE "{}not\+\_\+reproducible\texorpdfstring{$\vert$}{|}git\+\_\+required"{}} to exclude both labels. See \href{https://github.com/nlohmann/json/issues/2596}{\texttt{ issue \#2596}} for more information.
+
+As Intel compilers use unsafe floating point optimization by default, the unit tests may fail. Use flag \href{https://software.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/compiler-options/compiler-option-details/floating-point-options/fp-model-fp.html}{\texttt{ {\ttfamily /fp\+:precise}}} then. 

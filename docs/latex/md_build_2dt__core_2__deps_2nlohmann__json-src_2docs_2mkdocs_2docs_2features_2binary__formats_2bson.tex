@@ -1,0 +1,105 @@
+\chapter{BSON}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}\index{BSON@{BSON}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1325}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1325}%
+ BSON, short for Binary JSON, is a binary-\/encoded serialization of JSON-\/like documents. Like JSON, BSON supports the embedding of documents and arrays within other documents and arrays. BSON also contains extensions that allow representation of data types that are not part of the JSON spec. For example, BSON has a Date type and a Bin\+Data type.
+
+!!! abstract "{}\+References"{} \begin{DoxyVerb}- [BSON Website](http://bsonspec.org) - the main source on BSON
+- [BSON Specification](http://bsonspec.org/spec.html) - the specification
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1326}{}\doxysection{\texorpdfstring{Serialization}{Serialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1326}
+The library uses the following mapping from JSON values types to BSON types\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ value/range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ value/range   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ marker    }\\\cline{1-4}
+\endhead
+null   &{\ttfamily null}   &null   &0x0A    \\\cline{1-4}
+boolean   &{\ttfamily true}, {\ttfamily false}   &boolean   &0x08    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/9223372036854775808..-\/2147483649   &int64   &0x12    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &-\/2147483648..2147483647   &int32   &0x10    \\\cline{1-4}
+\doxylink{classnumber__integer}{number\+\_\+integer}   &2147483648..9223372036854775807   &int64   &0x12    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &0..2147483647   &int32   &0x10    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &2147483648..9223372036854775807   &int64   &0x12    \\\cline{1-4}
+\doxylink{classnumber__unsigned}{number\+\_\+unsigned}   &9223372036854775808..18446744073709551615   &--   &--    \\\cline{1-4}
+\doxylink{classnumber__float}{number\+\_\+float}   &{\itshape any value}   &double   &0x01    \\\cline{1-4}
+string   &{\itshape any value}   &string   &0x02    \\\cline{1-4}
+array   &{\itshape any value}   &document   &0x04    \\\cline{1-4}
+object   &{\itshape any value}   &document   &0x03    \\\cline{1-4}
+binary   &{\itshape any value}   &binary   &0x05   \\\cline{1-4}
+\end{longtabu}
+
+
+!!! warning "{}\+Incomplete mapping"{} \begin{DoxyVerb}The mapping is **incomplete**, since only JSON-objects (and things
+contained therein) can be serialized to BSON.
+Also, integers larger than 9223372036854775807 cannot be serialized to BSON,
+and the keys may not contain U+0000, since they are serialized a
+zero-terminated c-strings.
+\end{DoxyVerb}
+ ??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/to_bson.cpp"
+```
+
+Output:
+
+```c
+--8<-- "examples/to_bson.output"
+```
+\end{DoxyVerb}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1327}{}\doxysection{\texorpdfstring{Deserialization}{Deserialization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson_autotoc_md1327}
+The library maps BSON record types to JSON value types as follows\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON marker byte   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ BSON marker byte   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ JSON value type    }\\\cline{1-3}
+\endhead
+double   &0x01   &\doxylink{classnumber__float}{number\+\_\+float}    \\\cline{1-3}
+string   &0x02   &string    \\\cline{1-3}
+document   &0x03   &object    \\\cline{1-3}
+array   &0x04   &array    \\\cline{1-3}
+binary   &0x05   &binary    \\\cline{1-3}
+undefined   &0x06   &{\itshape unsupported}    \\\cline{1-3}
+Object\+Id   &0x07   &{\itshape unsupported}    \\\cline{1-3}
+boolean   &0x08   &boolean    \\\cline{1-3}
+UTC Date-\/\+Time   &0x09   &{\itshape unsupported}    \\\cline{1-3}
+null   &0x0A   &null    \\\cline{1-3}
+Regular Expr.   &0x0B   &{\itshape unsupported}    \\\cline{1-3}
+DB Pointer   &0x0C   &{\itshape unsupported}    \\\cline{1-3}
+Java\+Script Code   &0x0D   &{\itshape unsupported}    \\\cline{1-3}
+Symbol   &0x0E   &{\itshape unsupported}    \\\cline{1-3}
+Java\+Script Code   &0x0F   &{\itshape unsupported}    \\\cline{1-3}
+int32   &0x10   &\doxylink{classnumber__integer}{number\+\_\+integer}    \\\cline{1-3}
+Timestamp   &0x11   &{\itshape unsupported}    \\\cline{1-3}
+128-\/bit decimal float   &0x13   &{\itshape unsupported}    \\\cline{1-3}
+Max Key   &0x7F   &{\itshape unsupported}    \\\cline{1-3}
+Min Key   &0x\+FF   &{\itshape unsupported}   \\\cline{1-3}
+\end{longtabu}
+
+
+!!! warning "{}\+Incomplete mapping"{} \begin{DoxyVerb}The mapping is **incomplete**. The unsupported mappings are indicated in the table above.
+\end{DoxyVerb}
+
+
+??? example \begin{DoxyVerb}```cpp
+--8<-- "examples/from_bson.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_bson.output"
+```
+\end{DoxyVerb}
+ 

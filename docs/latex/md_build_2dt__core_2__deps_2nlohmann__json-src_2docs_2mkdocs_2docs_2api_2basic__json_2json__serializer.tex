@@ -1,0 +1,34 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}json\+\_\+serializer}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$json\_serializer@{$<$small$>$nlohmann::basic\_json::$<$/small$>$json\_serializer}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md550}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md550}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ SFINAE>}
+\DoxyCodeLine{\textcolor{keyword}{using\ }json\_serializer\ =\ JSONSerializer<T,\ SFINAE>;}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md551}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md551}
+{\ttfamily T} \+: type to convert; will be used in the {\ttfamily to\+\_\+json}/{\ttfamily from\+\_\+json} functions
+
+{\ttfamily SFINAE} \+: type to add compile type checks via SFINAE; usually {\ttfamily \#!cpp void}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md552}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md552}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md553}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md553}
+The default values for {\ttfamily json\+\_\+serializer} is \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2adl__serializer_2index}{\`{}adl\+\_\+serializer\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md554}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md554}
+??? example \begin{DoxyVerb}The example below shows how a conversion of a non-default-constructible type is implemented via a specialization of
+the `adl_serializer`.
+
+```cpp
+--8<-- "examples/from_json__non_default_constructible.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_json__non_default_constructible.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md555}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2json__serializer_autotoc_md555}
+
+\begin{DoxyItemize}
+\item Since version 2.\+0.\+0. 
+\end{DoxyItemize}

@@ -1,0 +1,93 @@
+\doxysection{Fuzzer\+Value\+Bit\+Map.\+h}
+\hypertarget{FuzzerValueBitMap_8h_source}{}\label{FuzzerValueBitMap_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerValueBitMap.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerValueBitMap.h}}
+\mbox{\hyperlink{FuzzerValueBitMap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerValueBitMap.h\ -\/\ INTERNAL\ -\/\ Bit\ map\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ ValueBitMap.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_VALUE\_BIT\_MAP\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_VALUE\_BIT\_MAP\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FuzzerDefs_8h}{FuzzerDefs.h}}"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ A\ bit\ map\ containing\ kMapSizeInWords\ bits.}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{ValueBitMap}}\ \{}
+\DoxyCodeLine{00021\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{kMapSizeInBits}}\ =\ 65371;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prime.}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}{kMapSizeInBitsAligned}}\ =\ 65536;\ \textcolor{comment}{//\ 2\string^16}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}}\ =\ (\textcolor{keyword}{sizeof}(uintptr\_t)\ *\ 8);}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}{kMapSizeInWords}}\ =\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a2e454dabf261b10965dfb7dbf96c408e}{kMapSizeInBitsAligned}}\ /\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}};}
+\DoxyCodeLine{00025\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af6651c01d021f3c3596439a7b5f8d673}{kNumberOfItems}}\ =\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{kMapSizeInBits}};}
+\DoxyCodeLine{00027\ \ \ \textcolor{comment}{//\ Clears\ all\ bits.}}
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a7e0a77c4c7b3631b136ea7f2d3f6ceaf}{Reset}}()\ \{\ memset(Map,\ 0,\ \textcolor{keyword}{sizeof}(Map));\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{comment}{//\ Computes\ a\ hash\ function\ of\ Value\ and\ sets\ the\ corresponding\ bit.}}
+\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ Returns\ true\ if\ the\ bit\ was\ changed\ from\ 0\ to\ 1.}}
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a716c1fc151b968063db3e37955ef530d}{AddValue}}(uintptr\_t\ Value)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ uintptr\_t\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ =\ Value\ <\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{kMapSizeInBits}}\ ?\ Value\ :\ Value\ \%\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{kMapSizeInBits}};}
+\DoxyCodeLine{00034\ \ \ \ \ uintptr\_t\ WordIdx\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ /\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}};}
+\DoxyCodeLine{00035\ \ \ \ \ uintptr\_t\ BitIdx\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ \%\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}};}
+\DoxyCodeLine{00036\ \ \ \ \ uintptr\_t\ Old\ =\ Map[WordIdx];}
+\DoxyCodeLine{00037\ \ \ \ \ uintptr\_t\ New\ =\ Old\ |\ (1UL\ <<\ BitIdx);}
+\DoxyCodeLine{00038\ \ \ \ \ Map[WordIdx]\ =\ New;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ New\ !=\ Old;}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a708bc9b0f81853bcccb51bba0b07048e}{Get}}(uintptr\_t\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}})\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}}(\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ <\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_abc4765423cfa45ec36e1eaee9d4491b9}{kMapSizeInBits}});}
+\DoxyCodeLine{00044\ \ \ \ \ uintptr\_t\ WordIdx\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ /\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}};}
+\DoxyCodeLine{00045\ \ \ \ \ uintptr\_t\ BitIdx\ =\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\ \%\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a3529edcd716b24050d55917d15759c7d}{kBitsInWord}};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ Map[WordIdx]\ \&\ (1UL\ <<\ BitIdx);}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a9a08a418bc1f5db612aea10ca6d8a587}{GetNumBitsSinceLastMerge}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ NumBits;\ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{comment}{//\ Merges\ 'Other'\ into\ 'this',\ clears\ 'Other',\ updates\ NumBits,}}
+\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ returns\ true\ if\ new\ bits\ were\ added.}}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{FuzzerDefs_8h_acdbef8108a762fe633c274db701603ab}{ATTRIBUTE\_TARGET\_POPCNT}}}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af95bf22fe5b5b440c5bfd78e6f59dd60}{MergeFrom}}(\mbox{\hyperlink{structfuzzer_1_1ValueBitMap}{ValueBitMap}}\ \&Other)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ uintptr\_t\ Res\ =\ 0;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ OldNumBits\ =\ NumBits;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}{kMapSizeInWords}};\ i++)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ O\ =\ Other.Map[i];}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ M\ =\ Map[i];}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (O)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ Map[i]\ =\ (M\ |=\ O);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ Other.Map[i]\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (M)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ Res\ +=\ \_\_builtin\_popcountl(M);}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ NumBits\ =\ Res;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ OldNumBits\ <\ NumBits;}
+\DoxyCodeLine{00069\ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Callback>}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_a152e13d2af4b78d639e4225f2dd2f040}{ForEach}}(Callback\ CB)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}{kMapSizeInWords}};\ i++)}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uintptr\_t\ M\ =\ Map[i])}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ 0;\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ <\ \textcolor{keyword}{sizeof}(M)\ *\ 8;\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}++)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (M\ \&\ ((uintptr\_t)1\ <<\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}))}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ CB(i\ *\ \textcolor{keyword}{sizeof}(M)\ *\ 8\ +\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}});}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ \textcolor{keywordtype}{size\_t}\ NumBits\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ uintptr\_t\ Map[\mbox{\hyperlink{structfuzzer_1_1ValueBitMap_af39c393894bc8da597e47bdc131e5edf}{kMapSizeInWords}}]\ \_\_attribute\_\_((aligned(512)));}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_VALUE\_BIT\_MAP\_H}}
+
+\end{DoxyCode}

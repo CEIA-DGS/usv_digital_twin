@@ -1,0 +1,315 @@
+\doxysection{serve\+\_\+header Namespace Reference}
+\hypertarget{namespaceserve__header}{}\label{namespaceserve__header}\index{serve\_header@{serve\_header}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1DirectoryEventBucket}{Directory\+Event\+Bucket}}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1DualStackServer}{Dual\+Stack\+Server}}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1ExitHandler}{Exit\+Handler}}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1HeaderRequestHandler}{Header\+Request\+Handler}}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1WorkTree}{Work\+Tree}}
+\item 
+class \mbox{\hyperlink{classserve__header_1_1WorkTrees}{Work\+Trees}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ab5838505cc66f1d6cab4ccbef8a4b555}{is\+\_\+project\+\_\+root}} (test\+\_\+dir=\textquotesingle{}.\textquotesingle{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_a375d7abce62948934bdf48f0c3476ae8}{CONFIG\+\_\+\+FILE}} = \textquotesingle{}serve\+\_\+header.\+yml\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_ab46f7cef70596bdddb1640753fa88e07}{MAKEFILE}} = \textquotesingle{}Makefile\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_a46818654b6ebd8742ef0636bc31ced39}{INCLUDE}} = \textquotesingle{}include/nlohmann/\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_aadb0da937c128e4924b61466b462296a}{SINGLE\+\_\+\+INCLUDE}} = \textquotesingle{}single\+\_\+include/nlohmann/\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_a70e03af95e9931da9ae003650efc40de}{HEADER}} = \textquotesingle{}json.\+hpp\textquotesingle{}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_ae5273a99486cc535e4e4877d0b119ebf}{DATETIME\+\_\+\+FORMAT}} = \textquotesingle{}\%Y-\/\%m-\/\%d \%H\+:\%M\+:\%S\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ad4ceb943b73262b25e69fca044230d11}{JSON\+\_\+\+VERSION\+\_\+\+RE}} = re.\+compile(r\textquotesingle{}\textbackslash{}s\texorpdfstring{$\ast$}{*}\#\textbackslash{}s\texorpdfstring{$\ast$}{*}define\textbackslash{}s+NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MAJOR\textbackslash{}s+\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespaceserve__header_a8ba4da2254f9cdb88e0776eb1051220f}{ec}} = 0
+\item 
+\mbox{\hyperlink{namespaceserve__header_a7997c4f068cf39c85f7349cd2a84a370}{format}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a41d10fc127da7ed5a4e7121f2d9fa4a9}{datefmt}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ae33d1b8be2a69b85fe72a6a98a1058df}{level}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a5f669697b6f04a04d688c5466a04f121}{log}} = logging.\+get\+Logger()
+\item 
+\mbox{\hyperlink{namespaceserve__header_a56410b443fbc35bb02feef4e3ad8d89c}{parser}} = argparse.\+Argument\+Parser()
+\item 
+\mbox{\hyperlink{namespaceserve__header_a5da878e0f3615193764ec2f0962d1826}{default}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a243aa4648e42d8f104e634770fd69e88}{help}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_aff7a7ccd1d888c40a03757f93d42f0db}{args}} = parser.\+parse\+\_\+args()
+\item 
+\mbox{\hyperlink{namespaceserve__header_ac3ed278bc12868eec154b8abc91d737a}{make\+\_\+command}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ae9cfded70a4f16a9208590564bc353e9}{worktrees}} = None
+\item 
+dict \mbox{\hyperlink{namespaceserve__header_a1f993d141863d665b4356e7f0525de8b}{config}} = \{\}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a66590d052de44d432836d773573b00f3}{config\+\_\+file}} = os.\+path.\+abspath(\mbox{\hyperlink{namespaceserve__header_a375d7abce62948934bdf48f0c3476ae8}{CONFIG\+\_\+\+FILE}})
+\item 
+\mbox{\hyperlink{namespaceserve__header_a9b4f0fcdc3034e54509abd30d793362b}{infos}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ad763f5231ae870b3d0a81ca4d54d9e1a}{address\+\_\+family}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a976503fecff234b189d2b94907bc9f25}{protocol\+\_\+version}}
+\item 
+str \mbox{\hyperlink{namespaceserve__header_a62b054d4e0bc03d96ee1e3c4163265fb}{scheme}} = \textquotesingle{}HTTP\textquotesingle{}
+\item 
+dict \mbox{\hyperlink{namespaceserve__header_a617da9c222fd3383d2c38329b7d8c084}{https}} = config.\+get(\textquotesingle{}https\textquotesingle{}, \{\})
+\item 
+dict \mbox{\hyperlink{namespaceserve__header_a8ac4b2290e4e0fb456bd1415f808b3b6}{cert\+\_\+file}} = https.\+get(\textquotesingle{}cert\+\_\+file\textquotesingle{}, \textquotesingle{}localhost.\+pem\textquotesingle{})
+\item 
+dict \mbox{\hyperlink{namespaceserve__header_aad25da7d1be7f8891140e7893c50d72f}{key\+\_\+file}} = https.\+get(\textquotesingle{}key\+\_\+file\textquotesingle{}, \textquotesingle{}localhost-\/key.\+pem\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespaceserve__header_a19d83048358a55926f4a065fee0889b1}{ssl\+\_\+ctx}} = ssl.\+create\+\_\+default\+\_\+context(ssl.\+Purpose.\+CLIENT\+\_\+\+AUTH)
+\item 
+\mbox{\hyperlink{namespaceserve__header_a73f7e42dadc76e8dfce36f19f9da0c89}{minimum\+\_\+version}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a9cf095e95503575b2a30b4eb9cf9915f}{maximum\+\_\+version}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a2bae5b026935a9377f233052d369ff89}{socket}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_a5305d3afc01ecce43e0915df37a39c81}{server\+\_\+side}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_ada34f665743d2570d15aa5ace1fb255d}{host}}
+\item 
+\mbox{\hyperlink{namespaceserve__header_add34d2ec5c9441574830465cd6577627}{port}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceserve__header_ab5838505cc66f1d6cab4ccbef8a4b555}\label{namespaceserve__header_ab5838505cc66f1d6cab4ccbef8a4b555} 
+\index{serve\_header@{serve\_header}!is\_project\_root@{is\_project\_root}}
+\index{is\_project\_root@{is\_project\_root}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{is\_project\_root()}{is\_project\_root()}}
+{\footnotesize\ttfamily serve\+\_\+header.\+is\+\_\+project\+\_\+root (\begin{DoxyParamCaption}\item[{}]{test\+\_\+dir = {\ttfamily \textquotesingle{}.\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceserve__header_ad763f5231ae870b3d0a81ca4d54d9e1a}\label{namespaceserve__header_ad763f5231ae870b3d0a81ca4d54d9e1a} 
+\index{serve\_header@{serve\_header}!address\_family@{address\_family}}
+\index{address\_family@{address\_family}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{address\_family}{address\_family}}
+{\footnotesize\ttfamily serve\+\_\+header.\+address\+\_\+family}
+
+\Hypertarget{namespaceserve__header_aff7a7ccd1d888c40a03757f93d42f0db}\label{namespaceserve__header_aff7a7ccd1d888c40a03757f93d42f0db} 
+\index{serve\_header@{serve\_header}!args@{args}}
+\index{args@{args}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{args}{args}}
+{\footnotesize\ttfamily serve\+\_\+header.\+args = parser.\+parse\+\_\+args()}
+
+\Hypertarget{namespaceserve__header_a8ac4b2290e4e0fb456bd1415f808b3b6}\label{namespaceserve__header_a8ac4b2290e4e0fb456bd1415f808b3b6} 
+\index{serve\_header@{serve\_header}!cert\_file@{cert\_file}}
+\index{cert\_file@{cert\_file}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{cert\_file}{cert\_file}}
+{\footnotesize\ttfamily dict serve\+\_\+header.\+cert\+\_\+file = https.\+get(\textquotesingle{}cert\+\_\+file\textquotesingle{}, \textquotesingle{}localhost.\+pem\textquotesingle{})}
+
+\Hypertarget{namespaceserve__header_a1f993d141863d665b4356e7f0525de8b}\label{namespaceserve__header_a1f993d141863d665b4356e7f0525de8b} 
+\index{serve\_header@{serve\_header}!config@{config}}
+\index{config@{config}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily serve\+\_\+header.\+config = \{\}}
+
+\Hypertarget{namespaceserve__header_a375d7abce62948934bdf48f0c3476ae8}\label{namespaceserve__header_a375d7abce62948934bdf48f0c3476ae8} 
+\index{serve\_header@{serve\_header}!CONFIG\_FILE@{CONFIG\_FILE}}
+\index{CONFIG\_FILE@{CONFIG\_FILE}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{CONFIG\_FILE}{CONFIG\_FILE}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+CONFIG\+\_\+\+FILE = \textquotesingle{}serve\+\_\+header.\+yml\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a66590d052de44d432836d773573b00f3}\label{namespaceserve__header_a66590d052de44d432836d773573b00f3} 
+\index{serve\_header@{serve\_header}!config\_file@{config\_file}}
+\index{config\_file@{config\_file}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{config\_file}{config\_file}}
+{\footnotesize\ttfamily serve\+\_\+header.\+config\+\_\+file = os.\+path.\+abspath(\mbox{\hyperlink{namespaceserve__header_a375d7abce62948934bdf48f0c3476ae8}{CONFIG\+\_\+\+FILE}})}
+
+\Hypertarget{namespaceserve__header_a41d10fc127da7ed5a4e7121f2d9fa4a9}\label{namespaceserve__header_a41d10fc127da7ed5a4e7121f2d9fa4a9} 
+\index{serve\_header@{serve\_header}!datefmt@{datefmt}}
+\index{datefmt@{datefmt}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{datefmt}{datefmt}}
+{\footnotesize\ttfamily serve\+\_\+header.\+datefmt}
+
+\Hypertarget{namespaceserve__header_ae5273a99486cc535e4e4877d0b119ebf}\label{namespaceserve__header_ae5273a99486cc535e4e4877d0b119ebf} 
+\index{serve\_header@{serve\_header}!DATETIME\_FORMAT@{DATETIME\_FORMAT}}
+\index{DATETIME\_FORMAT@{DATETIME\_FORMAT}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{DATETIME\_FORMAT}{DATETIME\_FORMAT}}
+{\footnotesize\ttfamily serve\+\_\+header.\+DATETIME\+\_\+\+FORMAT = \textquotesingle{}\%Y-\/\%m-\/\%d \%H\+:\%M\+:\%S\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a5da878e0f3615193764ec2f0962d1826}\label{namespaceserve__header_a5da878e0f3615193764ec2f0962d1826} 
+\index{serve\_header@{serve\_header}!default@{default}}
+\index{default@{default}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{default}{default}}
+{\footnotesize\ttfamily serve\+\_\+header.\+default}
+
+\Hypertarget{namespaceserve__header_a8ba4da2254f9cdb88e0776eb1051220f}\label{namespaceserve__header_a8ba4da2254f9cdb88e0776eb1051220f} 
+\index{serve\_header@{serve\_header}!ec@{ec}}
+\index{ec@{ec}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{ec}{ec}}
+{\footnotesize\ttfamily int serve\+\_\+header.\+ec = 0}
+
+\Hypertarget{namespaceserve__header_a7997c4f068cf39c85f7349cd2a84a370}\label{namespaceserve__header_a7997c4f068cf39c85f7349cd2a84a370} 
+\index{serve\_header@{serve\_header}!format@{format}}
+\index{format@{format}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily serve\+\_\+header.\+format}
+
+\Hypertarget{namespaceserve__header_a70e03af95e9931da9ae003650efc40de}\label{namespaceserve__header_a70e03af95e9931da9ae003650efc40de} 
+\index{serve\_header@{serve\_header}!HEADER@{HEADER}}
+\index{HEADER@{HEADER}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{HEADER}{HEADER}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+HEADER = \textquotesingle{}json.\+hpp\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a243aa4648e42d8f104e634770fd69e88}\label{namespaceserve__header_a243aa4648e42d8f104e634770fd69e88} 
+\index{serve\_header@{serve\_header}!help@{help}}
+\index{help@{help}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{help}{help}}
+{\footnotesize\ttfamily serve\+\_\+header.\+help}
+
+\Hypertarget{namespaceserve__header_ada34f665743d2570d15aa5ace1fb255d}\label{namespaceserve__header_ada34f665743d2570d15aa5ace1fb255d} 
+\index{serve\_header@{serve\_header}!host@{host}}
+\index{host@{host}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{host}{host}}
+{\footnotesize\ttfamily serve\+\_\+header.\+host}
+
+\Hypertarget{namespaceserve__header_a617da9c222fd3383d2c38329b7d8c084}\label{namespaceserve__header_a617da9c222fd3383d2c38329b7d8c084} 
+\index{serve\_header@{serve\_header}!https@{https}}
+\index{https@{https}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{https}{https}}
+{\footnotesize\ttfamily dict serve\+\_\+header.\+https = config.\+get(\textquotesingle{}https\textquotesingle{}, \{\})}
+
+\Hypertarget{namespaceserve__header_a46818654b6ebd8742ef0636bc31ced39}\label{namespaceserve__header_a46818654b6ebd8742ef0636bc31ced39} 
+\index{serve\_header@{serve\_header}!INCLUDE@{INCLUDE}}
+\index{INCLUDE@{INCLUDE}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{INCLUDE}{INCLUDE}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+INCLUDE = \textquotesingle{}include/nlohmann/\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a9b4f0fcdc3034e54509abd30d793362b}\label{namespaceserve__header_a9b4f0fcdc3034e54509abd30d793362b} 
+\index{serve\_header@{serve\_header}!infos@{infos}}
+\index{infos@{infos}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{infos}{infos}}
+{\footnotesize\ttfamily serve\+\_\+header.\+infos}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ socket.getaddrinfo(config.get(\textcolor{stringliteral}{'bind'},\ \textcolor{keywordtype}{None}),\ config.get(\textcolor{stringliteral}{'port'},\ 8443),}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type=socket.SOCK\_STREAM,\ flags=socket.AI\_PASSIVE)}
+
+\end{DoxyCode}
+\Hypertarget{namespaceserve__header_ad4ceb943b73262b25e69fca044230d11}\label{namespaceserve__header_ad4ceb943b73262b25e69fca044230d11} 
+\index{serve\_header@{serve\_header}!JSON\_VERSION\_RE@{JSON\_VERSION\_RE}}
+\index{JSON\_VERSION\_RE@{JSON\_VERSION\_RE}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{JSON\_VERSION\_RE}{JSON\_VERSION\_RE}}
+{\footnotesize\ttfamily serve\+\_\+header.\+JSON\+\_\+\+VERSION\+\_\+\+RE = re.\+compile(r\textquotesingle{}\textbackslash{}s\texorpdfstring{$\ast$}{*}\#\textbackslash{}s\texorpdfstring{$\ast$}{*}define\textbackslash{}s+NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MAJOR\textbackslash{}s+\textquotesingle{})}
+
+\Hypertarget{namespaceserve__header_aad25da7d1be7f8891140e7893c50d72f}\label{namespaceserve__header_aad25da7d1be7f8891140e7893c50d72f} 
+\index{serve\_header@{serve\_header}!key\_file@{key\_file}}
+\index{key\_file@{key\_file}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{key\_file}{key\_file}}
+{\footnotesize\ttfamily dict serve\+\_\+header.\+key\+\_\+file = https.\+get(\textquotesingle{}key\+\_\+file\textquotesingle{}, \textquotesingle{}localhost-\/key.\+pem\textquotesingle{})}
+
+\Hypertarget{namespaceserve__header_ae33d1b8be2a69b85fe72a6a98a1058df}\label{namespaceserve__header_ae33d1b8be2a69b85fe72a6a98a1058df} 
+\index{serve\_header@{serve\_header}!level@{level}}
+\index{level@{level}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily serve\+\_\+header.\+level}
+
+\Hypertarget{namespaceserve__header_a5f669697b6f04a04d688c5466a04f121}\label{namespaceserve__header_a5f669697b6f04a04d688c5466a04f121} 
+\index{serve\_header@{serve\_header}!log@{log}}
+\index{log@{log}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{log}{log}}
+{\footnotesize\ttfamily serve\+\_\+header.\+log = logging.\+get\+Logger()}
+
+\Hypertarget{namespaceserve__header_ac3ed278bc12868eec154b8abc91d737a}\label{namespaceserve__header_ac3ed278bc12868eec154b8abc91d737a} 
+\index{serve\_header@{serve\_header}!make\_command@{make\_command}}
+\index{make\_command@{make\_command}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{make\_command}{make\_command}}
+{\footnotesize\ttfamily serve\+\_\+header.\+make\+\_\+command}
+
+\Hypertarget{namespaceserve__header_ab46f7cef70596bdddb1640753fa88e07}\label{namespaceserve__header_ab46f7cef70596bdddb1640753fa88e07} 
+\index{serve\_header@{serve\_header}!MAKEFILE@{MAKEFILE}}
+\index{MAKEFILE@{MAKEFILE}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{MAKEFILE}{MAKEFILE}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+MAKEFILE = \textquotesingle{}Makefile\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a9cf095e95503575b2a30b4eb9cf9915f}\label{namespaceserve__header_a9cf095e95503575b2a30b4eb9cf9915f} 
+\index{serve\_header@{serve\_header}!maximum\_version@{maximum\_version}}
+\index{maximum\_version@{maximum\_version}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{maximum\_version}{maximum\_version}}
+{\footnotesize\ttfamily serve\+\_\+header.\+maximum\+\_\+version}
+
+\Hypertarget{namespaceserve__header_a73f7e42dadc76e8dfce36f19f9da0c89}\label{namespaceserve__header_a73f7e42dadc76e8dfce36f19f9da0c89} 
+\index{serve\_header@{serve\_header}!minimum\_version@{minimum\_version}}
+\index{minimum\_version@{minimum\_version}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{minimum\_version}{minimum\_version}}
+{\footnotesize\ttfamily serve\+\_\+header.\+minimum\+\_\+version}
+
+\Hypertarget{namespaceserve__header_a56410b443fbc35bb02feef4e3ad8d89c}\label{namespaceserve__header_a56410b443fbc35bb02feef4e3ad8d89c} 
+\index{serve\_header@{serve\_header}!parser@{parser}}
+\index{parser@{parser}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{parser}{parser}}
+{\footnotesize\ttfamily serve\+\_\+header.\+parser = argparse.\+Argument\+Parser()}
+
+\Hypertarget{namespaceserve__header_add34d2ec5c9441574830465cd6577627}\label{namespaceserve__header_add34d2ec5c9441574830465cd6577627} 
+\index{serve\_header@{serve\_header}!port@{port}}
+\index{port@{port}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily serve\+\_\+header.\+port}
+
+\Hypertarget{namespaceserve__header_a976503fecff234b189d2b94907bc9f25}\label{namespaceserve__header_a976503fecff234b189d2b94907bc9f25} 
+\index{serve\_header@{serve\_header}!protocol\_version@{protocol\_version}}
+\index{protocol\_version@{protocol\_version}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{protocol\_version}{protocol\_version}}
+{\footnotesize\ttfamily serve\+\_\+header.\+protocol\+\_\+version}
+
+\Hypertarget{namespaceserve__header_a62b054d4e0bc03d96ee1e3c4163265fb}\label{namespaceserve__header_a62b054d4e0bc03d96ee1e3c4163265fb} 
+\index{serve\_header@{serve\_header}!scheme@{scheme}}
+\index{scheme@{scheme}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{scheme}{scheme}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+scheme = \textquotesingle{}HTTP\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a5305d3afc01ecce43e0915df37a39c81}\label{namespaceserve__header_a5305d3afc01ecce43e0915df37a39c81} 
+\index{serve\_header@{serve\_header}!server\_side@{server\_side}}
+\index{server\_side@{server\_side}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{server\_side}{server\_side}}
+{\footnotesize\ttfamily serve\+\_\+header.\+server\+\_\+side}
+
+\Hypertarget{namespaceserve__header_aadb0da937c128e4924b61466b462296a}\label{namespaceserve__header_aadb0da937c128e4924b61466b462296a} 
+\index{serve\_header@{serve\_header}!SINGLE\_INCLUDE@{SINGLE\_INCLUDE}}
+\index{SINGLE\_INCLUDE@{SINGLE\_INCLUDE}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{SINGLE\_INCLUDE}{SINGLE\_INCLUDE}}
+{\footnotesize\ttfamily str serve\+\_\+header.\+SINGLE\+\_\+\+INCLUDE = \textquotesingle{}single\+\_\+include/nlohmann/\textquotesingle{}}
+
+\Hypertarget{namespaceserve__header_a2bae5b026935a9377f233052d369ff89}\label{namespaceserve__header_a2bae5b026935a9377f233052d369ff89} 
+\index{serve\_header@{serve\_header}!socket@{socket}}
+\index{socket@{socket}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{socket}{socket}}
+{\footnotesize\ttfamily serve\+\_\+header.\+socket}
+
+\Hypertarget{namespaceserve__header_a19d83048358a55926f4a065fee0889b1}\label{namespaceserve__header_a19d83048358a55926f4a065fee0889b1} 
+\index{serve\_header@{serve\_header}!ssl\_ctx@{ssl\_ctx}}
+\index{ssl\_ctx@{ssl\_ctx}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{ssl\_ctx}{ssl\_ctx}}
+{\footnotesize\ttfamily serve\+\_\+header.\+ssl\+\_\+ctx = ssl.\+create\+\_\+default\+\_\+context(ssl.\+Purpose.\+CLIENT\+\_\+\+AUTH)}
+
+\Hypertarget{namespaceserve__header_ae9cfded70a4f16a9208590564bc353e9}\label{namespaceserve__header_ae9cfded70a4f16a9208590564bc353e9} 
+\index{serve\_header@{serve\_header}!worktrees@{worktrees}}
+\index{worktrees@{worktrees}!serve\_header@{serve\_header}}
+\doxysubsubsection{\texorpdfstring{worktrees}{worktrees}}
+{\footnotesize\ttfamily serve\+\_\+header.\+worktrees = None}
+

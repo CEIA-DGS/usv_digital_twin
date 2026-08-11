@@ -1,0 +1,36 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}boolean\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$boolean\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$boolean\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md150}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md150}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }boolean\_t\ =\ BooleanType;}
+
+\end{DoxyCode}
+
+
+The type used to store JSON booleans.
+
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} implicitly describes a boolean as a type which differentiates the two literals {\ttfamily \#!json true} and {\ttfamily \#!json false}.
+
+To store objects in C++, a type is defined by the template parameter {\ttfamily Boolean\+Type} which chooses the type to use.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md151}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md151}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md152}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md152}
+With the default values for {\ttfamily Boolean\+Type} ({\ttfamily \#!cpp bool}), the default value for {\ttfamily boolean\+\_\+t} is {\ttfamily \#!cpp bool}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md153}{}\doxysubsubsection{\texorpdfstring{Storage}{Storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md153}
+Boolean values are stored directly inside a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md154}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md154}
+??? example \begin{DoxyVerb}The following code shows that `boolean_t` is by default, a typedef to `#!cpp bool`.
+
+```cpp
+--8<-- "examples/boolean_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/boolean_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md155}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t_autotoc_md155}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

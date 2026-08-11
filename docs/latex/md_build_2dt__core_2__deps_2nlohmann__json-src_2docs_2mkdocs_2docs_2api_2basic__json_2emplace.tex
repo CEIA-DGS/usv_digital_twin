@@ -1,0 +1,37 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}emplace}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$emplace@{$<$small$>$nlohmann::basic\_json::$<$/small$>$emplace}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md229}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md229}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}...\ Args>}
+\DoxyCodeLine{std::pair<iterator,\ bool>\ emplace(Args\&\&\ ...\ args);}
+
+\end{DoxyCode}
+
+
+Inserts a new element into a JSON object constructed in-\/place with the given {\ttfamily args} if there is no element with the key in the container. If the function is called on a JSON null value, an empty object is created before appending the value created from {\ttfamily args}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md230}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md230}
+{\ttfamily Args} \+: compatible types to create a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} object\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md231}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md231}
+{\ttfamily args} (in) \+: arguments to forward to a constructor of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md232}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md232}
+a pair consisting of an iterator to the inserted element, or the already-\/existing element if no insertion happened, and a {\ttfamily \#!cpp bool} denoting whether the insertion took place.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md233}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md233}
+Throws \href{../../home/exceptions.md\#jsonexceptiontype_error311}{\texttt{ {\ttfamily type\+\_\+error.\+311}}} when called on a type other than JSON object or {\ttfamily \#!json null}; example\+: {\ttfamily "{}cannot use emplace() with number"{}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md234}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md234}
+Logarithmic in the size of the container, O(log({\ttfamily size()})).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md235}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md235}
+??? example \begin{DoxyVerb}The example shows how `emplace()` can be used to add elements to a JSON object. Note how the `#!json null` value was
+silently converted to a JSON object. Further note how no value is added if there was already one value stored with
+the same key.
+
+```cpp
+--8<-- "examples/emplace.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/emplace.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md236}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2emplace_autotoc_md236}
+
+\begin{DoxyItemize}
+\item Since version 2.\+0.\+8. 
+\end{DoxyItemize}

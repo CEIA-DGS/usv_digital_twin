@@ -1,0 +1,73 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}ordered\+\_\+map}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map}\index{$<$small$>$nlohmann::$<$/small$>$ordered\_map@{$<$small$>$nlohmann::$<$/small$>$ordered\_map}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1301}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1301}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ Key,\ \textcolor{keyword}{class}\ T,\ \textcolor{keyword}{class}\ IgnoredLess\ =\ std::less<Key>,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class}\ Allocator\ =\ std::allocator<std::pair<const\ Key,\ T>>>}
+\DoxyCodeLine{\textcolor{keyword}{struct\ }\mbox{\hyperlink{structordered__map}{ordered\_map}}\ :\ std::vector<std::pair<const\ Key,\ T>,\ Allocator>;}
+
+\end{DoxyCode}
+
+
+A minimal map-\/like container that preserves insertion order for use within \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__json}{\`{}nlohmann\+::ordered\+\_\+json\`{}}{0} ({\ttfamily \doxylink{classnlohmann_1_1basic__json}{nlohmann\+::basic\+\_\+json}\texorpdfstring{$<$}{<}\doxylink{structordered__map}{ordered\+\_\+map}\texorpdfstring{$>$}{>}}).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1302}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1302}
+{\ttfamily Key} \+: key type
+
+{\ttfamily T} \+: mapped type
+
+{\ttfamily Ignored\+Less} \+: comparison function (ignored and only added to ensure compatibility with {\ttfamily \#!cpp std\+::map})
+
+{\ttfamily Allocator} \+: allocator type\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1303}{}\doxysection{\texorpdfstring{Member types}{Member types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1303}
+
+\begin{DoxyItemize}
+\item {\bfseries{key\+\_\+type}} -\/ key type ({\ttfamily Key})
+\item {\bfseries{mapped\+\_\+type}} -\/ mapped type ({\ttfamily T})
+\item {\bfseries{Container}} -\/ base container type ({\ttfamily \#!cpp std\+::vector\texorpdfstring{$<$}{<}std\+::pair\texorpdfstring{$<$}{<}const Key, T\texorpdfstring{$>$}{>}, Allocator\texorpdfstring{$>$}{>}})
+\item {\bfseries{iterator}}
+\item {\bfseries{const\+\_\+iterator}}
+\item {\bfseries{size\+\_\+type}}
+\item {\bfseries{value\+\_\+type}}
+\item {\bfseries{key\+\_\+compare}} -\/ key comparison function 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::equal\_to<Key>\ \ \textcolor{comment}{//\ until\ C++14}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::equal\_to<>\ \ \ \ \ \textcolor{comment}{//\ since\ C++14}}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1304}{}\doxysection{\texorpdfstring{Member functions}{Member functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1304}
+
+\begin{DoxyItemize}
+\item (constructor)
+\item (destructor)
+\item {\bfseries{emplace}}
+\item {\bfseries{operator\mbox{[}\mbox{]}}}
+\item {\bfseries{at}}
+\item {\bfseries{erase}}
+\item {\bfseries{count}}
+\item {\bfseries{find}}
+\item {\bfseries{insert}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1305}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1305}
+??? example \begin{DoxyVerb}The example shows the different behavior of `std::map` and `nlohmann::ordered_map`.
+
+```cpp
+--8<-- "examples/ordered_map.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/ordered_map.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1306}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1306}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__json}{ordered\+\_\+json}{0}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1307}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__map_autotoc_md1307}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+9.\+0 to implement \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2ordered__json}{\`{}nlohmann\+::ordered\+\_\+json\`{}}{0}.
+\item Added {\bfseries{key\+\_\+compare}} member in version 3.\+11.\+0. 
+\end{DoxyItemize}

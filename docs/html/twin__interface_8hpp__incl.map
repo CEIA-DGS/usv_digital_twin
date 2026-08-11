@@ -1,0 +1,16 @@
+<map id="dt_core/include/dt_core/twin_interface.hpp" name="dt_core/include/dt_core/twin_interface.hpp">
+<area shape="rect" id="Node000001" title="Interfaces for the Digital Twin Core and state representation." alt="" coords="230,5,413,45"/>
+<area shape="rect" id="Node000002" href="$types_8hpp.html" title="Core data structures and domain models for the Digital Twin." alt="" coords="145,93,284,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="297,48,243,87,240,83,294,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="290,167,353,192"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="324,46,324,153,319,153,319,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="359,93,436,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="342,44,378,81,374,85,338,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,72,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,121,81,164,79,159,185,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="96,167,155,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="202,121,152,160,149,156,199,117"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="179,167,266,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="219,119,223,153,217,153,213,119"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="233,116,294,157,291,161,230,121"/>
+</map>

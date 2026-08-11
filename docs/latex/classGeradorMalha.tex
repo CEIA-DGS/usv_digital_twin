@@ -1,0 +1,65 @@
+\doxysection{Gerador\+Malha Class Reference}
+\hypertarget{classGeradorMalha}{}\label{classGeradorMalha}\index{GeradorMalha@{GeradorMalha}}
+
+
+Motor geométrico para processamento e geração da malha de navegação.  
+
+
+
+
+{\ttfamily \#include $<$Gerador\+Malha.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGeradorMalha_a6600b367c6aa47c15995f999853bd0cb}{Gerador\+Malha}} ()=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structMalhaNavegacao}{Malha\+Navegacao}} \mbox{\hyperlink{classGeradorMalha_a443a047b8ae27f896e7a0f747bec1197}{gerar}} (const \mbox{\hyperlink{structGeometriasProcessadas}{Geometrias\+Processadas}} \&geometrias, double margem\+Metros, double tolerancia\+Simplificacao)
+\begin{DoxyCompactList}\small\item\em Pipeline completo de geração da malha a partir de dados S-\/57 processados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Motor geométrico para processamento e geração da malha de navegação. 
+
+Atua como uma classe utilitária estática. Executa operações booleanas, filtragem espacial e a Triangulação de Delaunay Restrita (CDT). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGeradorMalha_a6600b367c6aa47c15995f999853bd0cb}\label{classGeradorMalha_a6600b367c6aa47c15995f999853bd0cb} 
+\index{GeradorMalha@{GeradorMalha}!GeradorMalha@{GeradorMalha}}
+\index{GeradorMalha@{GeradorMalha}!GeradorMalha@{GeradorMalha}}
+\doxysubsubsection{\texorpdfstring{GeradorMalha()}{GeradorMalha()}}
+{\footnotesize\ttfamily Gerador\+Malha\+::\+Gerador\+Malha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGeradorMalha_a443a047b8ae27f896e7a0f747bec1197}\label{classGeradorMalha_a443a047b8ae27f896e7a0f747bec1197} 
+\index{GeradorMalha@{GeradorMalha}!gerar@{gerar}}
+\index{gerar@{gerar}!GeradorMalha@{GeradorMalha}}
+\doxysubsubsection{\texorpdfstring{gerar()}{gerar()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{structMalhaNavegacao}{Malha\+Navegacao}} Gerador\+Malha\+::gerar (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structGeometriasProcessadas}{Geometrias\+Processadas}} \&}]{geometrias,  }\item[{double}]{margem\+Metros,  }\item[{double}]{tolerancia\+Simplificacao }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Pipeline completo de geração da malha a partir de dados S-\/57 processados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em geometrias} & Estrutura contendo os polígonos base de água e terra. \\
+\hline
+{\em margem\+Metros} & Distância da margem de segurança a ser expandida (Buffer). \\
+\hline
+{\em tolerancia\+Simplificacao} & Erro máximo permitido (em metros) na redução de vértices (Douglas-\/\+Peucker). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structMalhaNavegacao}{Malha\+Navegacao} contendo os triângulos gerados e polígonos auxiliares. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+install/dt\+\_\+core/include/map/\mbox{\hyperlink{GeradorMalha_8h}{Gerador\+Malha.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,24 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="177,134,266,159"/>
+<area shape="rect" id="Node000001" href="$classdt__msgs_1_1msg_1_1__ais__report_1_1AisReport.html" title=" " alt="" coords="387,223,576,263"/>
+<area shape="poly" id="edge35_Node000000_Node000001" title=" " alt="" coords="281,153,340,170,364,182,388,196,437,220,434,225,385,201,362,187,338,174,279,158"/>
+<area shape="rect" id="Node000005" href="$classdt__msgs_1_1msg_1_1__ais__target_1_1AisTarget.html" title=" " alt="" coords="387,9,576,49"/>
+<area shape="poly" id="edge36_Node000000_Node000005" title=" " alt="" coords="279,139,309,132,337,119,352,106,361,92,370,77,385,62,411,47,414,52,388,66,374,80,365,95,356,110,340,124,311,137,280,144"/>
+<area shape="rect" id="Node000007" href="$classdt__msgs_1_1msg_1_1__collision__alert_1_1CollisionAlert.html" title=" " alt="" coords="394,76,569,116"/>
+<area shape="poly" id="edge37_Node000000_Node000007" title=" " alt="" coords="279,133,393,110,394,116,280,138"/>
+<area shape="rect" id="Node000009" href="$classdt__msgs_1_1msg_1_1__waypoint__array_1_1WaypointArray.html" title=" " alt="" coords="391,147,571,187"/>
+<area shape="poly" id="edge38_Node000000_Node000009" title=" " alt="" coords="280,148,391,157,391,162,280,154"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,134,56,159"/>
+<area shape="rect" id="Node000002" href="$classdt__msgs_1_1msg_1_1__ais__report_1_1Metaclass__AisReport.html" title=" " alt="" coords="127,248,316,288"/>
+<area shape="poly" id="edge39_Node000003_Node000002" title=" " alt="" coords="48,170,72,204,106,234,128,246,125,250,102,238,68,207,44,173"/>
+<area shape="rect" id="Node000004" href="$classdt__msgs_1_1msg_1_1__ais__target_1_1Metaclass__AisTarget.html" title=" " alt="" coords="127,5,316,45"/>
+<area shape="poly" id="edge41_Node000003_Node000004" title=" " alt="" coords="44,120,68,86,102,55,125,43,128,48,106,60,72,90,48,123"/>
+<area shape="rect" id="Node000006" href="$classdt__msgs_1_1msg_1_1__collision__alert_1_1Metaclass__CollisionAlert.html" title=" " alt="" coords="110,69,333,109"/>
+<area shape="poly" id="edge43_Node000003_Node000006" title=" " alt="" coords="69,130,103,119,144,107,145,112,105,124,70,135"/>
+<area shape="rect" id="Node000008" href="$classdt__msgs_1_1msg_1_1__waypoint__array_1_1Metaclass__WaypointArray.html" title=" " alt="" coords="104,184,339,224"/>
+<area shape="poly" id="edge45_Node000003_Node000008" title=" " alt="" coords="70,158,105,169,145,181,144,186,103,175,69,163"/>
+<area shape="poly" id="edge40_Node000002_Node000001" title=" " alt="" coords="330,255,386,249,387,255,330,260"/>
+<area shape="poly" id="edge42_Node000004_Node000005" title=" " alt="" coords="330,24,386,25,386,31,330,30"/>
+<area shape="poly" id="edge44_Node000006_Node000007" title=" " alt="" coords="346,90,394,91,394,96,346,95"/>
+<area shape="poly" id="edge46_Node000008_Node000009" title=" " alt="" coords="352,183,391,177,392,182,353,188"/>
+</map>

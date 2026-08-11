@@ -1,0 +1,67 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/meta/cpp\+\_\+future.hpp File Reference}
+\hypertarget{cpp__future_8hpp}{}\label{cpp__future_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/cpp\_future.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/cpp\_future.hpp}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+Include dependency graph for cpp\+\_\+future.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpp__future_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpp__future_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1integer__sequence}{detail\+::integer\+\_\+sequence$<$ T, Ints $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend_3_01integer__sequence_3_01T_00_01Ints_8_8_8_01_4_00_01SeqSize_00_010_01_4}{detail\+::utility\+\_\+internal\+::\+Extend$<$ integer\+\_\+sequence$<$ T, Ints... $>$, Seq\+Size, 0 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1utility__internal_1_1Extend_3_01integer__sequence_3_01T_00_01Ints_8_8_8_01_4_00_01SeqSize_00_011_01_4}{detail\+::utility\+\_\+internal\+::\+Extend$<$ integer\+\_\+sequence$<$ T, Ints... $>$, Seq\+Size, 1 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen}{detail\+::utility\+\_\+internal\+::\+Gen$<$ T, N $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen_3_01T_00_010_01_4}{detail\+::utility\+\_\+internal\+::\+Gen$<$ T, 0 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1priority__tag}{detail\+::priority\+\_\+tag$<$ N $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1priority__tag_3_010_01_4}{detail\+::priority\+\_\+tag$<$ 0 $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1static__const}{detail\+::static\+\_\+const$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacedetail_1_1utility__internal}{detail\+::utility\+\_\+internal}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacedetail_ad76afb2c3a23eb88e7efb7c5d5499574}{detail\+::uncvref\+\_\+t}} = typename std\+::remove\+\_\+cv$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::type
+\item 
+{\footnotesize template$<$bool B, typename T  = void$>$ }\\using \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{detail\+::enable\+\_\+if\+\_\+t}} = typename std\+::enable\+\_\+if$<$ B, T $>$\+::type
+\item 
+{\footnotesize template$<$size\+\_\+t... Ints$>$ }\\using \mbox{\hyperlink{namespacedetail_a4e6f1f2e94159041593901afc8f0c9b0}{detail\+::index\+\_\+sequence}} = \mbox{\hyperlink{structdetail_1_1integer__sequence}{integer\+\_\+sequence}}$<$ size\+\_\+t, Ints... $>$
+\item 
+{\footnotesize template$<$typename T , T N$>$ }\\using \mbox{\hyperlink{namespacedetail_a517a072d9de78dcbc9c44c39f75a0d92}{detail\+::make\+\_\+integer\+\_\+sequence}} = typename \mbox{\hyperlink{structdetail_1_1utility__internal_1_1Gen}{utility\+\_\+internal\+::\+Gen}}$<$ T, \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}} $>$\+::type
+\item 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacedetail_a82dd889f447e7a1383b8757be27f66e9}{detail\+::make\+\_\+index\+\_\+sequence}} = \mbox{\hyperlink{namespacedetail_a517a072d9de78dcbc9c44c39f75a0d92}{make\+\_\+integer\+\_\+sequence}}$<$ size\+\_\+t, \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}} $>$
+\item 
+{\footnotesize template$<$typename... Ts$>$ }\\using \mbox{\hyperlink{namespacedetail_ad2cab3320b7c6d98af3ddf06c1a6b112}{detail\+::index\+\_\+sequence\+\_\+for}} = \mbox{\hyperlink{namespacedetail_a82dd889f447e7a1383b8757be27f66e9}{make\+\_\+index\+\_\+sequence}}$<$ sizeof...(Ts)$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename... Args$>$ }\\constexpr std\+::array$<$ T, sizeof...(Args)$>$ \mbox{\hyperlink{namespacedetail_a346dced829a9a2b98a722a31c62b3f7a}{detail\+::make\+\_\+array}} (Args \&\&... args)
+\end{DoxyCompactItemize}

@@ -1,0 +1,1054 @@
+\chapter{Releases}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases}\index{Releases@{Releases}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1563}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1563}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1564}{}\doxysection{\texorpdfstring{v3.\+7.\+3}{v3.7.3}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1564}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.7.3/include.zip) (274 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.7.3/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.7.3/json.hpp) (791 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.7.3/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/11-\/17 SHA-\/256\+: 3b5d2b8f8282b80557091514d8ab97e27f9574336c804ee666fda673a9b59926 (json.\+hpp), 87b5884741427220d3a33df1363ae0e8b898099fbc59f1c451113f6732891014 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1565}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1565}
+This release fixes a bug introduced in release 3.\+7.\+2 which could yield quadratic complexity in destructor calls. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1566}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1566}
+
+\begin{DoxyItemize}
+\item Removed {\ttfamily reserve()} calls from the destructor which could lead to quadratic complexity. \#1837 \#1838
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1567}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1567}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1568}{}\doxysection{\texorpdfstring{v3.\+7.\+2}{v3.7.2}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1568}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.7.2/include.zip) (274 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.7.2/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.7.2/json.hpp) (791 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.7.2/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/11-\/10 SHA-\/256\+: 0a65fcbbe1b334d3f45c9498e5ee28c3f3b2428aea98557da4a3ff12f0f14ad6 (json.\+hpp), 67f69c9a93b7fa0612dc1b6273119d2c560317333581845f358aaa68bff8f087 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1569}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1569}
+Project \href{https://github.com/lovasoa/bad_json_parsers}{\texttt{ bad\+\_\+json\+\_\+parsers}} tested how JSON parser libraries react on {\bfseries{deeply nested inputs}}. It turns out that this library segfaulted at a certain nesting depth. This bug was fixed with this release. {\bfseries{Now the parsing is only bounded by the available memory.}} All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1570}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1570}
+
+\begin{DoxyItemize}
+\item Fixed a bug that lead to stack overflow for deeply nested JSON values (objects, array) by changing the implementation of the destructor from a recursive to an iterative approach. \#832, \#1419, \#1835
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1571}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1571}
+
+\begin{DoxyItemize}
+\item Added White\+Stone Bolt. \#1830
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1572}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1572}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1573}{}\doxysection{\texorpdfstring{v3.\+7.\+1}{v3.7.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1573}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.7.1/include.zip) (273 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.7.1/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.7.1/json.hpp) (789 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.7.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/11-\/06 SHA-\/256\+: b5ba7228f3c22a882d379e93d08eab4349458ee16fbf45291347994eac7dc7ce (json.\+hpp), 77b9f54b34e7989e6f402afb516f7ff2830df551c3a36973085e2c7a6b1045fe (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1574}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1574}
+This release fixes several small bugs in the library. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1575}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1575}
+
+\begin{DoxyItemize}
+\item Fixed a segmentation fault when serializing {\ttfamily std\+::int64\+\_\+t} minimum value. \#1708 \#1722
+\item Fixed the \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_ab23b04802eb9da97dc3f664e54e09cb3.html\#ab23b04802eb9da97dc3f664e54e09cb3}{\texttt{ {\ttfamily contains()}}} function for JSON Pointers. \#1727 \#1741
+\item Fixed too lax SFINAE guard for conversion from {\ttfamily std\+::pair} and {\ttfamily \doxylink{classstd_1_1tuple}{std\+::tuple}} to {\ttfamily json}. \#1805 \#1806 \#1825 \#1826
+\item Fixed some regressions detected by UBSAN. Updated CI to use Clang-\/\+Tidy 7.\+1.\+0. \#1716 \#1728
+\item Fixed integer truncation in {\ttfamily iteration\+\_\+proxy}. \#1797
+\item Updated \href{https://github.com/nemequ/hedley}{\texttt{ Hedley}} to v11 to \href{https://github.com/nemequ/hedley/issues/28}{\texttt{ fix a E2512 error}} in MSVC. \#1799
+\item Fixed a compile error in enum deserialization of non non-\/default-\/constructible types. \#1647 \#1821
+\item Fixed the conversion from {\ttfamily json} to {\ttfamily std\+::valarray}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1576}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1576}
+
+\begin{DoxyItemize}
+\item The \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} function can now be used with a custom string type. \#1765
+\item Made \href{https://nlohmann.github.io/json/classnlohmann_1_1json__pointer_a213bc67c32a30c68ac6bf06f5195d482.html\#a213bc67c32a30c68ac6bf06f5195d482}{\texttt{ {\ttfamily json\+\_\+pointer\+::back}}} {\ttfamily const}. \#1764 \#1769
+\item Meson is part of the release archive. \#1672 \#1694
+\item Improved documentation on the Meson and Spack package manager. \#1694 \#1720
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1577}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1577}
+
+\begin{DoxyItemize}
+\item Added Git\+Hub Workflow with {\ttfamily ubuntu-\/latest}/\+GCC 7.\+4.\+0 as CI step.
+\item Added GCC 9 to Travis CI to compile with C++20 support. \#1724
+\item Added MSVC 2019 to the App\+Veyor CI. \#1780
+\item Added badge to \href{https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:json}{\texttt{ fuzzing status}}.
+\item Fixed some cppcheck warnings. \#1760
+\item Fixed several typos in the documentation. \#1720 \#1767 \#1803
+\item Added documentation on the {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER}, {\ttfamily JSON\+\_\+\+TRY\+\_\+\+USER}, and {\ttfamily JSON\+\_\+\+CATCH\+\_\+\+USER} macros to control user-\/defined exception handling.
+\item Used Git\+Hub\textquotesingle{}s \href{https://github.com/nlohmann/json/blob/develop/.github/CODEOWNERS}{\texttt{ CODEOWNERS}} and \href{https://github.com/nlohmann/json/blob/develop/.github/SECURITY.md}{\texttt{ SECURITY}} feature.
+\item Removed {\ttfamily GLOB} from CMake files. \#1779
+\item Updated to \href{https://github.com/onqtam/doctest}{\texttt{ Doctest}} 2.\+3.\+5.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1578}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1578}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1579}{}\doxysection{\texorpdfstring{v3.\+7.\+0}{v3.7.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1579}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.7.0/include.zip) (143 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.7.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.7.0/json.hpp) (782 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.7.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/07-\/28 SHA-\/256\+: a503214947952b69f0062f572cb74c17582a495767446347ce2e452963fc2ca4 (json.\+hpp), 541c34438fd54182e9cdc68dd20c898d766713ad6d901fb2c6e28ff1f1e7c10d (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1580}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1580}
+This release introduces a few convenience functions and performs a lot of house keeping (bug fixes and small improvements). All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1581}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1581}
+
+\begin{DoxyItemize}
+\item Add overload of the \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab23b04802eb9da97dc3f664e54e09cb3.html\#ab23b04802eb9da97dc3f664e54e09cb3}{\texttt{ {\ttfamily contains}}} function\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} to check if a JSON pointer is valid without throwing exceptions, just like its \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9286acdc0578fc66e9346323e69fc0e3.html\#a9286acdc0578fc66e9346323e69fc0e3}{\texttt{ counterpart for object keys}}. \#1600
+\item Add a function \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\href{http://nlohmann.github.io/json/doxygen/namespacenlohmann_a6ce645a0b8717757e096a5b5773b7a16.html\#a6ce645a0b8717757e096a5b5773b7a16}{\texttt{ {\ttfamily to\+\_\+string}}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} to allow for generic conversion to strings. \#916 \#1585
+\item Add \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}return value for the \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_abf29131f898b05aad2c01a9c80e7a002.html\#abf29131f898b05aad2c01a9c80e7a002}{\texttt{ {\ttfamily emplace\+\_\+back}}} function\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}, returning a reference to the added element just like C++17 is \href{https://en.cppreference.com/w/cpp/container/vector/emplace_back}{\texttt{ introducing this}} for {\ttfamily std\+::vector}. \#1609
+\item Add info how to use the library with the {\bfseries{\href{https://wiki.archlinux.org/index.php/pacman}{\texttt{ pacman}} package manager}} on MSYS2. \#1670
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1582}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1582}
+
+\begin{DoxyItemize}
+\item Fix an issue where typedefs with certain names yielded a compilation error. \#1642 \#1643
+\item Fix a conversion to {\ttfamily std\+::string\+\_\+view} in the unit tests. \#1634 \#1639
+\item Fix MSVC Debug build. \#1536 \#1570 \#1608
+\item Fix \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a65753c68f06639eda0d355f919564e01.html\#a65753c68f06639eda0d355f919564e01}{\texttt{ {\ttfamily get\+\_\+to}}} method to clear existing content before writing. \#1511 \#1555
+\item Fix a {\ttfamily -\/Wc++17-\/extensions} warning. {\ttfamily nodiscard} attributes are now only used with Clang when {\ttfamily -\/std=c++17} is used. \#1535 \#1551
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1583}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1583}
+
+\begin{DoxyItemize}
+\item Switch from \href{https://github.com/philsquared/Catch}{\texttt{ Catch}} to {\bfseries{\href{https://github.com/onqtam/doctest}{\texttt{ doctest}}}} for the unit tests which speeds up compilation and runtime of the 112,112,308 tests.
+\item Add an explicit section to the \href{https://github.com/nlohmann/json/blob/develop/README.md}{\texttt{ README}} about the {\bfseries{frequently addressed topics}} \href{https://github.com/nlohmann/json\#character-encoding}{\texttt{ character encoding}}, \href{https://github.com/nlohmann/json\#comments-in-json}{\texttt{ comments in JSON}}, and the \href{https://github.com/nlohmann/json\#order-of-object-keys}{\texttt{ order of object keys}}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1584}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1584}
+
+\begin{DoxyItemize}
+\item Use \href{https://cmake.org/cmake/help/v3.0/module/GNUInstallDirs.html}{\texttt{ {\ttfamily GNUInstall\+Dirs}}} to set library install directories. \#1673
+\item Fix links in the \href{https://github.com/nlohmann/json/blob/develop/README.md}{\texttt{ README}}. \#1620 \#1621 \#1622 \#1623 \#1625
+\item Mention \href{http://nlohmann.github.io/json/doxygen/namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474.html\#a2bfd99e845a2e5cd90aeaf1b1431f474}{\texttt{ {\ttfamily json} type}} on the \href{http://nlohmann.github.io/json/doxygen/index.html}{\texttt{ documentation start page}}. \#1616
+\item Complete documentation of \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_adcf8ca5079f5db993820bf50036bf45d.html\#adcf8ca5079f5db993820bf50036bf45d}{\texttt{ {\ttfamily value()} function}} with respect to {\ttfamily type\+\_\+error.\+302} exception. \#1601
+\item Fix links in the documentation. \#1598
+\item Add regression tests for MSVC. \#1543 \#1570
+\item Use {\bfseries{\href{http://circleci.com}{\texttt{ Circle\+CI}}}} for \href{https://circleci.com/gh/nlohmann/json}{\texttt{ continuous integration}}.
+\item Use {\bfseries{\href{https://doozer.io}{\texttt{ Doozer}}}} for \href{https://doozer.io/nlohmann/json}{\texttt{ continuous integration}} on Linux (Cent\+OS, Raspbian, Fedora)
+\item Add tests to check each CMake flag ({\ttfamily JSON\+\_\+\+Build\+Tests}, {\ttfamily JSON\+\_\+\+Install}, {\ttfamily JSON\+\_\+\+Multiple\+Headers}, {\ttfamily JSON\+\_\+\+Sanitizer}, {\ttfamily JSON\+\_\+\+Valgrind}, {\ttfamily JSON\+\_\+\+No\+Exceptions}, {\ttfamily JSON\+\_\+\+Coverage}).
+\item Use \href{https://nemequ.github.io/hedley/}{\texttt{ Hedley}} to avoid re-\/inventing several compiler-\/agnostic feature macros like {\ttfamily JSON\+\_\+\+DEPRECATED}, {\ttfamily JSON\+\_\+\+NODISCARD}, {\ttfamily JSON\+\_\+\+LIKELY}, {\ttfamily JSON\+\_\+\+UNLIKELY}, {\ttfamily JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+14}, or {\ttfamily JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+17}. Functions taking or returning pointers are annotated accordingly when a pointer will not be null.
+\item Build and run tests on \href{https://ci.appveyor.com/project/nlohmann/json}{\texttt{ App\+Veyor}} in DEBUG and RELEASE mode.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1585}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1585}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1586}{}\doxysection{\texorpdfstring{v3.\+6.\+1}{v3.6.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1586}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.6.1/include.zip) (136 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.6.1/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.6.1/json.hpp) (711 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.6.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/03-\/20 SHA-\/256\+: d2eeb25d2e95bffeb08ebb7704cdffd2e8fca7113eba9a0b38d60a5c391ea09a (json.\+hpp), 69cc88207ce91347ea530b227ff0776db82dcb8de6704e1a3d74f4841bc651cf (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1587}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1587}
+This release {\bfseries{fixes a regression and a bug}} introduced by the earlier 3.\+6.\+0 release. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1588}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1588}
+
+\begin{DoxyItemize}
+\item Fixed regression of \#590 which could lead to compilation errors with GCC 7 and GCC 8. \#1530
+\item Fixed a compilation error when {\ttfamily \texorpdfstring{$<$}{<}Windows.\+h\texorpdfstring{$>$}{>}} was included. \#1531
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1589}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1589}
+
+\begin{DoxyItemize}
+\item Fixed a warning for missing field initializers. \#1527
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1590}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1590}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1591}{}\doxysection{\texorpdfstring{v3.\+6.\+0}{v3.6.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1591}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.6.0/include.zip) (136 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.6.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.6.0/json.hpp) (711 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.6.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2019-\/03-\/20 SHA-\/256\+: ce9839370f28094c71107c405affb3b08c4a098154988014cbb0800b1c44a831 (json.\+hpp), 237c5e66e7f8186a02804ce9dbd5f69ce89fe7424ef84adf6142e973bd9532f4 (include.\+zip)
+
+ℹ️ {\bfseries{This release introduced a regression. Please update to \href{https://github.com/nlohmann/json/releases/tag/v3.6.1}{\texttt{ version 3.\+6.\+1}}!}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1592}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1592}
+This release adds some {\bfseries{convenience functions for JSON Pointers}}, introduces a \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a0a45fc740637123fdf05fef970f8be47.html\#a0a45fc740637123fdf05fef970f8be47}{\texttt{ {\ttfamily contains}}} function to check if a key is present in an object, and improves the {\bfseries{performance of integer serialization}}. Furthermore, a lot of small bug fixes and improvements have been made. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1593}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1593}
+
+\begin{DoxyItemize}
+\item Overworked the public interface for JSON Pointers. The creation of JSON Pointers is simplified with \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a90a11fe6c7f37b1746a3ff9cb24b0d53.html\#a90a11fe6c7f37b1746a3ff9cb24b0d53}{\texttt{ {\ttfamily operator/}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a7395bd0af29ac23fd3f21543c935cdfa.html\#a7395bd0af29ac23fd3f21543c935cdfa}{\texttt{ {\ttfamily operator/=}}}. JSON Pointers can be inspected with \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a649252bda4a2e75a0915b11a25d8bcc3.html\#a649252bda4a2e75a0915b11a25d8bcc3}{\texttt{ {\ttfamily empty}}}, \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a6bd5b554c10f15672135c216893eef31.html\#a6bd5b554c10f15672135c216893eef31}{\texttt{ {\ttfamily back}}}, and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_afdaacce1edb7145e0434e014f0e8685a.html\#afdaacce1edb7145e0434e014f0e8685a}{\texttt{ {\ttfamily parent\+\_\+pointer}}}, and manipulated with \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a697d12b5bd6205f8866691b166b7c7dc.html\#a697d12b5bd6205f8866691b166b7c7dc}{\texttt{ {\ttfamily push\+\_\+back}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1json__pointer_a4b1ee4d511ca195bed896a3da47e264c.html\#a4b1ee4d511ca195bed896a3da47e264c}{\texttt{ {\ttfamily pop\+\_\+back}}}. \#1434
+\item Added a boolean method \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a0a45fc740637123fdf05fef970f8be47.html\#a0a45fc740637123fdf05fef970f8be47}{\texttt{ {\ttfamily contains}}} to check whether an element exists in a JSON object with a given key. Returns false when called on non-\/object types. \#1471 \#1474
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1594}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1594}
+
+\begin{DoxyItemize}
+\item Fixed a compilation issues with libc 2.\+12. \#1483 \#1514
+\item Fixed endian conversion on PPC64. \#1489
+\item Fixed library to compile with GCC 9. \#1472 \#1492
+\item Fixed a compilation issue with GCC 7 on Cent\+OS. \#1496
+\item Fixed an integer overflow. \#1447
+\item Fixed buffer flushing in serializer. \#1445 \#1446
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1595}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1595}
+
+\begin{DoxyItemize}
+\item The performance of dumping integers has been greatly improved. \#1411
+\item Added CMake parameter {\ttfamily JSON\+\_\+\+Install} to control whether the library should be installed (default\+: on). \#1330
+\item Fixed a lot of compiler and linter warnings. \#1400 \#1435 \#1502
+\item Reduced required CMake version from 3.\+8 to 3.\+1. \#1409 \#1428 \#1441 \#1498
+\item Added {\ttfamily nodiscard} attribute to {\ttfamily meta()}, {\ttfamily \doxylink{classarray}{array()}}, {\ttfamily \doxylink{classobject}{object()}}, {\ttfamily from\+\_\+cbor}, {\ttfamily from\+\_\+msgpack}, {\ttfamily from\+\_\+ubjson}, {\ttfamily from\+\_\+bson}, and {\ttfamily parse}. \#1433
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1596}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1596}
+
+\begin{DoxyItemize}
+\item Added missing headers. \#1500
+\item Fixed typos and broken links in README. \#1417 \#1423 \#1425 \#1451 \#1455 \#1491
+\item Fixed documentation of parse function. \#1473
+\item Suppressed warning that cannot be fixed inside the library. \#1401 \#1468
+\item Imroved package manager suppert\+:
+\begin{DoxyItemize}
+\item Updated Buckaroo instructions. \#1495
+\item Improved Meson support. \#1463
+\item Added Conda package manager documentation. \#1430
+\item Added Nu\+Get package manager documentation. \#1132
+\end{DoxyItemize}
+\item Continuous Integration
+\begin{DoxyItemize}
+\item Removed unstable or deprecated Travis builders (Xcode 6.\+4 -\/ 8.\+2) and added Xcode 10.\+1 builder.
+\item Added Clang 7 to Travis CI.
+\item Fixed App\+Veyor x64 builds. \#1374 \#1414
+\end{DoxyItemize}
+\item Updated thirdparty libraries\+:
+\begin{DoxyItemize}
+\item Catch 1.\+12.\+0 -\/\texorpdfstring{$>$}{>} 1.\+12.\+2
+\item Google Benchmark 1.\+3.\+0 -\/\texorpdfstring{$>$}{>} 1.\+4.\+1
+\item Doxygen 1.\+8.\+15 -\/\texorpdfstring{$>$}{>} 1.\+8.\+16
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1597}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1597}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1598}{}\doxysection{\texorpdfstring{v3.\+5.\+0}{v3.5.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1598}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.5.0/include.zip) (133 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.5.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.5.0/json.hpp) (693 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.5.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/12-\/22 SHA-\/256\+: 8a6dbf3bf01156f438d0ca7e78c2971bca50eec4ca6f0cf59adf3464c43bb9d5 (json.\+hpp), 3564da9c5b0cf2e032f97c69baedf10ddbc98030c337d0327a215ea72259ea21 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1599}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1599}
+This release introduces the support for {\bfseries{structured bindings}} and reading from \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily FILE\texorpdfstring{$\ast$}{*}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}. Besides, a few bugs have been fixed. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1600}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1600}
+
+\begin{DoxyItemize}
+\item {\bfseries{Structured bindings}} are now supported for JSON objects and arrays via the \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} member function, so finally this code is possible\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ [key,\ val]\ :\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}.items())\ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa3c6e0b8a9c15224a8228b9a98ca1531d}{key}}\ <<\ \textcolor{charliteral}{':'}\ <<\ val\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \#1388 \#1391
+\item Added support for {\bfseries{reading from {\ttfamily FILE\texorpdfstring{$\ast$}{*}}}} to support situations in which streams are nit available or would require too much RAM. \#1370 \#1392
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1601}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1601}
+
+\begin{DoxyItemize}
+\item The {\ttfamily eofbit} was not set for input streams when the end of a stream was reached while parsing. \#1340 \#1343
+\item Fixed a bug in the SAX parser for BSON arrays.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1602}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1602}
+
+\begin{DoxyItemize}
+\item Added support for Clang 5.\+0.\+1 (PS4 version). \#1341 \#1342
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1603}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1603}
+
+\begin{DoxyItemize}
+\item Added a warning for implicit conversions to the documentation\+: It is not recommended to use implicit conversions when reading {\bfseries{from}} a JSON value. Details about this recommendation can be found \href{https://www.github.com/nlohmann/json/issues/958}{\texttt{ here}}. \#1363
+\item Fixed typos in the documentation. \#1329 \#1380 \#1382
+\item Fixed a C4800 warning. \#1364
+\item Fixed a {\ttfamily -\/Wshadow} warning \#1346
+\item Wrapped {\ttfamily std\+::snprintf} calls to avoid error in MSVC. \#1337
+\item Added code to allow installation via Meson. \#1345
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1604}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1604}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1605}{}\doxysection{\texorpdfstring{v3.\+4.\+0}{v3.4.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1605}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.4.0/include.zip) (132 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.4.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.4.0/json.hpp) (689 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.4.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/10-\/30 SHA-\/256\+: 63da6d1f22b2a7bb9e4ff7d6b255cf691a161ff49532dcc45d398a53e295835f (json.\+hpp), bfec46fc0cee01c509cf064d2254517e7fa80d1e7647fea37cf81d97c5682bdc (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1606}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1606}
+This release introduces three new features\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{BSON (Binary JSON)}} is next to CBOR, Message\+Pack, and UBJSON the fourth binary (de)serialization format supported by the library.
+\item {\bfseries{Adjustable error handlers for invalid Unicode}} allows to specify the behavior when invalid byte sequences are serialized.
+\item {\bfseries{Simplified enum/\+JSON mapping}} with a macro in case the default mapping to integers is not desired.
+\end{DoxyItemize}
+
+Furthermore, some effort has been invested in improving the {\bfseries{parse error messages}}. Besides, a few bugs have been fixed. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1607}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1607}
+
+\begin{DoxyItemize}
+\item The library can read and write a subset of {\bfseries{\href{http://bsonspec.org/}{\texttt{ BSON}} (Binary JSON)}}. All data types known from JSON are supported, whereas other types more tied to Mongo\+DB such as timestamps, object ids, or binary data are currently not implemented. See \href{https://github.com/nlohmann/json\#binary-formats-bson-cbor-messagepack-and-ubjson}{\texttt{ the README}} for examples. \#1244 \#1320
+\item The behavior when the library encounters an invalid Unicode sequence during serialization can now be controlled by defining one of three {\bfseries{Unicode error handlers}}\+: (1) throw an exception (default behavior), (2) replace invalid sequences by the Unicode replacement character (U+\+FFFD), or (3) ignore/filter invalid sequences. See the \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a50ec80b02d0f3f51130d4abb5d1cfdc5.html\#a50ec80b02d0f3f51130d4abb5d1cfdc5}{\texttt{ documentation of the {\ttfamily dump} function}} for examples. \#1198 \#1314
+\item To easily specify a user-\/defined {\bfseries{enum/\+JSON mapping}}, a macro {\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+SERIALIZE\+\_\+\+ENUM} has been introduced. See the \href{https://github.com/nlohmann/json\#specializing-enum-conversion}{\texttt{ README section}} for more information. \#1208 \#1323
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1608}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1608}
+
+\begin{DoxyItemize}
+\item fixed truncation \#1286 \#1315
+\item fixed an issue with std\+::pair \#1299 \#1301
+\item fixed an issue with std\+::variant \#1292 \#1294
+\item fixed a bug in the JSON Pointer parser
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1609}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1609}
+
+\begin{DoxyItemize}
+\item The {\bfseries{diagnosis messages for parse errors}} have been improved\+: error messages now indicated line/column positions where possible (in addition to a byte count) and also the context in which the error occurred (e.\+g., "{}while parsing a JSON string"{}). Example\+: error `parse error at 2\+: syntax error -\/ invalid string\+: control character must be escaped; last read\+: '\texorpdfstring{$<$}{<}U+0009\texorpdfstring{$>$}{>}\textquotesingle{}{\ttfamily is now reported as}parse error at line 1, column 2\+: syntax error while parsing value -\/ invalid string\+: control character U+0009 (HT) must be escaped to \textbackslash{}u0009 or \textbackslash{}t; last read\+: \textquotesingle{}\texorpdfstring{$<$}{<}U+0009\texorpdfstring{$>$}{>}\textquotesingle{}\`{}. \#1280 \#1288 \#1303
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1610}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1610}
+
+\begin{DoxyItemize}
+\item improved Meson documentation \#1305
+\item fixed some more linter warnings \#1280
+\item fixed Clang detection for third-\/party Google Benchmark library \#1277
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1611}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1611}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1612}{}\doxysection{\texorpdfstring{v3.\+3.\+0}{v3.3.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1612}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.3.0/include.zip) (123 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.3.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.3.0/json.hpp) (635 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.3.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/10-\/05 SHA-\/256\+: f1327bb60c58757a3dd2b0c9c45d49503d571337681d950ec621f8374bcc14d4 (json.\+hpp), 9588d63557333aaa485e92221ec38014a85a6134e7486fe3441e0541a5a89576 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1613}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1613}
+This release adds support for {\bfseries{GCC 4.\+8}}. Furthermore, it adds a function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a8a3db7d78f74232d3a6fb8f1abf69709.html\#a8a3db7d78f74232d3a6fb8f1abf69709}{\texttt{ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily get\+\_\+to}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}} to write a JSON value to a passed reference. Another topic of this release was the {\bfseries{CMake support}} which has been overworked and documented.
+
+Besides, a lot of bugs have been fixed and slight improvements have been made. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1614}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1614}
+
+\begin{DoxyItemize}
+\item The library can now also built with {\bfseries{GCC 4.\+8}}. Though this compiler does not fully support C++11, it can successfully compile and run the test suite. Note that bug \href{https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57824}{\texttt{ 57824}} in GCC 4.\+8 still forbids to use multiline raw strings in arguments to macros. \#1257
+\item Added new function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a8a3db7d78f74232d3a6fb8f1abf69709.html\#a8a3db7d78f74232d3a6fb8f1abf69709}{\texttt{ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily get\+\_\+to}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}} to write a JSON value to a passed reference. The destination type is automatically derived which allows more succinct code compared to the {\ttfamily get} function. \#1227 \#1231
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1615}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1615}
+
+\begin{DoxyItemize}
+\item Fixed a bug in the CMake file that made {\ttfamily target\+\_\+link\+\_\+libraries} to not properly include {\ttfamily nlohmann\+\_\+json}. \#1243 \#1245 \#1260
+\item Fixed a warning in MSVC 2017 complaining about a constexpr if. \#1204 \#1268 \#1272
+\item Fixed a bug that prevented compilation with ICPC. \#755 \#1222
+\item Improved the SFINAE correctness to fix a bug in the conversion operator. \#1237 \#1238
+\item Fixed a {\ttfamily -\/Wctor-\/dtor-\/privacy} warning. \#1224
+\item Fixed a warning on a lambda in unevaluated context. \#1225 \#1230
+\item Fixed a bug introduced in version 3.\+2.\+0 where defining {\ttfamily JSON\+\_\+\+CATCH\+\_\+\+USER} led to duplicate macro definition of {\ttfamily JSON\+\_\+\+INTERNAL\+\_\+\+CATCH}. \#1213 \#1214
+\item Fixed a bug that prevented compilation with Clang 3.\+4.\+2 in RHEL 7. \#1179 \#1249
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1616}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1616}
+
+\begin{DoxyItemize}
+\item Added \href{https://github.com/nlohmann/json\#cmake}{\texttt{ documentation on CMake integration}} of the library. \#1270
+\item Changed the CMake file to use {\ttfamily find\+\_\+package(nlohmann\+\_\+json)} without installing the library. \#1202
+\item Improved error messages in case {\ttfamily operator\mbox{[}\mbox{]}} is used with the wrong combination (json.\+exception.\+type\+\_\+error.\+305) of JSON container type and argument type. Example\+: "{}cannot use operator\mbox{[}$\,$\mbox{]} with a string argument"{}. \#1220 \#1221
+\item Added a license and version information to the Meson build file. \#1252
+\item Removed static assertions to indicated missing {\ttfamily to\+\_\+json} or {\ttfamily from\+\_\+json} functions as such assertions do not play well with SFINAE. These assertions also led to problems with GMock. \#960 \#1212 \#1228
+\item The test suite now does not wait forever if run in a wrong directory and input files are not found. \#1262
+\item The test suite does not show deprecation warnings for deprecated functions which frequently led to confusion. \#1271
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1617}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1617}
+
+\begin{DoxyItemize}
+\item GCC 4.\+8 and Xcode 10 were added to the \href{https://travis-ci.org/nlohmann/json}{\texttt{ continuous integration suite}} at Travis.
+\item Added \href{https://lgtm.com/projects/g/nlohmann/json/context:cpp}{\texttt{ lgtm}} checks to pull requests.
+\item Added tests for CMake integration. \#1260
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1618}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1618}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1619}{}\doxysection{\texorpdfstring{v3.\+2.\+0}{v3.2.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1619}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.2.0/include.zip) (124 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.2.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.2.0/json.hpp) (636 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.2.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/08-\/20 SHA-\/256\+: ce6b5610a051ec6795fa11c33854abebb086f0fd67c311f5921c3c07f9531b44 (json.\+hpp), 35ee642558b90e2f9bc758995c4788c4b4d4dec54eef95fb8f38cb4d49c8fc7c (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1620}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1620}
+This release introduces a \href{https://nlohmann.github.io/json/structnlohmann_1_1json__sax.html}{\texttt{ {\bfseries{SAX interface}}}} to the library. While this may be a very special feature used by only few people, it allowed to unify all functions that consumed input and created some kind of JSON value. Internally, now all existing functions like {\ttfamily parse}, {\ttfamily accept}, {\ttfamily from\+\_\+cbor}, {\ttfamily from\+\_\+msgpack}, and {\ttfamily from\+\_\+ubjson} use the SAX interface with different event processors. This allowed to separate the input processing from the value generation. Furthermore, throwing an exception in case of a parse error is now optional and up to the event processor. Finally, the JSON parser is now non-\/recursive (meaning it does not use the call stack, but {\ttfamily std\+::vector\texorpdfstring{$<$}{<}bool\texorpdfstring{$>$}{>}} to track the hierarchy of structured values) which allows to process nested input more efficiently.
+
+Furthermore, the library finally is able to parse from {\bfseries{wide string types}}. This is the first step toward opening the library from UTF-\/8 to UTF-\/16 and UTF-\/32.
+
+This release further fixes several bugs in the library. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1621}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New Features}{:sparkles: New Features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1621}
+
+\begin{DoxyItemize}
+\item added a parser with a {\bfseries{SAX interface}} (\#971, \#1153)
+\item support to parse from {\bfseries{wide string types}} {\ttfamily std\+::wstring}, {\ttfamily std\+::u16string}, and {\ttfamily std\+::u32string}; the input will be converted to UTF-\/8 (\#1031)
+\item added support for \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily std\+::string\+\_\+view}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} when using C++17 (\#1028)
+\item allow to {\bfseries{roundtrip {\ttfamily std\+::map} and {\ttfamily std\+::unordered\+\_\+map}}} from JSON if key type is not convertible to string; in these cases, values are serialized to arrays of pairs (\#1079, \#1089, \#1133, \#1138)
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1622}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1622}
+
+\begin{DoxyItemize}
+\item allow to create {\ttfamily nullptr\+\_\+t} from JSON allowing to properly roundtrip {\ttfamily null} values (\#1169)
+\item allow compare user-\/defined string types (\#1130)
+\item better support for algorithms using iterators from {\ttfamily items()} (\#1045, \#1134)
+\item added parameter to avoid compilation error with MSVC 2015 debug builds (\#1114)
+\item re-\/added accidentally skipped unit tests (\#1176)
+\item fixed MSVC issue with {\ttfamily \doxylink{namespacestd_a4874fd00297ff5aef2872379cb521783}{std\+::swap}} (\#1168)
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1623}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1623}
+
+\begin{DoxyItemize}
+\item {\ttfamily key()} function for iterators returns a const reference rather than a string copy (\#1098)
+\item binary formats CBOR, Message\+Pack, and UBJSON now supports {\ttfamily float} as type for floating-\/point numbers (\#1021)
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1624}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1624}
+
+\begin{DoxyItemize}
+\item changed issue templates
+\item improved continuous integration\+: added builders for Xcode 9.\+3 and 9.\+4, added builders for GCC 8 and Clang 6, added builder for Min\+GW, added builders for MSVC targeting x86
+\item required CMake version is now at least 3.\+8 (\#1040)
+\item overworked CMake file wrt. packaging (\#1048)
+\item added package managers\+: Spack (\#1041) and Cocoa\+Pods (\#1148)
+\item fixed Meson include directory (\#1142)
+\item preprocessor macro {\ttfamily JSON\+\_\+\+SKIP\+\_\+\+UNSUPPORTED\+\_\+\+COMPILER\+\_\+\+CHECK} can skip the rejection of unsupported compilers -\/ use at your own risk! (\#1128)
+\item preprocessor macro {\ttfamily JSON\+\_\+\+INTERNAL\+\_\+\+CATCH}/{\ttfamily JSON\+\_\+\+INTERNAL\+\_\+\+CATCH\+\_\+\+USER} allows to control the behavior of exception handling inside the library (\#1187)
+\item added note on {\ttfamily char} to JSON conversion
+\item added note how to send security-\/related issue via encrypted email
+\item removed dependency to {\ttfamily std\+::stringstream} (\#1117)
+\item added SPDX-\/\+License-\/\+Identifier
+\item added updated JSON Parsing Test Suite, described in \href{http://seriot.ch/parsing_json.php}{\texttt{ Parsing JSON is a Minefield 💣}}
+\item updated to Catch 1.\+12.\+0
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1625}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1625}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1626}{}\doxysection{\texorpdfstring{v3.\+1.\+2}{v3.1.2}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1626}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.1.2/include.zip) (115 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.1.2/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.1.2/json.hpp) (582 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.1.2/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/03-\/14 SHA-\/256\+: fbdfec4b4cf63b3b565d09f87e6c3c183bdd45c5be1864d3fcb338f6f02c1733 (json.\+hpp), 495362ee1b9d03d9526ba9ccf1b4a9c37691abe3a642ddbced13e5778c16660c (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1627}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1627}
+This release fixes several bugs in the library. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1628}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1628}
+
+\begin{DoxyItemize}
+\item Fixed a {\bfseries{memory leak}} occurring in the parser callback (\#1001).
+\item Different {\bfseries{specializations of {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}}} (e.\+g., using different template arguments for strings or objects) can now be used in assignments (\#972, \#977, \#986).
+\item Fixed a logical error in an iterator range check (\#992).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1629}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1629}
+
+\begin{DoxyItemize}
+\item The parser and the serialization now support {\bfseries{user-\/defined string types}} (\#1006, \#1009).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1630}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1630}
+
+\begin{DoxyItemize}
+\item {\bfseries{\href{http://clang-analyzer.llvm.org}{\texttt{ Clang Analyzer}}}} is now used as additional static analyzer; see {\ttfamily make clang\+\_\+analyze}.
+\item Overworked \href{https://github.com/nlohmann/json/blob/develop/README.md}{\texttt{ README}} by adding links to the \href{https://nlohmann.github.io/json/}{\texttt{ documentation}} (\#981).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1631}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1631}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1632}{}\doxysection{\texorpdfstring{v3.\+1.\+1}{v3.1.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1632}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.1.1/include.zip) (114 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.1.1/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.1.1/json.hpp) (577 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.1.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/02-\/13 SHA-\/256\+: e14ce5e33d6a2daf748026bd4947f3d9686ca4cfd53d10c3da46a0a9aceb7f2e (json.\+hpp), fde771d4b9e4f222965c00758a2bdd627d04fb7b59e09b7f3d1965abdc848505 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1633}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1633}
+This release fixes several bugs in the library. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1634}{}\doxysubsection{\texorpdfstring{\+:bug\+: Bug Fixes}{:bug: Bug Fixes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1634}
+
+\begin{DoxyItemize}
+\item Fixed parsing of {\bfseries{CBOR strings with indefinite length}} (\#961). Earlier versions of this library misinterpreted the CBOR standard and rejected input with the {\ttfamily 0x7F} start byte.
+\item Fixed user-\/defined {\bfseries{conversion to vector type}} (\#924, \#969). A wrong SFINAE check rejected code though a user-\/defined conversion was provided.
+\item Fixed documentation of the parser behavior for {\bfseries{objects with duplicate keys}} (\#963). The exact behavior is not specified by \href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} and the library now also provides no guarantee which object key is stored.
+\item Added check to detect memory {\bfseries{overflow when parsing UBJSON containers}} (\#962). The optimized UBJSON format allowed for specifying an array with billions of {\ttfamily null} elements with a few bytes and the library did not check whether this size exceeded {\ttfamily max\+\_\+size()}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1635}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further Changes}{:hammer: Further Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1635}
+
+\begin{DoxyItemize}
+\item \href{https://coveralls.io/github/nlohmann/json}{\texttt{ Code coverage}} is now calculated for the individual header files, allowing to find uncovered lines more quickly than by browsing through the single header version (\#953, \#957).
+\item A Makefile target {\ttfamily run\+\_\+benchmarks} was added to quickly build and run the benchmark suite.
+\item The documentation was harmonized with respect to the header inclusion (\#955). Now all examples and the README use {\ttfamily \#include \texorpdfstring{$<$}{<}nlohmann/json.\+hpp\texorpdfstring{$>$}{>}} to allow for selecting {\ttfamily single\+\_\+include} or {\ttfamily include} or whatever installation folder as include directory.
+\item Added note on how to use the library with the \href{http://cget.readthedocs.io/en/latest/}{\texttt{ cget}} package manager (\#954).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1636}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1636}
+This release does not deprecate any functions. As an overview, the following functions have been deprecated in earlier versions and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} are deprecated. Please use the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} instead.
+\item Functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}} are deprecated. Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1637}{}\doxysection{\texorpdfstring{v3.\+1.\+0}{v3.1.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1637}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [include.zip](https://github.com/nlohmann/json/releases/download/v3.1.0/include.zip) (114 KB)
+- [include.zip.asc](https://github.com/nlohmann/json/releases/download/v3.1.0/include.zip.asc) (1 KB)
+- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.1.0/json.hpp) (577 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.1.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2018-\/02-\/01 SHA-\/256\+: d40f614d10a6e4e4e80dca9463da905285f20e93116c36d97d4dc1aa63d10ba4 (json.\+hpp), 2b7234fca394d1e27b7e017117ed80b7518fafbb4f4c13a7c069624f6f924673 (include.\+zip)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1638}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1638}
+This release adds support for the \href{http://ubjson.org}{\texttt{ {\bfseries{UBJSON}}}} format and \href{https://tools.ietf.org/html/rfc7386}{\texttt{ {\bfseries{JSON Merge Patch}}}}. It also contains some minor changes and bug fixes. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1639}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New features}{:sparkles: New features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1639}
+
+\begin{DoxyItemize}
+\item The library now supports \href{http://ubjson.org}{\texttt{ {\bfseries{UBJSON}}}} (Universal Binary JSON Specification) as binary format to read and write JSON values space-\/efficiently. See the \href{https://github.com/nlohmann/json/blob/develop/doc/binary_formats.md}{\texttt{ documentation overview}} for a comparison of the different formats CBOR, Message\+Pack, and UBJSON.
+\item \href{https://tools.ietf.org/html/rfc7386}{\texttt{ {\bfseries{JSON Merge Patch}}}} (RFC 7386) offers an intuitive means to describe patches between JSON values (\#876, \#877). See the documentation of \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a0ec0cd19cce42ae6071f3cc6870ea295.html\#a0ec0cd19cce42ae6071f3cc6870ea295}{\texttt{ {\ttfamily merge\+\_\+patch}}} for more information.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1640}{}\doxysubsection{\texorpdfstring{\+:zap\+: Improvements}{:zap: Improvements}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1640}
+
+\begin{DoxyItemize}
+\item The library now uses the {\bfseries{Grisu2 algorithm}} for printing floating-\/point numbers (based on the reference implementation by Florian Loitsch) which produces a short representation which is guaranteed to round-\/trip (\#360, \#935, \#936).
+\item The {\bfseries{UTF-\/8 handling}} was further simplified by using the decoder of Björn Hoehrmann in more scenarios.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1641}{}\doxysubsection{\texorpdfstring{\+:truck\+: Reorganization}{:truck: Reorganization}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1641}
+
+\begin{DoxyItemize}
+\item Though the library is released as a single header, its development got more and more complicated. With this release, the header is {\bfseries{split into several files}} and the single-\/header file {\ttfamily json.\+hpp} can be generated from these development sources. In the repository, folder {\ttfamily include} contains the development sources and {\ttfamily single\+\_\+include} contains the single {\ttfamily json.\+hpp} header (\#700, \#906, \#907, \#910, \#911, \#915, \#920, \#924, \#925, \#928, \#944).
+\item The split further allowed for a {\bfseries{forward declaration header}} {\ttfamily include/nlohmann/json\+\_\+fwd.\+hpp} to speed up compilation times (\#314).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1642}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further changes}{:hammer: Further changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1642}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/google/benchmark}{\texttt{ Google Benchmark}} is now used for micro benchmarks (see {\ttfamily benchmarks} folder, \#921).
+\item The serialization (JSON and binary formats) now properly work with the libraries string template parameter, allowing for optimized string implementations to be used in constraint environments such as embedded software (\#941, \#950).
+\item The exceptional behavior can now be overridden by defining macros {\ttfamily JSON\+\_\+\+THROW\+\_\+\+USER}, {\ttfamily JSON\+\_\+\+TRY\+\_\+\+USER}, and {\ttfamily JSON\+\_\+\+CATCH\+\_\+\+USER}, defining the behavior of {\ttfamily throw}, {\ttfamily try} and {\ttfamily catch}, respectively. This allows to switch off C++\textquotesingle{}s exception mechanism yet still execute user-\/defined code in case an error condition occurs (\#938).
+\item To facilitate the interplay with \href{https://github.com/westes/flex}{\texttt{ flex}} and \href{https://www.gnu.org/software/bison/}{\texttt{ Bison}}, the library does not use the variable name {\ttfamily yytext} any more as it could clash with macro definitions (\#933).
+\item The library now defines {\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MAJOR}, {\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+MINOR}, and {\ttfamily NLOHMANN\+\_\+\+JSON\+\_\+\+VERSION\+\_\+\+PATCH} to allow for conditional compilation based on the included library version (\#943, \#948).
+\item A compilation error with ICC has been fixed (\#947).
+\item Typos and links in the documentation have been fixed (\#900, \#930).
+\item A compiler error related to incomplete types has been fixed (\#919).
+\item The tests form the \href{http://www.cl.cam.ac.uk/~mgk25/ucs/examples/UTF-8-test.txt}{\texttt{ UTF-\/8 decoder stress test}} have been added to the test suite.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1643}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1643}
+
+\begin{DoxyItemize}
+\item Function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1592a06bc63811886ade4f9d965045e.html\#af1592a06bc63811886ade4f9d965045e}{\texttt{ {\ttfamily iterator\+\_\+wrapper}}} has been deprecated (\#874). Since its introduction, the name was up for discussion, as it was too technical. We now introduced the member function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_afe3e137ace692efa08590d8df40f58dd.html\#afe3e137ace692efa08590d8df40f58dd}{\texttt{ {\ttfamily items()}}} with the same semantics. {\ttfamily iterator\+\_\+wrapper} will be removed in the next major version (i.\+e., 4.\+0.\+0).
+\end{DoxyItemize}
+
+Furthermore, the following functions are deprecated since version 3.\+0.\+0 and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}}
+\end{DoxyItemize}
+
+Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1644}{}\doxysection{\texorpdfstring{v3.\+0.\+1}{v3.0.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1644}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.0.1/json.hpp) (502 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.0.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2017-\/12-\/29 SHA-\/256\+: c9b3591f1bb94e723a0cd7be861733a3a555b234ef132be1e9027a0364118c4c\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1645}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1645}
+This release fixes small issues in the implementation of {\bfseries{JSON Pointer}} and {\bfseries{JSON Patch}}. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1646}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1646}
+
+\begin{DoxyItemize}
+\item \+:bug\+: The \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}"{}copy"{} operation of JSON Patch\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} (\href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902}}) requests that it is an error if the target path points into a non-\/existing array or object (see \#894 for a detailed description). This release fixes the implementation to detect such invalid target paths and throw an exception.
+\item \+:bug\+: An {\bfseries{array index in a JSON Pointer}} (\href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) must be an integer. This release fixes the implementation to throw an exception in case invalid array indices such as {\ttfamily 10e2} are used.
+\item \+:white\+\_\+check\+\_\+mark\+: Added the \href{https://github.com/json-patch/json-patch-tests}{\texttt{ JSON Patch tests}} from Byron Ruth and Mike Mc\+Cabe.
+\item \+:memo\+: Fixed the documentation of the \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a8ab61397c10f18b305520da7073b2b45.html\#a8ab61397c10f18b305520da7073b2b45}{\texttt{ {\ttfamily at(ptr)} function with JSON Pointers}} to list all possible exceptions (see \#888).
+\item \+:memo\+: Updated the \href{https://nlohmann.github.io/json/}{\texttt{ container overview documentation}} (see \#883).
+\item \+:wrench\+: The CMake files now respect the \href{https://cmake.org/cmake/help/latest/module/CTest.html?highlight=build_testing}{\texttt{ {\ttfamily BUILD\+\_\+\+TESTING}}} option (see \#846, \#885)
+\item \+:rotating\+\_\+light\+: Fixed some compiler warnings (see \#858, \#882).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1647}{}\doxysubsection{\texorpdfstring{Deprecated functions}{Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1647}
+\+:fire\+: To unify the interfaces and to improve similarity with the STL, the following functions are deprecated since version 3.\+0.\+0 and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}}
+\end{DoxyItemize}
+
+Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1648}{}\doxysection{\texorpdfstring{v3.\+0.\+0}{v3.0.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1648}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v3.0.0/json.hpp) (501 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v3.0.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2017-\/12-\/17 SHA-\/256\+: 076d4a0cb890a3c3d389c68421a11c3d77c64bd788e85d50f1b77ed252f2a462\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1649}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1649}
+
+
+After almost a year, here is finally a new release of JSON for Modern C++, and it is a major one! As we adhere to \href{https://semver.org}{\texttt{ semantic versioning}}, this means the release includes some breaking changes, so please read the next section carefully before you update. But don\textquotesingle{}t worry, we also added a few new features and put a lot of effort into fixing a lot of bugs and straighten out a few inconsistencies.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1650}{}\doxysubsection{\texorpdfstring{\+:boom\+: Breaking changes}{:boom: Breaking changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1650}
+This section describes changes that change the public API of the library and may require changes in code using a previous version of the library. In section "{}\+Moving from 2.\+x.\+x to 3.\+0.\+0"{} at the end of the release notes, we describe in detail how existing code needs to be changed.
+
+
+\begin{DoxyItemize}
+\item The library now uses \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9a0aced019cb1d65bb49703406c84970.html\#a9a0aced019cb1d65bb49703406c84970}{\texttt{ {\bfseries{user-\/defined exceptions}}}} instead of re-\/using those defined in {\ttfamily \texorpdfstring{$<$}{<}stdexcept\texorpdfstring{$>$}{>}} (\#244). This not only allows to add more information to the exceptions (every exception now has an identifier, and parse errors contain the position of the error), but also to easily catch all library exceptions with a single {\ttfamily catch(json\+::exception)}.
+\item When strings with a different encoding as UTF-\/8 were stored in JSON values, their serialization could not be parsed by the library itself, as only UTF-\/8 is supported. To enforce this library limitation and improve consistency, {\bfseries{non-\/\+UTF-\/8 encoded strings now yield a {\ttfamily \doxylink{classnlohmann_1_1basic__json_ace5bf851eafe85bd6332f978991bc11c}{json\+::type\+\_\+error}} exception during serialization}} (\#838). The check for valid UTF-\/8 is realized with code from \href{http://bjoern.hoehrmann.de/}{\texttt{ Björn Hoehrmann}}.
+\item {\bfseries{NaN and infinity values can now be stored inside the JSON value}} without throwing an exception. They are, however, still serialized as {\ttfamily null} (\#388).
+\item The library\textquotesingle{}s iterator tag was changed from Random\+Access\+Iterator to {\bfseries{\href{http://en.cppreference.com/w/cpp/concept/BidirectionalIterator}{\texttt{ Bidirectional\+Iterator}}}} (\#593). Supporting Random\+Access\+Iterator was incorrect as it assumed an ordering of values in a JSON objects which are unordered by definition.
+\item The library does not include the standard headers {\ttfamily \texorpdfstring{$<$}{<}iostream\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}ctype\texorpdfstring{$>$}{>}}, and {\ttfamily \texorpdfstring{$<$}{<}stdexcept\texorpdfstring{$>$}{>}} any more. You may need to add these headers to code relying on them.
+\item Removed constructor {\ttfamily explicit \doxylink{classbasic__json}{basic\+\_\+json}(\doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}\& i, const parser\+\_\+callback\+\_\+t cb = nullptr)} which was deprecated in version 2.\+0.\+0 (\#480).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1651}{}\doxysubsection{\texorpdfstring{\+:fire\+: Deprecated functions}{:fire: Deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1651}
+To unify the interfaces and to improve similarity with the STL, the following functions are now deprecated and will be removed in the next major version (i.\+e., 4.\+0.\+0)\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ab7285a92514fcdbe6de505ebaba92ea3.html\#ab7285a92514fcdbe6de505ebaba92ea3}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(basic\+\_\+json\&, std\+::istream\&)}}}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9e06deabe69262c3ffc5533d32856983.html\#a9e06deabe69262c3ffc5533d32856983}{\texttt{ {\ttfamily friend std\+::ostream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(const basic\+\_\+json\&, std\+::ostream\&)}}}
+\end{DoxyItemize}
+
+Please use \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aaf363408931d76472ded14017e59c9e8.html\#aaf363408931d76472ded14017e59c9e8}{\texttt{ {\ttfamily friend std\+::istream\& operator\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}(std\+::istream\&, basic\+\_\+json\&)}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5e34c5435e557d0bf666bd7311211405.html\#a5e34c5435e557d0bf666bd7311211405}{\texttt{ {\ttfamily friend operator\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}(std\+::ostream\&, const basic\+\_\+json\&)}}} instead.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1652}{}\doxysubsection{\texorpdfstring{\+:sparkles\+: New features}{:sparkles: New features}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1652}
+With all this breaking and deprecation out of the way, let\textquotesingle{}s talk about features!
+
+
+\begin{DoxyItemize}
+\item We improved the {\bfseries{diagnostic information for syntax errors}} (\#301). Now, an exception \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1efc2468e6022be6e35fc2944cabe4d.html\#af1efc2468e6022be6e35fc2944cabe4d}{\texttt{ {\ttfamily json\+::parse\+\_\+error}}} is thrown which contains a detailed message on the error, but also a member {\ttfamily byte} to indicate the byte offset in the input where the error occurred.
+\item We added a {\bfseries{non-\/throwing syntax check}} (\#458)\+: The new {\ttfamily accept} function returns a Boolean indicating whether the input is proper JSON. We also added a Boolean parameter {\ttfamily allow\+\_\+exceptions} to the existing \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_aa9676414f2e36383c4b181fe856aa3c0.html\#aa9676414f2e36383c4b181fe856aa3c0}{\texttt{ {\ttfamily parse}}} functions to return a {\ttfamily discarded} value in case a syntax error occurs instead of throwing an exception.
+\item An \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a1cfa9ae5e7c2434cab4cfe69bffffe11.html\#a1cfa9ae5e7c2434cab4cfe69bffffe11}{\texttt{ {\ttfamily update}}} function was added to {\bfseries{merge two JSON objects}} (\#428). In case you are wondering\+: the name was inspired by \href{https://docs.python.org/2/library/stdtypes.html\#dict.update}{\texttt{ Python}}.
+\item The \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a1b0a4e60d56f1fe80501ed941e122892.html\#a1b0a4e60d56f1fe80501ed941e122892}{\texttt{ {\ttfamily insert}}} function now also supports an iterator range to add elements to an object.
+\item The binary exchange formats {\bfseries{CBOR and Message\+Pack can now be parsed from input streams and written to output streams}} (\#477).
+\item Input streams are now only read until the end of a JSON value instead of the end of the input (\#367).
+\item The serialization function \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a5adea76fedba9898d404fef8598aa663.html\#a5adea76fedba9898d404fef8598aa663}{\texttt{ {\ttfamily dump}}} now has two optional parameters {\ttfamily ensure\+\_\+ascii} to {\bfseries{escape all non-\/\+ASCII characters}} with {\ttfamily \textbackslash{}uxxxx} and an {\ttfamily indent\+\_\+char} parameter to choose whether to {\bfseries{indent with spaces or tabs}} (\#654).
+\item Added {\bfseries{built-\/in type support}} for C arrays (\#502), {\ttfamily std\+::pair} and {\ttfamily \doxylink{classstd_1_1tuple}{std\+::tuple}} (\#563, \#614), {\ttfamily enum} and {\ttfamily enum class} (\#545), {\ttfamily std\+::vector\texorpdfstring{$<$}{<}bool\texorpdfstring{$>$}{>}} (\#494). Fixed support for {\ttfamily std\+::valarray} (\#702), {\ttfamily std\+::array} (\#553), and {\ttfamily std\+::map\texorpdfstring{$<$}{<}std\+::string, std\+::string\texorpdfstring{$>$}{>}} (\#600, \#607).
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1653}{}\doxysubsection{\texorpdfstring{\+:hammer\+: Further changes}{:hammer: Further changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1653}
+Furthermore, there have been a lot of changes under the hood\+:
+
+
+\begin{DoxyItemize}
+\item Replaced the \href{http://re2c.org}{\texttt{ re2c}} generated scanner by a self-\/coded version which allows for a better modularization of the parser and better diagnostics. To test the new scanner, we added millions (8,860,608 to be exact) of unit tests to check all valid and invalid byte sequences of the Unicode standard.
+\item Google\textquotesingle{}s OSS-\/\+Fuzz is still constantly fuzz-\/testing the library and found several issues that were fixed in this release (\#497, \#504, \#514, \#516, \#518, \#519, \#575).
+\item We now also ignore UTF-\/8 byte order marks when parsing from an iterator range (\#602).
+\item Values can be now moved from initializer lists (\#663).
+\item Updated to \href{https://github.com/catchorg/Catch2}{\texttt{ Catch}} 1.\+9.\+7. Unfortunately, Catch2 currently has some performance issues.
+\item The non-\/exceptional paths of the library are now annotated with {\ttfamily \+\_\+\+\_\+builtin\+\_\+expect} to optimize branch prediction as long as no error occurs.
+\item MSVC now produces a stack trace in MSVC if a {\ttfamily from\+\_\+json} or {\ttfamily to\+\_\+json} function was not found for a user-\/defined type. We also added a debug visualizer \href{https://github.com/nlohmann/json/blob/develop/nlohmann_json.natvis}{\texttt{ {\ttfamily nlohmann\+\_\+json.\+natvis}}} for better debugging in MSVC (\#844).
+\item Overworked the documentation and added even more examples.
+\item The build workflow now relies on CMake and CTest. Special flags can be chosen with CMake, including coverage ({\ttfamily JSON\+\_\+\+Coverage}), compilation without exceptions ({\ttfamily JSON\+\_\+\+No\+Exceptions}), LLVM sanitizers ({\ttfamily JSON\+\_\+\+Sanitizer}), or execution with Valgrind ({\ttfamily JSON\+\_\+\+Valgrind}).
+\item Added support for package managers Meson (\#576), Conan (\#566), Hunter (\#671, \#829), and vcpkg (\#753).
+\item Added CI builders\+: Xcode 8.\+3, 9.\+0, 9.\+1, and 9.\+2; GCC 7.\+2; Clang 3.\+8, 3.\+9, 4.\+0, and 5.\+0; Visual Studio 2017. The library is further built with C++17 settings on the latest Clang, GCC, and MSVC version to quickly detect new issues.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1654}{}\doxysubsection{\texorpdfstring{Moving from 2.\+x.\+x to 3.\+0.\+0}{Moving from 2.x.x to 3.0.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1654}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1655}{}\doxysubsubsection{\texorpdfstring{User-\/defined Exceptions}{User-defined Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1655}
+There are five different exceptions inheriting from \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a9a0aced019cb1d65bb49703406c84970.html\#a9a0aced019cb1d65bb49703406c84970}{\texttt{ {\ttfamily json\+::exception}}}\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af1efc2468e6022be6e35fc2944cabe4d.html\#af1efc2468e6022be6e35fc2944cabe4d}{\texttt{ {\ttfamily json\+::parse\+\_\+error}}} for syntax errors (including the binary formats),
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_ac13d32f7cbd02d616e71d8dc30dadcbf.html\#ac13d32f7cbd02d616e71d8dc30dadcbf}{\texttt{ {\ttfamily json\+::invalid\+\_\+iterator}}} for errors related to iterators,
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a4010e8e268fefd86da773c10318f2902.html\#a4010e8e268fefd86da773c10318f2902}{\texttt{ {\ttfamily json\+::type\+\_\+error}}} for errors where functions were called with the wrong JSON type,
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a28f7c2f087274a0012eb7a2333ee1580.html\#a28f7c2f087274a0012eb7a2333ee1580}{\texttt{ {\ttfamily json\+::out\+\_\+of\+\_\+range}}} for range errors, and
+\item \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a3333a5a8714912adda33a35b369f7b3d.html\#a3333a5a8714912adda33a35b369f7b3d}{\texttt{ {\ttfamily json\+::other\+\_\+error}}} for miscellaneous errors.
+\end{DoxyItemize}
+
+To support these exception, the {\ttfamily try}/{\ttfamily catch} blocks of your code need to be adjusted\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ new exception   }&\cellcolor{\tableheadbgcolor}\textbf{ previous exception    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ new exception   }&\cellcolor{\tableheadbgcolor}\textbf{ previous exception    }\\\cline{1-2}
+\endhead
+parse\+\_\+error.\+101   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+102   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+103   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+104   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+105   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+106   &domain\+\_\+error    \\\cline{1-2}
+parse\+\_\+error.\+107   &domain\+\_\+error    \\\cline{1-2}
+parse\+\_\+error.\+108   &domain\+\_\+error    \\\cline{1-2}
+parse\+\_\+error.\+109   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+110   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+parse\+\_\+error.\+111   &invalid\+\_\+argument    \\\cline{1-2}
+parse\+\_\+error.\+112   &invalid\+\_\+argument    \\\cline{1-2}
+invalid\+\_\+iterator.\+201   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+202   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+203   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+204   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+invalid\+\_\+iterator.\+205   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+invalid\+\_\+iterator.\+206   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+207   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+208   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+209   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+210   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+211   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+212   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+213   &domain\+\_\+error    \\\cline{1-2}
+invalid\+\_\+iterator.\+214   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+type\+\_\+error.\+301   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+302   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+303   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+304   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+305   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+306   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+307   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+308   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+309   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+310   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+311   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+313   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+314   &domain\+\_\+error    \\\cline{1-2}
+type\+\_\+error.\+315   &domain\+\_\+error    \\\cline{1-2}
+out\+\_\+of\+\_\+range.\+401   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+out\+\_\+of\+\_\+range.\+402   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+out\+\_\+of\+\_\+range.\+403   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+out\+\_\+of\+\_\+range.\+404   &out\+\_\+of\+\_\+range    \\\cline{1-2}
+out\+\_\+of\+\_\+range.\+405   &domain\+\_\+error    \\\cline{1-2}
+other\+\_\+error.\+501   &domain\+\_\+error   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1656}{}\doxysubsubsection{\texorpdfstring{Handling of Na\+N and INF}{Handling of NaN and INF}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1656}
+
+\begin{DoxyItemize}
+\item If an overflow occurs during parsing a number from a JSON text, an exception \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a28f7c2f087274a0012eb7a2333ee1580.html\#a28f7c2f087274a0012eb7a2333ee1580}{\texttt{ {\ttfamily json\+::out\+\_\+of\+\_\+range}}} is thrown so that the overflow is detected early and roundtripping is guaranteed.
+\item NaN and INF floating-\/point values can be stored in a JSON value and are not replaced by null. That is, the \doxylink{classbasic__json}{basic\+\_\+json} class behaves like {\ttfamily double} in this regard (no exception occurs). However, NaN and INF are serialized to {\ttfamily null}.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1657}{}\doxysubsubsection{\texorpdfstring{Removal of deprecated functions}{Removal of deprecated functions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1657}
+Function {\ttfamily explicit \doxylink{classbasic__json}{basic\+\_\+json}(\doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}\& i, const parser\+\_\+callback\+\_\+t cb = nullptr)} should be replaced by the {\ttfamily parse} function\+: Let {\ttfamily ss} be a stream and {\ttfamily cb} be a parse callback function.
+
+Old code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}(\mbox{\hyperlink{parse____istream____parser__callback__t_8cpp_af2751f9355d47d15a2a767ef03f532ef}{ss}},\ \mbox{\hyperlink{unit-regression1_8cpp_a319da8caabef4a3bd5d64605961f0aa9}{cb}});}
+
+\end{DoxyCode}
+
+
+New code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ =\ \mbox{\hyperlink{classnlohmann_1_1basic__json_a15018ade392a844ea32d5188d1a0b9c6}{json::parse}}(\mbox{\hyperlink{parse____istream____parser__callback__t_8cpp_af2751f9355d47d15a2a767ef03f532ef}{ss}},\ \mbox{\hyperlink{unit-regression1_8cpp_a319da8caabef4a3bd5d64605961f0aa9}{cb}});}
+
+\end{DoxyCode}
+
+
+If no callback function is used, also the following code works\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\ <<\ \mbox{\hyperlink{parse____istream____parser__callback__t_8cpp_af2751f9355d47d15a2a767ef03f532ef}{ss}};}
+
+\end{DoxyCode}
+
+
+or
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+\DoxyCodeLine{\mbox{\hyperlink{parse____istream____parser__callback__t_8cpp_af2751f9355d47d15a2a767ef03f532ef}{ss}}\ >>\ \mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}};}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1658}{}\doxysection{\texorpdfstring{v2.\+1.\+1}{v2.1.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1658}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.1.1/json.hpp) (437 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.1.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+ Release date\+: 2017-\/02-\/25 SHA-\/256\+: faa2321beb1aa7416d035e7417fcfa59692ac3d8c202728f9bcc302e2d558f57\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1659}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1659}
+This release {\bfseries{fixes a locale-\/related bug in the parser}}. To do so, the whole number handling (lexer, parser, and also the serialization) have been overworked. Furthermore, a lot of small changes added up that were added to this release. All changes are backward-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1660}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1660}
+
+\begin{DoxyItemize}
+\item \+:bug\+: Locales that have a different character than {\ttfamily .} as decimal separator (e.\+g., the Norwegian locale {\ttfamily nb\+\_\+\+NO.\+UTF-\/8}) led to truncated number parsing or parse errors. The library now has been fixed to work with {\bfseries{any locale}}. Note that {\ttfamily .} is still the only valid decimal separator for JSON input.
+\item \+:bug\+: Numbers like {\ttfamily 1.\+0} were correctly parsed as floating-\/point number, but serialized as integer ({\ttfamily 1}). Now, {\bfseries{floating-\/point numbers correctly round trip}}.
+\item \+:bug\+: Parsing incorrect JSON numbers with leading 0 ({\ttfamily 0123}) could yield a \href{https://github.com/nlohmann/json/issues/452}{\texttt{ buffer overflow}}. This is fixed now by detecting such errors directly by the lexer.
+\item \+:bug\+: Constructing a JSON value from a pointer was incorrectly interpreted as a Boolean; such code will now yield a compiler error.
+\item \+:bug\+: Comparing a JSON number with {\ttfamily 0} led to a comparison with {\ttfamily null}. This is fixed now.
+\item \+:bug\+: All throw calls are now wrapped in macros.
+\item \+:lock\+: Starting during the preparation of this release (since 8 February 2017), commits and released files are {\bfseries{cryptographically signed}} with \href{https://keybase.io/nlohmann/pgp_keys.asc?fingerprint=797167ae41c0a6d9232e48457f3cea63ae251b69}{\texttt{ this GPG key}}. Previous releases have also been signed.
+\item \+:sparkles\+: The parser for Message\+Pack and CBOR now supports an optional start index parameter to define a byte offset for the parser.
+\item \+:rotating\+\_\+light\+: Some more warnings have been fixed. With Clang, the code compiles {\bfseries{without warnings}} with {\ttfamily -\/Weverything} (well, it needs {\ttfamily -\/Wno-\/documentation-\/unknown-\/command} and {\ttfamily -\/Wno-\/deprecated-\/declarations}, but you get the point).
+\item \+:hammer\+: The code can be compiled easier with many Android NDKs by avoiding macros like {\ttfamily UINT8\+\_\+\+MAX} which previously required defining a preprocessor macro for compilation.
+\item \+:zap\+: The unit tests now compile two times faster.
+\item \+:heavy\+\_\+plus\+\_\+sign\+: \href{https://github.com/sakra/cotire}{\texttt{ Cotire}} is used to speed up the build.
+\item \+:pencil2\+: Fixed a lot of typos in the documentation.
+\item \+:memo\+: Added a section to the README file that lists all used \href{https://github.com/nlohmann/json\#used-third-party-tools}{\texttt{ third-\/party code/tools}}.
+\item \+:memo\+: Added a note on constructing a string value vs. parsing.
+\item \+:white\+\_\+check\+\_\+mark\+: The test suite now contains 11202597 unit tests.
+\item \+:memo\+: Improved the \href{https://nlohmann.github.io/json/}{\texttt{ Doxygen documentation}} by shortening the template parameters of class {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}}.
+\item \+:construction\+\_\+worker\+: Removed Doozer.
+\item \+:construction\+\_\+worker\+: Added Codacity.
+\item \+:arrow\+\_\+up\+: Upgraded Catch to version 1.\+7.\+2.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1661}{}\doxysection{\texorpdfstring{v2.\+1.\+0}{v2.1.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1661}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.1.0/json.hpp) (426 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.1.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2017-\/01-\/28
+\item SHA-\/256\+: a571dee92515b685784fd527e38405cf3f5e13e96edbfe3f03d6df2e363a767b
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1662}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1662}
+This release introduces a means to convert from/to user-\/defined types. The release is backwards compatible.
+
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1663}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1663}
+
+\begin{DoxyItemize}
+\item \+:sparkles\+: The library now offers an elegant way to {\bfseries{convert from and to arbitrary value types}}. All you need to do is to implement two functions\+: {\ttfamily to\+\_\+json} and {\ttfamily from\+\_\+json}. Then, a conversion is as simple as putting a {\ttfamily =} between variables. See the \href{https://github.com/nlohmann/json\#arbitrary-types-conversions}{\texttt{ README}} for more information and examples.
+\item \+:sparkles\+: {\bfseries{Exceptions can now be switched off.}} This can be done by defining the preprocessor symbol {\ttfamily JSON\+\_\+\+NOEXCEPTION} or by passing {\ttfamily -\/fno-\/exceptions} to your compiler. In case the code would usually thrown an exception, {\ttfamily abort()} is now called.
+\item \+:sparkles\+: {\bfseries{Information on the library}} can be queried with the new (static) function {\ttfamily meta()} which returns a JSON object with information on the version, compiler, and platform. See the \mbox{[}documentation\mbox{]}() for an example.
+\item \+:bug\+: A bug in the CBOR parser was fixed which led to a buffer overflow.
+\item \+:sparkles\+: The function \mbox{[}{\ttfamily type\+\_\+name()}\mbox{]}() is now public. It allows to query the type of a JSON value as string.
+\item \+:white\+\_\+check\+\_\+mark\+: Added the \href{https://github.com/minimaxir/big-list-of-naughty-strings}{\texttt{ Big List of Naughty Strings}} as test case.
+\item \+:arrow\+\_\+up\+: Updated to \href{https://github.com/philsquared/Catch/releases/tag/v1.6.0}{\texttt{ Catch v1.\+6.\+0}}.
+\item \+:memo\+: Some typos in the documentation have been fixed.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1664}{}\doxysection{\texorpdfstring{v2.\+0.\+10}{v2.0.10}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1664}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.10/json.hpp) (409 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.10/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2017-\/01-\/02
+\item SHA-\/256\+: ec27d4e74e9ce0f78066389a70724afd07f10761009322dc020656704ad5296d
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1665}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1665}
+This release fixes several security-\/relevant bugs in the Message\+Pack and CBOR parsers. The fixes are backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1666}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1666}
+
+\begin{DoxyItemize}
+\item \+:bug\+: Fixed a lot of {\bfseries{bugs in the CBOR and Messsage\+Pack parsers}}. These bugs occurred if invalid input was parsed and then could lead in buffer overflows. These bugs were found with Google\textquotesingle{}s \href{https://github.com/google/oss-fuzz}{\texttt{ OSS-\/\+Fuzz}}, see \#405, \#407, \#408, \#409, \#411, and \#412 for more information.
+\item \+:construction\+\_\+worker\+: We now also use the {\bfseries{\href{https://doozer.io}{\texttt{ Doozer}} continuous integration platform}}.
+\item \+:construction\+\_\+worker\+: The complete test suite is now also run with {\bfseries{Clang\textquotesingle{}s address sanitizer and undefined-\/behavior sanitizer}}.
+\item \+:white\+\_\+check\+\_\+mark\+: Overworked {\bfseries{fuzz testing}}; CBOR and Message\+Pack implementations are now fuzz-\/tested. Furthermore, all fuzz tests now include a round trip which ensures created output can again be properly parsed and yields the same JSON value.
+\item \+:memo\+: Clarified documentation of {\ttfamily find()} function to always return {\ttfamily end()} when called on non-\/object value types.
+\item \+:hammer\+: Moved thirdparty test code to {\ttfamily test/thirdparty} directory.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1667}{}\doxysection{\texorpdfstring{v2.\+0.\+9}{v2.0.9}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1667}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.9/json.hpp) (406 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.9/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/12-\/16
+\item SHA-\/256\+: fbf3396f13e187d6c214c297bddc742d918ea9b55e10bfb3d9f458b9bfdc22e5
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1668}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1668}
+This release implements with {\bfseries{\href{http://cbor.io}{\texttt{ CBOR}}}} and {\bfseries{\href{http://msgpack.org}{\texttt{ Message\+Pack}}}} two {\bfseries{binary serialization/deserialization formats}}. It further contains some small fixes and improvements. The fixes are backwards compatible.
+
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1669}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1669}
+
+\begin{DoxyItemize}
+\item \+:sparkles\+: The library can now read and write the binary formats {\bfseries{\href{http://cbor.io}{\texttt{ CBOR}}}} (Concise Binary Object Representation) and {\bfseries{\href{http://msgpack.org}{\texttt{ Message\+Pack}}}}. Both formats are aimed to produce a very compact representation of JSON which can be parsed very efficiently. See the \href{https://github.com/nlohmann/json\#binary-formats-cbor-and-messagepack}{\texttt{ README file}} for more information and examples.
+\item \+:fire\+: simplified the iteration implementation allowing to remove dozens of lines of code
+\item \+:bug\+: fixed an \href{https://github.com/nlohmann/json/issues/389}{\texttt{ integer overflow error}} detected by \href{https://github.com/google/oss-fuzz}{\texttt{ Google\textquotesingle{}s OSS-\/\+Fuzz}}
+\item \+:bug\+: suppressed documentation warnings inside the library to facilitate compilation with {\ttfamily -\/Wdocumentation}
+\item \+:bug\+: fixed an overflow detection error in the number parser
+\item \+:memo\+: updated \href{https://github.com/nlohmann/json/blob/develop/.github/CONTRIBUTING.md}{\texttt{ contribution guidelines}} to a list of frequentely asked features that will most likely be never added to the library
+\item \+:memo\+: added a {\bfseries{table of contents}} to the \href{https://github.com/nlohmann/json/blob/develop/README.md}{\texttt{ README file}} to add some structure
+\item \+:memo\+: mentioned the many \href{https://github.com/nlohmann/json/tree/develop/doc/examples}{\texttt{ examples}} and the \href{https://nlohmann.github.io/json/}{\texttt{ documentation}} in the \mbox{[}README file\mbox{]}()
+\item \+:hammer\+: split \href{https://github.com/nlohmann/json/tree/develop/test/src}{\texttt{ unit tests}} into individual independent binaries to speed up compilation and testing
+\item \+:white\+\_\+check\+\_\+mark\+: the test suite now contains {\bfseries{11201886}} tests
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1670}{}\doxysection{\texorpdfstring{v2.\+0.\+8}{v2.0.8}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1670}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.8/json.hpp) (360 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.8/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/12-\/02
+\item SHA-\/256\+: b70db0ad34f8e0e61dc3f0cbab88099336c9674c193d8a3439d93d6aca2d7120
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1671}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1671}
+This release combines a lot of small fixes and improvements. The fixes are backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1672}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1672}
+
+\begin{DoxyItemize}
+\item \+:bug\+: fixed a bug that froze the parser if a passed file was not found (now, {\ttfamily std\+::invalid\+\_\+argument} is thrown)
+\item \+:bug\+: fixed a bug that lead to an error of a file at EOF was parsed again (now, {\ttfamily std\+::invalid\+\_\+argument} is thrown)
+\item \+:sparkles\+: the well known functions \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_a602f275f0359ab181221384989810604.html\#a602f275f0359ab181221384989810604}{\texttt{ {\ttfamily emplace}}} and \href{http://nlohmann.github.io/json/doxygen/classnlohmann_1_1basic__json_af8a435033327d9237da414afc1cce513.html\#af8a435033327d9237da414afc1cce513}{\texttt{ {\ttfamily emplace\+\_\+back}}} have been added to JSON values and work as expected
+\item \+:zap\+: improved the performance of the serialization ({\ttfamily dump} function)
+\item \+:zap\+: improved the performance of the deserialization (parser)
+\item \+:construction\+\_\+worker\+: some continuous integration images at \href{https://travis-ci.org/nlohmann/json}{\texttt{ Travis}} were added and retired; see \href{https://github.com/nlohmann/json\#supported-compilers}{\texttt{ here}} for the current continuous integration setup
+\item \+:construction\+\_\+worker\+: the \href{https://scan.coverity.com/projects/nlohmann-json}{\texttt{ Coverity scan}} works again
+\item \+:chart\+\_\+with\+\_\+upwards\+\_\+trend\+: the benchmarking code has been improved to produce more stable results
+\item \+:memo\+: the \href{https://github.com/nlohmann/json/blob/develop/README.md}{\texttt{ README}} file has been extended and includes more frequently asked examples
+\item \+:white\+\_\+check\+\_\+mark\+: the test suite now contains 8905518 tests
+\item \+:arrow\+\_\+up\+: updated \href{https://github.com/philsquared/Catch}{\texttt{ Catch}} to version 1.\+5.\+8
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1673}{}\doxysection{\texorpdfstring{v2.\+0.\+7}{v2.0.7}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1673}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.7/json.hpp) (355 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.7/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/11-\/02
+\item SHA-\/256\+: 5545c323670f8165bae90b9dc6078825e86ec310d96cc4e5b47233ea43715bbf
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1674}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1674}
+This release fixes a few bugs in the JSON parser found in the \href{http://seriot.ch/parsing_json.html}{\texttt{ Parsing JSON is a Minefield 💣}} article. The fixes are backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1675}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1675}
+
+\begin{DoxyItemize}
+\item The article \href{http://seriot.ch/parsing_json.html}{\texttt{ Parsing JSON is a Minefield 💣}} discusses a lot of pitfalls of the JSON specification. When investigating the published test cases, a few bugs in the library were found and fixed\+:
+\begin{DoxyItemize}
+\item Files with less than 5 bytes can now be parsed without error.
+\item The library now properly rejects any file encoding other than UTF-\/8. Furthermore, incorrect surrogate pairs are properly detected and rejected.
+\item The library now accepts all but one "{}yes"{} test (y\+\_\+string\+\_\+utf16.\+json)\+: UTF-\/16 is not supported.
+\item The library rejects all but one "{}no"{} test (n\+\_\+number\+\_\+then\+\_\+00.\+json)\+: Null bytes are treated as end of file instead of an error. This allows to parse input from null-\/terminated strings.
+\end{DoxyItemize}
+\item The string length passed to a user-\/defined string literal is now exploited to choose a more efficient constructor.
+\item A few grammar mistakes in the README file have been fixed.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1676}{}\doxysection{\texorpdfstring{v2.\+0.\+6}{v2.0.6}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1676}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.6/json.hpp) (349 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.6/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/10-\/15
+\item SHA256\+: 459cc93d5e2f503e50c6d5876eb86bfea7daf405f5a567c5a2c9abc2383756ae
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1677}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1677}
+This release fixes the semantics of {\ttfamily operator\mbox{[}\mbox{]}} for JSON Pointers (see below). This fix is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1678}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1678}
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily operator\mbox{[}\mbox{]}} for JSON Pointers\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} now behaves like the other versions of {\ttfamily operator\mbox{[}\mbox{]}} and transforms {\ttfamily null} values into objects or arrays if required. This allows to created nested structures like {\ttfamily j\mbox{[}"{}/foo/bar/2"{}\mbox{]} = 17} (yielding {\ttfamily \{"{}foo"{}\+: "{}bar"{}\+: \mbox{[}null, null, 17\mbox{]}\}}) without problems.
+\item overworked a helper SFINAE function
+\item fixed some documentation issues
+\item fixed the CMake files to allow to run the test suite outside the main project directory
+\item restored test coverage to 100\%.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1679}{}\doxysection{\texorpdfstring{v2.\+0.\+5}{v2.0.5}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1679}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.5/json.hpp) (347 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.5/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/09-\/14
+\item SHA-\/256\+: 8b7565263a44e2b7d3b89808bc73d2d639037ff0c1f379e3d56dbd77e00b98d9
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1680}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1680}
+This release fixes a regression bug in the stream parser (function {\ttfamily parse()} and the {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}/{\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} operators). This fix is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1681}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1681}
+
+\begin{DoxyItemize}
+\item {\bfseries{Bug fix}}\+: The end of a file stream was not detected properly which led to parse errors. This bug should have been fixed with 2.\+0.\+4, but there was still a flaw in the code.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1682}{}\doxysection{\texorpdfstring{v2.\+0.\+4}{v2.0.4}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1682}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.4/json.hpp) (347 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.4/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/09-\/11
+\item SHA-\/256\+: 632ceec4c25c4e2153f71470d3a2b992c8355f6d8b4d627d05dd16095cd3aeda
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1683}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1683}
+This release fixes a bug in the stream parser (function {\ttfamily parse()} and the {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}}/{\ttfamily \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}} operators). This fix is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1684}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1684}
+
+\begin{DoxyItemize}
+\item {\bfseries{Bug fix}}\+: The end of a file stream was not detected properly which led to parse errors.
+\item Fixed a compiler warning about an unused variable.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1685}{}\doxysection{\texorpdfstring{v2.\+0.\+3}{v2.0.3}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1685}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.3/json.hpp) (347 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.3/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/08-\/31
+\item SHA-\/256\+: 535b73efe5546fde9e763c14aeadfc7b58183c0b3cd43c29741025aba6cf6bd3
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1686}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1686}
+This release combines a lot of small fixes and improvements. The release is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1687}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1687}
+
+\begin{DoxyItemize}
+\item The {\bfseries{parser/deserialization functions have been generalized}} to process any contiguous sequence of 1-\/byte elements (e.\+g., {\ttfamily char}, {\ttfamily unsigned char}, {\ttfamily uint8\+\_\+t}). This includes all kind of string representations (string literals, char arrays, {\ttfamily std\+::string}, {\ttfamily const char\texorpdfstring{$\ast$}{*}}), contiguous containers (C-\/style arrays, {\ttfamily std\+::vector}, {\ttfamily std\+::array}, {\ttfamily std\+::valarray}, {\ttfamily std\+::initializer\+\_\+list}). User-\/defined containers providing random-\/access iterator access via {\ttfamily std\+::begin} and {\ttfamily std\+::end} can be used as well. See the documentation (\href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_ace63ac4eb1dd7251a259d32e397461a3.html\#ace63ac4eb1dd7251a259d32e397461a3}{\texttt{ 1}}, \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a90f05d55d9d0702c075cd281fd0d85ae.html\#a90f05d55d9d0702c075cd281fd0d85ae}{\texttt{ 2}}, \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_aeffd70f622f8f2a51fd3d95af64b63a7.html\#aeffd70f622f8f2a51fd3d95af64b63a7}{\texttt{ 3}}, \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_aa8dca2e91a6301c36890f844e64f0023.html\#aa8dca2e91a6301c36890f844e64f0023}{\texttt{ 4}}) for more information. Note that contiguous storage cannot be checked at compile time; if any of the parse functions are called with a noncompliant container, the behavior is undefined and will most likely yield segmentation violation. The preconditions are enforced by an assertion unless the library is compiled with preprocessor symbol {\ttfamily NDEBUG}.
+\item As a general remark on {\bfseries{assertions}}\+: The library uses assertions to preclude undefined behavior. A \href{https://github.com/nlohmann/json/issues/289}{\texttt{ prominent example}} for this is the {\ttfamily operator\mbox{[}\mbox{]}} for const JSON objects. The behavior of this const version of the operator is undefined if the given key does not exist in the JSON object, because unlike the non-\/const version, it cannot add a {\ttfamily null} value at the given key. Assertions can be switched of by defining the preprocessor symbol {\ttfamily NDEBUG}. See the \href{http://en.cppreference.com/w/cpp/error/assert}{\texttt{ documentation of {\ttfamily assert}}} for more information.
+\item In the course of cleaning up the parser/deserialization functions, the constructor \href{https://nlohmann.github.io/json/classnlohmann_1_1basic__json_a32350263eb105764844c5a85e156a255.html\#a32350263eb105764844c5a85e156a255}{\texttt{ {\ttfamily basic\+\_\+json(std\+::istream\&, const parser\+\_\+callback\+\_\+t)}}} has been {\bfseries{deprecated}} and will be deleted with the next major release 3.\+0.\+0 to unify the interface of the library. Deserialization will be done by stream operators or by calling one of the {\ttfamily parse} functions. That is, calls like {\ttfamily json \doxylink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j(i)};} for an input stream {\ttfamily i} need to be replaced by {\ttfamily json j = json\+::parse(i);}. Compilers will produce a deprecation warning if client code uses this function.
+\item Minor improvements\+:
+\begin{DoxyItemize}
+\item Improved the performance of the serialization by avoiding the re-\/creation of a locale object.
+\item Fixed two MSVC warnings. Compiling the test suite with {\ttfamily /\+Wall} now only warns about non-\/inlined functions (C4710) and the deprecation of the constructor from input-\/stream (C4996).
+\end{DoxyItemize}
+\item Some project internals\+:
+\begin{DoxyItemize}
+\item  The project has qualified for the \href{https://bestpractices.coreinfrastructure.org/projects/289}{\texttt{ Core Infrastructure Initiative Best Practices Badge}}. While most requirements where already satisfied, some led to a more explicit documentation of quality-\/ensuring procedures. For instance, static analysis is now executed with every commit on the build server. Furthermore, the \href{https://github.com/nlohmann/json/blob/develop/.github/CONTRIBUTING.md}{\texttt{ contribution guidelines document}} how to communicate security issues privately.
+\item The test suite has been overworked and split into several files to allow for faster compilation and analysis. The execute the test suite, simply execute {\ttfamily make check}.
+\item The continuous integration with \href{https://travis-ci.org/nlohmann/json}{\texttt{ Travis}} was extended with Clang versions 3.\+6.\+0 to 3.\+8.\+1 and now includes 18 different compiler/\+OS combinations.
+\item An 11-\/day run of \href{http://lcamtuf.coredump.cx/afl/}{\texttt{ American fuzzy lop}} checked 962 million inputs on the parser and found no issue.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1688}{}\doxysection{\texorpdfstring{v2.\+0.\+2}{v2.0.2}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1688}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.2/json.hpp) (338 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.2/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/07-\/31
+\item SHA-\/256\+: 8e97b7965b4594b00998d6704465412360e1a0ed927badb51ded8b82291a8f3d
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1689}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1689}
+This release combines a lot of small fixes and improvements. The release is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1690}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1690}
+
+\begin{DoxyItemize}
+\item The {\bfseries{parser}} has been overworked, and a lot of small issues have been fixed\+:
+\begin{DoxyItemize}
+\item Improved parser performance by avoiding recursion and using move semantics for the return value.
+\item Unescaped control characters {\ttfamily \textbackslash{}x10}-\/{\ttfamily \textbackslash{}x1f} are not accepted any more.
+\item Fixed a bug in the parser when reading from an input stream.
+\item Improved test case coverage for UTF-\/8 parsing\+: now, all valid Unicode code points are tested both escaped and unescaped.
+\item The precision of output streams is now preserved by the parser.
+\end{DoxyItemize}
+\item Started to check the {\bfseries{code correctness}} by proving termination of important loops. Furthermore, individual assertions have been replaced by a more systematic function which checks the class invariants. Note that assertions should be switched off in production by defining the preprocessor macro {\ttfamily NDEBUG}, see the \href{http://en.cppreference.com/w/cpp/error/assert}{\texttt{ documentation of {\ttfamily assert}}}.
+\item A lot of {\bfseries{code cleanup}}\+: removed unused headers, fixed some compiler warnings, and fixed a build error for Windows-\/based Clang builds.
+\item Added some compile-\/time checks\+:
+\begin{DoxyItemize}
+\item Unsupported compilers are rejected during compilation with an {\ttfamily \#error} command.
+\item Static assertion prohibits code with incompatible pointer types used in {\ttfamily get\+\_\+ptr()}.
+\end{DoxyItemize}
+\item Improved the \href{https://nlohmann.github.io/json/}{\texttt{ documentation}}, and adjusted the documentation script to choose the correct version of {\ttfamily sed}.
+\item Replaced a lot of "{}raw loops"{} by STL functions like {\ttfamily std\+::all\+\_\+of}, {\ttfamily std\+::for\+\_\+each}, or {\ttfamily std\+::accumulate}. This facilitates reasoning about termination of loops and sometimes allowed to simplify functions to a single return statement.
+\item Implemented a {\ttfamily value()} function for JSON pointers (similar to {\ttfamily at} function).
+\item The Homebrew formula (see \href{https://github.com/nlohmann/json\#integration}{\texttt{ Integration}}) is now tested for all Xcode builds (6.\+1 -\/ 8.\+x) with Travis.
+\item Avoided output to {\ttfamily std\+::cout} in the test cases.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1691}{}\doxysection{\texorpdfstring{v2.\+0.\+1}{v2.0.1}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1691}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.1/json.hpp) (321 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.1/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/06-\/28
+\item SHA-\/256\+: ef550fcd7df572555bf068e9ec4e9d3b9e4cdd441cecb0dcea9ea7fd313f72dd
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1692}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1692}
+This release fixes a performance regression in the JSON serialization (function {\ttfamily dump()}). This fix is backwards compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1693}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1693}
+
+\begin{DoxyItemize}
+\item The locale of the output stream (or the internal string stream if a JSON value is serialized to a string) is now adjusted once for the whole serialization instead of for each floating-\/point number.
+\item The locale of an output stream is now correctly reset to the previous value by the JSON library.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1694}{}\doxysection{\texorpdfstring{v2.\+0.\+0}{v2.0.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1694}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v2.0.0/json.hpp) (321 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v2.0.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/06-\/24
+\item SHA-\/256\+: ac9e1fb25c2ac9ca5fc501fcd2fe3281fe04f07018a1b48820e7b1b11491bb6c
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1695}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1695}
+This release adds several features such as JSON Pointers, JSON Patch, or support for 64 bit unsigned integers. Furthermore, several (subtle) bugs have been fixed.
+
+As {\ttfamily noexcept} and {\ttfamily constexpr} specifier have been added to several functions, the public API has effectively been changed in a (potential) non-\/backwards compatible manner. As we adhere to \href{http://semver.org}{\texttt{ Semantic Versioning}}, this calls for a new major version, so say hello to 2️⃣.0️⃣.0️⃣.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1696}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1696}
+
+\begin{DoxyItemize}
+\item 🔟 A JSON value now uses {\ttfamily uint64\+\_\+t} (default value for template parameter {\ttfamily Number\+Unsigned\+Type}) as data type for {\bfseries{unsigned integer}} values. This type is used automatically when an unsigned number is parsed. Furthermore, constructors, conversion operators and an {\ttfamily is\+\_\+number\+\_\+unsigned()} test have been added.
+\item 👉 {\bfseries{JSON Pointer}} (\href{https://tools.ietf.org/html/rfc6901}{\texttt{ RFC 6901}}) support\+: A JSON Pointer is a string (similar to an XPath expression) to address a value inside a structured JSON value. JSON Pointers can be used in {\ttfamily at()} and {\ttfamily operator\mbox{[}\mbox{]}} functions. Furthermore, JSON values can be “flattened” to key/value pairs using {\ttfamily flatten()} where each key is a JSON Pointer. The original value can be restored by “unflattening” the flattened value using {\ttfamily unflatten()}.
+\item 🏥 {\bfseries{JSON Patch}} (\href{https://tools.ietf.org/html/rfc6902}{\texttt{ RFC 6902}}) support. A JSON Patch is a JSON value that describes the required edit operations (add, change, remove, …) to transform a JSON value into another one. A JSON Patch can be created with function {\ttfamily diff(const \doxylink{classbasic__json}{basic\+\_\+json}\&)} and applied with {\ttfamily patch(const \doxylink{classbasic__json}{basic\+\_\+json}\&)}. Note the created patches use a rather primitive algorithm so far and leave room for improvement.
+\item 🇪🇺 The code is now {\bfseries{locale-\/independent}}\+: Floating-\/point numbers are always serialized with a period ({\ttfamily .}) as decimal separator and ignores different settings from the locale.
+\item 🍺 {\bfseries{Homebrew}} support\+: Install the library with {\ttfamily brew tap nlohmann/json \&\& brew install nlohmann\+\_\+json}.
+\item Added constructor to create a JSON value by parsing a {\ttfamily \doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}} (e.\+g., {\ttfamily std\+::stringstream} or {\ttfamily std\+::ifstream}).
+\item Added \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily noexcept}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} specifier to {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(boolean\+\_\+t)}}, {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(const number\+\_\+integer\+\_\+t)}}, {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(const int)}}, {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json(const number\+\_\+float\+\_\+t)}}, iterator functions ({\ttfamily begin()}, {\ttfamily end()}, etc.)
+\item When parsing numbers, the sign of {\ttfamily 0.\+0} (vs. {\ttfamily -\/0.\+0}) is preserved.
+\item Improved MSVC 2015, Android, and Min\+GW support. See \href{https://github.com/nlohmann/json\#supported-compilers}{\texttt{ README}} for more information.
+\item Improved test coverage (added 2,225,386 tests).
+\item Removed some misuses of {\ttfamily std\+::move}.
+\item Fixed several compiler warnings.
+\item Improved error messages from JSON parser.
+\item Updated to \href{http://re2c.org}{\texttt{ {\ttfamily re2c}}} to version 0.\+16 to use a minimal DFAs for the lexer.
+\item Updated test suite to use \href{https://github.com/philsquared/Catch}{\texttt{ Catch}} version 1.\+5.\+6.
+\item Made type getters ({\ttfamily is\+\_\+number}, etc.) and const value access {\ttfamily constexpr}.
+\item Functions {\ttfamily push\+\_\+back} and {\ttfamily operator+=} now work with key/value pairs passed as initializer list, e.\+g. {\ttfamily j\+\_\+object += \{"{}key"{}, 1\}}.
+\item Overworked {\ttfamily CMake\+Lists.\+txt} to make it easier to integrate the library into other projects.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1697}{}\doxysubsection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1697}
+
+\begin{DoxyItemize}
+\item Parser error messages are still very vague and contain no information on the error location.
+\item The implemented {\ttfamily diff} function is rather primitive and does not create minimal diffs.
+\item The name of function {\ttfamily iteration\+\_\+wrapper} may change in the future and the function will be deprecated in the next release.
+\item Roundtripping (i.\+e., parsing a JSON value from a string, serializing it, and comparing the strings) of floating-\/point numbers is not 100\% accurate. Note that \href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} defines no format to internally represent numbers and states not requirement for roundtripping. Nevertheless, benchmarks like \href{https://github.com/miloyip/nativejson-benchmark}{\texttt{ Native JSON Benchmark}} treat roundtripping deviations as conformance errors.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1698}{}\doxysection{\texorpdfstring{v1.\+1.\+0}{v1.1.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1698}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v1.1.0/json.hpp) (257 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v1.1.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2016-\/01-\/24
+\item SHA-\/256\+: c0cf0e3017798ca6bb18e757ebc570d21a3bdac877845e2b9e9573d183ed2f05
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1699}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1699}
+This release fixes several small bugs and adds functionality in a backwards-\/compatible manner. Compared to the \href{https://github.com/nlohmann/json/releases/tag/v1.0.0}{\texttt{ last version (1.\+0.\+0)}}, the following changes have been made\+:\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1700}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1700}
+
+\begin{DoxyItemize}
+\item {\itshape Fixed}\+: {\bfseries{Floating-\/point numbers}} are now serialized and deserialized properly such that rountripping works in more cases. \mbox{[}\#185, \#186, \#190, \#191, \#194\mbox{]}
+\item {\itshape Added}\+: The code now contains {\bfseries{assertions}} to detect undefined behavior during development. As the standard function {\ttfamily assert} is used, the assertions can be switched off by defining the preprocessor symbol {\ttfamily NDEBUG} during compilation. \mbox{[}\#168\mbox{]}
+\item {\itshape Added}\+: It is now possible to get a {\bfseries{reference}} to the stored values via the newly added function {\ttfamily get\+\_\+ref()}. \mbox{[}\#128, \#184\mbox{]}
+\item {\itshape Fixed}\+: Access to object values via keys (\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily operator\mbox{[}\mbox{]}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}) now works with all kind of string representations. \mbox{[}\#171, \#189\mbox{]}
+\item {\itshape Fixed}\+: The code now compiles again with {\bfseries{Microsoft Visual Studio 2015}}. \mbox{[}\#144, \#167, \#188\mbox{]}
+\item {\itshape Fixed}\+: All required headers are now included.
+\item {\itshape Fixed}\+: Typos and other small issues. \mbox{[}\#162, \#166, \#175, \#177, \#179, \#180\mbox{]}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1701}{}\doxysubsection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1701}
+There are still known open issues (\#178, \#187) which will be fixed in version 2.\+0.\+0. However, these fixes will require a small API change and will not be entirely backwards-\/compatible.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1702}{}\doxysection{\texorpdfstring{v1.\+0.\+0}{v1.0.0}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1702}
+!!! summary "{}\+Files"{} \begin{DoxyVerb}- [json.hpp](https://github.com/nlohmann/json/releases/download/v1.0.0/json.hpp) (243 KB)
+- [json.hpp.asc](https://github.com/nlohmann/json/releases/download/v1.0.0/json.hpp.asc) (1 KB)
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Release date\+: 2015-\/12-\/28
+\item SHA-\/256\+: 767dc2fab1819d7b9e19b6e456d61e38d21ef7182606ecf01516e3f5230446de
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1703}{}\doxysubsection{\texorpdfstring{Summary}{Summary}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1703}
+This is the first official release. Compared to the \href{https://github.com/nlohmann/json/releases/tag/v1.0.0-rc1}{\texttt{ prerelease version 1.\+0.\+0-\/rc1}}, only a few minor improvements have been made\+:\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1704}{}\doxysubsection{\texorpdfstring{Changes}{Changes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases_autotoc_md1704}
+
+\begin{DoxyItemize}
+\item {\itshape Changed}\+: A {\bfseries{UTF-\/8 byte order mark}} is silently ignored.
+\item {\itshape Changed}\+: {\ttfamily sprintf} is no longer used.
+\item {\itshape Changed}\+: {\ttfamily iterator\+\_\+wrapper} also works for const objects; note\+: the name may change!
+\item {\itshape Changed}\+: {\bfseries{Error messages}} during deserialization have been improved.
+\item {\itshape Added}\+: The {\ttfamily parse} function now also works with type {\ttfamily \doxylink{namespacestd_a3891b048d9663e32878ba34284d62294}{std\+::istream}\&\&}.
+\item {\itshape Added}\+: Function {\ttfamily value(key, default\+\_\+value)} returns either a copy of an object\textquotesingle{}s element at the specified key or a given default value if no element with the key exists.
+\item {\itshape Added}\+: Public functions are tagged with the version they were introduced. This shall allow for better {\bfseries{versioning}} in the future.
+\item {\itshape Added}\+: All public functions and types are {\bfseries{documented}} (see \href{http://nlohmann.github.io/json/doxygen/}{\texttt{ http\+://nlohmann.\+github.\+io/json/doxygen/}}) including executable examples.
+\item {\itshape Added}\+: Allocation of all types (in particular arrays, strings, and objects) is now exception-\/safe.
+\item {\itshape Added}\+: They descriptions of thrown exceptions have been overworked and are part of the tests suite and documentation. 
+\end{DoxyItemize}

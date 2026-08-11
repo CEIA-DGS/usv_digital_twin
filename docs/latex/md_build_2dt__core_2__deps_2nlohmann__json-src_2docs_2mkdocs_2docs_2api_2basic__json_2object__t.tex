@@ -1,0 +1,80 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}object\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$object\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$object\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md613}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md613}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }object\_t\ =\ ObjectType<StringType,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classbasic__json}{basic\_json}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ default\_object\_comparator\_t,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ AllocatorType<std::pair<const\ StringType,\ basic\_json>>>;}
+
+\end{DoxyCode}
+
+
+The type used to store JSON objects.
+
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} describes JSON objects as follows\+: \begin{quote}
+An object is an unordered collection of zero or more name/value pairs, where a name is a string and a value is a string, number, boolean, null, object, or array. \end{quote}
+To store objects in C++, a type is defined by the template parameters described below.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md614}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md614}
+{\ttfamily Object\+Type} \+: the container to store objects (e.\+g., {\ttfamily std\+::map} or {\ttfamily std\+::unordered\+\_\+map})
+
+{\ttfamily String\+Type} \+: the type of the keys or names (e.\+g., {\ttfamily std\+::string}). The comparison function {\ttfamily std\+::less\texorpdfstring{$<$}{<}String\+Type\texorpdfstring{$>$}{>}} is used to order elements inside the container.
+
+{\ttfamily Allocator\+Type} \+: the allocator to use for objects (e.\+g., {\ttfamily std\+::allocator})\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md615}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md615}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md616}{}\doxysubsubsection{\texorpdfstring{Default type}{Default type}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md616}
+With the default values for {\ttfamily Object\+Type} ({\ttfamily std\+::map}), {\ttfamily String\+Type} ({\ttfamily std\+::string}), and {\ttfamily Allocator\+Type} ({\ttfamily std\+::allocator}), the default value for {\ttfamily object\+\_\+t} is\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ until\ C++14}}
+\DoxyCodeLine{std::map<}
+\DoxyCodeLine{\ \ std::string,\ \textcolor{comment}{//\ key\_type}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classbasic__json}{basic\_json}},\ \textcolor{comment}{//\ value\_type}}
+\DoxyCodeLine{\ \ std::less<std::string>,\ \textcolor{comment}{//\ key\_compare}}
+\DoxyCodeLine{\ \ std::allocator<std::pair<const\ std::string,\ basic\_json>>\ \textcolor{comment}{//\ allocator\_type}}
+\DoxyCodeLine{>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ since\ C++14}}
+\DoxyCodeLine{std::map<}
+\DoxyCodeLine{\ \ std::string,\ \textcolor{comment}{//\ key\_type}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classbasic__json}{basic\_json}},\ \textcolor{comment}{//\ value\_type}}
+\DoxyCodeLine{\ \ std::less<>,\ \textcolor{comment}{//\ key\_compare}}
+\DoxyCodeLine{\ \ std::allocator<std::pair<const\ std::string,\ basic\_json>>\ \textcolor{comment}{//\ allocator\_type}}
+\DoxyCodeLine{>}
+
+\end{DoxyCode}
+
+
+See \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t}{\`{}default\+\_\+object\+\_\+comparator\+\_\+t\`{}}{0} for more information.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md617}{}\doxysubsubsection{\texorpdfstring{Behavior}{Behavior}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md617}
+The choice of {\ttfamily object\+\_\+t} influences the behavior of the JSON class. With the default type, objects have the following behavior\+:
+
+
+\begin{DoxyItemize}
+\item When all names are unique, objects will be interoperable in the sense that all software implementations receiving that object will agree on the name-\/value mappings.
+\item When the names within an object are not unique, it is unspecified which one of the values for a given key will be chosen. For instance, {\ttfamily \#!json \{"{}key"{}\+: 2, "{}key"{}\+: 1\}} could be equal to either {\ttfamily \#!json \{"{}key"{}\+: 1\}} or {\ttfamily \#!json \{"{}key"{}\+: 2\}}.
+\item Internally, name/value pairs are stored in lexicographical order of the names. Objects will also be serialized (see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2dump}{\`{}dump\`{}}{0}) in this order. For instance, {\ttfamily \#!json \{"{}b"{}\+: 1, "{}a"{}\+: 2\}} and {\ttfamily \#!json \{"{}a"{}\+: 2, "{}b"{}\+: 1\}} will be stored and serialized as {\ttfamily \#!json \{"{}a"{}\+: 2, "{}b"{}\+: 1\}}.
+\item When comparing objects, the order of the name/value pairs is irrelevant. This makes objects interoperable in the sense that they will not be affected by these differences. For instance, {\ttfamily \#!json \{"{}b"{}\+: 1, "{}a"{}\+: 2\}} and {\ttfamily \#!json \{"{}a"{}\+: 2, "{}b"{}\+: 1\}} will be treated as equal.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md618}{}\doxysubsubsection{\texorpdfstring{Limits}{Limits}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md618}
+\href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}} specifies\+: \begin{quote}
+An implementation may set limits on the maximum depth of nesting. \end{quote}
+In this class, the object\textquotesingle{}s limit of nesting is not explicitly constrained. However, a maximum depth of nesting may be introduced by the compiler or runtime environment. A theoretical limit can be queried by calling the \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2max__size}{\`{}max\+\_\+size\`{}}{0} function of a JSON object.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md619}{}\doxysubsubsection{\texorpdfstring{Storage}{Storage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md619}
+Objects are stored as pointers in a {\ttfamily \doxylink{classbasic__json}{basic\+\_\+json}} type. That is, for any access to object values, a pointer of type {\ttfamily object\+\_\+t\texorpdfstring{$\ast$}{*}} must be dereferenced.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md620}{}\doxysubsubsection{\texorpdfstring{Object key order}{Object key order}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md620}
+The order name/value pairs are added to the object is {\itshape not} preserved by the library. Therefore, iterating an object may return name/value pairs in a different order than they were originally stored. In fact, keys will be traversed in alphabetical order as {\ttfamily std\+::map} with {\ttfamily std\+::less} is used by default. Please note this behavior conforms to \href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}}, because any order implements the specified "{}unordered"{} nature of JSON objects.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md621}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md621}
+??? example \begin{DoxyVerb}The following code shows that `object_t` is by default, a typedef to `#!cpp std::map<json::string_t, json>`.
+
+```cpp
+--8<-- "examples/object_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/object_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md622}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t_autotoc_md622}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0. 
+\end{DoxyItemize}

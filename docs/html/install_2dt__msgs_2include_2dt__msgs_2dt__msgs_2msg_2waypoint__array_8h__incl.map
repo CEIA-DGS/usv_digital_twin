@@ -1,0 +1,9 @@
+<map id="install/dt_msgs/include/dt_msgs/dt_msgs/msg/waypoint_array.h" name="install/dt_msgs/include/dt_msgs/dt_msgs/msg/waypoint_array.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,445,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,115,196,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,62,157,112,155,107,267,58"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="221,115,434,155"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="330,60,330,101,325,101,325,60"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="458,108,629,163"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="385,58,476,100,474,105,382,62"/>
+</map>

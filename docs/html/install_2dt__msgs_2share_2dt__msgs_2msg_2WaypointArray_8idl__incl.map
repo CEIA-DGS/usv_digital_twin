@@ -1,0 +1,7 @@
+<map id="install/dt_msgs/share/dt_msgs/msg/WaypointArray.idl" name="install/dt_msgs/share/dt_msgs/msg/WaypointArray.idl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="121,5,351,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,235,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,48,150,88,147,83,206,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="259,93,445,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="266,43,325,83,322,88,263,48"/>
+</map>

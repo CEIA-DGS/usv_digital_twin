@@ -1,0 +1,79 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator$<$=$>$@{$<$small$>$nlohmann::basic\_json::$<$/small$>$operator$<$=$>$}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md705}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md705}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ since\ C++20}}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classbasic__json}{basic\_json}}\ \{}
+\DoxyCodeLine{\ \ \ \ std::partial\_ordering\ operator<=>(\mbox{\hyperlink{classbasic__json_a31370bb451b78198d42c86dd31955deb}{const\_reference}}\ \mbox{\hyperlink{classbasic__json_a3a549b97cc690cd390145249335d3768}{rhs}})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};\ \ \textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ScalarType>}
+\DoxyCodeLine{\ \ \ \ std::partial\_ordering\ operator<=>(\textcolor{keyword}{const}\ ScalarType\ \mbox{\hyperlink{classbasic__json_a3a549b97cc690cd390145249335d3768}{rhs}})\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};\ \textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyEnumerate}
+\item 3-\/way compares two JSON values producing a result of type {\ttfamily std\+::partial\+\_\+ordering} according to the following rules\+:
+\begin{DoxyItemize}
+\item Two JSON values compare with a result of {\ttfamily std\+::partial\+\_\+ordering\+::unordered} if either value is discarded.
+\item If both JSON values are of the same type, the result is produced by 3-\/way comparing their stored values using their respective {\ttfamily operator\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}}.
+\item Integer and floating-\/point numbers are converted to their common type and then 3-\/way compared using their respective {\ttfamily operator\texorpdfstring{$<$}{<}=\texorpdfstring{$>$}{>}}. For instance, comparing an integer and a floating-\/point value will 3-\/way compare the first value converted to floating-\/point with the second value.
+\item Otherwise, yields a result by comparing the type (see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2value__t}{\`{}value\+\_\+t\`{}}{0}).
+\end{DoxyItemize}
+\item 3-\/way compares a JSON value and a scalar or a scalar and a JSON value by converting the scalar to a JSON value and 3-\/way comparing both JSON values (see 1).
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md706}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md706}
+{\ttfamily Scalar\+Type} \+: a scalar type according to {\ttfamily std\+::is\+\_\+scalar\texorpdfstring{$<$}{<}Scalar\+Type\texorpdfstring{$>$}{>}::value}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md707}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md707}
+{\ttfamily rhs} (in) \+: second value to consider\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md708}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md708}
+the {\ttfamily std\+::partial\+\_\+ordering} of the 3-\/way comparison of {\ttfamily \texorpdfstring{$\ast$}{*}this} and {\ttfamily rhs}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md709}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md709}
+No-\/throw guarantee\+: this function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md710}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md710}
+Linear.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md711}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md711}
+!!! note "{}\+Comparing \`{}\+Na\+N\`{}"{} \begin{DoxyVerb}- `NaN` values are unordered within the domain of numbers.
+  The following comparisons all yield `std::partial_ordering::unordered`:
+    1. Comparing a `NaN` with itself.
+    2. Comparing a `NaN` with another `NaN`.
+    3. Comparing a `NaN` and any other number.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md712}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md712}
+??? example "{}\+Example\+: (1) comparing JSON values"{} \begin{DoxyVerb}The example demonstrates comparing several JSON values.
+
+```cpp
+--8<-- "examples/operator_spaceship__const_reference.c++20.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_spaceship__const_reference.c++20.output"
+```
+\end{DoxyVerb}
+ ??? example "{}\+Example\+: (2) comparing JSON values and scalars"{} \begin{DoxyVerb}The example demonstrates comparing several JSON values and scalars.
+
+```cpp
+--8<-- "examples/operator_spaceship__scalartype.c++20.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_spaceship__scalartype.c++20.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md713}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md713}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__eq}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator==\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ne}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator!=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: not equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__lt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: less than
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__le}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$<$}{<}=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: less than or equal
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__gt}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$>$}{>}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: greater than
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__ge}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}operator\texorpdfstring{$>$}{>}=\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}{0} -\/ comparison\+: greater than or equal
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md714}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2operator__spaceship_autotoc_md714}
+
+\begin{DoxyEnumerate}
+\item Added in version 3.\+11.\+0.
+\item Added in version 3.\+11.\+0. 
+\end{DoxyEnumerate}

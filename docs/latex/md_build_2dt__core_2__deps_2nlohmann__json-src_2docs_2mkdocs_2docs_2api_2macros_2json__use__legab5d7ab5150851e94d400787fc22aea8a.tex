@@ -1,0 +1,81 @@
+\chapter{JSON\+\_\+\+USE\+\_\+\+LEGACY\+\_\+\+DISCARDED\+\_\+\+VALUE\+\_\+\+COMPARISON}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a}\index{JSON\_USE\_LEGACY\_DISCARDED\_VALUE\_COMPARISON@{JSON\_USE\_LEGACY\_DISCARDED\_VALUE\_COMPARISON}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1219}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1219}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_USE\_LEGACY\_DISCARDED\_VALUE\_COMPARISON\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro enables the (incorrect) legacy comparison behavior of discarded JSON values. Possible values are {\ttfamily 1} to enable or {\ttfamily 0} to disable (default).
+
+When enabled, comparisons involving at least one discarded JSON value yield results as follows\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Operator}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Result}}    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Operator}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Result}}    }\\\cline{1-2}
+\endhead
+{\ttfamily ==}   &{\ttfamily \#!cpp false}    \\\cline{1-2}
+{\ttfamily !=}   &{\ttfamily \#!cpp true}    \\\cline{1-2}
+{\ttfamily \texorpdfstring{$<$}{<}}   &{\ttfamily \#!cpp false}    \\\cline{1-2}
+{\ttfamily \texorpdfstring{$<$}{<}=}   &{\ttfamily \#!cpp true}    \\\cline{1-2}
+{\ttfamily \texorpdfstring{$>$}{>}=}   &{\ttfamily \#!cpp true}    \\\cline{1-2}
+{\ttfamily \texorpdfstring{$>$}{>}}   &{\ttfamily \#!cpp false}   \\\cline{1-2}
+\end{longtabu}
+
+
+Otherwise, comparisons involving at least one discarded JSON value always yield {\ttfamily \#!cpp false}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1220}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1220}
+The default value is {\ttfamily 0}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_USE\_LEGACY\_DISCARDED\_VALUE\_COMPARISON\ 0}}
+
+\end{DoxyCode}
+
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1221}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1221}
+!!! warning "{}\+Inconsistent behavior in C++20 and beyond"{} \begin{DoxyVerb}When targeting C++20 or above, enabling the legacy comparison behavior is _strongly_
+discouraged.
+
+  - The 3-way comparison operator (`<=>`) will always give the correct result
+    (`#!cpp std::partial_ordering::unordered`) regardless of the value of
+    `JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON`.
+  - Overloads for the equality and relational operators emulate the legacy behavior.
+
+Code outside your control may use either 3-way comparison or the equality and relational operators, resulting in
+inconsistent and unpredictable behavior.
+
+See [`operator<=>`](../basic_json/operator_spaceship.md) for more information on 3-way comparison.
+\end{DoxyVerb}
+ !!! warning "{}\+Deprecation"{} \begin{DoxyVerb}The legacy comparison behavior is deprecated and may be removed in a future major version release.
+
+New code should not depend on it and existing code should try to remove or rewrite expressions relying on it.
+\end{DoxyVerb}
+ !!! hint "{}\+CMake option"{} \begin{DoxyVerb}Legacy comparison can also be controlled with the CMake option
+[`JSON_LegacyDiscardedValueComparison`](../../integration/cmake.md#json_legacydiscardedvaluecomparison)
+(`OFF` by default) which defines `JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON` accordingly.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1222}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1222}
+??? example \begin{DoxyVerb}The code below switches on the legacy discarded value comparison behavior in the library.
+
+```cpp
+#define JSON_USE_LEGACY_DISCARDED_VALUE_COMPARISON 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1223}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__use__legab5d7ab5150851e94d400787fc22aea8a_autotoc_md1223}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

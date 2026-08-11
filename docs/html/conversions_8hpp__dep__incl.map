@@ -1,0 +1,9 @@
+<map id="dt_ros/include/dt_ros/conversions.hpp" name="dt_ros/include/dt_ros/conversions.hpp">
+<area shape="rect" id="Node000001" title="Conversion utilities between ROS 2 messages and Digital Twin Core types." alt="" coords="205,5,363,45"/>
+<area shape="rect" id="Node000002" href="$dt__ros_2include_2dt__ros_2dt__node_8hpp.html" title="Header file for the DigitalTwinNode class." alt="" coords="5,93,163,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="229,53,129,96,127,91,226,48"/>
+<area shape="rect" id="Node000003" href="$conversions_8cpp.html" title="Implementation of ROS to Core conversion utilities." alt="" coords="187,101,381,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="287,59,287,100,281,100,281,59"/>
+<area shape="rect" id="Node000004" href="$dt__node_8cpp.html" title="Implementation of the DigitalTwinNode class." alt="" coords="405,101,573,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="342,48,463,98,461,103,340,53"/>
+</map>

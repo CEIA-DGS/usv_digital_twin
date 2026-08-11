@@ -1,0 +1,86 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}from\+\_\+bson}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$from\_bson@{$<$small$>$nlohmann::basic\_json::$<$/small$>$from\_bson}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md306}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md306}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ InputType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ from\_bson(InputType\&\&\ i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ IteratorType>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{classbasic__json}{basic\_json}}\ from\_bson(IteratorType\ first,\ IteratorType\ last,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ allow\_exceptions\ =\ \textcolor{keyword}{true});}
+
+\end{DoxyCode}
+
+
+Deserializes a given input to a JSON value using the BSON (Binary JSON) serialization format.
+
+
+\begin{DoxyEnumerate}
+\item Reads from a compatible input.
+\item Reads from an iterator range.
+\end{DoxyEnumerate}
+
+The exact mapping and its limitations is described on a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2binary__formats_2bson}{dedicated page}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md307}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md307}
+{\ttfamily Input\+Type} \+: A compatible input, for instance\+: \begin{DoxyVerb}- an `std::istream` object
+- a `FILE` pointer
+- a C-style array of characters
+- a pointer to a null-terminated string of single byte characters
+- an object `obj` for which `begin(obj)` and `end(obj)` produces a valid pair of iterators.
+\end{DoxyVerb}
+ {\ttfamily Iterator\+Type} \+: a compatible iterator type\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md308}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md308}
+{\ttfamily i} (in) \+: an input in BSON format convertible to an input adapter
+
+{\ttfamily first} (in) \+: iterator to start of the input
+
+{\ttfamily last} (in) \+: iterator to end of the input
+
+{\ttfamily strict} (in) \+: whether to expect the input to be consumed until EOF ({\ttfamily \#!cpp true} by default)
+
+{\ttfamily allow\+\_\+exceptions} (in) \+: whether to throw exceptions in case of a parse error (optional, {\ttfamily \#!cpp true} by default)\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md309}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md309}
+deserialized JSON value; in case of a parse error and {\ttfamily allow\+\_\+exceptions} set to {\ttfamily \#!cpp false}, the return value will be {\ttfamily value\+\_\+t\+::discarded}. The latter can be checked with \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__discarded}{\`{}is\+\_\+discarded\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md310}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md310}
+Strong guarantee\+: if an exception is thrown, there are no changes in the JSON value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md311}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md311}
+Throws \href{../../home/exceptions.md\#jsonexceptionparse_error114}{\texttt{ {\ttfamily parse\+\_\+error.\+114}}} if an unsupported BSON record type is encountered.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md312}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md312}
+Linear in the size of the input.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md313}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md313}
+??? example \begin{DoxyVerb}The example shows the deserialization of a byte vector in BSON format to a JSON value.
+
+```cpp
+--8<-- "examples/from_bson.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/from_bson.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md314}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md314}
+
+\begin{DoxyItemize}
+\item \href{http://bsonspec.org/spec.html}{\texttt{ BSON specification}}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2to__bson}{to\+\_\+bson}{0} for the analogous serialization
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__cbor}{from\+\_\+cbor}{0} for the related CBOR format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__msgpack}{from\+\_\+msgpack}{0} for the related Message\+Pack format
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__ubjson}{from\+\_\+ubjson}{0} for the related UBJSON format
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md315}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2from__bson_autotoc_md315}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+4.\+0.
+\end{DoxyItemize}
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}- Overload (2) replaces calls to `from_bson` with a pointer and a length as first two parameters, which has been
+  deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+  `#!cpp from_bson(ptr, len, ...);` with `#!cpp from_bson(ptr, ptr+len, ...);`.
+- Overload (2) replaces calls to `from_bson` with a pair of iterators as their first parameter, which has been
+  deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+  `#!cpp from_bson({ptr, ptr+len}, ...);` with `#!cpp from_bson(ptr, ptr+len, ...);`.
+
+You should be warned by your compiler with a `-Wdeprecated-declarations` warning if you are using a deprecated
+function.
+\end{DoxyVerb}
+ 

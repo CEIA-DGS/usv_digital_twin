@@ -1,0 +1,57 @@
+\doxysection{dt\+\_\+core/include/dt\+\_\+core/types.hpp File Reference}
+\hypertarget{dt__core_2include_2dt__core_2types_8hpp}{}\label{dt__core_2include_2dt__core_2types_8hpp}\index{dt\_core/include/dt\_core/types.hpp@{dt\_core/include/dt\_core/types.hpp}}
+
+
+Core data structures and domain models for the Digital Twin.  
+
+
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for types.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{dt__core_2include_2dt__core_2types_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtypes_1_1Point}{types\+::\+Point}}
+\begin{DoxyCompactList}\small\item\em Represents a 3D spatial point with optional geographic coordinates. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Orientation}{types\+::\+Orientation}}
+\begin{DoxyCompactList}\small\item\em Represents the attitude of an entity using Euler angles. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Pose}{types\+::\+Pose}}
+\begin{DoxyCompactList}\small\item\em Combines position and orientation to fully describe an object\textquotesingle{}s spatial state. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Velocity}{types\+::\+Velocity}}
+\begin{DoxyCompactList}\small\item\em Represents 3D linear velocity. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Kinematics}{types\+::\+Kinematics}}
+\begin{DoxyCompactList}\small\item\em Container for velocity and potential higher-\/order motion derivatives. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Covariance}{types\+::\+Covariance}}
+\begin{DoxyCompactList}\small\item\em Represents a simplified 2D covariance matrix for uncertainty estimation. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Entity}{types\+::\+Entity}}
+\begin{DoxyCompactList}\small\item\em Base class for any physical object in the Digital Twin environment. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Target}{types\+::\+Target}}
+\begin{DoxyCompactList}\small\item\em Represents a tracked dynamic object, such as an AIS vessel. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Trajectory}{types\+::\+Trajectory}}
+\begin{DoxyCompactList}\small\item\em Defines a planned path or historical route as a sequence of poses. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1MapData}{types\+::\+Map\+Data}}
+\begin{DoxyCompactList}\small\item\em Container for geospatial map references. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1Report}{types\+::\+Report}}
+\begin{DoxyCompactList}\small\item\em Base class for system-\/generated analysis reports. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1CollisionReport}{types\+::\+Collision\+Report}}
+\begin{DoxyCompactList}\small\item\em Contains Closest \doxylink{classtypes_1_1Point}{Point} of Approach (CPA) calculations for collision risk analysis. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtypes_1_1TargetCollisionReport}{types\+::\+Target\+Collision\+Report}}
+\begin{DoxyCompactList}\small\item\em Specific collision report associated with a tracked target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetypes}{types}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core data structures and domain models for the Digital Twin. 
+

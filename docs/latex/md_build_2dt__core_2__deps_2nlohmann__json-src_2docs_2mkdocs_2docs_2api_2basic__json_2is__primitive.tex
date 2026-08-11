@@ -1,0 +1,56 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}is\+\_\+primitive}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$is\_primitive@{$<$small$>$nlohmann::basic\_json::$<$/small$>$is\_primitive}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md512}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md512}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_primitive()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+This function returns {\ttfamily \#!cpp true} if and only if the JSON type is primitive (string, number, boolean, {\ttfamily \#!json null}, binary).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md513}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md513}
+{\ttfamily \#!cpp true} if type is primitive (string, number, boolean, {\ttfamily \#!json null}, or binary), {\ttfamily \#!cpp false} otherwise.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md514}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md514}
+No-\/throw guarantee\+: this member function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md515}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md515}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md516}{}\doxysection{\texorpdfstring{Possible implementation}{Possible implementation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md516}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{bool}\ is\_primitive()\ const\ noexcept}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ is\_null()\ ||\ is\_string()\ ||\ is\_boolean()\ ||\ is\_number()\ ||\ is\_binary();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md517}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md517}
+The term {\itshape primitive} stems from \href{https://tools.ietf.org/html/rfc8259}{\texttt{ RFC 8259}}\+:
+
+\begin{quote}
+JSON can represent four primitive types (strings, numbers, booleans, and null) and two structured types (objects and arrays). \end{quote}
+This library extends primitive types to binary types, because binary types are roughly comparable to strings. Hence, {\ttfamily is\+\_\+primitive()} returns {\ttfamily \#!cpp true} for binary values.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md518}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md518}
+??? example \begin{DoxyVerb}The following code exemplifies `is_primitive()` for all JSON types.
+
+```cpp
+--8<-- "examples/is_primitive.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/is_primitive.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md519}{}\doxysection{\texorpdfstring{See also}{See also}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md519}
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__structured}{is\+\_\+structured()}{0} returns whether JSON value is structured
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__null}{is\+\_\+null()}{0} returns whether JSON value is {\ttfamily null}
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__string}{is\+\_\+string()}{0} returns whether JSON value is a string
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__boolean}{is\+\_\+boolean()}{0} returns whether JSON value is a boolean
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__number}{is\+\_\+number()}{0} returns whether JSON value is a number
+\item \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__binary}{is\+\_\+binary()}{0} returns whether JSON value is a binary array
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md520}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2is__primitive_autotoc_md520}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Extended to return {\ttfamily \#!cpp true} for binary types in version 3.\+8.\+0. 
+\end{DoxyItemize}

@@ -1,0 +1,225 @@
+#include "../../include/map/mesh_generator.hpp"
+#include <iostream>
+#include <cmath>
+#include <poly2tri/poly2tri.h>
+
+std::vector<p2t::Point*> extract_clean_contour(OGRLinearRing* ring) {
+    std::vector<p2t::Point*> contour;
+    if (!ring || ring->getNumPoints() < 4) return contour;
+    
+    double epsilon = 0.1; // Tolerance for eliminating redundant/collinear vertices
+    for (int i = 0; i < ring->getNumPoints() - 1; i++) {
+        double x = ring->getX(i);
+        double y = ring->getY(i);
+        if (!contour.empty()) {
+            if (std::abs(x - contour.back()->x) < epsilon && std::abs(y - contour.back()->y) < epsilon) continue;
+        }
+        contour.push_back(new p2t::Point(x, y));
+    }
+    
+    // Ensures the contour does not replicate the starting point at the end
+    if (contour.size() >= 3) {
+        if (std::abs(contour.front()->x - contour.back()->x) < epsilon && 
+            std::abs(contour.front()->y - contour.back()->y) < epsilon) {
+            delete contour.back();
+            contour.pop_back();
+        }
+    }
+    return contour;
+}
+
+static OGRGeometry* ensure_polygon(OGRGeometry* geom) {
+    if (!geom) return nullptr;
+    OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
+    
+    if (type == wkbPolygon || type == wkbMultiPolygon) {
+        return geom->clone();
+    } else {
+        return geom->Buffer(1.0); // Static buffer to shield against feature type errors
+    }
+}
+
+OGRGeometry* MeshGenerator::filter_by_area(OGRGeometry* geom, double min_area) {
+    if (!geom) return nullptr;
+    OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
+
+    if (type == wkbPolygon) {
+        OGRPolygon* poly = geom->toPolygon();
+        if (poly->get_Area() >= min_area) return poly->clone();
+        return nullptr;
+    } 
+    else if (type == wkbMultiPolygon || type == wkbGeometryCollection) {
+        OGRGeometryCollection* col = (OGRGeometryCollection*)geom;
+        OGRMultiPolygon* new_multi = (OGRMultiPolygon*)OGRGeometryFactory::createGeometry(wkbMultiPolygon);
+        for (auto&& sub : *col) {
+            if (wkbFlatten(sub->getGeometryType()) == wkbPolygon) {
+                OGRPolygon* poly = sub->toPolygon();
+                if (poly->get_Area() >= min_area) {
+                    new_multi->addGeometry(poly->clone());
+                }
+            }
+        }
+        if (new_multi->getNumGeometries() > 0) return new_multi;
+        OGRGeometryFactory::destroyGeometry(new_multi);
+        return nullptr;
+    }
+    return geom->clone();
+}
+
+NavigationMesh MeshGenerator::generate(const ProcessedGeometries& geometries, double margin_meters, double simplification_tolerance) {
+    NavigationMesh nav_mesh;
+
+    std::cout << "[MeshGenerator] Processing and converting obstacles into polygons..." << std::endl;
+    std::vector<OGRGeometry*> polygon_obstacles;
+    for (auto* geom : geometries.obstacles) {
+        OGRGeometry* valid_poly = ensure_polygon(geom);
+        if (valid_poly) {
+            polygon_obstacles.push_back(valid_poly);
+        }
+    }
+
+    std::cout << "[MeshGenerator] Merging water and land polygons..." << std::endl;
+    OGRGeometry* mega_ocean = union_geometries(geometries.navigable_area);
+    OGRGeometry* original_land = union_geometries(polygon_obstacles);
+
+    for (auto* p : polygon_obstacles) OGRGeometryFactory::destroyGeometry(p);
+
+    nav_mesh.original_land = original_land ? original_land->clone() : nullptr;
+
+    std::cout << "[MeshGenerator] Calculating physical safety margins (Double Buffer)..." << std::endl;
+    OGRGeometry* real_expanded_land = nullptr;
+    OGRGeometry* navmesh_expanded_land = nullptr;
+
+    if (original_land && margin_meters > 0.0) {
+        real_expanded_land = original_land->Buffer(margin_meters);
+        nav_mesh.safety_margin = real_expanded_land->Difference(original_land);
+        navmesh_expanded_land = original_land->Buffer(margin_meters + simplification_tolerance);
+    } else if (original_land) {
+        real_expanded_land = original_land->clone();
+        navmesh_expanded_land = original_land->clone();
+    }
+
+    std::cout << "[MeshGenerator] Performing Boolean Difference (Water - Obstacles)..." << std::endl;
+    OGRGeometry* raw_safe_area = nullptr;
+    if (mega_ocean && navmesh_expanded_land) {
+        raw_safe_area = mega_ocean->Difference(navmesh_expanded_land);
+    } else if (mega_ocean) {
+        raw_safe_area = mega_ocean->clone();
+    }
+
+    std::cout << "[MeshGenerator] Filtering micro-islands/puddles (Slivers < 25m2)..." << std::endl;
+    OGRGeometry* filtered_area = filter_by_area(raw_safe_area, 25.0);
+
+    std::cout << "[MeshGenerator] Simplifying NavMesh contours..." << std::endl;
+    if (filtered_area && simplification_tolerance > 0.0) {
+        // Reduces vertex density while preserving topology.
+        // The maximum intrusion will be = simplification_tolerance, stopping exactly at the Real Margin.
+        nav_mesh.safe_navigable_perimeter = filtered_area->SimplifyPreserveTopology(simplification_tolerance);
+    } else if (filtered_area) {
+        nav_mesh.safe_navigable_perimeter = filtered_area->clone();
+    }
+
+    // Memory release of intermediate geometries from the pipeline
+    if (mega_ocean) OGRGeometryFactory::destroyGeometry(mega_ocean);
+    if (original_land) OGRGeometryFactory::destroyGeometry(original_land);
+    if (real_expanded_land) OGRGeometryFactory::destroyGeometry(real_expanded_land);
+    if (navmesh_expanded_land) OGRGeometryFactory::destroyGeometry(navmesh_expanded_land);
+    if (raw_safe_area) OGRGeometryFactory::destroyGeometry(raw_safe_area);
+    if (filtered_area) OGRGeometryFactory::destroyGeometry(filtered_area);
+
+    if (!nav_mesh.safe_navigable_perimeter) return nav_mesh;
+
+    std::cout << "[MeshGenerator] Starting Triangulation (CDT)..." << std::endl;
+    int fail_counter = 0;
+
+    // Internal lambda function for processing simple and complex geometries (MultiPolygons)
+    auto process_geometry = [&](OGRGeometry* geom) {
+        OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
+        if (type == wkbPolygon) {
+            triangulate_polygon(geom->toPolygon(), nav_mesh.triangles, fail_counter);
+        } 
+        else if (type == wkbMultiPolygon || type == wkbGeometryCollection) {
+            OGRGeometryCollection* collection = (OGRGeometryCollection*)geom;
+            for (auto&& sub_geom : *collection) {
+                if (wkbFlatten(sub_geom->getGeometryType()) == wkbPolygon) {
+                    triangulate_polygon(sub_geom->toPolygon(), nav_mesh.triangles, fail_counter);
+                }
+            }
+        }
+    };
+
+    process_geometry(nav_mesh.safe_navigable_perimeter);
+
+    if (fail_counter > 0) {
+        std::cout << "[MeshGenerator] WARNING: " << fail_counter << " problematic sub-polygons ignored." << std::endl;
+    }
+    std::cout << "[MeshGenerator] Mesh completed! Triangles generated: " << nav_mesh.triangles.size() << std::endl;
+    return nav_mesh;
+}
+
+OGRGeometry* MeshGenerator::union_geometries(const std::vector<OGRGeometry*>& geometry_list) {
+    if (geometry_list.empty()) return nullptr;
+    OGRGeometry* geometric_union = geometry_list[0]->clone();
+    for (size_t i = 1; i < geometry_list.size(); i++) {
+        OGRGeometry* temp = geometric_union->Union(geometry_list[i]);
+        if (temp) {
+            OGRGeometryFactory::destroyGeometry(geometric_union);
+            geometric_union = temp;
+        }
+    }
+    return geometric_union;
+}
+
+void MeshGenerator::triangulate_polygon(OGRPolygon* polygon, std::vector<Triangle>& target_list, int& fail_counter) {
+    if (!polygon) return;
+    
+    // Forces correction of topological closure and self-intersections with zero buffer
+    OGRPolygon* clean_poly = (OGRPolygon*)polygon->Buffer(0.0);
+    if (!clean_poly) clean_poly = polygon;
+    
+    OGRLinearRing* ext_ring = clean_poly->getExteriorRing();
+    std::vector<p2t::Point*> ext_contour = extract_clean_contour(ext_ring);
+
+    if (ext_contour.size() < 3) {
+        for (auto* p : ext_contour) delete p;
+        if (clean_poly != polygon) OGRGeometryFactory::destroyGeometry(clean_poly);
+        return;
+    }
+
+    p2t::CDT* cdt = nullptr;
+    std::vector<std::vector<p2t::Point*>> holes_list;
+
+    try {
+        // Initializes the CDT structural engine passing the external boundary
+        cdt = new p2t::CDT(ext_contour);
+        
+        // Injects the internal rings (islands/restrictions) as geometric holes in the engine
+        int num_holes = clean_poly->getNumInteriorRings();
+        for (int b = 0; b < num_holes; b++) {
+            std::vector<p2t::Point*> p2t_hole = extract_clean_contour(clean_poly->getInteriorRing(b));
+            if (p2t_hole.size() >= 3) {
+                cdt->AddHole(p2t_hole);
+                holes_list.push_back(p2t_hole);
+            } else {
+                for (auto* p : p2t_hole) delete p;
+            }
+        }
+        
+        // Processes the restrictions and generates the triangular mesh
+        cdt->Triangulate();
+        
+        // Maps the triangles generated by poly2tri to the internal native system structure
+        std::vector<p2t::Triangle*> tris = cdt->GetTriangles();
+        for (auto* t : tris) {
+            target_list.push_back({{t->GetPoint(0)->x, t->GetPoint(0)->y}, {t->GetPoint(1)->x, t->GetPoint(1)->y}, {t->GetPoint(2)->x, t->GetPoint(2)->y}});
+        }
+    } catch (...) { 
+        fail_counter++; 
+    }
+
+    // Local memory release of the triangulation scope
+    if (cdt) delete cdt;
+    for (auto* p : ext_contour) delete p;
+    for (auto& hole : holes_list) { for (auto* p : hole) delete p; }
+    if (clean_poly != polygon) OGRGeometryFactory::destroyGeometry(clean_poly);
+}

@@ -1,0 +1,30 @@
+\chapter{USV Digital Twin -\/ Official Documentation}
+\hypertarget{index}{}\label{index}\index{USV Digital Twin -\/ Official Documentation@{USV Digital Twin -\/ Official Documentation}}
+\hypertarget{index_intro_sec}{}\doxysection{\texorpdfstring{1. Digital Twin General Flow}{1. Digital Twin General Flow}}\label{index_intro_sec}
+The {\bfseries{USV Digital Twin}} acts as the computational brain for the Unmanned Surface Vehicle. The overall system flow starts with the ingestion of official S-\/57 nautical charts, followed by the generation of a spatial Navigation Mesh (Nav\+Mesh) using Constrained Delaunay Triangulation (CDT).
+
+At runtime, the system maintains a thread-\/safe {\ttfamily World\+State\+Snapshot}. This snapshot unifies the static map (via R-\/\+Tree spatial indexing), the USV real-\/time odometry, and the predictive kinematics of dynamic targets to calculate spatial risk fields and predict collisions.\hypertarget{index_arch_sec}{}\doxysection{\texorpdfstring{2. System Architecture (\+Separation of Concerns)}{2. System Architecture (Separation of Concerns)}}\label{index_arch_sec}
+The project is divided into four main packages to isolate the mathematical engine from the communication middleware\+:
+
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+core}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: The pure C++ central engine (ROS-\/independent). Handles geometric processing (GDAL/\+Boost), Spatial Indexes, memory-\/safe Snapshot generation, and collision prediction algorithms.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Custom message definitions (IDL) for data traffic on the ROS 2 bus.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__ros}{dt\+\_\+ros}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: The Adapter Node. Acts as a bridge, subscribing to the USV sensors and injecting translated raw data into the {\ttfamily dt\+\_\+core} asynchronously.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+viz}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Diagnostic Graphical User Interface (GUI) developed in Qt5.
+\end{DoxyItemize}\hypertarget{index_qt_gui_sec}{}\doxysection{\texorpdfstring{3. Qt GUI \& Threading Integration}{3. Qt GUI \& Threading Integration}}\label{index_qt_gui_sec}
+To ensure the Qt GUI rendering does not cause {\itshape thread-\/blocking} issues with the ROS 2 spin loop, the architecture strictly uses the Immutable Snapshot pattern.
+
+The frontend GUI communicates by requesting {\ttfamily Digital\+Twin\+Core\+::get\+\_\+latest\+\_\+state()}. This returns a frozen pointer of the environment. The Qt application consumes this data via asynchronous Timers and Signals/\+Slots, querying the Spatial Engine (O(\+Log\+N)) to draw heatmaps, targets, and alerts without locking the backend data ingestion.\hypertarget{index_ros_api_sec}{}\doxysection{\texorpdfstring{4. ROS 2 API (\+Topics \& Interfaces)}{4. ROS 2 API (Topics \& Interfaces)}}\label{index_ros_api_sec}
+The {\ttfamily \doxylink{namespacedt__ros}{dt\+\_\+ros}} adapter interfaces with the rest of the USV stack through the following topics\+:\hypertarget{index_sub_sec}{}\doxysubsection{\texorpdfstring{Subscribers (\+Inputs to the Twin)}{Subscribers (Inputs to the Twin)}}\label{index_sub_sec}
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily /sensors/gps/fix}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ({\ttfamily sensor\+\_\+msgs/\+Nav\+Sat\+Fix})\+: USV global position (Lat/\+Lon).
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily /sensors/imu/data}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ({\ttfamily sensor\+\_\+msgs/\+Imu})\+: USV orientation (Euler/\+Quaternions).
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily /sensors/ais/report}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ({\ttfamily dt\+\_\+msgs/\+Ais\+Report})\+: List of tracked dynamic targets in range.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily /planned\+\_\+route}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ({\ttfamily nav\+\_\+msgs/\+Path})\+: The current route (waypoints) planned by the navigation stack.
+\end{DoxyItemize}\hypertarget{index_pub_sec}{}\doxysubsection{\texorpdfstring{Publishers (\+Outputs from the Twin)}{Publishers (Outputs from the Twin)}}\label{index_pub_sec}
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily /collision\+\_\+alert}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} ({\ttfamily dt\+\_\+msgs/\+Collision\+Alert})\+: Consolidated operational alerts containing Time to Closest Point of Approach (TCPA), distance metrics, and computed risk indexes for each target. 
+\end{DoxyItemize}

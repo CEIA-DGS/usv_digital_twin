@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['6_0',['v2.0.6',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1676',1,'']]],
+  ['6_200_1',['v3.6.0',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1591',1,'']]],
+  ['6_200_20v3_206_200_20a_202019_2003_2019_2',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.6.0&quot; &gt;v3.6.0&lt;/a&gt; (2019-03-19)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md19',1,'']]],
+  ['6_201_3',['v3.6.1',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1586',1,'']]],
+  ['6_201_203_206_201_20a_202019_2003_2020_4',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/3.6.1&quot; &gt;3.6.1&lt;/a&gt; (2019-03-20)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md18',1,'']]],
+  ['6_201_20v3_206_201_20a_202019_2003_2020_5',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.6.1&quot; &gt;v3.6.1&lt;/a&gt; (2019-03-20)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md17',1,'']]],
+  ['6_20v2_200_206_20a_202016_2010_2015_6',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v2.0.6&quot; &gt;v2.0.6&lt;/a&gt; (2016-10-15)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md46',1,'']]]
+];

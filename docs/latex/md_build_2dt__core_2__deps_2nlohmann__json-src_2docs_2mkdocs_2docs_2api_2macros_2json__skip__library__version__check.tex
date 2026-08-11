@@ -1,0 +1,32 @@
+\chapter{JSON\+\_\+\+SKIP\+\_\+\+LIBRARY\+\_\+\+VERSION\+\_\+\+CHECK}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check}\index{JSON\_SKIP\_LIBRARY\_VERSION\_CHECK@{JSON\_SKIP\_LIBRARY\_VERSION\_CHECK}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1192}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1192}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_SKIP\_LIBRARY\_VERSION\_CHECK}}
+
+\end{DoxyCode}
+
+
+When defined, the library will not create a compiler warning when a different version of the library was already included.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1193}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1193}
+By default, the macro is not defined.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#undef\ JSON\_SKIP\_LIBRARY\_VERSION\_CHECK}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1194}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1194}
+!!! danger "{}\+ABI compatibility"{} \begin{DoxyVerb}Mixing different library versions in the same code can be a problem as the different versions may not be ABI
+compatible.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1195}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1195}
+!!! example \begin{DoxyVerb}The following warning will be shown in case a different version of the library was already included:
+
+```
+Already included a different version of the library!
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1196}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__skip__library__version__check_autotoc_md1196}
+Added in version 3.\+11.\+0. 

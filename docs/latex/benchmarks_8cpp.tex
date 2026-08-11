@@ -1,0 +1,371 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/benchmarks/src/benchmarks.cpp File Reference}
+\hypertarget{benchmarks_8cpp}{}\label{benchmarks_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/benchmarks/src/benchmarks.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/benchmarks/src/benchmarks.cpp}}
+{\ttfamily \#include $<$benchmark/benchmark.\+h$>$}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$numeric$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$test\+\_\+data.\+hpp$>$}\newline
+Include dependency graph for benchmarks.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{benchmarks_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{benchmarks_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} = \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_af0bd9ba1aab9ee6fa691d8d221888d16}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, jeopardy, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a0c57f4d6974b106d409b6eb63d046b55}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, canada, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a5bcaa78bd37a73e1d4dae495e8f2b585}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, citm\+\_\+catalog, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a58d706e1b217049ae18cfc5fd60a8984}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, twitter, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_aa65e8541b743c161006eef11961c90c0}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, floats, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_afff49da8f38506881c6f81995e4e0a87}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a5d03c3515c59f9ae2156b3dd37bb56c2}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, unsigned\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_ae1efd392d677472dfc5b39c7db2b955a}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+File, small\+\_\+signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a8405fbc2d407c735dbf22e879f578d5c}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, jeopardy, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a5a132eb70d61dcf2ba85c88feb30e597}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, canada, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a74299a9327fdf79acc1ebd9887730d8e}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, citm\+\_\+catalog, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_ac5656376c341a13296cb068b6a942bfa}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, twitter, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a27b67bd20394c3dfc97c21e06ab1d0c7}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, floats, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a86d41e6bfbb620e8e3321b45e331d5a8}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a8fb8b9ae4166da470d3e0ab78d2b02c2}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, unsigned\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a7dc157da04c9e9727763b16c084f678f}{BENCHMARK\+\_\+\+CAPTURE}} (Parse\+String, small\+\_\+signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a667146a252cdd58e3e3608c85d56fdb5}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, jeopardy/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a018c35865b0f446b34fed22829fb70ee}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, jeopardy/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_ab67bc38dfd111528862de995419d27f7}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, canada/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a53e900b8b816631e4258a514b2ec2c02}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, canada/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_aa8eec1ea8dfa54a51254fe8f8b0f014d}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, citm\+\_\+catalog/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_ad0f99b4b6c82b9d88da04a55a6c11eb3}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, citm\+\_\+catalog/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_afce5ae2fa18fa4face30bd74bc57f95d}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, twitter/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a3f2c4e844098452cca5eb1e9222585e8}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, twitter/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_acf99365798218e0d5863107cbb10ce4e}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, floats/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_aafe7223a7cf3996ea6955aaf0f09bf5e}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, floats/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a6f1acdbffba8a23af352315a107624c3}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, signed\+\_\+ints/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a3431311472e30442e60689fc440b654d}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, signed\+\_\+ints/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_ac4dbb07c37f2b642b6bb4accc8c9400a}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, unsigned\+\_\+ints/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a0048c4d6c22299ca68cde6b23be51860}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, unsigned\+\_\+ints/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a7d5eceb288be12569d4af05214638f5d}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, small\+\_\+signed\+\_\+ints/-\/, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}, -\/1)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a4f06ecaa2200e2de29bd383786b64947}{BENCHMARK\+\_\+\+CAPTURE}} (Dump, small\+\_\+signed\+\_\+ints/4, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}, 4)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a5f9fbf80951c42575c0eb96dd7549a01}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, jeopardy, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a4e6e66bdf5ea61e6d5cdfd4e0d5f9c1b}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, canada, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a82bfa81115b0e976a664f6440f7282a4}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, citm\+\_\+catalog, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a80ef5d462384a5b3daf21e04bc810e85}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, twitter, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a6c9d0ee12b3ce5734f8a990f7a6a8f50}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, floats, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a372e68511ead8982d241b555591df2e0}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a783e02a9821c752c2d7bd9fcc4bf122c}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, unsigned\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a7c3bd3eb98381697f9aa8dd257c895ef}{BENCHMARK\+\_\+\+CAPTURE}} (To\+Cbor, small\+\_\+signed\+\_\+ints, TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{})
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_af3000b09e3d0c1490a85e7bd8a27610d}{BENCHMARK}} (Binary\+To\+Cbor) -\/$>$ Range\+Multiplier(2) -\/$>$Range(8, 8$<$$<$ 12)
+\item 
+\mbox{\hyperlink{benchmarks_8cpp_a5851750faa9cfec10f7cad1f3b89697e}{BENCHMARK\+\_\+\+MAIN}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{benchmarks_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}\label{benchmarks_8cpp_ab701e3ac61a85b337ec5c1abaad6742d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!json@{json}}
+\index{json@{json}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{json}{json}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{accept____string_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{json}} =  \mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{benchmarks_8cpp_af3000b09e3d0c1490a85e7bd8a27610d}\label{benchmarks_8cpp_af3000b09e3d0c1490a85e7bd8a27610d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK@{BENCHMARK}}
+\index{BENCHMARK@{BENCHMARK}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK()}{BENCHMARK()}}
+{\footnotesize\ttfamily BENCHMARK (\begin{DoxyParamCaption}\item[{Binary\+To\+Cbor}]{ }\end{DoxyParamCaption}) -\/$>$  Range\+Multiplier(2) -\/$>$Range(8, 8$<$$<$ 12)}
+
+\Hypertarget{benchmarks_8cpp_ab67bc38dfd111528862de995419d27f7}\label{benchmarks_8cpp_ab67bc38dfd111528862de995419d27f7} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{canada/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a53e900b8b816631e4258a514b2ec2c02}\label{benchmarks_8cpp_a53e900b8b816631e4258a514b2ec2c02} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{canada/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_aa8eec1ea8dfa54a51254fe8f8b0f014d}\label{benchmarks_8cpp_aa8eec1ea8dfa54a51254fe8f8b0f014d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [3/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{citm\+\_\+catalog/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_ad0f99b4b6c82b9d88da04a55a6c11eb3}\label{benchmarks_8cpp_ad0f99b4b6c82b9d88da04a55a6c11eb3} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [4/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{citm\+\_\+catalog/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_acf99365798218e0d5863107cbb10ce4e}\label{benchmarks_8cpp_acf99365798218e0d5863107cbb10ce4e} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [5/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{floats/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_aafe7223a7cf3996ea6955aaf0f09bf5e}\label{benchmarks_8cpp_aafe7223a7cf3996ea6955aaf0f09bf5e} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [6/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{floats/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a667146a252cdd58e3e3608c85d56fdb5}\label{benchmarks_8cpp_a667146a252cdd58e3e3608c85d56fdb5} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [7/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{jeopardy/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a018c35865b0f446b34fed22829fb70ee}\label{benchmarks_8cpp_a018c35865b0f446b34fed22829fb70ee} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [8/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{jeopardy/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a6f1acdbffba8a23af352315a107624c3}\label{benchmarks_8cpp_a6f1acdbffba8a23af352315a107624c3} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [9/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{signed\+\_\+ints/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a3431311472e30442e60689fc440b654d}\label{benchmarks_8cpp_a3431311472e30442e60689fc440b654d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [10/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{signed\+\_\+ints/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a7d5eceb288be12569d4af05214638f5d}\label{benchmarks_8cpp_a7d5eceb288be12569d4af05214638f5d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [11/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{small\+\_\+signed\+\_\+ints/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a4f06ecaa2200e2de29bd383786b64947}\label{benchmarks_8cpp_a4f06ecaa2200e2de29bd383786b64947} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [12/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{small\+\_\+signed\+\_\+ints/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_afce5ae2fa18fa4face30bd74bc57f95d}\label{benchmarks_8cpp_afce5ae2fa18fa4face30bd74bc57f95d} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [13/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{twitter/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a3f2c4e844098452cca5eb1e9222585e8}\label{benchmarks_8cpp_a3f2c4e844098452cca5eb1e9222585e8} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [14/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{twitter/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_ac4dbb07c37f2b642b6bb4accc8c9400a}\label{benchmarks_8cpp_ac4dbb07c37f2b642b6bb4accc8c9400a} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [15/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{unsigned\+\_\+ints/-\/}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}}]{,  }\item[{-\/}]{1 }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a0048c4d6c22299ca68cde6b23be51860}\label{benchmarks_8cpp_a0048c4d6c22299ca68cde6b23be51860} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [16/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Dump}]{,  }\item[{unsigned\+\_\+ints/}]{4,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}}]{,  }\item[{4}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a0c57f4d6974b106d409b6eb63d046b55}\label{benchmarks_8cpp_a0c57f4d6974b106d409b6eb63d046b55} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [17/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{canada}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a5bcaa78bd37a73e1d4dae495e8f2b585}\label{benchmarks_8cpp_a5bcaa78bd37a73e1d4dae495e8f2b585} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [18/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{citm\+\_\+catalog}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_aa65e8541b743c161006eef11961c90c0}\label{benchmarks_8cpp_aa65e8541b743c161006eef11961c90c0} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [19/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{floats}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_af0bd9ba1aab9ee6fa691d8d221888d16}\label{benchmarks_8cpp_af0bd9ba1aab9ee6fa691d8d221888d16} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [20/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{jeopardy}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_afff49da8f38506881c6f81995e4e0a87}\label{benchmarks_8cpp_afff49da8f38506881c6f81995e4e0a87} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [21/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_ae1efd392d677472dfc5b39c7db2b955a}\label{benchmarks_8cpp_ae1efd392d677472dfc5b39c7db2b955a} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [22/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{small\+\_\+signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a58d706e1b217049ae18cfc5fd60a8984}\label{benchmarks_8cpp_a58d706e1b217049ae18cfc5fd60a8984} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [23/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{twitter}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a5d03c3515c59f9ae2156b3dd37bb56c2}\label{benchmarks_8cpp_a5d03c3515c59f9ae2156b3dd37bb56c2} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [24/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+File}]{,  }\item[{unsigned\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a5a132eb70d61dcf2ba85c88feb30e597}\label{benchmarks_8cpp_a5a132eb70d61dcf2ba85c88feb30e597} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [25/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{canada}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a74299a9327fdf79acc1ebd9887730d8e}\label{benchmarks_8cpp_a74299a9327fdf79acc1ebd9887730d8e} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [26/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{citm\+\_\+catalog}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a27b67bd20394c3dfc97c21e06ab1d0c7}\label{benchmarks_8cpp_a27b67bd20394c3dfc97c21e06ab1d0c7} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [27/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{floats}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a8405fbc2d407c735dbf22e879f578d5c}\label{benchmarks_8cpp_a8405fbc2d407c735dbf22e879f578d5c} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [28/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{jeopardy}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a86d41e6bfbb620e8e3321b45e331d5a8}\label{benchmarks_8cpp_a86d41e6bfbb620e8e3321b45e331d5a8} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [29/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a7dc157da04c9e9727763b16c084f678f}\label{benchmarks_8cpp_a7dc157da04c9e9727763b16c084f678f} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [30/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{small\+\_\+signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_ac5656376c341a13296cb068b6a942bfa}\label{benchmarks_8cpp_ac5656376c341a13296cb068b6a942bfa} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [31/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{twitter}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a8fb8b9ae4166da470d3e0ab78d2b02c2}\label{benchmarks_8cpp_a8fb8b9ae4166da470d3e0ab78d2b02c2} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [32/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{Parse\+String}]{,  }\item[{unsigned\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a4e6e66bdf5ea61e6d5cdfd4e0d5f9c1b}\label{benchmarks_8cpp_a4e6e66bdf5ea61e6d5cdfd4e0d5f9c1b} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [33/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{canada}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/canada.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a82bfa81115b0e976a664f6440f7282a4}\label{benchmarks_8cpp_a82bfa81115b0e976a664f6440f7282a4} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [34/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{citm\+\_\+catalog}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/citm\+\_\+catalog.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a6c9d0ee12b3ce5734f8a990f7a6a8f50}\label{benchmarks_8cpp_a6c9d0ee12b3ce5734f8a990f7a6a8f50} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [35/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{floats}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/floats.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a5f9fbf80951c42575c0eb96dd7549a01}\label{benchmarks_8cpp_a5f9fbf80951c42575c0eb96dd7549a01} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [36/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{jeopardy}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/jeopardy/jeopardy.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a372e68511ead8982d241b555591df2e0}\label{benchmarks_8cpp_a372e68511ead8982d241b555591df2e0} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [37/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a7c3bd3eb98381697f9aa8dd257c895ef}\label{benchmarks_8cpp_a7c3bd3eb98381697f9aa8dd257c895ef} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [38/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{small\+\_\+signed\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/small\+\_\+signed\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a80ef5d462384a5b3daf21e04bc810e85}\label{benchmarks_8cpp_a80ef5d462384a5b3daf21e04bc810e85} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [39/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{twitter}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/nativejson-\/benchmark/twitter.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a783e02a9821c752c2d7bd9fcc4bf122c}\label{benchmarks_8cpp_a783e02a9821c752c2d7bd9fcc4bf122c} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}}
+\index{BENCHMARK\_CAPTURE@{BENCHMARK\_CAPTURE}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_CAPTURE()}{BENCHMARK\_CAPTURE()}\hspace{0.1cm}{\footnotesize\ttfamily [40/40]}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+CAPTURE (\begin{DoxyParamCaption}\item[{To\+Cbor}]{,  }\item[{unsigned\+\_\+ints}]{,  }\item[{TEST\+\_\+\+DATA\+\_\+\+DIRECTORY "{}/regression/unsigned\+\_\+ints.\+json"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{benchmarks_8cpp_a5851750faa9cfec10f7cad1f3b89697e}\label{benchmarks_8cpp_a5851750faa9cfec10f7cad1f3b89697e} 
+\index{benchmarks.cpp@{benchmarks.cpp}!BENCHMARK\_MAIN@{BENCHMARK\_MAIN}}
+\index{BENCHMARK\_MAIN@{BENCHMARK\_MAIN}!benchmarks.cpp@{benchmarks.cpp}}
+\doxysubsubsection{\texorpdfstring{BENCHMARK\_MAIN()}{BENCHMARK\_MAIN()}}
+{\footnotesize\ttfamily BENCHMARK\+\_\+\+MAIN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+

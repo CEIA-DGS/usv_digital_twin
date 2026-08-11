@@ -1,0 +1,35 @@
+\chapter{JSON\+\_\+\+NO\+\_\+\+IO}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io}\index{JSON\_NO\_IO@{JSON\_NO\_IO}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1182}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1182}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_NO\_IO}}
+
+\end{DoxyCode}
+
+
+When defined, headers {\ttfamily \texorpdfstring{$<$}{<}cstdio\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}ios\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}iosfwd\texorpdfstring{$>$}{>}}, {\ttfamily \texorpdfstring{$<$}{<}istream\texorpdfstring{$>$}{>}}, and {\ttfamily \texorpdfstring{$<$}{<}ostream\texorpdfstring{$>$}{>}} are not included and parse functions relying on these headers are excluded. This is relevant for environments where these I/O functions are disallowed for security reasons (e.\+g., Intel Software Guard Extensions (SGX)).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1183}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1183}
+By default, {\ttfamily \#!cpp JSON\+\_\+\+NO\+\_\+\+IO} is not defined.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#undef\ JSON\_NO\_IO}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1184}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1184}
+??? example \begin{DoxyVerb}The code below forces the library not to use the headers `<cstdio>`, `<ios>`, `<iosfwd>`, `<istream>`, and
+`<ostream>`.
+
+```cpp
+#define JSON_NO_IO 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1185}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__no__io_autotoc_md1185}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+10.\+0. 
+\end{DoxyItemize}

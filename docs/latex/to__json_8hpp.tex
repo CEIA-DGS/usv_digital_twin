@@ -1,0 +1,97 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/conversions/to\+\_\+json.hpp File Reference}
+\hypertarget{to__json_8hpp}{}\label{to__json_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/conversions/to\_json.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/conversions/to\_json.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/iteration\+\_\+proxy.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/cpp\+\_\+future.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/std\+\_\+fs.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/type\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/value\+\_\+t.\+hpp$>$}\newline
+Include dependency graph for to\+\_\+json.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{to__json_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{to__json_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1boolean_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::boolean $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1string_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::string $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1binary_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::binary $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1number__float_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::number\+\_\+float $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1number__unsigned_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::number\+\_\+unsigned $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1number__integer_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::number\+\_\+integer $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1array_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::array $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1external__constructor_3_01value__t_1_1object_01_4}{detail\+::external\+\_\+constructor$<$ value\+\_\+t\+::object $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1to__json__fn}{detail\+::to\+\_\+json\+\_\+fn}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename T , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+same$<$ T, typename Basic\+Json\+Type\+::boolean\+\_\+t $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_acfdf2e4c8f09d5acaa2841358db51f82}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, T b) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Bool\+Ref , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$((std\+::is\+\_\+same$<$ std\+::vector$<$ bool $>$\+::reference, Bool\+Ref $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!std\+::is\+\_\+same$<$ std\+::vector$<$ bool $>$\+::reference, typename Basic\+Json\+Type\+::boolean\+\_\+t \& $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}(std\+::is\+\_\+same$<$ std\+::vector$<$ bool $>$\+::const\+\_\+reference, Bool\+Ref $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!std\+::is\+\_\+same$<$ \mbox{\hyperlink{namespacedetail_ad76afb2c3a23eb88e7efb7c5d5499574}{detail\+::uncvref\+\_\+t}}$<$ std\+::vector$<$ bool $>$\+::const\+\_\+reference $>$, typename Basic\+Json\+Type\+::boolean\+\_\+t $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}})) \&\&std\+::is\+\_\+convertible$<$ const Bool\+Ref \&, typename Basic\+Json\+Type\+::boolean\+\_\+t $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a432a72eacdbf2e603aadbef62b0693e5}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const Bool\+Ref \&b) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Compatible\+String , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+constructible$<$ typename Basic\+Json\+Type\+::string\+\_\+t, Compatible\+String $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a5c8440d5ee74cd66effc302294a0f03a}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const Compatible\+String \&s)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_a4efa05c0a1af490d3cd2244ab1ec2935}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, typename Basic\+Json\+Type\+::string\+\_\+t \&\&s)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Float\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+floating\+\_\+point$<$ Float\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a0fd79e26a03ad0f6f014acde6ca955ab}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, Float\+Type val) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Compatible\+Number\+Unsigned\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1is__compatible__integer__type}{is\+\_\+compatible\+\_\+integer\+\_\+type}}$<$ typename Basic\+Json\+Type\+::number\+\_\+unsigned\+\_\+t, Compatible\+Number\+Unsigned\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_af4eec865929224a2edcdd86e0e2f5381}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, Compatible\+Number\+Unsigned\+Type val) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Compatible\+Number\+Integer\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1is__compatible__integer__type}{is\+\_\+compatible\+\_\+integer\+\_\+type}}$<$ typename Basic\+Json\+Type\+::number\+\_\+integer\+\_\+t, Compatible\+Number\+Integer\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_aca950b6f8e111cbf473fa0a30b4118a9}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, Compatible\+Number\+Integer\+Type val) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Enum\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+enum$<$ Enum\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a0aa73b51ab32301503f808871a7d1130}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, Enum\+Type e) noexcept
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_a898665fe3505e4124ee130ac40b5f7c2}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const std\+::vector$<$ bool $>$ \&e)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Compatible\+Array\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1is__compatible__array__type}{is\+\_\+compatible\+\_\+array\+\_\+type}}$<$ Basic\+Json\+Type, Compatible\+Array\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{structdetail_1_1is__compatible__object__type}{is\+\_\+compatible\+\_\+object\+\_\+type}}$<$ Basic\+Json\+Type, Compatible\+Array\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{structdetail_1_1is__compatible__string__type}{is\+\_\+compatible\+\_\+string\+\_\+type}}$<$ Basic\+Json\+Type, Compatible\+Array\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!std\+::is\+\_\+same$<$ typename Basic\+Json\+Type\+::binary\+\_\+t, Compatible\+Array\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{structdetail_1_1is__basic__json}{is\+\_\+basic\+\_\+json}}$<$ Compatible\+Array\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a13eaa461d3df66f08b281ed8ef67443d}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const Compatible\+Array\+Type \&arr)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_aac4c34558512e0288775fefb01900d24}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const typename Basic\+Json\+Type\+::binary\+\_\+t \&bin)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename T , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+convertible$<$ T, Basic\+Json\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a71164c6a1be656ae46c8a48a9f4f024f}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const std\+::valarray$<$ T $>$ \&arr)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_aee383505e04bd7c68d4a288870147ff4}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, typename Basic\+Json\+Type\+::array\+\_\+t \&\&arr)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Compatible\+Object\+Type , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ \mbox{\hyperlink{structdetail_1_1is__compatible__object__type}{is\+\_\+compatible\+\_\+object\+\_\+type}}$<$ Basic\+Json\+Type, Compatible\+Object\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&!\mbox{\hyperlink{structdetail_1_1is__basic__json}{is\+\_\+basic\+\_\+json}}$<$ Compatible\+Object\+Type $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a210ddcd90b4d42832abc02eb516c4d99}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const Compatible\+Object\+Type \&obj)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type $>$ }\\void \mbox{\hyperlink{namespacedetail_a48b6774b5ab06f17f77c683d85f0b0b2}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, typename Basic\+Json\+Type\+::object\+\_\+t \&\&obj)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename T , \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} N, \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ !std\+::is\+\_\+constructible$<$ typename Basic\+Json\+Type\+::string\+\_\+t, const T(\&)\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\mbox{]}$>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a120fee99373c660eb270811fd26226c8}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const T(\&arr)\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}\mbox{]})
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename T1 , typename T2 , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+constructible$<$ Basic\+Json\+Type, T1 $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}} \&\&std\+::is\+\_\+constructible$<$ Basic\+Json\+Type, T2 $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_ade7a3840a7af072111b938aafefa4bef}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const std\+::pair$<$ T1, T2 $>$ \&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename T , \mbox{\hyperlink{namespacedetail_a66bbcd629c83a87ba9cbc72a675cf84a}{enable\+\_\+if\+\_\+t}}$<$ std\+::is\+\_\+same$<$ T, \mbox{\hyperlink{classdetail_1_1iteration__proxy__value}{iteration\+\_\+proxy\+\_\+value}}$<$ typename Basic\+Json\+Type\+::iterator $>$ $>$\mbox{\hyperlink{namespacedetail_a47b1bb0bbd3596589ed9187059c312efa2063c1608d6e0baf80249c42e2be5804}{\+::value}}, int $>$  = 0$>$ }\\void \mbox{\hyperlink{namespacedetail_a3f5949a32eedf94fb0b98fd189fda0d6}{detail\+::to\+\_\+json}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const T \&b)
+\item 
+{\footnotesize template$<$typename Basic\+Json\+Type , typename Tuple , std\+::size\+\_\+t... Idx$>$ }\\void \mbox{\hyperlink{namespacedetail_a0d4851287a8b8b21ca8605d31ca446ea}{detail\+::to\+\_\+json\+\_\+tuple\+\_\+impl}} (Basic\+Json\+Type \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}, const Tuple \&t, \mbox{\hyperlink{namespacedetail_a4e6f1f2e94159041593901afc8f0c9b0}{index\+\_\+sequence}}$<$ Idx... $>$)
+\end{DoxyCompactItemize}

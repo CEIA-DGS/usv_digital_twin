@@ -1,0 +1,9 @@
+<map id="dt_msgs__msg__AisReport" name="dt_msgs__msg__AisReport">
+<area shape="rect" id="Node000001" title="Struct defined in msg/AisReport in the package dt_msgs." alt="" coords="79,211,275,236"/>
+<area shape="rect" id="Node000002" href="$structdt__msgs____msg____AisTarget____Sequence.html" title=" " alt="" coords="80,108,273,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,162,179,210,174,210,174,162"/>
+<area shape="rect" id="Node000003" href="$structdt__msgs____msg____AisTarget.html" title="Struct defined in msg/AisTarget in the package dt_msgs." alt="" coords="5,5,199,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="120,41,166,106,161,109,116,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="223,5,283,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="239,43,192,109,188,106,235,40"/>
+</map>

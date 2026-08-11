@@ -1,0 +1,35 @@
+\chapter{JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+11, JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+14, JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+17, JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+20}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11}\index{JSON\_HAS\_CPP\_11, JSON\_HAS\_CPP\_14, JSON\_HAS\_CPP\_17, JSON\_HAS\_CPP\_20@{JSON\_HAS\_CPP\_11, JSON\_HAS\_CPP\_14, JSON\_HAS\_CPP\_17, JSON\_HAS\_CPP\_20}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1160}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1160}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_CPP\_11}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_CPP\_14}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_CPP\_17}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_CPP\_20}}
+
+\end{DoxyCode}
+
+
+The library targets C++11, but also supports some features introduced in later C++ versions (e.\+g., {\ttfamily std\+::string\+\_\+view} support for C++17). For these new features, the library implements some preprocessor checks to determine the C++ standard. By defining any of these symbols, the internal check is overridden and the provided C++ version is unconditionally assumed. This can be helpful for compilers that only implement parts of the standard and would be detected incorrectly.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1161}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1161}
+The default value is detected based on preprocessor macros such as {\ttfamily \#!cpp \+\_\+\+\_\+cplusplus}, {\ttfamily \#!cpp \+\_\+\+HAS\+\_\+\+CXX17}, or {\ttfamily \#!cpp \+\_\+\+MSVC\+\_\+\+LANG}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1162}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1162}
+
+\begin{DoxyItemize}
+\item {\ttfamily \#!cpp JSON\+\_\+\+HAS\+\_\+\+CPP\+\_\+11} is always defined.
+\item All macros are undefined outside the library.
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1163}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1163}
+??? example \begin{DoxyVerb}The code below forces the library to use the C++14 standard:
+
+```cpp
+#define JSON_HAS_CPP_14 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1164}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__cpp__11_autotoc_md1164}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+10.\+5. 
+\end{DoxyItemize}

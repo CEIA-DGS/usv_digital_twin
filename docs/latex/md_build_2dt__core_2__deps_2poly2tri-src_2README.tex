@@ -1,0 +1,102 @@
+\chapter{README}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README}{}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README}\index{README@{README}}
+Since there are no Input validation of the data given for triangulation you need to think about this. Poly2\+Tri does not support repeat points within epsilon.
+
+
+\begin{DoxyItemize}
+\item If you have a cyclic function that generates random points make sure you don\textquotesingle{}t add the same coordinate twice.
+\item If you are given input and aren\textquotesingle{}t sure same point exist twice you need to check for this yourself.
+\item Only simple polygons are supported. You may add holes or interior Steiner points
+\item Interior holes must not touch other holes, nor touch the polyline boundary
+\item Use the library in this order\+:
+\begin{DoxyEnumerate}
+\item Initialize CDT with a simple polyline (this defines the constrained edges)
+\item Add holes if necessary (also simple polylines)
+\item Add Steiner points
+\item Triangulate
+\end{DoxyEnumerate}
+\end{DoxyItemize}
+
+Make sure you understand the preceding notice before posting an issue. If you have an issue not covered by the above, include your data-\/set with the problem. The only easy day was yesterday; have a nice day. $<$\+Mason Green$>$\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1826}{}\doxysection{\texorpdfstring{TESTBED INSTALLATION GUIDE}{TESTBED INSTALLATION GUIDE}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1826}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1827}{}\doxysubsection{\texorpdfstring{Dependencies}{Dependencies}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1827}
+Core poly2tri lib\+:
+
+
+\begin{DoxyItemize}
+\item Standard Template Library (STL)
+\end{DoxyItemize}
+
+Unit tests\+:
+\begin{DoxyItemize}
+\item Boost (filesystem, test framework)
+\end{DoxyItemize}
+
+Testbed\+:
+
+
+\begin{DoxyItemize}
+\item Open\+GL
+\item \href{http://glfw.sf.net}{\texttt{ GLFW}}
+\end{DoxyItemize}\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1828}{}\doxysubsection{\texorpdfstring{Build the library}{Build the library}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1828}
+With the ninja build system installed\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{cmake\ -\/GNinja\ ..}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1829}{}\doxysubsection{\texorpdfstring{Build and run with unit tests}{Build and run with unit tests}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1829}
+With the ninja build system\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{cmake\ -\/GNinja\ -\/DP2T\_BUILD\_TESTS=ON\ ..}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+\DoxyCodeLine{ctest\ -\/-\/output-\/on-\/failure}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1830}{}\doxysubsection{\texorpdfstring{Build with the testbed}{Build with the testbed}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1830}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{cmake\ -\/GNinja\ -\/DP2T\_BUILD\_TESTBED=ON\ ..}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1831}{}\doxysubsection{\texorpdfstring{Running the Examples}{Running the Examples}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1831}
+Load data points from a file\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{build/testbed/p2t\ <filename>\ <center\_x>\ <center\_y>\ <zoom>}
+
+\end{DoxyCode}
+ Load data points from a file and automatically fit the geometry to the window\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{build/testbed/p2t\ <filename>}
+
+\end{DoxyCode}
+ Random distribution of points inside a constrained box\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{build/testbed/p2t\ random\ <num\_points>\ <box\_radius>\ <zoom>}
+
+\end{DoxyCode}
+ Examples\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{build/testbed/p2t\ testbed/data/dude.dat\ 350\ 500\ 3}
+\DoxyCodeLine{}
+\DoxyCodeLine{build/testbed/p2t\ testbed/data/nazca\_monkey.dat}
+\DoxyCodeLine{}
+\DoxyCodeLine{build/testbed/p2t\ random\ 10\ 100\ 5.0}
+\DoxyCodeLine{build/testbed/p2t\ random\ 1000\ 20000\ 0.025}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1832}{}\doxysection{\texorpdfstring{References}{References}}\label{md_build_2dt__core_2__deps_2poly2tri-src_2README_autotoc_md1832}
+
+\begin{DoxyItemize}
+\item Domiter V. and Zalik B. (2008) Sweep‐line algorithm for constrained Delaunay triangulation
+\item Flip\+Scan by library author Thomas Åhlén
+\end{DoxyItemize}
+
+ 

@@ -1,0 +1,40 @@
+\chapter{amalgamate.\+py -\/ Amalgamate C source and header files}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README}\index{amalgamate.py -\/ Amalgamate C source and header files@{amalgamate.py -\/ Amalgamate C source and header files}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1814}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1814}%
+ Origin\+: \href{https://bitbucket.org/erikedlund/amalgamate}{\texttt{ https\+://bitbucket.\+org/erikedlund/amalgamate}}
+
+Mirror\+: \href{https://github.com/edlund/amalgamate}{\texttt{ https\+://github.\+com/edlund/amalgamate}}
+
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} aims to make it easy to use SQLite-\/style C source and header amalgamation in projects.
+
+For more information, please refer to\+: \href{http://sqlite.org/amalgamation.html}{\texttt{ http\+://sqlite.\+org/amalgamation.\+html}}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1815}{}\doxysection{\texorpdfstring{Here be dragons}{Here be dragons}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1815}
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} is quite dumb, it only knows the bare minimum about C code required in order to be able to handle trivial include directives. It can produce weird results for unexpected code.
+
+Things to be aware of\+:
+
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} will not handle complex include directives correctly\+: \begin{DoxyVerb}    #define HEADER_PATH "path/to/header.h"
+    #include HEADER_PATH
+\end{DoxyVerb}
+ In the above example, {\ttfamily path/to/header.\+h} will not be included in the amalgamation (HEADER\+\_\+\+PATH is never expanded).
+
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} makes the assumption that each source and header file which is not empty will end in a new-\/line character, which is not immediately preceded by a backslash character (see 5.\+1.\+1.\+2p1.\+2 of ISO C99).
+
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} should be usable with C++ code, but raw string literals from C++11 will definitely cause problems\+: \begin{DoxyVerb}    R"delimiter(Terrible raw \ data " #include <sneaky.hpp>)delimiter"
+    R"delimiter(Terrible raw \ data " escaping)delimiter"
+\end{DoxyVerb}
+ In the examples above, {\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} will stop parsing the raw string literal when it encounters the first quotation mark, which will produce unexpected results.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1816}{}\doxysection{\texorpdfstring{Installing amalgamate.\+py}{Installing amalgamate.py}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1816}
+Python v.\+2.\+7.\+0 or higher is required.
+
+{\ttfamily \doxylink{amalgamate_8py}{amalgamate.\+py}} can be tested and installed using the following commands\+: \begin{DoxyVerb}    ./test.sh && sudo -k cp ./amalgamate.py /usr/local/bin/
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1817}{}\doxysection{\texorpdfstring{Using amalgamate.\+py}{Using amalgamate.py}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2amalgamate_2README_autotoc_md1817}
+\begin{DoxyVerb}    amalgamate.py [-v] -c path/to/config.json -s path/to/source/dir \
+            [-p path/to/prologue.(c|h)]
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item The {\ttfamily -\/c, -\/-\/config} option should specify the path to a JSON config file which lists the source files, include paths and where to write the resulting amalgamation. Have a look at {\ttfamily test/source.\+c.\+json} and {\ttfamily test/include.\+h.\+json} to see two examples.
+\item The {\ttfamily -\/s, -\/-\/source} option should specify the path to the source directory. This is useful for supporting separate source and build directories.
+\item The {\ttfamily -\/p, -\/-\/prologue} option should specify the path to a file which will be added to the beginning of the amalgamation. It is optional. 
+\end{DoxyItemize}

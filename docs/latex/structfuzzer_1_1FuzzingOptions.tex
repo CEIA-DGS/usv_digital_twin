@@ -1,0 +1,378 @@
+\doxysection{fuzzer\+::Fuzzing\+Options Struct Reference}
+\hypertarget{structfuzzer_1_1FuzzingOptions}{}\label{structfuzzer_1_1FuzzingOptions}\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Options.\+h$>$}
+
+
+
+Collaboration diagram for fuzzer\+::Fuzzing\+Options\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{structfuzzer_1_1FuzzingOptions__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ad10d0574e64c1038cc350ea9d27a9cc7}{Verbosity}} = 1
+\item 
+size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a419fc677e9488586d457b8107ad25ea1}{Max\+Len}} = 0
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a548f0cf229c4c084c060c203cb3550f5}{Unit\+Timeout\+Sec}} = 300
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a9b1008efa043e8312bad7fbb2d35f792}{Timeout\+Exit\+Code}} = 77
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a9a8f1963e0dc6a19875acc9299d7eecd}{Error\+Exit\+Code}} = 77
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_aad54436eb7e99e63e8e26f6d4e52d5fd}{Max\+Total\+Time\+Sec}} = 0
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a85644927419c7e7fd947037bc539d9f2}{Rss\+Limit\+Mb}} = 0
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ad346e90bccc27327e72b138f31e1013c}{Do\+Cross\+Over}} = true
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a381b1ee990e46f45515d1deb4856b8c2}{Mutate\+Depth}} = 5
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a1bccbe686beadd78ac34ebb4e7f1dc4a}{Use\+Counters}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a3aa1401d520d70c123487fff04c073e2}{Use\+Indir\+Calls}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a5bd5044124d5b03995abd0d2f2470cf0}{Use\+Memcmp}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ad37a50ae497d3e069aee889e86508857}{Use\+Memmem}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a1ebd9fac14446bb7338bc4aacbcdb9e0}{Use\+Cmp}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ada45844b43f0cacfeee3f51d46002cf2}{Use\+Value\+Profile}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a11d45d6797432e8105ffea5759269169}{Shrink}} = false
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_acf3fe1ac3fe69917ea287d8b28d0b082}{Reload\+Interval\+Sec}} = 1
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a96eb6cef14652fab99dad03fd0133d11}{Shuffle\+At\+Start\+Up}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a68ed1581e5fd076c2a2e0f684f5ac4ec}{Prefer\+Small}} = true
+\item 
+size\+\_\+t \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_af2e51bdd2962e5c323f1212ce6e106c9}{Max\+Number\+Of\+Runs}} = -\/1L
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_accbe2f2102c0c721832ca2889fd83661}{Report\+Slow\+Units}} = 10
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_aa506dc2736335067c20cb820b9b50868}{Only\+ASCII}} = false
+\item 
+std\+::string \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ae355d6e48468d4bd31c2eebf8fd9419d}{Output\+Corpus}}
+\item 
+std\+::string \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a1a12846aec49ffb671beca9883cd5058}{Artifact\+Prefix}} = "{}./"{}
+\item 
+std\+::string \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_af8b81102364624f1645c69948b8bad1e}{Exact\+Artifact\+Path}}
+\item 
+std\+::string \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a549cd19c4d347b5120cee1123a1c80c5}{Exit\+On\+Src\+Pos}}
+\item 
+std\+::string \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a6071fd999e1e55ad46fceea8c925e566}{Exit\+On\+Item}}
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a7fd0c146229b5f5359a41c4ef6bfcc7f}{Save\+Artifacts}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_abf52bfb760c78b510f40c8d8cfd8d4ef}{Print\+NEW}} = true
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_af9129a667d9080810dfbc652157fd06c}{Output\+CSV}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_abd679082d1d50feec401fce2c574c0fc}{Print\+New\+Cov\+Pcs}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a3c40bd5c65a00af9664b6fedb0ac85f3}{Print\+Final\+Stats}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ade3ce3acea60b71e8a7a6d2326aa3c11}{Print\+Corpus\+Stats}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a65163621d6ec61c0fa64ee36ac902fc3}{Print\+Coverage}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ad0b152c12020901bc562e1216f22f80d}{Dump\+Coverage}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a92ea8609fe9c2d3231697c41155a1bd2}{Detect\+Leaks}} = true
+\item 
+int \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_adf42f61bca58ee8b80850d5b60a61a72}{Trace\+Malloc}} = 0
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a62a563e1b938cc2458c96fc53e207130}{Handle\+Abrt}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a428cd527a7ab98bd29ddd9906fa655fa}{Handle\+Bus}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a8392525df60c9292b022d0f4b1889c30}{Handle\+Fpe}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_aec53fe136870d6c1d2c1b8b2ced26c58}{Handle\+Ill}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_ae03f90b474ae698074c58a25770c2c8e}{Handle\+Int}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_a50dac56deaf443fc77342a6bb67f50cd}{Handle\+Segv}} = false
+\item 
+bool \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions_afff5b36cebecc9615ca7dfc96beb02a1}{Handle\+Term}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a1a12846aec49ffb671beca9883cd5058}\label{structfuzzer_1_1FuzzingOptions_a1a12846aec49ffb671beca9883cd5058} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ArtifactPrefix@{ArtifactPrefix}}
+\index{ArtifactPrefix@{ArtifactPrefix}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ArtifactPrefix}{ArtifactPrefix}}
+{\footnotesize\ttfamily std\+::string fuzzer\+::\+Fuzzing\+Options\+::\+Artifact\+Prefix = "{}./"{}}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a92ea8609fe9c2d3231697c41155a1bd2}\label{structfuzzer_1_1FuzzingOptions_a92ea8609fe9c2d3231697c41155a1bd2} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!DetectLeaks@{DetectLeaks}}
+\index{DetectLeaks@{DetectLeaks}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{DetectLeaks}{DetectLeaks}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Detect\+Leaks = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ad346e90bccc27327e72b138f31e1013c}\label{structfuzzer_1_1FuzzingOptions_ad346e90bccc27327e72b138f31e1013c} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!DoCrossOver@{DoCrossOver}}
+\index{DoCrossOver@{DoCrossOver}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{DoCrossOver}{DoCrossOver}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Do\+Cross\+Over = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ad0b152c12020901bc562e1216f22f80d}\label{structfuzzer_1_1FuzzingOptions_ad0b152c12020901bc562e1216f22f80d} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!DumpCoverage@{DumpCoverage}}
+\index{DumpCoverage@{DumpCoverage}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{DumpCoverage}{DumpCoverage}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Dump\+Coverage = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a9a8f1963e0dc6a19875acc9299d7eecd}\label{structfuzzer_1_1FuzzingOptions_a9a8f1963e0dc6a19875acc9299d7eecd} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ErrorExitCode@{ErrorExitCode}}
+\index{ErrorExitCode@{ErrorExitCode}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ErrorExitCode}{ErrorExitCode}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Error\+Exit\+Code = 77}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_af8b81102364624f1645c69948b8bad1e}\label{structfuzzer_1_1FuzzingOptions_af8b81102364624f1645c69948b8bad1e} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ExactArtifactPath@{ExactArtifactPath}}
+\index{ExactArtifactPath@{ExactArtifactPath}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ExactArtifactPath}{ExactArtifactPath}}
+{\footnotesize\ttfamily std\+::string fuzzer\+::\+Fuzzing\+Options\+::\+Exact\+Artifact\+Path}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a6071fd999e1e55ad46fceea8c925e566}\label{structfuzzer_1_1FuzzingOptions_a6071fd999e1e55ad46fceea8c925e566} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ExitOnItem@{ExitOnItem}}
+\index{ExitOnItem@{ExitOnItem}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ExitOnItem}{ExitOnItem}}
+{\footnotesize\ttfamily std\+::string fuzzer\+::\+Fuzzing\+Options\+::\+Exit\+On\+Item}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a549cd19c4d347b5120cee1123a1c80c5}\label{structfuzzer_1_1FuzzingOptions_a549cd19c4d347b5120cee1123a1c80c5} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ExitOnSrcPos@{ExitOnSrcPos}}
+\index{ExitOnSrcPos@{ExitOnSrcPos}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ExitOnSrcPos}{ExitOnSrcPos}}
+{\footnotesize\ttfamily std\+::string fuzzer\+::\+Fuzzing\+Options\+::\+Exit\+On\+Src\+Pos}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a62a563e1b938cc2458c96fc53e207130}\label{structfuzzer_1_1FuzzingOptions_a62a563e1b938cc2458c96fc53e207130} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleAbrt@{HandleAbrt}}
+\index{HandleAbrt@{HandleAbrt}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleAbrt}{HandleAbrt}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Abrt = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a428cd527a7ab98bd29ddd9906fa655fa}\label{structfuzzer_1_1FuzzingOptions_a428cd527a7ab98bd29ddd9906fa655fa} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleBus@{HandleBus}}
+\index{HandleBus@{HandleBus}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleBus}{HandleBus}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Bus = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a8392525df60c9292b022d0f4b1889c30}\label{structfuzzer_1_1FuzzingOptions_a8392525df60c9292b022d0f4b1889c30} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleFpe@{HandleFpe}}
+\index{HandleFpe@{HandleFpe}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleFpe}{HandleFpe}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Fpe = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_aec53fe136870d6c1d2c1b8b2ced26c58}\label{structfuzzer_1_1FuzzingOptions_aec53fe136870d6c1d2c1b8b2ced26c58} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleIll@{HandleIll}}
+\index{HandleIll@{HandleIll}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleIll}{HandleIll}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Ill = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ae03f90b474ae698074c58a25770c2c8e}\label{structfuzzer_1_1FuzzingOptions_ae03f90b474ae698074c58a25770c2c8e} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleInt@{HandleInt}}
+\index{HandleInt@{HandleInt}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleInt}{HandleInt}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Int = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a50dac56deaf443fc77342a6bb67f50cd}\label{structfuzzer_1_1FuzzingOptions_a50dac56deaf443fc77342a6bb67f50cd} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleSegv@{HandleSegv}}
+\index{HandleSegv@{HandleSegv}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleSegv}{HandleSegv}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Segv = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_afff5b36cebecc9615ca7dfc96beb02a1}\label{structfuzzer_1_1FuzzingOptions_afff5b36cebecc9615ca7dfc96beb02a1} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!HandleTerm@{HandleTerm}}
+\index{HandleTerm@{HandleTerm}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{HandleTerm}{HandleTerm}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Handle\+Term = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a419fc677e9488586d457b8107ad25ea1}\label{structfuzzer_1_1FuzzingOptions_a419fc677e9488586d457b8107ad25ea1} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!MaxLen@{MaxLen}}
+\index{MaxLen@{MaxLen}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{MaxLen}{MaxLen}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzing\+Options\+::\+Max\+Len = 0}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_af2e51bdd2962e5c323f1212ce6e106c9}\label{structfuzzer_1_1FuzzingOptions_af2e51bdd2962e5c323f1212ce6e106c9} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!MaxNumberOfRuns@{MaxNumberOfRuns}}
+\index{MaxNumberOfRuns@{MaxNumberOfRuns}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{MaxNumberOfRuns}{MaxNumberOfRuns}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzing\+Options\+::\+Max\+Number\+Of\+Runs = -\/1L}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_aad54436eb7e99e63e8e26f6d4e52d5fd}\label{structfuzzer_1_1FuzzingOptions_aad54436eb7e99e63e8e26f6d4e52d5fd} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!MaxTotalTimeSec@{MaxTotalTimeSec}}
+\index{MaxTotalTimeSec@{MaxTotalTimeSec}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{MaxTotalTimeSec}{MaxTotalTimeSec}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Max\+Total\+Time\+Sec = 0}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a381b1ee990e46f45515d1deb4856b8c2}\label{structfuzzer_1_1FuzzingOptions_a381b1ee990e46f45515d1deb4856b8c2} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!MutateDepth@{MutateDepth}}
+\index{MutateDepth@{MutateDepth}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{MutateDepth}{MutateDepth}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Mutate\+Depth = 5}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_aa506dc2736335067c20cb820b9b50868}\label{structfuzzer_1_1FuzzingOptions_aa506dc2736335067c20cb820b9b50868} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!OnlyASCII@{OnlyASCII}}
+\index{OnlyASCII@{OnlyASCII}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{OnlyASCII}{OnlyASCII}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Only\+ASCII = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ae355d6e48468d4bd31c2eebf8fd9419d}\label{structfuzzer_1_1FuzzingOptions_ae355d6e48468d4bd31c2eebf8fd9419d} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!OutputCorpus@{OutputCorpus}}
+\index{OutputCorpus@{OutputCorpus}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{OutputCorpus}{OutputCorpus}}
+{\footnotesize\ttfamily std\+::string fuzzer\+::\+Fuzzing\+Options\+::\+Output\+Corpus}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_af9129a667d9080810dfbc652157fd06c}\label{structfuzzer_1_1FuzzingOptions_af9129a667d9080810dfbc652157fd06c} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!OutputCSV@{OutputCSV}}
+\index{OutputCSV@{OutputCSV}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{OutputCSV}{OutputCSV}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Output\+CSV = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a68ed1581e5fd076c2a2e0f684f5ac4ec}\label{structfuzzer_1_1FuzzingOptions_a68ed1581e5fd076c2a2e0f684f5ac4ec} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PreferSmall@{PreferSmall}}
+\index{PreferSmall@{PreferSmall}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PreferSmall}{PreferSmall}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Prefer\+Small = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ade3ce3acea60b71e8a7a6d2326aa3c11}\label{structfuzzer_1_1FuzzingOptions_ade3ce3acea60b71e8a7a6d2326aa3c11} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PrintCorpusStats@{PrintCorpusStats}}
+\index{PrintCorpusStats@{PrintCorpusStats}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PrintCorpusStats}{PrintCorpusStats}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Print\+Corpus\+Stats = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a65163621d6ec61c0fa64ee36ac902fc3}\label{structfuzzer_1_1FuzzingOptions_a65163621d6ec61c0fa64ee36ac902fc3} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PrintCoverage@{PrintCoverage}}
+\index{PrintCoverage@{PrintCoverage}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PrintCoverage}{PrintCoverage}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Print\+Coverage = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a3c40bd5c65a00af9664b6fedb0ac85f3}\label{structfuzzer_1_1FuzzingOptions_a3c40bd5c65a00af9664b6fedb0ac85f3} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PrintFinalStats@{PrintFinalStats}}
+\index{PrintFinalStats@{PrintFinalStats}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PrintFinalStats}{PrintFinalStats}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Print\+Final\+Stats = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_abf52bfb760c78b510f40c8d8cfd8d4ef}\label{structfuzzer_1_1FuzzingOptions_abf52bfb760c78b510f40c8d8cfd8d4ef} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PrintNEW@{PrintNEW}}
+\index{PrintNEW@{PrintNEW}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PrintNEW}{PrintNEW}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Print\+NEW = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_abd679082d1d50feec401fce2c574c0fc}\label{structfuzzer_1_1FuzzingOptions_abd679082d1d50feec401fce2c574c0fc} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!PrintNewCovPcs@{PrintNewCovPcs}}
+\index{PrintNewCovPcs@{PrintNewCovPcs}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{PrintNewCovPcs}{PrintNewCovPcs}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Print\+New\+Cov\+Pcs = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_acf3fe1ac3fe69917ea287d8b28d0b082}\label{structfuzzer_1_1FuzzingOptions_acf3fe1ac3fe69917ea287d8b28d0b082} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ReloadIntervalSec@{ReloadIntervalSec}}
+\index{ReloadIntervalSec@{ReloadIntervalSec}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ReloadIntervalSec}{ReloadIntervalSec}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Reload\+Interval\+Sec = 1}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_accbe2f2102c0c721832ca2889fd83661}\label{structfuzzer_1_1FuzzingOptions_accbe2f2102c0c721832ca2889fd83661} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ReportSlowUnits@{ReportSlowUnits}}
+\index{ReportSlowUnits@{ReportSlowUnits}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ReportSlowUnits}{ReportSlowUnits}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Report\+Slow\+Units = 10}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a85644927419c7e7fd947037bc539d9f2}\label{structfuzzer_1_1FuzzingOptions_a85644927419c7e7fd947037bc539d9f2} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!RssLimitMb@{RssLimitMb}}
+\index{RssLimitMb@{RssLimitMb}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{RssLimitMb}{RssLimitMb}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Rss\+Limit\+Mb = 0}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a7fd0c146229b5f5359a41c4ef6bfcc7f}\label{structfuzzer_1_1FuzzingOptions_a7fd0c146229b5f5359a41c4ef6bfcc7f} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!SaveArtifacts@{SaveArtifacts}}
+\index{SaveArtifacts@{SaveArtifacts}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{SaveArtifacts}{SaveArtifacts}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Save\+Artifacts = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a11d45d6797432e8105ffea5759269169}\label{structfuzzer_1_1FuzzingOptions_a11d45d6797432e8105ffea5759269169} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!Shrink@{Shrink}}
+\index{Shrink@{Shrink}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{Shrink}{Shrink}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Shrink = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a96eb6cef14652fab99dad03fd0133d11}\label{structfuzzer_1_1FuzzingOptions_a96eb6cef14652fab99dad03fd0133d11} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!ShuffleAtStartUp@{ShuffleAtStartUp}}
+\index{ShuffleAtStartUp@{ShuffleAtStartUp}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{ShuffleAtStartUp}{ShuffleAtStartUp}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Shuffle\+At\+Start\+Up = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a9b1008efa043e8312bad7fbb2d35f792}\label{structfuzzer_1_1FuzzingOptions_a9b1008efa043e8312bad7fbb2d35f792} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!TimeoutExitCode@{TimeoutExitCode}}
+\index{TimeoutExitCode@{TimeoutExitCode}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{TimeoutExitCode}{TimeoutExitCode}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Timeout\+Exit\+Code = 77}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_adf42f61bca58ee8b80850d5b60a61a72}\label{structfuzzer_1_1FuzzingOptions_adf42f61bca58ee8b80850d5b60a61a72} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!TraceMalloc@{TraceMalloc}}
+\index{TraceMalloc@{TraceMalloc}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{TraceMalloc}{TraceMalloc}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Trace\+Malloc = 0}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a548f0cf229c4c084c060c203cb3550f5}\label{structfuzzer_1_1FuzzingOptions_a548f0cf229c4c084c060c203cb3550f5} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UnitTimeoutSec@{UnitTimeoutSec}}
+\index{UnitTimeoutSec@{UnitTimeoutSec}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UnitTimeoutSec}{UnitTimeoutSec}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Unit\+Timeout\+Sec = 300}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a1ebd9fac14446bb7338bc4aacbcdb9e0}\label{structfuzzer_1_1FuzzingOptions_a1ebd9fac14446bb7338bc4aacbcdb9e0} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseCmp@{UseCmp}}
+\index{UseCmp@{UseCmp}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseCmp}{UseCmp}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Cmp = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a1bccbe686beadd78ac34ebb4e7f1dc4a}\label{structfuzzer_1_1FuzzingOptions_a1bccbe686beadd78ac34ebb4e7f1dc4a} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseCounters@{UseCounters}}
+\index{UseCounters@{UseCounters}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseCounters}{UseCounters}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Counters = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a3aa1401d520d70c123487fff04c073e2}\label{structfuzzer_1_1FuzzingOptions_a3aa1401d520d70c123487fff04c073e2} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseIndirCalls@{UseIndirCalls}}
+\index{UseIndirCalls@{UseIndirCalls}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseIndirCalls}{UseIndirCalls}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Indir\+Calls = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_a5bd5044124d5b03995abd0d2f2470cf0}\label{structfuzzer_1_1FuzzingOptions_a5bd5044124d5b03995abd0d2f2470cf0} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseMemcmp@{UseMemcmp}}
+\index{UseMemcmp@{UseMemcmp}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseMemcmp}{UseMemcmp}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Memcmp = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ad37a50ae497d3e069aee889e86508857}\label{structfuzzer_1_1FuzzingOptions_ad37a50ae497d3e069aee889e86508857} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseMemmem@{UseMemmem}}
+\index{UseMemmem@{UseMemmem}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseMemmem}{UseMemmem}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Memmem = true}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ada45844b43f0cacfeee3f51d46002cf2}\label{structfuzzer_1_1FuzzingOptions_ada45844b43f0cacfeee3f51d46002cf2} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!UseValueProfile@{UseValueProfile}}
+\index{UseValueProfile@{UseValueProfile}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{UseValueProfile}{UseValueProfile}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzing\+Options\+::\+Use\+Value\+Profile = false}
+
+\Hypertarget{structfuzzer_1_1FuzzingOptions_ad10d0574e64c1038cc350ea9d27a9cc7}\label{structfuzzer_1_1FuzzingOptions_ad10d0574e64c1038cc350ea9d27a9cc7} 
+\index{fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}!Verbosity@{Verbosity}}
+\index{Verbosity@{Verbosity}!fuzzer::FuzzingOptions@{fuzzer::FuzzingOptions}}
+\doxysubsubsection{\texorpdfstring{Verbosity}{Verbosity}}
+{\footnotesize\ttfamily int fuzzer\+::\+Fuzzing\+Options\+::\+Verbosity = 1}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerOptions_8h}{Fuzzer\+Options.\+h}}\end{DoxyCompactItemize}

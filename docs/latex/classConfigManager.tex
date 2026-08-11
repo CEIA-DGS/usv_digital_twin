@@ -1,0 +1,46 @@
+\doxysection{Config\+Manager Class Reference}
+\hypertarget{classConfigManager}{}\label{classConfigManager}\index{ConfigManager@{ConfigManager}}
+
+
+Manages the reading, parsing, and validation of the system configuration file (JSON).  
+
+
+
+
+{\ttfamily \#include $<$config\+\_\+manager.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structMapConfiguration}{Map\+Configuration}} \mbox{\hyperlink{classConfigManager_ac184c79217f6903499acbf1cfdb1475a}{load\+\_\+configuration}} (const std\+::string \&file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Loads parameters from an external JSON file and populates the configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the reading, parsing, and validation of the system configuration file (JSON). 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classConfigManager_ac184c79217f6903499acbf1cfdb1475a}\label{classConfigManager_ac184c79217f6903499acbf1cfdb1475a} 
+\index{ConfigManager@{ConfigManager}!load\_configuration@{load\_configuration}}
+\index{load\_configuration@{load\_configuration}!ConfigManager@{ConfigManager}}
+\doxysubsubsection{\texorpdfstring{load\_configuration()}{load\_configuration()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structMapConfiguration}{Map\+Configuration}} Config\+Manager\+::load\+\_\+configuration (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads parameters from an external JSON file and populates the configuration structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+path} & Physical path of the JSON configuration file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{structMapConfiguration}{Map\+Configuration} object populated with the read values. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+core/include/map/\mbox{\hyperlink{config__manager_8hpp}{config\+\_\+manager.\+hpp}}\item 
+dt\+\_\+core/src/map/\mbox{\hyperlink{config__manager_8cpp}{config\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,23 @@
+<map id="nlohmann::detail::conjunction&lt;... &gt;" name="nlohmann::detail::conjunction&lt;... &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="165,170,380,210"/>
+<area shape="rect" id="Node000003" href="$structnlohmann_1_1detail_1_1is__constructible__tuple_3_01T1_00_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4.html" title=" " alt="" coords="431,5,639,60"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="304,159,359,114,427,69,450,58,452,63,429,74,362,118,307,163"/>
+<area shape="rect" id="Node000004" href="$structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html" title=" " alt="" coords="428,84,643,139"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="352,164,443,136,444,141,354,169"/>
+<area shape="rect" id="Node000006" href="$structnlohmann_1_1detail_1_1is__default__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html" title=" " alt="" coords="432,163,639,217"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="393,187,432,187,432,193,393,193"/>
+<area shape="rect" id="Node000008" href="$structnlohmann_1_1detail_1_1is__default__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html" title=" " alt="" coords="448,241,623,296"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="354,211,448,240,447,245,352,217"/>
+<area shape="rect" id="Node000010" href="$structnlohmann_1_1detail_1_1is__default__constructible_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html" title=" " alt="" coords="451,320,619,375"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="307,217,362,262,429,306,452,318,450,322,427,311,359,266,304,221"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,177,117,203"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,187,165,187,165,193,131,193"/>
+<area shape="rect" id="Node000005" href="$structnlohmann_1_1detail_1_1is__constructible_3_01const_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html" title=" " alt="" coords="691,84,855,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="656,109,690,109,690,114,656,114"/>
+<area shape="rect" id="Node000007" href="$structnlohmann_1_1detail_1_1is__constructible_3_01const_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html" title=" " alt="" coords="691,163,854,217"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="653,187,691,187,691,193,653,193"/>
+<area shape="rect" id="Node000009" href="$structnlohmann_1_1detail_1_1is__constructible_3_01std_1_1pair_3_01T1_00_01T2_01_4_01_4.html" title=" " alt="" coords="695,241,851,296"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="636,266,695,266,695,271,636,271"/>
+<area shape="rect" id="Node000011" href="$structnlohmann_1_1detail_1_1is__constructible_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4.html" title=" " alt="" coords="695,320,851,375"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="633,345,694,345,694,350,633,350"/>
+</map>

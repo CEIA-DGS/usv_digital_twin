@@ -1,0 +1,271 @@
+\doxysection{fuzzer\+::Fuzzer Class Reference}
+\hypertarget{classfuzzer_1_1Fuzzer}{}\label{classfuzzer_1_1Fuzzer}\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+
+
+{\ttfamily \#include $<$Fuzzer\+Internal.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfuzzer_1_1Fuzzer_1_1Coverage}{Coverage}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfuzzer_1_1Fuzzer_a582438623b355f23604ebcd6150134c1}{Fuzzer}} (\mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{User\+Callback}} CB, \mbox{\hyperlink{classfuzzer_1_1InputCorpus}{Input\+Corpus}} \&Corpus, \mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \&MD, \mbox{\hyperlink{structfuzzer_1_1FuzzingOptions}{Fuzzing\+Options}} Options)
+\item 
+\mbox{\hyperlink{classfuzzer_1_1Fuzzer_aefb9e12ca91c3532740f92cb3f987e0d}{\texorpdfstring{$\sim$}{\string~}\+Fuzzer}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a0306e29f06ced3d24ed0417ea2fef34b}{Loop}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a54326d89b0de8eb858c70dfa78c5cc57}{Minimize\+Crash\+Loop}} (const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&U)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a368fcca328a7e72c500caf081227f7ef}{Shuffle\+And\+Minimize}} (\mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \texorpdfstring{$\ast$}{*}V)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a9f3aadcfbeb0e69ee8a0d6ad8133e455}{Initialize\+Trace\+State}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a44506dc46253928eb73397091d6c4c32}{Reread\+Output\+Corpus}} (size\+\_\+t Max\+Size)
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5}{seconds\+Since\+Process\+Start\+Up}} ()
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1Fuzzer_acde1eccc2e342f62136ab3531b2b5630}{Timed\+Out}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aa88607925eeffcf7d373ac58e767d7d5}{exec\+Per\+Sec}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af8117818c8156811dc998b34cdcf7ddb}{get\+Total\+Number\+Of\+Runs}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a5a299bed53a0c2d2ffd6557c173f7e40}{Execute\+Callback}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c}{Run\+One}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aad1ef6d2a186b7b2462363111398e54e}{Merge}} (const std\+::vector$<$ std\+::string $>$ \&Corpora)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a3777acf379198d5339bf6baf0e9ad011}{Crash\+Resistant\+Merge}} (const std\+::vector$<$ std\+::string $>$ \&Args, const std\+::vector$<$ std\+::string $>$ \&Corpora)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a960f37bdf1d61e7043609ace07d411e4}{Crash\+Resistant\+Merge\+Internal\+Step}} (const std\+::string \&Control\+File\+Path)
+\item 
+\mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a6a4abd6692ba305867fcb7df7bfe79cc}{Find\+Extra\+Units}} (const \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \&Initial, const \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \&Extra)
+\item 
+\mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \& \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a8b8d0ef2f5292085afb55957ac513b24}{Get\+MD}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a7caa04e4384d37875ab1d2eb745f5978}{Print\+Final\+Stats}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af049926833d09bb487062779d6f881ba}{Set\+Max\+Input\+Len}} (size\+\_\+t Max\+Input\+Len)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a294a565231ed605981b9600e0ce60722}{Set\+Max\+Mutation\+Len}} (size\+\_\+t Max\+Mutation\+Len)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aaff2d6a9892349f851f17dd3f0da5ac0}{Rss\+Limit\+Callback}} ()
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_abbc24e3115c1bf70ff10e81dedfe38c6}{Reset\+Coverage}} ()
+\item 
+bool \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a6b8043b43eaa243299df6d64ba8413b6}{In\+Fuzzing\+Thread}} () const
+\item 
+size\+\_\+t \mbox{\hyperlink{classfuzzer_1_1Fuzzer_af1d13fc1411234ad0cb2b10175d71141}{Get\+Current\+Unit\+In\+Fuzzing\+Thead}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}) const
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a7b4edc3276350436fe6ed3f4200b0226}{Try\+Detecting\+AMemory\+Leak}} (const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structData}{Data}}, size\+\_\+t Size, bool During\+Initial\+Corpus\+Execution)
+\item 
+void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_aedd1fa002d658fbcc1e0870ae28c4489}{Handle\+Malloc}} (size\+\_\+t Size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a8e5cc850a9e02c0650f196981ced0b78}{Static\+Alarm\+Callback}} ()
+\item 
+static void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_a53ec06c88c7260710d7c7fcae14bf568}{Static\+Crash\+Signal\+Callback}} ()
+\item 
+static void \mbox{\hyperlink{classfuzzer_1_1Fuzzer_ade17502cb3deeb915a59e0e98cb109da}{Static\+Interrupt\+Callback}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classfuzzer_1_1Fuzzer_a582438623b355f23604ebcd6150134c1}\label{classfuzzer_1_1Fuzzer_a582438623b355f23604ebcd6150134c1} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!Fuzzer@{Fuzzer}}
+\index{Fuzzer@{Fuzzer}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{Fuzzer()}{Fuzzer()}}
+{\footnotesize\ttfamily fuzzer\+::\+Fuzzer\+::\+Fuzzer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{User\+Callback}}}]{CB,  }\item[{\mbox{\hyperlink{classfuzzer_1_1InputCorpus}{Input\+Corpus}} \&}]{Corpus,  }\item[{\mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \&}]{MD,  }\item[{\mbox{\hyperlink{structfuzzer_1_1FuzzingOptions}{Fuzzing\+Options}}}]{Options }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_aefb9e12ca91c3532740f92cb3f987e0d}\label{classfuzzer_1_1Fuzzer_aefb9e12ca91c3532740f92cb3f987e0d} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!````~Fuzzer@{\texorpdfstring{$\sim$}{\string~}Fuzzer}}
+\index{````~Fuzzer@{\texorpdfstring{$\sim$}{\string~}Fuzzer}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Fuzzer()}{\string~Fuzzer()}}
+{\footnotesize\ttfamily fuzzer\+::\+Fuzzer\+::\texorpdfstring{$\sim$}{\string~}\+Fuzzer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classfuzzer_1_1Fuzzer_a3777acf379198d5339bf6baf0e9ad011}\label{classfuzzer_1_1Fuzzer_a3777acf379198d5339bf6baf0e9ad011} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!CrashResistantMerge@{CrashResistantMerge}}
+\index{CrashResistantMerge@{CrashResistantMerge}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{CrashResistantMerge()}{CrashResistantMerge()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Crash\+Resistant\+Merge (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{Args,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{Corpora }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a960f37bdf1d61e7043609ace07d411e4}\label{classfuzzer_1_1Fuzzer_a960f37bdf1d61e7043609ace07d411e4} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!CrashResistantMergeInternalStep@{CrashResistantMergeInternalStep}}
+\index{CrashResistantMergeInternalStep@{CrashResistantMergeInternalStep}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{CrashResistantMergeInternalStep()}{CrashResistantMergeInternalStep()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Crash\+Resistant\+Merge\+Internal\+Step (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Control\+File\+Path }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_aa88607925eeffcf7d373ac58e767d7d5}\label{classfuzzer_1_1Fuzzer_aa88607925eeffcf7d373ac58e767d7d5} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!execPerSec@{execPerSec}}
+\index{execPerSec@{execPerSec}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{execPerSec()}{execPerSec()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzer\+::exec\+Per\+Sec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a5a299bed53a0c2d2ffd6557c173f7e40}\label{classfuzzer_1_1Fuzzer_a5a299bed53a0c2d2ffd6557c173f7e40} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!ExecuteCallback@{ExecuteCallback}}
+\index{ExecuteCallback@{ExecuteCallback}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{ExecuteCallback()}{ExecuteCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Execute\+Callback (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a6a4abd6692ba305867fcb7df7bfe79cc}\label{classfuzzer_1_1Fuzzer_a6a4abd6692ba305867fcb7df7bfe79cc} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!FindExtraUnits@{FindExtraUnits}}
+\index{FindExtraUnits@{FindExtraUnits}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{FindExtraUnits()}{FindExtraUnits()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} fuzzer\+::\+Fuzzer\+::\+Find\+Extra\+Units (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \&}]{Initial,  }\item[{const \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \&}]{Extra }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_af1d13fc1411234ad0cb2b10175d71141}\label{classfuzzer_1_1Fuzzer_af1d13fc1411234ad0cb2b10175d71141} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!GetCurrentUnitInFuzzingThead@{GetCurrentUnitInFuzzingThead}}
+\index{GetCurrentUnitInFuzzingThead@{GetCurrentUnitInFuzzingThead}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{GetCurrentUnitInFuzzingThead()}{GetCurrentUnitInFuzzingThead()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzer\+::\+Get\+Current\+Unit\+In\+Fuzzing\+Thead (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Data }\end{DoxyParamCaption}) const}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a8b8d0ef2f5292085afb55957ac513b24}\label{classfuzzer_1_1Fuzzer_a8b8d0ef2f5292085afb55957ac513b24} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!GetMD@{GetMD}}
+\index{GetMD@{GetMD}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{GetMD()}{GetMD()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classfuzzer_1_1MutationDispatcher}{Mutation\+Dispatcher}} \& fuzzer\+::\+Fuzzer\+::\+Get\+MD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_af8117818c8156811dc998b34cdcf7ddb}\label{classfuzzer_1_1Fuzzer_af8117818c8156811dc998b34cdcf7ddb} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!getTotalNumberOfRuns@{getTotalNumberOfRuns}}
+\index{getTotalNumberOfRuns@{getTotalNumberOfRuns}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{getTotalNumberOfRuns()}{getTotalNumberOfRuns()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzer\+::get\+Total\+Number\+Of\+Runs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_aedd1fa002d658fbcc1e0870ae28c4489}\label{classfuzzer_1_1Fuzzer_aedd1fa002d658fbcc1e0870ae28c4489} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!HandleMalloc@{HandleMalloc}}
+\index{HandleMalloc@{HandleMalloc}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{HandleMalloc()}{HandleMalloc()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Handle\+Malloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a6b8043b43eaa243299df6d64ba8413b6}\label{classfuzzer_1_1Fuzzer_a6b8043b43eaa243299df6d64ba8413b6} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!InFuzzingThread@{InFuzzingThread}}
+\index{InFuzzingThread@{InFuzzingThread}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{InFuzzingThread()}{InFuzzingThread()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzer\+::\+In\+Fuzzing\+Thread (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a9f3aadcfbeb0e69ee8a0d6ad8133e455}\label{classfuzzer_1_1Fuzzer_a9f3aadcfbeb0e69ee8a0d6ad8133e455} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!InitializeTraceState@{InitializeTraceState}}
+\index{InitializeTraceState@{InitializeTraceState}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{InitializeTraceState()}{InitializeTraceState()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Initialize\+Trace\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a0306e29f06ced3d24ed0417ea2fef34b}\label{classfuzzer_1_1Fuzzer_a0306e29f06ced3d24ed0417ea2fef34b} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!Loop@{Loop}}
+\index{Loop@{Loop}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{Loop()}{Loop()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_aad1ef6d2a186b7b2462363111398e54e}\label{classfuzzer_1_1Fuzzer_aad1ef6d2a186b7b2462363111398e54e} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!Merge@{Merge}}
+\index{Merge@{Merge}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Merge (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{Corpora }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a54326d89b0de8eb858c70dfa78c5cc57}\label{classfuzzer_1_1Fuzzer_a54326d89b0de8eb858c70dfa78c5cc57} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!MinimizeCrashLoop@{MinimizeCrashLoop}}
+\index{MinimizeCrashLoop@{MinimizeCrashLoop}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{MinimizeCrashLoop()}{MinimizeCrashLoop()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Minimize\+Crash\+Loop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}} \&}]{U }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a7caa04e4384d37875ab1d2eb745f5978}\label{classfuzzer_1_1Fuzzer_a7caa04e4384d37875ab1d2eb745f5978} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!PrintFinalStats@{PrintFinalStats}}
+\index{PrintFinalStats@{PrintFinalStats}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{PrintFinalStats()}{PrintFinalStats()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Print\+Final\+Stats (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a44506dc46253928eb73397091d6c4c32}\label{classfuzzer_1_1Fuzzer_a44506dc46253928eb73397091d6c4c32} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!RereadOutputCorpus@{RereadOutputCorpus}}
+\index{RereadOutputCorpus@{RereadOutputCorpus}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{RereadOutputCorpus()}{RereadOutputCorpus()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Reread\+Output\+Corpus (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Max\+Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_abbc24e3115c1bf70ff10e81dedfe38c6}\label{classfuzzer_1_1Fuzzer_abbc24e3115c1bf70ff10e81dedfe38c6} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!ResetCoverage@{ResetCoverage}}
+\index{ResetCoverage@{ResetCoverage}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{ResetCoverage()}{ResetCoverage()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Reset\+Coverage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_aaff2d6a9892349f851f17dd3f0da5ac0}\label{classfuzzer_1_1Fuzzer_aaff2d6a9892349f851f17dd3f0da5ac0} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!RssLimitCallback@{RssLimitCallback}}
+\index{RssLimitCallback@{RssLimitCallback}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{RssLimitCallback()}{RssLimitCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Rss\+Limit\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c}\label{classfuzzer_1_1Fuzzer_a89cb175e3dd6b4e14beb716a8a64f10c} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!RunOne@{RunOne}}
+\index{RunOne@{RunOne}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{RunOne()}{RunOne()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzer\+::\+Run\+One (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5}\label{classfuzzer_1_1Fuzzer_a71ac55e6fdd0979496a9c65f99fe33c5} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!secondsSinceProcessStartUp@{secondsSinceProcessStartUp}}
+\index{secondsSinceProcessStartUp@{secondsSinceProcessStartUp}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{secondsSinceProcessStartUp()}{secondsSinceProcessStartUp()}}
+{\footnotesize\ttfamily size\+\_\+t fuzzer\+::\+Fuzzer\+::seconds\+Since\+Process\+Start\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_af049926833d09bb487062779d6f881ba}\label{classfuzzer_1_1Fuzzer_af049926833d09bb487062779d6f881ba} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!SetMaxInputLen@{SetMaxInputLen}}
+\index{SetMaxInputLen@{SetMaxInputLen}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{SetMaxInputLen()}{SetMaxInputLen()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Set\+Max\+Input\+Len (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Max\+Input\+Len }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a294a565231ed605981b9600e0ce60722}\label{classfuzzer_1_1Fuzzer_a294a565231ed605981b9600e0ce60722} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!SetMaxMutationLen@{SetMaxMutationLen}}
+\index{SetMaxMutationLen@{SetMaxMutationLen}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{SetMaxMutationLen()}{SetMaxMutationLen()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Set\+Max\+Mutation\+Len (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{Max\+Mutation\+Len }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a368fcca328a7e72c500caf081227f7ef}\label{classfuzzer_1_1Fuzzer_a368fcca328a7e72c500caf081227f7ef} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!ShuffleAndMinimize@{ShuffleAndMinimize}}
+\index{ShuffleAndMinimize@{ShuffleAndMinimize}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{ShuffleAndMinimize()}{ShuffleAndMinimize()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Shuffle\+And\+Minimize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{Unit\+Vector}} \texorpdfstring{$\ast$}{*}}]{V }\end{DoxyParamCaption})}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a8e5cc850a9e02c0650f196981ced0b78}\label{classfuzzer_1_1Fuzzer_a8e5cc850a9e02c0650f196981ced0b78} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!StaticAlarmCallback@{StaticAlarmCallback}}
+\index{StaticAlarmCallback@{StaticAlarmCallback}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{StaticAlarmCallback()}{StaticAlarmCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Static\+Alarm\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a53ec06c88c7260710d7c7fcae14bf568}\label{classfuzzer_1_1Fuzzer_a53ec06c88c7260710d7c7fcae14bf568} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!StaticCrashSignalCallback@{StaticCrashSignalCallback}}
+\index{StaticCrashSignalCallback@{StaticCrashSignalCallback}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{StaticCrashSignalCallback()}{StaticCrashSignalCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Static\+Crash\+Signal\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_ade17502cb3deeb915a59e0e98cb109da}\label{classfuzzer_1_1Fuzzer_ade17502cb3deeb915a59e0e98cb109da} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!StaticInterruptCallback@{StaticInterruptCallback}}
+\index{StaticInterruptCallback@{StaticInterruptCallback}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{StaticInterruptCallback()}{StaticInterruptCallback()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Static\+Interrupt\+Callback (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_acde1eccc2e342f62136ab3531b2b5630}\label{classfuzzer_1_1Fuzzer_acde1eccc2e342f62136ab3531b2b5630} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!TimedOut@{TimedOut}}
+\index{TimedOut@{TimedOut}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{TimedOut()}{TimedOut()}}
+{\footnotesize\ttfamily bool fuzzer\+::\+Fuzzer\+::\+Timed\+Out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classfuzzer_1_1Fuzzer_a7b4edc3276350436fe6ed3f4200b0226}\label{classfuzzer_1_1Fuzzer_a7b4edc3276350436fe6ed3f4200b0226} 
+\index{fuzzer::Fuzzer@{fuzzer::Fuzzer}!TryDetectingAMemoryLeak@{TryDetectingAMemoryLeak}}
+\index{TryDetectingAMemoryLeak@{TryDetectingAMemoryLeak}!fuzzer::Fuzzer@{fuzzer::Fuzzer}}
+\doxysubsubsection{\texorpdfstring{TryDetectingAMemoryLeak()}{TryDetectingAMemoryLeak()}}
+{\footnotesize\ttfamily void fuzzer\+::\+Fuzzer\+::\+Try\+Detecting\+AMemory\+Leak (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{Data,  }\item[{size\+\_\+t}]{Size,  }\item[{bool}]{During\+Initial\+Corpus\+Execution }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerInternal_8h}{Fuzzer\+Internal.\+h}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerLoop_8cpp}{Fuzzer\+Loop.\+cpp}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerMerge_8cpp}{Fuzzer\+Merge.\+cpp}}\item 
+build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\mbox{\hyperlink{FuzzerTraceState_8cpp}{Fuzzer\+Trace\+State.\+cpp}}\end{DoxyCompactItemize}

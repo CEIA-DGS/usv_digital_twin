@@ -1,0 +1,7 @@
+<map id="dt_msgs__msg__WaypointArray__Sequence" name="dt_msgs__msg__WaypointArray__Sequence">
+<area shape="rect" id="Node000001" title=" " alt="" coords="89,108,319,148"/>
+<area shape="rect" id="Node000002" href="$structdt__msgs____msg____WaypointArray.html" title="Struct defined in msg/WaypointArray in the package dt_msgs." alt="" coords="5,5,235,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,40,191,106,187,109,135,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="259,5,319,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,43,221,109,217,106,269,40"/>
+</map>

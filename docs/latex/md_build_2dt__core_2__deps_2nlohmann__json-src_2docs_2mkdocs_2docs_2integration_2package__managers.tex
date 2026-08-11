@@ -1,0 +1,159 @@
+\chapter{Package Managers}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers}\index{Package Managers@{Package Managers}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1736}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1736}%
+ Throughout this page, we will describe how to compile the example file {\ttfamily example.\+cpp} below.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/8<-\/-\/\ \textcolor{stringliteral}{"{}integration/example.cpp"{}}}
+
+\end{DoxyCode}
+
+
+When executed, this program should create output similar to
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/-\/8<-\/-\/\ "{}examples/meta.output"{}}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1737}{}\doxysection{\texorpdfstring{Homebrew}{Homebrew}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1737}
+If you are using OS X and \href{http://brew.sh}{\texttt{ Homebrew}}, just type
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{brew\ install\ nlohmann-\/json}
+
+\end{DoxyCode}
+
+
+and you\textquotesingle{}re set. If you want the bleeding edge rather than the latest release, use
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{brew\ install\ nlohmann-\/json\ -\/-\/HEAD}
+
+\end{DoxyCode}
+
+
+instead. See \href{https://formulae.brew.sh/formula/nlohmann-json}{\texttt{ nlohmann-\/json}} for more information.
+
+??? example \begin{DoxyVerb}1. Create the following file:
+
+    ```cpp title="example.cpp"
+    --8<-- "integration/example.cpp"
+    ```
+
+2. Install the package
+
+    ```sh
+    brew install nlohmann-json
+    ```
+
+3. Determine the include path, which defaults to `/usr/local/Cellar/nlohmann-json/$version/include`, where `$version` is the version of the library, e.g. `3.7.3`. The path of the library can be determined with
+
+    ```sh
+    brew list nlohmann-json
+    ```
+
+4. Compile the code. For instance, the code can be compiled using Clang with
+
+    ```sh
+    clang++ example.cpp -I/usr/local/Cellar/nlohmann-json/3.7.3/include -std=c++11 -o example
+    ```
+\end{DoxyVerb}
+ \+:material-\/update\+: The \href{https://formulae.brew.sh/formula/nlohmann-json}{\texttt{ formula}} is updated automatically.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1738}{}\doxysection{\texorpdfstring{Meson}{Meson}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1738}
+If you are using the \href{http://mesonbuild.com}{\texttt{ Meson Build System}}, add this source tree as a \href{https://mesonbuild.com/Subprojects.html\#using-a-subproject}{\texttt{ meson subproject}}. You may also use the {\ttfamily include.\+zip} published in this project\textquotesingle{}s \href{https://github.com/nlohmann/json/releases}{\texttt{ Releases}} to reduce the size of the vendored source tree. Alternatively, you can get a wrap file by downloading it from \href{https://wrapdb.mesonbuild.com/nlohmann_json}{\texttt{ Meson Wrap\+DB}}, or simply use {\ttfamily meson wrap install nlohmann\+\_\+json}. Please see the meson project for any issues regarding the packaging.
+
+The provided {\ttfamily meson.\+build} can also be used as an alternative to cmake for installing {\ttfamily nlohmann\+\_\+json} system-\/wide in which case a pkg-\/config file is installed. To use it, simply have your build system require the {\ttfamily nlohmann\+\_\+json} pkg-\/config dependency. In Meson, it is preferred to use the \href{https://mesonbuild.com/Reference-manual.html\#dependency}{\texttt{ {\ttfamily dependency()}}} object with a subproject fallback, rather than using the subproject directly.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1739}{}\doxysection{\texorpdfstring{Bazel}{Bazel}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1739}
+This repository provides a \href{https://bazel.build/}{\texttt{ Bazel}} {\ttfamily WORKSPACE.\+bazel} and a corresponding {\ttfamily BUILD.\+bazel} file. Therefore, this repository can be referenced by workspace rules such as {\ttfamily http\+\_\+archive}, {\ttfamily git\+\_\+repository}, or {\ttfamily local\+\_\+repository} from other Bazel workspaces. To use the library you only need to depend on the target {\ttfamily @nlohmann\+\_\+json//\+:json} (e.\+g. via {\ttfamily deps} attribute).\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1740}{}\doxysection{\texorpdfstring{Conan}{Conan}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1740}
+If you are using \href{https://www.conan.io/}{\texttt{ Conan}} to manage your dependencies, merely add {\ttfamily nlohmann\+\_\+json/x.\+y.\+z} to your {\ttfamily conanfile}\textquotesingle{}s requires, where {\ttfamily x.\+y.\+z} is the release version you want to use. Please file issues \href{https://github.com/conan-io/conan-center-index/issues}{\texttt{ here}} if you experience problems with the packages.
+
+??? example \begin{DoxyVerb}1. Create the following files:
+
+    ```ini title="Conanfile.txt"
+    --8<-- "integration/conan/Conanfile.txt"
+    ```
+
+    ```cmake title="CMakeLists.txt"
+    --8<-- "integration/conan/CMakeLists.txt"
+    ```
+
+    ```cpp title="example.cpp"
+    --8<-- "integration/conan/example.cpp"
+    ```
+
+2. Build:
+
+    ```sh
+    mkdir build
+    cd build
+    conan install ..
+    cmake ..
+    cmake --build .
+    ```
+\end{DoxyVerb}
+ \+:material-\/update\+: The \href{https://conan.io/center/nlohmann_json}{\texttt{ package}} is updated automatically.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1741}{}\doxysection{\texorpdfstring{Spack}{Spack}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1741}
+If you are using \href{https://www.spack.io/}{\texttt{ Spack}} to manage your dependencies, you can use the \href{https://spack.readthedocs.io/en/latest/package_list.html\#nlohmann-json}{\texttt{ {\ttfamily nlohmann-\/json} package}}. Please see the \href{https://github.com/spack/spack}{\texttt{ spack project}} for any issues regarding the packaging.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1742}{}\doxysection{\texorpdfstring{Hunter}{Hunter}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1742}
+If you are using \href{https://github.com/cpp-pm/hunter}{\texttt{ hunter}} on your project for external dependencies, then you can use the \href{https://hunter.readthedocs.io/en/latest/packages/pkg/nlohmann_json.html}{\texttt{ nlohmann\+\_\+json package}}. Please see the hunter project for any issues regarding the packaging.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1743}{}\doxysection{\texorpdfstring{Buckaroo}{Buckaroo}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1743}
+If you are using \href{https://buckaroo.pm}{\texttt{ Buckaroo}}, you can install this library\textquotesingle{}s module with {\ttfamily buckaroo add github.\+com/buckaroo-\/pm/nlohmann-\/json}. Please file issues \href{https://github.com/buckaroo-pm/nlohmann-json}{\texttt{ here}}. There is a demo repo \href{https://github.com/njlr/buckaroo-nholmann-json-example}{\texttt{ here}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1744}{}\doxysection{\texorpdfstring{vcpkg}{vcpkg}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1744}
+If you are using \href{https://github.com/Microsoft/vcpkg/}{\texttt{ vcpkg}} on your project for external dependencies, then you can install the \href{https://github.com/Microsoft/vcpkg/tree/master/ports/nlohmann-json}{\texttt{ nlohmann-\/json package}} with {\ttfamily vcpkg install nlohmann-\/json} and follow the then displayed descriptions. Please see the vcpkg project for any issues regarding the packaging.
+
+??? example \begin{DoxyVerb}1. Create the following files:
+
+    ```cmake title="CMakeLists.txt"
+    --8<-- "integration/vcpkg/CMakeLists.txt"
+    ```
+
+    ```cpp title="example.cpp"
+    --8<-- "integration/vcpkg/example.cpp"
+    ```
+
+2. Install package:
+
+    ```sh
+    vcpkg install nlohmann-json
+    ```
+
+3. Build:
+
+    ```sh
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_TOOLCHAIN_FILE=/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
+    cmake --build .
+    ```
+
+Note you need to adjust `/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake` to your system.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1745}{}\doxysection{\texorpdfstring{cget}{cget}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1745}
+If you are using \href{http://cget.readthedocs.io/en/latest/}{\texttt{ cget}}, you can install the latest development version with {\ttfamily cget install nlohmann/json}. A specific version can be installed with {\ttfamily cget install nlohmann/json@v3.\+1.\+0}. Also, the multiple header version can be installed by adding the {\ttfamily -\/DJSON\+\_\+\+Multiple\+Headers=ON} flag (i.\+e., {\ttfamily cget install nlohmann/json -\/DJSON\+\_\+\+Multiple\+Headers=ON}).
+
+\+:material-\/update\+: cget reads directly from the \href{https://github.com/nlohmann/json}{\texttt{ Git\+Hub repository}} and is always up-\/to-\/date.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1746}{}\doxysection{\texorpdfstring{Cocoa\+Pods}{CocoaPods}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1746}
+If you are using \href{https://cocoapods.org}{\texttt{ Cocoa\+Pods}}, you can use the library by adding pod `"{}nlohmann\+\_\+json"{}, '\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$>$}{>}3.\+1.\+2\textquotesingle{}\`{} to your podfile (see \href{https://bitbucket.org/benman/nlohmann_json-cocoapod/src/master/}{\texttt{ an example}}). Please file issues \href{https://bitbucket.org/benman/nlohmann_json-cocoapod/issues?status=new&status=open}{\texttt{ here}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1747}{}\doxysection{\texorpdfstring{Nu\+Get}{NuGet}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1747}
+If you are using \href{https://www.nuget.org}{\texttt{ Nu\+Get}}, you can use the package \href{https://www.nuget.org/packages/nlohmann.json/}{\texttt{ nlohmann.\+json}}. Please check \href{https://github.com/nlohmann/json/issues/1132\#issuecomment-452250255}{\texttt{ this extensive description}} on how to use the package. Please file issues \href{https://github.com/hnkb/nlohmann-json-nuget/issues}{\texttt{ here}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1748}{}\doxysection{\texorpdfstring{Conda}{Conda}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1748}
+If you are using \href{https://conda.io/}{\texttt{ conda}}, you can use the package \href{https://github.com/conda-forge/nlohmann_json-feedstock}{\texttt{ nlohmann\+\_\+json}} from \href{https://conda-forge.org}{\texttt{ conda-\/forge}} executing {\ttfamily conda install -\/c conda-\/forge nlohmann\+\_\+json}. Please file issues \href{https://github.com/conda-forge/nlohmann_json-feedstock/issues}{\texttt{ here}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1749}{}\doxysection{\texorpdfstring{MSYS2}{MSYS2}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1749}
+If you are using \href{http://www.msys2.org/}{\texttt{ MSYS2}}, you can use the \href{https://packages.msys2.org/base/mingw-w64-nlohmann-json}{\texttt{ mingw-\/w64-\/nlohmann-\/json}} package, just type {\ttfamily pacman -\/S mingw-\/w64-\/i686-\/nlohmann-\/json} or {\ttfamily pacman -\/S mingw-\/w64-\/x86\+\_\+64-\/nlohmann-\/json} for installation. Please file issues \href{https://github.com/msys2/MINGW-packages/issues/new?title=\%5Bnlohmann-json\%5D}{\texttt{ here}} if you experience problems with the packages.
+
+\+:material-\/update\+: The \href{https://packages.msys2.org/base/mingw-w64-nlohmann-json}{\texttt{ package}} is updated automatically.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1750}{}\doxysection{\texorpdfstring{Mac\+Ports}{MacPorts}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1750}
+If you are using \href{https://ports.macports.org}{\texttt{ Mac\+Ports}}, execute {\ttfamily sudo port install nlohmann-\/json} to install the \href{https://ports.macports.org/port/nlohmann-json/}{\texttt{ nlohmann-\/json}} package.
+
+\+:material-\/update\+: The \href{https://ports.macports.org/port/nlohmann-json/}{\texttt{ package}} is updated automatically.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1751}{}\doxysection{\texorpdfstring{build2}{build2}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1751}
+If you are using \href{https://build2.org}{\texttt{ {\ttfamily build2}}}, you can use the \href{https://cppget.org/nlohmann-json}{\texttt{ {\ttfamily nlohmann-\/json}}} package from the public repository \href{http://cppget.org}{\texttt{ http\+://cppget.\+org}} or directly from the \href{https://github.com/build2-packaging/nlohmann-json}{\texttt{ package\textquotesingle{}s sources repository}}. In your project\textquotesingle{}s {\ttfamily manifest} file, just add {\ttfamily depends\+: nlohmann-\/json} (probably with some \href{https://build2.org/build2-toolchain/doc/build2-toolchain-intro.xhtml\#guide-add-remove-deps}{\texttt{ version constraints}}). If you are not familiar with using dependencies in {\ttfamily build2}, \href{https://build2.org/build2-toolchain/doc/build2-toolchain-intro.xhtml}{\texttt{ please read this introduction}}. Please file issues \href{https://github.com/build2-packaging/nlohmann-json}{\texttt{ here}} if you experience problems with the packages.
+
+\+:material-\/update\+: The \href{https://cppget.org/nlohmann-json}{\texttt{ package}} is updated automatically.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1752}{}\doxysection{\texorpdfstring{wsjcpp}{wsjcpp}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1752}
+If you are using \href{http://wsjcpp.org}{\texttt{ {\ttfamily wsjcpp}}}, you can use the command {\ttfamily wsjcpp install "{}https\+://github.\+com/nlohmann/json\+:develop"{}} to get the latest version. Note you can change the branch "{}\+:develop"{} to an existing tag or another branch.
+
+\+:material-\/update\+: wsjcpp reads directly from the \href{https://github.com/nlohmann/json}{\texttt{ Git\+Hub repository}} and is always up-\/to-\/date.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1753}{}\doxysection{\texorpdfstring{CPM.\+cmake}{CPM.cmake}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2integration_2package__managers_autotoc_md1753}
+If you are using \href{https://github.com/TheLartians/CPM.cmake}{\texttt{ {\ttfamily CPM.\+cmake}}}, you can check this \href{https://github.com/TheLartians/CPM.cmake/tree/master/examples/json}{\texttt{ {\ttfamily example}}}. After \href{https://github.com/TheLartians/CPM.cmake\#adding-cpm}{\texttt{ adding CPM script}} to your project, implement the following snippet to your CMake\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CPMAddPackage(}
+\DoxyCodeLine{\ \ \ \ NAME\ nlohmann\_json}
+\DoxyCodeLine{\ \ \ \ GITHUB\_REPOSITORY\ nlohmann/json}
+\DoxyCodeLine{\ \ \ \ VERSION\ 3.9.1)}
+
+\end{DoxyCode}
+ 

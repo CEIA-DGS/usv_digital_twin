@@ -1,0 +1,49 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/detail/meta/detected.hpp File Reference}
+\hypertarget{detected_8hpp}{}\label{detected_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/detected.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/detail/meta/detected.hpp}}
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/void\+\_\+t.\+hpp$>$}\newline
+Include dependency graph for detected.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{detected_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{detected_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1nonesuch}{detail\+::nonesuch}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1detector}{detail\+::detector$<$ Default, Always\+Void, Op, Args $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1detector_3_01Default_00_01void__t_3_01Op_3_01Args_8_8_8_01_4_01_4_00_01Op_00_01Args_8_8_8_01_4}{detail\+::detector$<$ Default, void\+\_\+t$<$ Op$<$ Args... $>$ $>$, Op, Args... $>$}}
+\item 
+struct \mbox{\hyperlink{structdetail_1_1is__detected__lazy}{detail\+::is\+\_\+detected\+\_\+lazy$<$ Op, Args $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedetail}{detail}}
+\begin{DoxyCompactList}\small\item\em detail namespace with internal helper functions \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_af040ff7b29d4c7ebd4dc6062bb3db008}{detail\+::is\+\_\+detected}} = typename \mbox{\hyperlink{structdetail_1_1detector}{detector}}$<$ \mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}, void, Op, Args... $>$\mbox{\hyperlink{namespacedetail_a917c3efabea8a20dc72d9ae2c673d632}{\+::value\+\_\+t}}
+\item 
+{\footnotesize template$<$template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detail\+::detected\+\_\+t}} = typename \mbox{\hyperlink{structdetail_1_1detector}{detector}}$<$ \mbox{\hyperlink{structdetail_1_1nonesuch}{nonesuch}}, void, Op, Args... $>$\+::type
+\item 
+{\footnotesize template$<$class Default , template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a7f58658f7add3da8b8b976f181fa38e0}{detail\+::detected\+\_\+or}} = \mbox{\hyperlink{structdetail_1_1detector}{detector}}$<$ Default, void, Op, Args... $>$
+\item 
+{\footnotesize template$<$class Default , template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a7c8c357df0fc3008a19bf4dca3bedcc9}{detail\+::detected\+\_\+or\+\_\+t}} = typename \mbox{\hyperlink{namespacedetail_a7f58658f7add3da8b8b976f181fa38e0}{detected\+\_\+or}}$<$ Default, Op, Args... $>$\+::type
+\item 
+{\footnotesize template$<$class Expected , template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a0f0f7c3e1f48f7df9b5bbceada5b1a07}{detail\+::is\+\_\+detected\+\_\+exact}} = std\+::is\+\_\+same$<$ Expected, \mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detected\+\_\+t}}$<$ Op, Args... $>$ $>$
+\item 
+{\footnotesize template$<$class To , template$<$ class... $>$ class Op, class... Args$>$ }\\using \mbox{\hyperlink{namespacedetail_a599dfec0fd1c4cc9fcaa98e6fc804e7f}{detail\+::is\+\_\+detected\+\_\+convertible}} = std\+::is\+\_\+convertible$<$ \mbox{\hyperlink{namespacedetail_a9d7d25c4bee06898292dff4eb4e381bf}{detected\+\_\+t}}$<$ Op, Args... $>$, To $>$
+\end{DoxyCompactItemize}

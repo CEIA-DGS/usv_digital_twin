@@ -1,0 +1,9 @@
+<map id="build/dt_msgs/rosidl_generator_c/dt_msgs/msg/detail/waypoint_array__type_support.h" name="build/dt_msgs/rosidl_generator_c/dt_msgs/msg/detail/waypoint_array__type_support.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="169,5,369,75"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,130,156,170"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="212,77,127,125,124,121,209,72"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="181,123,357,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="271,75,271,109,266,109,266,75"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="381,130,575,170"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="335,72,430,121,428,126,333,77"/>
+</map>

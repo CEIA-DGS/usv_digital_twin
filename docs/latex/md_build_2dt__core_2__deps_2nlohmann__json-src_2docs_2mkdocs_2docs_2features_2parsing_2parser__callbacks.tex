@@ -1,0 +1,86 @@
+\chapter{Parser Callbacks}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks}\index{Parser Callbacks@{Parser Callbacks}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1427}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1427}%
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1428}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1428}
+With a parser callback function, the result of parsing a JSON text can be influenced. When passed to {\ttfamily parse}, it is called on certain events (passed as {\ttfamily parse\+\_\+event\+\_\+t} via parameter {\ttfamily event}) with a set recursion depth {\ttfamily depth} and context JSON value {\ttfamily parsed}. The return value of the callback function is a boolean indicating whether the element that emitted the callback shall be kept or not.
+
+The type of the callback function is\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ BasicJsonType>}
+\DoxyCodeLine{\textcolor{keyword}{using\ }\mbox{\hyperlink{namespacedetail_a20a6b9b232b9f47ce057fe5cc5bbf511}{parser\_callback\_t}}\ =}
+\DoxyCodeLine{\ \ \ \ std::function<bool(\textcolor{keywordtype}{int}\ depth,\ parse\_event\_t\ event,\ BasicJsonType\&\ parsed)>;}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1429}{}\doxysection{\texorpdfstring{Callback event types}{Callback event types}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1429}
+We distinguish six scenarios (determined by the event type) in which the callback function can be called. The following table describes the values of the parameters {\ttfamily depth}, {\ttfamily event}, and {\ttfamily parsed}.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily event}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily depth}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily parsed}    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily event}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ description   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily depth}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ parameter {\ttfamily parsed}    }\\\cline{1-4}
+\endhead
+{\ttfamily parse\+\_\+event\+\_\+t\+::object\+\_\+start}   &the parser read {\ttfamily \{} and started to process a JSON object   &depth of the parent of the JSON object   &a JSON value with type discarded    \\\cline{1-4}
+{\ttfamily parse\+\_\+event\+\_\+t\+::key}   &the parser read a key of a value in an object   &depth of the currently parsed JSON object   &a JSON string containing the key    \\\cline{1-4}
+{\ttfamily parse\+\_\+event\+\_\+t\+::object\+\_\+end}   &the parser read {\ttfamily \}} and finished processing a JSON object   &depth of the parent of the JSON object   &the parsed JSON object    \\\cline{1-4}
+{\ttfamily parse\+\_\+event\+\_\+t\+::array\+\_\+start}   &the parser read {\ttfamily \mbox{[}} and started to process a JSON array   &depth of the parent of the JSON array   &a JSON value with type discarded    \\\cline{1-4}
+{\ttfamily parse\+\_\+event\+\_\+t\+::array\+\_\+end}   &the parser read {\ttfamily \mbox{]}} and finished processing a JSON array   &depth of the parent of the JSON array   &the parsed JSON array    \\\cline{1-4}
+{\ttfamily parse\+\_\+event\+\_\+t\+::value}   &the parser finished reading a JSON value   &depth of the value   &the parsed JSON value   \\\cline{1-4}
+\end{longtabu}
+
+
+??? example \begin{DoxyVerb}When parsing the following JSON text,
+
+```json
+{
+    "name": "Berlin",
+    "location": [
+        52.519444,
+        13.406667
+    ]
+}
+```
+
+these calls are made to the callback function:
+
+| event          | depth | parsed |
+| -------------- | ----- | ------ |
+| `object_start` | 0     | *discarded* |
+| `key`          | 1     | `#!json "name"` |
+| `value`        | 1     | `#!json "Berlin"` |
+| `key`          | 1     | `#!json "location"` |
+| `array_start`  | 1     | *discarded* |
+| `value`        | 2     | `#!json 52.519444` |
+| `value`        | 2     | `#!json 13.406667` |
+| `array_end`    | 1     | `#!json [52.519444,13.406667]` |
+| `object_end`   | 0     | `#!json {"location":[52.519444,13.406667],"name":"Berlin"}` |
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1430}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2features_2parsing_2parser__callbacks_autotoc_md1430}
+Discarding a value (i.\+e., returning {\ttfamily \#!c false}) has different effects depending on the context in which the function was called\+:
+
+
+\begin{DoxyItemize}
+\item Discarded values in structured types are skipped. That is, the parser will behave as if the discarded value was never read.
+\item In case a value outside a structured type is skipped, it is replaced with {\ttfamily \#!json null}. This case happens if the top-\/level element is skipped.
+\end{DoxyItemize}
+
+??? example \begin{DoxyVerb}The example below demonstrates the `parse()` function with and without callback function.
+
+```cpp
+--8<-- "examples/parse__string__parser_callback_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/parse__string__parser_callback_t.output"
+```
+\end{DoxyVerb}
+ 

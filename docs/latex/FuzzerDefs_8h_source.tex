@@ -1,0 +1,95 @@
+\doxysection{Fuzzer\+Defs.\+h}
+\hypertarget{FuzzerDefs_8h_source}{}\label{FuzzerDefs_8h_source}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDefs.h@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerDefs.h}}
+\mbox{\hyperlink{FuzzerDefs_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//===-\/\ FuzzerDefs.h\ -\/\ Internal\ header\ for\ the\ Fuzzer\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*-\/\ C++\ -\/*\ ===//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ LLVM\ Compiler\ Infrastructure}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ This\ file\ is\ distributed\ under\ the\ University\ of\ Illinois\ Open\ Source}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ License.\ See\ LICENSE.TXT\ for\ details.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ Basic\ definitions.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//===-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/===//}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ LLVM\_FUZZER\_DEFS\_H}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ LLVM\_FUZZER\_DEFS\_H}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Platform\ detection.}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_linux\_\_}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_APPLE\ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_LINUX\ 1}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_WINDOWS\ 0}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#elif\ \_\_APPLE\_\_}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_APPLE\ 1}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_LINUX\ 0}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_WINDOWS\ 0}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#elif\ \_WIN32}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_APPLE\ 0}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_LINUX\ 0}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_WINDOWS\ 1}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#error\ "{}Support\ for\ your\ platform\ has\ not\ been\ implemented"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LIBFUZZER\_POSIX\ LIBFUZZER\_APPLE\ ||\ LIBFUZZER\_LINUX}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#ifdef\ \_\_x86\_64}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ ATTRIBUTE\_TARGET\_POPCNT\ \_\_attribute\_\_((target("{}popcnt"{})))}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ ATTRIBUTE\_TARGET\_POPCNT}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifdef\ \_\_clang\_\_\ \ }\textcolor{comment}{//\ avoid\ gcc\ warning.}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#\ \ define\ ATTRIBUTE\_NO\_SANITIZE\_MEMORY\ \_\_attribute\_\_((no\_sanitize("{}memory"{})))}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#\ \ define\ ATTRIBUTE\_NO\_SANITIZE\_MEMORY}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacefuzzer}{fuzzer}}\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ T\ \mbox{\hyperlink{namespacefuzzer_a5d55e117eab080df334785a11032f9a1}{Min}}(T\ a,\ T\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ <\ b\ ?\ a\ :\ b;\ \}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ T\ \mbox{\hyperlink{namespacefuzzer_a09fc8597a8d5026c9d5aa050ba0f66e3}{Max}}(T\ a,\ T\ b)\ \{\ \textcolor{keywordflow}{return}\ a\ >\ b\ ?\ a\ :\ b;\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{main_8cc_a5ef34641088c8f0bd272ef5b395e8bce}{Random}};}
+\DoxyCodeLine{00060\ \textcolor{keyword}{class\ }Dictionary;}
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }DictionaryEntry;}
+\DoxyCodeLine{00062\ \textcolor{keyword}{class\ }MutationDispatcher;}
+\DoxyCodeLine{00063\ \textcolor{keyword}{struct\ }FuzzingOptions;}
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }InputCorpus;}
+\DoxyCodeLine{00065\ \textcolor{keyword}{struct\ }InputInfo;}
+\DoxyCodeLine{00066\ \textcolor{keyword}{struct\ }ExternalFunctions;}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{comment}{//\ Global\ interface\ to\ functions\ that\ may\ or\ may\ not\ be\ available.}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ ExternalFunctions\ *\mbox{\hyperlink{namespacefuzzer_a7b851009ee8118fda6221671b4e9944d}{EF}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{typedef}\ std::vector<uint8\_t>\ \mbox{\hyperlink{namespacefuzzer_a8579b46e0945a8c2b302464454c3b0a0}{Unit}};}
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ std::vector<Unit>\ \mbox{\hyperlink{namespacefuzzer_ace088a96125e901d87330bd328162d10}{UnitVector}};}
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ int\ (*\mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{UserCallback}})(\textcolor{keyword}{const}\ uint8\_t\ *\mbox{\hyperlink{structData}{Data}},\ \textcolor{keywordtype}{size\_t}\ Size);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacefuzzer_a78f142089de84c6cbf7b5cab5f766af7}{FuzzerDriver}}(\textcolor{keywordtype}{int}\ *argc,\ \textcolor{keywordtype}{char}\ ***\mbox{\hyperlink{afl__driver_8cpp_a5d7d76db953dad5fc7ae40344df71c58}{argv}},\ \mbox{\hyperlink{namespacefuzzer_a9af1aa6b99e894590286dfc791aed09e}{UserCallback}}\ Callback);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfuzzer_1_1ScopedDoingMyOwnMemmem}{ScopedDoingMyOwnMemmem}}\ \{}
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{structfuzzer_1_1ScopedDoingMyOwnMemmem_a27e9ff755f8f0829e75eab854d8e9705}{ScopedDoingMyOwnMemmem}}();}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{structfuzzer_1_1ScopedDoingMyOwnMemmem_a985f130df6ed26d943e921b629cb4ef0}{\string~ScopedDoingMyOwnMemmem}}();}
+\DoxyCodeLine{00080\ \};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{inline}\ uint8\_t\ \ \mbox{\hyperlink{namespacefuzzer_a88ebc94df04c93b5276f5dc95142da63}{Bswap}}(uint8\_t\ x)\ \ \{\ \textcolor{keywordflow}{return}\ x;\ \}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{inline}\ uint16\_t\ \mbox{\hyperlink{namespacefuzzer_a88ebc94df04c93b5276f5dc95142da63}{Bswap}}(uint16\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ \_\_builtin\_bswap16(x);\ \}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{inline}\ uint32\_t\ \mbox{\hyperlink{namespacefuzzer_a88ebc94df04c93b5276f5dc95142da63}{Bswap}}(uint32\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ \_\_builtin\_bswap32(x);\ \}}
+\DoxyCodeLine{00085\ \textcolor{keyword}{inline}\ uint64\_t\ \mbox{\hyperlink{namespacefuzzer_a88ebc94df04c93b5276f5dc95142da63}{Bswap}}(uint64\_t\ x)\ \{\ \textcolor{keywordflow}{return}\ \_\_builtin\_bswap64(x);\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \}\ \ \textcolor{comment}{//\ namespace\ fuzzer}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ LLVM\_FUZZER\_DEFS\_H}}
+
+\end{DoxyCode}

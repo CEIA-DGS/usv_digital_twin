@@ -1,0 +1,42 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}get\+\_\+ref}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$get\_ref@{$<$small$>$nlohmann::basic\_json::$<$/small$>$get\_ref}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md378}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md378}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ReferenceType>}
+\DoxyCodeLine{ReferenceType\ get\_ref();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename}\ ReferenceType>}
+\DoxyCodeLine{\textcolor{keyword}{const}\ ReferenceType\ get\_ref()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+Implicit reference access to the internally stored JSON value. No copies are made.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md379}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md379}
+{\ttfamily Reference\+Type} \+: reference type; must be a reference to \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2array__t}{\`{}array\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2string__t}{\`{}string\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2boolean__t}{\`{}boolean\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__integer__t}{\`{}number\+\_\+integer\+\_\+t\`{}}{0}, or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__unsigned__t}{\`{}number\+\_\+unsigned\+\_\+t\`{}}{0}, \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2number__float__t}{\`{}number\+\_\+float\+\_\+t\`{}}{0}, or \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2binary__t}{\`{}binary\+\_\+t\`{}}{0}. Enforced by a static assertion.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md380}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md380}
+reference to the internally stored JSON value if the requested reference type fits to the JSON value; throws \href{../../home/exceptions.md\#jsonexceptiontype_error303}{\texttt{ {\ttfamily type\+\_\+error.\+303}}} otherwise\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md381}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md381}
+Strong exception safety\+: if an exception occurs, the original value stays intact.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md382}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md382}
+Throws \href{../../home/exceptions.md\#jsonexceptiontype_error303}{\texttt{ {\ttfamily type\+\_\+error.\+303}}} if the requested reference type does not match the stored JSON value type; example\+: {\ttfamily "{}incompatible Reference\+Type for get\+\_\+ref, actual type is binary"{}}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md383}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md383}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md384}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md384}
+!!! danger "{}\+Undefined behavior"{} \begin{DoxyVerb}Writing data to the referee of the result yields an undefined state.
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md385}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md385}
+??? example \begin{DoxyVerb}The example shows several calls to `get_ref()`.
+
+```cpp
+--8<-- "examples/get_ref.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/get_ref.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md386}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2get__ref_autotoc_md386}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+1.\+0.
+\item Extended to binary types in version 3.\+8.\+0. 
+\end{DoxyItemize}

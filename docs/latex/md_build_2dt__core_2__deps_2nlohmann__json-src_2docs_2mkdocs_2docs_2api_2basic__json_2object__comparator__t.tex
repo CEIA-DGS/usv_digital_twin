@@ -1,0 +1,32 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}object\+\_\+comparator\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$object\_comparator\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$object\_comparator\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md610}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md610}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }object\_comparator\_t\ =\ \textcolor{keyword}{typename}\ object\_t::key\_compare;}
+\DoxyCodeLine{\textcolor{comment}{//\ or}}
+\DoxyCodeLine{\textcolor{keyword}{using\ }object\_comparator\_t\ =\ default\_object\_comparator\_t;}
+
+\end{DoxyCode}
+
+
+The comparator used by \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0}. Defined as {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+compare} if available, and \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t}{\`{}default\+\_\+object\+\_\+comparator\+\_\+t\`{}}{0} otherwise.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md611}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md611}
+??? example \begin{DoxyVerb}The example below demonstrates the used object comparator.
+
+```cpp
+--8<-- "examples/object_comparator_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/object_comparator_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md612}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t_autotoc_md612}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+0.\+0.
+\item Changed to be conditionally defined as {\ttfamily \#!cpp typename object\+\_\+t\+::key\+\_\+compare} or {\ttfamily default\+\_\+object\+\_\+comparator\+\_\+t} in version 3.\+11.\+0. 
+\end{DoxyItemize}

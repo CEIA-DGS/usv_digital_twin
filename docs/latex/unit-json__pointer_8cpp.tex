@@ -1,0 +1,215 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/src/unit-\/json\+\_\+pointer.cpp File Reference}
+\hypertarget{unit-json__pointer_8cpp}{}\label{unit-json__pointer_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/json\_pointer.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/src/unit-\/json\_pointer.cpp}}
+{\ttfamily \#include "{}doctest\+\_\+compatibility.\+h"{}}\newline
+{\ttfamily \#include $<$nlohmann/json.\+hpp$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for unit-\/json\+\_\+pointer.cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unit-json__pointer_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unit-json__pointer_8cpp_aac81588c35115b6f19794f631c05cbe4}{JSON\+\_\+\+TESTS\+\_\+\+PRIVATE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_af0831fee504d3fdf4448dccb3ad079b3}{TEST\+\_\+\+CASE}} ("{}JSON pointers"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a3a1debb8d350d14ee2ce8f7e8efee8fa}{SECTION}} ("{}user-\/defined \mbox{\hyperlink{classstring}{string}} literal"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_af5211a60c46b6b8fa7f4771202ca8483}{CHECK}} (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}"{}\+\_\+json\+\_\+pointer\mbox{]}==\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a3394096840069cba8850e35d83c1e7e0}{CHECK}} (j.\+contains("{}"{}\+\_\+json\+\_\+pointer))
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a846bf888950d7447e4338a75518c5f26}{CHECK}} (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}/foo"{}\+\_\+json\+\_\+pointer\mbox{]}==\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_ad940b5c0e2bbfa7ee60c907b51288aca}{CHECK}} (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}/foo/0"{}\+\_\+json\+\_\+pointer\mbox{]}==\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]}\mbox{[}0\mbox{]})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_af58ec6306043218afa5b08e09b7ea143}{CHECK}} (\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}/foo/1"{}\+\_\+json\+\_\+pointer\mbox{]}==\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]}\mbox{[}1\mbox{]})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a7f358e70eb81d9b517022686c2edac04}{CHECK}} (j.\+contains("{}/foo"{}\+\_\+json\+\_\+pointer))
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_aa310f3151afb03f7f327b6ba7f4bda48}{CHECK}} (j.\+contains("{}/foo/0"{}\+\_\+json\+\_\+pointer))
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a7e8cee903f6014d36282c5373ed2975f}{CHECK}} (j.\+contains("{}/foo/1"{}\+\_\+json\+\_\+pointer))
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a6ce07c3d72999397ff3dc8dc999c185a}{CHECK}} (!j.\+contains("{}/foo/-\/"{}\+\_\+json\+\_\+pointer))
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a2cdca18b19a9ef7222b082a3723b5454}{SECTION}} ("{}array access"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a5baa6aa0f151e8bc4c7b50d6836f433d}{SECTION}} ("{}flatten"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_ab038609a7bdfee152f7b62c437f6fb91}{SECTION}} ("{}string representation"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a4398bc973b4627d8c7ca2fe8cde291ed}{SECTION}} ("{}conversion"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_ad3ffa924cf4f4bec57d74f617df95307}{SECTION}} ("{}empty, push, pop and parent"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a1b049b24a55b6b436d7d34a266b6b7ad}{SECTION}} ("{}operators"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_aa26c56f0633a4de77556ad2c95b6c79c}{SECTION}} ("{}equality comparison"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a640803a6c010267b702c285537383f19}{SECTION}} ("{}less-\/than comparison"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a9df9be0604e8618c3126971163be01da}{SECTION}} ("{}usable as \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{map}} key"{})
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a41f857de4180fb7fd3874e39e9d58a2b}{SECTION}} ("{}backwards compatibility and mixing"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\+\_\+json}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{unit-json__pointer_8cpp_aac81588c35115b6f19794f631c05cbe4}\label{unit-json__pointer_8cpp_aac81588c35115b6f19794f631c05cbe4} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!JSON\_TESTS\_PRIVATE@{JSON\_TESTS\_PRIVATE}}
+\index{JSON\_TESTS\_PRIVATE@{JSON\_TESTS\_PRIVATE}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{JSON\_TESTS\_PRIVATE}{JSON\_TESTS\_PRIVATE}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+TESTS\+\_\+\+PRIVATE}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{unit-json__pointer_8cpp_a6ce07c3d72999397ff3dc8dc999c185a}\label{unit-json__pointer_8cpp_a6ce07c3d72999397ff3dc8dc999c185a} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{!j.}]{contains"{}/foo/-\/"{}\+\_\+json\+\_\+pointer }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a3394096840069cba8850e35d83c1e7e0}\label{unit-json__pointer_8cpp_a3394096840069cba8850e35d83c1e7e0} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{j.}]{contains"{}"{}\+\_\+json\+\_\+pointer }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a7f358e70eb81d9b517022686c2edac04}\label{unit-json__pointer_8cpp_a7f358e70eb81d9b517022686c2edac04} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{j.}]{contains"{}/foo"{}\+\_\+json\+\_\+pointer }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_aa310f3151afb03f7f327b6ba7f4bda48}\label{unit-json__pointer_8cpp_aa310f3151afb03f7f327b6ba7f4bda48} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{j.}]{contains"{}/foo/0"{}\+\_\+json\+\_\+pointer }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a7e8cee903f6014d36282c5373ed2975f}\label{unit-json__pointer_8cpp_a7e8cee903f6014d36282c5373ed2975f} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{j.}]{contains"{}/foo/1"{}\+\_\+json\+\_\+pointer }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_af5211a60c46b6b8fa7f4771202ca8483}\label{unit-json__pointer_8cpp_af5211a60c46b6b8fa7f4771202ca8483} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}}]{\mbox{[}"{}"{}\+\_\+json\+\_\+pointer\mbox{]} = {\ttfamily =\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a846bf888950d7447e4338a75518c5f26}\label{unit-json__pointer_8cpp_a846bf888950d7447e4338a75518c5f26} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}}]{\mbox{[}"{}/foo"{}\+\_\+json\+\_\+pointer\mbox{]} = {\ttfamily =\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_ad940b5c0e2bbfa7ee60c907b51288aca}\label{unit-json__pointer_8cpp_ad940b5c0e2bbfa7ee60c907b51288aca} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}}]{\mbox{[}"{}/foo/0"{}\+\_\+json\+\_\+pointer\mbox{]} = {\ttfamily =\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]}\mbox{[}0\mbox{]}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_af58ec6306043218afa5b08e09b7ea143}\label{unit-json__pointer_8cpp_af58ec6306043218afa5b08e09b7ea143} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!CHECK@{CHECK}}
+\index{CHECK@{CHECK}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{CHECK()}{CHECK()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily CHECK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}}]{\mbox{[}"{}/foo/1"{}\+\_\+json\+\_\+pointer\mbox{]} = {\ttfamily =\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}}\mbox{[}"{}foo"{}\mbox{]}\mbox{[}1\mbox{]}} }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a2cdca18b19a9ef7222b082a3723b5454}\label{unit-json__pointer_8cpp_a2cdca18b19a9ef7222b082a3723b5454} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}array access"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a41f857de4180fb7fd3874e39e9d58a2b}\label{unit-json__pointer_8cpp_a41f857de4180fb7fd3874e39e9d58a2b} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}backwards compatibility and mixing"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a4398bc973b4627d8c7ca2fe8cde291ed}\label{unit-json__pointer_8cpp_a4398bc973b4627d8c7ca2fe8cde291ed} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}conversion"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_ad3ffa924cf4f4bec57d74f617df95307}\label{unit-json__pointer_8cpp_ad3ffa924cf4f4bec57d74f617df95307} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}}]{empty,  }\item[{push}]{,  }\item[{pop and parent"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_aa26c56f0633a4de77556ad2c95b6c79c}\label{unit-json__pointer_8cpp_aa26c56f0633a4de77556ad2c95b6c79c} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}equality comparison"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a5baa6aa0f151e8bc4c7b50d6836f433d}\label{unit-json__pointer_8cpp_a5baa6aa0f151e8bc4c7b50d6836f433d} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}flatten"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a640803a6c010267b702c285537383f19}\label{unit-json__pointer_8cpp_a640803a6c010267b702c285537383f19} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}less-\/than comparison"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a1b049b24a55b6b436d7d34a266b6b7ad}\label{unit-json__pointer_8cpp_a1b049b24a55b6b436d7d34a266b6b7ad} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}operators"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_ab038609a7bdfee152f7b62c437f6fb91}\label{unit-json__pointer_8cpp_ab038609a7bdfee152f7b62c437f6fb91} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}string representation"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a9df9be0604e8618c3126971163be01da}\label{unit-json__pointer_8cpp_a9df9be0604e8618c3126971163be01da} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}usable as \mbox{\hyperlink{main_8cc_a2a2b35229154e6ebff3aa55ede6e324b}{map}} key"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_a3a1debb8d350d14ee2ce8f7e8efee8fa}\label{unit-json__pointer_8cpp_a3a1debb8d350d14ee2ce8f7e8efee8fa} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!SECTION@{SECTION}}
+\index{SECTION@{SECTION}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{SECTION()}{SECTION()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily SECTION (\begin{DoxyParamCaption}\item[{"{}user-\/defined \mbox{\hyperlink{classstring}{string}} literal"{}}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{unit-json__pointer_8cpp_af0831fee504d3fdf4448dccb3ad079b3}\label{unit-json__pointer_8cpp_af0831fee504d3fdf4448dccb3ad079b3} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!TEST\_CASE@{TEST\_CASE}}
+\index{TEST\_CASE@{TEST\_CASE}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST\_CASE()}{TEST\_CASE()}}
+{\footnotesize\ttfamily TEST\+\_\+\+CASE (\begin{DoxyParamCaption}\item[{"{}JSON pointers"{}         }]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}\label{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708} 
+\index{unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}!\_json@{\_json}}
+\index{\_json@{\_json}!unit-\/json\_pointer.cpp@{unit-\/json\_pointer.cpp}}
+\doxysubsubsection{\texorpdfstring{\_json}{\_json}}
+{\footnotesize\ttfamily \+\_\+json}
+

@@ -1,0 +1,7 @@
+<map id="dt_ros/include/dt_ros/utils/geo_utils.hpp" name="dt_ros/include/dt_ros/utils/geo_utils.hpp">
+<area shape="rect" id="Node000001" title="Geographical coordinate utilities for the Digital Twin ROS adapter." alt="" coords="121,5,279,45"/>
+<area shape="rect" id="Node000002" href="$conversions_8cpp.html" title="Implementation of ROS to Core conversion utilities." alt="" coords="5,101,200,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,57,118,102,114,98,166,53"/>
+<area shape="rect" id="Node000003" href="$geo__utils_8cpp.html" title="Implementation of geographical coordinate conversion utilities." alt="" coords="225,93,370,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="233,52,278,91,274,95,230,56"/>
+</map>

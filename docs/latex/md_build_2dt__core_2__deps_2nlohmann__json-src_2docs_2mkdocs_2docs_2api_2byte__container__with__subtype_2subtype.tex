@@ -1,0 +1,34 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::byte\+\_\+container\+\_\+with\+\_\+subtype\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}subtype}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype}\index{$<$small$>$nlohmann::byte\_container\_with\_subtype::$<$/small$>$subtype@{$<$small$>$nlohmann::byte\_container\_with\_subtype::$<$/small$>$subtype}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md968}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md968}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{constexpr}\ subtype\_type\ subtype()\ const\ noexcept;}
+
+\end{DoxyCode}
+
+
+Returns the numerical subtype of the value if it has a subtype. If it does not have a subtype, this function will return {\ttfamily subtype\+\_\+type(-\/1)} as a sentinel value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md969}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md969}
+the numerical subtype of the binary value, or {\ttfamily subtype\+\_\+type(-\/1)} if no subtype is set\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md970}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md970}
+No-\/throw guarantee\+: this function never throws exceptions.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md971}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md971}
+Constant.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md972}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md972}
+??? example \begin{DoxyVerb}The example below demonstrates how the subtype can be retrieved with `subtype`. Note how `subtype_type(-1)` is
+returned for container `c1`.
+
+```cpp
+--8<-- "examples/byte_container_with_subtype__subtype.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/byte_container_with_subtype__subtype.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md973}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2byte__container__with__subtype_2subtype_autotoc_md973}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+8.\+0
+\item Fixed return value to properly return {\ttfamily subtype\+\_\+type(-\/1)} as documented in version 3.\+10.\+0. 
+\end{DoxyItemize}

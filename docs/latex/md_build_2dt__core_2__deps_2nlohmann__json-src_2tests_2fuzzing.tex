@@ -1,0 +1,77 @@
+\chapter{Fuzz testing}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing}\index{Fuzz testing@{Fuzz testing}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1808}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1808}%
+ Each parser of the library (JSON, BJData, BSON, CBOR, Message\+Pack, and UBJSON) can be fuzz tested. Currently, \href{https://llvm.org/docs/LibFuzzer.html}{\texttt{ lib\+Fuzzer}} and \href{https://github.com/AFLplusplus/AFLplusplus}{\texttt{ afl++}} are supported.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1809}{}\doxysection{\texorpdfstring{Corpus creation}{Corpus creation}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1809}
+For most effective fuzzing, a \href{https://llvm.org/docs/LibFuzzer.html\#corpus}{\texttt{ corpus}} should be provided. A corpus is a directory with some simple input files that cover several features of the parser and is hence a good starting point for mutations.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TEST\_DATA\_VERSION=3.1.0}
+\DoxyCodeLine{wget\ https://github.com/nlohmann/json\_test\_data/archive/refs/tags/v\$TEST\_DATA\_VERSION.zip}
+\DoxyCodeLine{unzip\ v\$TEST\_DATA\_VERSION.zip}
+\DoxyCodeLine{rm\ v\$TEST\_DATA\_VERSION.zip}
+\DoxyCodeLine{for\ FORMAT\ in\ json\ bjdata\ bson\ cbor\ msgpack\ ubjson}
+\DoxyCodeLine{do}
+\DoxyCodeLine{\ \ rm\ -\/fr\ corpus\_\$FORMAT}
+\DoxyCodeLine{\ \ mkdir\ corpus\_\$FORMAT}
+\DoxyCodeLine{\ \ find\ json\_test\_data-\/\$TEST\_DATA\_VERSION\ -\/size\ -\/5k\ -\/name\ "{}*.\$FORMAT"{}\ -\/exec\ cp\ "{}\{\}"{}\ "{}corpus\_\$FORMAT"{}\ \(\backslash\);}
+\DoxyCodeLine{done}
+\DoxyCodeLine{rm\ -\/fr\ json\_test\_data-\/\$TEST\_DATA\_VERSION}
+
+\end{DoxyCode}
+
+
+The generated corpus can be used with both lib\+Fuzzer and afl++. The remainder of this documentation assumes the corpus directories have been created in the {\ttfamily tests} directory.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1810}{}\doxysection{\texorpdfstring{lib\+Fuzzer}{libFuzzer}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1810}
+To use lib\+Fuzzer, you need to pass {\ttfamily -\/fsanitize=fuzzer} as {\ttfamily FUZZER\+\_\+\+ENGINE}. In the {\ttfamily tests} directory, call
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ fuzzers\ FUZZER\_ENGINE="{}-\/fsanitize=fuzzer"{}}
+
+\end{DoxyCode}
+
+
+This creates a fuzz tester binary for each parser that supports these \href{https://llvm.org/docs/LibFuzzer.html\#options}{\texttt{ command line options}}.
+
+In case your default compiler is not a Clang compiler that includes lib\+Fuzzer (Clang 6.\+0 or later), you need to set the {\ttfamily CXX} variable accordingly. Note the compiler provided by Xcode (Apple\+Clang) does not contain lib\+Fuzzer. Please install Clang via Homebrew calling {\ttfamily brew install llvm} and add {\ttfamily CXX=\$(brew -\/-\/prefix llvm)/bin/clang} to the {\ttfamily make} call\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ fuzzers\ FUZZER\_ENGINE="{}-\/fsanitize=fuzzer"{}\ CXX=\$(brew\ -\/-\/prefix\ llvm)/bin/clang}
+
+\end{DoxyCode}
+
+
+Then pass the corpus directory as command-\/line argument (assuming it is located in {\ttfamily tests})\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./parse\_cbor\_fuzzer\ corpus\_cbor}
+
+\end{DoxyCode}
+
+
+The fuzzer should be able to run indefinitely without crashing. In case of a crash, the tested input is dumped into a file starting with {\ttfamily crash-\/}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1811}{}\doxysection{\texorpdfstring{afl++}{afl++}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1811}
+To use afl++, you need to pass {\ttfamily -\/fsanitize=fuzzer} as {\ttfamily FUZZER\+\_\+\+ENGINE}. It will be replaced by a {\ttfamily lib\+AFLDriver.\+a} to re-\/use the same code written for lib\+Fuzzer with afl++. Furthermore, set {\ttfamily afl-\/clang-\/fast++} as compiler.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CXX=afl-\/clang-\/fast++\ make\ fuzzers\ FUZZER\_ENGINE="{}-\/fsanitize=fuzzer"{}\ }
+
+\end{DoxyCode}
+
+
+Then the fuzzer is called like this in the {\ttfamily tests} directory\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{afl-\/fuzz\ -\/i\ corpus\_cbor\ -\/o\ out\ \ -\/-\/\ ./parse\_cbor\_fuzzer\ }
+
+\end{DoxyCode}
+
+
+The fuzzer should be able to run indefinitely without crashing. In case of a crash, the tested input is written to the directory {\ttfamily out}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1812}{}\doxysection{\texorpdfstring{OSS-\/\+Fuzz}{OSS-Fuzz}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tests_2fuzzing_autotoc_md1812}
+The library is further fuzz-\/tested 24/7 by Google\textquotesingle{}s \href{https://github.com/google/oss-fuzz}{\texttt{ OSS-\/\+Fuzz project}}. It uses the same {\ttfamily fuzzers} target as above and also relies on the {\ttfamily FUZZER\+\_\+\+ENGINE} variable. See the used \href{https://github.com/google/oss-fuzz/blob/master/projects/json/build.sh}{\texttt{ build script}} for more information.
+
+In case the build at OSS-\/\+Fuzz fails, an issue will be created automatically. 

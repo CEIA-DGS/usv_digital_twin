@@ -1,0 +1,78 @@
+\doxysection{install/dt\+\_\+core/include/map/\+Indice\+Espacial.hpp File Reference}
+\hypertarget{IndiceEspacial_8hpp}{}\label{IndiceEspacial_8hpp}\index{install/dt\_core/include/map/IndiceEspacial.hpp@{install/dt\_core/include/map/IndiceEspacial.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$boost/geometry.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/point\+\_\+xy.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/box.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/segment.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/geometries/polygon.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/geometry/index/rtree.\+hpp$>$}\newline
+{\ttfamily \#include "{}dt\+\_\+core/types.\+hpp"{}}\newline
+Include dependency graph for Indice\+Espacial.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{IndiceEspacial_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classIndiceEspacial}{Indice\+Espacial}}
+\begin{DoxyCompactList}\small\item\em Motor de indexação e consultas espaciais em alta performance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bg\+::model\+::d2\+::point\+\_\+xy$<$ double $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}}
+\item 
+typedef bg\+::model\+::segment$<$ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}} $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}{Bg\+Segmento}}
+\item 
+typedef bg\+::model\+::box$<$ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}} $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}
+\item 
+typedef bg\+::model\+::polygon$<$ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}} $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a7999d9d214d2e2f31d29e90717228994}{Bg\+Poligono}}
+\item 
+typedef std\+::pair$<$ \mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}, \mbox{\hyperlink{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}{Bg\+Segmento}} $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a11d3bd7fd6f9bbb4773ba200e4d1d57d}{Valor\+RTree\+Segmento}}
+\item 
+typedef std\+::pair$<$ \mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}, size\+\_\+t $>$ \mbox{\hyperlink{IndiceEspacial_8hpp_ad18ef447527dc90eaa9e9ba1f8a29049}{Valor\+RTree\+Poligono}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}\label{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!BgCaixaReal@{BgCaixaReal}}
+\index{BgCaixaReal@{BgCaixaReal}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{BgCaixaReal}{BgCaixaReal}}
+{\footnotesize\ttfamily typedef bg\+::model\+::box$<$\mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}}$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}}
+
+\Hypertarget{IndiceEspacial_8hpp_a7999d9d214d2e2f31d29e90717228994}\label{IndiceEspacial_8hpp_a7999d9d214d2e2f31d29e90717228994} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!BgPoligono@{BgPoligono}}
+\index{BgPoligono@{BgPoligono}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{BgPoligono}{BgPoligono}}
+{\footnotesize\ttfamily typedef bg\+::model\+::polygon$<$\mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}}$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a7999d9d214d2e2f31d29e90717228994}{Bg\+Poligono}}}
+
+\Hypertarget{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}\label{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!BgPonto@{BgPonto}}
+\index{BgPonto@{BgPonto}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{BgPonto}{BgPonto}}
+{\footnotesize\ttfamily typedef bg\+::model\+::d2\+::point\+\_\+xy$<$double$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}}}
+
+\Hypertarget{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}\label{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!BgSegmento@{BgSegmento}}
+\index{BgSegmento@{BgSegmento}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{BgSegmento}{BgSegmento}}
+{\footnotesize\ttfamily typedef bg\+::model\+::segment$<$\mbox{\hyperlink{IndiceEspacial_8hpp_abc9c76e6d08ff88dc31613130ac3c2af}{Bg\+Ponto}}$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}{Bg\+Segmento}}}
+
+\Hypertarget{IndiceEspacial_8hpp_ad18ef447527dc90eaa9e9ba1f8a29049}\label{IndiceEspacial_8hpp_ad18ef447527dc90eaa9e9ba1f8a29049} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!ValorRTreePoligono@{ValorRTreePoligono}}
+\index{ValorRTreePoligono@{ValorRTreePoligono}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{ValorRTreePoligono}{ValorRTreePoligono}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}, size\+\_\+t$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_ad18ef447527dc90eaa9e9ba1f8a29049}{Valor\+RTree\+Poligono}}}
+
+\Hypertarget{IndiceEspacial_8hpp_a11d3bd7fd6f9bbb4773ba200e4d1d57d}\label{IndiceEspacial_8hpp_a11d3bd7fd6f9bbb4773ba200e4d1d57d} 
+\index{IndiceEspacial.hpp@{IndiceEspacial.hpp}!ValorRTreeSegmento@{ValorRTreeSegmento}}
+\index{ValorRTreeSegmento@{ValorRTreeSegmento}!IndiceEspacial.hpp@{IndiceEspacial.hpp}}
+\doxysubsubsection{\texorpdfstring{ValorRTreeSegmento}{ValorRTreeSegmento}}
+{\footnotesize\ttfamily typedef std\+::pair$<$\mbox{\hyperlink{IndiceEspacial_8hpp_aa1599a8121321976565b5f3d443a4215}{Bg\+Caixa\+Real}}, \mbox{\hyperlink{IndiceEspacial_8hpp_a3f1b3556b2906f0a561226bde1c206de}{Bg\+Segmento}}$>$ \mbox{\hyperlink{IndiceEspacial_8hpp_a11d3bd7fd6f9bbb4773ba200e4d1d57d}{Valor\+RTree\+Segmento}}}
+

@@ -1,0 +1,88 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}sax\+\_\+parse}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$sax\_parse@{$<$small$>$nlohmann::basic\_json::$<$/small$>$sax\_parse}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md805}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md805}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ (1)}}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ InputType,\ \textcolor{keyword}{typename}\ SAX>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ sax\_parse(InputType\&\&\ i,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SAX*\ sax,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\_format\_t\ format\ =\ input\_format\_t::json,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ ignore\_comments\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ (2)}}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{class}\ IteratorType,\ \textcolor{keyword}{class}\ SAX>}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ sax\_parse(IteratorType\ first,\ IteratorType\ last,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SAX*\ sax,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\_format\_t\ format\ =\ input\_format\_t::json,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ strict\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ ignore\_comments\ =\ \textcolor{keyword}{false});}
+
+\end{DoxyCode}
+
+
+Read from input and generate SAX events
+
+
+\begin{DoxyEnumerate}
+\item Read from a compatible input.
+\item Read from a pair of character iterators
+
+The value\+\_\+type of the iterator must be an integral type with size of 1, 2 or 4 bytes, which will be interpreted respectively as UTF-\/8, UTF-\/16 and UTF-\/32.
+\end{DoxyEnumerate}
+
+The SAX event lister must follow the interface of \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__sax_2index}{\`{}json\+\_\+sax\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md806}{}\doxysection{\texorpdfstring{Template parameters}{Template parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md806}
+{\ttfamily Input\+Type} \+: A compatible input, for instance\+: \begin{DoxyVerb}- an `std::istream` object
+- a `FILE` pointer
+- a C-style array of characters
+- a pointer to a null-terminated string of single byte characters
+- an object `obj` for which `begin(obj)` and `end(obj)` produces a valid pair of
+  iterators.
+\end{DoxyVerb}
+ {\ttfamily Iterator\+Type} \+: Description
+
+{\ttfamily SAX} \+: Description\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md807}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md807}
+{\ttfamily i} (in) \+: Input to parse from.
+
+{\ttfamily sax} (in) \+: SAX event listener
+
+{\ttfamily format} (in) \+: the format to parse (JSON, CBOR, Message\+Pack, or UBJSON) (optional, {\ttfamily input\+\_\+format\+\_\+t\+::json} by default), see \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2input__format__t}{\`{}input\+\_\+format\+\_\+t\`{}}{0} for more information
+
+{\ttfamily strict} (in) \+: whether the input has to be consumed completely (optional, {\ttfamily \#!cpp true} by default)
+
+{\ttfamily ignore\+\_\+comments} (in) \+: whether comments should be ignored and treated like whitespace ({\ttfamily \#!cpp true}) or yield a parse error ({\ttfamily \#!cpp false}); (optional, {\ttfamily \#!cpp false} by default)
+
+{\ttfamily first} (in) \+: iterator to start of character range
+
+{\ttfamily last} (in) \+: iterator to end of character range\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md808}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md808}
+return value of the last processed SAX event\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md809}{}\doxysection{\texorpdfstring{Exception safety}{Exception safety}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md809}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md810}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md810}
+Linear in the length of the input. The parser is a predictive LL(1) parser. The complexity can be higher if the SAX consumer {\ttfamily sax} has a super-\/linear complexity.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md811}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md811}
+A UTF-\/8 byte order mark is silently ignored.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md812}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md812}
+??? example \begin{DoxyVerb}The example below demonstrates the `sax_parse()` function reading from string and processing the events with a
+user-defined SAX event consumer.
+
+```cpp
+--8<-- "examples/sax_parse.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/sax_parse.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md813}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2sax__parse_autotoc_md813}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+2.\+0.
+\item Ignoring comments via {\ttfamily ignore\+\_\+comments} added in version 3.\+9.\+0.
+\end{DoxyItemize}
+
+!!! warning "{}\+Deprecation"{} \begin{DoxyVerb}Overload (2) replaces calls to `sax_parse` with a pair of iterators as their first parameter which has been
+deprecated in version 3.8.0. This overload will be removed in version 4.0.0. Please replace all calls like
+`#!cpp sax_parse({ptr, ptr+len});` with `#!cpp sax_parse(ptr, ptr+len);`.
+\end{DoxyVerb}
+ 

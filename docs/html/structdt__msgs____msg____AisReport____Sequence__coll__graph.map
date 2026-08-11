@@ -1,0 +1,12 @@
+<map id="dt_msgs__msg__AisReport__Sequence" name="dt_msgs__msg__AisReport__Sequence">
+<area shape="rect" id="Node000001" title=" " alt="" coords="87,313,283,353"/>
+<area shape="rect" id="Node000002" href="$structdt__msgs____msg____AisReport.html" title="Struct defined in msg/AisReport in the package dt_msgs." alt="" coords="19,225,215,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,260,173,312,169,315,131,263"/>
+<area shape="rect" id="Node000003" href="$structdt__msgs____msg____AisTarget____Sequence.html" title=" " alt="" coords="20,108,213,148"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="119,162,119,225,114,225,114,162"/>
+<area shape="rect" id="Node000004" href="$structdt__msgs____msg____AisTarget.html" title="Struct defined in msg/AisTarget in the package dt_msgs." alt="" coords="5,5,199,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,44,110,84,115,107,109,108,105,84,101,45"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="223,5,283,31"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="255,44,250,137,242,194,229,251,215,285,199,314,195,311,210,283,223,250,237,193,245,136,250,44"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="211,36,176,57,150,82,130,109,126,106,146,79,172,53,209,32"/>
+</map>

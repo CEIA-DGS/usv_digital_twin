@@ -1,0 +1,94 @@
+\chapter{serve\+\_\+header.\+py}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README}\index{serve\_header.py@{serve\_header.py}}
+Serves the {\ttfamily \doxylink{single__include_2nlohmann_2json_8hpp}{single\+\_\+include/nlohmann/json.\+hpp}} header file over HTTP(\+S).
+
+The header file is automatically amalgamated on demand.
+
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1822}{}\doxysection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1822}
+
+\begin{DoxyEnumerate}
+\item Make sure these Python packages are installed. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{PyYAML}
+\DoxyCodeLine{watchdog}
+
+\end{DoxyCode}
+ (see {\ttfamily tools/serve\+\_\+header/requirements.\+txt})
+\item To serve the header over HTTPS (which is required by Compiler Explorer at this time), a certificate is needed. The recommended method for creating a locally-\/trusted certificate is to use \href{https://github.com/FiloSottile/mkcert}{\texttt{ {\ttfamily mkcert}}}.
+\begin{DoxyItemize}
+\item Install the {\ttfamily mkcert} certificate authority into your trust store(s)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ mkcert\ -\/install}
+
+\end{DoxyCode}
+
+\item Create a certificate for {\ttfamily localhost}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ mkcert\ localhost}
+
+\end{DoxyCode}
+ The command will create two files, {\ttfamily localhost.\+pem} and {\ttfamily localhost-\/key.\+pem}, in the current working directory. It is recommended to create them in the top level or project root directory.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1823}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1823}
+{\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} has a built-\/in default configuration that will serve the {\ttfamily \doxylink{single__include_2nlohmann_2json_8hpp}{single\+\_\+include/nlohmann/json.\+hpp}} header file relative to the top level or project root directory it is homed in. The built-\/in configuration expects the certificate {\ttfamily localhost.\+pem} and the private key {\ttfamily localhost-\/key.\+pem}to be located in the top level or project root directory.
+
+To start serving the {\ttfamily json.\+hpp} header file at {\ttfamily \href{https://localhost:8443/json.hpp}{\texttt{ https\+://localhost\+:8443/json.\+hpp}}}, run this command from the top level or project root directory\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ make\ serve\_header}
+
+\end{DoxyCode}
+
+
+Open \href{https://godbolt.org/}{\texttt{ Compiler Explorer}} and try it out\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <https://localhost:8443/json.hpp>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenlohmann}{nlohmann}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{accept____string_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ these\ macros\ are\ dynamically\ injected\ into\ the\ header\ file}}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ JSON\_BUILD\_TIME\ <<\ \textcolor{stringliteral}{"{}\ ("{}}\ <<\ JSON\_BUILD\_COUNT\ <<\ \textcolor{stringliteral}{"{})\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+{\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} dynamically injects the macros {\ttfamily JSON\+\_\+\+BUILD\+\_\+\+COUNT} and {\ttfamily JSON\+\_\+\+BUILD\+\_\+\+TIME} into the served header file. By comparing build count or time output from the compiled program with the output from {\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}}, one can be reasonably sure the compiled code uses the expected revision of the header file. \end{quote}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1824}{}\doxysection{\texorpdfstring{Configuration}{Configuration}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1824}
+{\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} will try to read a configuration file {\ttfamily serve\+\_\+header.\+yml} in the top level or project root directory, and will fall back on built-\/in defaults if the file cannot be read. An annotated example configuration can be found in {\ttfamily tools/serve\+\_\+header/serve\+\_\+header.\+yml.\+example}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1825}{}\doxysection{\texorpdfstring{Serving $<$tt$>$json.\+hpp$<$/tt$>$ from multiple project directory instances or working trees}{Serving <tt>json.hpp</tt> from multiple project directory instances or working trees}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2tools_2serve__header_2README_autotoc_md1825}
+{\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} was designed with the goal of supporting multiple project roots or working trees at the same time. The recommended directory structure is shown below but {\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} can work with other structures as well, including a nested hierarchy. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{json/\ \ \ \ \ \ \ \ \ \ ⮜\ the\ parent\ or\ web\ server\ root\ directory}
+\DoxyCodeLine{├──\ develop/\ \ \ ⮜\ the\ main\ git\ checkout}
+\DoxyCodeLine{│\ \ \ └──\ ...}
+\DoxyCodeLine{├──\ feature1/}
+\DoxyCodeLine{│\ \ \ └──\ ...\ \ \ \ \ \ any\ number\ of\ additional}
+\DoxyCodeLine{├──\ feature2/\ \ ⮜\ working\ trees\ (e.g.,\ created}
+\DoxyCodeLine{│\ \ \ └──\ ...\ \ \ \ \ \ with\ git\ worktree)}
+\DoxyCodeLine{└──\ feature3/}
+\DoxyCodeLine{\ \ \ \ └──\ ...}
+
+\end{DoxyCode}
+
+
+To serve the header of each working tree at {\ttfamily \href{https://localhost:8443/}{\texttt{ https\+://localhost\+:8443/}}\texorpdfstring{$<$}{<}worktree\texorpdfstring{$>$}{>}/json.hpp}, a configuration file is needed.
+\begin{DoxyEnumerate}
+\item Create the file {\ttfamily serve\+\_\+header.\+yml} in the top level or project root directory of any working tree\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{root:\ ..}
+
+\end{DoxyCode}
+ By shifting the web server root directory up one level, the {\ttfamily \doxylink{single__include_2nlohmann_2json_8hpp}{single\+\_\+include/nlohmann/json.\+hpp}} header files relative to each sibling directory or working tree will be served.
+\item Start {\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} by running this command from the same top level or project root directory the configuration file is located in\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ make\ serve\_header}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+{\ttfamily \doxylink{serve__header_8py}{serve\+\_\+header.\+py}} will automatically detect the addition or removal of working trees anywhere within the configured web server root directory. 

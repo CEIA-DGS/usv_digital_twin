@@ -1,0 +1,29 @@
+\chapter{JSON\+\_\+\+HAS\+\_\+\+RANGES}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges}\index{JSON\_HAS\_RANGES@{JSON\_HAS\_RANGES}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1170}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1170}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ JSON\_HAS\_RANGES\ }\textcolor{comment}{/*\ value\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
+
+
+This macro indicates whether the standard library has any support for ranges. Implies support for concepts. Possible values are {\ttfamily 1} when supported or {\ttfamily 0} when unsupported.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1171}{}\doxysection{\texorpdfstring{Default definition}{Default definition}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1171}
+The default value is detected based on the preprocessor macro {\ttfamily \#!cpp \+\_\+\+\_\+cpp\+\_\+lib\+\_\+ranges}.
+
+When the macro is not defined, the library will define it to its default value.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1172}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1172}
+??? example \begin{DoxyVerb}The code below forces the library to enable support for ranges:
+
+```cpp
+#define JSON_HAS_RANGES 1
+#include <nlohmann/json.hpp>
+
+...
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1173}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2macros_2json__has__ranges_autotoc_md1173}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}

@@ -1,0 +1,39 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::json\+\_\+pointer\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}to\+\_\+string}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string}\index{$<$small$>$nlohmann::json\_pointer::$<$/small$>$to\_string@{$<$small$>$nlohmann::json\_pointer::$<$/small$>$to\_string}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1057}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1057}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{string\_t\ \mbox{\hyperlink{operator__spaceship____const__reference_8c_09_0920_8cpp_ab1f881d0a42d68760fab0c42d73154f4}{to\_string}}()\ \textcolor{keyword}{const};}
+
+\end{DoxyCode}
+
+
+Return a string representation of the JSON pointer.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1058}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1058}
+A string representation of the JSON pointer\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1059}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1059}
+For each JSON pointer {\ttfamily ptr}, it holds\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ptr\ ==\ \mbox{\hyperlink{classjson__pointer}{json\_pointer}}(ptr.to\_string());}
+
+\end{DoxyCode}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1060}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1060}
+??? example \begin{DoxyVerb}The example shows the result of `to_string`.
+
+```cpp
+--8<-- "examples/json_pointer__to_string.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/json_pointer__to_string.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1061}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json__pointer_2to__string_autotoc_md1061}
+
+\begin{DoxyItemize}
+\item Since version 2.\+0.\+0.
+\item Changed return type to {\ttfamily string\+\_\+t} in version 3.\+11.\+0. 
+\end{DoxyItemize}

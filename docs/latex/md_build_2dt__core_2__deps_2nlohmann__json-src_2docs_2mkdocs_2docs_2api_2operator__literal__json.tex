@@ -1,0 +1,49 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}operator"{}"{}\+\_\+json}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json}\index{$<$small$>$nlohmann::$<$/small$>$operator"{}"{}\_json@{$<$small$>$nlohmann::$<$/small$>$operator""""\_json}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1274}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1274}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{classnlohmann_1_1basic__json}{json}}\ \textcolor{keyword}{operator}\ \textcolor{stringliteral}{"{}"{}}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ s,\ \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std::size\_t}}\ \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}});}
+
+\end{DoxyCode}
+
+
+This operator implements a user-\/defined string literal for JSON objects. It can be used by adding {\ttfamily \#!cpp \+\_\+json} to a string literal and returns a \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json}{\`{}json\`{}}{0} object if no parse error occurred.
+
+It is recommended to bring the operator into scope using any of the following lines\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }nlohmann::literals::operator\ \textcolor{stringliteral}{"{}"{}}\mbox{\hyperlink{unit-json__pointer_8cpp_a4ff849685af2d1bc46095b4311f6a708}{\_json}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }nlohmann::literals;}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }nlohmann::json\_literals;}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }nlohmann::literals::json\_literals;}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenlohmann}{nlohmann}};}
+
+\end{DoxyCode}
+
+
+This is suggested to ease migration to the next major version release of the library. See \href{macros/json_use_global_udls.md\#notes}{\texttt{ \textquotesingle{}JSON\+\_\+\+USE\+\_\+\+GLOBAL\+\_\+\+UDLS\`{}}} for details.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1275}{}\doxysection{\texorpdfstring{Parameters}{Parameters}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1275}
+{\ttfamily s} (in) \+: a string representation of a JSON object
+
+{\ttfamily n} (in) \+: length of string {\ttfamily s}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1276}{}\doxysection{\texorpdfstring{Return value}{Return value}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1276}
+\doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2json}{\`{}json\`{}}{0} value parsed from {\ttfamily s}\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1277}{}\doxysection{\texorpdfstring{Exceptions}{Exceptions}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1277}
+The function can throw anything that \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2parse}{\`{}parse(s, s+n)\`{}}{0} would throw.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1278}{}\doxysection{\texorpdfstring{Complexity}{Complexity}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1278}
+Linear.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1279}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1279}
+??? example \begin{DoxyVerb}The following code shows how to create JSON values from string literals.
+
+```cpp
+--8<-- "examples/operator_literal_json.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/operator_literal_json.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1280}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2operator__literal__json_autotoc_md1280}
+
+\begin{DoxyItemize}
+\item Added in version 1.\+0.\+0.
+\item Moved to namespace {\ttfamily nlohmann\+::literals\+::json\+\_\+literals} in 3.\+11.\+0. 
+\end{DoxyItemize}

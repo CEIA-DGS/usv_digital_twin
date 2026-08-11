@@ -1,0 +1,53 @@
+<map id="dt_viz/include/dt_viz/main_window.hpp" name="dt_viz/include/dt_viz/main_window.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1336,5,1491,45"/>
+<area shape="rect" id="Node000002" href="$twin__interface_8hpp.html" title="Interfaces for the Digital Twin Core and state representation." alt="" coords="121,93,316,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1336,33,909,57,335,96,330,96,329,91,334,91,909,51,1335,28"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,72,265"/>
+<area shape="poly" id="edge25_Node000001_Node000004" title=" " alt="" coords="1336,29,1048,31,663,39,474,47,309,59,182,75,138,85,111,96,95,107,82,122,62,157,50,194,44,227,39,226,45,193,57,155,77,119,91,104,108,91,137,80,181,70,308,54,474,42,663,34,1048,25,1336,24"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="291,240,354,265"/>
+<area shape="poly" id="edge27_Node000001_Node000007" title=" " alt="" coords="1336,30,1113,35,829,46,692,54,572,65,481,79,450,87,431,96,410,116,402,139,395,164,381,193,347,232,343,229,376,191,390,162,397,137,406,113,428,91,449,82,480,74,572,60,691,49,829,40,1112,30,1336,25"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="289,167,367,192"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="1336,30,1104,36,807,47,537,67,441,80,408,87,387,96,371,108,358,123,340,155,335,152,354,120,367,104,384,91,406,82,440,75,536,61,807,42,1104,30,1336,25"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="441,93,511,119"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="1335,31,1187,36,987,47,759,66,525,96,524,91,758,61,987,42,1187,31,1335,26"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="535,93,697,119"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="1336,36,1064,61,711,96,711,91,1064,55,1335,31"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="721,93,868,119"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="1336,39,882,96,881,91,1335,34"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="892,93,1039,119"/>
+<area shape="poly" id="edge13_Node000001_Node000012" title=" " alt="" coords="1336,43,1044,94,1043,88,1335,38"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1063,93,1233,119"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="1351,48,1201,92,1199,87,1349,43"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1257,93,1385,119"/>
+<area shape="poly" id="edge15_Node000001_Node000014" title=" " alt="" coords="1393,48,1347,86,1344,82,1389,44"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="1410,93,1601,119"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="1437,44,1483,82,1479,86,1434,48"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="1625,93,1746,119"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="1479,43,1633,87,1632,92,1478,48"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="1771,93,1837,119"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="1491,38,1758,90,1757,96,1490,43"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="1862,93,1978,119"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="1491,36,1849,91,1848,96,1491,41"/>
+<area shape="rect" id="Node000019" title=" " alt="" coords="2002,93,2107,119"/>
+<area shape="poly" id="edge20_Node000001_Node000019" title=" " alt="" coords="1491,31,1711,55,1989,90,1988,96,1710,60,1491,37"/>
+<area shape="rect" id="Node000020" title=" " alt="" coords="2131,93,2243,119"/>
+<area shape="poly" id="edge21_Node000001_Node000020" title=" " alt="" coords="1491,29,1764,52,2117,90,2117,96,1764,57,1491,35"/>
+<area shape="rect" id="Node000021" title=" " alt="" coords="2266,93,2337,119"/>
+<area shape="poly" id="edge22_Node000001_Node000021" title=" " alt="" coords="1491,26,1632,32,1819,43,2033,62,2253,91,2252,96,2033,68,1819,49,1631,37,1491,31"/>
+<area shape="rect" id="Node000022" title=" " alt="" coords="2361,93,2439,119"/>
+<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="1491,26,1646,31,1857,42,2099,61,2347,91,2347,96,2098,67,1857,47,1646,36,1491,31"/>
+<area shape="rect" id="Node000023" title=" " alt="" coords="2463,93,2574,119"/>
+<area shape="poly" id="edge24_Node000001_Node000023" title=" " alt="" coords="1491,26,1898,45,2170,64,2450,91,2449,96,2169,69,1897,50,1491,32"/>
+<area shape="rect" id="Node000024" title=" " alt="" coords="2598,93,2722,119"/>
+<area shape="poly" id="edge26_Node000001_Node000024" title=" " alt="" coords="1491,26,1950,44,2263,63,2584,91,2584,96,2262,68,1950,49,1491,31"/>
+<area shape="rect" id="Node000003" href="$types_8hpp.html" title="Core data structures and domain models for the Digital Twin." alt="" coords="76,167,215,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="208,121,169,159,165,155,205,117"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="229,117,279,190,307,227,303,230,275,194,224,120"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="238,116,300,157,297,161,235,121"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,194,69,235,66,230,127,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="208,240,267,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="162,190,213,229,210,234,158,194"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="97,240,183,265"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="147,193,145,227,139,226,142,192"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="175,190,282,232,280,237,173,194"/>
+</map>

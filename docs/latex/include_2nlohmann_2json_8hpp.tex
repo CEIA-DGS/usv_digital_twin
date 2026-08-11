@@ -1,0 +1,110 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/include/nlohmann/json.hpp File Reference}
+\hypertarget{include_2nlohmann_2json_8hpp}{}\label{include_2nlohmann_2json_8hpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/json.hpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/include/nlohmann/json.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$nlohmann/adl\+\_\+serializer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/byte\+\_\+container\+\_\+with\+\_\+subtype.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/conversions/from\+\_\+json.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/conversions/to\+\_\+json.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/exceptions.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/hash.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/binary\+\_\+reader.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/input\+\_\+adapters.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/lexer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/input/parser.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/internal\+\_\+iterator.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/iter\+\_\+impl.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/iteration\+\_\+proxy.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/json\+\_\+reverse\+\_\+iterator.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/iterators/primitive\+\_\+iterator.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/json\+\_\+custom\+\_\+base\+\_\+class.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/json\+\_\+pointer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/json\+\_\+ref.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+scope.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/string\+\_\+concat.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/string\+\_\+escape.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/cpp\+\_\+future.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/meta/type\+\_\+traits.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/output/binary\+\_\+writer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/output/output\+\_\+adapters.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/output/serializer.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/value\+\_\+t.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/json\+\_\+fwd.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/ordered\+\_\+map.\+hpp$>$}\newline
+{\ttfamily \#include $<$nlohmann/detail/macro\+\_\+unscope.\+hpp$>$}\newline
+Include dependency graph for json.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{include_2nlohmann_2json_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbasic__json}{basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type, JSONSerializer, Binary\+Type, Custom\+Base\+Class $>$}}
+\begin{DoxyCompactList}\small\item\em namespace for Niels Lohmann \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structstd_1_1hash_3_01nlohmann_1_1NLOHMANN__BASIC__JSON__TPL_01_4}{std\+::hash$<$ nlohmann\+::\+NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL $>$}}
+\begin{DoxyCompactList}\small\item\em hash value for JSON objects \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structstd_1_1less_3_01_1_1nlohmann_1_1detail_1_1value__t_01_4}{std\+::less$<$ \+::nlohmann\+::detail\+::value\+\_\+t $>$}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceliterals}{literals}}
+\item 
+namespace \mbox{\hyperlink{namespaceliterals_1_1json__literals}{literals\+::json\+\_\+literals}}
+\item 
+namespace \mbox{\hyperlink{namespacestd}{std}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{Indent}\textbf{ lexicographical comparison operators}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{include_2nlohmann_2json_8hpp_afc14f1555817a0736acfb2d4c5ecff05}{JSON\+\_\+\+IMPLEMENT\+\_\+\+OPERATOR}}(op,  null\+\_\+result,  unordered\+\_\+result,  default\+\_\+result)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{macro__scope_8hpp_a0643bd74c2dc6f0e4e420b8190ea8f0f}{NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL\+\_\+\+DECLARATION}} std\+::string \mbox{\hyperlink{include_2nlohmann_2json_8hpp_a5b9ca6dc52cf4226c68d67f895b2a1d4}{to\+\_\+string}} (const \mbox{\hyperlink{macro__scope_8hpp_a80b7254e63f199a1f656f07ae551f632}{NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL}} \&\mbox{\hyperlink{parse____allow__exceptions_8cpp_ae9579d4dac7b85222223b7d60c9d8f1e}{j}})
+\begin{DoxyCompactList}\small\item\em user-\/defined to\+\_\+string function for JSON values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenlohmann_a2bfd99e845a2e5cd90aeaf1b1431f474}{nlohmann\+::json}} \mbox{\hyperlink{namespaceliterals_1_1json__literals_ae61a268eddc25d7a0fee62021a3e4f34}{literals\+::json\+\_\+literals\+::operator"{}"{}\+\_\+json}} (const char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})
+\begin{DoxyCompactList}\small\item\em user-\/defined string literal for JSON values \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnlohmann_1_1basic__json_aa8f1f93b32da01b42413643be32b2c27}{nlohmann\+::json\+::json\+\_\+pointer}} \mbox{\hyperlink{namespaceliterals_1_1json__literals_a6ecf43f6a3b7dbb6008788fd0cd572c0}{literals\+::json\+\_\+literals\+::operator"{}"{}\+\_\+json\+\_\+pointer}} (const char \texorpdfstring{$\ast$}{*}s, \mbox{\hyperlink{namespacestd_aa30247b5e1a6e192c486364692e37832}{std\+::size\+\_\+t}} \mbox{\hyperlink{unit-udt_8cpp_aeda809c9c9c3a54beef6a1870365e3c4}{n}})
+\begin{DoxyCompactList}\small\item\em user-\/defined string literal for JSON pointer \end{DoxyCompactList}\item 
+\mbox{\hyperlink{macro__scope_8hpp_a0643bd74c2dc6f0e4e420b8190ea8f0f}{NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL\+\_\+\+DECLARATION}} void \mbox{\hyperlink{namespacestd_a4874fd00297ff5aef2872379cb521783}{std\+::swap}} (nlohmann\+::\+NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL \&j1, nlohmann\+::\+NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL \&\mbox{\hyperlink{unit-udt_8cpp_af0a091aa0e0539bf37d5db14c01f2bd6}{j2}}) noexcept(//NOLINT(readability-\/inconsistent-\/declaration-\/parameter-\/name, cert-\/dcl58-\/cpp) is\+\_\+nothrow\+\_\+move\+\_\+constructible$<$ nlohmann\+::\+NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL $>$\+::value \&\&//NOLINT(misc-\/redundant-\/expression, cppcoreguidelines-\/noexcept-\/swap, performance-\/noexcept-\/swap) is\+\_\+nothrow\+\_\+move\+\_\+assignable$<$ nlohmann\+::\+NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL $>$\+::value)
+\begin{DoxyCompactList}\small\item\em exchanges the values of two JSON objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{include_2nlohmann_2json_8hpp_afc14f1555817a0736acfb2d4c5ecff05}\label{include_2nlohmann_2json_8hpp_afc14f1555817a0736acfb2d4c5ecff05} 
+\index{json.hpp@{json.hpp}!JSON\_IMPLEMENT\_OPERATOR@{JSON\_IMPLEMENT\_OPERATOR}}
+\index{JSON\_IMPLEMENT\_OPERATOR@{JSON\_IMPLEMENT\_OPERATOR}!json.hpp@{json.hpp}}
+\doxysubsubsection{\texorpdfstring{JSON\_IMPLEMENT\_OPERATOR}{JSON\_IMPLEMENT\_OPERATOR}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+IMPLEMENT\+\_\+\+OPERATOR(\begin{DoxyParamCaption}\item[{}]{op,  }\item[{}]{null\+\_\+result,  }\item[{}]{unordered\+\_\+result,  }\item[{}]{default\+\_\+result }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{include_2nlohmann_2json_8hpp_a5b9ca6dc52cf4226c68d67f895b2a1d4}\label{include_2nlohmann_2json_8hpp_a5b9ca6dc52cf4226c68d67f895b2a1d4} 
+\index{json.hpp@{json.hpp}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!json.hpp@{json.hpp}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{macro__scope_8hpp_a0643bd74c2dc6f0e4e420b8190ea8f0f}{NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL\+\_\+\+DECLARATION}} std\+::string to\+\_\+string (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{macro__scope_8hpp_a80b7254e63f199a1f656f07ae551f632}{NLOHMANN\+\_\+\+BASIC\+\_\+\+JSON\+\_\+\+TPL}} \&}]{j }\end{DoxyParamCaption})}
+
+
+
+user-\/defined to\+\_\+string function for JSON values 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://json.nlohmann.me/api/basic_json/to_string/}{\texttt{ https\+://json.\+nlohmann.\+me/api/basic\+\_\+json/to\+\_\+string/}} 
+\end{DoxySeeAlso}

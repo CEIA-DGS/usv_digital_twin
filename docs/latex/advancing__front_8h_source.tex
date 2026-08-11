@@ -1,0 +1,120 @@
+\doxysection{advancing\+\_\+front.\+h}
+\hypertarget{advancing__front_8h_source}{}\label{advancing__front_8h_source}\index{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/sweep/advancing\_front.h@{build/dt\_core/\_deps/poly2tri-\/src/poly2tri/sweep/advancing\_front.h}}
+\mbox{\hyperlink{advancing__front_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Poly2Tri\ Copyright\ (c)\ 2009-\/2018,\ Poly2Tri\ Contributors}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ https://github.com/jhasse/poly2tri}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ All\ rights\ reserved.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ modification,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright\ notice,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ documentation}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ *\ Neither\ the\ name\ of\ Poly2Tri\ nor\ the\ names\ of\ its\ contributors\ may\ be}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ used\ to\ endorse\ or\ promote\ products\ derived\ from\ this\ software\ without\ specific}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ prior\ written\ permission.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ OWNER\ OR}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,\ DATA,\ OR}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY\ THEORY\ OF}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ (INCLUDING}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}../common/shapes.h"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacep2t}{p2t}}\ \{}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{struct\ }Node;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{//\ Advancing\ front\ node}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structp2t_1_1Node}{Node}}\ \{}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ \mbox{\hyperlink{structp2t_1_1Node_a1b991bf50dfcbc2bf3965e4a9d20c6b7}{point}};}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}*\ \mbox{\hyperlink{structp2t_1_1Node_a272db6142d5d20b8f5157a084cae6a5b}{triangle}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{structp2t_1_1Node_a4ed6924b245e577926ddcf9471333468}{next}};}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{structp2t_1_1Node_a2b0cd5c3882bb383a5180472d81cb39c}{prev}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structp2t_1_1Node_adcf1fe932052b232ec31204eccef031a}{value}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{structp2t_1_1Node_a552fce8408e77734916d24f49a2554ee}{Node}}(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}})\ :\ \mbox{\hyperlink{structp2t_1_1Node_a1b991bf50dfcbc2bf3965e4a9d20c6b7}{point}}(\&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}),\ \mbox{\hyperlink{structp2t_1_1Node_a272db6142d5d20b8f5157a084cae6a5b}{triangle}}(NULL),\ \mbox{\hyperlink{structp2t_1_1Node_a4ed6924b245e577926ddcf9471333468}{next}}(NULL),\ \mbox{\hyperlink{structp2t_1_1Node_a2b0cd5c3882bb383a5180472d81cb39c}{prev}}(NULL),\ \mbox{\hyperlink{structp2t_1_1Node_adcf1fe932052b232ec31204eccef031a}{value}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.x)}
+\DoxyCodeLine{00051\ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{structp2t_1_1Node_ae8a123fb34395a84c2c3909240650119}{Node}}(\mbox{\hyperlink{structp2t_1_1Point}{Point}}\&\ \mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}},\ \mbox{\hyperlink{classp2t_1_1Triangle}{Triangle}}\&\ t)\ :\ \mbox{\hyperlink{structp2t_1_1Node_a1b991bf50dfcbc2bf3965e4a9d20c6b7}{point}}(\&\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}),\ \mbox{\hyperlink{structp2t_1_1Node_a272db6142d5d20b8f5157a084cae6a5b}{triangle}}(\&t),\ \mbox{\hyperlink{structp2t_1_1Node_a4ed6924b245e577926ddcf9471333468}{next}}(NULL),\ \mbox{\hyperlink{structp2t_1_1Node_a2b0cd5c3882bb383a5180472d81cb39c}{prev}}(NULL),\ \mbox{\hyperlink{structp2t_1_1Node_adcf1fe932052b232ec31204eccef031a}{value}}(\mbox{\hyperlink{unit-udt_8cpp_a1dd9fae95006795d666b2d7b04463aff}{p}}.x)}
+\DoxyCodeLine{00055\ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ Advancing\ front}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classp2t_1_1AdvancingFront}{AdvancingFront}}\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \mbox{\hyperlink{classp2t_1_1AdvancingFront}{AdvancingFront}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a1aaf09a3d1fd17743549de1a77965883}{head}},\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}\&\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a61de74fbeeb93ff0481de377d5072370}{tail}});}
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00066\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_af53ed6954cd092720e4ced814d560705}{\string~AdvancingFront}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a1aaf09a3d1fd17743549de1a77965883}{head}}();}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a07f4df2b993ec6fba32491d87d76aefe}{set\_head}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00070\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a61de74fbeeb93ff0481de377d5072370}{tail}}();}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a3e42d890f8871eecdbd9789d141800b8}{set\_tail}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00072\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a77046a96ab291e136dfd3072b74b88b5}{search}}();}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a27bbf888fd7c036db00347278591c2c4}{set\_search}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00076\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_aa35730922821f8baaeb636c7f6399e7c}{LocateNode}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_afbdb7f0670b0fa5b2733ac8aded17dfc}{LocatePoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structp2t_1_1Point}{Point}}*\ point);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ head\_,\ *tail\_,\ *search\_node\_;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ FindSearchNode(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a1aaf09a3d1fd17743549de1a77965883}{AdvancingFront::head}}()}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordflow}{return}\ head\_;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a07f4df2b993ec6fba32491d87d76aefe}{AdvancingFront::set\_head}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node)}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \ \ head\_\ =\ node;}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a61de74fbeeb93ff0481de377d5072370}{AdvancingFront::tail}}()}
+\DoxyCodeLine{00097\ \{}
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordflow}{return}\ tail\_;}
+\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00100\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a3e42d890f8871eecdbd9789d141800b8}{AdvancingFront::set\_tail}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node)}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ tail\_\ =\ node;}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a77046a96ab291e136dfd3072b74b88b5}{AdvancingFront::search}}()}
+\DoxyCodeLine{00106\ \{}
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordflow}{return}\ search\_node\_;}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classp2t_1_1AdvancingFront_a27bbf888fd7c036db00347278591c2c4}{AdvancingFront::set\_search}}(\mbox{\hyperlink{structp2t_1_1Node}{Node}}*\ node)}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ search\_node\_\ =\ node;}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \}}
+
+\end{DoxyCode}

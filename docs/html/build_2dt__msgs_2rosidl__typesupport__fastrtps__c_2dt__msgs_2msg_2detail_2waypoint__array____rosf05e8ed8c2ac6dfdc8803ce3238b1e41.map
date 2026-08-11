@@ -1,0 +1,15 @@
+<map id="build/dt_msgs/rosidl_typesupport_fastrtps_c/dt_msgs/msg/detail/waypoint_array__rosidl_typesupport_fastrtps_c.h" name="build/dt_msgs/rosidl_typesupport_fastrtps_c/dt_msgs/msg/detail/waypoint_array__rosidl_typesupport_fastrtps_c.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="394,5,585,89"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="394,65,250,94,171,115,93,140,74,148,72,143,91,135,169,110,249,89,393,60"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="105,145,298,185"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="395,89,262,142,260,137,393,84"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="322,145,473,185"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="459,91,423,136,419,132,455,88"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="497,137,668,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="525,88,555,125,551,128,520,91"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="693,145,883,185"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="586,83,727,137,725,142,584,88"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="908,152,1012,177"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="586,62,733,92,897,135,923,144,921,149,895,140,732,97,584,67"/>
+</map>

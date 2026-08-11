@@ -1,0 +1,189 @@
+\doxysection{build/dt\+\_\+core/\+\_\+deps/nlohmann\+\_\+json-\/src/tests/thirdparty/\+Fuzzer/\+Fuzzer\+Trace\+PC.cpp File Reference}
+\hypertarget{FuzzerTracePC_8cpp}{}\label{FuzzerTracePC_8cpp}\index{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTracePC.cpp@{build/dt\_core/\_deps/nlohmann\_json-\/src/tests/thirdparty/Fuzzer/FuzzerTracePC.cpp}}
+{\ttfamily \#include "{}Fuzzer\+Corpus.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Defs.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Dictionary.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Ext\+Functions.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Trace\+PC.\+h"{}}\newline
+{\ttfamily \#include "{}Fuzzer\+Value\+Bit\+Map.\+h"{}}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$sanitizer/coverage\+\_\+interface.\+h$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for Fuzzer\+Trace\+PC.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FuzzerTracePC_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacefuzzer}{fuzzer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{FuzzerTracePC_8cpp_a22815effa65cc3d0a063dcd10ff8b922}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((visibility("{}default"{}))) void \+\_\+\+\_\+sanitizer\+\_\+cov\+\_\+trace\+\_\+pc\+\_\+guard(uint32\+\_\+t \texorpdfstring{$\ast$}{*}Guard)
+\item 
+\mbox{\hyperlink{FuzzerTracePC_8cpp_a1f10ac78bd11294b612636121065eb5b}{assert}} (\mbox{\hyperlink{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}{Power\+Of\+Two\+GeN}} $>$=\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}})
+\item 
+\mbox{\hyperlink{FuzzerTracePC_8cpp_a04324001136ead9261bb82cc6bceea2f}{if}} (\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}} $>$=\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}}) \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}} -\/
+\item 
+\mbox{\hyperlink{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}{assert}} (\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}$<$ \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}})
+\item 
+\mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}((Val\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}{Vals}}\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\mbox{]})$<$ \mbox{\hyperlink{FuzzerTracePC_8cpp_a5a2cad893be2cec6ffe01cd9b70de832}{Two\+In32}}) fuzzer \mbox{\hyperlink{parse____allow__exceptions_8cpp_a0544c3fe466e421738dae463968b70ba}{else}} \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{fuzzer\+::\+TPC}} \mbox{\hyperlink{FuzzerTracePC_8cpp_a18a81c0edf54e19c2709c4512845f660}{Handle\+Cmp}} (\mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}}+\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}, Val, \mbox{\hyperlink{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}{Vals}}\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classfuzzer_1_1TracePC}{Trace\+PC}} \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{fuzzer\+::\+TPC}}
+\item 
+uint32\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{FuzzerTracePC_8cpp_aff07dda81eaf318a2363886ff231917f}{Stop}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}}
+\item 
+uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}}
+\item 
+\mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}
+\item 
+uint64\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}} = \mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}}\mbox{[}0\mbox{]}
+\item 
+uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}{Vals}} = \mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}} + 2
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}} = (char\texorpdfstring{$\ast$}{*})\+\_\+\+\_\+builtin\+\_\+return\+\_\+address(0)
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a52831af36260cff07c37b077c38b991d}{Nlog}} = sizeof(long) \texorpdfstring{$\ast$}{*} 8 -\/ \+\_\+\+\_\+builtin\+\_\+clzl((long)\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}})
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}{Power\+Of\+Two\+GeN}} = 1U $<$$<$ \mbox{\hyperlink{FuzzerTracePC_8cpp_a52831af36260cff07c37b077c38b991d}{Nlog}}
+\item 
+size\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}} = \mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}} \& (\mbox{\hyperlink{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}{Power\+Of\+Two\+GeN}} -\/ 1)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{FuzzerTracePC_8cpp_a5a2cad893be2cec6ffe01cd9b70de832}{Two\+In32}} = 1ULL $<$$<$ 32
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FuzzerTracePC_8cpp_a22815effa65cc3d0a063dcd10ff8b922}\label{FuzzerTracePC_8cpp_a22815effa65cc3d0a063dcd10ff8b922} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(visibility("{}default"{}))}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238}\label{FuzzerTracePC_8cpp_aa099297e8e2ed3ff1bcc3de3ff413238} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!assert@{assert}}
+\index{assert@{assert}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{assert()}{assert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily assert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTracePC_8cpp_a1f10ac78bd11294b612636121065eb5b}\label{FuzzerTracePC_8cpp_a1f10ac78bd11294b612636121065eb5b} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!assert@{assert}}
+\index{assert@{assert}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{assert()}{assert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily assert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}{Power\+Of\+Two\+GeN}} $>$=}]{N }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTracePC_8cpp_a18a81c0edf54e19c2709c4512845f660}\label{FuzzerTracePC_8cpp_a18a81c0edf54e19c2709c4512845f660} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!HandleCmp@{HandleCmp}}
+\index{HandleCmp@{HandleCmp}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{HandleCmp()}{HandleCmp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{parse____allow__exceptions_8cpp_afd5f5d885a9f3135be03cd4a8eb0b7c6}{if}}((Val\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}{Vals}}\mbox{[}\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}}\mbox{]})$<$ \mbox{\hyperlink{FuzzerTracePC_8cpp_a5a2cad893be2cec6ffe01cd9b70de832}{Two\+In32}}) fuzzer \mbox{\hyperlink{parse____allow__exceptions_8cpp_a0544c3fe466e421738dae463968b70ba}{else}} \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{fuzzer\+::\+TPC}} Handle\+Cmp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}{PC}}+}]{Idx,  }\item[{Val}]{,  }\item[{\mbox{\hyperlink{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}{Vals}}}]{\mbox{[}\+Idx\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{FuzzerTracePC_8cpp_a04324001136ead9261bb82cc6bceea2f}\label{FuzzerTracePC_8cpp_a04324001136ead9261bb82cc6bceea2f} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!if@{if}}
+\index{if@{if}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{if()}{if()}}
+{\footnotesize\ttfamily if (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}{Idx}} $>$=}]{N }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}\label{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Arg2@{Arg2}}
+\index{Arg2@{Arg2}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Arg2}{Arg2}}
+{\footnotesize\ttfamily uint8\+\_\+t Arg2}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{fuzzer::TPC}}.\mbox{\hyperlink{classfuzzer_1_1TracePC_a7f62dfcd6b2ed7c706957392d66e13c3}{HandleCmp}}(\_\_builtin\_return\_address(0),\ Arg1,\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a0f1927008f8508f62717808abc26d0df}{Arg2}})}
+
+\end{DoxyCode}
+\Hypertarget{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}\label{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Cases@{Cases}}
+\index{Cases@{Cases}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Cases}{Cases}}
+{\footnotesize\ttfamily uint64\+\_\+t\texorpdfstring{$\ast$}{*} Cases}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \textcolor{keyword}{static}\ \textcolor{keyword}{thread\_local}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}}}
+
+\end{DoxyCode}
+\Hypertarget{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}\label{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Counter@{Counter}}
+\index{Counter@{Counter}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Counter}{Counter}}
+{\footnotesize\ttfamily Counter}
+
+\Hypertarget{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d}\label{FuzzerTracePC_8cpp_a6c7e2ca645999b8f49e30a9a066a389d} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Idx@{Idx}}
+\index{Idx@{Idx}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Idx}{Idx}}
+{\footnotesize\ttfamily size\+\_\+t Idx = \mbox{\hyperlink{FuzzerTracePC_8cpp_a21825f37e76fb1b4cf8d02dd17f0cba8}{Counter}} \& (\mbox{\hyperlink{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}{Power\+Of\+Two\+GeN}} -\/ 1)}
+
+\Hypertarget{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}\label{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!N@{N}}
+\index{N@{N}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily uint64\+\_\+t N = \mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}}\mbox{[}0\mbox{]}}
+
+\Hypertarget{FuzzerTracePC_8cpp_a52831af36260cff07c37b077c38b991d}\label{FuzzerTracePC_8cpp_a52831af36260cff07c37b077c38b991d} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Nlog@{Nlog}}
+\index{Nlog@{Nlog}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Nlog}{Nlog}}
+{\footnotesize\ttfamily size\+\_\+t Nlog = sizeof(long) \texorpdfstring{$\ast$}{*} 8 -\/ \+\_\+\+\_\+builtin\+\_\+clzl((long)\mbox{\hyperlink{FuzzerTracePC_8cpp_a08b50a855be4f7cd9cbb84fd2fdb8a8e}{N}})}
+
+\Hypertarget{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb}\label{FuzzerTracePC_8cpp_a03ce525bc707945e2be57c2febfcfabb} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!PC@{PC}}
+\index{PC@{PC}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{PC}{PC}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} PC = (char\texorpdfstring{$\ast$}{*})\+\_\+\+\_\+builtin\+\_\+return\+\_\+address(0)}
+
+\Hypertarget{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97}\label{FuzzerTracePC_8cpp_afee280a308d6b5982109df2fbcfb4b97} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!PowerOfTwoGeN@{PowerOfTwoGeN}}
+\index{PowerOfTwoGeN@{PowerOfTwoGeN}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{PowerOfTwoGeN}{PowerOfTwoGeN}}
+{\footnotesize\ttfamily size\+\_\+t Power\+Of\+Two\+GeN = 1U $<$$<$ \mbox{\hyperlink{FuzzerTracePC_8cpp_a52831af36260cff07c37b077c38b991d}{Nlog}}}
+
+\Hypertarget{FuzzerTracePC_8cpp_aff07dda81eaf318a2363886ff231917f}\label{FuzzerTracePC_8cpp_aff07dda81eaf318a2363886ff231917f} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Stop@{Stop}}
+\index{Stop@{Stop}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Stop}{Stop}}
+{\footnotesize\ttfamily uint32\+\_\+t\texorpdfstring{$\ast$}{*} Stop}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacefuzzer_a6383d55bceb5c33d4b34fcb48f817acf}{fuzzer::TPC}}.\mbox{\hyperlink{classfuzzer_1_1TracePC_af86ce8a7e9b8e36f8fdf6349a5e9a7d9}{HandleInit}}(Start,\ \mbox{\hyperlink{FuzzerTracePC_8cpp_aff07dda81eaf318a2363886ff231917f}{Stop}})}
+
+\end{DoxyCode}
+\Hypertarget{FuzzerTracePC_8cpp_a5a2cad893be2cec6ffe01cd9b70de832}\label{FuzzerTracePC_8cpp_a5a2cad893be2cec6ffe01cd9b70de832} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!TwoIn32@{TwoIn32}}
+\index{TwoIn32@{TwoIn32}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{TwoIn32}{TwoIn32}}
+{\footnotesize\ttfamily uint64\+\_\+t Two\+In32 = 1ULL $<$$<$ 32}
+
+\Hypertarget{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac}\label{FuzzerTracePC_8cpp_a928a5848bf50f8e76101004a05d8c8ac} 
+\index{FuzzerTracePC.cpp@{FuzzerTracePC.cpp}!Vals@{Vals}}
+\index{Vals@{Vals}!FuzzerTracePC.cpp@{FuzzerTracePC.cpp}}
+\doxysubsubsection{\texorpdfstring{Vals}{Vals}}
+{\footnotesize\ttfamily uint64\+\_\+t\texorpdfstring{$\ast$}{*} Vals = \mbox{\hyperlink{FuzzerTracePC_8cpp_a1fca89f4a70f0fbd6f1c17cc8ec5f554}{Cases}} + 2}
+

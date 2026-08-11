@@ -1,0 +1,35 @@
+\chapter{\texorpdfstring{$<$}{<}small\texorpdfstring{$>$}{>}nlohmann\+::basic\+\_\+json\+::\texorpdfstring{$<$}{<}/small\texorpdfstring{$>$}{>}default\+\_\+object\+\_\+comparator\+\_\+t}
+\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t}{}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t}\index{$<$small$>$nlohmann::basic\_json::$<$/small$>$default\_object\_comparator\_t@{$<$small$>$nlohmann::basic\_json::$<$/small$>$default\_object\_comparator\_t}}
+\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md208}%
+\Hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md208}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{using\ }default\_object\_comparator\_t\ =\ std::less<StringType>;\ \ \textcolor{comment}{//\ until\ C++14}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ }default\_object\_comparator\_t\ =\ std::less<>;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ since\ C++14}}
+
+\end{DoxyCode}
+
+
+The default comparator used by \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0}.
+
+Since C++14 a transparent comparator is used which prevents unnecessary string construction when looking up a key in an object.
+
+The actual comparator used depends on \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__t}{\`{}object\+\_\+t\`{}}{0} and can be obtained via \doxysectlink{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2object__comparator__t}{\`{}object\+\_\+comparator\+\_\+t\`{}}{0}.\hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md209}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md209}
+??? example \begin{DoxyVerb}The example below demonstrates the default comparator.
+
+```cpp
+--8<-- "examples/default_object_comparator_t.cpp"
+```
+
+Output:
+
+```json
+--8<-- "examples/default_object_comparator_t.output"
+```
+\end{DoxyVerb}
+ \hypertarget{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md210}{}\doxysection{\texorpdfstring{Version history}{Version history}}\label{md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2api_2basic__json_2default__object__comparator__t_autotoc_md210}
+
+\begin{DoxyItemize}
+\item Added in version 3.\+11.\+0. 
+\end{DoxyItemize}
