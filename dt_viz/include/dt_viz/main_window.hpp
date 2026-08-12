@@ -1,6 +1,4 @@
-#ifndef DT_VIZ_MAIN_WINDOW_HPP
-#define DT_VIZ_MAIN_WINDOW_HPP
-
+#pragma once
 #include "dt_core/twin_interface.hpp"
 #include <memory>
 
@@ -32,6 +30,7 @@
 #include <unordered_map>
 #include <vector>
 
+namespace dt_viz {
 /**
  * @brief Representa um ponto da derrota planejada.
  */
@@ -169,4 +168,4 @@ private:
   double simulation_time_;
 };
 
-#endif
+} // namespace dt_viz

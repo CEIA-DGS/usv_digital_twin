@@ -3,6 +3,8 @@
 #include <functional>
 #include <vector>
 
+namespace dt_viz {
+
 VizNode::VizNode(MainWindow * window)
 : Node("dt_visualizer_node"),
   window_(window)
@@ -62,3 +64,5 @@ void VizNode::collisionAlertCallback(
     message->collision_imminent
   );
 }
+
+} // namespace dt_viz

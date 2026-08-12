@@ -25,7 +25,7 @@ int main(int argc, char * argv[])
   });
 
   // Inicializa e mostra a Interface Gráfica
-  MainWindow window(dt_core);
+  dt_viz::MainWindow window(dt_core);
   window.show();
 
   // Trava a interface gráfica no loop principal
