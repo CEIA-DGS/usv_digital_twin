@@ -9,9 +9,9 @@ The project is divided into four main packages to isolate the mathematical engin
 
 \begin{DoxyItemize}
 \item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+core}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: The pure C++ central engine (ROS-\/independent). Handles geometric processing (GDAL/\+Boost), Spatial Indexes, memory-\/safe Snapshot generation, and collision prediction algorithms.
-\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__msgs}{dt\+\_\+msgs}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Custom message definitions (IDL) for data traffic on the ROS 2 bus.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+msgs}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Custom message definitions (IDL) for data traffic on the ROS 2 bus.
 \item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__ros}{dt\+\_\+ros}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: The Adapter Node. Acts as a bridge, subscribing to the USV sensors and injecting translated raw data into the {\ttfamily dt\+\_\+core} asynchronously.
-\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily dt\+\_\+viz}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Diagnostic Graphical User Interface (GUI) developed in Qt5.
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{namespacedt__viz}{dt\+\_\+viz}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+: Diagnostic Graphical User Interface (GUI) developed in Qt5.
 \end{DoxyItemize}\hypertarget{index_qt_gui_sec}{}\doxysection{\texorpdfstring{3. Qt GUI \& Threading Integration}{3. Qt GUI \& Threading Integration}}\label{index_qt_gui_sec}
 To ensure the Qt GUI rendering does not cause {\itshape thread-\/blocking} issues with the ROS 2 spin loop, the architecture strictly uses the Immutable Snapshot pattern.
 

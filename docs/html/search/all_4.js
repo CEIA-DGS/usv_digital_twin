@@ -1,18 +1,17 @@
 var searchData=
 [
-  ['4_0',['v2.0.4',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1682',1,'']]],
-  ['4_200_1',['v3.4.0',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1605',1,'']]],
-  ['4_200_20v3_204_200_20a_202018_2010_2030_2',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.4.0&quot; &gt;v3.4.0&lt;/a&gt; (2018-10-30)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md21',1,'']]],
-  ['4_20ros_202_20api_20topics_20interfaces_3',['4. ROS 2 API (Topics &amp; Interfaces)',['../index.html#ros_api_sec',1,'']]],
-  ['4_20v2_200_204_20a_202016_2009_2011_4',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v2.0.4&quot; &gt;v2.0.4&lt;/a&gt; (2016-09-11)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md48',1,'']]],
-  ['4_20v3_2010_204_20a_202021_2010_2016_5',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.10.4&quot; &gt;v3.10.4&lt;/a&gt; (2021-10-16)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md5',1,'']]],
-  ['401_6',['json.exception.out_of_range.401',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1536',1,'']]],
-  ['402_7',['json.exception.out_of_range.402',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1537',1,'']]],
-  ['403_8',['json.exception.out_of_range.403',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1538',1,'']]],
-  ['404_9',['json.exception.out_of_range.404',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1539',1,'']]],
-  ['405_10',['json.exception.out_of_range.405',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1540',1,'']]],
-  ['406_11',['json.exception.out_of_range.406',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1541',1,'']]],
-  ['407_12',['json.exception.out_of_range.407',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1542',1,'']]],
-  ['408_13',['json.exception.out_of_range.408',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1543',1,'']]],
-  ['409_14',['json.exception.out_of_range.409',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2exceptions.html#autotoc_md1544',1,'']]]
+  ['a_0',['a',['../structColor.html#a98047aee65fc3d825f88a76da728fd27',1,'Color']]],
+  ['add_5fpose_1',['add_pose',['../classtypes_1_1Trajectory.html#a2ff971f5703b9933cebd9884b338f4ff',1,'types::Trajectory']]],
+  ['ais_5fto_5fcore_5ftargets_2',['ais_to_core_targets',['../namespacedt__ros_1_1conversions.html#ace70c402bcd9eb3005ebaa2bee0e084f',1,'dt_ros::conversions']]],
+  ['alerta_20de_20colisão_3',['alerta de colisão',['../md_dt__viz_2README.html#autotoc_md19',1,'Alerta de colisão'],['../md_dt__viz_2README.html#autotoc_md23',1,'Funcionamento do alerta de colisão'],['../md_dt__viz_2README.html#autotoc_md37',1,'Teste do alerta de colisão']]],
+  ['alinhamento_4',['Pontos de alinhamento',['../md_dt__viz_2README.html#autotoc_md47',1,'']]],
+  ['api_20ros2_20tópicos_20e_20mensagens_5',['📡 API ROS2 (Tópicos e Mensagens)',['../md_README.html#autotoc_md60',1,'']]],
+  ['api_20topics_20interfaces_6',['4. ROS 2 API (Topics &amp; Interfaces)',['../index.html#ros_api_sec',1,'']]],
+  ['apply_5fgps_5fto_5fpose_7',['apply_gps_to_pose',['../namespacedt__ros_1_1conversions.html#a1cea50dc4a95939e365d6c5761cd8770',1,'dt_ros::conversions']]],
+  ['apply_5fimu_5fto_5fpose_8',['apply_imu_to_pose',['../namespacedt__ros_1_1conversions.html#ad2f2c9ac548f9b3501c70de5e9c515e2',1,'dt_ros::conversions']]],
+  ['appstate_9',['AppState',['../structAppState.html',1,'']]],
+  ['architecture_20separation_20of_20concerns_10',['2. System Architecture (Separation of Concerns)',['../index.html#arch_sec',1,'']]],
+  ['arquitetura_20do_20sistema_11',['Arquitetura do Sistema',['../md_README.html#autotoc_md52',1,'']]],
+  ['arquivos_12',['Descrição dos arquivos',['../md_dt__viz_2README.html#autotoc_md8',1,'']]],
+  ['atual_13',['Estado atual',['../md_dt__viz_2README.html#autotoc_md43',1,'']]]
 ];

@@ -1,11 +1,9 @@
-#ifndef DT_VIZ_MAIN_WINDOW_HPP
-#define DT_VIZ_MAIN_WINDOW_HPP
-
+#pragma once
 #include "dt_core/twin_interface.hpp"
 #include <memory>
 
 // ============================================================
-// Bibliotecas Qt
+// Qt Libraries
 // ============================================================
 
 #include <QBrush>
@@ -25,62 +23,71 @@
 #include <QWheelEvent>
 
 // ============================================================
-// Bibliotecas padrão do C++
+// C++ Standard Libraries
 // ============================================================
 
 #include <cstdint>
 #include <unordered_map>
 #include <vector>
 
+namespace dt_viz {
+
 /**
- * @brief Representa um ponto da derrota planejada.
+ * @brief Represents a point in the planned route.
  */
-struct RoutePoint
-{
+struct RoutePoint{
   double x;
   double y;
 };
 
 /**
- * @brief Janela principal da ferramenta de visualização.
+ * @brief Main window of the visualization tool.
  *
- * A classe desenha a zona livre, o USV, as embarcações
- * monitoradas, a trajetória percorrida e a derrota planejada.
+ * This class draws the navigable free zone (NavMesh), the USV, the monitored
+ * vessels, the traveled trajectory, and the planned route.
  *
- * Também altera visualmente os alvos que apresentarem risco
- * de colisão.
+ * It also visually alters targets that present an imminent collision risk based
+ * on the digital twin predictive core.
  */
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow{
 public:
+  /**
+   * @brief Constructs the MainWindow.
+   * 
+   * @param dt_core Shared pointer to the Digital Twin Core instance.
+   * @param parent Pointer to the parent widget (default is nullptr).
+   */
   explicit MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent = nullptr);
 
   /**
-   * @brief Atualiza a derrota planejada exibida na tela.
+   * @brief Updates the planned route displayed on the screen.
    *
-   * @param route Lista ordenada de waypoints ativos.
+   * @param route Ordered list of active waypoints.
    */
-  void updatePlannedRoute(
-    const std::vector<RoutePoint> & route);
+  void updatePlannedRoute(const std::vector<RoutePoint> & route);
 
   /**
-   * @brief Altera a representação visual de um alvo.
+   * @brief Alters the visual representation of a target.
    *
-   * @param mmsi Identificador AIS da embarcação.
-   * @param collision_imminent Indica a existência de risco.
+   * @param mmsi AIS identifier of the vessel.
+   * @param collision_imminent Indicates the existence of a collision risk.
    */
-  void updateCollisionAlert(
-    std::uint32_t mmsi,
-    bool collision_imminent);
+  void updateCollisionAlert(std::uint32_t mmsi, bool collision_imminent);
 
 protected:
   /**
-   * @brief Ajusta a escala quando a janela é redimensionada.
+   * @brief Adjusts the scale when the window is resized.
+   * 
+   * @param event Pointer to the resize event.
    */
   void resizeEvent(QResizeEvent * event) override;
 
   /**
-   * @brief Intercepta eventos antes de serem processados (usado para o Zoom).
+   * @brief Intercepts events before they are processed (used for zooming).
+   * 
+   * @param watched The object being watched.
+   * @param event The event being intercepted.
+   * @return True if the event was filtered out, false otherwise.
    */
   bool eventFilter(QObject *watched, QEvent *event) override;
 
@@ -88,40 +95,100 @@ private:
     
   std::shared_ptr<dt::DigitalTwinCore> dt_core_;
   
-  // Armazena o centro geométrico da NavMesh para posicionamento inicial
+  // Stores the geometric center of the NavMesh for initial positioning
   double map_center_x_ = 0.0;
   double map_center_y_ = 0.0;
   
-  // Configuração inicial.
+  /**
+   * @brief Configures the initial window settings, titles, and layouts.
+   */
   void configureWindow();
+
+  /**
+   * @brief Creates and initializes the graphic scene elements.
+   */
   void createScene();
+
+  /**
+   * @brief Creates the side information panel for USV telemetry and diagnostics.
+   */
   void createInformationPanel();
 
-  // Elementos gráficos.
+  /**
+   * @brief Draws the background grid (currently unused for real UTM mode).
+   */
   void drawGrid();
+
+  /**
+   * @brief Draws the coordinate axes (currently unused for real UTM mode).
+   */
   void drawAxes();
+
+  /**
+   * @brief Reads and draws the navigable free zone (NavMesh) using GDAL shapefiles.
+   */
   void drawFreeZone();
+
+  /**
+   * @brief Draws the USV polygon, heading line, and labels.
+   */
   void drawUsv();
+
+  /**
+   * @brief Draws a static scale bar reference on the scene.
+   */
   void drawScaleBar();
 
-  // Derrota planejada.
+  /**
+   * @brief Renders the planned route path and waypoint markers on the scene.
+   */
   void drawPlannedRoute();
+
+  /**
+   * @brief Clears the previously rendered planned route and waypoints from the scene.
+   */
   void clearPlannedRoute();
 
-  // Atualização dos dados simulados.
+  /**
+   * @brief Main loop callback that fetches the latest state from the Core and updates all visual elements.
+   */
   void updateSimulation();
+
+  /**
+   * @brief Updates the trail of the USV's past positions on the map.
+   * 
+   * @param x The current X coordinate of the USV.
+   * @param y The current Y coordinate of the USV.
+   */
   void updateUsvTrajectory(double x, double y);
 
+  /**
+   * @brief Updates the text data in the side information panel.
+   * 
+   * @param usv_x Current USV X position.
+   * @param usv_y Current USV Y position.
+   * @param heading Current USV heading in degrees.
+   */
   void updateInformationPanel(
     double usv_x,
     double usv_y,
     double heading);
 
-  // Aparência dos alvos.
+  /**
+   * @brief Gets the default brush used for vessels without collision risk.
+   * 
+   * @return QBrush The brush for normal vessels.
+   */
   QBrush normalVesselBrush() const;
+
+  /**
+   * @brief Gets the brush used for vessels with an imminent collision risk.
+   * 
+   * @return QBrush The brush for at-risk vessels.
+   */
   QBrush collisionVesselBrush() const;
 
-  // Componentes principais.
+  // Main components.
   QGraphicsScene * scene_;
   QGraphicsView * view_;
   QTimer * timer_;
@@ -134,28 +201,28 @@ private:
   QLabel * vessel_count_label_;
   QLabel * simulation_status_label_;
 
-  // Zona livre e USV.
+  // Free zone and USV representation.
   QGraphicsPolygonItem * free_zone_;
   QGraphicsPolygonItem * usv_;
   QGraphicsSimpleTextItem * usv_label_;
   QGraphicsLineItem * heading_line_;
 
-  // Trajetória já percorrida.
+  // Traveled trajectory.
   QGraphicsPathItem * trajectory_item_;
   QPainterPath trajectory_path_;
   std::vector<QPointF> trajectory_points_;
 
-  // Derrota futura planejada.
+  // Future planned route.
   std::vector<RoutePoint> planned_route_;
   QGraphicsPathItem * planned_route_item_;
   std::vector<QGraphicsEllipseItem *> waypoint_items_;
   std::vector<QGraphicsSimpleTextItem *> waypoint_labels_;
 
-  // Embarcações monitoradas.
+  // Monitored vessels.
   std::vector<QGraphicsEllipseItem *> vessels_;
   std::vector<QGraphicsSimpleTextItem *> vessel_labels_;
 
-  // Permitem localizar um alvo específico pelo MMSI.
+  // Maps to locate a specific target by its MMSI/ID.
   std::unordered_map<
     std::uint32_t,
     QGraphicsEllipseItem *
@@ -169,4 +236,4 @@ private:
   double simulation_time_;
 };
 
-#endif
+} // namespace dt_viz

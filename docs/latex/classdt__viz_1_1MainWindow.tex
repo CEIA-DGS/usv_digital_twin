@@ -1,0 +1,154 @@
+\doxysection{dt\+\_\+viz\+::Main\+Window Class Reference}
+\hypertarget{classdt__viz_1_1MainWindow}{}\label{classdt__viz_1_1MainWindow}\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+
+
+Main window of the visualization tool.  
+
+
+
+
+{\ttfamily \#include $<$main\+\_\+window.\+hpp$>$}
+
+
+
+Inheritance diagram for dt\+\_\+viz\+::Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classdt__viz_1_1MainWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for dt\+\_\+viz\+::Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{classdt__viz_1_1MainWindow__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdt__viz_1_1MainWindow_a111a713b1d88f2141c644753f2c8ee71}{Main\+Window}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$ dt\+\_\+core, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs the \doxylink{classdt__viz_1_1MainWindow}{Main\+Window}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdt__viz_1_1MainWindow_a427121f675f30a9650093459469b5dd9}{update\+Planned\+Route}} (const std\+::vector$<$ \mbox{\hyperlink{structdt__viz_1_1RoutePoint}{Route\+Point}} $>$ \&route)
+\begin{DoxyCompactList}\small\item\em Updates the planned route displayed on the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classdt__viz_1_1MainWindow_a81815c6682d94efa5782a0d8e3139024}{update\+Collision\+Alert}} (std\+::uint32\+\_\+t mmsi, bool collision\+\_\+imminent)
+\begin{DoxyCompactList}\small\item\em Alters the visual representation of a target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classdt__viz_1_1MainWindow_a026737b370413728d8178929bdc47b00}{resize\+Event}} (QResize\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Adjusts the scale when the window is resized. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdt__viz_1_1MainWindow_a4970d791ee93fa2a8672b3f57f563b22}{event\+Filter}} (QObject \texorpdfstring{$\ast$}{*}watched, QEvent \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em Intercepts events before they are processed (used for zooming). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main window of the visualization tool. 
+
+This class draws the navigable free zone (Nav\+Mesh), the USV, the monitored vessels, the traveled trajectory, and the planned route.
+
+It also visually alters targets that present an imminent collision risk based on the digital twin predictive core. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classdt__viz_1_1MainWindow_a111a713b1d88f2141c644753f2c8ee71}\label{classdt__viz_1_1MainWindow_a111a713b1d88f2141c644753f2c8ee71} 
+\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily dt\+\_\+viz\+::\+Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classdt_1_1DigitalTwinCore}{dt\+::\+Digital\+Twin\+Core}} $>$}]{dt\+\_\+core,  }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs the \doxylink{classdt__viz_1_1MainWindow}{Main\+Window}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt\+\_\+core} & Shared pointer to the Digital Twin Core instance. \\
+\hline
+{\em parent} & Pointer to the parent widget (default is nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classdt__viz_1_1MainWindow_a4970d791ee93fa2a8672b3f57f563b22}\label{classdt__viz_1_1MainWindow_a4970d791ee93fa2a8672b3f57f563b22} 
+\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}!eventFilter@{eventFilter}}
+\index{eventFilter@{eventFilter}!dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+\doxysubsubsection{\texorpdfstring{eventFilter()}{eventFilter()}}
+{\footnotesize\ttfamily bool dt\+\_\+viz\+::\+Main\+Window\+::event\+Filter (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{watched,  }\item[{QEvent \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Intercepts events before they are processed (used for zooming). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em watched} & The object being watched. \\
+\hline
+{\em event} & The event being intercepted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the event was filtered out, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{classdt__viz_1_1MainWindow_a026737b370413728d8178929bdc47b00}\label{classdt__viz_1_1MainWindow_a026737b370413728d8178929bdc47b00} 
+\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}!resizeEvent@{resizeEvent}}
+\index{resizeEvent@{resizeEvent}!dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+\doxysubsubsection{\texorpdfstring{resizeEvent()}{resizeEvent()}}
+{\footnotesize\ttfamily void dt\+\_\+viz\+::\+Main\+Window\+::resize\+Event (\begin{DoxyParamCaption}\item[{QResize\+Event \texorpdfstring{$\ast$}{*}}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Adjusts the scale when the window is resized. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to the resize event. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdt__viz_1_1MainWindow_a81815c6682d94efa5782a0d8e3139024}\label{classdt__viz_1_1MainWindow_a81815c6682d94efa5782a0d8e3139024} 
+\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}!updateCollisionAlert@{updateCollisionAlert}}
+\index{updateCollisionAlert@{updateCollisionAlert}!dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateCollisionAlert()}{updateCollisionAlert()}}
+{\footnotesize\ttfamily void dt\+\_\+viz\+::\+Main\+Window\+::update\+Collision\+Alert (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{mmsi,  }\item[{bool}]{collision\+\_\+imminent }\end{DoxyParamCaption})}
+
+
+
+Alters the visual representation of a target. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmsi} & AIS identifier of the vessel. \\
+\hline
+{\em collision\+\_\+imminent} & Indicates the existence of a collision risk. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classdt__viz_1_1MainWindow_a427121f675f30a9650093459469b5dd9}\label{classdt__viz_1_1MainWindow_a427121f675f30a9650093459469b5dd9} 
+\index{dt\_viz::MainWindow@{dt\_viz::MainWindow}!updatePlannedRoute@{updatePlannedRoute}}
+\index{updatePlannedRoute@{updatePlannedRoute}!dt\_viz::MainWindow@{dt\_viz::MainWindow}}
+\doxysubsubsection{\texorpdfstring{updatePlannedRoute()}{updatePlannedRoute()}}
+{\footnotesize\ttfamily void dt\+\_\+viz\+::\+Main\+Window\+::update\+Planned\+Route (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structdt__viz_1_1RoutePoint}{Route\+Point}} $>$ \&}]{route }\end{DoxyParamCaption})}
+
+
+
+Updates the planned route displayed on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & Ordered list of active waypoints. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dt\+\_\+viz/include/dt\+\_\+viz/\mbox{\hyperlink{main__window_8hpp}{main\+\_\+window.\+hpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window_8cpp}{main\+\_\+window.\+cpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window__draw_8cpp}{main\+\_\+window\+\_\+draw.\+cpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window__route_8cpp}{main\+\_\+window\+\_\+route.\+cpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window__setup_8cpp}{main\+\_\+window\+\_\+setup.\+cpp}}\item 
+dt\+\_\+viz/src/\mbox{\hyperlink{main__window__update_8cpp}{main\+\_\+window\+\_\+update.\+cpp}}\end{DoxyCompactItemize}

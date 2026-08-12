@@ -23,10 +23,17 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets)
 # ==============================================================================
 # 2. EXECUTABLE BUILD
 # ==============================================================================
+# ==============================================================================
+# 2. EXECUTABLE BUILD
+# ==============================================================================
 add_executable(dt_visualizer_node
   src/main.cpp
   src/main_window.cpp
-  src/viz_node.cpp 
+  src/main_window_setup.cpp
+  src/main_window_draw.cpp
+  src/main_window_update.cpp
+  src/main_window_route.cpp
+  src/viz_node.cpp
 )
 
 target_include_directories(dt_visualizer_node PRIVATE include)

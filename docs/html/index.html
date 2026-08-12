@@ -82,9 +82,9 @@ $(function() {
 <p>The project is divided into four main packages to isolate the mathematical engine from the communication middleware:</p>
 <ul>
 <li>**<code>dt_core</code>**: The pure C++ central engine (ROS-independent). Handles geometric processing (GDAL/Boost), Spatial Indexes, memory-safe Snapshot generation, and collision prediction algorithms.</li>
-<li>**<code><a class="el" href="namespacedt__msgs.html">dt_msgs</a></code>**: Custom message definitions (IDL) for data traffic on the ROS 2 bus.</li>
+<li>**<code>dt_msgs</code>**: Custom message definitions (IDL) for data traffic on the ROS 2 bus.</li>
 <li>**<code><a class="el" href="namespacedt__ros.html">dt_ros</a></code>**: The Adapter Node. Acts as a bridge, subscribing to the USV sensors and injecting translated raw data into the <code>dt_core</code> asynchronously.</li>
-<li>**<code>dt_viz</code>**: Diagnostic Graphical User Interface (GUI) developed in Qt5.</li>
+<li>**<code><a class="el" href="namespacedt__viz.html">dt_viz</a></code>**: Diagnostic Graphical User Interface (GUI) developed in Qt5.</li>
 </ul>
 <h1><a class="anchor" id="qt_gui_sec"></a>
 3. Qt GUI &amp; Threading Integration</h1>
