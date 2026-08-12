@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['amalgamate_0',['amalgamate',['../namespaceamalgamate.html',1,'']]]
+  ['types_0',['types',['../namespacetypes.html',1,'']]]
 ];

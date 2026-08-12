@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['9_0',['v2.0.9',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2docs_2mkdocs_2docs_2home_2releases.html#autotoc_md1667',1,'']]],
-  ['9_200_20v3_209_200_20a_202020_2007_2027_1',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.9.0&quot; &gt;v3.9.0&lt;/a&gt; (2020-07-27)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md11',1,'']]],
-  ['9_201_20v3_209_201_20a_202020_2008_2006_2',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v3.9.1&quot; &gt;v3.9.1&lt;/a&gt; (2020-08-06)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md10',1,'']]],
-  ['9_202_200_209_20a_202016_2012_2016_3',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/2.0.9&quot; &gt;2.0.9&lt;/a&gt; (2016-12-16)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md42',1,'']]],
-  ['9_20v2_200_209_20a_202016_2012_2016_4',['&lt;a href=&quot;https://github.com/nlohmann/json/releases/tag/v2.0.9&quot; &gt;v2.0.9&lt;/a&gt; (2016-12-16)',['../md_build_2dt__core_2__deps_2nlohmann__json-src_2ChangeLog.html#autotoc_md41',1,'']]]
+  ['fill_5fcolor_0',['fill_color',['../structRenderLayer.html#adbaa7330e921432782e324a1872ac174',1,'RenderLayer']]],
+  ['flow_1',['1. Digital Twin General Flow',['../index.html#intro_sec',1,'']]],
+  ['free_5fmemory_2',['free_memory',['../structNavigationMesh.html#a99a82a975b928d653e1db4700e362859',1,'NavigationMesh::free_memory()'],['../structProcessedGeometries.html#a2d44b729a9de95deef0db58025a795e8',1,'ProcessedGeometries::free_memory()']]],
+  ['from_20the_20twin_3',['Publishers (Outputs from the Twin)',['../index.html#pub_sec',1,'']]],
+  ['funcionamento_20da_20derrota_20planejada_4',['Funcionamento da derrota planejada',['../md_dt__viz_2README.html#autotoc_md21',1,'']]],
+  ['funcionamento_20do_20alerta_20de_20colisão_5',['Funcionamento do alerta de colisão',['../md_dt__viz_2README.html#autotoc_md23',1,'']]]
 ];

@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classdetail_1_1binary__writer.html" title="serialization to CBOR and MessagePack values" alt="" coords="5,5,217,45"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,108,56"/>
+<area shape="rect" id="Node000001" href="$classdt__ros_1_1DigitalTwinNode.html" title="ROS 2 Node responsible for bridging ROS data to the Digital Twin Core." alt="" coords="156,5,332,31"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="122,32,155,27,156,33,122,37"/>
+<area shape="rect" id="Node000002" href="$classdt__viz_1_1VizNode.html" title="ROS 2 node responsible for receiving data for the interface." alt="" coords="183,55,305,80"/>
+<area shape="poly" id="edge4_Node000000_Node000002" title=" " alt="" coords="122,49,183,57,182,62,121,54"/>
 </map>
