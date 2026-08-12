@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # ==============================================================================
-# 1. DEPENDÊNCIAS DO SISTEMA
-# Requer: sudo apt install libgdal-dev libglfw3-dev libgl1-mesa-dev libboost-all-dev
+# 1. SYSTEM DEPENDENCIES
+# Requires: sudo apt install libgdal-dev libglfw3-dev libgl1-mesa-dev libboost-all-dev
 # ==============================================================================
 find_package(ament_cmake REQUIRED)
 find_package(GDAL REQUIRED)
@@ -17,7 +17,7 @@ find_package(Boost REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 
 # ==============================================================================
-# 2. DEPENDÊNCIAS FETCHCONTENT
+# 2. FETCHCONTENT DEPENDENCIES
 # ==============================================================================
 include(FetchContent)
 
@@ -36,7 +36,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(nlohmann_json)
 
 # ==============================================================================
-# 3. CONSTRUÇÃO DA BIBLIOTECA CORE
+# 3. CORE LIBRARY BUILD
 # ==============================================================================
 file(GLOB_RECURSE CORE_SOURCES "src/*.cpp")
 list(REMOVE_ITEM CORE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/map/main.cpp")
@@ -61,9 +61,8 @@ target_link_libraries(${PROJECT_NAME}
         poly2tri
 )
 
-
 # ==============================================================================
-# 4. REGRAS DE INSTALAÇÃO
+# 4. INSTALLATION RULES
 # ==============================================================================
 include(GNUInstallDirs)
 
@@ -104,5 +103,20 @@ install(FILES
     ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
 )
+
+# ==============================================================================
+# 5. UNIT TESTS (GTEST)
+# ==============================================================================
+if(BUILD_TESTING)
+    find_package(ament_cmake_gtest REQUIRED)
+    file(GLOB_RECURSE TEST_SOURCES "test/*.cpp")
+    if(TEST_SOURCES)
+        ament_add_gtest(test_dt_core ${TEST_SOURCES})
+        target_include_directories(test_dt_core PRIVATE include)
+        target_link_libraries(test_dt_core ${PROJECT_NAME})
+    else()
+        message(WARNING "No test files found in the 'test/' directory.")
+    endif()
+endif()
 
 ament_package()

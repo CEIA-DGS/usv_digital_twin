@@ -8,6 +8,9 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+# ==============================================================================
+# 1. SYSTEM, ROS 2 & QT DEPENDENCIES
+# ==============================================================================
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(nav_msgs REQUIRED)
@@ -15,17 +18,23 @@ find_package(dt_msgs REQUIRED)
 find_package(dt_core REQUIRED) 
 find_package(dt_ros REQUIRED)
 find_package(ament_index_cpp REQUIRED)  
-
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
+# ==============================================================================
+# 2. EXECUTABLE BUILD
+# ==============================================================================
 add_executable(dt_visualizer_node
   src/main.cpp
   src/main_window.cpp
+  src/viz_node.cpp 
 )
 
 target_include_directories(dt_visualizer_node PRIVATE include)
 
-target_link_libraries(dt_visualizer_node dt_core::dt_core Qt5::Widgets)
+target_link_libraries(dt_visualizer_node 
+  dt_core::dt_core 
+  Qt5::Widgets
+)
 
 ament_target_dependencies(dt_visualizer_node
   rclcpp
@@ -35,7 +44,36 @@ ament_target_dependencies(dt_visualizer_node
   ament_index_cpp
 )
 
+# ==============================================================================
+# 3. INSTALLATION RULES
+# ==============================================================================
 install(TARGETS dt_visualizer_node DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY include/ DESTINATION include/)
+
+# ==============================================================================
+# 4. UNIT TESTS (GTEST)
+# ==============================================================================
+if(BUILD_TESTING)
+    find_package(ament_cmake_gtest REQUIRED)
+    file(GLOB_RECURSE TEST_SOURCES "test/*.cpp")
+
+    if(TEST_SOURCES)
+        file(GLOB_RECURSE VIZ_SOURCES "src/*.cpp")
+        list(REMOVE_ITEM VIZ_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+        ament_add_gtest(test_dt_viz ${TEST_SOURCES} ${VIZ_SOURCES})
+        target_include_directories(test_dt_viz PRIVATE include)
+        target_link_libraries(test_dt_viz dt_core::dt_core Qt5::Widgets)
+        
+        ament_target_dependencies(test_dt_viz
+            rclcpp
+            nav_msgs
+            dt_msgs
+            dt_ros
+            ament_index_cpp
+        )
+    else()
+        message(WARNING "No test files found in the 'test/' directory.")
+    endif()
+endif()
 
 ament_package()
