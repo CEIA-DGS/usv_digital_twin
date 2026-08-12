@@ -15,8 +15,7 @@ namespace dt_viz {
 void MainWindow::drawGrid() {} 
 void MainWindow::drawAxes() {} 
 
-void MainWindow::drawFreeZone()
-{
+void MainWindow::drawFreeZone(){
   GDALAllRegister();
   
   std::string dt_core_path = ament_index_cpp::get_package_share_directory("dt_core");
@@ -25,7 +24,7 @@ void MainWindow::drawFreeZone()
   GDALDataset* ds = (GDALDataset*)GDALOpenEx(caminho.c_str(), GDAL_OF_VECTOR, nullptr, nullptr, nullptr);
 
   if (!ds) {
-    qWarning("Não foi possível carregar o Shapefile para visualização rápida. Verifique o caminho.");
+    qWarning("Unable to load the Shapefile for quick preview. Check the path.");
     return;
   }
 
@@ -64,8 +63,7 @@ void MainWindow::drawFreeZone()
   GDALClose(ds);
 }
 
-void MainWindow::drawUsv()
-{
+void MainWindow::drawUsv(){
   QPolygonF shape;
   shape << QPointF(24.0, 0.0) << QPointF(-18.0, -14.0) << QPointF(-10.0, 0.0) << QPointF(-18.0, 14.0);
 
@@ -102,8 +100,7 @@ void MainWindow::drawUsv()
   trajectory_item_->setZValue(2.0);
 }
 
-void MainWindow::drawScaleBar()
-{
+void MainWindow::drawScaleBar(){
   constexpr double scale_length = 50.0;
 
   QPen scale_pen(QColor(40, 50, 60));
@@ -121,13 +118,11 @@ void MainWindow::drawScaleBar()
   scale_label->setPos(start_x + 10.0, start_y - 25.0);
 }
 
-QBrush MainWindow::normalVesselBrush() const
-{
+QBrush MainWindow::normalVesselBrush() const{
   return QBrush(QColor(235, 105, 75));
 }
 
-QBrush MainWindow::collisionVesselBrush() const
-{
+QBrush MainWindow::collisionVesselBrush() const{
   return QBrush(QColor(230, 25, 25));
 }
 

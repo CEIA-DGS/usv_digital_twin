@@ -8,14 +8,12 @@
 
 namespace dt_viz {
 
-void MainWindow::updatePlannedRoute(const std::vector<RoutePoint> & route)
-{
+void MainWindow::updatePlannedRoute(const std::vector<RoutePoint> & route){
   planned_route_ = route;
   drawPlannedRoute();
 }
 
-void MainWindow::clearPlannedRoute()
-{
+void MainWindow::clearPlannedRoute(){
   if (planned_route_item_ != nullptr) {
     scene_->removeItem(planned_route_item_);
     delete planned_route_item_;
@@ -35,8 +33,7 @@ void MainWindow::clearPlannedRoute()
   waypoint_labels_.clear();
 }
 
-void MainWindow::drawPlannedRoute()
-{
+void MainWindow::drawPlannedRoute(){
   clearPlannedRoute();
 
   if (planned_route_.empty()) {

@@ -8,9 +8,8 @@
 
 namespace dt_viz {
 
-void MainWindow::configureWindow()
-{
-  setWindowTitle("CEIA DGS - Ferramenta de Diagnóstico Visual");
+void MainWindow::configureWindow(){
+  setWindowTitle("CEIA DGS - Visual Diagnostic Tool");
   resize(1200, 750);
 
   scene_->setBackgroundBrush(QColor(255, 235, 215));
@@ -29,13 +28,12 @@ void MainWindow::configureWindow()
 
   setCentralWidget(central_widget_);
 
-  statusBar()->showMessage("Interface provisória | Vista superior | Dados simulados");
+  statusBar()->showMessage("Provisional interface | Top view | Simulated data");
 
   view_->viewport()->installEventFilter(this);
 }
 
-void MainWindow::createInformationPanel()
-{
+void MainWindow::createInformationPanel(){
   information_panel_->setFixedWidth(250);
 
   information_panel_->setStyleSheet(
@@ -50,7 +48,7 @@ void MainWindow::createInformationPanel()
 
   auto * layout = new QVBoxLayout(information_panel_);
 
-  auto * title = new QLabel("Diagnóstico do USV");
+  auto * title = new QLabel("USV Diagnosis");
   QFont title_font;
   title_font.setBold(true);
   title_font.setPointSize(14);
@@ -62,21 +60,21 @@ void MainWindow::createInformationPanel()
   section_font.setPointSize(11);
   usv_section->setFont(section_font);
 
-  usv_position_label_ = new QLabel("Posição:\nx = 0.0 m\ny = 0.0 m");
+  usv_position_label_ = new QLabel("Position:\nx = 0.0 m\ny = 0.0 m");
   heading_label_ = new QLabel("Heading: 0.0°");
-  vessel_count_label_ = new QLabel("Embarcações monitoradas: 3");
+  vessel_count_label_ = new QLabel("Monitored vessels: 3");
 
-  auto * legend_title = new QLabel("Legenda");
+  auto * legend_title = new QLabel("Label");
   legend_title->setFont(section_font);
 
   auto * legend = new QLabel(
     "▲  USV\n"
-    "●  Embarcação monitorada\n"
-    "━  Limite da zona livre\n"
-    "··· Trajetória do USV"
+    "●  Monitored vessels\n"
+    "━  Free zone boundary\n"
+    "··· USV Trajectory"
   );
 
-  simulation_status_label_ = new QLabel("Estado: simulação ativa");
+  simulation_status_label_ = new QLabel("Status: active simulation");
   simulation_status_label_->setStyleSheet(
     "color: #16784b;"
     "font-weight: bold;"
@@ -98,8 +96,7 @@ void MainWindow::createInformationPanel()
   layout->addWidget(simulation_status_label_);
 }
 
-void MainWindow::createScene()
-{
+void MainWindow::createScene(){
   drawFreeZone();
   drawUsv();
   drawScaleBar();

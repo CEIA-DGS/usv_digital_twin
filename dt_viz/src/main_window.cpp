@@ -39,13 +39,11 @@ MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * p
   timer_->start(33); 
 }
 
-void MainWindow::resizeEvent(QResizeEvent * event)
-{
+void MainWindow::resizeEvent(QResizeEvent * event){
   QMainWindow::resizeEvent(event);
 }
 
-bool MainWindow::eventFilter(QObject *watched, QEvent *event)
-{
+bool MainWindow::eventFilter(QObject *watched, QEvent *event){
   if (watched == view_->viewport() && event->type() == QEvent::Wheel) {
     QWheelEvent *wheel_event = static_cast<QWheelEvent *>(event);
     

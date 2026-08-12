@@ -12,23 +12,23 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
   QApplication application(argc, argv);
 
-  // Instancia o Core
+  // core instantiation
   auto dt_core = std::make_shared<dt::DigitalTwinCore>();
 
-  // Inicializa o Adaptador ROS injetando o Core
+  // Initializes the ROS Adapter by injecting the Core.
   rclcpp::NodeOptions options;
   auto dt_ros_node = std::make_shared<dt_ros::DigitalTwinNode>(dt_core, options);
 
-  // Roda o ROS em background
+  // Runs ROS in background
   std::thread ros_thread([dt_ros_node]() {
     rclcpp::spin(dt_ros_node);
   });
 
-  // Inicializa e mostra a Interface Gráfica
+  // Initializes and displays the graphical interface.
   dt_viz::MainWindow window(dt_core);
   window.show();
 
-  // Trava a interface gráfica no loop principal
+  // Freezes the graphical interface in the main loop.
   const int result = application.exec();
 
   rclcpp::shutdown();

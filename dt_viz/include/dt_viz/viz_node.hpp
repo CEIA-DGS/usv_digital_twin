@@ -9,7 +9,7 @@
 namespace dt_viz {
 
 /**
- * @brief Nó ROS 2 responsável por receber dados para a interface.
+ * @brief ROS 2 node responsible for receiving data for the interface.
  */
 class VizNode : public rclcpp::Node
 {
@@ -18,13 +18,13 @@ public:
 
 private:
   /**
-   * @brief Recebe a derrota planejada.
+   * @brief Receives the planned trajectory.
    */
   void plannedRouteCallback(
     const nav_msgs::msg::Path::SharedPtr message);
 
   /**
-   * @brief Recebe um alerta de colisão.
+   * @brief Receive a collision alert.
    */
   void collisionAlertCallback(
     const dt_msgs::msg::CollisionAlert::SharedPtr message);

@@ -35,7 +35,7 @@ VizNode::VizNode(MainWindow * window)
 
   RCLCPP_INFO(
     this->get_logger(),
-    "Interface inscrita nos tópicos /planned_route e /collision_alert."
+    "Interface subscribed to the /planned_route and /collision_alert topics."
   );
 }
 

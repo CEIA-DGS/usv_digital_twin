@@ -9,8 +9,7 @@
 
 namespace dt_viz {
 
-void MainWindow::updateSimulation()
-{
+void MainWindow::updateSimulation(){
   if (!dt_core_) return;
 
   auto snapshot = dt_core_->get_latest_state();
@@ -94,8 +93,7 @@ void MainWindow::updateSimulation()
   );
 }
 
-void MainWindow::updateUsvTrajectory(double x, double y)
-{
+void MainWindow::updateUsvTrajectory(double x, double y){
   trajectory_points_.emplace_back(x, y);
 
   constexpr std::size_t maximum_points = 250;
@@ -115,8 +113,7 @@ void MainWindow::updateUsvTrajectory(double x, double y)
   trajectory_item_->setPath(trajectory_path_);
 }
 
-void MainWindow::updateInformationPanel(double usv_x, double usv_y, double heading)
-{
+void MainWindow::updateInformationPanel(double usv_x, double usv_y, double heading){
   usv_position_label_->setText(
     QString("Posição:\nx = %1 m\ny = %2 m")
       .arg(usv_x, 0, 'f', 1)
@@ -128,12 +125,11 @@ void MainWindow::updateInformationPanel(double usv_x, double usv_y, double headi
   );
 
   vessel_count_label_->setText(
-    QString("Embarcações monitoradas: %1").arg(vessel_items_by_mmsi_.size())
+    QString("Monitored vessels: %1").arg(vessel_items_by_mmsi_.size())
   );
 }
 
-void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminent)
-{
+void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminent){
   const auto vessel_iterator = vessel_items_by_mmsi_.find(mmsi);
   if (vessel_iterator == vessel_items_by_mmsi_.end()) {
     return;
@@ -148,7 +144,7 @@ void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminen
     vessel->setScale(1.5); 
 
     if (label_iterator != vessel_labels_by_mmsi_.end()) {
-      label_iterator->second->setText(QString("ALERTA - MMSI %1\nRISCO DE COLISÃO").arg(mmsi));
+      label_iterator->second->setText(QString("ALERT - MMSI %1\nCOLLISION RISK").arg(mmsi));
       label_iterator->second->setBrush(QBrush(QColor(185, 0, 0)));
     }
     return;
