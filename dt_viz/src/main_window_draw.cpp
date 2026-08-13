@@ -40,6 +40,11 @@ void MainWindow::drawFreeZone(){
     map_center_y_ = -((envelope.MinY + envelope.MaxY) / 2.0); 
     
     view_->centerOn(map_center_x_, map_center_y_);
+
+    double width = envelope.MaxX - envelope.MinX;
+    double height = envelope.MaxY - envelope.MinY;
+    
+    scene_->setSceneRect(envelope.MinX, -envelope.MaxY, width, height);
   }
 
   OGRFeature* feat;
