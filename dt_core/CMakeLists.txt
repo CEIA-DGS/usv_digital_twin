@@ -113,7 +113,11 @@ if(BUILD_TESTING)
     if(TEST_SOURCES)
         ament_add_gtest(test_dt_core ${TEST_SOURCES})
         target_include_directories(test_dt_core PRIVATE include)
-        target_link_libraries(test_dt_core ${PROJECT_NAME})
+        target_link_libraries(test_dt_core 
+            ${PROJECT_NAME}
+            nlohmann_json::nlohmann_json
+            poly2tri
+        )
     else()
         message(WARNING "No test files found in the 'test/' directory.")
     endif()

@@ -402,21 +402,17 @@ TEST_F(MeshGeneratorTest, TriangulatePolygon_TriangulatesSquare) {
     EXPECT_EQ(fail_counter, 0);             // No exceptions should occur
     EXPECT_FALSE(triangles.empty());        // Triangles must be generated
     
-    // Valida os limites espaciais dos triângulos gerados
+
     for (const auto& tri : triangles) {
-        // Verificamos os 3 pontos do triângulo usando a estrutura padrão de coordenadas (x, y)
-        // Se a sua struct Triangle usa nomes como p1, p2, p3, ajuste aqui conforme necessário.
-        // Como o push_back enviava initializer_lists, testamos os limites da caixa 10x10:
-        
-        // Ponto 1
+        // Point 1
         EXPECT_GE(tri.p1.x, 0.0); EXPECT_LE(tri.p1.x, 10.0);
         EXPECT_GE(tri.p1.y, 0.0); EXPECT_LE(tri.p1.y, 10.0);
         
-        // Ponto 2
+        // Point 2
         EXPECT_GE(tri.p2.x, 0.0); EXPECT_LE(tri.p2.x, 10.0);
         EXPECT_GE(tri.p2.y, 0.0); EXPECT_LE(tri.p2.y, 10.0);
         
-        // Ponto 3
+        // Point 3
         EXPECT_GE(tri.p3.x, 0.0); EXPECT_LE(tri.p3.x, 10.0);
         EXPECT_GE(tri.p3.y, 0.0); EXPECT_LE(tri.p3.y, 10.0);
     }

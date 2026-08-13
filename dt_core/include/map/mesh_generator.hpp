@@ -2,6 +2,7 @@
 #include <vector>
 #include "gdal_priv.h"
 #include "s57_processor.hpp"
+#include <gtest/gtest_prod.h>
 
 /**
  * @brief Geometric primitives for representing the navigation mesh.
@@ -49,6 +50,18 @@ public:
     static NavigationMesh generate(const ProcessedGeometries& geometries, double margin_meters, double simplification_tolerance);
 
 private:
+    FRIEND_TEST(MeshGeneratorTest, FilterByArea_HandlesNullPointer);
+    FRIEND_TEST(MeshGeneratorTest, FilterByArea_KeepsLargePolygon);
+    FRIEND_TEST(MeshGeneratorTest, FilterByArea_RemovesSmallPolygon);
+    FRIEND_TEST(MeshGeneratorTest, FilterByArea_FiltersMultiPolygonCorrectly);
+    FRIEND_TEST(MeshGeneratorTest, FilterByArea_DestroysEmptyMultiPolygon);
+    FRIEND_TEST(MeshGeneratorTest, UnionGeometries_HandlesEmptyList);
+    FRIEND_TEST(MeshGeneratorTest, UnionGeometries_MergesPolygons);
+    FRIEND_TEST(MeshGeneratorTest, TriangulatePolygon_HandlesNullPointer);
+    FRIEND_TEST(MeshGeneratorTest, TriangulatePolygon_TriangulatesSquare);
+    FRIEND_TEST(MeshGeneratorTest, TriangulatePolygon_HandlesNullPointer);
+    FRIEND_TEST(MeshGeneratorTest, TriangulatePolygon_TriangulatesSquare);
+
     /**
      * @brief Consolidates a set of fragmented geometries into a single unified object.
      * @param geometry_list Vector of pointers to the geometries to be merged.

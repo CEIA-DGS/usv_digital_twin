@@ -28,7 +28,7 @@ std::vector<p2t::Point*> extract_clean_contour(OGRLinearRing* ring) {
     return contour;
 }
 
-static OGRGeometry* ensure_polygon(OGRGeometry* geom) {
+OGRGeometry* ensure_polygon(OGRGeometry* geom) {
     if (!geom) return nullptr;
     OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
     
