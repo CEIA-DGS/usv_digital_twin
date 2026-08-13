@@ -92,6 +92,35 @@ void MainWindow::createInformationPanel(){
   layout->addWidget(legend_title);
   layout->addWidget(legend);
 
+  // Creation of the re-centering button
+  recenter_button_ = new QPushButton("Recenter USV");
+  recenter_button_->setCursor(Qt::PointingHandCursor);
+  recenter_button_->setStyleSheet(
+    "QPushButton {"
+    "  background-color: #144696;"
+    "  color: white;"
+    "  border-radius: 4px;"
+    "  padding: 6px;"
+    "  font-weight: bold;"
+    "}"
+    "QPushButton:hover {"
+    "  background-color: #2864be;"
+    "}"
+    "QPushButton:pressed {"
+    "  background-color: #0a2d66;"
+    "}"
+  );
+
+  layout->addWidget(recenter_button_);
+
+  // Connects the button click to tracking flag
+  connect(recenter_button_, &QPushButton::clicked, this, [this]() {
+      is_tracking_usv_ = true;
+      if (usv_) {
+          view_->centerOn(usv_->pos());
+      }
+  });
+
   layout->addStretch();
   layout->addWidget(simulation_status_label_);
 }

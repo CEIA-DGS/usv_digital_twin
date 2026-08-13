@@ -21,6 +21,7 @@
 #include <QTimer>
 #include <QWidget>
 #include <QWheelEvent>
+#include <QPushButton>
 
 // ============================================================
 // C++ Standard Libraries
@@ -200,6 +201,7 @@ private:
   QLabel * heading_label_;
   QLabel * vessel_count_label_;
   QLabel * simulation_status_label_;
+  QPushButton * recenter_button_;
 
   // Free zone and USV representation.
   QGraphicsPolygonItem * free_zone_;

@@ -27,6 +27,7 @@ MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * p
   configureWindow();
   createInformationPanel();
   createScene();
+  view_->scale(3.0, 3.0);
 
   connect(
     timer_,
