@@ -30,6 +30,11 @@ void MainWindow::updateSimulation(){
   const double render_y = -usv_y;
 
   usv_->setPos(render_x, render_y);
+
+  if (is_tracking_usv_) {
+      view_->centerOn(render_x, render_y);
+  }
+
   usv_->setRotation(heading);
   usv_label_->setPos(render_x, render_y); 
   heading_line_->setPos(render_x, render_y);

@@ -44,31 +44,42 @@ void MainWindow::resizeEvent(QResizeEvent * event){
 }
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event){
-  if (watched == view_->viewport() && event->type() == QEvent::Wheel) {
-    QWheelEvent *wheel_event = static_cast<QWheelEvent *>(event);
+  if (watched == view_->viewport()) {
     
-    if (wheel_event->angleDelta().y() > 0) {
-      view_->scale(1.15, 1.15); 
-    } else {
+    // Zoom Logic 
+    if (event->type() == QEvent::Wheel) {
+      QWheelEvent *wheel_event = static_cast<QWheelEvent *>(event);
       
-      QRectF scene_rect = scene_->sceneRect();
-      QRectF view_rect = view_->viewport()->rect();
-
-      double min_scale_x = view_rect.width() / scene_rect.width();
-      double min_scale_y = view_rect.height() / scene_rect.height();
-      double min_scale = std::min(min_scale_x, min_scale_y);
-      
-      double current_scale = view_->transform().m11();
-      double next_scale = current_scale / 1.15;
-      
-      if (next_scale <= min_scale) {
-        view_->fitInView(scene_rect, Qt::KeepAspectRatio);
+      if (wheel_event->angleDelta().y() > 0) {
+        view_->scale(1.15, 1.15); 
       } else {
-        view_->scale(1.0 / 1.15, 1.0 / 1.15); 
+        QRectF scene_rect = scene_->sceneRect();
+        QRectF view_rect = view_->viewport()->rect();
+        
+        double min_scale_x = view_rect.width() / scene_rect.width();
+        double min_scale_y = view_rect.height() / scene_rect.height();
+        double min_scale = std::min(min_scale_x, min_scale_y);
+        
+        double current_scale = view_->transform().m11();
+        double next_scale = current_scale / 1.15;
+        
+        if (next_scale <= min_scale) {
+          view_->fitInView(scene_rect, Qt::KeepAspectRatio);
+        } else {
+          view_->scale(1.0 / 1.15, 1.0 / 1.15); 
+        }
+      }
+      return true; 
+    }
+    
+    // Logic to stop tracking (Mouse click)
+    if (event->type() == QEvent::MouseButtonPress) {
+      QMouseEvent *mouse_event = static_cast<QMouseEvent *>(event);
+      if (mouse_event->button() == Qt::LeftButton) {
+        is_tracking_usv_ = false; 
       }
     }
     
-    return true; 
   }
   return QMainWindow::eventFilter(watched, event);
 }

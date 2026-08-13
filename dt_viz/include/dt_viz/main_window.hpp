@@ -234,6 +234,7 @@ private:
   > vessel_labels_by_mmsi_;
 
   double simulation_time_;
+  bool is_tracking_usv_ = true;
 };
 
 } // namespace dt_viz
