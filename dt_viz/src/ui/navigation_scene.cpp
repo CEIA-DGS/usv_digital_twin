@@ -1,4 +1,4 @@
-#include "dt_viz/navigation_scene.hpp"
+#include "dt_viz/ui/navigation_scene.hpp"
 
 #include <cmath>
 #include <QPen>
