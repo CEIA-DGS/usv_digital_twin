@@ -18,29 +18,47 @@ find_package(dt_msgs REQUIRED)
 find_package(dt_core REQUIRED) 
 find_package(dt_ros REQUIRED)
 find_package(ament_index_cpp REQUIRED)  
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
 
-# ==============================================================================
-# 2. EXECUTABLE BUILD
-# ==============================================================================
-# ==============================================================================
-# 2. EXECUTABLE BUILD
-# ==============================================================================
+# ==========================================
+# Qt5 Dependencies
+# ==========================================
+find_package(Qt5 REQUIRED COMPONENTS Widgets)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+# ==========================================
+# External Libraries
+# ==========================================
+find_package(GDAL REQUIRED)
+
+# ==========================================
+# Executable Definition
+# ==========================================
 add_executable(dt_visualizer_node
+  include/dt_viz/controllers/simulation_controller.hpp
+  include/dt_viz/ui/main_window.hpp
+  include/dt_viz/ui/map_canvas.hpp
+  include/dt_viz/ui/navigation_scene.hpp
+  include/dt_viz/ui/telemetry_panel.hpp
   src/main.cpp
-  src/main_window.cpp
-  src/main_window_setup.cpp
-  src/main_window_draw.cpp
-  src/main_window_update.cpp
-  src/main_window_route.cpp
-  src/viz_node.cpp
+  src/controllers/simulation_controller.cpp
+  src/ui/main_window.cpp
+  src/ui/map_canvas.cpp
+  src/ui/navigation_scene.cpp
+  src/ui/telemetry_panel.cpp
 )
 
 target_include_directories(dt_visualizer_node PRIVATE include)
 
-target_link_libraries(dt_visualizer_node 
-  dt_core::dt_core 
+if(GDAL_INCLUDE_DIRS)
+  target_include_directories(dt_visualizer_node PRIVATE ${GDAL_INCLUDE_DIRS})
+endif()
+
+target_link_libraries(dt_visualizer_node
+  dt_core::dt_core
   Qt5::Widgets
+  ${GDAL_LIBRARIES}
 )
 
 ament_target_dependencies(dt_visualizer_node
@@ -65,11 +83,22 @@ if(BUILD_TESTING)
     file(GLOB_RECURSE TEST_SOURCES "test/*.cpp")
 
     if(TEST_SOURCES)
-        file(GLOB_RECURSE VIZ_SOURCES "src/*.cpp")
+        file(GLOB_RECURSE VIZ_SOURCES "src/*.cpp" "include/dt_viz/**/*.hpp")
         list(REMOVE_ITEM VIZ_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+        
         ament_add_gtest(test_dt_viz ${TEST_SOURCES} ${VIZ_SOURCES})
+        
         target_include_directories(test_dt_viz PRIVATE include)
-        target_link_libraries(test_dt_viz dt_core::dt_core Qt5::Widgets)
+      
+        if(GDAL_INCLUDE_DIRS)
+            target_include_directories(test_dt_viz PRIVATE ${GDAL_INCLUDE_DIRS})
+        endif()
+
+        target_link_libraries(test_dt_viz 
+            dt_core::dt_core 
+            Qt5::Widgets 
+            ${GDAL_LIBRARIES}
+        )
         
         ament_target_dependencies(test_dt_viz
             rclcpp
