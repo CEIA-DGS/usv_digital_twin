@@ -7,15 +7,9 @@
 #include "gdal_priv.h"
 #include "ogrsf_frmts.h"
 
-// Auxiliary structures for vector rendering
 struct Color { float r, g, b, a; };
-struct Vertex2D { double x, y; };
 
-struct Polygon2D {
-    std::vector<Vertex2D> outer_ring;
-    std::vector<std::vector<Vertex2D>> holes;
-};
-
+// Auxiliary structures for vector rendering
 struct RenderLayer {
     std::vector<Polygon2D> polygons;
     Color fill_color;
@@ -35,7 +29,7 @@ struct AppState {
     OGREnvelope bounds;
 };
 
-static void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& target_list) {
+void extract_geom_polygons(OGRGeometry* geom, std::vector<Polygon2D>& target_list) {
     if (!geom) return;
     OGRwkbGeometryType type = wkbFlatten(geom->getGeometryType());
     
