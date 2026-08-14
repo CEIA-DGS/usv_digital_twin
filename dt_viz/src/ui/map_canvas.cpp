@@ -41,8 +41,18 @@ void MapCanvas::setupScene() {
 
 void MapCanvas::wheelEvent(QWheelEvent * event) {
   if (event->angleDelta().y() > 0) {
-    scale(1.15, 1.15); 
+    // ZOOM IN
+    constexpr double max_scale = 25.0; 
+    double current_scale = transform().m11();
+    
+    if (current_scale * 1.15 <= max_scale) {
+      scale(1.15, 1.15); 
+    } else {
+      double adjust_factor = max_scale / current_scale;
+      scale(adjust_factor, adjust_factor);
+    }
   } else {
+    // ZOOM OUT
     QRectF scene_rect = scene_->sceneRect();
     QRectF view_rect = viewport()->rect();
     
