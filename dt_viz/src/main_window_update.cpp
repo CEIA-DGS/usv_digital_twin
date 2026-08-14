@@ -6,6 +6,7 @@
 #include <QString>
 #include <QStatusBar>
 #include <cmath>
+#include <unordered_set> 
 
 namespace dt_viz {
 
@@ -43,21 +44,24 @@ void MainWindow::updateSimulation(){
   updateUsvTrajectory(render_x, render_y);
 
   const auto targets = snapshot->get_all_targets();
+  std::unordered_set<std::uint32_t> active_mmsis;
   
   for (const auto& target : targets) {
     std::uint32_t mmsi = target.get_id();
+    active_mmsis.insert(mmsi);
+
     double t_x = target.get_pose().get_x();
     double t_y = target.get_pose().get_y();
 
     double render_t_x = t_x;
     double render_t_y = -t_y;
 
+    // Creates the target if it does not exist
     if (vessel_items_by_mmsi_.find(mmsi) == vessel_items_by_mmsi_.end()) {
       auto * vessel = scene_->addEllipse(-11.0, -11.0, 22.0, 22.0,
         QPen(QColor(160, 55, 35), 2.0), normalVesselBrush());
       vessel->setZValue(4.0);
       vessel->setFlag(QGraphicsItem::ItemIgnoresTransformations);
-      scene_->addItem(vessel);
       vessel_items_by_mmsi_[mmsi] = vessel;
 
       auto * label = scene_->addSimpleText(QString("MMSI %1").arg(mmsi));
@@ -65,12 +69,31 @@ void MainWindow::updateSimulation(){
       label->setZValue(5.0);
       label->setFlag(QGraphicsItem::ItemIgnoresTransformations);
       label->setTransform(QTransform().translate(16.0, -18.0));
-      scene_->addItem(label);
       vessel_labels_by_mmsi_[mmsi] = label;
     }
 
     vessel_items_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
     vessel_labels_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
+  }
+
+  // Removal of inactive targets 
+  for (auto it = vessel_items_by_mmsi_.begin(); it != vessel_items_by_mmsi_.end(); ) {
+    std::uint32_t mmsi = it->first;
+    if (active_mmsis.find(mmsi) == active_mmsis.end()) {
+      scene_->removeItem(it->second);
+      delete it->second;
+      
+      auto label_it = vessel_labels_by_mmsi_.find(mmsi);
+      if (label_it != vessel_labels_by_mmsi_.end()) {
+        scene_->removeItem(label_it->second);
+        delete label_it->second;
+        vessel_labels_by_mmsi_.erase(label_it);
+      }
+      
+      it = vessel_items_by_mmsi_.erase(it);
+    } else {
+      ++it;
+    }
   }
 
   const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
@@ -146,7 +169,7 @@ void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminen
   if (collision_imminent) {
     vessel->setBrush(collisionVesselBrush());
     vessel->setPen(QPen(QColor(120, 0, 0), 4.0));
-    vessel->setScale(1.5); 
+    vessel->setRect(-16.5, -16.5, 33.0, 33.0); 
 
     if (label_iterator != vessel_labels_by_mmsi_.end()) {
       label_iterator->second->setText(QString("ALERT - MMSI %1\nCOLLISION RISK").arg(mmsi));
@@ -157,7 +180,7 @@ void MainWindow::updateCollisionAlert(std::uint32_t mmsi, bool collision_imminen
 
   vessel->setBrush(normalVesselBrush());
   vessel->setPen(QPen(QColor(160, 55, 35), 2.0));
-  vessel->setScale(1.0);
+  vessel->setRect(-11.0, -11.0, 22.0, 22.0);
 
   if (label_iterator != vessel_labels_by_mmsi_.end()) {
     label_iterator->second->setText(QString("MMSI %1").arg(mmsi));
