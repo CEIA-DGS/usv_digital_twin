@@ -121,6 +121,13 @@ void MainWindow::createInformationPanel(){
       }
   });
 
+  grid_resolution_label_ = new QLabel("⊞ Grid: -- m");
+  QFont grid_font;
+  grid_font.setBold(true);
+  grid_resolution_label_->setFont(grid_font);
+  grid_resolution_label_->setStyleSheet("color: #4a5568; padding-top: 10px;");
+  layout->addWidget(grid_resolution_label_);
+
   layout->addStretch();
   layout->addWidget(simulation_status_label_);
 }

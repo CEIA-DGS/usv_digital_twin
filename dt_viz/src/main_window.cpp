@@ -1,13 +1,15 @@
 #include "dt_viz/main_window.hpp"
+#include "dt_viz/navigation_scene.hpp"
 
 #include <QWheelEvent>
+#include <QMouseEvent>
 
 namespace dt_viz {
 
 MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * parent)
 : QMainWindow(parent),
   dt_core_(std::move(dt_core)), 
-  scene_(new QGraphicsScene(this)),
+  scene_(new NavigationScene(this)), 
   view_(new QGraphicsView(scene_, this)),
   timer_(new QTimer(this)),
   central_widget_(new QWidget(this)),
@@ -16,6 +18,7 @@ MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * p
   heading_label_(nullptr),
   vessel_count_label_(nullptr),
   simulation_status_label_(nullptr),
+  grid_resolution_label_(nullptr), 
   free_zone_(nullptr),
   usv_(nullptr),
   usv_label_(nullptr),
@@ -27,7 +30,10 @@ MainWindow::MainWindow(std::shared_ptr<dt::DigitalTwinCore> dt_core, QWidget * p
   configureWindow();
   createInformationPanel();
   createScene();
+  
   view_->scale(3.0, 3.0);
+
+  updateGridIndicator();
 
   connect(
     timer_,
@@ -70,6 +76,9 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event){
           view_->scale(1.0 / 1.15, 1.0 / 1.15); 
         }
       }
+      
+      updateGridIndicator();
+      
       return true; 
     }
     
@@ -83,6 +92,17 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event){
     
   }
   return QMainWindow::eventFilter(watched, event);
+}
+
+void MainWindow::updateGridIndicator() {
+  if (!view_ || !scene_) return;
+
+  const double current_scale = view_->transform().m11();
+  const double current_grid_step = scene_->calculateGridStep(current_scale);
+
+  grid_resolution_label_->setText(
+    QString("⊞ Grid: %1 m").arg(current_grid_step, 0, 'f', 0)
+  );
 }
 
 } // namespace dt_viz

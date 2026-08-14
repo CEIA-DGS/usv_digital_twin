@@ -17,6 +17,9 @@ find_package(dt_ros REQUIRED)
 find_package(ament_index_cpp REQUIRED)  
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 add_executable(dt_visualizer_node
   src/main.cpp
@@ -26,6 +29,7 @@ add_executable(dt_visualizer_node
   src/main_window_update.cpp
   src/main_window_route.cpp
   src/viz_node.cpp
+  src/navigation_scene.cpp
 )
 
 target_include_directories(dt_visualizer_node PRIVATE include)

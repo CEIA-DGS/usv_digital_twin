@@ -1,5 +1,6 @@
 #pragma once
 #include "dt_core/twin_interface.hpp"
+#include "dt_viz/navigation_scene.hpp"
 #include <memory>
 
 // ============================================================
@@ -164,6 +165,11 @@ private:
   void updateUsvTrajectory(double x, double y);
 
   /**
+   * @brief Updates the grid indicator icon and text based on the current view scale.
+   */
+  void updateGridIndicator();
+
+  /**
    * @brief Updates the text data in the side information panel.
    * 
    * @param usv_x Current USV X position.
@@ -190,7 +196,7 @@ private:
   QBrush collisionVesselBrush() const;
 
   // Main components.
-  QGraphicsScene * scene_;
+  NavigationScene * scene_;
   QGraphicsView * view_;
   QTimer * timer_;
 
@@ -201,6 +207,8 @@ private:
   QLabel * heading_label_;
   QLabel * vessel_count_label_;
   QLabel * simulation_status_label_;
+  QLabel * grid_resolution_label_;
+
   QPushButton * recenter_button_;
 
   // Free zone and USV representation.
