@@ -30,5 +30,8 @@ private:
      * @param layer Pointer to the destination layer (OGR Layer) previously created in the dataset.
      * @param geom Pointer to the base geometry (Polygon, Line, etc.) that will be encapsulated in a feature.
      */
+    FRIEND_TEST(VectorExporterTest, InsertGeometry_HandlesNullPointers);
+    FRIEND_TEST(VectorExporterTest, InsertGeometry_InsertsValidGeometry);
+    FRIEND_TEST(VectorExporterTest, ExportShapefile_GeneratesCorrectFiles);
     static void insert_geometry(OGRLayer* layer, OGRGeometry* geom);
 };
