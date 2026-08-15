@@ -22,7 +22,7 @@ find_package(ament_index_cpp REQUIRED)
 # ==========================================
 # Qt5 Dependencies
 # ==========================================
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Widgets Test)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
@@ -76,7 +76,7 @@ install(TARGETS dt_visualizer_node DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY include/ DESTINATION include/)
 
 # ==============================================================================
-# 4. UNIT TESTS (GTEST)
+# 4. UNIT TESTS (GTEST + QTEST)
 # ==============================================================================
 if(BUILD_TESTING)
     find_package(ament_cmake_gtest REQUIRED)
@@ -97,6 +97,7 @@ if(BUILD_TESTING)
         target_link_libraries(test_dt_viz 
             dt_core::dt_core 
             Qt5::Widgets 
+            Qt5::Test
             ${GDAL_LIBRARIES}
         )
         
