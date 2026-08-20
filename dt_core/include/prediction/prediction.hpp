@@ -47,12 +47,22 @@ namespace prediction{
   types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0);
   
   /**
-   * @brief Calculates a dynamic risk field value for a given position based on target kinematics.
+   * @brief Calculates a dynamic risk value for a given position based on target kinematics.
    * @param position Point in space to evaluate.
+   * @param usv_covariance Ego vehicle covariance.
+   * @param target Dynamic environmental target.
    * @param timestamp Time offset for the risk evaluation.
-   * @param usv_state Ego vehicle state.
-   * @param targets Dynamic environmental targets.
    * @return Risk factor (higher indicates greater collision probability).
    */
-  double get_dynamic_risk_field(const types::Point& position, const double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets);
+  double get_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const types::Target& target, const double timestamp);
+
+  /**
+   * @brief Calculates the max dynamic risk value for a given position based on targets kinematics.
+   * @param position Point in space to evaluate.
+   * @param usv_covariance Ego vehicle covariance.
+   * @param targets Dynamic environmental targets.
+   * @param timestamp Time offset for the risk evaluation.
+   * @return Max Risk factor (higher indicates greater collision probability).
+   */
+  double get_max_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const std::vector<types::Target>& targets, const double timestamp);
 } // namespace prediction

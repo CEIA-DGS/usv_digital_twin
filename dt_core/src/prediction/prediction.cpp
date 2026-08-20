@@ -138,26 +138,7 @@ namespace prediction{
           report.set_id(target.get_id());
         }
 
-        // Covariance Fusion
-        double cov_xx = target.get_covariance().get_xx() + usv_state.get_covariance().get_xx() + 1.0;
-        double cov_yy = target.get_covariance().get_yy() + usv_state.get_covariance().get_yy() + 1.0;
-        double cov_xy = target.get_covariance().get_xy() + usv_state.get_covariance().get_xy();
-
-        // Inversion of the 2x2 Matrix for Mahalanobis Distance
-        double det = (cov_xx * cov_yy) - (cov_xy * cov_xy);
-        if (det < 1e-6) det = 1e-6; // Avoids singular matrix or division by zero.
-
-        double inv_xx = cov_yy / det;
-        double inv_yy = cov_xx / det;
-        double inv_xy = -cov_xy / det;
-
-        // D_M^2 = p_rel^T * Sigma_rel^-1 * p_rel
-        double d_m_sq = (relative_x * inv_xx + relative_y * inv_xy) * relative_x + 
-                        (relative_x * inv_xy + relative_y * inv_yy) * relative_y;
-
-        // Geometric Mahalanobis conversion to a scalar risk field
-        // Gaussian exponential decay function: Risk = exp(-0.5 * D_M^2)
-        double risk = std::exp(-0.5 * d_m_sq);
+        double risk = get_dynamic_risk(pose.get_position(), usv_state.get_covariance(), target, current_time);
         
         if(risk > report.get_risk()){
           report.set_risk(risk);
@@ -177,38 +158,51 @@ namespace prediction{
     return report;
   }
 
-  double get_dynamic_risk_field(const types::Point& position, const double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets){
+  double get_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const types::Target& target, const double timestamp){
+    if(timestamp < 0){
+      throw std::invalid_argument("Error: timestamp must be positive!");
+    }
+
+    double target_start_x = target.get_pose().get_x();
+    double target_start_y = target.get_pose().get_y();
+
+    double target_dx = target.get_velocity().get_vx() * timestamp;
+    double target_dy = target.get_velocity().get_vy() * timestamp;
+
+    double target_future_x = target_start_x + target_dx;
+    double target_future_y = target_start_y + target_dy;
+
+    double relative_x = position.get_x() - target_future_x;
+    double relative_y = position.get_y() - target_future_y;
+
+    // Covariance Fusion
+    double cov_xx = target.get_covariance().get_xx() + usv_covariance.get_xx() + 1.0;
+    double cov_yy = target.get_covariance().get_yy() + usv_covariance.get_yy() + 1.0;
+    double cov_xy = target.get_covariance().get_xy() + usv_covariance.get_xy();
+
+    // Inversion of the 2x2 Matrix for Mahalanobis Distance
+    double det = (cov_xx * cov_yy) - (cov_xy * cov_xy);
+    if (det < 1e-6) det = 1e-6; // Avoids singular matrix or division by zero.
+
+    double inv_xx = cov_yy / det;
+    double inv_yy = cov_xx / det;
+    double inv_xy = -cov_xy / det;
+
+    // D_M^2 = p_rel^T * Sigma_rel^-1 * p_rel
+    double d_m_sq = (relative_x * inv_xx + relative_y * inv_xy) * relative_x + 
+                    (relative_x * inv_xy + relative_y * inv_yy) * relative_y;
+
+    // Geometric Mahalanobis conversion to a scalar risk field
+    // Gaussian exponential decay function: Risk = exp(-0.5 * D_M^2)
+    double risk = std::exp(-0.5 * d_m_sq);
+
+    return risk;
+  }
+
+  double get_max_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const std::vector<types::Target>& targets, const double timestamp){
     double max_risk = -1.0;
     for(const auto& target :  targets){
-      double target_start_x = target.get_pose().get_x();
-      double target_start_y = target.get_pose().get_y();
-
-      double target_future_x = target_start_x + (target.get_velocity().get_vx() * timestamp);
-      double target_future_y = target_start_y + (target.get_velocity().get_vy() * timestamp);
-
-      double relative_x = position.get_x() - target_future_x;
-      double relative_y = position.get_y() - target_future_y;
-
-      // Covariance Fusion
-      double cov_xx = target.get_covariance().get_xx() + usv_state.get_covariance().get_xx() + 1.0;
-      double cov_yy = target.get_covariance().get_yy() + usv_state.get_covariance().get_yy() + 1.0;
-      double cov_xy = target.get_covariance().get_xy() + usv_state.get_covariance().get_xy();
-
-      // Inversion of the 2x2 Matrix for Mahalanobis Distance
-      double det = (cov_xx * cov_yy) - (cov_xy * cov_xy);
-      if (det < 1e-6) det = 1e-6; // Avoids singular matrix or division by zero.
-
-      double inv_xx = cov_yy / det;
-      double inv_yy = cov_xx / det;
-      double inv_xy = -cov_xy / det;
-
-      // D_M^2 = p_rel^T * Sigma_rel^-1 * p_rel
-      double d_m_sq = (relative_x * inv_xx + relative_y * inv_xy) * relative_x + 
-                      (relative_x * inv_xy + relative_y * inv_yy) * relative_y;
-
-      // Geometric Mahalanobis conversion to a scalar risk field
-      // Gaussian exponential decay function: Risk = exp(-0.5 * D_M^2)
-      double risk = std::exp(-0.5 * d_m_sq);
+      double risk = get_dynamic_risk(position, usv_covariance, target, timestamp);
 
       if(risk > max_risk){
         max_risk = risk;

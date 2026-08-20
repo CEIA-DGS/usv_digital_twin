@@ -75,8 +75,12 @@ public:
         return prediction::check_collisions_on_trajectory(candidate_trajectory, usv_state, speed_profile, targets, start_time);
     }
 
-    double get_dynamic_risk_field(const types::Point& position, double timestamp, const types::Entity& usv_state, const std::vector<types::Target>& targets) const override {
-        return prediction::get_dynamic_risk_field(position, timestamp, usv_state, targets);
+    double get_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const types::Target& target, const double timestamp) const override {
+        return get_dynamic_risk(position, usv_covariance, target, timestamp);
+    }
+
+    double get_max_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const std::vector<types::Target>& targets, const double timestamp) const override {
+        return get_max_dynamic_risk(position, usv_covariance, targets, timestamp);
     }
 
     types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const override {
