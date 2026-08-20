@@ -71,16 +71,20 @@ public:
         return prediction::predict_trajectory_by_id(id, targets, time_horizon, time_step);
     }
 
-    types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, double start_time) const override {
+    types::TargetCollisionReport check_collision_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const types::Target& target, double start_time) const override {
+        return prediction::check_collision_on_trajectory(candidate_trajectory, usv_state, speed_profile, target, start_time);
+    }
+
+    std::vector<types::TargetCollisionReport> check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const std::vector<types::Target>& targets, double start_time) const override {
         return prediction::check_collisions_on_trajectory(candidate_trajectory, usv_state, speed_profile, targets, start_time);
     }
 
     double get_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const types::Target& target, const double timestamp) const override {
-        return get_dynamic_risk(position, usv_covariance, target, timestamp);
+        return prediction::get_dynamic_risk(position, usv_covariance, target, timestamp);
     }
 
     double get_max_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const std::vector<types::Target>& targets, const double timestamp) const override {
-        return get_max_dynamic_risk(position, usv_covariance, targets, timestamp);
+        return prediction::get_max_dynamic_risk(position, usv_covariance, targets, timestamp);
     }
 
     types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const override {

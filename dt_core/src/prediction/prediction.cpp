@@ -97,9 +97,7 @@ namespace prediction{
     return trajectory;
   }
 
-  types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time){
-    types::TargetCollisionReport report;
-
+  types::TargetCollisionReport check_collision_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const types::Target& target, const double start_time){
     if(candidate_trajectory.empty()){
       throw std::invalid_argument("Error: canditade trajectory cant be empy!");
     }
@@ -110,52 +108,65 @@ namespace prediction{
       throw std::invalid_argument("Error: speed profile must be positive!");
     }
 
+    types::TargetCollisionReport report;
+
     double dx = candidate_trajectory.get_pose_by_index(1).get_x() - candidate_trajectory.get_pose_by_index(0).get_x();
     double dy = candidate_trajectory.get_pose_by_index(1).get_y() - candidate_trajectory.get_pose_by_index(0).get_y();
     double dh = std::hypot(dx, dy);
     double dt = dh / speed_profile;
     double current_time = start_time;
 
+    double target_start_x = target.get_pose().get_x();
+    double target_start_y = target.get_pose().get_y();
+
+    report.set_id(target.get_id());
+
     for(const auto& pose : candidate_trajectory.get_poses()){
-      for(const auto& target :  targets){
-        double target_start_x = target.get_pose().get_x();
-        double target_start_y = target.get_pose().get_y();
-        double target_current_x = target_start_x + (target.get_velocity().get_vx() * current_time);
-        double target_current_y = target_start_y + (target.get_velocity().get_vy() * current_time);
+      double target_current_x = target_start_x + (target.get_velocity().get_vx() * current_time);
+      double target_current_y = target_start_y + (target.get_velocity().get_vy() * current_time);
 
-        double relative_x = pose.get_x() - target_current_x;
-        double relative_y = pose.get_y() - target_current_y;
-        double relative_distance = std::hypot(relative_x, relative_y);
+      double relative_x = pose.get_x() - target_current_x;
+      double relative_y = pose.get_y() - target_current_y;
+      double relative_distance = std::hypot(relative_x, relative_y);
 
-        if(relative_distance < report.get_dcpa() || report.get_dcpa() == -1.0){
-          report.set_dcpa(relative_distance);
-          report.set_tcpa(current_time);
-          report.set_usv_cpa(pose);
+      if(relative_distance < report.get_dcpa() || report.get_dcpa() == -1.0){
+        report.set_dcpa(relative_distance);
+        report.set_tcpa(current_time);
+        report.set_usv_cpa(pose);
 
-          types::Pose current_target_pose = target.get_pose();
-          current_target_pose.set_position(target_current_x, target_current_y, current_target_pose.get_z());
-          report.set_obstacle_cpa(current_target_pose);
-          report.set_id(target.get_id());
-        }
-
-        double risk = get_dynamic_risk(pose.get_position(), usv_state.get_covariance(), target, current_time);
-        
-        if(risk > report.get_risk()){
-          report.set_risk(risk);
-        }
-
-        double threshold = 0.55; // Collision certainty % (0 to 1)
-        if(risk > threshold){
-          report.set_safety(false);
-          report.set_id(target.get_id());
-          report.set_msg("Warning: Collision along the trajectory!");
-          return report;
-        }
+        types::Pose current_target_pose = target.get_pose();
+        current_target_pose.set_position(target_current_x, target_current_y, current_target_pose.get_z());
+        report.set_obstacle_cpa(current_target_pose);
       }
+
+      double risk = get_dynamic_risk(pose.get_position(), usv_state.get_covariance(), target, current_time);
+      
+      if(risk > report.get_risk()){
+        report.set_risk(risk);
+      }
+
+      double threshold = 0.55; // Collision certainty % (0 to 1)
+      if(risk > threshold){
+        report.set_safety(false);
+        report.set_msg("Warning: Collision along the trajectory!");
+        return report;
+      }
+      
       current_time += dt;
     }
+      
     report.set_msg("Report: Trajectory is safe!");
     return report;
+  }
+
+  std::vector<types::TargetCollisionReport> check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const std::vector<types::Target>& targets, const double start_time){
+    std::vector<types::TargetCollisionReport> reports;
+
+    for(const auto& target :  targets){
+      reports.push_back(check_collision_on_trajectory(candidate_trajectory, usv_state, speed_profile, target, start_time));
+    }
+    
+    return reports;
   }
 
   double get_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const types::Target& target, const double timestamp){

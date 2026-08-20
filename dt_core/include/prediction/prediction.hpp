@@ -36,15 +36,26 @@ namespace prediction{
   types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step);
 
   /**
+   * @brief Evaluates a potential collision along a candidate trajectory against a known target.
+   * @param candidate_trajectory The planned route to evaluate.
+   * @param usv_state Current kinematics and pose of the Ego Vehicle.
+   * @param speed_profile Assumed speed profile along the route.
+   * @param target Surrounding dynamic target.
+   * @param start_time Evaluation start offset.
+   * @return Detailed report containing CPA (Closest Point of Approach) metrics.
+   */
+  types::TargetCollisionReport check_collision_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const types::Target& target, const double start_time);
+
+  /**
    * @brief Evaluates potential collisions along a candidate trajectory against known targets.
    * @param candidate_trajectory The planned route to evaluate.
    * @param usv_state Current kinematics and pose of the Ego Vehicle.
    * @param speed_profile Assumed speed profile along the route.
    * @param targets Surrounding dynamic targets.
    * @param start_time Evaluation start offset.
-   * @return Detailed report containing CPA (Closest Point of Approach) metrics.
+   * @return List of detailed report containing CPA (Closest Point of Approach) metrics.
    */
-  types::TargetCollisionReport check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0);
+  std::vector<types::TargetCollisionReport> check_collisions_on_trajectory(const types::Trajectory& candidate_trajectory, const types::Entity& usv_state, const double speed_profile, const std::vector<types::Target>& targets, const double start_time = 0.0);
   
   /**
    * @brief Calculates a dynamic risk value for a given position based on target kinematics.
