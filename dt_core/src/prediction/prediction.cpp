@@ -165,7 +165,7 @@ namespace prediction{
     for(const auto& target :  targets){
       reports.push_back(check_collision_on_trajectory(candidate_trajectory, usv_state, speed_profile, target, start_time));
     }
-    
+
     return reports;
   }
 
@@ -220,5 +220,21 @@ namespace prediction{
       }
     }
     return max_risk;
+  }
+
+bool is_target_approaching(const types::Entity& usv, const types::Target& target, double alert_radius){
+    double dx = target.get_pose().get_x() - usv.get_pose().get_x();
+    double dy = target.get_pose().get_y() - usv.get_pose().get_y();
+    double dist = std::hypot(dx, dy);
+    
+    if (dist > alert_radius) return false;
+
+    // Relative Velocity
+    double dvx = target.get_velocity().get_vx() - usv.get_velocity().get_vx();
+    double dvy = target.get_velocity().get_vy() - usv.get_velocity().get_vy();
+    
+    // dot product < 0 means approaching
+    double dot_product = (dx * dvx) + (dy * dvy);
+    return dot_product < 0.0;
   }
 } // namespace prediction

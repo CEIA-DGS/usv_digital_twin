@@ -76,4 +76,14 @@ namespace prediction{
    * @return Max Risk factor (higher indicates greater collision probability).
    */
   double get_max_dynamic_risk(const types::Point& position, const types::Covariance& usv_covariance, const std::vector<types::Target>& targets, const double timestamp);
+
+  /**
+   * @brief Checks if a given target is approaching to Ego vihecle.
+   * @param usv Current kinematics and pose of the Ego Vehicle.
+   * @param target Current kinematics and pose of the Target.
+   * @param alert_radius Analysis radius.
+   * @return Whether the target is approaching or not.
+   */
+  bool is_target_approaching(const types::Entity& usv, const types::Target& target, double alert_radius);
+  
 } // namespace prediction
