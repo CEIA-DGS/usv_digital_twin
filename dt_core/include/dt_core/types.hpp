@@ -145,7 +145,7 @@ private:
     Velocity _velocity;
 
 public:
-    explicit Kinematics(const Velocity& initial_velocity) : _velocity(initial_velocity) {}
+    explicit Kinematics(const Velocity& initial_velocity = Velocity()) : _velocity(initial_velocity) {}
 
     void set_velocity(const Velocity& velocity) { _velocity = velocity; }
     const Velocity& get_velocity() const { return _velocity; }
@@ -189,7 +189,7 @@ private:
     Covariance _covariance;
 
 public:
-    Entity(const Pose& initial_pose, const Kinematics& initial_kinematics, const Covariance& initial_covariance = Covariance()) 
+    Entity(const Pose& initial_pose = Pose(), const Kinematics& initial_kinematics = Kinematics(), const Covariance& initial_covariance = Covariance()) 
         : _pose(initial_pose), _kinematics(initial_kinematics), _covariance(initial_covariance) {}
 
     virtual ~Entity() = default;
