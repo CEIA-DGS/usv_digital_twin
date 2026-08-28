@@ -112,10 +112,34 @@ public:
     // --- Raw State Access (For GUI / Visualization) ---
 
     /**
+     * @brief Retrieves the complete ego vehicle state at the time of the snapshot.
+     * @return Current Entity containing pose, kinematics, and covariance.
+     */
+    virtual types::Entity get_vehicle_state() const = 0;
+
+    /**
      * @brief Retrieves the ego vehicle's pose at the time of the snapshot.
      * @return Current 3D pose and orientation.
      */
     virtual types::Pose get_vehicle_pose() const = 0;
+
+    /**
+     * @brief Retrieves the ego vehicle's kinematics at the time of the snapshot.
+     * @return Current Kinematics.
+     */
+    virtual types::Kinematics get_vehicle_kinematics() const = 0;
+
+    /**
+     * @brief Retrieves the ego vehicle's velocity at the time of the snapshot.
+     * @return Current Velocity.
+     */
+    virtual types::Velocity get_vehicle_velocity() const = 0;
+
+    /**
+     * @brief Retrieves the ego vehicle's covariance at the time of the snapshot.
+     * @return Current Covariance.
+     */
+    virtual types::Covariance get_vehicle_covariance() const = 0;
 
     /**
      * @brief Retrieves the complete list of tracked targets.
@@ -153,6 +177,24 @@ public:
      * @param pose The latest pose estimation.
      */
     void update_vehicle_pose(const types::Pose& pose);
+
+    /**
+     * @brief Asynchronously updates the ego vehicle kinematics.
+     * @param kinematics The latest kinematics estimation.
+     */
+    void update_vehicle_kinematics(const types::Kinematics& kinematics);
+
+    /**
+     * @brief Asynchronously updates the ego vehicle covariance.
+     * @param covariance The latest covariance estimation.
+     */
+    void update_vehicle_covariance(const types::Covariance& covariance);
+
+    /**
+     * @brief Asynchronously updates the complete ego vehicle entity.
+     * @param entity The latest entity state.
+     */
+    void update_vehicle_state(const types::Entity& entity);
 
     /**
      * @brief Asynchronously updates the tracked dynamic targets.

@@ -21,18 +21,18 @@ namespace dt {
 class ConcreteWorldStateSnapshot : public WorldStateSnapshot {
 private:
     types::MapData _static_map;
-    types::Pose _vehicle_pose;
+    types::Entity _vehicle_state;
     std::vector<types::Target> _targets;
     types::Trajectory _planned_trajectory;
     std::shared_ptr<SpatialIndex> _spatial_index;
 
 public:
-    ConcreteWorldStateSnapshot(const types::MapData& map,  
-                               const types::Pose& pose, 
+    ConcreteWorldStateSnapshot(const types::MapData& map,
+                               const types::Entity& usv,
                                const std::vector<types::Target>& targets,
                                const types::Trajectory& planned_trajectory, 
                                std::shared_ptr<SpatialIndex> spatial_index)
-        : _static_map(map), _vehicle_pose(pose), _targets(targets), 
+        : _static_map(map), _vehicle_state(usv), _targets(targets), 
           _planned_trajectory(planned_trajectory), _spatial_index(spatial_index) {
         
         if (_spatial_index) {
@@ -45,17 +45,19 @@ public:
         return _spatial_index->get_closest_static_obstacle_distance(pos);
     }
 
-    types::Trajectory get_planned_trajectory() const override {
-        return _planned_trajectory;
-    }
+    types::Trajectory get_planned_trajectory() const override { return _planned_trajectory; }
 
-    types::Pose get_vehicle_pose() const override {
-        return _vehicle_pose;
-    }
+    types::Entity get_vehicle_state() const override { return _vehicle_state; }
 
-    std::vector<types::Target> get_all_targets() const override {
-        return _targets;
-    }
+    types::Pose get_vehicle_pose() const override { return _vehicle_state.get_pose(); }
+
+    types::Velocity get_vehicle_velocity() const override {return _vehicle_state.get_velocity(); }
+
+    types::Kinematics get_vehicle_kinematics() const override { return _vehicle_state.get_kinematics(); }
+
+    types::Covariance get_vehicle_covariance() const override { return _vehicle_state.get_covariance(); }
+
+    std::vector<types::Target> get_all_targets() const override { return _targets; }
 
     bool is_inside_restricted_zone(const types::Point& pos) const override {
         if (!_spatial_index) return false;
@@ -99,7 +101,7 @@ class DigitalTwinCoreImpl {
 private:
     mutable std::mutex _mutex;
     types::MapData _current_map;
-    types::Pose _current_pose;
+    types::Entity _current_state;
     std::vector<types::Target> _current_targets;
     types::Trajectory _current_planned_trajectory;
     
@@ -108,7 +110,7 @@ private:
 
     void refresh_snapshot_unlocked() {
         _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
-            _current_map, _current_pose, _current_targets, 
+            _current_map, _current_state, _current_targets, 
             _current_planned_trajectory, _spatial_engine);
     }
 
@@ -122,7 +124,7 @@ public:
         _spatial_engine->load_shapefiles(dir + "/2_Margem_Seguranca.shp", dir + "/4_Malha_NavMesh.shp");
 
         _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
-            _current_map, _current_pose, _current_targets, 
+            _current_map, _current_state, _current_targets, 
             _current_planned_trajectory, _spatial_engine);
     }
 
@@ -140,7 +142,25 @@ public:
 
     void update_vehicle_pose(const types::Pose& pose) {
         std::lock_guard<std::mutex> lock(_mutex);
-        _current_pose = pose;
+        _current_state.set_pose(pose);
+        refresh_snapshot_unlocked();
+    }
+
+    void update_vehicle_kinematics(const types::Kinematics& kinematics) {
+        std::lock_guard<std::mutex> lock(_mutex);
+        _current_state.set_kinematics(kinematics);
+        refresh_snapshot_unlocked();
+    }
+
+    void update_vehicle_covariance(const types::Covariance& covariance) {
+        std::lock_guard<std::mutex> lock(_mutex);
+        _current_state.set_covariance(covariance);
+        refresh_snapshot_unlocked();
+    }
+
+    void update_vehicle_state(const types::Entity& entity) {
+        std::lock_guard<std::mutex> lock(_mutex);
+        _current_state = entity;
         refresh_snapshot_unlocked();
     }
 
@@ -175,6 +195,18 @@ void DigitalTwinCore::update_static_map(const types::MapData& map) {
 
 void DigitalTwinCore::update_vehicle_pose(const types::Pose& pose) {
     get_core_impl().update_vehicle_pose(pose);
+}
+
+void DigitalTwinCore::update_vehicle_state(const types::Entity& entity) {
+    get_core_impl().update_vehicle_state(entity);
+}
+
+void DigitalTwinCore::update_vehicle_kinematics(const types::Kinematics& kinematics) {
+    get_core_impl().update_vehicle_kinematics(kinematics);
+}
+
+void DigitalTwinCore::update_vehicle_covariance(const types::Covariance& covariance) {
+    get_core_impl().update_vehicle_covariance(covariance);
 }
 
 void DigitalTwinCore::update_dynamic_targets(const std::vector<types::Target>& targets) {
