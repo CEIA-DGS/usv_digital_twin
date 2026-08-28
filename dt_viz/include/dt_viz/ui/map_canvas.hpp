@@ -52,6 +52,11 @@ public:
   void updateUsvPose(double x, double y, double heading_deg);
 
   /**
+   * @brief Updates the USV's predicted future trajectory on the canvas.
+   */
+  void updateUsvPredictedTrajectory(const types::Trajectory& traj);
+
+  /**
    * @brief Updates the rendered targets, dynamically creating or removing items.
    * 
    * @param targets Vector containing the latest state of all targets.
@@ -121,7 +126,7 @@ private:
   QGraphicsPolygonItem * free_zone_;
   QGraphicsPolygonItem * usv_;
   QGraphicsSimpleTextItem * usv_label_;
-  QGraphicsLineItem * heading_line_;
+  QGraphicsPathItem * predicted_usv_route_item_;
 
   QGraphicsPathItem * trajectory_item_;
   QPainterPath trajectory_path_;

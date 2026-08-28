@@ -19,7 +19,7 @@ MapCanvas::MapCanvas(QWidget * parent)
   free_zone_(nullptr),
   usv_(nullptr),
   usv_label_(nullptr),
-  heading_line_(nullptr),
+  predicted_usv_route_item_(nullptr),
   trajectory_item_(nullptr),
   planned_route_item_(nullptr)
 {
@@ -105,9 +105,6 @@ void MapCanvas::updateUsvPose(double x, double y, double heading_deg) {
   }
   
   usv_label_->setPos(render_x, render_y); 
-  
-  heading_line_->setPos(render_x, render_y);
-  heading_line_->setRotation(heading_deg);
   
   trajectory_points_.emplace_back(render_x, render_y);
 
@@ -355,13 +352,14 @@ void MapCanvas::drawUsv() {
   usv_label_->setFlag(QGraphicsItem::ItemIgnoresTransformations);
   usv_label_->setTransform(QTransform().translate(-12.0, 20.0));
 
-  QPen heading_pen(QColor(20, 70, 150));
-  heading_pen.setWidthF(2.0);
-  heading_pen.setStyle(Qt::DashLine);
 
-  heading_line_ = scene_->addLine(0.0, 0.0, 65.0, 0.0, heading_pen);
-  heading_line_->setZValue(4.0);
-  heading_line_->setFlag(QGraphicsItem::ItemIgnoresTransformations);
+  QPen predicted_pen(QColor(20, 70, 150));
+  predicted_pen.setWidthF(3.0);
+  predicted_pen.setStyle(Qt::DashLine);
+  predicted_pen.setCosmetic(true);
+
+  predicted_usv_route_item_ = scene_->addPath(QPainterPath(), predicted_pen);
+  predicted_usv_route_item_->setZValue(4.0);
 
   QPen trajectory_pen(QColor(40, 100, 190));
   trajectory_pen.setWidthF(2.0); 
@@ -385,6 +383,20 @@ void MapCanvas::drawScaleBar() {
   auto * scale_label = scene_->addSimpleText("50 m");
   scale_label->setBrush(QBrush(QColor(40, 50, 60)));
   scale_label->setPos(start_x + 10.0, start_y - 25.0);
+}
+
+void MapCanvas::updateUsvPredictedTrajectory(const types::Trajectory& traj) {
+  QPainterPath path;
+  bool first = true;
+  for (const auto& pose : traj.get_poses()) {
+    if (first) {
+      path.moveTo(pose.get_x(), -pose.get_y());
+      first = false;
+    } else {
+      path.lineTo(pose.get_x(), -pose.get_y());
+    }
+  }
+  predicted_usv_route_item_->setPath(path);
 }
 
 QBrush MapCanvas::normalVesselBrush() const {

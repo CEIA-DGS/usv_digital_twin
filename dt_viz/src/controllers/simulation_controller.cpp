@@ -1,5 +1,7 @@
 #include "dt_viz/controllers/simulation_controller.hpp"
 #include <cmath>
+#include "prediction/prediction.hpp"
+#include <rclcpp/rclcpp.hpp>
 
 namespace dt_viz {
 
@@ -18,12 +20,30 @@ void SimulationController::processTick() {
   auto snapshot = dt_core_->get_latest_state();
   if (!snapshot) return;
 
-  const types::Pose usv_pose = snapshot->get_vehicle_pose();
-  double usv_x = usv_pose.get_x();
-  double usv_y = usv_pose.get_y();
-  double heading_deg = -usv_pose.get_yaw() * (180.0 / M_PI);
+  const types::Entity usv_state = snapshot->get_vehicle_state();
+
+  double usv_x = usv_state.get_pose().get_x();
+  double usv_y = usv_state.get_pose().get_y();
+  double heading_deg = -usv_state.get_pose().get_yaw() * (180.0 / M_PI);
+
+  double usv_velocity = std::hypot(usv_state.get_velocity().get_vx(), usv_state.get_velocity().get_vy());
 
   emit usvPoseUpdated(usv_x, usv_y, heading_deg);
+
+  double time_horizon = 15.0;
+  double time_step = 1.0;
+  auto usv_predicted_traj = prediction::predict_trajectory(usv_state, time_horizon, time_step);
+  
+  // prediction log
+  /*if (!usv_predicted_traj.empty()) {
+      double p0_x = usv_predicted_traj.get_pose_by_index(0).get_x();
+      double p_end_x = usv_predicted_traj.get_pose_by_index(usv_predicted_traj.size() - 1).get_x();
+      RCLCPP_INFO(rclcpp::get_logger("SimulationController"), 
+          "Predição gerada! Ponto inicial X: %.1f | Ponto final (15s) X: %.1f | Qtd pontos: %zu", 
+          p0_x, p_end_x, usv_predicted_traj.size());
+  }*/
+
+  emit usvPredictedTrajectoryUpdated(usv_predicted_traj);
 
   const auto targets = snapshot->get_all_targets();
   emit targetsUpdated(targets);
@@ -43,11 +63,12 @@ void SimulationController::processTick() {
 
   emit plannedRouteUpdated(display_route);
 
-  QString status_msg = QString("USV: x=%1 m | y=%2 m | heading=%3° | vessels=%4")
+  QString status_msg = QString("USV: x=%1 m | y=%2 m | heading=%3° | vessels=%4 | Vel=%5 m/s")
                          .arg(usv_x, 0, 'f', 1)
                          .arg(usv_y, 0, 'f', 1)
                          .arg(heading_deg, 0, 'f', 1)
-                         .arg(targets.size());
+                         .arg(targets.size())
+                         .arg(usv_velocity, 0, 'f', 1);
                          
   emit simulationStatusUpdated(status_msg);
 }
