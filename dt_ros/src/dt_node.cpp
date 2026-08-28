@@ -38,18 +38,59 @@ DigitalTwinNode::DigitalTwinNode(std::shared_ptr<dt::DigitalTwinCore> dt_core, c
     );
 }
 
+types::Velocity DigitalTwinNode::estimate_velocity(const types::Pose& current_pose, const rclcpp::Time& current_time) {
+    if (is_first_gps_) {
+        last_gps_time_ = current_time;
+        last_gps_pose_ = current_pose;
+        is_first_gps_ = false;
+        return types::Velocity(0.0, 0.0, 0.0);
+    }
+
+    double dt = (current_time - last_gps_time_).seconds();
+    
+    // Prevention of division by zero if two messages arrive with the same stamp.
+    if (dt <= 0.001) {
+        return current_velocity_; 
+    }
+
+    double dx = current_pose.get_x() - last_gps_pose_.get_x();
+    double dy = current_pose.get_y() - last_gps_pose_.get_y();
+
+    double raw_vx = dx / dt;
+    double raw_vy = dy / dt;
+
+    // Low-Pass Filter to smooth the speed (alpha = 0.4)
+    // 0.4 means we assign 40% weight to the new measurement and 60% to the movement's inertia
+    double alpha = 0.4; 
+    double filtered_vx = alpha * raw_vx + (1.0 - alpha) * current_velocity_.get_vx();
+    double filtered_vy = alpha * raw_vy + (1.0 - alpha) * current_velocity_.get_vy();
+
+    // Updates previous states
+    last_gps_time_ = current_time;
+    last_gps_pose_ = current_pose;
+    
+    return types::Velocity(filtered_vx, filtered_vy, 0.0);
+}
+
 void DigitalTwinNode::gps_callback(const sensor_msgs::msg::NavSatFix::SharedPtr msg) {
     if (msg->status.status == sensor_msgs::msg::NavSatStatus::STATUS_NO_FIX) {
         return;
     }
 
+    // Update pose
     conversions::apply_gps_to_pose(*msg, current_pose_);
 
+    // Estimate Velocity
+    rclcpp::Time current_time(msg->header.stamp);
+    current_velocity_ = estimate_velocity(current_pose_, current_time);
+    types::Kinematics current_kinematics(current_velocity_);
+
     RCLCPP_INFO_THROTTLE(this->get_logger(), *this->get_clock(), 2000, 
-        "GPS Received and Pose updated! Lat: %.4f | Lon: %.4f", 
-        msg->latitude, msg->longitude);
+        "GPS Received, Pose and Vel updated! Lat: %.4f | Lon: %.4f | Vel: %.4f m/s", 
+        msg->latitude, msg->longitude, std::hypot(current_velocity_.get_vx(), current_velocity_.get_vy()));
 
     dt_core_->update_vehicle_pose(current_pose_);
+    dt_core_->update_vehicle_kinematics(current_kinematics);
 }
 
 void DigitalTwinNode::imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg) {

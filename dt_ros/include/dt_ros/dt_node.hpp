@@ -81,6 +81,22 @@ private:
     
     /// Holds the current state (position and orientation) of the ego vehicle.
     types::Pose current_pose_;
+
+    rclcpp::Time last_gps_time_;
+    types::Pose last_gps_pose_;
+    types::Velocity current_velocity_;
+    bool is_first_gps_ = true;
+
+    /**
+     * @brief Estimates the linear velocity of the USV based on GPS variation.
+     * Uses a low-pass filter to smooth GPS noise.
+     * 
+     * @param current_pose Current parsed pose (UTM).
+     * @param current_time Timestamp of the current message.
+     * @return Estimated filtered velocity.
+     */
+    types::Velocity estimate_velocity(const types::Pose& current_pose, const rclcpp::Time& current_time);
+
 };
 
 } // namespace dt_ros
