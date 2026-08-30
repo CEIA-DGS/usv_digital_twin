@@ -1,6 +1,5 @@
 #include "dt_viz/controllers/simulation_controller.hpp"
 #include <cmath>
-#include "prediction/prediction.hpp"
 
 namespace dt_viz {
 
@@ -31,7 +30,7 @@ void SimulationController::processTick() {
 
   double time_horizon = 15.0;
   double time_step = 1.0;
-  auto usv_predicted_traj = prediction::predict_trajectory(usv_state, time_horizon, time_step);
+  auto usv_predicted_traj = snapshot->predict_trajectory(usv_state, time_horizon, time_step);
   emit usvPredictedTrajectoryUpdated(usv_predicted_traj);
 
   const auto targets = snapshot->get_all_targets();
@@ -41,10 +40,33 @@ void SimulationController::processTick() {
   targets_predicted_trajs.reserve(targets.size());
   
   for (const auto& target : targets) {
-    targets_predicted_trajs.push_back(prediction::predict_trajectory(target, time_horizon, time_step));
+    targets_predicted_trajs.push_back(snapshot->predict_trajectory(target, time_horizon, time_step));
   }
   
   emit targetsPredictedTrajectoriesUpdated(targets_predicted_trajs);
+
+  double speed_profile = std::max(usv_velocity, 0.1); 
+
+  float alert_radius = 3000.0f; 
+  auto local_targets = snapshot->get_active_local_targets(usv_state.get_pose().get_position(), alert_radius);
+
+  auto collision_reports = snapshot->check_collisions_on_trajectory(usv_predicted_traj, usv_state, speed_profile, local_targets, 0.0);
+
+  std::vector<RoutePoint> collision_points;
+
+  for (const auto& report : collision_reports) {
+      if (!report.is_safe()) {
+          emit collisionAlertUpdated(report.get_id(), true);
+          RoutePoint p;
+          p.x = report.get_usv_cpa().get_x();
+          p.y = -report.get_usv_cpa().get_y();
+          collision_points.push_back(p);
+      } else {
+          emit collisionAlertUpdated(report.get_id(), false);
+      }
+  }
+  
+  emit collisionPointsUpdated(collision_points);
 
   const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
   const auto & core_waypoints = planned_traj.get_poses();

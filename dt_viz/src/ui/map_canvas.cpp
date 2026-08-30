@@ -22,7 +22,8 @@ MapCanvas::MapCanvas(QWidget * parent)
   predicted_usv_route_item_(nullptr),
   trajectory_item_(nullptr),
   planned_route_item_(nullptr),
-  targets_predicted_routes_item_(nullptr)
+  targets_predicted_routes_item_(nullptr),
+  collision_stars_item_(nullptr)
 {
   setScene(scene_);
   setRenderHint(QPainter::Antialiasing);
@@ -39,6 +40,7 @@ void MapCanvas::setupScene() {
   drawUsv();
   drawUsvPrediction();
   drawTargetsPrediction();
+  drawCollisionPoint();
   drawScaleBar();
 }
 
@@ -383,6 +385,15 @@ void MapCanvas::drawTargetsPrediction() {
   targets_predicted_routes_item_->setZValue(3.5);
 }
 
+void MapCanvas::drawCollisionPoint() {
+  QPen star_pen(QColor(255, 0, 0), 2.0);
+  star_pen.setCosmetic(true);
+  QBrush star_brush(QColor(255, 50, 50, 200));
+
+  collision_stars_item_ = scene_->addPath(QPainterPath(), star_pen, star_brush);
+  collision_stars_item_->setZValue(6.0);
+}
+
 void MapCanvas::drawScaleBar() {
   constexpr double scale_length = 50.0;
   QPen scale_pen(QColor(40, 50, 60));
@@ -430,6 +441,22 @@ void MapCanvas::updateTargetsPredictedTrajectories(const std::vector<types::Traj
   }
   
   targets_predicted_routes_item_->setPath(combined_path);
+}
+
+void MapCanvas::updateCollisionPoints(const std::vector<RoutePoint>& points) {
+  QPainterPath path;
+  
+  for (const auto& pt : points) {
+    QPolygonF star;
+    for (int i = 0; i < 10; ++i) {
+      double r = (i % 2 == 0) ? 25.0 : 10.0;
+      double angle = i * (M_PI / 5.0) - (M_PI / 2.0);
+      star << QPointF(pt.x + r * std::cos(angle), pt.y + r * std::sin(angle));
+    }
+    path.addPolygon(star);
+  }
+  
+  collision_stars_item_->setPath(path);
 }
 
 QBrush MapCanvas::normalVesselBrush() const {

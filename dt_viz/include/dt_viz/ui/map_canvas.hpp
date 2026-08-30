@@ -62,6 +62,11 @@ public:
   void updateTargetsPredictedTrajectories(const std::vector<types::Trajectory>& trajs);
 
   /**
+   * @brief Updates the collision points on the map with red stars.
+   */
+  void updateCollisionPoints(const std::vector<RoutePoint>& points);
+
+  /**
    * @brief Updates the rendered targets, dynamically creating or removing items.
    * 
    * @param targets Vector containing the latest state of all targets.
@@ -118,6 +123,7 @@ private:
   void drawUsv();
   void drawUsvPrediction();
   void drawTargetsPrediction();
+  void drawCollisionPoint();
   void drawScaleBar();
   void clearPlannedRoute();
   void updateGridIndicator();
@@ -135,6 +141,7 @@ private:
   QGraphicsSimpleTextItem * usv_label_;
   QGraphicsPathItem * predicted_usv_route_item_;
   QGraphicsPathItem * targets_predicted_routes_item_;
+  QGraphicsPathItem * collision_stars_item_;
 
   QGraphicsPathItem * trajectory_item_;
   QPainterPath trajectory_path_;

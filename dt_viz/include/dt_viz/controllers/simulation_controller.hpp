@@ -39,6 +39,7 @@ signals:
   void simulationStatusUpdated(const QString & status);
   void usvPredictedTrajectoryUpdated(const types::Trajectory& traj);
   void targetsPredictedTrajectoriesUpdated(const std::vector<types::Trajectory>& trajs);
+  void collisionPointsUpdated(const std::vector<RoutePoint>& points);
   
 private slots:
   void processTick();
