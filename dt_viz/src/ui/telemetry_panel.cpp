@@ -40,6 +40,8 @@ void TelemetryPanel::setupUi() {
 
   usv_position_label_ = new QLabel("Position:\nx = 0.0 m\ny = 0.0 m");
   heading_label_ = new QLabel("Heading: 0.0°");
+  sog_label_ = new QLabel("SOG: 0.0 kn");
+  cog_label_ = new QLabel("COG: 0.0°");
   vessel_count_label_ = new QLabel("Monitored vessels: 3");
 
   auto * legend_title = new QLabel("Label");
@@ -64,6 +66,8 @@ void TelemetryPanel::setupUi() {
   layout->addWidget(usv_section);
   layout->addWidget(usv_position_label_);
   layout->addWidget(heading_label_);
+  layout->addWidget(sog_label_);
+  layout->addWidget(cog_label_);
   layout->addWidget(vessel_count_label_);
 
   layout->addSpacing(20);
@@ -104,16 +108,16 @@ void TelemetryPanel::setupUi() {
   layout->addWidget(simulation_status_label_);
 }
 
-void TelemetryPanel::updateUsvTelemetry(double x, double y, double heading) {
+void TelemetryPanel::updateUsvTelemetry(double x, double y, double hdg, double sog, double cog) {
   usv_position_label_->setText(
-    QString("Posição:\nx = %1 m\ny = %2 m")
+    QString("Position:\nx = %1 m\ny = %2 m")
       .arg(x, 0, 'f', 1)
       .arg(y, 0, 'f', 1)
   );
 
-  heading_label_->setText(
-    QString("Heading: %1°").arg(heading, 0, 'f', 1)
-  );
+  heading_label_->setText(QString("HDG: %1°").arg(hdg, 0, 'f', 1));
+  sog_label_->setText(QString("SOG: %1 kn").arg(sog, 0, 'f', 1));
+  cog_label_->setText(QString("COG: %1°").arg(cog, 0, 'f', 1));
 }
 
 void TelemetryPanel::updateVesselCount(std::size_t count) {

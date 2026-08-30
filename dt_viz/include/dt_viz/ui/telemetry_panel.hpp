@@ -21,7 +21,7 @@ public:
   /**
    * @brief Updates the USV's navigation data on the screen.
    */
-  void updateUsvTelemetry(double x, double y, double heading);
+  void updateUsvTelemetry(double x, double y, double hdg, double sog, double cog);
 
   /**
    * @brief Updates the count of monitored AIS targets.
@@ -50,6 +50,8 @@ private:
 
   QLabel * usv_position_label_;
   QLabel * heading_label_;
+  QLabel * sog_label_;
+  QLabel * cog_label_;
   QLabel * vessel_count_label_;
   QLabel * simulation_status_label_;
   QLabel * grid_resolution_label_;

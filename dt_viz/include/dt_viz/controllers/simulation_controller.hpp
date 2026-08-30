@@ -33,6 +33,7 @@ public:
 
 signals:
   void usvPoseUpdated(double x, double y, double heading_deg);
+  void usvTelemetryUpdated(double x, double y, double hdg, double sog, double cog);
   void targetsUpdated(const std::vector<types::Target> & targets);
   void plannedRouteUpdated(const std::vector<RoutePoint> & route);
   void collisionAlertUpdated(std::uint32_t mmsi, bool collision_imminent);

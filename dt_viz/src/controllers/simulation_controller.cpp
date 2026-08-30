@@ -24,10 +24,26 @@ void SimulationController::processTick() {
   double usv_x = usv_state.get_pose().get_x();
   double usv_y = usv_state.get_pose().get_y();
   double heading_deg = -usv_state.get_pose().get_yaw() * (180.0 / M_PI);
-
-  double usv_velocity = std::hypot(usv_state.get_velocity().get_vx(), usv_state.get_velocity().get_vy());
+  if (heading_deg < 0) heading_deg += 360.0; // Normalizes 0-360
 
   emit usvPoseUpdated(usv_x, usv_y, heading_deg);
+
+  // update telemetry panel
+  double vx = usv_state.get_velocity().get_vx();
+  double vy = usv_state.get_velocity().get_vy();
+  double usv_velocity = std::hypot(vx, vy);
+
+  // SOG (Speed ​​Over Ground) converted from m/s to knots
+  double sog_knots = usv_velocity * 1.94384;
+
+  // COG (Course Over Ground) - Calculated only when moving to avoid trigonometric noise
+  double cog_deg = heading_deg; 
+  if (usv_velocity > 0.1) {
+      cog_deg = std::atan2(vx, vy) * (180.0 / M_PI);
+      if (cog_deg < 0) cog_deg += 360.0;
+  }
+
+  emit usvTelemetryUpdated(usv_x, usv_y, heading_deg, sog_knots, cog_deg);
 
   // update usv predicted trajectory
   double time_horizon = 15.0;

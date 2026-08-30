@@ -67,7 +67,7 @@ void MainWindow::connectSignals() {
           map_canvas_, &MapCanvas::setApproachingAlert);
 
   // Wire Controller to TelemetryPanel
-  connect(controller_.get(), &SimulationController::usvPoseUpdated,
+  connect(controller_.get(), &SimulationController::usvTelemetryUpdated,
           telemetry_panel_, &TelemetryPanel::updateUsvTelemetry);
 
   connect(controller_.get(), &SimulationController::targetsUpdated,
