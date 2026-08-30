@@ -1,7 +1,6 @@
 #include "dt_viz/controllers/simulation_controller.hpp"
 #include <cmath>
 #include "prediction/prediction.hpp"
-#include <rclcpp/rclcpp.hpp>
 
 namespace dt_viz {
 
@@ -33,20 +32,19 @@ void SimulationController::processTick() {
   double time_horizon = 15.0;
   double time_step = 1.0;
   auto usv_predicted_traj = prediction::predict_trajectory(usv_state, time_horizon, time_step);
-  
-  // prediction log
-  /*if (!usv_predicted_traj.empty()) {
-      double p0_x = usv_predicted_traj.get_pose_by_index(0).get_x();
-      double p_end_x = usv_predicted_traj.get_pose_by_index(usv_predicted_traj.size() - 1).get_x();
-      RCLCPP_INFO(rclcpp::get_logger("SimulationController"), 
-          "Predição gerada! Ponto inicial X: %.1f | Ponto final (15s) X: %.1f | Qtd pontos: %zu", 
-          p0_x, p_end_x, usv_predicted_traj.size());
-  }*/
-
   emit usvPredictedTrajectoryUpdated(usv_predicted_traj);
 
   const auto targets = snapshot->get_all_targets();
   emit targetsUpdated(targets);
+
+  std::vector<types::Trajectory> targets_predicted_trajs;
+  targets_predicted_trajs.reserve(targets.size());
+  
+  for (const auto& target : targets) {
+    targets_predicted_trajs.push_back(prediction::predict_trajectory(target, time_horizon, time_step));
+  }
+  
+  emit targetsPredictedTrajectoriesUpdated(targets_predicted_trajs);
 
   const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
   const auto & core_waypoints = planned_traj.get_poses();

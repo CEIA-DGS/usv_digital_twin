@@ -38,7 +38,8 @@ signals:
   void collisionAlertUpdated(std::uint32_t mmsi, bool collision_imminent);
   void simulationStatusUpdated(const QString & status);
   void usvPredictedTrajectoryUpdated(const types::Trajectory& traj);
-
+  void targetsPredictedTrajectoriesUpdated(const std::vector<types::Trajectory>& trajs);
+  
 private slots:
   void processTick();
 

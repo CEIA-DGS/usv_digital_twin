@@ -57,6 +57,11 @@ public:
   void updateUsvPredictedTrajectory(const types::Trajectory& traj);
 
   /**
+   * @brief Updates the predicted trajectories for all active targets.
+   */
+  void updateTargetsPredictedTrajectories(const std::vector<types::Trajectory>& trajs);
+
+  /**
    * @brief Updates the rendered targets, dynamically creating or removing items.
    * 
    * @param targets Vector containing the latest state of all targets.
@@ -111,6 +116,8 @@ private:
   void setupScene();
   void drawFreeZone();
   void drawUsv();
+  void drawUsvPrediction();
+  void drawTargetsPrediction();
   void drawScaleBar();
   void clearPlannedRoute();
   void updateGridIndicator();
@@ -127,6 +134,7 @@ private:
   QGraphicsPolygonItem * usv_;
   QGraphicsSimpleTextItem * usv_label_;
   QGraphicsPathItem * predicted_usv_route_item_;
+  QGraphicsPathItem * targets_predicted_routes_item_;
 
   QGraphicsPathItem * trajectory_item_;
   QPainterPath trajectory_path_;

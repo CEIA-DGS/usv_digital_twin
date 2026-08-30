@@ -57,6 +57,9 @@ void MainWindow::connectSignals() {
   connect(controller_.get(), &SimulationController::usvPredictedTrajectoryUpdated,
           map_canvas_, &MapCanvas::updateUsvPredictedTrajectory);
 
+  connect(controller_.get(), &SimulationController::targetsPredictedTrajectoriesUpdated,
+          map_canvas_, &MapCanvas::updateTargetsPredictedTrajectories);
+
   // Wire Controller to TelemetryPanel
   connect(controller_.get(), &SimulationController::usvPoseUpdated,
           telemetry_panel_, &TelemetryPanel::updateUsvTelemetry);

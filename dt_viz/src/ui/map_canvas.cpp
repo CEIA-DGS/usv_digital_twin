@@ -21,7 +21,8 @@ MapCanvas::MapCanvas(QWidget * parent)
   usv_label_(nullptr),
   predicted_usv_route_item_(nullptr),
   trajectory_item_(nullptr),
-  planned_route_item_(nullptr)
+  planned_route_item_(nullptr),
+  targets_predicted_routes_item_(nullptr)
 {
   setScene(scene_);
   setRenderHint(QPainter::Antialiasing);
@@ -36,6 +37,8 @@ MapCanvas::MapCanvas(QWidget * parent)
 void MapCanvas::setupScene() {
   drawFreeZone();
   drawUsv();
+  drawUsvPrediction();
+  drawTargetsPrediction();
   drawScaleBar();
 }
 
@@ -353,6 +356,14 @@ void MapCanvas::drawUsv() {
   usv_label_->setTransform(QTransform().translate(-12.0, 20.0));
 
 
+  QPen trajectory_pen(QColor(40, 100, 190));
+  trajectory_pen.setWidthF(2.0); 
+  trajectory_pen.setStyle(Qt::DotLine);
+  trajectory_item_ = scene_->addPath(trajectory_path_, trajectory_pen);
+  trajectory_item_->setZValue(2.0);
+}
+
+void MapCanvas::drawUsvPrediction(){
   QPen predicted_pen(QColor(20, 70, 150));
   predicted_pen.setWidthF(3.0);
   predicted_pen.setStyle(Qt::DashLine);
@@ -360,12 +371,16 @@ void MapCanvas::drawUsv() {
 
   predicted_usv_route_item_ = scene_->addPath(QPainterPath(), predicted_pen);
   predicted_usv_route_item_->setZValue(4.0);
+}
 
-  QPen trajectory_pen(QColor(40, 100, 190));
-  trajectory_pen.setWidthF(2.0); 
-  trajectory_pen.setStyle(Qt::DotLine);
-  trajectory_item_ = scene_->addPath(trajectory_path_, trajectory_pen);
-  trajectory_item_->setZValue(2.0);
+void MapCanvas::drawTargetsPrediction() {
+  QPen targets_pred_pen(QColor(235, 105, 75)); 
+  targets_pred_pen.setWidthF(3.0);
+  targets_pred_pen.setStyle(Qt::DashLine);
+  targets_pred_pen.setCosmetic(true);
+
+  targets_predicted_routes_item_ = scene_->addPath(QPainterPath(), targets_pred_pen);
+  targets_predicted_routes_item_->setZValue(3.5);
 }
 
 void MapCanvas::drawScaleBar() {
@@ -397,6 +412,24 @@ void MapCanvas::updateUsvPredictedTrajectory(const types::Trajectory& traj) {
     }
   }
   predicted_usv_route_item_->setPath(path);
+}
+
+void MapCanvas::updateTargetsPredictedTrajectories(const std::vector<types::Trajectory>& trajs) {
+  QPainterPath combined_path;
+  
+  for (const auto& traj : trajs) {
+    bool first = true;
+    for (const auto& pose : traj.get_poses()) {
+      if (first) {
+        combined_path.moveTo(pose.get_x(), -pose.get_y());
+        first = false;
+      } else {
+        combined_path.lineTo(pose.get_x(), -pose.get_y());
+      }
+    }
+  }
+  
+  targets_predicted_routes_item_->setPath(combined_path);
 }
 
 QBrush MapCanvas::normalVesselBrush() const {
