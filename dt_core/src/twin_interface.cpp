@@ -69,6 +69,10 @@ public:
         return _spatial_index->get_active_local_targets(center, radius);
     }
 
+    types::Trajectory predict_trajectory(const types::Entity& entity, double time_horizon, double time_step) const override {
+        return prediction::predict_trajectory(entity, time_horizon, time_step);
+    }
+
     types::Trajectory predict_trajectory_by_id(int32_t id, const std::vector<types::Target>& targets, double time_horizon, double time_step) const override {
         return prediction::predict_trajectory_by_id(id, targets, time_horizon, time_step);
     }

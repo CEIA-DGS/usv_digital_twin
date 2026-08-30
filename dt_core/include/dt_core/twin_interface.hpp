@@ -49,6 +49,15 @@ public:
     // --- Planning Support ---
 
     /**
+     * @brief Predicts the trajectory of a specific entity over a given time horizon.
+     * @param entity Current entity to predict trajectory.
+     * @param time_horizon Total prediction time in seconds.
+     * @param time_step Time increment between prediction steps.
+     * @return Predicted trajectory for the specified entity.
+     */
+    virtual types::Trajectory predict_trajectory(const types::Entity& entity, const double time_horizon, const double time_step) const = 0;
+
+    /**
      * @brief Predicts the trajectory of a specific target over a given time horizon.
      * @param id The ID of the target to predict.
      * @param targets Current list of context targets.
