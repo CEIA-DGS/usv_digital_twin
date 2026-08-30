@@ -14,6 +14,7 @@
 #include <vector>
 #include <unordered_map>
 #include <cstdint>
+#include <unordered_set>
 
 namespace dt_viz {
 
@@ -72,6 +73,11 @@ public:
    * @param targets Vector containing the latest state of all targets.
    */
   void updateTargets(const std::vector<types::Target> & targets);
+
+  /**
+   * @brief Sets whether a target is approaching within the alert radius to make it blink.
+   */
+  void setApproachingAlert(std::uint32_t mmsi, bool approaching);
 
   /**
    * @brief Renders the predictive path on the canvas.
@@ -153,6 +159,9 @@ private:
 
   std::unordered_map<std::uint32_t, QGraphicsEllipseItem *> vessel_items_by_mmsi_;
   std::unordered_map<std::uint32_t, QGraphicsSimpleTextItem *> vessel_labels_by_mmsi_;
+
+  std::unordered_set<std::uint32_t> collision_mmsis_;
+  std::unordered_set<std::uint32_t> approaching_mmsis_;
 
   bool is_tracking_usv_ = true;
 };

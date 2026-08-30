@@ -5,8 +5,8 @@
 #include <QColor>
 #include <QFont>
 #include <QTransform>
+#include <QDateTime>
 #include <cmath>
-#include <unordered_set>
 
 #include <ogrsf_frmts.h>
 #include <ament_index_cpp/get_package_share_directory.hpp>
@@ -139,6 +139,11 @@ void MapCanvas::centerOnUsv() {
 void MapCanvas::updateTargets(const std::vector<types::Target> & targets) {
   std::unordered_set<std::uint32_t> active_mmsis;
   
+  // blink
+  long long current_time = QDateTime::currentMSecsSinceEpoch();
+  long blink_period = 400;
+  bool blink_on = (current_time / blink_period) % 2 == 0; 
+  
   for (const auto & target : targets) {
     std::uint32_t mmsi = target.get_id();
     active_mmsis.insert(mmsi);
@@ -146,24 +151,56 @@ void MapCanvas::updateTargets(const std::vector<types::Target> & targets) {
     double render_t_x = target.get_pose().get_x();
     double render_t_y = -target.get_pose().get_y();
 
+    // create new target
     if (vessel_items_by_mmsi_.find(mmsi) == vessel_items_by_mmsi_.end()) {
-      auto * vessel = scene_->addEllipse(-11.0, -11.0, 22.0, 22.0,
-        QPen(QColor(160, 55, 35), 2.0), normalVesselBrush());
-      
+      auto * vessel = scene_->addEllipse(-11.0, -11.0, 22.0, 22.0, QPen(), QBrush());
       vessel->setZValue(4.0);
       vessel->setFlag(QGraphicsItem::ItemIgnoresTransformations);
       vessel_items_by_mmsi_[mmsi] = vessel;
 
-      auto * label = scene_->addSimpleText(QString("MMSI %1").arg(mmsi));
-      label->setBrush(QBrush(QColor(125, 45, 30)));
+      auto * label = scene_->addSimpleText("");
       label->setZValue(5.0);
       label->setFlag(QGraphicsItem::ItemIgnoresTransformations);
       label->setTransform(QTransform().translate(16.0, -18.0));
       vessel_labels_by_mmsi_[mmsi] = label;
     }
 
-    vessel_items_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
-    vessel_labels_by_mmsi_[mmsi]->setPos(render_t_x, render_t_y);
+    // update position
+    auto* vessel = vessel_items_by_mmsi_[mmsi];
+    auto* label = vessel_labels_by_mmsi_[mmsi];
+    vessel->setPos(render_t_x, render_t_y);
+    label->setPos(render_t_x, render_t_y);
+    
+    // update style
+    if (collision_mmsis_.count(mmsi)) {
+      // Imminent Collision
+      vessel->setBrush(collisionVesselBrush());
+      vessel->setPen(QPen(QColor(120, 0, 0), 4.0));
+      vessel->setRect(-16.5, -16.5, 33.0, 33.0); 
+      label->setText(QString("ALERT - MMSI %1\nCOLLISION RISK").arg(mmsi));
+      label->setBrush(QBrush(QColor(185, 0, 0)));
+      
+    } else if (approaching_mmsis_.count(mmsi)) {
+      // Approaching
+      if (blink_on) {
+        vessel->setBrush(QBrush(QColor(255, 180, 0))); // Laranja
+        vessel->setPen(QPen(QColor(200, 100, 0), 3.0));
+      } else {
+        vessel->setBrush(normalVesselBrush());
+        vessel->setPen(QPen(QColor(160, 55, 35), 2.0));
+      }
+      vessel->setRect(-11.0, -11.0, 22.0, 22.0);
+      label->setText(QString("MMSI %1").arg(mmsi));
+      label->setBrush(QBrush(QColor(125, 45, 30)));
+      
+    } else {
+      // Normal
+      vessel->setBrush(normalVesselBrush());
+      vessel->setPen(QPen(QColor(160, 55, 35), 2.0));
+      vessel->setRect(-11.0, -11.0, 22.0, 22.0);
+      label->setText(QString("MMSI %1").arg(mmsi));
+      label->setBrush(QBrush(QColor(125, 45, 30)));
+    }
   }
 
   // Purge inactive targets
@@ -179,6 +216,9 @@ void MapCanvas::updateTargets(const std::vector<types::Target> & targets) {
         delete label_it->second;
         vessel_labels_by_mmsi_.erase(label_it);
       }
+      
+      collision_mmsis_.erase(mmsi);
+      approaching_mmsis_.erase(mmsi);
       
       it = vessel_items_by_mmsi_.erase(it);
     } else {
@@ -252,34 +292,13 @@ void MapCanvas::clearPlannedRoute() {
 }
 
 void MapCanvas::setCollisionAlert(std::uint32_t mmsi, bool collision_imminent) {
-  auto vessel_iterator = vessel_items_by_mmsi_.find(mmsi);
-  if (vessel_iterator == vessel_items_by_mmsi_.end()) {
-    return;
-  }
+  if (collision_imminent) collision_mmsis_.insert(mmsi);
+  else collision_mmsis_.erase(mmsi);
+}
 
-  QGraphicsEllipseItem * vessel = vessel_iterator->second;
-  auto label_iterator = vessel_labels_by_mmsi_.find(mmsi);
-
-  if (collision_imminent) {
-    vessel->setBrush(collisionVesselBrush());
-    vessel->setPen(QPen(QColor(120, 0, 0), 4.0));
-    vessel->setRect(-16.5, -16.5, 33.0, 33.0); 
-
-    if (label_iterator != vessel_labels_by_mmsi_.end()) {
-      label_iterator->second->setText(QString("ALERT - MMSI %1\nCOLLISION RISK").arg(mmsi));
-      label_iterator->second->setBrush(QBrush(QColor(185, 0, 0)));
-    }
-    return;
-  }
-
-  vessel->setBrush(normalVesselBrush());
-  vessel->setPen(QPen(QColor(160, 55, 35), 2.0));
-  vessel->setRect(-11.0, -11.0, 22.0, 22.0);
-
-  if (label_iterator != vessel_labels_by_mmsi_.end()) {
-    label_iterator->second->setText(QString("MMSI %1").arg(mmsi));
-    label_iterator->second->setBrush(QBrush(QColor(125, 45, 30)));
-  }
+void MapCanvas::setApproachingAlert(std::uint32_t mmsi, bool approaching) {
+  if (approaching) approaching_mmsis_.insert(mmsi);
+  else approaching_mmsis_.erase(mmsi);
 }
 
 void MapCanvas::drawFreeZone() {

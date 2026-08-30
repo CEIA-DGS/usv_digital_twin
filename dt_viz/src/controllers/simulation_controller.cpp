@@ -20,6 +20,7 @@ void SimulationController::processTick() {
 
   const types::Entity usv_state = snapshot->get_vehicle_state();
 
+  // update position
   double usv_x = usv_state.get_pose().get_x();
   double usv_y = usv_state.get_pose().get_y();
   double heading_deg = -usv_state.get_pose().get_yaw() * (180.0 / M_PI);
@@ -28,23 +29,32 @@ void SimulationController::processTick() {
 
   emit usvPoseUpdated(usv_x, usv_y, heading_deg);
 
+  // update usv predicted trajectory
   double time_horizon = 15.0;
   double time_step = 1.0;
   auto usv_predicted_traj = snapshot->predict_trajectory(usv_state, time_horizon, time_step);
   emit usvPredictedTrajectoryUpdated(usv_predicted_traj);
 
+  // update targets
   const auto targets = snapshot->get_all_targets();
   emit targetsUpdated(targets);
 
+  // update target predicted trajectory
   std::vector<types::Trajectory> targets_predicted_trajs;
   targets_predicted_trajs.reserve(targets.size());
   
   for (const auto& target : targets) {
     targets_predicted_trajs.push_back(snapshot->predict_trajectory(target, time_horizon, time_step));
+
+    // update approaching
+    double alert_radius = 1000.0;
+    bool is_approaching = snapshot->is_target_approaching(usv_state, target, alert_radius);
+    emit targetApproachingUpdated(target.get_id(), is_approaching);
   }
   
   emit targetsPredictedTrajectoriesUpdated(targets_predicted_trajs);
 
+  // update collision points
   double speed_profile = std::max(usv_velocity, 0.1); 
 
   float alert_radius = 3000.0f; 
@@ -68,6 +78,7 @@ void SimulationController::processTick() {
   
   emit collisionPointsUpdated(collision_points);
 
+  // update planned route
   const types::Trajectory planned_traj = snapshot->get_planned_trajectory();
   const auto & core_waypoints = planned_traj.get_poses();
 

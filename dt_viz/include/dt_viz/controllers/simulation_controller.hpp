@@ -40,6 +40,7 @@ signals:
   void usvPredictedTrajectoryUpdated(const types::Trajectory& traj);
   void targetsPredictedTrajectoriesUpdated(const std::vector<types::Trajectory>& trajs);
   void collisionPointsUpdated(const std::vector<RoutePoint>& points);
+  void targetApproachingUpdated(std::uint32_t mmsi, bool approaching);
   
 private slots:
   void processTick();
