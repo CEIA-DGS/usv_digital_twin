@@ -61,7 +61,7 @@ types::Velocity DigitalTwinNode::estimate_velocity(const types::Pose& current_po
 
     // avoid startup irrealistic velocity
     double current_speed = std::hypot(raw_vx, raw_vy);
-    if (current_speed > 50.0) {
+    if (current_speed > 25.0) {
         last_gps_time_ = current_time;
         last_gps_pose_ = current_pose;
         return current_velocity_;
