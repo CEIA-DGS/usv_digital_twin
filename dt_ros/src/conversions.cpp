@@ -55,13 +55,19 @@ std::vector<types::Target> ais_to_core_targets(const dt_msgs::msg::AisReport& ms
     for (const auto& ais_target : msg.targets) {
         utils::UTMCoord utm = utils::lat_lon_to_utm(ais_target.latitude, ais_target.longitude);
 
-        types::Pose target_pose(utm.x, utm.y, 0.0, 0.0, 0.0, ais_target.heading * DEG_TO_RAD);
+        double cog_rad = ais_target.heading * DEG_TO_RAD;
+
+        types::Pose target_pose(utm.x, utm.y, 0.0, 0.0, 0.0, cog_rad);
         
         types::Point p = target_pose.get_position();
         p.set_lat_lon(ais_target.latitude, ais_target.longitude);
         target_pose.set_position(p);
 
-        types::Velocity target_vel(ais_target.sog * KNOTS_TO_MS, 0.0, 0.0);
+        double v_ms = ais_target.sog * KNOTS_TO_MS;
+        double vx = v_ms * sin(cog_rad);
+        double vy = v_ms * cos(cog_rad);
+
+        types::Velocity target_vel(vx, vy, 0.0);
         types::Kinematics target_kin(target_vel);
 
         types::Target t(
