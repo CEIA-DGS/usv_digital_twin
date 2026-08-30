@@ -59,6 +59,14 @@ types::Velocity DigitalTwinNode::estimate_velocity(const types::Pose& current_po
     double raw_vx = dx / dt;
     double raw_vy = dy / dt;
 
+    // avoid startup irrealistic velocity
+    double current_speed = std::hypot(raw_vx, raw_vy);
+    if (current_speed > 50.0) {
+        last_gps_time_ = current_time;
+        last_gps_pose_ = current_pose;
+        return current_velocity_;
+    }
+
     // Low-Pass Filter to smooth the speed (alpha = 0.4)
     // 0.4 means we assign 40% weight to the new measurement and 60% to the movement's inertia
     double alpha = 0.4; 
