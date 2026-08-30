@@ -118,6 +118,15 @@ public:
      */
     virtual types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const = 0;
 
+    /**
+     * @brief Checks if a given target is approaching to Ego vihecle.
+     * @param usv Current kinematics and pose of the Ego Vehicle.
+     * @param target Current kinematics and pose of the Target.
+     * @param alert_radius Analysis radius.
+     * @return Whether the target is approaching or not.
+     */
+    virtual bool is_target_approaching(const types::Entity& usv, const types::Target& target, double alert_radius) const = 0;
+
     // --- Raw State Access (For GUI / Visualization) ---
 
     /**

@@ -96,6 +96,10 @@ public:
     types::Trajectory make_trajectory_between(const types::Point& origin, const types::Point& destination, const double step) const override {
         return prediction::make_trajectory_between(origin, destination, step);
     }
+
+    bool is_target_approaching(const types::Entity& usv, const types::Target& target, double alert_radius) const override {
+        return prediction::is_target_approaching(usv, target, alert_radius);
+    }
 };
 
 // -----------------------------------------------------------------------------
