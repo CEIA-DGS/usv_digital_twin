@@ -170,6 +170,19 @@ public:
      * @return The planned trajectory structure.
      */
     virtual types::Trajectory get_planned_trajectory() const = 0;
+
+    /**
+     * @brief Retrieves the latest image frame for a specific camera.
+     * @param camera_id Unique identifier of the camera.
+     * @return ImageFrame containing the pixel buffer and metadata.
+     */
+    virtual types::ImageFrame get_camera_frame(const std::string& camera_id) const = 0;
+
+    /**
+     * @brief Retrieves identifiers of all active cameras reporting frames.
+     * @return Vector of camera ID strings.
+     */
+    virtual std::vector<std::string> get_active_camera_ids() const = 0;
 };
 
 /**
@@ -231,6 +244,12 @@ public:
      * @return A shared pointer to an immutable WorldStateSnapshot.
      */
     std::shared_ptr<const WorldStateSnapshot> get_latest_state() const;
+
+    /**
+     * @brief Asynchronously updates an image frame for a specific camera.
+     * @param frame The captured image frame.
+     */
+    void update_camera_frame(const types::ImageFrame& frame);
 };
 
 } // namespace dt

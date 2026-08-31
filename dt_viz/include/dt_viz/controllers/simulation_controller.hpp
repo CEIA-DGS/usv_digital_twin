@@ -42,6 +42,7 @@ signals:
   void targetsPredictedTrajectoriesUpdated(const std::vector<types::Trajectory>& trajs);
   void collisionPointsUpdated(const std::vector<RoutePoint>& points);
   void targetApproachingUpdated(std::uint32_t mmsi, bool approaching);
+  void allCameraFramesUpdated(const std::unordered_map<std::string, QImage>& frames, const std::vector<std::string>& active_ids);
   
 private slots:
   void processTick();

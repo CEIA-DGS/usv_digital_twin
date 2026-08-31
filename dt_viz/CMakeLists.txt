@@ -42,12 +42,16 @@ add_executable(dt_visualizer_node
   include/dt_viz/ui/map_canvas.hpp
   include/dt_viz/ui/navigation_scene.hpp
   include/dt_viz/ui/telemetry_panel.hpp
+  include/dt_viz/ui/camera_grid_widget.hpp
+  include/dt_viz/ui/camera_control_panel.hpp
   src/main.cpp
   src/controllers/simulation_controller.cpp
   src/ui/main_window.cpp
   src/ui/map_canvas.cpp
   src/ui/navigation_scene.cpp
   src/ui/telemetry_panel.cpp
+  src/ui/camera_grid_widget.cpp
+  src/ui/camera_control_panel.cpp
 )
 
 target_include_directories(dt_visualizer_node PRIVATE include)

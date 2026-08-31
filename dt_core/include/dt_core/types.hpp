@@ -365,4 +365,39 @@ public:
     uint32_t get_id() const { return _id; }
 };
 
+/**
+ * @class ImageFrame
+ * @brief Represents a video frame captured from an onboard camera.
+ */
+class ImageFrame {
+private:
+    std::string camera_id_;
+    std::vector<uint8_t> data_;
+    int width_;
+    int height_;
+    std::string encoding_;
+    double timestamp_;
+
+public:
+    ImageFrame() 
+        : camera_id_("default_camera"), width_(0), height_(0), encoding_("rgb8"), timestamp_(0.0) {}
+
+    ImageFrame(std::string camera_id, std::vector<uint8_t> data, int width, int height, std::string encoding, double timestamp)
+        : camera_id_(std::move(camera_id)), data_(std::move(data)), width_(width), height_(height), encoding_(std::move(encoding)), timestamp_(timestamp) {}
+
+    std::string get_camera_id() const { return camera_id_; }
+    const std::vector<uint8_t>& get_data() const { return data_; }
+    int get_width() const { return width_; }
+    int get_height() const { return height_; }
+    std::string get_encoding() const { return encoding_; }
+    double get_timestamp() const { return timestamp_; }
+
+    void set_camera_id(std::string camera_id) { camera_id_ = std::move(camera_id); }
+    void set_data(std::vector<uint8_t> data) { data_ = std::move(data); }
+    void set_width(int width) { width_ = width; }
+    void set_height(int height) { height_ = height; }
+    void set_encoding(std::string encoding) { encoding_ = std::move(encoding); }
+    void set_timestamp(double timestamp) { timestamp_ = timestamp; }
+};
+
 } // namespace types

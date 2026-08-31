@@ -25,15 +25,18 @@ private:
     std::vector<types::Target> _targets;
     types::Trajectory _planned_trajectory;
     std::shared_ptr<SpatialIndex> _spatial_index;
+    std::unordered_map<std::string, types::ImageFrame> _camera_frames;
 
 public:
     ConcreteWorldStateSnapshot(const types::MapData& map,
                                const types::Entity& usv,
                                const std::vector<types::Target>& targets,
                                const types::Trajectory& planned_trajectory, 
-                               std::shared_ptr<SpatialIndex> spatial_index)
+                               std::shared_ptr<SpatialIndex> spatial_index,
+                               const std::unordered_map<std::string, types::ImageFrame>& camera_frames)
         : _static_map(map), _vehicle_state(usv), _targets(targets), 
-          _planned_trajectory(planned_trajectory), _spatial_index(spatial_index) {
+          _planned_trajectory(planned_trajectory), _spatial_index(spatial_index),
+          _camera_frames(camera_frames) {
         
         if (_spatial_index) {
             _spatial_index->update_global_targets(_targets);
@@ -100,6 +103,24 @@ public:
     bool is_target_approaching(const types::Entity& usv, const types::Target& target, double alert_radius) const override {
         return prediction::is_target_approaching(usv, target, alert_radius);
     }
+
+    types::ImageFrame get_camera_frame(const std::string& camera_id) const override {
+        auto it = _camera_frames.find(camera_id);
+        if (it != _camera_frames.end()) {
+            return it->second;
+        }
+        return types::ImageFrame();
+    }
+
+    std::vector<std::string> get_active_camera_ids() const override {
+        std::vector<std::string> ids;
+        ids.reserve(_camera_frames.size());
+        for (const auto& pair : _camera_frames) {
+            ids.push_back(pair.first);
+        }
+        return ids;
+    }
+
 };
 
 // -----------------------------------------------------------------------------
@@ -115,11 +136,13 @@ private:
     
     std::shared_ptr<const ConcreteWorldStateSnapshot> _latest_snapshot;
     std::shared_ptr<SpatialIndex> _spatial_engine;
+    std::unordered_map<std::string, types::ImageFrame> _current_camera_frames;
 
     void refresh_snapshot_unlocked() {
         _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
             _current_map, _current_state, _current_targets, 
-            _current_planned_trajectory, _spatial_engine);
+            _current_planned_trajectory, _spatial_engine,
+            _current_camera_frames);
     }
 
 public:
@@ -133,7 +156,8 @@ public:
 
         _latest_snapshot = std::make_shared<ConcreteWorldStateSnapshot>(
             _current_map, _current_state, _current_targets, 
-            _current_planned_trajectory, _spatial_engine);
+            _current_planned_trajectory, _spatial_engine,
+            _current_camera_frames);
     }
 
     void update_planned_trajectory(const types::Trajectory& traj) {
@@ -182,6 +206,12 @@ public:
         std::lock_guard<std::mutex> lock(_mutex);
         return _latest_snapshot;
     }
+
+    void update_camera_frame(const types::ImageFrame& frame) {
+        std::lock_guard<std::mutex> lock(_mutex);
+        _current_camera_frames[frame.get_camera_id()] = frame;
+        refresh_snapshot_unlocked();
+    }
 };
 
 static DigitalTwinCoreImpl& get_core_impl() {
@@ -224,5 +254,10 @@ void DigitalTwinCore::update_dynamic_targets(const std::vector<types::Target>& t
 std::shared_ptr<const WorldStateSnapshot> DigitalTwinCore::get_latest_state() const {
     return get_core_impl().get_latest_state();
 }
+
+void DigitalTwinCore::update_camera_frame(const types::ImageFrame& frame) {
+    get_core_impl().update_camera_frame(frame);
+}
+
 
 } // namespace dt

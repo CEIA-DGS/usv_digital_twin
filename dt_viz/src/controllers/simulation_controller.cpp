@@ -118,6 +118,18 @@ void SimulationController::processTick() {
                          .arg(usv_velocity, 0, 'f', 1);
                          
   emit simulationStatusUpdated(status_msg);
+
+  std::vector<std::string> active_cam_ids = snapshot->get_active_camera_ids();
+  std::unordered_map<std::string, QImage> camera_frames_map;
+
+  for (const auto& cam_id : active_cam_ids) {
+      types::ImageFrame frame = snapshot->get_camera_frame(cam_id);
+      if (!frame.get_data().empty() && frame.get_width() > 0 && frame.get_height() > 0) {
+          QImage img(frame.get_data().data(), frame.get_width(), frame.get_height(), QImage::Format_RGB888);
+          camera_frames_map[cam_id] = img.copy();
+      }
+  }
+  emit allCameraFramesUpdated(camera_frames_map, active_cam_ids);
 }
 
 } // namespace dt_viz
