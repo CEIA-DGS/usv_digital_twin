@@ -39,4 +39,218 @@
  *
  * @subsection pub_sec Publishers (Outputs from the Twin)
  * - **`/collision_alert`** (`dt_msgs/CollisionAlert`): Consolidated operational alerts containing Time to Closest Point of Approach (TCPA), distance metrics, and computed risk indexes for each target.
+ *
+ * @section unity_setup_sec 5. Unity Robotics Hub Setup
+ *
+ * The mission simulation environment uses Unity together with ROS 2 to exchange
+ * data with the navigation and Digital Twin modules. Communication between the
+ * Unity application and ROS 2 is performed using the Unity Robotics Hub,
+ * specifically the ROS-TCP-Connector and ROS-TCP-Endpoint packages.
+ *
+ * @subsection unity_requirements_sec 5.1 Requirements
+ *
+ * Before starting the setup, make sure the following components are available:
+ *
+ * - Unity Hub;
+ * - Unity Editor compatible with the Ocean.DigitalTwin project;
+ * - ROS 2 Humble or Jazzy;
+ * - `colcon`;
+ * - `rosdep`;
+ * - Git;
+ * - ROS-TCP-Connector;
+ * - ROS-TCP-Endpoint.
+ *
+ * @subsection unity_connector_sec 5.2 ROS-TCP-Connector Installation
+ *
+ * Open the Ocean.DigitalTwin project using Unity Hub.
+ *
+ * In the Unity Editor, access:
+ *
+ * @code
+ * Window -> Package Manager
+ * @endcode
+ *
+ * In the Package Manager:
+ *
+ * 1. Click the **+** button;
+ * 2. Select **Add package from git URL...**;
+ * 3. Insert:
+ *
+ * @code
+ * https://github.com/Unity-Technologies/ROS-TCP-Connector.git?path=/com.unity.robotics.ros-tcp-connector
+ * @endcode
+ *
+ * 4. Click **Add**;
+ * 5. Wait for the package installation to finish.
+ *
+ * After installation, the **Robotics** menu should become available in Unity.
+ *
+ * @subsection unity_ros_settings_sec 5.3 ROS Settings in Unity
+ *
+ * In Unity, access:
+ *
+ * @code
+ * Robotics -> ROS Settings
+ * @endcode
+ *
+ * Configure the connection using:
+ *
+ * - **Protocol:** ROS 2;
+ * - **ROS IP Address:** IP address of the environment where ROS 2 is running;
+ * - **ROS Port:** 10000.
+ *
+ * When ROS 2 is running inside WSL, obtain the WSL IP address using:
+ *
+ * @code{.sh}
+ * hostname -I
+ * @endcode
+ *
+ * The resulting address must be configured in the Unity ROS Settings.
+ *
+ * @note The WSL IP address may change after restarting WSL. If Unity stops
+ * connecting to ROS 2, verify the IP address again.
+ *
+ * @subsection unity_endpoint_sec 5.4 ROS-TCP-Endpoint Setup
+ *
+ * The ROS-TCP-Endpoint must run on the ROS 2 side and acts as the TCP bridge
+ * between Unity and the ROS graph.
+ *
+ * Enter the workspace source directory:
+ *
+ * @code{.sh}
+ * cd ~/usv_digital_twin_ws/src
+ * @endcode
+ *
+ * Clone the ROS 2 version of the endpoint:
+ *
+ * @code{.sh}
+ * git clone -b ROS2 https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
+ * @endcode
+ *
+ * Return to the workspace root:
+ *
+ * @code{.sh}
+ * cd ~/usv_digital_twin_ws
+ * @endcode
+ *
+ * Install the required dependencies:
+ *
+ * @code{.sh}
+ * rosdep install --from-paths src --ignore-src -r -y
+ * @endcode
+ *
+ * Build the workspace:
+ *
+ * @code{.sh}
+ * colcon build --symlink-install
+ * @endcode
+ *
+ * Source the ROS 2 environment and the workspace:
+ *
+ * @code{.sh}
+ * source /opt/ros/humble/setup.bash
+ * source install/setup.bash
+ * @endcode
+ *
+ * @subsection unity_endpoint_run_sec 5.5 Starting ROS-TCP-Endpoint
+ *
+ * Start the endpoint with:
+ *
+ * @code{.sh}
+ * ros2 run ros_tcp_endpoint default_server_endpoint \
+ *   --ros-args -p ROS_IP:=0.0.0.0
+ * @endcode
+ *
+ * The default TCP port used by the Unity Robotics Hub is:
+ *
+ * @code
+ * 10000
+ * @endcode
+ *
+ * Keep this terminal running while the Unity simulation is active.
+ *
+ * @subsection unity_startup_sec 5.6 Recommended Startup Sequence
+ *
+ * The recommended startup order is:
+ *
+ * 1. Start the ROS 2 environment;
+ * 2. Source the Digital Twin workspace;
+ * 3. Start ROS-TCP-Endpoint;
+ * 4. Open Ocean.DigitalTwin in Unity;
+ * 5. Verify the settings under `Robotics -> ROS Settings`;
+ * 6. Start the simulation using the Unity **Play** button.
+ *
+ * The communication flow is:
+ *
+ * @code
+ * Ocean.DigitalTwin (Unity)
+ *          |
+ *          | ROS-TCP-Connector
+ *          v
+ *      TCP Port 10000
+ *          |
+ *          v
+ *   ROS-TCP-Endpoint
+ *          |
+ *          v
+ *        ROS 2
+ *          |
+ *          +--> Navigation
+ *          +--> Perception
+ *          +--> Digital Twin
+ * @endcode
+ *
+ * @subsection unity_validation_sec 5.7 Communication Validation
+ *
+ * After starting the environment, verify the ROS 2 nodes:
+ *
+ * @code{.sh}
+ * ros2 node list
+ * @endcode
+ *
+ * Verify the available topics:
+ *
+ * @code{.sh}
+ * ros2 topic list
+ * @endcode
+ *
+ * To inspect data from a specific topic:
+ *
+ * @code{.sh}
+ * ros2 topic echo /topic_name
+ * @endcode
+ *
+ * The Unity/ROS integration can be considered operational when the expected
+ * ROS 2 nodes and topics are available and Unity reports no TCP connection
+ * errors.
+ *
+ * @subsection unity_troubleshooting_sec 5.8 Troubleshooting
+ *
+ * If Unity cannot connect to ROS 2, verify:
+ *
+ * - ROS-TCP-Endpoint is running;
+ * - the IP address configured in Unity is correct;
+ * - port `10000` is being used;
+ * - the protocol is configured as ROS 2;
+ * - Windows Firewall is not blocking the TCP connection;
+ * - the workspace has been sourced correctly.
+ *
+ * If running through WSL, verify the IP again:
+ *
+ * @code{.sh}
+ * hostname -I
+ * @endcode
+ *
+ * If the ROS 2 topics are not available, source the environments again:
+ *
+ * @code{.sh}
+ * source /opt/ros/humble/setup.bash
+ * source ~/usv_digital_twin_ws/install/setup.bash
+ * @endcode
+ *
+ * Then verify:
+ *
+ * @code{.sh}
+ * ros2 topic list
+ * @endcode
  */
