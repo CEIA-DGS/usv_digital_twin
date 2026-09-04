@@ -13,6 +13,7 @@
 #include "sensor_msgs/msg/imu.hpp"
 #include "sensor_msgs/msg/nav_sat_fix.hpp"
 #include "dt_core/types.hpp" 
+#include "sensor_msgs/msg/image.hpp"
 
 namespace dt_ros {
 namespace conversions {
@@ -62,6 +63,15 @@ namespace conversions {
      * @return types::Trajectory The resulting planned trajectory with UTM coordinates.
      */
     types::Trajectory waypoints_to_trajectory(const dt_msgs::msg::WaypointArray& msg);
+
+    /**
+     * @brief Converts a ROS 2 Image message into a domain-agnostic ImageFrame class.
+     * 
+     * @param msg The incoming ROS Image message.
+     * @param camera_id Unique identifier string for the camera source.
+     * @return types::ImageFrame populated with pixel buffer and metadata.
+     */
+    types::ImageFrame convert_image(const sensor_msgs::msg::Image::SharedPtr& msg, const std::string& camera_id);
 
 } // namespace conversions
 } // namespace dt_ros

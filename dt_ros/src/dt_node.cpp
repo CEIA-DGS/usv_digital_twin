@@ -36,6 +36,23 @@ DigitalTwinNode::DigitalTwinNode(std::shared_ptr<dt::DigitalTwinCore> dt_core, c
         "/mission/waypoints", 10,
         [this](const dt_msgs::msg::WaypointArray::SharedPtr msg) { waypoint_callback(msg); }
     );
+
+    std::map<std::string, std::string> camera_topics = {
+        {"/camera/front/image_raw", "Proa (Frontal)"},
+        //{"/camera/right/image_raw", "Boreste (Direita)"},
+        //{"/camera/left/image_raw",  "Bombordo (Esquerda)"},
+        {"/camera/rear/image_raw",  "Popa (Traseira)"}
+    };
+
+    for (const auto& [topic, cam_id] : camera_topics) {
+        auto sub = this->create_subscription<sensor_msgs::msg::Image>(
+            topic, sensor_qos,
+            [this, cam_id](const sensor_msgs::msg::Image::SharedPtr msg) { 
+                camera_callback(msg, cam_id); 
+            }
+        );
+        camera_subs_.push_back(sub);
+    }
 }
 
 types::Velocity DigitalTwinNode::estimate_velocity(const types::Pose& current_pose, const rclcpp::Time& current_time) {
@@ -115,6 +132,11 @@ void DigitalTwinNode::waypoint_callback(const dt_msgs::msg::WaypointArray::Share
     dt_core_->update_planned_trajectory(planned_trajectory);
     
     RCLCPP_INFO(this->get_logger(), "New route updated with %zu waypoints.", msg->waypoints.size());
+}
+
+void DigitalTwinNode::camera_callback(const sensor_msgs::msg::Image::SharedPtr msg, const std::string& camera_id) {
+    types::ImageFrame frame = conversions::convert_image(msg, camera_id);
+    dt_core_->update_camera_frame(frame);
 }
 
 } // namespace dt_ros

@@ -14,6 +14,7 @@
 #include <dt_core/twin_interface.hpp>
 #include <dt_ros/conversions.hpp>
 #include <memory>
+#include <sensor_msgs/msg/image.hpp>
 
 namespace dt_ros {
 
@@ -42,6 +43,7 @@ private:
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
     rclcpp::Subscription<dt_msgs::msg::AisReport>::SharedPtr ais_sub_;
     rclcpp::Subscription<dt_msgs::msg::WaypointArray>::SharedPtr waypoint_sub_;
+    std::vector<rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr> camera_subs_;
 
     /**
      * @brief Callback for GPS data. 
@@ -78,6 +80,13 @@ private:
      * @param msg WaypointArray message containing the mission route.
      */
     void waypoint_callback(const dt_msgs::msg::WaypointArray::SharedPtr msg);
+
+    /**
+     * @brief Callback for camera image frames.
+     * @param msg Image message containing raw pixels.
+     * @param camera_id The unique identifier for this specific camera stream.
+     */
+    void camera_callback(const sensor_msgs::msg::Image::SharedPtr msg, const std::string& camera_id);
     
     /// Holds the current state (position and orientation) of the ego vehicle.
     types::Pose current_pose_;

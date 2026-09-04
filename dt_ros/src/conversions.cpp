@@ -104,5 +104,10 @@ types::Trajectory waypoints_to_trajectory(const dt_msgs::msg::WaypointArray& msg
     return planned_trajectory;
 }
 
+types::ImageFrame convert_image(const sensor_msgs::msg::Image::SharedPtr& msg, const std::string& camera_id) {
+    std::vector<uint8_t> data(msg->data.begin(), msg->data.end());
+    return types::ImageFrame(camera_id, std::move(data), msg->width, msg->height, msg->encoding, msg->header.stamp.sec);
+}
+
 } // namespace conversions
 } // namespace dt_ros
