@@ -79,15 +79,24 @@ sudo apt install -y \
 Aviso para usuários de WSL (Windows Subsystem for Linux):
 Para evitar erros de permissão ou bugs no gerador de mensagens do ROS (rosidl), certifique-se de que o seu workspace esteja localizado no sistema de arquivos nativo do Linux (ex: ~/usv_digital_twin_ws) e não na partição montada do Windows (/mnt/c/...).
 
+Crie a pasta do Workspace e uma pasta ```src``` dentro dele:
+```bash
+mkdir $nome_do_workspace$
+cd $nome_do_workspace$
+mkdir src
+cd src
+```
+
+
 ## 📚 Clone do Repositório
-Para ter acesso ao código fonte, basta clonar o repositório usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação.
+Clone o repositório dentro da pasta ```src``` que acabamos de criar usando o comando abaixo. Dê preferência a clonar o repositório num diretório cujo caminho não possua espaços no nome, isso pode causar problemas de compilação.
 ``` bash
 git clone https://github.com/CEIA-DGS/usv_digital_twin.git
 ```
 
 ## 🚀 Compilação (Build)
 
-Para a compilação ser executada adequadamente, organize o workspace da seguinte forma:
+Para a compilação ser executada adequadamente o workspace deve estar organizado da seguinte forma:
 ``` text
 $nome_do_workspace$/
 └── src/
@@ -115,6 +124,106 @@ colcon build --cmake-clean-cache
 source ~/$nome_do_workspace$/install/setup.bash
 ros2 run dt_viz dt_visualizer_node
 ```
+
+Isso deve abrir o módulo do gêmeo digital
+![alt text](<README images/image.png>)
+
+
+## Conexão com Unity
+Para conectar o visualizador com o Unity clone o repositório a seguir dentro da pasta ```src```:
+```bash
+cd ~/$nome_do_workspace$/src
+
+git clone https://github.com/Unity-Technologies/ROS-TCP-Endpoint.git
+```
+
+Uma pasta ```ROS-TCP-Endpoint``` deve ter sido criada dentro de ```src```, entre nela:
+```bash
+cd ~/$nome_do_workspace$/src/ROS-TCP-Endpoint
+```
+
+e dê checkout na branch ```main-ros2```
+```bash
+git checkout main-ros2
+```
+
+Por fim, recompile:
+
+```bash
+cd ~/$nome_do_workspace$
+colcon build --symlink-install
+```
+
+Para se conectar ao Unity, rode:
+```bash
+ros2 run ros_tcp_endpoint default_server_endpoint --ros-args -p ROS_IP:=0.0.0.0
+```
+
+## No Unity
+Faça login no unity hub com as seguintes credenciais:
+```
+email: darkfox769@gmail.com
+senha: rt34Ubr@87
+```
+
+Após realizar o login, clone o repositório ```SimuladorVSNT```:
+
+![alt text](<README images/image-1.png>)
+
+E preencha da seguinte forma:
+![alt text](<README images/image-2.png>)
+
+Após abrir o simulador, na pasta ```Scenes``` abra ```SampleScene```, deve ver algo parecido, o barco não necessariamente aparecerá centralizado:
+![alt text](<README images/image-3.png>)
+
+No menu ```Robotics```, acesse o submenu ```Generate ROS Messages```:
+![alt text](<README images/image-4.png>)
+
+Em ```ROS Message path``` localize a pasta ```dt_msgs``` dentro do workspace criado, deve estar em algo do tipo ```/$nome_do_workspace$/src/usv_digital_twin/dt_msgs``` (1). Assim que selecionar o camino, deve aparecer o submenu ```dt_msgs``` (2). Clique nele e depois clique em Build 4 msgs (3).
+![alt text](<README images/image-6.png>)
+
+Agora precisamos descobrir o IP do computador, no wsl basta rodar o seguinte comando no terminal:
+
+```bash
+ifconfig
+```
+
+No wsl o IP que funciona é o destacado em amarelo na imagem:
+![alt text](<README images/image-5.png>)
+
+Com este IP, preencha no Unity no menu ```Robotics``` ```ROS Settigns```:
+![alt text](<README images/image-7.png>)
+
+![alt text](<README images/image-8.png>)
+
+## Integralizando
+Dê o play na simulação:
+
+![alt text](<README images/image-9.png>)
+
+Após a compilação do próprio Unity, a simulação deve aparecer:
+![alt text](<README images/image-10.png>)
+
+Em um terminal abra o workspace e rode a conexão TCP:
+```bash
+cd ~/$nome_do_workspace$
+source ~/$nome_do_workspace$/install/setup.bash
+ros2 run ros_tcp_endpoint default_server_endpoint --ros-args -p ROS_IP:=0.0.0.0
+```
+
+Não se assuste caso algumas mensagens em vermelho apareçam, no fim a prova de que a conexão foi bem sucedida é um indicador no próprio unity, que outrora estava em vermelho e agora deve estar em azul.
+![alt text](<README images/image-11.png>)
+
+![alt text](<README images/image-13.png>)
+
+Por fim, basta rodar o visualizador do Digital Twin em outro terminal:
+```bash
+cd ~/$nome_do_workspace$
+source ~/$nome_do_workspace$/install/setup.bash
+ros2 run dt_viz dt_visualizer_node
+```
+
+![alt text](<README images/image-14.png>)
 
 ---
 ## 📡 API ROS2 (Tópicos e Mensagens)
